@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TAT — Complete VIVA Notes</title>
+<style>
+  :root{
+    --bg:#f7f7fb; --card:#ffffff; --ink:#1f2430; --muted:#5b6472;
+    --accent:#5a3fb8; --accent2:#7c5fd3; --line:#e4e2ef; --soft:#f0edf9;
+    --good:#1f7a4d; --warn:#9a5b00; --chip:#ede9fb;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:var(--bg); color:var(--ink); line-height:1.65; font-size:16px;
+  }
+  header.hero{
+    background:linear-gradient(135deg,#5a3fb8,#7c5fd3 60%,#9b7ce0);
+    color:#fff; padding:48px 24px 40px; text-align:center;
+  }
+  header.hero h1{margin:0 0 8px; font-size:2rem; letter-spacing:.3px}
+  header.hero p{margin:4px 0; opacity:.95}
+  .wrap{max-width:1080px; margin:0 auto; padding:0 20px}
+  .layout{display:flex; gap:28px; align-items:flex-start; padding:28px 20px 60px; max-width:1180px; margin:0 auto}
+  nav.toc{
+    position:sticky; top:18px; flex:0 0 260px; background:var(--card);
+    border:1px solid var(--line); border-radius:14px; padding:16px 14px; font-size:.92rem;
+    max-height:calc(100vh - 40px); overflow:auto;
+  }
+  nav.toc h3{margin:0 0 10px; font-size:.8rem; text-transform:uppercase; letter-spacing:1px; color:var(--accent)}
+  nav.toc a{display:block; color:var(--muted); text-decoration:none; padding:5px 8px; border-radius:8px}
+  nav.toc a:hover{background:var(--soft); color:var(--accent)}
+  main{flex:1 1 auto; min-width:0}
+  section.card{
+    background:var(--card); border:1px solid var(--line); border-radius:16px;
+    padding:24px 26px; margin:0 0 22px; box-shadow:0 1px 3px rgba(40,30,90,.04);
+  }
+  h2{
+    font-size:1.35rem; margin:0 0 14px; color:var(--accent); display:flex; align-items:center; gap:10px;
+    border-bottom:2px solid var(--soft); padding-bottom:10px;
+  }
+  h2 .num{
+    background:var(--accent); color:#fff; font-size:.85rem; width:30px; height:30px;
+    display:inline-flex; align-items:center; justify-content:center; border-radius:8px; flex:0 0 30px;
+  }
+  h3.sub{font-size:1.05rem; margin:18px 0 6px; color:#3b2f6e}
+  p{margin:8px 0}
+  ul{margin:8px 0 8px; padding-left:22px}
+  li{margin:7px 0}
+  .term{color:var(--accent); font-weight:600}
+  .eg{color:var(--good); font-style:italic}
+  .chip{display:inline-block; background:var(--chip); color:var(--accent); border-radius:20px; padding:2px 12px; font-size:.78rem; font-weight:600; margin:2px 4px 2px 0}
+  table{width:100%; border-collapse:collapse; margin:12px 0; font-size:.94rem}
+  th,td{border:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top}
+  th{background:var(--soft); color:#3b2f6e}
+  tr:nth-child(even) td{background:#fbfaff}
+  .note{background:var(--soft); border-left:4px solid var(--accent2); padding:12px 16px; border-radius:8px; margin:14px 0}
+  .warn{background:#fff6e9; border-left:4px solid var(--warn); padding:12px 16px; border-radius:8px; margin:14px 0}
+  .src{font-size:.85rem; color:var(--muted)}
+  .src a{color:var(--accent)}
+  footer{text-align:center; color:var(--muted); padding:30px 16px 50px; font-size:.85rem}
+  .top{display:inline-block; margin-top:10px; font-size:.8rem; color:var(--accent2); text-decoration:none}
+  @media (max-width:860px){
+    .layout{flex-direction:column; padding:18px 12px}
+    nav.toc{position:relative; top:0; flex-basis:auto; width:100%; max-height:none}
+  }
+</style>
+</head>
+<body>
+<header class="hero">
+  <h1>Thematic Apperception Test (TAT)</h1>
+  <p>Complete VIVA-Ready Notes &middot; Bellak framework + Murray Need–Press + Indian Adaptation (Dr. Uma Chaudhary)</p>
+  <p style="font-size:.85rem; opacity:.85">Prepared as a clinical-psychology study aid</p>
+</header>
+
+<div class="layout">
+  <nav class="toc">
+    <h3>Contents</h3>
+    <a href="#s1">1. What it is &amp; does</a>
+    <a href="#s2">2. Who developed it</a>
+    <a href="#s3">3. Theories</a>
+    <a href="#s4">4. Test materials</a>
+    <a href="#s5">5. Administration</a>
+    <a href="#s6">6. Murray's Needs + examples</a>
+    <a href="#s7">7. Murray's Press + examples</a>
+    <a href="#s8">8. Need–Press concepts</a>
+    <a href="#s9">9. Bellak's 10 variables</a>
+    <a href="#s10">10. Levels of interpretation</a>
+    <a href="#s11">11. Steps of report-making</a>
+    <a href="#s12">12. Apperceptive distortion</a>
+    <a href="#s13">13. Card stimulus pulls</a>
+    <a href="#s14">14. Strengths &amp; limits</a>
+    <a href="#s15">15. Indian Adaptation (Uma Chaudhary)</a>
+    <a href="#s16">16. Rapid-fire Q&amp;A</a>
+  </nav>
+
+  <main>
+    <section class="card" id="s1">
+      <h2><span class="num">1</span>What the TAT is &amp; what it does</h2>
+      <p>The TAT is a <span class="term">projective test of personality</span> made up of ambiguous picture cards about which the examinee makes up dramatic stories. Because the pictures are deliberately vague, the person must draw on their own inner world to fill the gaps, thereby <span class="term">projecting their dominant drives, emotions, sentiments, complexes and conflicts</span> onto the characters.</p>
+      <p>Bellak describes its purpose as revealing the <span class="term">dynamics of personality</span> as expressed in interpersonal relations and in the <em>apperception</em> (meaningful interpretation) of the environment. It taps largely <span class="term">preconscious and unconscious</span> material the person may not consciously recognise as their own.</p>
+      <p>Clinically it is used to map needs, motivations, object relations, defenses, conflicts and ego functioning, and to assist differential diagnosis. It is a rich, <span class="term">idiographic</span> instrument rather than a symptom checklist, and is interpreted qualitatively in the context of the whole personality.</p>
+    </section>
+
+    <section class="card" id="s2">
+      <h2><span class="num">2</span>Who developed it (authorship &amp; history)</h2>
+      <ul>
+        <li>The TAT was <span class="term">originally described by Christiana D. Morgan and Henry A. Murray in 1935</span> at the <span class="term">Harvard Psychological Clinic</span>.</li>
+        <li>Murray's <em>Explorations in Personality</em> (1938) and the test manual (1943) formalised it within his theory of <span class="term">personology</span>.</li>
+        <li>Earlier picture-story forerunners existed (Brittain 1907, Libby 1908, Schwartz's Social Situation Test 1932) but none gained the TAT's popularity.</li>
+        <li>The present set is the <span class="term">third series of pictures</span> issued since 1935; the test ranks <span class="term">second only to the Rorschach</span> among projective techniques.</li>
+        <li><span class="term">Leopold Bellak</span> is the major figure in its clinical interpretation — author of the <span class="term">Bellak TAT Blank &amp; Analysis Sheet</span> and the 10-variable scheme — and later developed the CAT (with S. S. Bellak, 1949) and the SAT.</li>
+      </ul>
+    </section>
+
+    <section class="card" id="s3">
+      <h2><span class="num">3</span>Theoretical foundations</h2>
+      <h3 class="sub">(a) Theory of Apperception / Apperceptive distortion (Bellak)</h3>
+      <p>Bellak holds that all perception is subjectively coloured. Using Herbart's term, he defines <span class="term">apperception</span> as the organism's <em>dynamically meaningful interpretation</em> of a perception, where new experience is assimilated to the "apperceptive mass" (residue of past experience). Purely objective perception is only a hypothesis; <span class="term">everyone distorts apperceptively, differing only in degree</span> — and these distortions are what the TAT exposes.</p>
+      <h3 class="sub">(b) Projective hypothesis</h3>
+      <p>Faced with an ambiguous, unstructured stimulus, a person structures it according to their own needs, motives and past experiences, so the story becomes a window onto personality.</p>
+      <h3 class="sub">(c) Murray's Personology / Need–Press theory</h3>
+      <p>Behaviour is the interaction of internal <span class="term">needs</span> (drives in the hero) and external <span class="term">press</span> (environmental forces). The unit of analysis is the <span class="term">thema</span> (a need–press combination); personality is read as recurring need–press patterns.</p>
+      <h3 class="sub">(d) Psychoanalytic / psychodynamic base</h3>
+      <p>Draws on the unconscious, identification, defense mechanisms, superego, and id–ego–superego conflict; stories are read for latent drives and the defenses against them.</p>
+    </section>
+
+    <section class="card" id="s4">
+      <h2><span class="num">4</span>Test materials &amp; structure</h2>
+      <ul>
+        <li>Full set = <span class="term">31 cards (30 pictures + 1 blank card)</span>, printed about twice the size of the original series to improve rapport.</li>
+        <li>Cards are <span class="term">coded for suitability</span>: a number alone is for everyone; <span class="term">B = boys, G = girls, M = males, F = females</span> (e.g., 3BM, 6GF, 13MF).</li>
+        <li>Murray's design uses <span class="term">20 cards across two sessions</span>; in practice clinicians use a <span class="term">selected 10–12 cards</span> most likely to illuminate the patient's problems.</li>
+        <li>The <span class="term">blank card (16)</span> asks the person to imagine and then describe a scene — eliciting highly personal projections.</li>
+        <li>Each card has a characteristic <span class="term">"stimulus pull"</span> — the theme it tends to evoke (see §13).</li>
+      </ul>
+    </section>
+
+    <section class="card" id="s5">
+      <h2><span class="num">5</span>Administration</h2>
+      <ul>
+        <li>Establish non-committal rapport; seat the examiner <span class="term">slightly behind/to the side</span> to watch facial expression without intruding (modified for suspicious/disturbed patients and children).</li>
+        <li><span class="term">Form A</span> (adolescents/adults): make up <em>as dramatic a story as possible</em> — what <span class="term">led up</span> to the scene, what is <span class="term">happening now</span>, what characters are <span class="term">thinking/feeling</span>, and the <span class="term">outcome</span>.</li>
+        <li><span class="term">Form B</span>: simpler wording for children, the poorly educated, and psychotic patients.</li>
+        <li>Record responses <span class="term">verbatim</span> with reaction time, pauses, exclamations and behaviour; <span class="term">self-administration</span> (~300 words/story) and <span class="term">group administration</span> (projected) are possible but less controlled.</li>
+        <li>An <span class="term">inquiry phase</span> follows to clarify omissions, misperceptions, names/dates, and to gather associations.</li>
+      </ul>
+    </section>
+
+    <section class="card" id="s6">
+      <h2><span class="num">6</span>Murray's NEEDS (with examples)</h2>
+      <div class="note">A <span class="term">need</span> is an internal force/drive organising perception and action toward a goal. <em>(Examples are TAT-style story snippets.)</em></div>
+      <table>
+        <tr><th>Need</th><th>Meaning</th><th>Example</th></tr>
+        <tr><td class="term">n Achievement</td><td>To accomplish, master, excel, overcome obstacles</td><td class="eg">"The boy practises until he masters the piece and feels proud."</td></tr>
+        <tr><td class="term">n Affiliation</td><td>To form friendships, belong, be with liked others</td><td class="eg">"The friends gather, share troubles, and feel happy together."</td></tr>
+        <tr><td class="term">n Succorance</td><td>To be supported, nurtured, protected, helped</td><td class="eg">"Feeling helpless, he returns to his mother who comforts him."</td></tr>
+        <tr><td class="term">n Nurturance</td><td>To give care, sympathy, protection to the helpless</td><td class="eg">"The woman feeds the orphan and tends him till he recovers."</td></tr>
+        <tr><td class="term">n Aggression</td><td>To overcome forcefully, attack, injure, punish</td><td class="eg">"Enraged, he strikes the man and a fight breaks out."</td></tr>
+        <tr><td class="term">n Dominance</td><td>To control, influence, lead, direct others</td><td class="eg">"He takes charge and orders everyone to follow his plan."</td></tr>
+        <tr><td class="term">n Deference</td><td>To admire, follow, willingly obey a superior</td><td class="eg">"The student gratefully accepts and obeys his teacher."</td></tr>
+        <tr><td class="term">n Autonomy</td><td>Independence; to resist coercion and restraint</td><td class="eg">"Tired of the rules, he leaves home to live on his own terms."</td></tr>
+        <tr><td class="term">n Abasement</td><td>To submit, accept blame, confess, seek punishment</td><td class="eg">"He blames himself and feels he deserves to suffer."</td></tr>
+        <tr><td class="term">n Counteraction</td><td>To overcome failure by renewed effort and pride</td><td class="eg">"After failing, he resolves to study harder and prove himself."</td></tr>
+        <tr><td class="term">n Defendance</td><td>To defend self against blame/criticism, justify acts</td><td class="eg">"He insists the accident wasn't his fault and clears his name."</td></tr>
+        <tr><td class="term">n Harm-avoidance</td><td>To avoid pain, injury, danger; take precautions</td><td class="eg">"Fearing the storm, the family stays indoors and locks up."</td></tr>
+        <tr><td class="term">n Infavoidance</td><td>To avoid humiliation, failure, ridicule</td><td class="eg">"Afraid of being laughed at, he refuses to perform."</td></tr>
+        <tr><td class="term">n Order</td><td>For arrangement, cleanliness, organisation, precision</td><td class="eg">"She tidies every object and can't rest until all is perfect."</td></tr>
+        <tr><td class="term">n Exhibition</td><td>To attract attention, impress, be seen and heard</td><td class="eg">"He dresses flamboyantly to be the centre of attention."</td></tr>
+        <tr><td class="term">n Sex</td><td>For erotic relationships and gratification</td><td class="eg">"The couple is drawn together and shares an intimate evening."</td></tr>
+        <tr><td class="term">n Sentience</td><td>To seek and enjoy sensuous, aesthetic impressions</td><td class="eg">"The painter loses himself in the colours of the landscape."</td></tr>
+        <tr><td class="term">n Play</td><td>For relaxation, fun, amusement, tension-relief</td><td class="eg">"They forget worries and spend the day laughing and playing."</td></tr>
+        <tr><td class="term">n Rejection</td><td>To exclude, snub, jilt, remain aloof from a disliked other</td><td class="eg">"She turns her back and refuses to speak to him again."</td></tr>
+        <tr><td class="term">n Understanding</td><td>To analyse, question, know, seek knowledge</td><td class="eg">"He keeps questioning why things happen and reads to learn."</td></tr>
+        <tr><td class="term">n Acquisition / Retention</td><td>To gain and keep possessions/money</td><td class="eg">"He works tirelessly to earn and is reluctant to spend."</td></tr>
+      </table>
+    </section>
+
+    <section class="card" id="s7">
+      <h2><span class="num">7</span>Murray's PRESS (with examples)</h2>
+      <div class="note"><span class="term">Press</span> = the power of an environmental object/person/situation to affect the hero. <span class="term">Alpha press</span> = what is objectively there; <span class="term">Beta press</span> = how the hero <em>subjectively perceives</em> it (most diagnostic).</div>
+      <table>
+        <tr><th>Press</th><th>Meaning</th><th>Example</th></tr>
+        <tr><td class="term">p Affiliation</td><td>A friendly, supportive environment/person</td><td class="eg">"His friends rally around and encourage him."</td></tr>
+        <tr><td class="term">p Aggression</td><td>Being attacked, criticised, threatened</td><td class="eg">"His father shouts at and beats him."</td></tr>
+        <tr><td class="term">p Dominance / Coercion</td><td>Being controlled, ordered, restrained</td><td class="eg">"His parents force him into a profession he dislikes."</td></tr>
+        <tr><td class="term">p Nurturance</td><td>Receiving care, sympathy, help</td><td class="eg">"A stranger takes the injured man in and nurses him."</td></tr>
+        <tr><td class="term">p Rejection</td><td>Being scorned, abandoned, jilted</td><td class="eg">"His wife leaves him and the family disowns him."</td></tr>
+        <tr><td class="term">p Lack / Loss</td><td>Poverty, deprivation, loss of a loved object</td><td class="eg">"After the father's death the family struggles to survive."</td></tr>
+        <tr><td class="term">p Physical danger / Affliction</td><td>Threat of harm, accident, illness</td><td class="eg">"A fire breaks out and traps the people inside."</td></tr>
+        <tr><td class="term">p Loss (death)</td><td>Death/loss of a significant figure</td><td class="eg">"His mother dies, leaving him alone and grief-stricken."</td></tr>
+      </table>
+    </section>
+
+    <section class="card" id="s8">
+      <h2><span class="num">8</span>Other Need–Press concepts</h2>
+      <ul>
+        <li><span class="term">Thema:</span> the basic <em>need–press interaction unit</em> (e.g., <em>need for love met by press of rejection</em>). The <span class="term">unity thema</span> is the master pattern uniting recurrent themas across cards.</li>
+        <li><span class="term">Need-conflict:</span> two opposing needs at once (e.g., autonomy vs. deference; achievement vs. play), producing tension/indecision.</li>
+        <li><span class="term">Need-subsidiation:</span> one need serves another — e.g., dominating others (nDominance) <em>in order to</em> win affection (nAffiliation).</li>
+        <li><span class="term">Need-fusion:</span> one act satisfies several needs — e.g., mastering the violin fuses achievement + sexual/oedipal strivings (Bellak, Card 1).</li>
+        <li><span class="term">Press dominance &amp; outcome:</span> whether the hero's needs <em>prevail over or are defeated by</em> the press — a key index of ego strength and optimism/pessimism.</li>
+      </ul>
+    </section>
+
+    <section class="card" id="s9">
+      <h2><span class="num">9</span>Bellak's 10 variables (Analysis Sheet)</h2>
+      <table>
+        <tr><th>#</th><th>Variable</th><th>What to look for</th></tr>
+        <tr><td>1</td><td class="term">Main theme</td><td>The gist/diagnosis; read on descriptive → interpretive → diagnostic levels; repetition = central concern.</td></tr>
+        <tr><td>2</td><td class="term">Main hero</td><td>Identification figure: age, sex, vocation, abilities, traits, <em>body/self-image</em>, and <em>adequacy</em> (tied to ego strength).</td></tr>
+        <tr><td>3</td><td class="term">Needs &amp; drives of hero</td><td>(a) behavioural needs; (b) figures/objects <em>introduced</em> (weapons → aggression; food → orality); (c) <em>omitted</em> (ignoring the gun → repressed aggression).</td></tr>
+        <tr><td>4</td><td class="term">Conception of environment</td><td>A word or two: succorant, hostile, exploiting, friendly, dangerous; consistency = reliable clue.</td></tr>
+        <tr><td>5</td><td class="term">Figures seen as…</td><td>How <em>parental, contemporary, junior</em> figures are perceived and the subject's <em>reaction</em> (object relations).</td></tr>
+        <tr><td>6</td><td class="term">Significant conflicts</td><td>Clashing forces (e.g., superego vs. aggression; autonomy vs. compliance) and the resulting behaviour.</td></tr>
+        <tr><td>7</td><td class="term">Nature of anxieties</td><td>Fear of harm/punishment, disapproval, loss of love, illness, desertion, deprivation, being overpowered/devoured.</td></tr>
+        <tr><td>8</td><td class="term">Main defenses</td><td>Repression, reaction-formation, rationalisation, isolation, regression, denial, undoing, splitting, projection, sublimation.</td></tr>
+        <tr><td>9</td><td class="term">Adequacy of superego</td><td>Relation of "punishment" to "crime": appropriate / too severe (neurotic) / too lenient (psychopathic) / inconsistent.</td></tr>
+        <tr><td>10</td><td class="term">Integration of the ego</td><td>Hero adequacy, outcome (happy/unhappy, realistic/unrealistic), solution, drive control, thought processes, intelligence.</td></tr>
+      </table>
+    </section>
+
+    <section class="card" id="s10">
+      <h2><span class="num">10</span>Levels of interpretation</h2>
+      <ul>
+        <li><span class="term">Descriptive:</span> a plain restatement of what literally happens in the story.</li>
+        <li><span class="term">Interpretive:</span> a generalised statement, usually framed as <em>"If one … then …"</em>, generalising the theme to the person.</li>
+        <li><span class="term">Diagnostic:</span> a definite statement about the individual ("This person has … conflicts").</li>
+        <li><span class="term">Symbolic:</span> cautious psychoanalytic symbol reading — Bellak urges great parsimony, as it is farthest from hard data.</li>
+        <li><span class="term">Elaborative:</span> the subject's own free associations to specific words, names, or dates in the story.</li>
+      </ul>
+    </section>
+
+    <section class="card" id="s11">
+      <h2><span class="num">11</span>Steps in making a TAT report / interpretation</h2>
+      <ul>
+        <li><span class="term">1. Administer &amp; record verbatim</span> all stories, with reaction times, pauses, and behavioural observations.</li>
+        <li><span class="term">2. Read the whole record once</span> for overall tone, recurring figures, and mood before formal scoring.</li>
+        <li><span class="term">3. Analyse each story</span> onto the <em>10 variables</em> (or Murray's need–press), moving descriptive → interpretive → diagnostic.</li>
+        <li><span class="term">4. Identify hero &amp; identification figures</span>; track <em>needs, press, themas</em> across all cards (frequency, intensity, uniqueness).</li>
+        <li><span class="term">5. Find recurrent patterns &amp; consistency</span> — single signs are never diagnostic; attend to misperceptions, omissions, distortions.</li>
+        <li><span class="term">6. Compare card-pull vs. response</span> — deviation from the card's typical theme is significant.</li>
+        <li><span class="term">7. Summarise across the 10 variables</span> into a coherent picture of needs, conflicts, anxieties, defenses, object relations, superego, ego.</li>
+        <li><span class="term">8. Integrate with history, MSE &amp; other tests</span>; TAT is fantasy data — frame conclusions as hypotheses, then write the final narrative report with formulation, diagnosis, recommendations.</li>
+      </ul>
+    </section>
+
+    <section class="card" id="s12">
+      <h2><span class="num">12</span>Forms of apperceptive distortion (Bellak)</h2>
+      <ul>
+        <li><span class="term">Projection (proper):</span> the greatest degree of distortion (e.g., paranoid attribution of one's own impulses to others).</li>
+        <li><span class="term">Inverted projection / sensitisation:</span> distortion via reversal or projection of the opposite.</li>
+        <li><span class="term">Simple sensitisation:</span> milder, everyday colouring of perception by one's own state.</li>
+        <li><span class="term">Externalisation:</span> largely preconscious material the person can recognise as their own when the typed story is read back — clinically accessible, unlike deeply repressed content.</li>
+      </ul>
+    </section>
+
+    <section class="card" id="s13">
+      <h2><span class="num">13</span>Card "stimulus pull" — selected typical themes</h2>
+      <table>
+        <tr><th>Card</th><th>Image</th><th>Typical theme / pull</th></tr>
+        <tr><td>1</td><td>Boy + violin</td><td><span class="term">The key card</span> — self/body-image, relation to parents, autonomy vs. compliance, achievement (earned vs. magical). "Dead/broken violin" → impoverishment (consider schizophrenia).</td></tr>
+        <tr><td>2</td><td>Country/farm scene</td><td>Family relations; autonomy vs. conservative belonging; woman-by-tree often seen as pregnant; obsessives fixate on details.</td></tr>
+        <tr><td>3BM</td><td>Huddled figure + object</td><td>Depression &amp; aggression (extra- vs. intra-aggression/suicide); handling of the gun indexes superego; a "must" with depressed patients.</td></tr>
+        <tr><td>4</td><td>Woman clutching man</td><td>Male–female relationships; <span class="term">infidelity</span> themes; role of women; background semi-nude (sexual attitudes).</td></tr>
+        <tr><td>6BM</td><td>Older woman + young man</td><td>Mother–son relationship and oedipal derivatives — indispensable for males.</td></tr>
+        <tr><td>7BM</td><td>Older + younger man</td><td>Father–son relationship; attitudes to male authority.</td></tr>
+        <tr><td>8BM</td><td>Boy + rifle + operation</td><td>Ambition (becoming a doctor) vs. aggression; taxes integrative capacity.</td></tr>
+        <tr><td>13MF</td><td>Man + woman in bed</td><td>Sexual conflicts in both sexes; fears of harm.</td></tr>
+        <tr><td>16</td><td>Blank card</td><td>Reveals the most pressing preoccupations via a wholly self-generated scene (distance typically lost).</td></tr>
+      </table>
+    </section>
+
+    <section class="card" id="s14">
+      <h2><span class="num">14</span>Strengths, limitations, reliability &amp; validity</h2>
+      <h3 class="sub">Strengths</h3>
+      <p>Rich qualitative, idiographic data; bypasses conscious defenses; flexible; excellent for needs, motives, object relations and dynamic formulation; cross-culturally adaptable.</p>
+      <h3 class="sub">Limitations</h3>
+      <p>Time-consuming (≈30+ min per record; hours for full need–press); <span class="term">scoring is largely subjective</span> with examiner variability; <span class="term">reliability/validity are debated</span> and norms are limited; it samples <span class="term">fantasy</span>, whose link to overt behaviour must be checked against history.</p>
+      <div class="warn">Bellak insists TAT findings be <span class="term">complementary</span> to clinical and biographical data and never used as a stand-alone diagnosis.</div>
+    </section>
+
+    <section class="card" id="s15">
+      <h2><span class="num">15</span>Indian Adaptation — Dr. Uma Chaudhary (Chowdhury)</h2>
+      <div class="src">Sources: Bellak's manual note + online references incl.
+        <a href="https://www.scribd.com/document/537372545/indian-tat">Chowdhury's Indian adaptation</a>,
+        <a href="https://www.studocu.com/in/document/st-josephs-college-autonomous/m-sc-counselling-psychology/lab-assessment-1/57317878">studocu TAT notes</a>,
+        <a href="https://www.scribd.com/document/761044289/Manual-of-TAT">Manual of TAT</a>.
+        <em>Content rephrased for compliance with licensing restrictions.</em>
+      </div>
+      <ul>
+        <li><span class="term">Author &amp; affiliation:</span> designed by <span class="term">Dr. Uma Chaudhary (Chowdhury)</span> of the <span class="term">Department of Anthropology, Indian Museum, Calcutta</span> — noted within Bellak's own manual. She combined cultural anthropology with clinical psychology and broad TAT experience across Europe, the USA and India; published around <span class="term">1960</span>.</li>
+        <li><span class="term">Rationale:</span> Murray's Western figures, dress and settings were hard for Indian respondents to identify with, weakening projection; she redrew cards with <span class="term">Indian characters and culturally familiar scenes</span> to strengthen identification and validity.</li>
+        <li><span class="term">Cards:</span> the adaptation has <span class="term">14 cards</span> (vs. the larger Western set), built from <span class="term">live models and imagined scenes</span> and <span class="term">generalised</span> to be broadly recognisable across Indian groups.</li>
+        <li><span class="term">Cultural modifications:</span> Western objects replaced with Indian equivalents — e.g., the Card-1 violin became a <span class="term">tanpura/veena</span>; <span class="term">two new cards</span> were added for the <span class="term">joint/extended family</span> and <span class="term">religious fantasy/spirituality</span>, themes central to Indian life.</li>
+        <li><span class="term">Method &amp; scoring:</span> drew on <span class="term">McClelland's approach</span> while retaining Murray's card structure; administration/instructions parallel the standard TAT, and interpretation uses the <span class="term">need–press and thematic-content framework</span> with culturally appropriate themes.</li>
+        <li><span class="term">Significance:</span> one of the <span class="term">earliest, most widely used Indian projective adaptations</span> — enabling culturally valid assessment of needs, conflicts, family dynamics and emotional functioning in Indian clinical/research settings.</li>
+      </ul>
+    </section>
+
+    <section class="card" id="s16">
+      <h2><span class="num">16</span>Rapid-fire VIVA Q&amp;A</h2>
+      <table>
+        <tr><th>Question</th><th>Crisp answer</th></tr>
+        <tr><td>Who developed the TAT and when?</td><td>Henry A. Murray &amp; Christiana D. Morgan, 1935, Harvard Psychological Clinic.</td></tr>
+        <tr><td>What type of test is it?</td><td>A projective test of personality (storytelling / thematic).</td></tr>
+        <tr><td>How many cards in the full set?</td><td>31 (30 pictures + 1 blank); usually 10–12 used clinically.</td></tr>
+        <tr><td>Underlying principle?</td><td>Projective hypothesis + apperception / apperceptive distortion.</td></tr>
+        <tr><td>What is "apperception"?</td><td>A dynamically meaningful interpretation of a perception (Bellak/Herbart).</td></tr>
+        <tr><td>Need vs. Press?</td><td>Need = inner drive of the hero; Press = environmental force acting on him.</td></tr>
+        <tr><td>Alpha vs. Beta press?</td><td>Alpha = objective reality; Beta = the hero's subjective perception (more diagnostic).</td></tr>
+        <tr><td>What is a "thema"?</td><td>A need–press combination; the basic interpretive unit.</td></tr>
+        <tr><td>Most important single card?</td><td>Card 1 (boy + violin) — self-image, parents, achievement.</td></tr>
+        <tr><td>Whose interpretive system is standard clinically?</td><td>Leopold Bellak's — the TAT Blank &amp; 10-variable Analysis Sheet.</td></tr>
+        <tr><td>Three levels of interpretation?</td><td>Descriptive, interpretive, diagnostic.</td></tr>
+        <tr><td>Indian adaptation?</td><td>Dr. Uma Chaudhary (Chowdhury), Calcutta, ~1960; 14 culturally adapted cards (incl. joint family &amp; religious fantasy).</td></tr>
+      </table>
+    </section>
+
+    <footer>
+      TAT VIVA Notes &middot; Compiled from the Bellak TAT manual and corroborating online sources on the Uma Chaudhary Indian adaptation.<br>
+      Study aid for clinical-psychology use; integrate TAT inferences with history, MSE and other tests before any diagnostic conclusion.
+      <br><a class="top" href="#">↑ Back to top</a>
+    </footer>
+  </main>
+</div>
+</body>
+</html>
