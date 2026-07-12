@@ -1,0 +1,1357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Research Proposal — B-MBRP Study</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+:root {
+  --bg:#f5f6f8;
+  --surface:#fff;
+  --navy:#0d2137;
+  --blue:#1558a8;
+  --teal:#0a7b6c;
+  --amber:#8c5c00;
+  --rose:#8b1a38;
+  --purple:#4a1d96;
+  --sky:#e4edf9;
+  --mint:#e0f4f0;
+  --amber-bg:#fff5d6;
+  --rose-bg:#fce8ee;
+  --purple-bg:#ede9fb;
+  --border:#d6dde8;
+  --text:#182030;
+  --muted:#5a6880;
+  --mono:#2d6a4f;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-serif;font-size:15px;line-height:1.75}
+
+/* STICKY NAV */
+.sidenav{
+  position:fixed;top:0;left:0;width:220px;height:100vh;
+  background:var(--navy);overflow-y:auto;padding:28px 0 40px;
+  scrollbar-width:none;z-index:200;
+}
+.sidenav::-webkit-scrollbar{display:none}
+.sidenav-logo{padding:0 20px 24px;border-bottom:1px solid rgba(255,255,255,0.1)}
+.sidenav-logo .mark{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:6px}
+.sidenav-logo .title{font-size:13px;font-weight:600;color:white;line-height:1.4}
+.sidenav a{
+  display:flex;align-items:center;gap:10px;
+  padding:9px 20px;text-decoration:none;
+  font-size:12px;color:rgba(255,255,255,0.55);
+  transition:all 0.15s;border-left:3px solid transparent;
+}
+.sidenav a:hover,.sidenav a.active{color:white;border-left-color:#5db0f5;background:rgba(255,255,255,0.05)}
+.sidenav .sec-label{
+  font-size:9.5px;letter-spacing:2px;text-transform:uppercase;
+  color:rgba(255,255,255,0.28);padding:18px 20px 6px;
+}
+.sidenav .num{
+  background:rgba(255,255,255,0.12);border-radius:4px;
+  padding:1px 6px;font-size:10px;font-weight:600;color:rgba(255,255,255,0.6);
+  flex-shrink:0;
+}
+
+/* MAIN */
+.main{margin-left:220px;min-height:100vh}
+
+/* HERO */
+.hero{
+  background:linear-gradient(140deg,#0d2137 0%,#1558a8 55%,#0a7b6c 100%);
+  padding:64px 60px 56px;color:white;position:relative;overflow:hidden;
+}
+.hero::after{
+  content:'';position:absolute;right:-80px;top:-80px;
+  width:420px;height:420px;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,255,255,0.06) 0%,transparent 70%);
+}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);
+  border-radius:20px;padding:5px 14px;font-size:11.5px;
+  font-weight:600;letter-spacing:0.5px;color:rgba(255,255,255,0.85);
+  margin-bottom:22px;
+}
+.hero h1{
+  font-family:'IBM Plex Serif',serif;
+  font-size:clamp(22px,3.5vw,38px);font-weight:600;
+  line-height:1.25;margin-bottom:16px;max-width:700px;
+}
+.hero h1 em{color:#7dd3c0;font-style:normal}
+.hero-sub{
+  font-size:14.5px;color:rgba(255,255,255,0.72);
+  max-width:620px;margin-bottom:36px;line-height:1.7;
+}
+.hero-meta{display:flex;flex-wrap:wrap;gap:12px}
+.hero-chip{
+  background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.18);
+  border-radius:6px;padding:8px 16px;
+}
+.hero-chip .label{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-bottom:3px}
+.hero-chip .val{font-size:13px;font-weight:600;color:white}
+
+/* CONTENT */
+.content{padding:48px 60px 80px}
+
+/* SECTION TITLES */
+.sec-head{
+  display:flex;align-items:flex-start;gap:16px;
+  margin-bottom:28px;padding-bottom:16px;
+  border-bottom:2px solid var(--border);
+}
+.sec-icon{
+  width:40px;height:40px;border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;flex-shrink:0;margin-top:2px;
+}
+.sec-icon.blue{background:var(--sky)}
+.sec-icon.teal{background:var(--mint)}
+.sec-icon.amber{background:var(--amber-bg)}
+.sec-icon.rose{background:var(--rose-bg)}
+.sec-icon.purple{background:var(--purple-bg)}
+.sec-head-text .num{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+.sec-head-text h2{font-family:'IBM Plex Serif',serif;font-size:22px;font-weight:600;color:var(--navy)}
+
+section{margin-bottom:60px;scroll-margin-top:20px}
+
+h3{font-size:16px;font-weight:700;color:var(--blue);margin:28px 0 10px}
+h4{font-size:13.5px;font-weight:700;color:var(--teal);margin:20px 0 8px;text-transform:uppercase;letter-spacing:0.5px}
+p{margin-bottom:12px;color:var(--text)}
+strong{color:var(--navy)}
+
+/* CARDS */
+.card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:12px;padding:22px 26px;margin-bottom:18px;
+  box-shadow:0 1px 3px rgba(0,0,0,0.04);
+}
+.card.blue{border-left:4px solid var(--blue);background:#fafdff}
+.card.teal{border-left:4px solid var(--teal);background:#f5fbfa}
+.card.amber{border-left:4px solid var(--amber);background:var(--amber-bg)}
+.card.rose{border-left:4px solid var(--rose);background:var(--rose-bg)}
+.card.purple{border-left:4px solid var(--purple);background:var(--purple-bg)}
+.card.navy{border-left:4px solid var(--navy);background:var(--sky)}
+.card.dark{background:var(--navy);color:white}
+.card-label{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:10px}
+.card.blue .card-label{color:var(--blue)}
+.card.teal .card-label{color:var(--teal)}
+.card.amber .card-label{color:var(--amber)}
+.card.rose .card-label{color:var(--rose)}
+.card.purple .card-label{color:var(--purple)}
+.card.navy .card-label{color:var(--blue)}
+.card.dark .card-label{color:#7dd3c0}
+
+/* GRID */
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin:16px 0}
+
+/* HIGHLIGHT */
+.hl{
+  background:var(--sky);border-left:5px solid var(--blue);
+  border-radius:0 8px 8px 0;padding:14px 18px;margin:16px 0;
+  font-size:14.5px;color:var(--navy);font-weight:500;
+}
+.hl.teal{background:var(--mint);border-left-color:var(--teal)}
+.hl.amber{background:var(--amber-bg);border-left-color:var(--amber);color:var(--amber)}
+.hl.rose{background:var(--rose-bg);border-left-color:var(--rose);color:var(--rose)}
+
+/* TABLE */
+table{width:100%;border-collapse:collapse;margin:16px 0;font-size:13.5px}
+thead th{background:var(--navy);color:white;padding:11px 14px;text-align:left;font-size:11.5px;font-weight:600;letter-spacing:0.4px}
+thead th:first-child{border-radius:8px 0 0 0}thead th:last-child{border-radius:0 8px 0 0}
+tbody td{padding:10px 14px;border-bottom:1px solid var(--border);vertical-align:top}
+tbody tr:nth-child(even) td{background:var(--bg)}
+tbody tr:hover td{background:var(--sky)}
+
+/* STEPS */
+.step{display:flex;gap:14px;margin-bottom:18px;align-items:flex-start}
+.step-circle{
+  width:30px;height:30px;border-radius:50%;
+  background:var(--blue);color:white;
+  font-size:12px;font-weight:700;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;margin-top:2px;
+}
+.step-circle.teal{background:var(--teal)}
+.step-circle.amber{background:var(--amber)}
+.step-circle.purple{background:var(--purple)}
+.step-content strong{font-size:14px;display:block;margin-bottom:4px;color:var(--navy)}
+
+/* HYPOTHESIS */
+.hyp{
+  display:flex;gap:14px;background:var(--surface);
+  border:1px solid var(--border);border-radius:10px;
+  padding:16px 20px;margin-bottom:12px;
+  box-shadow:0 1px 3px rgba(0,0,0,0.03);
+}
+.hyp-tag{
+  min-width:44px;height:28px;border-radius:6px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:11px;font-weight:700;flex-shrink:0;margin-top:2px;
+}
+.hyp-tag.h0{background:#fce8ee;color:var(--rose)}
+.hyp-tag.h1{background:var(--sky);color:var(--blue)}
+.hyp-tag.exp{background:var(--purple-bg);color:var(--purple)}
+.hyp-text{font-size:14px;line-height:1.65}
+.hyp-dir{font-size:12px;color:var(--muted);margin-top:5px;font-style:italic}
+
+/* TOOL CARD */
+.tool{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:12px;overflow:hidden;margin-bottom:22px;
+  box-shadow:0 2px 8px rgba(0,0,0,0.04);
+}
+.tool-head{
+  display:grid;grid-template-columns:auto 1fr auto;
+  align-items:center;gap:16px;
+  padding:16px 22px;border-bottom:1px solid var(--border);
+}
+.tool-icon{
+  width:44px;height:44px;border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:20px;flex-shrink:0;
+}
+.tool-name{font-size:16px;font-weight:700;color:var(--navy)}
+.tool-abbr{font-size:12px;color:var(--muted);margin-top:2px}
+.tool-badge{
+  font-size:11px;font-weight:700;padding:4px 12px;
+  border-radius:20px;white-space:nowrap;
+}
+.tool-badge.pre-post{background:var(--sky);color:var(--blue)}
+.tool-badge.pre{background:var(--mint);color:var(--teal)}
+.tool-body{padding:18px 22px}
+.tool-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:12px}
+.tool-stat{background:var(--bg);border-radius:8px;padding:12px 14px}
+.tool-stat .ts-label{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+.tool-stat .ts-val{font-size:13.5px;font-weight:600;color:var(--navy)}
+
+/* PHASE CARD */
+.phase{
+  display:flex;gap:0;margin-bottom:0;
+}
+.phase-line{
+  display:flex;flex-direction:column;align-items:center;margin-right:18px;
+}
+.phase-dot{
+  width:36px;height:36px;border-radius:50%;
+  background:var(--navy);color:white;
+  font-size:13px;font-weight:700;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+.phase-dot.blue{background:var(--blue)}
+.phase-dot.teal{background:var(--teal)}
+.phase-dot.amber{background:var(--amber)}
+.phase-dot.purple{background:var(--purple)}
+.phase-dot.rose{background:var(--rose)}
+.phase-connector{width:2px;flex:1;background:var(--border);margin:6px 0;min-height:30px}
+.phase-content{flex:1;padding-bottom:28px}
+.phase-content h4{margin-top:0}
+.phase-content p{font-size:14px}
+
+/* TIMELINE */
+.timeline-row{
+  display:grid;grid-template-columns:120px 1fr;
+  gap:0;border-bottom:1px solid var(--border);
+}
+.timeline-row:last-child{border-bottom:none}
+.timeline-month{
+  background:var(--navy);color:white;
+  padding:12px 16px;font-size:12px;font-weight:600;
+  display:flex;align-items:center;
+}
+.timeline-content{padding:12px 18px;background:var(--surface);font-size:13.5px}
+.timeline-content ul{padding-left:16px;margin:0}
+.timeline-content li{margin-bottom:4px}
+
+/* COMPARE */
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:14px 0}
+.compare-col{border-radius:10px;padding:16px 18px}
+.compare-col.no{background:var(--rose-bg);border:1px solid #f0b0c0}
+.compare-col.yes{background:var(--mint);border:1px solid #a0d8ce}
+.compare-col .col-hd{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px}
+.compare-col.no .col-hd{color:var(--rose)}
+.compare-col.yes .col-hd{color:var(--teal)}
+
+/* PILL */
+.pill{display:inline-block;background:var(--sky);color:var(--blue);border-radius:20px;padding:2px 10px;font-size:11.5px;font-weight:600;margin:2px}
+.pill.teal{background:var(--mint);color:var(--teal)}
+.pill.amber{background:var(--amber-bg);color:var(--amber)}
+.pill.purple{background:var(--purple-bg);color:var(--purple)}
+.pill.rose{background:var(--rose-bg);color:var(--rose)}
+
+/* QUOTE */
+blockquote{
+  border-left:4px solid var(--blue);padding:12px 18px;
+  margin:16px 0;background:var(--sky);border-radius:0 8px 8px 0;
+  font-family:'IBM Plex Serif',serif;font-style:italic;
+  color:var(--navy);font-size:15px;
+}
+
+/* UL OL */
+ul,ol{padding-left:20px;margin-bottom:12px}
+li{margin-bottom:7px;font-size:14.5px}
+
+/* STAT BOXES */
+.stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:16px 0}
+.stat-box{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:10px;padding:18px 14px;text-align:center;
+}
+.stat-box .val{font-size:28px;font-weight:700;color:var(--navy);margin-bottom:4px}
+.stat-box .desc{font-size:12px;color:var(--muted)}
+
+/* DIVIDER */
+.divider{height:1px;background:var(--border);margin:40px 0}
+
+/* CODE */
+code{font-family:'IBM Plex Mono',monospace;background:#eef2f8;border-radius:4px;padding:2px 7px;font-size:12.5px;color:var(--blue)}
+
+/* FOOTER */
+.footer{
+  background:var(--navy);color:rgba(255,255,255,0.5);
+  text-align:center;padding:28px 40px;font-size:12.5px;
+}
+
+@media(max-width:900px){
+  .sidenav{display:none}
+  .main{margin-left:0}
+  .hero,.content{padding:32px 20px}
+  .g2,.g3,.stat-row,.compare{grid-template-columns:1fr}
+  .tool-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- SIDENAV -->
+<nav class="sidenav">
+  <div class="sidenav-logo">
+    <div class="mark">MPhil Clinical Psychology</div>
+    <div class="title">B-MBRP Research Proposal</div>
+  </div>
+  <div class="sec-label">Sections</div>
+  <a href="#overview"><span class="num">01</span> Study Overview</a>
+  <a href="#background"><span class="num">02</span> Background</a>
+  <a href="#gap"><span class="num">03</span> Research Gap</a>
+  <a href="#rationale"><span class="num">04</span> Rationale</a>
+  <a href="#objectives"><span class="num">05</span> Objectives</a>
+  <a href="#hypotheses"><span class="num">06</span> Hypotheses</a>
+  <a href="#design"><span class="num">07</span> Study Design</a>
+  <a href="#sample"><span class="num">08</span> Sample & Setting</a>
+  <a href="#tools"><span class="num">09</span> Assessment Tools</a>
+  <a href="#pre-post"><span class="num">10</span> Pre vs Post</a>
+  <a href="#intervention"><span class="num">11</span> Intervention</a>
+  <a href="#procedure"><span class="num">12</span> Procedure</a>
+  <a href="#datacollection"><span class="num">13</span> Data Collection</a>
+  <a href="#analysis"><span class="num">14</span> Analysis Plan</a>
+  <a href="#timeline"><span class="num">15</span> Timeline</a>
+  <a href="#ethics"><span class="num">16</span> Ethics</a>
+  <a href="#significance"><span class="num">17</span> Significance</a>
+  <a href="#limitations"><span class="num">18</span> Limitations</a>
+  <a href="#glance"><span class="num">19</span> Study at a Glance</a>
+</nav>
+
+<!-- MAIN -->
+<div class="main">
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">📋 MPhil Dissertation Research Proposal · De-addiction IPD · District Hospital, Guna MP</div>
+  <h1>Efficacy of a <em>Brief Mindfulness-Based Relapse Prevention</em> Intervention on Craving, Impulsivity, and Mindfulness in Substance-Dependent Patients</h1>
+  <p class="hero-sub">A Pilot Quasi-Experimental Waitlist-Controlled Pre-Post Study at a De-addiction Inpatient Department — without Rorschach component</p>
+  <div class="hero-meta">
+    <div class="hero-chip"><div class="label">Design</div><div class="val">Quasi-experimental · Waitlist Control</div></div>
+    <div class="hero-chip"><div class="label">Sample</div><div class="val">N = 40 (20+20)</div></div>
+    <div class="hero-chip"><div class="label">Intervention</div><div class="val">B-MBRP · 6 Sessions · 3 Weeks</div></div>
+    <div class="hero-chip"><div class="label">Setting</div><div class="val">De-addiction IPD · Guna, MP</div></div>
+    <div class="hero-chip"><div class="label">Timeline</div><div class="val">12 Months</div></div>
+  </div>
+</div>
+
+<div class="content">
+
+<!-- ═══ 01 OVERVIEW ═══ -->
+<section id="overview">
+  <div class="sec-head">
+    <div class="sec-icon blue">📌</div>
+    <div class="sec-head-text"><div class="num">Section 01</div><h2>Study Overview</h2></div>
+  </div>
+
+  <div class="card dark">
+    <div class="card-label">Full Title</div>
+    <p style="color:white;font-family:'IBM Plex Serif',serif;font-size:17px;line-height:1.55;margin:0">
+      "Efficacy of a Brief Mindfulness-Based Relapse Prevention (B-MBRP) Intervention on Craving, Impulsivity, and Mindfulness in Substance-Dependent Patients Undergoing De-addiction Treatment: A Pilot Waitlist-Controlled Pre-Post Study"
+    </p>
+  </div>
+
+  <div class="stat-row">
+    <div class="stat-box"><div class="val">40</div><div class="desc">Total participants (20 per group)</div></div>
+    <div class="stat-box"><div class="val">6</div><div class="desc">B-MBRP sessions over 3 weeks</div></div>
+    <div class="stat-box"><div class="val">5</div><div class="desc">Assessment tools used</div></div>
+    <div class="stat-box"><div class="val">3</div><div class="desc">Assessment time points (Pre · Post · Follow-up)</div></div>
+  </div>
+
+  <div class="g3">
+    <div class="card teal"><div class="card-label">Experimental Group</div>B-MBRP (6 sessions) + Treatment As Usual (TAU) — measured at Pre, Post, and 4-week Follow-up</div>
+    <div class="card blue"><div class="card-label">Waitlist Control Group</div>Treatment As Usual only — measured at Pre and Post. Offered B-MBRP after data collection is complete</div>
+    <div class="card amber"><div class="card-label">Primary Outcomes</div>Craving · Impulsivity · Mindfulness · Depression · Stress — measured by validated, standardised self-report tools</div>
+  </div>
+</section>
+
+<!-- ═══ 02 BACKGROUND ═══ -->
+<section id="background">
+  <div class="sec-head">
+    <div class="sec-icon blue">📚</div>
+    <div class="sec-head-text"><div class="num">Section 02</div><h2>Background and Introduction</h2></div>
+  </div>
+
+  <h3>Substance Dependence in India</h3>
+  <p>Substance use disorders (SUDs) represent one of the most prevalent, costly, and treatment-resistant mental health conditions in India. According to the National Drug Dependence Treatment Centre (NDDTC) and the Ministry of Social Justice and Empowerment (2019), an estimated <strong>14.6% of the Indian population (approximately 160 million people)</strong> uses alcohol, 3.1 million use opioids, and 2.3 million use cannabis regularly. Madhya Pradesh, the state in which the proposed study is situated, consistently reports high rates of opioid use — particularly doda (opium husk), heroin, and pharmaceutical opioids — alongside high alcohol dependence prevalence.</p>
+
+  <p>Substance dependence is not merely a problem of physiological addiction. It involves profound disruptions in <strong>impulsive responding, affective regulation, craving management, and coping capacity</strong> — the psychological capacities that determine whether a person remains abstinent after detoxification. National relapse data consistently shows rates of <strong>60–80% within the first three months post-discharge</strong>, driven primarily by craving, negative emotional states, and the absence of psychological skills to manage triggers without substance use.</p>
+
+  <h3>The Problem with Treatment As Usual</h3>
+  <p>The standard treatment model at district-level de-addiction centres in India follows a predominantly biomedical framework: medically supervised detoxification, pharmacological management of withdrawal symptoms and craving, and brief psychoeducation. While this protocol effectively manages the acute withdrawal phase, it addresses very little of the psychological substrate that drives relapse. Patients are discharged having achieved biological sobriety but without the psychological tools to navigate the craving, emotional dysregulation, and environmental triggers that characterise early recovery.</p>
+
+  <div class="hl amber">⚠️ The critical gap: TAU produces sobriety. It does not produce the psychological skills required to maintain sobriety in the face of real-world triggers, craving, and emotional distress.</div>
+
+  <h3>What is Mindfulness-Based Relapse Prevention?</h3>
+  <p>Mindfulness-Based Relapse Prevention (MBRP), developed by Bowen, Chawla, and Marlatt (2011) at the University of Washington, is the most evidence-supported psychosocial intervention designed specifically for this gap. MBRP integrates mindfulness meditation practices from MBSR (Kabat-Zinn, 1990) and MBCT (Segal, Williams, and Teasdale, 2002) with the cognitive-behavioural Relapse Prevention framework of Marlatt and Gordon (1985). The core therapeutic mechanism is teaching patients to <strong>observe craving and emotional distress mindfully — as transient mental events — without automatically acting on them</strong>.</p>
+
+  <p>The brief adapted version (B-MBRP) condenses this into 6 structured individual sessions suitable for inpatient delivery, making it feasible within the typical 3–5 week IPD admission window of Indian district hospitals.</p>
+
+  <h3>Evidence for MBRP</h3>
+  <div class="g2">
+    <div class="card blue">
+      <div class="card-label">Bowen et al. (2014) — JAMA Psychiatry</div>
+      N=286 three-arm RCT. MBRP participants at 12-month follow-up reported significantly fewer days of substance use (31%) and significantly decreased heavy drinking compared to standard Relapse Prevention and TAU. The landmark RCT establishing MBRP superiority.
+    </div>
+    <div class="card blue">
+      <div class="card-label">Riya, Kumar & Chandel (2025) — Indian J Psychiatry</div>
+      Quasi-experimental pre-post study, N=50, alcohol dependence, India. MBRP + usual care significantly improved emotion regulation (DERS-18) and reduced alcohol craving (ACQ-SF-R) compared to usual care alone. Most directly comparable Indian study.
+    </div>
+    <div class="card teal">
+      <div class="card-label">Solomon et al. (2024) — Indian J Physiol Pharmacol</div>
+      RCT, N=100, Indian de-addiction centre. MBSR reduced perceived stress from mean 36.0 to 18.9 in experimental group vs 36.9 to 33.4 in control. Uses only PSS — no craving, impulsivity, or mindfulness outcomes measured.
+    </div>
+    <div class="card teal">
+      <div class="card-label">Brief MBI — OUD Inpatient (2023) — PMC</div>
+      6-week brief mindfulness in underserved inpatient OUD patients significantly decreased perceived stress, drug craving, and emotional regulation difficulties post-intervention. Authors recommended a large-scale RCT with control group as next step — exactly what this study provides.
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 03 RESEARCH GAP ═══ -->
+<section id="gap">
+  <div class="sec-head">
+    <div class="sec-icon rose">🔍</div>
+    <div class="sec-head-text"><div class="num">Section 03</div><h2>Research Gap</h2></div>
+  </div>
+
+  <p>A systematic review of the Indian and international literature reveals the following specific gaps that this study directly addresses:</p>
+
+  <div class="step">
+    <div class="step-circle rose" style="background:#8b1a38">1</div>
+    <div class="step-content">
+      <strong>No Indian study has evaluated MBRP specifically in a district-level de-addiction IPD</strong>
+      The two Indian studies identified (Solomon et al., 2024; Riya et al., 2025) used MBSR rather than MBRP, and neither was conducted at a district government hospital with a mixed opioid-alcohol dependence population. MBRP, being specifically designed for addictive behaviours, is theoretically and mechanistically more appropriate for this population than MBSR.
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-circle rose" style="background:#8b1a38">2</div>
+    <div class="step-content">
+      <strong>No Indian study has used FFMQ + BIS-11 + craving measure together as a multi-domain outcome battery</strong>
+      Existing Indian studies have used either stress alone (PSS) or craving alone (ACQ-SF-R). None has simultaneously measured the five domains most relevant to relapse risk — mindfulness capacity, impulsivity, craving, depression, and stress — which is essential for understanding the full spectrum of B-MBRP's effects.
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-circle rose" style="background:#8b1a38">3</div>
+    <div class="step-content">
+      <strong>No Indian study with a waitlist control design in this population and setting</strong>
+      Without a control condition, it is impossible to determine whether observed changes are due to the mindfulness intervention or to the natural improvement that occurs with any inpatient admission (detoxification, rest, nutrition, structured environment). A waitlist control is the minimum methodological standard to attribute change to the specific intervention.
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-circle rose" style="background:#8b1a38">4</div>
+    <div class="step-content">
+      <strong>No Indian study has included a post-discharge follow-up in a mindfulness + substance dependence design</strong>
+      All existing Indian MBI studies measure outcomes only at the end of the inpatient stay. Whether mindfulness skills are maintained and whether they translate to reduced relapse in the first 4–6 weeks post-discharge — the highest-risk period — has not been examined in an Indian sample.
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-circle rose" style="background:#8b1a38">5</div>
+    <div class="step-content">
+      <strong>Absence of LMIC-specific data for brief inpatient MBRP adaptations</strong>
+      The 2024 Brazilian feasibility study noted that "there is a dearth of studies examining MBRP's feasibility and efficacy in low- and middle-income countries." India, as a LMIC with a distinct linguistic, cultural, and healthcare-infrastructure context, requires its own evidence base — and district-level hospitals represent the majority of India's de-addiction treatment capacity.
+    </div>
+  </div>
+
+  <div class="hl rose">📌 Research Gap Statement: No published study has evaluated a brief, individually-delivered MBRP-adapted intervention with a waitlist control design, a multi-domain outcome battery (FFMQ + BIS-11 + craving + PHQ-9 + PSS), and a post-discharge follow-up in a district-level Indian de-addiction IPD — making this study uniquely positioned to fill a specific, documented, and clinically important gap.</div>
+</section>
+
+<!-- ═══ 04 RATIONALE ═══ -->
+<section id="rationale">
+  <div class="sec-head">
+    <div class="sec-icon amber">💡</div>
+    <div class="sec-head-text"><div class="num">Section 04</div><h2>Rationale and Justification</h2></div>
+  </div>
+
+  <div class="g2">
+    <div class="card amber">
+      <div class="card-label">Why Mindfulness for Substance Dependence?</div>
+      <p>Impulsive reactivity to craving and negative affect is the primary proximal mechanism of relapse. Mindfulness directly targets this mechanism by training the capacity to observe craving as a transient mental event rather than an automatic trigger for use. Neurobiologically, mindfulness practice strengthens prefrontal cortex regulation over amygdala reactivity — the precise neural deficit that chronic substance use produces.</p>
+    </div>
+    <div class="card amber">
+      <div class="card-label">Why MBRP Specifically over MBSR or MBCT?</div>
+      <p>MBSR was designed for stress reduction in medical populations. MBCT was designed for depressive relapse prevention. MBRP was specifically designed for substance use disorder relapse prevention, incorporating trigger mapping, urge surfing, SOBER breathing space, and permission-giving thought defusion — all directly targeted at the addictive behaviour cycle. It is the most appropriate protocol for this population.</p>
+    </div>
+    <div class="card teal">
+      <div class="card-label">Why a Brief Adapted Protocol (6 sessions)?</div>
+      <p>The full MBRP protocol (8 weekly sessions) was developed for outpatient aftercare. Indian district hospital admissions typically last 3–5 weeks. A 6-session brief inpatient adaptation (one session every 3–4 days) is feasible within this window, can be delivered individually to accommodate variable discharge dates, and is framed appropriately as a pilot study. Evidence from brief inpatient MBI studies supports efficacy even with condensed formats.</p>
+    </div>
+    <div class="card teal">
+      <div class="card-label">Why This Setting?</div>
+      <p>District hospital de-addiction IPDs represent the primary treatment access point for substance-dependent patients in semi-urban and rural India. Research conducted at this level generates findings that are directly applicable to the healthcare context where the majority of Indian patients actually receive care — unlike tertiary centre studies (NIMHANS, AIIMS) whose findings may not transfer to district-level resource constraints.</p>
+    </div>
+    <div class="card purple">
+      <div class="card-label">Why a Waitlist Control Rather Than No Control?</div>
+      <p>A single-group pre-post design cannot separate the effect of the intervention from the natural improvement that occurs during any inpatient admission. A waitlist control — where the control group receives TAU and is measured at the same time points — allows confident attribution of observed change specifically to B-MBRP. This is the strongest feasible design in an IPD context where a no-treatment control would be unethical.</p>
+    </div>
+    <div class="card purple">
+      <div class="card-label">Why Add a 4-Week Follow-Up?</div>
+      <p>The first 4 weeks post-discharge are the highest-risk period for relapse. Measuring outcomes only at discharge (end of IPD stay) cannot determine whether mindfulness skills are retained and applied in the real world. A brief follow-up assessment (phone or OPD) at 4–6 weeks adds the single most clinically meaningful data point — whether the intervention effects are maintained when patients face real-world triggers.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 05 OBJECTIVES ═══ -->
+<section id="objectives">
+  <div class="sec-head">
+    <div class="sec-icon blue">🎯</div>
+    <div class="sec-head-text"><div class="num">Section 05</div><h2>Objectives</h2></div>
+  </div>
+
+  <h3>Primary Objectives</h3>
+  <div class="step">
+    <div class="step-circle">PO1</div>
+    <div class="step-content"><strong>To evaluate the efficacy of B-MBRP on craving</strong> in substance-dependent patients, comparing experimental (B-MBRP + TAU) versus waitlist control (TAU only) groups at post-assessment</div>
+  </div>
+  <div class="step">
+    <div class="step-circle">PO2</div>
+    <div class="step-content"><strong>To evaluate the efficacy of B-MBRP on impulsivity</strong> (total and subscale scores) in substance-dependent patients at post-assessment, comparing the two groups</div>
+  </div>
+  <div class="step">
+    <div class="step-circle">PO3</div>
+    <div class="step-content"><strong>To evaluate the efficacy of B-MBRP on mindfulness capacity</strong> (FFMQ total and subscale scores), comparing experimental and waitlist control groups at post-assessment</div>
+  </div>
+
+  <h3>Secondary Objectives</h3>
+  <div class="step">
+    <div class="step-circle teal">SO1</div>
+    <div class="step-content"><strong>To examine the effect of B-MBRP on depression severity</strong> (PHQ-9) and perceived stress (PSS-10) at post-assessment</div>
+  </div>
+  <div class="step">
+    <div class="step-circle teal">SO2</div>
+    <div class="step-content"><strong>To assess maintenance of intervention effects</strong> at a 4-week post-discharge follow-up in the experimental group on primary outcome measures</div>
+  </div>
+  <div class="step">
+    <div class="step-circle teal">SO3</div>
+    <div class="step-content"><strong>To identify baseline predictors of treatment response</strong> — whether initial mindfulness, impulsivity, or craving severity predicts degree of change following B-MBRP</div>
+  </div>
+  <div class="step">
+    <div class="step-circle teal">SO4</div>
+    <div class="step-content"><strong>To examine whether B-MBRP effects differ by substance type</strong> (alcohol vs. opioid dependence) as an exploratory secondary comparison</div>
+  </div>
+  <div class="step">
+    <div class="step-circle teal">SO5</div>
+    <div class="step-content"><strong>To assess participant acceptability and engagement</strong> with the B-MBRP protocol in this population — session attendance, home practice compliance, and subjective feedback</div>
+  </div>
+</section>
+
+<!-- ═══ 06 HYPOTHESES ═══ -->
+<section id="hypotheses">
+  <div class="sec-head">
+    <div class="sec-icon purple">🔬</div>
+    <div class="sec-head-text"><div class="num">Section 06</div><h2>Hypotheses</h2></div>
+  </div>
+
+  <p>All primary hypotheses are directional (one-tailed for primary outcomes where direction is clearly predicted by theory and prior evidence). Exploratory hypotheses are non-directional.</p>
+
+  <h3>Primary Hypotheses (H1–H3)</h3>
+
+  <div class="hyp">
+    <div class="hyp-tag h1">H1</div>
+    <div class="hyp-text">
+      <strong>Craving:</strong> Substance-dependent patients who receive B-MBRP + TAU will show a significantly greater reduction in craving scores (Penn Alcohol Craving Scale / OCDUS) at post-assessment compared to those who receive TAU alone.
+      <div class="hyp-dir">Directional: Experimental &lt; Control at post · Mechanism: Urge surfing and mindful observation of craving reduce craving intensity and urgency</div>
+    </div>
+  </div>
+
+  <div class="hyp">
+    <div class="hyp-tag h1">H2</div>
+    <div class="hyp-text">
+      <strong>Impulsivity:</strong> Patients in the experimental group will show significantly greater reduction in BIS-11 total impulsivity scores, specifically on the Motor Impulsivity and Non-planning Impulsivity subscales, at post-assessment compared to the waitlist control group.
+      <div class="hyp-dir">Directional: Experimental &lt; Control at post · Mechanism: SOBER breathing space and mindful responding train response inhibition and delay of gratification</div>
+    </div>
+  </div>
+
+  <div class="hyp">
+    <div class="hyp-tag h1">H3</div>
+    <div class="hyp-text">
+      <strong>Mindfulness:</strong> Patients in the experimental group will show significantly greater increase in FFMQ total mindfulness scores at post-assessment, particularly on the Non-reactivity and Acting with Awareness subscales, compared to the waitlist control group.
+      <div class="hyp-dir">Directional: Experimental &gt; Control at post · Mechanism: Direct mindfulness skill training through formal practice and SOBER exercises</div>
+    </div>
+  </div>
+
+  <h3>Secondary Hypotheses (H4–H6)</h3>
+
+  <div class="hyp">
+    <div class="hyp-tag h1">H4</div>
+    <div class="hyp-text">
+      <strong>Depression and Stress:</strong> The experimental group will show significantly greater reduction in PHQ-9 depression scores and PSS-10 perceived stress scores at post-assessment compared to the waitlist control group.
+      <div class="hyp-dir">Directional: Experimental &lt; Control at post</div>
+    </div>
+  </div>
+
+  <div class="hyp">
+    <div class="hyp-tag h1">H5</div>
+    <div class="hyp-text">
+      <strong>Follow-up Maintenance:</strong> Gains on FFMQ, BIS-11, and craving scores achieved by the experimental group at post-assessment will be maintained at the 4-week follow-up assessment, with no significant deterioration from post to follow-up.
+      <div class="hyp-dir">Non-directional: Tests whether effects are durable beyond the inpatient stay</div>
+    </div>
+  </div>
+
+  <div class="hyp">
+    <div class="hyp-tag exp">EXP</div>
+    <div class="hyp-text">
+      <strong>Exploratory — Substance Type:</strong> The magnitude of B-MBRP effects (craving reduction, impulsivity reduction, mindfulness increase) will not differ significantly between opioid-dependent and alcohol-dependent patients, supporting the transdiagnostic applicability of MBRP.
+      <div class="hyp-dir">Exploratory: No directional prediction — genuinely open question in the Indian literature</div>
+    </div>
+  </div>
+
+  <h3>Null Hypotheses (for formal testing)</h3>
+  <div class="hyp">
+    <div class="hyp-tag h0">H0</div>
+    <div class="hyp-text">There will be no significant difference between the experimental (B-MBRP + TAU) and waitlist control (TAU only) groups on craving, impulsivity, or mindfulness scores at post-assessment after controlling for pre-assessment scores.</div>
+  </div>
+</section>
+
+<!-- ═══ 07 DESIGN ═══ -->
+<section id="design">
+  <div class="sec-head">
+    <div class="sec-icon blue">🏗️</div>
+    <div class="sec-head-text"><div class="num">Section 07</div><h2>Study Design</h2></div>
+  </div>
+
+  <div class="card navy">
+    <div class="card-label">Design Classification</div>
+    <p><strong>Pilot Quasi-Experimental Study with Waitlist Control — Pre-Test Post-Test Design with Follow-Up</strong></p>
+    <p style="font-size:14px;color:#b0c8e8;margin-bottom:0">This is a quasi-experimental design (not a true RCT) because allocation is by admission cohort rather than individual randomisation. This is standard, accepted, and published for inpatient intervention research where randomising individual patients to different conditions within the same ward creates contamination risk.</p>
+  </div>
+
+  <h3>Design Schematic</h3>
+  <table>
+    <thead><tr><th>Group</th><th>Pre-Assessment (T1)</th><th>Weeks 1–3</th><th>Post-Assessment (T2)</th><th>Follow-Up (T3)</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>Experimental</strong><br><span style="font-size:12px;color:var(--muted)">Cohort 2 — B-MBRP + TAU</span></td>
+        <td>All tools administered<br>Day 7–10 post-admission</td>
+        <td>6 B-MBRP sessions (every 3–4 days) + routine TAU</td>
+        <td>All tools re-administered within 3 days of Session 6</td>
+        <td>FFMQ + BIS-11 + Craving + PHQ-9 at 4–6 weeks post-discharge</td>
+      </tr>
+      <tr>
+        <td><strong>Waitlist Control</strong><br><span style="font-size:12px;color:var(--muted)">Cohort 1 — TAU only</span></td>
+        <td>All tools administered<br>Day 7–10 post-admission</td>
+        <td>Routine TAU only (detox + pharmacotherapy + standard psychoeducation)</td>
+        <td>All tools re-administered at matched time point (Day 28–30)</td>
+        <td>Offered B-MBRP as ethical obligation after data collection</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Why Cohort-Based Allocation?</h3>
+  <p>In an inpatient ward where patients are housed together, individual randomisation creates contamination — patients in the experimental group discussing sessions with control-group patients, or the therapeutic atmosphere affecting the control group indirectly. Cohort allocation (first admission batch = control, next batch = experimental) prevents this contamination while still providing a matched comparison group. This approach has been used in all published inpatient MBRP studies.</p>
+
+  <div class="compare">
+    <div class="compare-col no">
+      <div class="col-hd">❌ Why Not Single-Group Pre-Post</div>
+      Cannot determine whether change is due to B-MBRP or to natural improvement from detoxification, rest, and structured ward environment. Cannot publish findings as evidence of intervention efficacy.
+    </div>
+    <div class="compare-col yes">
+      <div class="col-hd">✅ Why Waitlist Control</div>
+      Both groups experience the inpatient environment; therefore any difference between them at post-assessment can be attributed specifically to B-MBRP. Ethical — control group is not denied treatment, just the mindfulness add-on, and receives it afterwards.
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 08 SAMPLE ═══ -->
+<section id="sample">
+  <div class="sec-head">
+    <div class="sec-icon teal">👥</div>
+    <div class="sec-head-text"><div class="num">Section 08</div><h2>Sample, Setting, and Sampling</h2></div>
+  </div>
+
+  <h3>Setting</h3>
+  <div class="card teal">
+    <div class="card-label">Study Site</div>
+    <p><strong>De-addiction Inpatient Department (IPD) / OPD, District Hospital, Guna, Madhya Pradesh</strong></p>
+    <p>Assessment sessions conducted in a quiet consultation room or designated therapy space within the ward. B-MBRP sessions conducted in the same space — private, undisturbed, with the researcher and patient only. The inpatient setting is ideal: patients are available, medically stable post-detox, not acutely intoxicated, and can be accessed across multiple sessions without requiring them to travel.</p>
+  </div>
+
+  <h3>Sample Size and Justification</h3>
+  <p>For a pilot quasi-experimental study with two groups and pre-post measurement, a minimum of <strong>N = 20 per group (total N = 40)</strong> is the standard recommendation in MBRP intervention pilot literature. This provides adequate power to detect <strong>medium-to-large effect sizes (Cohen's d ≥ 0.60)</strong>, which existing MBRP trials consistently report for craving (d=0.61), impulsivity (d=0.48), and mindfulness (d=0.72). To account for <strong>20–25% attrition</strong> (LAMA, medical complications, premature discharge), recruit 25 per group, targeting a final analysable sample of 20 per group (total N=40).</p>
+
+  <div class="card blue">
+    <div class="card-label">Recruitment Target: N = 50 → Analysable Sample: N = 40</div>
+    <p>Recruit 25 per cohort. Expect 4–5 dropouts per cohort due to LAMA (Leave Against Medical Advice), medical deterioration, or refusal to continue after consent. Final analysable sample of 20 per group is sufficient for a pilot study with exploratory-to-confirmatory framing.</p>
+  </div>
+
+  <h3>Sampling Method</h3>
+  <p><strong>Consecutive purposive sampling</strong> — all eligible patients admitted to the de-addiction IPD during the recruitment period are approached. This is the standard and appropriate method for clinical inpatient research. Random sampling from an inpatient ward is not feasible as the total eligible population at any one time is small.</p>
+
+  <h3>Inclusion Criteria</h3>
+  <ul>
+    <li>ICD-10 confirmed diagnosis of substance dependence — alcohol (F10.2x) or opioid (F11.2x) — confirmed by the treating psychiatrist</li>
+    <li>Age 18–55 years</li>
+    <li>Minimum 7 days post-admission at the time of pre-assessment (past acute withdrawal phase, medically stable)</li>
+    <li>Minimum 5th standard education or sufficient Hindi literacy to complete self-report tools</li>
+    <li>Expected to remain admitted for at least 3 weeks following pre-assessment (sufficient time for all 6 sessions)</li>
+    <li>Willing and able to provide written informed consent</li>
+    <li>Reachable by phone for follow-up assessment (has own phone or a family member's contact)</li>
+  </ul>
+
+  <h3>Exclusion Criteria</h3>
+  <ul>
+    <li>Comorbid psychotic disorder (F20–F29) — active psychosis would confound all self-report measures and make mindfulness training unsafe</li>
+    <li>Active suicidal ideation or behaviour at pre-assessment — requires psychiatric management, not psychological intervention</li>
+    <li>Clinically evident intellectual disability — precludes meaningful engagement with the B-MBRP protocol</li>
+    <li>Severe medical comorbidity preventing participation in sessions (e.g., Wernicke's encephalopathy, acute hepatic failure)</li>
+    <li>Prior formal mindfulness training (MBSR, MBCT, yoga-based mindfulness for more than 4 weeks) — ceiling effect on FFMQ baseline</li>
+    <li>Polysubstance dependence where neither alcohol nor opioids is the primary substance of dependence</li>
+    <li>Delirium or severe cognitive impairment at time of pre-assessment</li>
+    <li>Does not speak or understand Hindi (required for session delivery and all tools)</li>
+  </ul>
+</section>
+
+<!-- ═══ 09 TOOLS ═══ -->
+<section id="tools">
+  <div class="sec-head">
+    <div class="sec-icon purple">🔧</div>
+    <div class="sec-head-text"><div class="num">Section 09</div><h2>Assessment Tools — In Detail</h2></div>
+  </div>
+
+  <p>Five standardised, validated assessment tools are used alongside a self-designed sociodemographic and clinical proforma. Each tool is described below with its structure, scoring, psychometric properties, interpretation, and specific relevance to this study.</p>
+
+  <!-- TOOL 1: FFMQ -->
+  <div class="tool">
+    <div class="tool-head">
+      <div class="tool-icon" style="background:var(--sky)">🧘</div>
+      <div>
+        <div class="tool-name">Five Facet Mindfulness Questionnaire</div>
+        <div class="tool-abbr">FFMQ — Baer et al. (2006) · 39 items · 5-point Likert scale</div>
+      </div>
+      <div class="tool-badge pre-post">PRE + POST + FOLLOW-UP</div>
+    </div>
+    <div class="tool-body">
+      <h4>What It Measures</h4>
+      <p>FFMQ measures five distinct facets of mindfulness as a trait or dispositional quality. It is derived from a factor analysis across five existing mindfulness scales and is the most widely validated multidimensional mindfulness measure in clinical research.</p>
+      <div class="tool-grid">
+        <div class="tool-stat"><div class="ts-label">Observing</div><div class="ts-val">8 items — noticing internal/external experiences, sensations, thoughts, feelings without reacting</div></div>
+        <div class="tool-stat"><div class="ts-label">Describing</div><div class="ts-val">8 items — ability to label internal experiences with words</div></div>
+        <div class="tool-stat"><div class="ts-label">Acting with Awareness</div><div class="ts-val">8 items — attending to present activity vs. autopilot behaviour — MOST relevant to relapse</div></div>
+        <div class="tool-stat"><div class="ts-label">Non-judging of Inner Experience</div><div class="ts-val">8 items — refraining from evaluating thoughts and feelings as good or bad</div></div>
+        <div class="tool-stat"><div class="ts-label">Non-reactivity to Inner Experience</div><div class="ts-val">7 items — allowing thoughts and feelings to come and go without being swept away — MOST relevant to craving</div></div>
+        <div class="tool-stat"><div class="ts-label">Total Score Range</div><div class="ts-val">39–195 · Higher = greater mindfulness capacity</div></div>
+      </div>
+      <h4>Scoring</h4>
+      <p>Items rated 1 (never or very rarely true) to 5 (very often or always true). Some items are reverse-scored. Subscale scores and total score are computed by summing relevant items. No established cut-offs for clinical populations — used as a continuous variable for change measurement.</p>
+      <h4>Reliability and Validity</h4>
+      <p>Cronbach's alpha for total scale: 0.91. Subscale alphas: 0.75–0.91. Validated in Indian samples (Keng et al., 2011; used in Indian clinical psychology research since 2015). Sensitive to change following mindfulness interventions — FFMQ is the primary self-report outcome in all published MBRP trials.</p>
+      <h4>Why Used in This Study</h4>
+      <p>FFMQ is your <strong>primary intervention-specific outcome</strong>. B-MBRP directly trains mindfulness capacity. If the intervention works, FFMQ Non-reactivity and Acting with Awareness subscales should show the largest and most statistically significant change. If FFMQ does not change while other outcomes do, this suggests the mechanism of change may not be mindfulness per se — an important secondary finding.</p>
+      <div class="hl teal">Expected direction: FFMQ total and Non-reactivity subscale scores increase significantly in experimental group relative to control at post-assessment.</div>
+    </div>
+  </div>
+
+  <!-- TOOL 2: BIS-11 -->
+  <div class="tool">
+    <div class="tool-head">
+      <div class="tool-icon" style="background:#fce8ee">⚡</div>
+      <div>
+        <div class="tool-name">Barratt Impulsiveness Scale — 11</div>
+        <div class="tool-abbr">BIS-11 — Patton, Stanford & Barratt (1995) · 30 items · 4-point Likert scale</div>
+      </div>
+      <div class="tool-badge pre-post">PRE + POST + FOLLOW-UP</div>
+    </div>
+    <div class="tool-body">
+      <h4>What It Measures</h4>
+      <p>BIS-11 is the most widely used self-report measure of impulsivity, measuring three distinct but related components of impulsive behaviour.</p>
+      <div class="tool-grid">
+        <div class="tool-stat"><div class="ts-label">Attentional Impulsivity</div><div class="ts-val">8 items — difficulty focusing attention, making quick cognitive decisions, racing thoughts</div></div>
+        <div class="tool-stat"><div class="ts-label">Motor Impulsivity</div><div class="ts-val">11 items — acting without thinking, impulsive buying, responding without planning — MOST directly relevant to relapse</div></div>
+        <div class="tool-stat"><div class="ts-label">Non-planning Impulsivity</div><div class="ts-val">11 items — lack of future orientation, not thinking about consequences, living for the present — MOST relevant to recovery planning</div></div>
+        <div class="tool-stat"><div class="ts-label">Total Score Range</div><div class="ts-val">30–120 · Higher = greater impulsivity · Clinical cut-off: ≥72 indicates high impulsivity</div></div>
+      </div>
+      <h4>Scoring</h4>
+      <p>Items rated 1 (rarely/never) to 4 (almost always/always). 11 items are reverse-scored. Subscale and total scores summed. Total scores: &lt;52 low, 52–71 average, ≥72 high impulsivity.</p>
+      <h4>Reliability and Validity</h4>
+      <p>Cronbach's alpha: 0.79–0.83. Factor structure replicated across multiple languages including Hindi validation (Sharma et al., 2014). Extensively used in substance use research globally and in India. Sensitive to intervention effects — MBRP studies consistently show Motor and Non-planning subscale reductions.</p>
+      <h4>Why Used in This Study</h4>
+      <p>Impulsive responding to craving triggers is the primary behavioural mechanism of relapse. BIS-11 Motor Impulsivity directly measures the tendency to act without thinking — what happens when a trigger is encountered without mindfulness skills. The hypothesis that B-MBRP reduces Motor Impulsivity more than Non-planning or Attentional Impulsivity is theoretically motivated and testable at subscale level.</p>
+      <div class="hl rose">Expected direction: BIS-11 total and Motor Impulsivity subscale scores decrease significantly in experimental group at post-assessment.</div>
+    </div>
+  </div>
+
+  <!-- TOOL 3: CRAVING -->
+  <div class="tool">
+    <div class="tool-head">
+      <div class="tool-icon" style="background:var(--amber-bg)">🌊</div>
+      <div>
+        <div class="tool-name">Penn Alcohol Craving Scale / Obsessive Compulsive Drug Use Scale</div>
+        <div class="tool-abbr">PACS (Flannery et al., 1999) · 5 items · For alcohol · OCDUS (Bohn et al., 1995) · 13 items · For opioids/drugs</div>
+      </div>
+      <div class="tool-badge pre-post">PRE + POST + FOLLOW-UP</div>
+    </div>
+    <div class="tool-body">
+      <h4>What It Measures</h4>
+      <p><strong>PACS (Penn Alcohol Craving Scale):</strong> Used for alcohol-dependent patients. 5 items measuring the frequency, intensity, and duration of thoughts about alcohol and resistance to craving over the past week. Score range 0–30. Higher = more severe craving. Widely used in Indian alcohol research, validated and brief.</p>
+      <p><strong>OCDUS (Obsessive Compulsive Drug Use Scale):</strong> Used for opioid-dependent patients. 13 items across two subscales — Obsessive Preoccupation with drug use (thoughts, urges) and Interference with Life (how much craving disrupts daily functioning). Score range 0–40. Higher = more severe craving. The drug version of the Yale-Brown Obsessive Compulsive Scale.</p>
+      <h4>Which Tool to Use When</h4>
+      <p>Administer PACS for patients with primary alcohol dependence (F10.2x) and OCDUS for patients with primary opioid dependence (F11.2x). If studying a mixed sample, use both and analyse separately by substance type, OR use the Penn Craving Scale (general version) which is applicable across substance types.</p>
+      <h4>Why Used in This Study</h4>
+      <p>Craving reduction is the single most clinically meaningful outcome in de-addiction research — it is the primary proximal predictor of relapse. MBRP was specifically designed to target craving through urge surfing and mindful observation. If craving is not significantly reduced by B-MBRP, the intervention's core mechanism is challenged and the discussion must address this directly.</p>
+      <div class="hl amber">Expected direction: PACS/OCDUS scores decrease significantly in the experimental group at post-assessment, with maintenance at follow-up.</div>
+    </div>
+  </div>
+
+  <!-- TOOL 4: PHQ-9 -->
+  <div class="tool">
+    <div class="tool-head">
+      <div class="tool-icon" style="background:var(--purple-bg)">😔</div>
+      <div>
+        <div class="tool-name">Patient Health Questionnaire — 9</div>
+        <div class="tool-abbr">PHQ-9 — Kroenke, Spitzer & Williams (2001) · 9 items · 4-point Likert scale</div>
+      </div>
+      <div class="tool-badge pre-post">PRE + POST + FOLLOW-UP</div>
+    </div>
+    <div class="tool-body">
+      <h4>What It Measures</h4>
+      <p>PHQ-9 measures depression severity based on DSM criteria for Major Depressive Disorder. Each item corresponds to one DSM symptom, rated over the past 2 weeks.</p>
+      <div class="tool-grid">
+        <div class="tool-stat"><div class="ts-label">Score 0–4</div><div class="ts-val">Minimal depression — likely not clinically significant</div></div>
+        <div class="tool-stat"><div class="ts-label">Score 5–9</div><div class="ts-val">Mild depression — watchful waiting</div></div>
+        <div class="tool-stat"><div class="ts-label">Score 10–14</div><div class="ts-val">Moderate depression — treatment recommended</div></div>
+        <div class="tool-stat"><div class="ts-label">Score 15–27</div><div class="ts-val">Moderately severe to severe — active treatment and monitoring required</div></div>
+      </div>
+      <h4>Critical Clinical Rule</h4>
+      <div class="hl rose">⚠️ Item 9 asks about suicidal ideation. If the patient endorses any response other than "not at all" on Item 9 at any assessment point, the researcher must immediately inform the treating team and follow the hospital's suicide risk protocol. Document this procedure in your methodology.</div>
+      <h4>Why Used in This Study</h4>
+      <p>Negative affect and depression are the most common emotional triggers of relapse. Substance-dependent patients in early recovery commonly show depressive symptoms (partly as protracted withdrawal, partly as comorbidity). PHQ-9 serves as a <strong>secondary outcome</strong> measuring whether mindfulness practice reduces depressive symptomatology, and as a <strong>control variable</strong> ensuring that any FFMQ increases are not simply explained by mood improvement.</p>
+      <div class="hl purple">Expected direction: PHQ-9 scores decrease significantly in experimental group at post-assessment. Also watch for patients scoring ≥15 who may need psychiatric review before sessions.</div>
+    </div>
+  </div>
+
+  <!-- TOOL 5: PSS -->
+  <div class="tool">
+    <div class="tool-head">
+      <div class="tool-icon" style="background:var(--mint)">😰</div>
+      <div>
+        <div class="tool-name">Perceived Stress Scale — 10</div>
+        <div class="tool-abbr">PSS-10 — Cohen, Kamarck & Mermelstein (1983) · 10 items · 5-point Likert scale</div>
+      </div>
+      <div class="tool-badge pre-post">PRE + POST + FOLLOW-UP</div>
+    </div>
+    <div class="tool-body">
+      <h4>What It Measures</h4>
+      <p>PSS-10 measures the degree to which situations in one's life are appraised as stressful — the sense of being overwhelmed, unable to control things, and unable to cope. Not a measure of stressful life events themselves but of the subjective perception of stress. Score range 0–40. Scores 0–13 low, 14–26 moderate, 27–40 high perceived stress.</p>
+      <h4>Why Used in This Study</h4>
+      <p>Perceived stress is a primary precipitant of substance use — patients use to regulate stress rather than face it. MBRP teaches stress tolerance through mindful awareness, directly targeting the perceived stress response. PSS-10 is the most frequently used stress outcome in MBRP trials and has been used in the closest Indian study (Solomon et al., 2024). Including it allows direct comparison of your findings with existing Indian literature.</p>
+      <div class="hl teal">Expected direction: PSS-10 scores decrease significantly in experimental group at post-assessment.</div>
+    </div>
+  </div>
+
+  <!-- TOOL 6: PROFORMA -->
+  <div class="tool">
+    <div class="tool-head">
+      <div class="tool-icon" style="background:var(--bg)">📋</div>
+      <div>
+        <div class="tool-name">Sociodemographic and Clinical Proforma</div>
+        <div class="tool-abbr">Self-Designed · Researcher-Administered · Pre-Assessment Only</div>
+      </div>
+      <div class="tool-badge pre">PRE ONLY</div>
+    </div>
+    <div class="tool-body">
+      <h4>Contents</h4>
+      <div class="g2">
+        <div>
+          <h4>Sociodemographic Variables</h4>
+          <ul>
+            <li>Age (in years)</li>
+            <li>Gender</li>
+            <li>Education level (highest class completed)</li>
+            <li>Marital status (single / married / separated / widowed)</li>
+            <li>Occupation and employment status</li>
+            <li>Socioeconomic status (BG Prasad scale)</li>
+            <li>Religion and caste (optional — for sample description only)</li>
+            <li>Area of residence (urban / semi-urban / rural)</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Clinical Variables</h4>
+          <ul>
+            <li>Primary substance of dependence (alcohol / opioid / other)</li>
+            <li>ICD-10 diagnosis confirmed by treating psychiatrist</li>
+            <li>Duration of substance use (years)</li>
+            <li>Age at first use</li>
+            <li>Age at onset of dependence</li>
+            <li>Number of previous de-addiction admissions</li>
+            <li>Number of previous relapses</li>
+            <li>Days since last use at time of pre-assessment</li>
+            <li>Current medications (type, dose — for covariate control)</li>
+            <li>Family history of substance use disorders</li>
+            <li>Motivation for treatment (self-rated 1–10)</li>
+          </ul>
+        </div>
+      </div>
+      <p>The proforma is administered once at pre-assessment by the researcher. Responses are entered onto a coded data sheet (no names). This data is used to describe the sample and to check baseline equivalence between the two groups. Do not re-administer at post-assessment — this information does not change meaningfully over 3 weeks.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 10 PRE vs POST ═══ -->
+<section id="pre-post">
+  <div class="sec-head">
+    <div class="sec-icon teal">⏱️</div>
+    <div class="sec-head-text"><div class="num">Section 10</div><h2>What is Administered at Pre vs. Post vs. Follow-up</h2></div>
+  </div>
+
+  <table>
+    <thead>
+      <tr><th>Tool</th><th>Pre-Assessment (T1)<br>Day 7–10</th><th>Post-Assessment (T2)<br>Day 28–32</th><th>Follow-Up (T3)<br>4–6 weeks post-discharge</th><th>Both Groups?</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Sociodemographic + Clinical Proforma</strong></td><td>✅ Yes</td><td>❌ No</td><td>❌ No</td><td>Both</td></tr>
+      <tr><td><strong>DAST-20 / AUDIT</strong> (severity)</td><td>✅ Yes</td><td>❌ No (baseline characterisation only)</td><td>❌ No</td><td>Both</td></tr>
+      <tr><td><strong>FFMQ</strong> (mindfulness)</td><td>✅ Yes</td><td>✅ Yes</td><td>✅ Yes (experimental only)</td><td>Both at T1+T2 · Experimental at T3</td></tr>
+      <tr><td><strong>BIS-11</strong> (impulsivity)</td><td>✅ Yes</td><td>✅ Yes</td><td>✅ Yes (experimental only)</td><td>Both at T1+T2 · Experimental at T3</td></tr>
+      <tr><td><strong>PACS / OCDUS</strong> (craving)</td><td>✅ Yes</td><td>✅ Yes</td><td>✅ Yes (experimental only)</td><td>Both at T1+T2 · Experimental at T3</td></tr>
+      <tr><td><strong>PHQ-9</strong> (depression)</td><td>✅ Yes</td><td>✅ Yes</td><td>✅ Yes (experimental only)</td><td>Both at T1+T2 · Experimental at T3</td></tr>
+      <tr><td><strong>PSS-10</strong> (stress)</td><td>✅ Yes</td><td>✅ Yes</td><td>✅ Yes (experimental only)</td><td>Both at T1+T2 · Experimental at T3</td></tr>
+      <tr><td><strong>Session Feedback Form</strong></td><td>—</td><td>✅ Yes (after Session 6)</td><td>—</td><td>Experimental only</td></tr>
+    </tbody>
+  </table>
+
+  <div class="g2" style="margin-top:20px">
+    <div class="card teal">
+      <div class="card-label">Why DAST-20/AUDIT Only at Pre?</div>
+      Severity of dependence is a baseline characteristic used to describe your sample and check group equivalence. It does not change meaningfully within a 3-week inpatient admission — patients are not using during this period, so severity scores would not reflect any real change in dependence severity. Re-administering it at post would produce spuriously reduced scores simply because the patient has not used for 3 weeks.
+    </div>
+    <div class="card teal">
+      <div class="card-label">Why Follow-Up Only for Experimental Group?</div>
+      The ethical obligation at the end of data collection is to offer B-MBRP to the waitlist control group. By the time of T3 (4–6 weeks post-discharge), some control-group patients will have already received B-MBRP as part of this offer, making their T3 scores uninterpretable. The experimental group T3 serves to test maintenance of intervention gains during the highest-risk relapse window.
+    </div>
+  </div>
+
+  <h3>Estimated Administration Time per Session</h3>
+  <table>
+    <thead><tr><th>Assessment Point</th><th>Tools</th><th>Estimated Time</th><th>Mode</th></tr></thead>
+    <tbody>
+      <tr><td>T1 — Pre</td><td>Proforma + DAST-20/AUDIT + FFMQ + BIS-11 + PACS/OCDUS + PHQ-9 + PSS-10</td><td>45–60 minutes</td><td>Face-to-face · Researcher assists with low-literacy patients</td></tr>
+      <tr><td>T2 — Post</td><td>FFMQ + BIS-11 + PACS/OCDUS + PHQ-9 + PSS-10 + Session Feedback</td><td>30–40 minutes</td><td>Face-to-face</td></tr>
+      <tr><td>T3 — Follow-Up</td><td>FFMQ + BIS-11 + PACS/OCDUS + PHQ-9 + PSS-10</td><td>25–35 minutes</td><td>Phone call (researcher reads items aloud) or OPD visit</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ═══ 11 INTERVENTION ═══ -->
+<section id="intervention">
+  <div class="sec-head">
+    <div class="sec-icon amber">🧘</div>
+    <div class="sec-head-text"><div class="num">Section 11</div><h2>The B-MBRP Intervention</h2></div>
+  </div>
+
+  <div class="card navy">
+    <div class="card-label">Protocol Summary</div>
+    <p style="color:white"><strong>6 individual sessions × 45–60 minutes each · Delivered every 3–4 days over 3 weeks · In Hindi · By the researcher under supervisor guidance</strong></p>
+    <p style="color:rgba(255,255,255,0.7);font-size:14px;margin-bottom:0">Adapted from Bowen, Chawla & Marlatt (2011) MBRP manual for inpatient individual delivery. Sessions use the same core principles and techniques as original MBRP but condense the content into 6 units feasible within a typical IPD stay, and convert from group to individual format to accommodate variable admission/discharge schedules.</p>
+  </div>
+
+  <table>
+    <thead><tr><th>#</th><th>Session Title</th><th>Core Technique</th><th>Duration</th><th>Home Practice</th></tr></thead>
+    <tbody>
+      <tr><td><strong>1</strong></td><td>Automatic Pilot and Mindful Awareness</td><td>Murmura/Raisin Exercise · Brief Body Scan</td><td>50 min</td><td>5-min body scan daily · Notice one automatic behaviour</td></tr>
+      <tr><td><strong>2</strong></td><td>Triggers, Craving and SOBER Breathing Space</td><td>Trigger Mapping · SOBER (Stop-Observe-Breathe-Expand-Respond)</td><td>50 min</td><td>Use SOBER when triggered · Record in diary</td></tr>
+      <tr><td><strong>3</strong></td><td>Mindfulness of Breath — Building Daily Practice</td><td>15-minute Breath Meditation · Mindful Daily Activity</td><td>50 min</td><td>15-min breath meditation + one mindful daily activity</td></tr>
+      <tr><td><strong>4</strong></td><td>Difficult Emotions and Urge Surfing</td><td>Urge Surfing · Mountain Meditation</td><td>55 min</td><td>Urge surf when craving/emotion arises · Log outcome</td></tr>
+      <tr><td><strong>5</strong></td><td>Thoughts Are Not Facts — Cognitive Defusion</td><td>Leaves on a Stream · Permission-Giving Thought Work · AVE discussion</td><td>50 min</td><td>Notice 3 permission-giving thoughts daily · Write defused version</td></tr>
+      <tr><td><strong>6</strong></td><td>Relapse Prevention Planning and Sustainable Practice</td><td>Written Relapse Prevention Plan · Post-Discharge Practice Plan · Programme Review</td><td>60 min</td><td>Post-discharge: 15-min daily practice · Use plan when at risk</td></tr>
+    </tbody>
+  </table>
+
+  <div class="hl">📌 All session materials — guided meditation scripts, worksheets, home practice diary, and relapse prevention plan template — are prepared in Hindi before data collection begins. Prepare these in the first month of the project.</div>
+</section>
+
+<!-- ═══ 12 PROCEDURE ═══ -->
+<section id="procedure">
+  <div class="sec-head">
+    <div class="sec-icon blue">📝</div>
+    <div class="sec-head-text"><div class="num">Section 12</div><h2>Step-by-Step Procedure</h2></div>
+  </div>
+
+  <div class="phase">
+    <div class="phase-line"><div class="phase-dot blue">1</div><div class="phase-connector"></div></div>
+    <div class="phase-content">
+      <h4>Screening and Recruitment</h4>
+      <p>Liaise with the treating psychiatrist and ward nursing staff to identify newly admitted patients who may be eligible. Screen all new admissions against inclusion/exclusion criteria. Approach eligible patients on Day 5–6 of admission (before pre-assessment window) to introduce the study, explain it informally, and give them time to consider participation before pre-assessment on Day 7–10. Do not rush consent on the day of screening.</p>
+    </div>
+  </div>
+
+  <div class="phase">
+    <div class="phase-line"><div class="phase-dot teal">2</div><div class="phase-connector"></div></div>
+    <div class="phase-content">
+      <h4>Informed Consent (Day 6–7)</h4>
+      <p>Meet with the patient in a private space. Explain the study purpose, what participation involves (assessment + 6 sessions), that participation is voluntary, that refusal or withdrawal does not affect their treatment in any way, that all data is confidential and stored anonymously, and their right to withdraw at any point. Obtain written signature on the consent form (Hindi version for Hindi-medium patients). Provide a copy. If the patient cannot write, a thumb impression witnessed by a staff member is acceptable.</p>
+    </div>
+  </div>
+
+  <div class="phase">
+    <div class="phase-line"><div class="phase-dot amber">3</div><div class="phase-connector"></div></div>
+    <div class="phase-content">
+      <h4>Pre-Assessment — T1 (Day 7–10)</h4>
+      <p>Administer the full pre-assessment battery in a single sitting of 45–60 minutes in a quiet room. Sequence: Proforma first (establishes rapport), then DAST-20/AUDIT (clinical familiarity), then FFMQ, BIS-11, PACS/OCDUS, PHQ-9, PSS-10. For low-literacy patients, read items aloud and record responses — note this in your methodology. Check PHQ-9 Item 9 immediately after administration. Assign the participant a unique code number. Store data in coded form only.</p>
+    </div>
+  </div>
+
+  <div class="phase">
+    <div class="phase-line"><div class="phase-dot purple">4</div><div class="phase-connector"></div></div>
+    <div class="phase-content">
+      <h4>B-MBRP Sessions — Experimental Group Only (Days 10–30)</h4>
+      <p>Deliver 6 sessions at a frequency of one session every 3–4 days. Maintain a session log for each participant recording: date, session number, duration, patient attendance, adherence to protocol, home practice reported, and any significant clinical observations. If a session is missed due to a medical procedure or ward logistics, reschedule within 2 days — do not abandon the protocol. If a patient misses 2 consecutive sessions without rescheduling, document this as a protocol deviation.</p>
+    </div>
+  </div>
+
+  <div class="phase">
+    <div class="phase-line"><div class="phase-dot rose" style="background:#8b1a38">5</div><div class="phase-connector"></div></div>
+    <div class="phase-content">
+      <h4>Post-Assessment — T2 (Days 28–32 for experimental · Day 28–30 for control)</h4>
+      <p>Administer the post-assessment battery within 3 days of Session 6 completion for experimental participants, or at the matched time point for control participants. Administer FFMQ, BIS-11, PACS/OCDUS, PHQ-9, PSS-10 and the Session Feedback Form (experimental group only). Record participant code, date, and any missing data. Check PHQ-9 Item 9 again.</p>
+    </div>
+  </div>
+
+  <div class="phase">
+    <div class="phase-line"><div class="phase-dot blue">6</div><div class="phase-connector"></div></div>
+    <div class="phase-content">
+      <h4>Follow-Up — T3 (Experimental Group · 4–6 Weeks Post-Discharge)</h4>
+      <p>Contact experimental group participants by phone at 4–6 weeks post-discharge. If phone is unavailable, an OPD visit at their next scheduled follow-up serves as the contact point. Read all T3 tools aloud over phone and record responses. If the participant cannot be contacted after 3 attempts on different days, document as lost to follow-up. Analyse T3 data on an intention-to-treat basis where possible.</p>
+    </div>
+  </div>
+
+  <div class="phase">
+    <div class="phase-line"><div class="phase-dot teal">7</div><div class="phase-connector"></div></div>
+    <div class="phase-content">
+      <h4>B-MBRP Offered to Waitlist Control</h4>
+      <p>After data collection from both cohorts is complete, offer B-MBRP to the waitlist control group participants as an ethical obligation. This is stated in the consent form. Document delivery in the session log. This data is not part of your main analysis but can be briefly described as a service delivery component.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 13 DATA COLLECTION ═══ -->
+<section id="datacollection">
+  <div class="sec-head">
+    <div class="sec-icon teal">📊</div>
+    <div class="sec-head-text"><div class="num">Section 13</div><h2>Data Collection — How Much and How</h2></div>
+  </div>
+
+  <h3>How Much Data Will You Collect?</h3>
+  <table>
+    <thead><tr><th>Data Type</th><th>Per Participant</th><th>Total (N=40 analysable)</th></tr></thead>
+    <tbody>
+      <tr><td>Sociodemographic/Clinical Proforma</td><td>1 sheet (~25 variables)</td><td>40 proformas</td></tr>
+      <tr><td>FFMQ (39 items)</td><td>3 administrations (T1, T2, T3 for experimental)</td><td>~100 FFMQ datasets</td></tr>
+      <tr><td>BIS-11 (30 items)</td><td>3 administrations</td><td>~100 BIS-11 datasets</td></tr>
+      <tr><td>PACS (5 items) / OCDUS (13 items)</td><td>3 administrations</td><td>~100 craving datasets</td></tr>
+      <tr><td>PHQ-9 (9 items)</td><td>3 administrations</td><td>~100 PHQ-9 datasets</td></tr>
+      <tr><td>PSS-10 (10 items)</td><td>3 administrations</td><td>~100 PSS-10 datasets</td></tr>
+      <tr><td>DAST-20/AUDIT</td><td>1 administration (T1 only)</td><td>40 severity datasets</td></tr>
+      <tr><td>Session logs (experimental)</td><td>6 session logs per participant</td><td>120 session logs</td></tr>
+      <tr><td>Session Feedback Form</td><td>1 at T2 (experimental only)</td><td>20 feedback forms</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Data Entry and Storage</h3>
+  <ul>
+    <li>All data entered into a <strong>password-protected SPSS data file</strong> within 48 hours of each assessment. Never enter data from memory — enter from the paper sheet.</li>
+    <li>Paper sheets stored in a <strong>locked drawer/cabinet</strong> accessible only to the researcher and supervisor. Sheets are labelled with participant code only — never names.</li>
+    <li>A <strong>master code key</strong> (linking participant code to name and contact) is stored separately from the data — in a different locked location. This is the only document with identifying information.</li>
+    <li>Data backed up to a separate USB drive or cloud storage (encrypted) after every 5 new participants.</li>
+    <li>Session logs stored with the researcher's working files, labelled by code only.</li>
+  </ul>
+
+  <h3>Handling Missing Data</h3>
+  <ul>
+    <li>If a participant misses fewer than 5 items on any tool, use mean imputation (replace missing item with the mean of their other items on that subscale).</li>
+    <li>If a participant misses more than 5 items on any tool, mark the tool as incomplete for that administration and use available-case analysis.</li>
+    <li>Participants who complete T1 but not T2 are included in intention-to-treat analysis using their T1 score carried forward — document this as a sensitivity analysis.</li>
+    <li>Report the total number of missing data points and the pattern of missingness in your Results chapter.</li>
+  </ul>
+
+  <h3>Attrition Management</h3>
+  <div class="card rose">
+    <div class="card-label">Expected Attrition Sources and Management</div>
+    <ul>
+      <li><strong>LAMA (Leave Against Medical Advice):</strong> Most common attrition source in Indian IPD settings. Recruit 25 per cohort to account for this. Document LAMA dates and compare LAMA patients vs. completers on baseline variables.</li>
+      <li><strong>Medical complications:</strong> Medical deterioration requiring transfer or intensive care — exclude from analysis if they cannot complete T2 assessment.</li>
+      <li><strong>Withdrawal of consent:</strong> Respect immediately. Remove their data from analysis. Document in consort flow chart.</li>
+      <li><strong>Loss to follow-up at T3:</strong> Expected to be 20–30% — document and report, do not impute T3 data.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ═══ 14 ANALYSIS ═══ -->
+<section id="analysis">
+  <div class="sec-head">
+    <div class="sec-icon purple">📈</div>
+    <div class="sec-head-text"><div class="num">Section 14</div><h2>Analysis Plan</h2></div>
+  </div>
+
+  <h3>Step 1 — Preliminary and Descriptive Analysis</h3>
+  <ul>
+    <li>Descriptive statistics (mean, SD, frequency, range) for all sociodemographic and baseline clinical variables</li>
+    <li>Normality testing: <strong>Shapiro-Wilk test</strong> for all continuous outcome variables (n &lt; 50, Shapiro-Wilk is preferred over Kolmogorov-Smirnov)</li>
+    <li>Baseline equivalence check: <strong>Independent samples t-test</strong> (parametric) or <strong>Mann-Whitney U</strong> (non-parametric) on all pre-assessment scores to confirm no significant difference between experimental and waitlist control groups at T1 — this is essential for a quasi-experimental design and must be reported in your Results</li>
+    <li>Consort flow diagram: report recruitment, screening, enrollment, attrition, and final analysis N for both groups</li>
+  </ul>
+
+  <h3>Step 2 — Primary Between-Group Analysis (Main Hypotheses)</h3>
+  <table>
+    <thead><tr><th>Hypothesis</th><th>Outcome</th><th>Analysis</th><th>Software Command</th></tr></thead>
+    <tbody>
+      <tr><td>H1 — Craving</td><td>PACS / OCDUS post-score</td><td><strong>ANCOVA</strong> — post-score as dependent variable, group (experimental/control) as fixed factor, pre-score as covariate</td><td>SPSS: <code>Analyze → GLM → Univariate</code></td></tr>
+      <tr><td>H2 — Impulsivity</td><td>BIS-11 total + Motor subscale post-score</td><td>ANCOVA — same structure. Run separately for total and each subscale</td><td>SPSS: <code>GLM post_BIS BY group WITH pre_BIS</code></td></tr>
+      <tr><td>H3 — Mindfulness</td><td>FFMQ total + Non-reactivity subscale post-score</td><td>ANCOVA — FFMQ total, then subscales separately as dependent variables</td><td>SPSS: <code>GLM post_FFMQ BY group WITH pre_FFMQ</code></td></tr>
+      <tr><td>H4 — Depression/Stress</td><td>PHQ-9 and PSS-10 post-scores</td><td>ANCOVA for each separately</td><td>Same structure</td></tr>
+    </tbody>
+  </table>
+
+  <div class="hl blue"><strong>Why ANCOVA over simple t-test?</strong> ANCOVA statistically controls for pre-assessment scores as a covariate, giving a cleaner, more precise estimate of the intervention effect. Even if baseline equivalence is established, ANCOVA is the recommended analysis for pre-post designs because it reduces error variance and increases statistical power. This is the standard analysis in all published MBRP trials.</div>
+
+  <h3>Step 3 — Within-Group Pre-Post Analysis</h3>
+  <ul>
+    <li>Run <strong>paired samples t-test</strong> (or Wilcoxon signed-rank if non-normal) separately for each group on each outcome variable: T1 vs. T2</li>
+    <li>This shows whether each group improved individually, independent of between-group comparison</li>
+    <li>Expected: Both groups may show improvement (due to detoxification benefits), but experimental group shows significantly greater improvement — this is the argument for B-MBRP specifically</li>
+  </ul>
+
+  <h3>Step 4 — Follow-Up Analysis (Experimental Group Only)</h3>
+  <ul>
+    <li>Paired samples t-test: T2 (post) vs. T3 (follow-up) — tests whether gains are maintained</li>
+    <li>If no significant difference T2→T3: gains maintained ✅</li>
+    <li>If significant worsening T2→T3: intervention effects did not transfer to real-world context — important finding to discuss</li>
+  </ul>
+
+  <h3>Step 5 — Predictor Analysis</h3>
+  <ul>
+    <li><strong>Pearson/Spearman correlation</strong>: between baseline FFMQ, BIS-11, and craving scores and the magnitude of change (T2 minus T1) on each outcome — who benefits most?</li>
+    <li><strong>Simple linear regression</strong>: predict FFMQ change score from baseline mindfulness, impulsivity, and duration of use as predictors</li>
+  </ul>
+
+  <h3>Step 6 — Exploratory Substance Type Comparison</h3>
+  <ul>
+    <li>Within the experimental group, split by primary substance (alcohol vs. opioid) and compare change scores on ANCOVA outcomes using substance type as a between-subjects factor</li>
+    <li>Report effect sizes (Cohen's d) for each comparison</li>
+    <li>Frame as exploratory — not powered for this comparison given small subgroups</li>
+  </ul>
+
+  <h3>Effect Size Reporting</h3>
+  <div class="g3">
+    <div class="card blue" style="text-align:center"><div class="card-label">Cohen's d</div><div style="font-size:22px;font-weight:800;color:var(--blue)">d ≥ 0.80</div><p style="font-size:13px">Large effect — ideal outcome for pilot study</p></div>
+    <div class="card teal" style="text-align:center"><div class="card-label">Cohen's d</div><div style="font-size:22px;font-weight:800;color:var(--teal)">d = 0.50</div><p style="font-size:13px">Medium effect — clinically meaningful, supports larger RCT</p></div>
+    <div class="card amber" style="text-align:center"><div class="card-label">Cohen's d</div><div style="font-size:22px;font-weight:800;color:var(--amber)">d = 0.20</div><p style="font-size:13px">Small effect — may be statistically significant but questionable clinical value</p></div>
+  </div>
+  <p>Report partial eta-squared (η²p) for ANCOVA and Cohen's d for all t-test comparisons. For your pilot study, even medium effect sizes (d = 0.50) are sufficient to justify a larger confirmatory RCT — which is the primary recommendation of your Discussion chapter.</p>
+
+  <h3>Significance Level and Multiple Comparisons</h3>
+  <p>Use α = 0.05 as the significance threshold. Given that you are running multiple ANCOVAs (one per outcome), apply <strong>Bonferroni correction</strong>: divide 0.05 by the number of primary outcomes (5) = adjusted α of 0.01 for each primary test. Report both uncorrected and Bonferroni-corrected p-values. This protects against Type I error and demonstrates methodological rigour to the viva committee.</p>
+
+  <h3>Software</h3>
+  <p>All analyses conducted in <strong>IBM SPSS Statistics (version 21 or above)</strong>. Available in most clinical psychology departments in India. Key SPSS paths: <code>Analyze → General Linear Model → Univariate</code> for ANCOVA; <code>Analyze → Compare Means → Paired Samples T-Test</code> for within-group; <code>Analyze → Correlate → Bivariate</code> for predictor correlations.</p>
+</section>
+
+<!-- ═══ 15 TIMELINE ═══ -->
+<section id="timeline">
+  <div class="sec-head">
+    <div class="sec-icon amber">📅</div>
+    <div class="sec-head-text"><div class="num">Section 15</div><h2>Proposed 12-Month Timeline</h2></div>
+  </div>
+
+  <div style="border:1px solid var(--border);border-radius:12px;overflow:hidden;margin:16px 0">
+    <div class="timeline-row"><div class="timeline-month">Month 1</div><div class="timeline-content"><ul><li>Literature review completion — gather all 12+ cited studies, access MBRP manual</li><li>Develop and finalise Hindi translations of all session materials, worksheets, home practice diary</li><li>Draft sociodemographic proforma and session feedback form</li><li>Submit Institutional Ethics Committee (IEC) application — do this in Month 1, not later</li></ul></div></div>
+    <div class="timeline-row"><div class="timeline-month">Month 2</div><div class="timeline-content"><ul><li>IEC review period (typically 4–8 weeks — follow up weekly)</li><li>Finalise session protocol — supervisor review and approval of all B-MBRP session scripts</li><li>Set up data entry SPSS file and coding system</li><li>Obtain formal permission from hospital administration and de-addiction ward in-charge</li></ul></div></div>
+    <div class="timeline-row"><div class="timeline-month">Month 3</div><div class="timeline-content"><ul><li>Receive IEC clearance</li><li>Pilot test consent procedure and proforma on 2–3 patients (not in final sample) — check language, comprehension, timing</li><li>Begin Cohort 1 (Waitlist Control) recruitment and pre-assessment</li></ul></div></div>
+    <div class="timeline-row" style="background:var(--sky)"><div class="timeline-month" style="background:#1558a8">Months 3–5</div><div class="timeline-content"><ul><li><strong>Cohort 1 Data Collection (Waitlist Control)</strong></li><li>Pre-assess 25 participants (target 20 analysable)</li><li>3 weeks TAU for each participant</li><li>Post-assess all Cohort 1 participants</li><li>Data entry and preliminary check of Cohort 1 data quality</li></ul></div></div>
+    <div class="timeline-row" style="background:var(--mint)"><div class="timeline-month" style="background:#0a7b6c">Months 5–8</div><div class="timeline-content"><ul><li><strong>Cohort 2 Data Collection (Experimental — B-MBRP)</strong></li><li>Pre-assess 25 participants (target 20 analysable)</li><li>Deliver 6 B-MBRP sessions per participant over 3 weeks</li><li>Post-assess all Cohort 2 participants</li><li>Data entry and quality check</li><li>Offer B-MBRP to Cohort 1 as ethical obligation</li></ul></div></div>
+    <div class="timeline-row"><div class="timeline-month">Month 9</div><div class="timeline-content"><ul><li>Follow-up phone assessments for Cohort 2 (T3) at 4–6 weeks post-discharge</li><li>Complete all data entry</li><li>Run all SPSS analyses — ANCOVA, paired t-tests, correlations</li><li>Generate tables and figures for Results chapter</li></ul></div></div>
+    <div class="timeline-row"><div class="timeline-month">Months 9–11</div><div class="timeline-content"><ul><li>Write dissertation: Introduction → Literature Review → Methodology → Results → Discussion → Conclusion</li><li>Submit draft chapters to supervisor for review</li><li>Incorporate supervisor corrections</li></ul></div></div>
+    <div class="timeline-row"><div class="timeline-month">Month 12</div><div class="timeline-content"><ul><li>Final dissertation submission</li><li>Prepare viva presentation — anticipate examiner questions on design justification, ANCOVA rationale, Bonferroni correction, effect sizes, and clinical implications</li><li>Viva</li></ul></div></div>
+  </div>
+
+  <div class="hl amber">⚠️ The IEC clearance timeline is the most unpredictable variable. Submit in Month 1 without waiting for the protocol to be "perfect." The committee will request revisions — factor this into your timeline. Never begin data collection before written IEC clearance is in hand.</div>
+</section>
+
+<!-- ═══ 16 ETHICS ═══ -->
+<section id="ethics">
+  <div class="sec-head">
+    <div class="sec-icon rose">⚖️</div>
+    <div class="sec-head-text"><div class="num">Section 16</div><h2>Ethical Considerations</h2></div>
+  </div>
+
+  <div class="g2">
+    <div class="card rose">
+      <div class="card-label">IEC Clearance</div>
+      Submit to the Institutional Ethics Committee of your college/university before any data collection. An interventional study requires full review (not expedited). Prepare: full study protocol, informed consent form in Hindi and English, all assessment tools, B-MBRP session outline, researcher qualification statement, supervisor declaration, and hospital permission letter.
+    </div>
+    <div class="card rose">
+      <div class="card-label">Informed Consent</div>
+      Written consent in Hindi and English. Explicitly state: (1) voluntary participation, (2) right to withdraw at any time without affecting treatment received, (3) no impact on discharge timing or medication, (4) confidentiality of all data. For patients who cannot write: thumb impression witnessed by a ward staff member. Do not proceed without signed/thumbprinted consent.
+    </div>
+    <div class="card amber">
+      <div class="card-label">Distress and Risk Protocol</div>
+      If PHQ-9 Item 9 is endorsed at any assessment point, immediately inform the treating psychiatrist — do not manage this yourself. If a B-MBRP session evokes acute distress (patient becomes very upset, dissociates, or discloses suicidal thoughts), suspend the session and refer to the treating team. Document in session log. Resume sessions only after clearance from the treating psychiatrist.
+    </div>
+    <div class="card amber">
+      <div class="card-label">Confidentiality</div>
+      All data stored under participant code numbers only. No names on any data sheet, SPSS file, or session log. Code key stored separately in a locked location accessible only to the researcher and supervisor. Audio recording of sessions (if used for adherence checking) requires a separate specific consent item.
+    </div>
+    <div class="card teal">
+      <div class="card-label">Equity — B-MBRP for Control Group</div>
+      After data collection is complete, offer B-MBRP to all Cohort 1 (waitlist control) participants as an ethical obligation. State this clearly in the consent form. The waitlist design ensures that control participants are not permanently denied the intervention — they receive it with a delay, not never.
+    </div>
+    <div class="card teal">
+      <div class="card-label">Data Retention</div>
+      Raw data sheets and SPSS files retained for a minimum of 5 years post-publication or dissertation submission. After this period, paper data is shredded and digital files are permanently deleted. No data is shared with third parties without participant consent and IEC approval.
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 17 SIGNIFICANCE ═══ -->
+<section id="significance">
+  <div class="sec-head">
+    <div class="sec-icon blue">🌟</div>
+    <div class="sec-head-text"><div class="num">Section 17</div><h2>Significance and Importance of the Study</h2></div>
+  </div>
+
+  <h3>Clinical Significance</h3>
+  <div class="card blue">
+    <div class="card-label">Direct Clinical Impact at Your Setting</div>
+    <p>If B-MBRP demonstrates efficacy, the de-addiction ward at District Hospital Guna gains a concrete, low-cost, deliverable psychosocial programme that can be integrated into routine inpatient care. The 6-session protocol you develop, test, and refine becomes a local resource that the treating team can implement for future patients — without the researcher. This is the most direct possible translation from research to practice.</p>
+  </div>
+
+  <h3>Academic and Scientific Significance</h3>
+  <div class="g2">
+    <div class="card purple"><div class="card-label">Fills a Documented Gap in Indian Literature</div>No published study has evaluated MBRP with a waitlist control design and a multi-domain outcome battery in a district-level Indian de-addiction IPD. Your study directly addresses this gap and produces the first such dataset from this population and setting.</div>
+    <div class="card purple"><div class="card-label">Generates Pilot Data for a Future RCT</div>Pilot studies justify their small sample sizes by providing effect size estimates that power a subsequent large-scale confirmatory RCT. Your findings — whatever they are — provide this service to the field. A Discussion recommendation for a full RCT is the standard and expected conclusion.</div>
+    <div class="card purple"><div class="card-label">LMIC Evidence for Mindfulness Interventions</div>The systematic gap in MBRP evidence from low- and middle-income countries (noted by Brazilian, Chinese, and Pakistani researchers) is directly relevant to India. Your study contributes to a body of evidence that mindfulness-based interventions can be feasibly adapted and delivered in resource-limited healthcare settings.</div>
+    <div class="card purple"><div class="card-label">Multi-Domain Outcome Measurement</div>By measuring craving, impulsivity, mindfulness, depression, and stress simultaneously, your study can test whether MBRP effects are broad (across all domains) or specific (targeting craving and impulsivity more than depression) — a theoretically important question for understanding the mechanism of action.</div>
+  </div>
+
+  <h3>Policy Significance</h3>
+  <p>India's National Mental Health Policy (2014) and the Mental Healthcare Act (2017) both emphasise the need for evidence-based psychosocial interventions at district-level facilities. Research conducted at district hospital level directly informs policy about what can realistically be implemented in the public sector — rather than what works only in tertiary care institutions. Your study's findings are directly relevant to district mental health programme planning.</p>
+</section>
+
+<!-- ═══ 18 LIMITATIONS ═══ -->
+<section id="limitations">
+  <div class="sec-head">
+    <div class="sec-icon amber">⚠️</div>
+    <div class="sec-head-text"><div class="num">Section 18</div><h2>Limitations and How to Address Them</h2></div>
+  </div>
+
+  <table>
+    <thead><tr><th>Limitation</th><th>Impact</th><th>How to Address in Dissertation</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Quasi-experimental design (not true RCT)</strong></td><td>Individual randomisation not done — cohort allocation reduces causal inference</td><td>Acknowledge explicitly; justify cohort design for inpatient setting; note it is the standard for IPD research; recommend true RCT in future research recommendations</td></tr>
+      <tr><td><strong>Small sample size (N=20 per group)</strong></td><td>Limited statistical power; results may not generalise</td><td>Frame as a pilot study from the outset; report effect sizes; recommend larger confirmatory study; note that N=20 per group is standard for pilot intervention research</td></tr>
+      <tr><td><strong>Self-report bias</strong></td><td>All outcome measures rely on patient self-report; social desirability may inflate post-scores</td><td>Acknowledge; note that FFMQ, BIS-11, and craving measures are widely validated and used in this research context; discuss how blinded assessment would be ideal in future research</td></tr>
+      <tr><td><strong>Single setting</strong></td><td>Findings may be specific to District Hospital Guna and may not generalise to other Indian de-addiction centres</td><td>Acknowledge; recommend replication in different geographical and facility contexts; describe your setting in sufficient detail for others to judge transferability</td></tr>
+      <tr><td><strong>Male-only or predominantly male sample</strong></td><td>Most Indian de-addiction IPD patients are male; findings may not apply to women with SUD</td><td>Describe gender composition explicitly; note this as a limitation; recommend future studies specifically with female populations</td></tr>
+      <tr><td><strong>Researcher as therapist (allegiance bias)</strong></td><td>The person delivering B-MBRP also collects and analyses the outcome data — creates a potential source of bias</td><td>Acknowledge; note this is common in MPhil intervention research; recommend blind outcome assessment in future; maintain strict protocol adherence through session logs</td></tr>
+      <tr><td><strong>No active control (e.g., supportive counselling)</strong></td><td>Cannot distinguish B-MBRP effects from non-specific therapeutic factors (attention, rapport, additional contact time)</td><td>Acknowledge; note waitlist control is a first step; recommend active control (e.g., TAU + matched supportive contact) in future research</td></tr>
+      <tr><td><strong>Follow-up limited to 4–6 weeks</strong></td><td>Cannot determine long-term relapse prevention effects beyond 6 weeks</td><td>Acknowledge; recommend 3-month and 6-month follow-up in confirmatory RCT</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ═══ 19 AT A GLANCE ═══ -->
+<section id="glance">
+  <div class="sec-head">
+    <div class="sec-icon teal">📋</div>
+    <div class="sec-head-text"><div class="num">Section 19</div><h2>Complete Study at a Glance</h2></div>
+  </div>
+
+  <table>
+    <thead><tr><th>Component</th><th>Detail</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Full Title</strong></td><td>Efficacy of a Brief Mindfulness-Based Relapse Prevention (B-MBRP) Intervention on Craving, Impulsivity, and Mindfulness in Substance-Dependent Patients Undergoing De-addiction Treatment: A Pilot Waitlist-Controlled Pre-Post Study</td></tr>
+      <tr><td><strong>Design</strong></td><td>Pilot quasi-experimental, waitlist control, pre-test post-test with 4-week follow-up</td></tr>
+      <tr><td><strong>Setting</strong></td><td>De-addiction IPD/OPD, District Hospital, Guna, Madhya Pradesh</td></tr>
+      <tr><td><strong>Population</strong></td><td>Adult patients with ICD-10 alcohol (F10.2x) or opioid (F11.2x) dependence, inpatient, medically stable</td></tr>
+      <tr><td><strong>Sample Size</strong></td><td>Recruit N=50 (25 per cohort) → Analysable N=40 (20 per group)</td></tr>
+      <tr><td><strong>Sampling</strong></td><td>Consecutive purposive sampling</td></tr>
+      <tr><td><strong>Group 1 (Waitlist Control)</strong></td><td>TAU only · Pre + Post assessment · Offered B-MBRP post data collection</td></tr>
+      <tr><td><strong>Group 2 (Experimental)</strong></td><td>B-MBRP (6 sessions) + TAU · Pre + Post + 4-week Follow-up assessment</td></tr>
+      <tr><td><strong>Intervention</strong></td><td>Brief MBRP — 6 individual sessions × 45–60 min each, every 3–4 days, over 3 weeks, delivered in Hindi</td></tr>
+      <tr><td><strong>Pre-Assessment Tools</strong></td><td>Sociodemographic Proforma + DAST-20/AUDIT + FFMQ + BIS-11 + PACS/OCDUS + PHQ-9 + PSS-10</td></tr>
+      <tr><td><strong>Post-Assessment Tools</strong></td><td>FFMQ + BIS-11 + PACS/OCDUS + PHQ-9 + PSS-10 + Session Feedback (experimental only)</td></tr>
+      <tr><td><strong>Follow-Up Tools (T3)</strong></td><td>FFMQ + BIS-11 + PACS/OCDUS + PHQ-9 + PSS-10 (experimental group only, phone/OPD)</td></tr>
+      <tr><td><strong>Primary Hypotheses</strong></td><td>H1: Craving ↓ · H2: Impulsivity ↓ · H3: Mindfulness ↑ — all in experimental > control at post-assessment</td></tr>
+      <tr><td><strong>Secondary Hypotheses</strong></td><td>H4: Depression/Stress ↓ · H5: Follow-up maintenance · Exploratory: substance type comparison</td></tr>
+      <tr><td><strong>Primary Analysis</strong></td><td>ANCOVA (post-score ~ group + pre-score) with Bonferroni correction for multiple comparisons</td></tr>
+      <tr><td><strong>Secondary Analysis</strong></td><td>Paired t-tests (within-group pre-post), follow-up paired t-test, predictor correlations, regression</td></tr>
+      <tr><td><strong>Effect Size</strong></td><td>Cohen's d for all between-group comparisons; partial η² for ANCOVA</td></tr>
+      <tr><td><strong>Software</strong></td><td>IBM SPSS Statistics (v21+)</td></tr>
+      <tr><td><strong>Ethical Requirements</strong></td><td>IEC clearance · Written Hindi/English consent · PHQ-9 Item 9 protocol · Anonymised storage · B-MBRP offered to control post-study</td></tr>
+      <tr><td><strong>Total Timeline</strong></td><td>12 months (IEC Month 1 · Data collection Months 3–9 · Writing Months 9–12)</td></tr>
+      <tr><td><strong>Significance</strong></td><td>First waitlist-controlled B-MBRP study with multi-domain outcomes in an Indian district-level de-addiction IPD · Generates pilot data for confirmatory RCT · Direct clinical utility for the study setting</td></tr>
+    </tbody>
+  </table>
+
+  <div class="card dark" style="margin-top:28px">
+    <div class="card-label">For Your Viva — The Central Argument in One Paragraph</div>
+    <p style="color:white;font-family:'IBM Plex Serif',serif;font-style:italic;font-size:16px;line-height:1.65">
+      "Substance dependence relapse is driven by craving, impulsivity, and the inability to tolerate negative affect without substance use. Treatment As Usual in Indian district hospitals addresses the biological dimension of dependence but leaves these psychological vulnerabilities intact. Mindfulness-Based Relapse Prevention was developed specifically to address this gap. The present study is the first to evaluate a brief, individually-delivered B-MBRP intervention with a waitlist control design and a multi-domain outcome battery in a district-level Indian de-addiction inpatient setting. Its findings — whatever their direction — generate the first Indian dataset on brief inpatient MBRP efficacy and provide the effect size estimates required to power a larger confirmatory randomised controlled trial."
+    </p>
+  </div>
+
+  <p style="text-align:center;margin-top:32px;font-size:13px;color:var(--muted);font-style:italic">Working draft — review and modify in consultation with your dissertation guide before synopsis submission</p>
+</section>
+
+</div><!-- /content -->
+</div><!-- /main -->
+
+<div class="footer">
+  MPhil Clinical Psychology — Research Proposal · B-MBRP Study · De-addiction IPD · District Hospital Guna MP · Based on Bowen, Chawla & Marlatt (2011)
+</div>
+
+<script>
+// Active nav highlighting
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.sidenav a');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if(e.isIntersecting) {
+      navLinks.forEach(a => {
+        a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id);
+      });
+    }
+  });
+}, { rootMargin: '-20% 0px -70% 0px' });
+sections.forEach(s => observer.observe(s));
+</script>
+</body>
+</html>

@@ -1,0 +1,1359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MBRP — Mindfulness-Based Relapse Prevention</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap');
+
+  :root {
+    --bg:        #f7f9fb;
+    --surface:   #ffffff;
+    --navy:      #0f2744;
+    --blue:      #1d5fa6;
+    --teal:      #0e7c6b;
+    --sky:       #e8f2fc;
+    --mint:      #e3f5f1;
+    --amber:     #8a5c00;
+    --amber-bg:  #fff7e0;
+    --rose:      #7a1f3d;
+    --rose-bg:   #fde8ee;
+    --purple:    #4a2080;
+    --purple-bg: #f0eafa;
+    --border:    #dce6f0;
+    --text:      #1a2535;
+    --muted:     #5a6a7e;
+    --tag-bg:    #e1edf8;
+    --tag-text:  #1d5fa6;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    line-height: 1.75;
+  }
+
+  /* ─── HERO ─── */
+  .hero {
+    background: linear-gradient(135deg, #0f2744 0%, #1d5fa6 50%, #0e7c6b 100%);
+    color: white;
+    padding: 60px 48px 52px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 80% 20%, rgba(255,255,255,0.07) 0%, transparent 60%);
+  }
+  .hero-label {
+    font-size: 11px; font-weight: 600; letter-spacing: 3px;
+    text-transform: uppercase; color: rgba(255,255,255,0.6);
+    margin-bottom: 18px;
+  }
+  .hero h1 {
+    font-family: 'Lora', serif;
+    font-size: clamp(26px, 4vw, 40px);
+    font-weight: 600; line-height: 1.2;
+    margin-bottom: 14px;
+  }
+  .hero h1 span { color: #7dd3b8; }
+  .hero-sub {
+    font-size: 15px; color: rgba(255,255,255,0.75);
+    max-width: 620px; line-height: 1.65;
+    margin-bottom: 32px;
+  }
+  .hero-tags { display: flex; flex-wrap: wrap; gap: 10px; }
+  .hero-tag {
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 20px;
+    padding: 5px 14px;
+    font-size: 12px; font-weight: 500; color: rgba(255,255,255,0.9);
+  }
+
+  /* ─── NAV ─── */
+  .toc-bar {
+    background: var(--navy);
+    padding: 0 48px;
+    display: flex; gap: 0; overflow-x: auto;
+    scrollbar-width: none; position: sticky; top: 0; z-index: 100;
+  }
+  .toc-bar a {
+    color: rgba(255,255,255,0.65);
+    text-decoration: none; font-size: 12.5px; font-weight: 500;
+    padding: 13px 16px; white-space: nowrap;
+    border-bottom: 3px solid transparent;
+    transition: all 0.2s;
+  }
+  .toc-bar a:hover { color: white; border-bottom-color: #7dd3b8; }
+
+  /* ─── LAYOUT ─── */
+  .main { max-width: 980px; margin: 0 auto; padding: 48px 32px 80px; }
+
+  /* ─── SECTIONS ─── */
+  .section { margin-bottom: 56px; }
+
+  .section-header {
+    display: flex; align-items: center; gap: 14px;
+    margin-bottom: 24px;
+    padding-bottom: 14px;
+    border-bottom: 2px solid var(--border);
+  }
+  .sec-num {
+    background: var(--blue);
+    color: white;
+    width: 34px; height: 34px;
+    border-radius: 50%;
+    font-size: 13px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .sec-num.teal { background: var(--teal); }
+  .sec-num.purple { background: var(--purple); }
+  .sec-num.amber { background: var(--amber); }
+  .sec-num.rose { background: var(--rose); }
+
+  .section-header h2 {
+    font-size: 21px; font-weight: 700; color: var(--navy);
+    font-family: 'Lora', serif;
+  }
+
+  h3 {
+    font-size: 16px; font-weight: 700; color: var(--blue);
+    margin: 28px 0 10px;
+  }
+  h4 {
+    font-size: 14px; font-weight: 600; color: var(--teal);
+    margin: 20px 0 8px; text-transform: uppercase; letter-spacing: 0.5px;
+  }
+  p { margin-bottom: 12px; color: var(--text); }
+  strong { color: var(--navy); }
+
+  /* ─── CARDS ─── */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  }
+  .card.blue  { border-left: 4px solid var(--blue);   background: #fafdff; }
+  .card.teal  { border-left: 4px solid var(--teal);   background: #f5fcfa; }
+  .card.amber { border-left: 4px solid var(--amber);  background: var(--amber-bg); }
+  .card.rose  { border-left: 4px solid var(--rose);   background: var(--rose-bg); }
+  .card.purple{ border-left: 4px solid var(--purple); background: var(--purple-bg); }
+  .card.navy  { border-left: 4px solid var(--navy);   background: var(--sky); }
+
+  .card-title {
+    font-size: 13px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 1px; margin-bottom: 10px;
+  }
+  .card.blue   .card-title { color: var(--blue); }
+  .card.teal   .card-title { color: var(--teal); }
+  .card.amber  .card-title { color: var(--amber); }
+  .card.rose   .card-title { color: var(--rose); }
+  .card.purple .card-title { color: var(--purple); }
+  .card.navy   .card-title { color: var(--navy); }
+
+  /* ─── DEFINITION BOX ─── */
+  .definition {
+    background: var(--navy);
+    color: white;
+    border-radius: 12px;
+    padding: 28px 32px;
+    margin: 24px 0;
+    font-family: 'Lora', serif;
+    font-size: 17px;
+    line-height: 1.7;
+    font-style: italic;
+  }
+  .definition cite {
+    display: block; margin-top: 14px;
+    font-family: 'Inter', sans-serif;
+    font-style: normal; font-size: 12px;
+    color: rgba(255,255,255,0.55); letter-spacing: 0.5px;
+  }
+
+  /* ─── HIGHLIGHT ─── */
+  .highlight {
+    background: var(--sky);
+    border-left: 5px solid var(--blue);
+    border-radius: 0 8px 8px 0;
+    padding: 16px 20px;
+    margin: 16px 0;
+    font-size: 14.5px;
+    color: var(--navy);
+    font-weight: 500;
+  }
+  .highlight.teal { background: var(--mint); border-left-color: var(--teal); }
+  .highlight.amber { background: var(--amber-bg); border-left-color: var(--amber); color: var(--amber); }
+
+  /* ─── GRID ─── */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin: 18px 0; }
+  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin: 18px 0; }
+
+  /* ─── PILLARS ─── */
+  .pillar {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 22px 20px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+  .pillar-icon {
+    font-size: 32px; margin-bottom: 12px; display: block;
+  }
+  .pillar-title {
+    font-weight: 700; font-size: 14px; color: var(--navy);
+    margin-bottom: 8px;
+  }
+  .pillar p { font-size: 13px; color: var(--muted); }
+
+  /* ─── SESSION CARD ─── */
+  .session {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    margin-bottom: 24px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  }
+  .session-header {
+    display: flex; align-items: center; gap: 18px;
+    padding: 20px 24px;
+    background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+    color: white;
+  }
+  .session-num {
+    background: rgba(255,255,255,0.15);
+    border: 2px solid rgba(255,255,255,0.3);
+    border-radius: 50%;
+    width: 48px; height: 48px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px; font-weight: 800; flex-shrink: 0;
+  }
+  .session-title { font-size: 17px; font-weight: 700; }
+  .session-meta { font-size: 12px; opacity: 0.7; margin-top: 2px; }
+  .session-body { padding: 22px 26px; }
+  .session-body h4 { margin-top: 0; }
+
+  /* ─── STEPS ─── */
+  .step {
+    display: flex; gap: 16px; margin-bottom: 18px; align-items: flex-start;
+  }
+  .step-num {
+    background: var(--blue);
+    color: white;
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    font-size: 12px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; margin-top: 2px;
+  }
+  .step-num.teal { background: var(--teal); }
+  .step-content { flex: 1; }
+  .step-content strong { font-size: 14px; display: block; margin-bottom: 4px; }
+
+  /* ─── EXAMPLE BOX ─── */
+  .example {
+    background: #f0faf6;
+    border: 1px solid #b2ddd0;
+    border-radius: 10px;
+    padding: 20px 22px;
+    margin: 14px 0;
+  }
+  .example-label {
+    font-size: 11px; font-weight: 700; letter-spacing: 1.5px;
+    color: var(--teal); text-transform: uppercase; margin-bottom: 10px;
+  }
+  .example-scenario {
+    background: white;
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin: 10px 0;
+    font-size: 14px;
+    border-left: 3px solid var(--teal);
+  }
+  .example-scenario .label {
+    font-size: 11px; font-weight: 700; color: var(--muted);
+    text-transform: uppercase; letter-spacing: 1px;
+    margin-bottom: 6px;
+  }
+
+  /* ─── TABLE ─── */
+  table {
+    width: 100%; border-collapse: collapse;
+    margin: 16px 0; font-size: 14px;
+  }
+  thead th {
+    background: var(--navy); color: white;
+    padding: 12px 16px; text-align: left;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.5px;
+  }
+  thead th:first-child { border-radius: 8px 0 0 0; }
+  thead th:last-child  { border-radius: 0 8px 0 0; }
+  tbody td {
+    padding: 11px 16px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  tbody tr:nth-child(even) td { background: var(--bg); }
+  tbody tr:hover td { background: var(--sky); }
+
+  /* ─── MECHANISM FLOW ─── */
+  .flow {
+    display: flex; align-items: center; gap: 8px;
+    flex-wrap: wrap; margin: 16px 0;
+  }
+  .flow-box {
+    background: var(--surface);
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 16px;
+    font-size: 13px; font-weight: 600; color: var(--navy);
+    text-align: center; min-width: 100px;
+  }
+  .flow-arrow { color: var(--blue); font-size: 20px; font-weight: 700; }
+  .flow-box.highlight-box { background: var(--navy); color: white; border-color: var(--navy); }
+  .flow-box.break-box { background: var(--teal); color: white; border-color: var(--teal); }
+
+  /* ─── TECHNIQUE BOX ─── */
+  .technique {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 22px;
+  }
+  .technique-header {
+    background: var(--teal);
+    color: white;
+    padding: 14px 20px;
+    font-weight: 700; font-size: 15px;
+  }
+  .technique-body { padding: 20px 22px; }
+
+  /* ─── TAG ─── */
+  .tag {
+    display: inline-block;
+    background: var(--tag-bg); color: var(--tag-text);
+    border-radius: 20px; padding: 3px 12px;
+    font-size: 11.5px; font-weight: 600;
+    margin: 3px;
+  }
+  .tag.teal { background: var(--mint); color: var(--teal); }
+  .tag.amber { background: var(--amber-bg); color: var(--amber); }
+
+  /* ─── UL / OL ─── */
+  ul, ol { padding-left: 20px; margin-bottom: 12px; }
+  li { margin-bottom: 7px; font-size: 14.5px; }
+
+  /* ─── QUOTE ─── */
+  blockquote {
+    border-left: 4px solid var(--blue);
+    padding: 12px 20px;
+    margin: 16px 0;
+    background: var(--sky);
+    border-radius: 0 8px 8px 0;
+    font-family: 'Lora', serif;
+    font-style: italic;
+    color: var(--navy);
+    font-size: 15px;
+  }
+
+  /* ─── CODE ─── */
+  code {
+    font-family: 'JetBrains Mono', monospace;
+    background: #eef2f8;
+    border-radius: 4px;
+    padding: 2px 7px;
+    font-size: 13px;
+    color: var(--blue);
+  }
+
+  /* ─── COMPARISON ─── */
+  .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0; }
+  .compare-col { border-radius: 10px; padding: 18px 20px; }
+  .compare-col.bad  { background: #fde8ee; border: 1px solid #f0a0b5; }
+  .compare-col.good { background: #e3f5f1; border: 1px solid #8ecdbf; }
+  .compare-col .col-label {
+    font-size: 11px; font-weight: 700; letter-spacing: 1.5px;
+    text-transform: uppercase; margin-bottom: 10px;
+  }
+  .compare-col.bad  .col-label { color: var(--rose); }
+  .compare-col.good .col-label { color: var(--teal); }
+
+  /* ─── FOOTER ─── */
+  .footer {
+    background: var(--navy); color: rgba(255,255,255,0.6);
+    text-align: center; padding: 28px;
+    font-size: 12.5px; margin-top: 60px;
+  }
+
+  @media (max-width: 680px) {
+    .hero { padding: 36px 22px 32px; }
+    .main { padding: 28px 16px 60px; }
+    .grid-2, .grid-3, .compare { grid-template-columns: 1fr; }
+    .toc-bar { padding: 0 16px; }
+    .session-header { flex-direction: column; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════ HERO ═══════════════ -->
+<div class="hero">
+  <div class="hero-label">MPhil Clinical Psychology — Dissertation Reference Notes</div>
+  <h1>Mindfulness-Based<br><span>Relapse Prevention</span><br>(MBRP)</h1>
+  <p class="hero-sub">
+    A complete reference guide — what MBRP is, where it comes from, its theoretical foundations,
+    all core components, every technique with real-world examples, the full 8-session protocol,
+    and how to deliver it in an Indian de-addiction setting.
+  </p>
+  <div class="hero-tags">
+    <span class="hero-tag">Bowen, Chawla & Marlatt (2011)</span>
+    <span class="hero-tag">Substance Dependence</span>
+    <span class="hero-tag">Mindfulness + CBT + Relapse Prevention</span>
+    <span class="hero-tag">De-addiction IPD/OPD</span>
+    <span class="hero-tag">6–8 Sessions</span>
+  </div>
+</div>
+
+<!-- ═══════════════ NAV ═══════════════ -->
+<nav class="toc-bar">
+  <a href="#what">What is MBRP</a>
+  <a href="#theory">Theory</a>
+  <a href="#mechanism">Mechanism</a>
+  <a href="#components">Components</a>
+  <a href="#techniques">Core Techniques</a>
+  <a href="#sessions">Session Plan</a>
+  <a href="#examples">Examples</a>
+  <a href="#india">Indian Context</a>
+  <a href="#evidence">Evidence</a>
+  <a href="#vs">MBRP vs Others</a>
+</nav>
+
+<!-- ═══════════════ MAIN ═══════════════ -->
+<div class="main">
+
+<!-- ── SECTION 1: WHAT IS MBRP ── -->
+<div class="section" id="what">
+  <div class="section-header">
+    <div class="sec-num">1</div>
+    <h2>What is MBRP? — The Big Picture</h2>
+  </div>
+
+  <div class="definition">
+    Mindfulness-Based Relapse Prevention (MBRP) is a structured group-based psychosocial intervention that integrates mindfulness meditation practices from MBSR (Kabat-Zinn) and MBCT (Segal, Williams, Teasdale) with the cognitive-behavioural framework of Relapse Prevention Therapy (Marlatt &amp; Gordon, 1985) — specifically designed for individuals with substance use disorders to reduce relapse risk by developing mindful awareness of craving, negative affect, and high-risk situations.
+    <cite>— Bowen, Chawla, &amp; Marlatt (2011). Mindfulness-Based Relapse Prevention for Addictive Behaviors. Guilford Press.</cite>
+  </div>
+
+  <p>In plain language: <strong>MBRP teaches the patient to notice craving and emotional discomfort without automatically acting on it.</strong> The core insight is that relapse does not happen because craving is too strong — it happens because the person has no skill to tolerate the craving while it is present. MBRP builds that skill.</p>
+
+  <div class="grid-3" style="margin-top:24px;">
+    <div class="pillar">
+      <span class="pillar-icon">🧘</span>
+      <div class="pillar-title">Mindfulness</div>
+      <p>Paying deliberate, non-judgmental attention to present-moment experience — thoughts, feelings, body sensations — without reacting automatically</p>
+    </div>
+    <div class="pillar">
+      <span class="pillar-icon">🔄</span>
+      <div class="pillar-title">Relapse Prevention</div>
+      <p>Identifying high-risk situations, understanding triggers, building coping strategies and personalised plans — from Marlatt &amp; Gordon (1985)</p>
+    </div>
+    <div class="pillar">
+      <span class="pillar-icon">🧠</span>
+      <div class="pillar-title">Cognitive-Behavioural</div>
+      <p>Examining and changing the thoughts and beliefs that precede substance use — permission-giving thoughts, catastrophising after lapse</p>
+    </div>
+  </div>
+
+  <h3>Who developed it and when?</h3>
+  <p>MBRP was developed by <strong>Sarah Bowen, Neha Chawla, and G. Alan Marlatt</strong> at the Addictive Behaviors Research Center, University of Washington. Published in 2009 as an 8-session group protocol, with the full clinical manual published in 2011 by Guilford Press. Marlatt had previously developed Relapse Prevention Therapy (RPT) in 1985 — MBRP is its mindfulness-integrated evolution.</p>
+
+  <h3>What is it NOT?</h3>
+  <div class="grid-2">
+    <div class="card rose">
+      <div class="card-title">❌ Not a Belief System</div>
+      MBRP is not Buddhist meditation, not religious practice, not spiritual guidance. It borrows meditation techniques as psychological tools. Patients do not need to believe in or accept any spiritual framework.
+    </div>
+    <div class="card rose">
+      <div class="card-title">❌ Not Relaxation Therapy</div>
+      Mindfulness is not about relaxing or feeling calm. It involves deliberately turning <em>toward</em> difficult experiences (craving, anxiety, pain) rather than away from them. Sometimes it is temporarily uncomfortable.
+    </div>
+    <div class="card rose">
+      <div class="card-title">❌ Not Willpower Training</div>
+      MBRP does not ask patients to "try harder" or resist craving through force of will. It teaches a fundamentally different approach — observing craving without fighting it.
+    </div>
+    <div class="card rose">
+      <div class="card-title">❌ Not a Stand-Alone Treatment</div>
+      MBRP is an adjunct to or continuation of substance use treatment — not a replacement for medical detoxification, pharmacotherapy, or psychiatric care.
+    </div>
+  </div>
+</div>
+
+<!-- ── SECTION 2: THEORETICAL FOUNDATIONS ── -->
+<div class="section" id="theory">
+  <div class="section-header">
+    <div class="sec-num">2</div>
+    <h2>Theoretical Foundations</h2>
+  </div>
+
+  <h3>Foundation 1 — Marlatt's Relapse Prevention Model (1985)</h3>
+  <p>Marlatt proposed that relapse is not a sudden catastrophic event — it is a <strong>predictable, understandable process</strong> that follows identifiable pathways. His model introduced:</p>
+  <ul>
+    <li><strong>High-Risk Situations (HRS):</strong> Any situation that threatens the person's sense of control and increases relapse risk — negative emotional states (35%), interpersonal conflict (16%), social pressure (20%) are the three most common.</li>
+    <li><strong>Coping Response:</strong> Whether the person has an effective coping response to the HRS determines whether they relapse or maintain abstinence.</li>
+    <li><strong>Abstinence Violation Effect (AVE):</strong> When a lapse occurs, the person often catastrophises ("I've failed, might as well continue") — this cognitive response turns a lapse into a full relapse. MBRP directly targets AVE.</li>
+    <li><strong>Permission-Giving Thoughts:</strong> Rationalizations that allow substance use — "just this once," "I deserve it," "I can handle it." These are identified and defused in MBRP.</li>
+  </ul>
+
+  <h3>Foundation 2 — Mindfulness-Based Stress Reduction (MBSR — Kabat-Zinn, 1979)</h3>
+  <p>Jon Kabat-Zinn defined mindfulness as <em>"paying attention, in a particular way, on purpose, in the present moment, non-judgmentally."</em> MBSR introduced formal meditation practices (body scan, sitting meditation, mindful movement) as clinical tools. MBRP directly borrows these practices.</p>
+
+  <h3>Foundation 3 — Mindfulness-Based Cognitive Therapy (MBCT — Segal et al., 2002)</h3>
+  <p>MBCT applied mindfulness to prevent depressive relapse by teaching patients to recognise early warning signs and respond mindfully rather than being pulled into ruminative spirals. The core MBCT insight — that <strong>thoughts are mental events, not facts</strong> — is central to MBRP's approach to craving and permission-giving thoughts.</p>
+
+  <h3>Foundation 4 — Opponent Process Theory (Solomon, 1980)</h3>
+  <p>Every pleasurable effect of a substance is followed by an opposing negative state (withdrawal, dysphoria). With repeated use, the positive effect diminishes and the negative opponent process intensifies — driving use not for pleasure but to escape the opponent process. MBRP teaches tolerance of the opponent process states (dysphoria, craving, withdrawal discomfort) rather than avoidance through use.</p>
+
+  <h3>Foundation 5 — Cognitive Model of Substance Abuse (Beck et al., 1993)</h3>
+  <p>Beck identified <strong>craving beliefs</strong> (I need the substance to cope, I can't tolerate this feeling) and <strong>permission-giving beliefs</strong> (it's OK just this once) as the cognitive mediators of relapse. MBRP addresses these beliefs through mindful observation and defusion rather than direct cognitive challenge.</p>
+
+  <div class="card navy">
+    <div class="card-title">🔑 The Key Theoretical Integration</div>
+    <p>RPT identifies <em>what</em> leads to relapse (triggers, HRS, AVE). Mindfulness provides the <em>how</em> of responding — through non-reactive observation rather than automatic pilot. MBRP is the combination: identify your triggers AND respond to them mindfully.</p>
+  </div>
+</div>
+
+<!-- ── SECTION 3: MECHANISM ── -->
+<div class="section" id="mechanism">
+  <div class="section-header">
+    <div class="sec-num teal">3</div>
+    <h2>How MBRP Works — The Mechanism</h2>
+  </div>
+
+  <h3>The Relapse Pathway (Without MBRP)</h3>
+  <div class="flow">
+    <div class="flow-box">Trigger<br><small>(person, place, emotion)</small></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-box">Craving<br><small>(body sensation + thought)</small></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-box">Automatic Pilot<br><small>(habitual response)</small></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-box highlight-box">Substance Use<br><small>RELAPSE</small></div>
+  </div>
+
+  <h3>The MBRP Pathway (With Training)</h3>
+  <div class="flow">
+    <div class="flow-box">Trigger<br><small>(person, place, emotion)</small></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-box">Craving<br><small>(noticed mindfully)</small></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-box break-box">PAUSE<br><small>SOBER space / Urge surf</small></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-box">Skilful<br><small>Response Choice</small></div>
+  </div>
+
+  <h3>What MBRP Changes — Three Mechanisms</h3>
+  <div class="card blue">
+    <div class="card-title">Mechanism 1 — Deautomatisation</div>
+    <p>Habitual substance use is an automatic behaviour — trigger → response without conscious choice. Mindfulness practice disrupts this automaticity by inserting a moment of awareness between stimulus and response. Even a brief pause creates space for a different response. This is what Kabat-Zinn calls "stepping out of automatic pilot."</p>
+  </div>
+  <div class="card teal">
+    <div class="card-title">Mechanism 2 — Craving Tolerance (Urge Surfing)</div>
+    <p>Most people believe craving will continue to intensify until they use. MBRP teaches that craving follows a wave pattern — it rises, peaks (typically within 20–30 minutes), and naturally subsides if the person does not act on it. Mindful observation of craving allows the person to discover this wave pattern through direct experience, reducing the sense of urgency and inevitability that drives use.</p>
+  </div>
+  <div class="card purple">
+    <div class="card-title">Mechanism 3 — Cognitive Defusion</div>
+    <p>Permission-giving thoughts ("just this once") and catastrophising thoughts after lapse ("I've failed, I'll never recover") lose their power when they are seen as mental events rather than facts. MBRP teaches the patient to observe thoughts with a slight distance — "I notice I am having the thought that I deserve a drink" — rather than being fused with the thought and acting on it.</p>
+  </div>
+
+  <h3>Neurobiological Basis</h3>
+  <p>Mindfulness practice has documented effects on the <strong>prefrontal cortex</strong> (increased thickness, improved executive regulation), the <strong>amygdala</strong> (reduced reactivity to stress and craving cues), and the <strong>anterior cingulate cortex</strong> (improved conflict monitoring and impulse inhibition). These are precisely the neural circuits compromised by chronic substance use — making mindfulness a neurobiologically rational intervention for addiction.</p>
+</div>
+
+<!-- ── SECTION 4: CORE COMPONENTS ── -->
+<div class="section" id="components">
+  <div class="section-header">
+    <div class="sec-num purple">4</div>
+    <h2>Core Components of MBRP</h2>
+  </div>
+
+  <p>MBRP has <strong>eight interlocking components</strong>. Every session addresses at least two of these simultaneously.</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width:5%">#</th>
+        <th style="width:22%">Component</th>
+        <th style="width:40%">What It Involves</th>
+        <th style="width:33%">Why It Matters for Relapse</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>1</strong></td>
+        <td><strong>Automatic Pilot Awareness</strong></td>
+        <td>Recognising that most substance use is habitual and automatic — not consciously chosen</td>
+        <td>You cannot change what you cannot see. Noticing the automaticity of use is the first step to interrupting it</td>
+      </tr>
+      <tr>
+        <td><strong>2</strong></td>
+        <td><strong>Mindfulness Meditation Practice</strong></td>
+        <td>Formal practices: body scan, breath meditation, sitting meditation, mindful movement (3–25 minutes per day)</td>
+        <td>Trains the attentional and metacognitive capacities that are needed to pause before responding to a trigger</td>
+      </tr>
+      <tr>
+        <td><strong>3</strong></td>
+        <td><strong>Trigger and High-Risk Situation Mapping</strong></td>
+        <td>Identifying personal internal and external high-risk situations — emotions, places, people, thoughts that precede use</td>
+        <td>Awareness of triggers allows anticipation and preparation rather than reactive relapse</td>
+      </tr>
+      <tr>
+        <td><strong>4</strong></td>
+        <td><strong>Urge Surfing</strong></td>
+        <td>Observing craving as a bodily sensation — noticing where it is, how intense, how it changes — without acting on it</td>
+        <td>Dismantles the belief that craving must be acted on; builds tolerance of craving through direct experience of its wave pattern</td>
+      </tr>
+      <tr>
+        <td><strong>5</strong></td>
+        <td><strong>SOBER Breathing Space</strong></td>
+        <td>A brief in-the-moment mindfulness practice for high-risk situations: Stop, Observe, Breathe, Expand, Respond</td>
+        <td>The most immediately practical tool — provides a 2–3 minute pause between trigger and response in real-world situations</td>
+      </tr>
+      <tr>
+        <td><strong>6</strong></td>
+        <td><strong>Mindfulness of Difficult Emotions</strong></td>
+        <td>Turning toward negative emotions (shame, anger, loneliness, boredom) rather than avoiding them through substance use</td>
+        <td>Emotional avoidance is the primary psychological driver of substance use. Tolerance of negative affect removes the need for chemical escape</td>
+      </tr>
+      <tr>
+        <td><strong>7</strong></td>
+        <td><strong>Cognitive Defusion</strong></td>
+        <td>Learning to see thoughts as mental events, not facts — especially permission-giving thoughts and post-lapse catastrophising</td>
+        <td>AVE (Abstinence Violation Effect) is primarily cognitive. Defusion from catastrophising thoughts after a lapse prevents escalation to full relapse</td>
+      </tr>
+      <tr>
+        <td><strong>8</strong></td>
+        <td><strong>Relapse Prevention Planning</strong></td>
+        <td>Creating a personalised written plan: warning signs, high-risk situations, responses, support contacts, what to do if lapse occurs</td>
+        <td>Translates mindfulness skills into a concrete, actionable post-discharge framework</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ── SECTION 5: CORE TECHNIQUES ── -->
+<div class="section" id="techniques">
+  <div class="section-header">
+    <div class="sec-num amber">5</div>
+    <h2>Core Techniques — Step by Step with Examples</h2>
+  </div>
+
+  <!-- TECHNIQUE 1: SOBER -->
+  <div class="technique">
+    <div class="technique-header">Technique 1 — SOBER Breathing Space</div>
+    <div class="technique-body">
+      <p>The most important practical tool in MBRP. A structured 2–3 minute mindfulness pause that can be done anywhere, at any time, when a craving or high-risk situation arises. Teach this in Session 2 and reinforce every session thereafter.</p>
+
+      <div class="step">
+        <div class="step-num">S</div>
+        <div class="step-content">
+          <strong>STOP — Pause whatever you are doing</strong>
+          Intentionally step out of what is happening. Do not react yet. Just stop for one moment.
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">O</div>
+        <div class="step-content">
+          <strong>OBSERVE — Notice what is present right now</strong>
+          What thoughts are here? What feelings? What body sensations? Where is the craving in your body — chest, throat, stomach? Do not judge or try to change anything. Just observe.
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">B</div>
+        <div class="step-content">
+          <strong>BREATHE — Take three slow, deliberate breaths</strong>
+          Breathe into the belly, not the chest. Follow the breath with your attention — in… and out… in… and out… This is your anchor to the present moment.
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">E</div>
+        <div class="step-content">
+          <strong>EXPAND — Widen your awareness to the whole body and situation</strong>
+          Expand from the breath to your whole body. Notice the room, the sounds, the physical sensations. You are still here. The craving is present but you are also present.
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">R</div>
+        <div class="step-content">
+          <strong>RESPOND — Choose a skilful response</strong>
+          Now — with awareness — choose what to do. You are no longer on autopilot. You can call your support person, leave the situation, do something incompatible with use, or simply stay with the awareness until the craving subsides.
+        </div>
+      </div>
+
+      <div class="example">
+        <div class="example-label">📋 Real Example — Indian De-addiction Setting</div>
+        <div class="example-scenario">
+          <div class="label">Situation</div>
+          Raju (35, opioid dependent) has been in the ward for 12 days. His friend comes to visit and mentions their old gathering spot near the station. Raju immediately feels a craving rising.
+        </div>
+        <div class="example-scenario">
+          <div class="label">Without SOBER</div>
+          Raju feels the craving but doesn't know what to do with it. His friend says "just come once after discharge." Raju thinks "maybe I can handle it." He agrees, and relapses the day after discharge.
+        </div>
+        <div class="example-scenario">
+          <div class="label">With SOBER (trained in Session 2)</div>
+          Raju notices the craving rising. He excuses himself for a moment. <strong>Stops.</strong> <strong>Observes:</strong> "There's a pulling feeling in my chest and stomach. My mind is going to the station area." <strong>Breathes:</strong> three slow breaths, following each one. <strong>Expands:</strong> notices the ward sounds, his feet on the floor. <strong>Responds:</strong> returns and tells his friend: "I can't come there. Let's meet somewhere else if you want to see me after discharge." He reports this in his next MBRP session.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TECHNIQUE 2: BODY SCAN -->
+  <div class="technique">
+    <div class="technique-header">Technique 2 — Body Scan Meditation</div>
+    <div class="technique-body">
+      <p>A systematic, deliberate attention to each part of the body in sequence. Typically 20–40 minutes for the full practice, 10 minutes for a brief version. Done lying down or sitting. Foundational to all other practices.</p>
+
+      <h4>How to guide a Body Scan</h4>
+      <div class="step">
+        <div class="step-num teal">1</div>
+        <div class="step-content"><strong>Settle the body</strong> — Lie on your back, feet slightly apart, arms alongside the body, palms facing upward. Close your eyes gently. Take three natural breaths.</div>
+      </div>
+      <div class="step">
+        <div class="step-num teal">2</div>
+        <div class="step-content"><strong>Bring attention to the feet</strong> — Notice any sensations in the toes — tingling, warmth, numbness, pressure. Whatever is there. Do not try to change it. Just notice.</div>
+      </div>
+      <div class="step">
+        <div class="step-num teal">3</div>
+        <div class="step-content"><strong>Move slowly upward</strong> — Soles of the feet → ankles → shins → knees → thighs → hips → lower back → abdomen → chest → hands → arms → shoulders → neck → face → top of the head.</div>
+      </div>
+      <div class="step">
+        <div class="step-num teal">4</div>
+        <div class="step-content"><strong>When the mind wanders</strong> — Notice that it has wandered (to thoughts, plans, cravings). This is not failure. Gently, without judgment, bring attention back to wherever the scan had reached.</div>
+      </div>
+      <div class="step">
+        <div class="step-num teal">5</div>
+        <div class="step-content"><strong>End with whole-body awareness</strong> — Sense the body as a whole, breathing as a whole. Take three natural breaths. Open the eyes slowly.</div>
+      </div>
+
+      <div class="highlight teal">
+        <strong>Why Body Scan for substance dependence specifically:</strong> Substance use is fundamentally a somatic experience — craving lives in the body. The body scan teaches patients to notice body sensations (including craving sensations) with curious, non-reactive attention. This is the experiential foundation for urge surfing.
+      </div>
+
+      <div class="example">
+        <div class="example-label">📋 What a Patient Might Say</div>
+        <div class="example-scenario">
+          <div class="label">Common response in first body scan session</div>
+          "Sir, when I reached my stomach area, I suddenly noticed a pulling feeling — the same feeling I get when I want to use. I didn't know that feeling was living in my stomach all the time. Usually I just use and it goes away. This time I just watched it and after a few minutes it became less."
+        </div>
+        <div class="example-scenario">
+          <div class="label">Therapist's response</div>
+          "That is exactly what we are practicing. The craving is a sensation in your body. When you observe it with curiosity instead of immediately acting on it, you discover that it does not stay at the same intensity — it changes, it moves, it decreases. That is what we call the wave of craving. You just rode that wave."
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TECHNIQUE 3: URGE SURFING -->
+  <div class="technique">
+    <div class="technique-header">Technique 3 — Urge Surfing</div>
+    <div class="technique-body">
+      <p>Developed by Alan Marlatt (1985). The metaphor is that craving is like an ocean wave — it rises, reaches a peak, and then naturally subsides. The person does not fight the wave (fight = try to suppress craving through willpower, which often rebounds). Instead, they <strong>surf it</strong> — stay on top of it, observe it, ride it out.</p>
+
+      <h4>The Common Misconception MBRP Corrects</h4>
+      <div class="compare">
+        <div class="compare-col bad">
+          <div class="col-label">❌ What Patients Believe</div>
+          "The craving will keep getting stronger and stronger until I use. The only way to make it stop is to use."
+        </div>
+        <div class="compare-col good">
+          <div class="col-label">✅ What Urge Surfing Teaches</div>
+          "Craving follows a wave pattern. It rises (typically 5–10 min), peaks, then naturally subsides (usually within 20–30 min) if I do not act on it. I can observe this directly."
+        </div>
+      </div>
+
+      <h4>Procedure — Guided Urge Surfing</h4>
+      <ol>
+        <li>Ask the patient to bring to mind a high-risk situation or a recent craving moment. Allow the memory to be vivid.</li>
+        <li>Ask: "Where do you notice the craving in your body right now? Give it a location — chest, throat, stomach, hands?"</li>
+        <li>"Now describe it to me — what does it feel like? Is it a pulling, a pressure, a heat, a restlessness? What shape or colour does it have?"</li>
+        <li>"Notice — is it changing as you observe it? Is it getting stronger, weaker, moving? Just observe."</li>
+        <li>"You do not need to fight this feeling. You do not need to make it go away. You are simply watching it the way you watch clouds from a window."</li>
+        <li>"Take three slow breaths. Stay with the sensation. Notice what happens."</li>
+        <li>Continue for 5–10 minutes. Most patients find the craving shifts and reduces in intensity.</li>
+      </ol>
+
+      <div class="example">
+        <div class="example-label">📋 Real Example — Urge Surfing in Session 4</div>
+        <div class="example-scenario">
+          <div class="label">Therapist Dialogue</div>
+          "Ramesh, close your eyes. Remember the last time you had a strong urge to use heroin — maybe the day you came to the hospital. Bring that moment back. Where is the feeling right now in your body?"<br><br>
+          <em>Patient: "In my chest. And my hands feel like they're shaking inside."</em><br><br>
+          "Good. Stay with your hands. What do the hands feel like — trembling, pulling, tight?"<br><br>
+          <em>Patient: "Like they want to reach out and grab something."</em><br><br>
+          "Notice that. Don't try to stop it. Just watch those hands wanting to reach. Now take a breath. Are the hands still wanting to reach?"<br><br>
+          <em>Patient: [after 2 minutes] "It's... less. The feeling is still there but not as strong."</em><br><br>
+          "That is urge surfing. You did not use. You did not fight the craving. You watched it — and it changed on its own. That is what cravings do."
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TECHNIQUE 4: COGNITIVE DEFUSION -->
+  <div class="technique">
+    <div class="technique-header">Technique 4 — Cognitive Defusion (Thoughts Are Not Facts)</div>
+    <div class="technique-body">
+      <p>In standard CBT, you challenge the content of a thought ("Is it really true that you deserve a drink?"). In MBRP, you change your <em>relationship</em> to the thought — you see it as a thought rather than a fact, which removes its power without having to argue with it.</p>
+
+      <h4>The Core Language Shift</h4>
+      <div class="compare">
+        <div class="compare-col bad">
+          <div class="col-label">❌ Fused with Thought (High Relapse Risk)</div>
+          "I can't handle this stress without using."<br>
+          "Just this once won't matter."<br>
+          "I've already failed, I might as well continue."
+        </div>
+        <div class="compare-col good">
+          <div class="col-label">✅ Defused from Thought</div>
+          "I notice I am having the thought that I can't handle this stress."<br>
+          "I notice the thought 'just this once' has appeared."<br>
+          "I notice the thought that I've failed. That's a thought. What do I want to do?"
+        </div>
+      </div>
+
+      <h4>Leaves on a Stream Exercise — Guided Procedure</h4>
+      <ol>
+        <li>Ask the patient to sit comfortably and close their eyes. Ask them to imagine sitting beside a gently flowing stream.</li>
+        <li>"As you sit, leaves are floating on the surface of the water, drifting past you slowly."</li>
+        <li>"Each time a thought, image, or feeling appears in your mind — place it on a leaf and watch it float downstream. You do not need to grab the leaf. Just watch it drift."</li>
+        <li>"If a craving thought appears — 'I want heroin' — place it on a leaf. Watch it drift. Another leaf comes."</li>
+        <li>"If the thought 'this is silly' appears — that too goes on a leaf."</li>
+        <li>"You are the observer on the bank. Thoughts are leaves on the water. They pass."</li>
+      </ol>
+
+      <div class="example">
+        <div class="example-label">📋 Identifying Permission-Giving Thoughts — Session 5 Worksheet</div>
+        <div class="example-scenario">
+          <div class="label">Patient's Permission-Giving Thought</div>
+          "My wife has been unwell. I'm under so much stress. Just once to get through this — then I'll stop again."
+        </div>
+        <div class="example-scenario">
+          <div class="label">Mindful Defusion Response</div>
+          "I notice I am having the thought that one time will help me manage my wife's illness. That is the addiction speaking, not me. My wife being unwell is real. The thought that using will help is a habit of the mind. Let me place that thought on a leaf and watch it drift. Now — what can I actually do about my wife's situation right now?"
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TECHNIQUE 5: MINDFUL AWARENESS OF EMOTIONS -->
+  <div class="technique">
+    <div class="technique-header">Technique 5 — Mindfulness of Difficult Emotions</div>
+    <div class="technique-body">
+      <p>The therapeutic principle: <strong>substance use is emotional avoidance made chemical.</strong> The patient uses because they cannot tolerate a particular feeling — boredom, loneliness, shame, anger, anxiety. MBRP teaches them to <em>turn toward</em> these feelings rather than escape them.</p>
+
+      <h4>The Mountain Meditation</h4>
+      <p>Patients are guided to imagine themselves as a mountain. Weather — storms, rain, sun, snow — passes across the mountain's surface but the mountain itself is unchanged. Difficult emotions are weather. The patient is the mountain. This metaphor builds a sense of stable ground that can withstand emotional turbulence without being destroyed by it.</p>
+
+      <h4>Procedure — Sitting with a Difficult Emotion</h4>
+      <ol>
+        <li>Identify the patient's most avoided emotion through discussion — for most de-addiction patients this is shame, loneliness, or anxiety.</li>
+        <li>"Bring to mind a recent moment when you felt [shame]. Don't try to explain it. Just notice where that feeling lives in your body."</li>
+        <li>"Can you describe the physical sensation of shame? Where is it? Chest? Face? Stomach? What does it feel like physically?"</li>
+        <li>"Now: can you stay with that sensation for just 60 seconds? Not to fix it or resolve it. Just to be with it."</li>
+        <li>"What do you notice? Is it changing? Is it tolerable?"</li>
+        <li>Debrief: "What did you discover? Is the feeling as unbearable as you thought?"</li>
+      </ol>
+
+      <div class="highlight amber">
+        <strong>Clinical note for de-addiction settings:</strong> Many patients have never been taught to tolerate emotions at all — their entire emotional regulation strategy has been pharmacological. Go slowly with this component. Do not push toward overwhelming emotions in early sessions. Start with mild discomfort and build tolerance gradually.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── SECTION 6: SESSION PLAN ── -->
+<div class="section" id="sessions">
+  <div class="section-header">
+    <div class="sec-num rose">6</div>
+    <h2>Full Session-by-Session Protocol</h2>
+  </div>
+
+  <div class="card navy" style="margin-bottom:24px;">
+    <div class="card-title">📌 Protocol Overview</div>
+    <p><strong>Original MBRP:</strong> 8 weekly group sessions × 2 hours each (outpatient aftercare)<br>
+    <strong>Brief MBRP (B-MBRP) for IPD:</strong> 6 sessions × 45–60 min each, individual format, delivered every 2–3 days over 3 weeks<br>
+    <strong>Language:</strong> Hindi in Indian settings — prepare all handouts, worksheets, and home practice diaries in Hindi<br>
+    <strong>Who delivers:</strong> Researcher/therapist under supervisor guidance<br>
+    <strong>Home practice:</strong> 15–20 min daily, recorded in a personal diary</p>
+  </div>
+
+  <!-- S1 -->
+  <div class="session">
+    <div class="session-header">
+      <div class="session-num">1</div>
+      <div>
+        <div class="session-title">Automatic Pilot and Mindful Awareness</div>
+        <div class="session-meta">Duration: 50 min · Technique introduced: Body Scan + Raisin Exercise</div>
+      </div>
+    </div>
+    <div class="session-body">
+      <h4>Objectives</h4>
+      <ul>
+        <li>Introduce the concept of automatic pilot — how most substance use is habitual, not consciously chosen</li>
+        <li>Introduce mindfulness as a psychological skill (not a belief system)</li>
+        <li>Build rapport and establish session structure and expectations</li>
+      </ul>
+      <h4>Core Content</h4>
+      <p><strong>Raisin Exercise / Murmura Exercise:</strong> Give the patient a single food item (a raisin, a piece of murmura, a single almond). Ask them to explore it as if they have never seen it before — touch, smell, look at the colour and texture, place it in the mouth slowly, notice the taste, the chewing, the swallowing. Then ask: "How is this different from how you normally eat?"</p>
+      <p>This is a direct experiential demonstration of the difference between automatic and mindful behaviour. Most patients are surprised at how different it is. Then connect: <em>"This is how you normally go through a day — on autopilot. And this is how substance use works — triggered, automatic, without a conscious pause."</em></p>
+      <p><strong>Brief Body Scan (10 min):</strong> First formal practice — guided from feet to head. Keep it short, accessible, and debrief afterwards.</p>
+      <h4>Discussion Questions</h4>
+      <ul>
+        <li>When in your day do you run on automatic pilot most strongly?</li>
+        <li>Can you remember the last time you used — was it a conscious choice, or did it just happen?</li>
+      </ul>
+      <h4>Home Practice</h4>
+      <p>5-minute body scan daily. Notice one moment per day where you were "on automatic" — record in diary.</p>
+    </div>
+  </div>
+
+  <!-- S2 -->
+  <div class="session">
+    <div class="session-header">
+      <div class="session-num">2</div>
+      <div>
+        <div class="session-title">Awareness of Triggers and Craving</div>
+        <div class="session-meta">Duration: 50 min · Technique introduced: SOBER Breathing Space + Trigger Mapping</div>
+      </div>
+    </div>
+    <div class="session-body">
+      <h4>Objectives</h4>
+      <ul>
+        <li>Map the patient's personal high-risk situations and triggers</li>
+        <li>Introduce and practise the SOBER breathing space</li>
+        <li>Begin mindful observation of craving as a body sensation</li>
+      </ul>
+      <h4>Core Content</h4>
+      <p><strong>Trigger Mapping Exercise:</strong> Draw a simple table together with the patient — Internal Triggers (emotions: shame, boredom, loneliness, anger, anxiety) and External Triggers (places, people, times of day, events). Fill it in specifically for this patient — not generic, but their actual life.</p>
+      <p><strong>SOBER Breathing Space:</strong> Teach the full SOBER procedure (see Techniques section above). Role-play one trigger scenario from the patient's own trigger map. Walk through SOBER step by step in that scenario.</p>
+      <p><strong>Mindful Craving Awareness:</strong> Brief introduction — "The next time you notice a craving, instead of immediately acting, pause and ask: where is this in my body? What does it feel like physically?"</p>
+      <h4>Home Practice</h4>
+      <p>Use SOBER when a craving or trigger appears. Record in diary: what was the trigger, what did you observe, what did you do.</p>
+    </div>
+  </div>
+
+  <!-- S3 -->
+  <div class="session">
+    <div class="session-header">
+      <div class="session-num">3</div>
+      <div>
+        <div class="session-title">Mindfulness of the Breath — Building a Daily Practice</div>
+        <div class="session-meta">Duration: 50 min · Technique: Formal Breath Meditation</div>
+      </div>
+    </div>
+    <div class="session-body">
+      <h4>Objectives</h4>
+      <ul>
+        <li>Establish formal breath meditation as a daily practice</li>
+        <li>Generalise mindfulness to routine daily activities</li>
+        <li>Build a sustainable practice the patient can maintain post-discharge</li>
+      </ul>
+      <h4>Core Content</h4>
+      <p><strong>Breath Meditation (15 min guided):</strong> Sit upright, eyes closed or lowered. Bring attention to the physical sensations of breathing — the rise and fall of the belly, the coolness of air entering the nostrils, the warmth of air leaving. When the mind wanders (and it will), gently notice this and return to the breath. There is no "good" or "bad" meditation — only aware and not-aware.</p>
+      <p><strong>Everyday Mindfulness:</strong> Mindfulness is not only on the cushion. Choose one daily activity (eating, bathing, walking to the toilet in the ward) and do it fully mindfully for the next week.</p>
+      <p><strong>Link to Substance Use:</strong> "The breath is always available. No matter where you are — even in a high-risk situation — your breath is there. In the moment before using, you can always come back to three deliberate breaths."</p>
+      <h4>Home Practice</h4>
+      <p>15-minute breath meditation daily + one mindful daily activity. Log in diary.</p>
+    </div>
+  </div>
+
+  <!-- S4 -->
+  <div class="session">
+    <div class="session-header">
+      <div class="session-num">4</div>
+      <div>
+        <div class="session-title">Staying Present with Difficult Emotions — Urge Surfing</div>
+        <div class="session-meta">Duration: 55 min · Technique: Urge Surfing + Mountain Meditation</div>
+      </div>
+    </div>
+    <div class="session-body">
+      <h4>Objectives</h4>
+      <ul>
+        <li>Introduce turning toward rather than escaping difficult emotions</li>
+        <li>Teach and practise urge surfing directly in session</li>
+        <li>Reduce emotional avoidance as the primary coping strategy</li>
+      </ul>
+      <h4>Core Content</h4>
+      <p><strong>Psychoeducation — Emotional Avoidance Cycle:</strong> Draw the cycle on paper together — Difficult emotion → discomfort → urge to escape → use → temporary relief → shame → more difficult emotion → use again. Show how using maintains the very emotions it temporarily relieves.</p>
+      <p><strong>Urge Surfing Practice:</strong> Full guided urge surfing (see Techniques section). Ask patient to bring to mind a craving scenario and guide them through observing it as a body sensation. Debrief: what did you notice? Did the craving stay at the same intensity the entire time?</p>
+      <p><strong>Mountain Meditation (10 min):</strong> Guide the mountain metaphor — patient is the mountain, emotions are weather. The mountain does not become the weather. The mountain is always present, always stable.</p>
+      <h4>Home Practice</h4>
+      <p>When a strong emotion or craving arises — use urge surfing. Observe and stay rather than escape. Record in diary: emotion, body location, intensity (1–10), what happened when observed.</p>
+    </div>
+  </div>
+
+  <!-- S5 -->
+  <div class="session">
+    <div class="session-header">
+      <div class="session-num">5</div>
+      <div>
+        <div class="session-title">Thoughts Are Not Facts — Cognitive Defusion</div>
+        <div class="session-meta">Duration: 50 min · Technique: Leaves on a Stream + Permission-Giving Thought Work</div>
+      </div>
+    </div>
+    <div class="session-body">
+      <h4>Objectives</h4>
+      <ul>
+        <li>Introduce cognitive defusion — seeing thoughts as mental events, not commands</li>
+        <li>Identify the patient's specific permission-giving thoughts</li>
+        <li>Address the Abstinence Violation Effect (AVE) — what to do if a lapse occurs</li>
+      </ul>
+      <h4>Core Content</h4>
+      <p><strong>Permission-Giving Thoughts:</strong> Every patient has their own recurring permission-giving thoughts. Identify them specifically — write them down. Common examples: "I've been doing well, one time won't matter," "This is a special occasion," "My pain is too much," "I can control it this time." Once identified, practise the defusion language shift — "I notice the thought..."</p>
+      <p><strong>Leaves on a Stream Exercise:</strong> Full guided procedure (see Techniques section). Place each permission-giving thought on a leaf and watch it drift.</p>
+      <p><strong>The Lapse vs Relapse Distinction — Addressing AVE:</strong> "If you use once after leaving the hospital, that is a lapse. It does not mean you have failed. It does not mean treatment has not worked. The danger is not the lapse itself — it is the thought 'I've failed, might as well continue.' That thought is also just a thought on a leaf."</p>
+      <h4>Home Practice</h4>
+      <p>Notice three permission-giving thoughts per day. Write them down. Then write the defused version ("I notice the thought that..."). Bring the list to next session.</p>
+    </div>
+  </div>
+
+  <!-- S6 -->
+  <div class="session">
+    <div class="session-header">
+      <div class="session-num">6</div>
+      <div>
+        <div class="session-title">Relapse Prevention Planning and Sustaining Practice</div>
+        <div class="session-meta">Duration: 60 min · Final Session — Consolidation and Planning</div>
+      </div>
+    </div>
+    <div class="session-body">
+      <h4>Objectives</h4>
+      <ul>
+        <li>Create a personalised, written relapse prevention plan the patient takes home</li>
+        <li>Build a sustainable post-discharge mindfulness practice</li>
+        <li>Close the therapeutic relationship warmly and clearly</li>
+      </ul>
+      <h4>Core Content</h4>
+      <p><strong>Relapse Prevention Plan (written together in session):</strong></p>
+      <ul>
+        <li><strong>My high-risk situations:</strong> [patient fills in — specific to their life]</li>
+        <li><strong>My warning signs that I am moving toward relapse:</strong> [thoughts, emotions, behaviours that come before use]</li>
+        <li><strong>My SOBER practice when triggered:</strong> [patient describes in own words]</li>
+        <li><strong>My support contacts:</strong> Name + phone number of two people to call</li>
+        <li><strong>What I will do if I lapse:</strong> "One use is not failure. I will use SOBER, call [name], and return to the hospital/OPD."</li>
+        <li><strong>My daily mindfulness practice:</strong> [15 minutes + one mindful activity, at what time each day]</li>
+      </ul>
+      <p><strong>Whole Programme Review:</strong> Patient reflects on what has been most useful — which technique, which session, which insight. This consolidates learning and builds confidence.</p>
+      <p><strong>Closing:</strong> Acknowledge the work done. Express confidence in the patient's capacity to use these tools. Remind them of the OPD follow-up date.</p>
+      <h4>Home Practice (Post-Discharge)</h4>
+      <p>Daily 15-minute practice. Diary maintained for 2 weeks. OPD or phone follow-up at 4–6 weeks post-discharge.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ── SECTION 7: EXAMPLES ── -->
+<div class="section" id="examples">
+  <div class="section-header">
+    <div class="sec-num">7</div>
+    <h2>Detailed Patient Examples — Full Scenarios</h2>
+  </div>
+
+  <h3>Case Example 1 — Opioid Dependence (Heroin), Emotional Trigger</h3>
+  <div class="card blue">
+    <div class="card-title">Background</div>
+    <p>Deepak, 28, heroin dependent for 4 years. Primary trigger: loneliness and feeling rejected by family. Has been admitted for 11 days. Pre-assessment: BIS-11 Motor Impulsivity = 28/36 (very high), FFMQ Acting with Awareness = 12/40 (very low).</p>
+  </div>
+  <div class="example">
+    <div class="example-label">Session 4 — Urge Surfing with Emotional Trigger</div>
+    <div class="example-scenario">
+      <div class="label">Session Moment</div>
+      Deepak mentions that his father has not visited him in the ward. He feels a strong urge to use just thinking about it.<br><br>
+      <strong>Therapist:</strong> "Let's work with that right now. Close your eyes. Bring your father to mind. What are you feeling in your body?"<br>
+      <strong>Deepak:</strong> "Heaviness in my chest. Like something is pressing from inside."<br>
+      <strong>Therapist:</strong> "Good. Stay with the heaviness. Don't try to fix it. Just observe it — is it getting heavier, lighter, spreading?"<br>
+      <strong>Deepak:</strong> [after 2 minutes] "It's... it's still there but I feel less like running away from it now."<br>
+      <strong>Therapist:</strong> "That heaviness — has it ever felt tolerable before without using?"<br>
+      <strong>Deepak:</strong> "No. I always used when this feeling came."<br>
+      <strong>Therapist:</strong> "And right now, without using, you are sitting with it. It hasn't destroyed you. That is what you are building — the ability to be with the heaviness without needing to make it disappear."
+    </div>
+    <div class="example-scenario">
+      <div class="label">Post-Assessment Outcome (3 weeks later)</div>
+      FFMQ Acting with Awareness: 12 → 26 (significant increase). BIS-11 Motor Impulsivity: 28 → 19. Deepak reports using SOBER twice after discharge when he encountered his father — did not relapse at 6-week follow-up.
+    </div>
+  </div>
+
+  <h3>Case Example 2 — Alcohol Dependence, Social Trigger</h3>
+  <div class="card teal">
+    <div class="card-title">Background</div>
+    <p>Suresh, 42, alcohol dependent for 12 years. Primary trigger: social gatherings, peer pressure. Married, wife supportive. Two previous admissions, both followed by relapse within 2 weeks at a neighbour's function.</p>
+  </div>
+  <div class="example">
+    <div class="example-label">Session 5 — Cognitive Defusion with Permission-Giving Thoughts</div>
+    <div class="example-scenario">
+      <div class="label">Permission-Giving Thoughts Identified</div>
+      "At weddings, everyone drinks. If I don't drink, they will think something is wrong with me."<br>
+      "My neighbour will feel bad if I refuse."<br>
+      "Just one glass at an occasion is fine, I'm not drinking daily anymore."
+    </div>
+    <div class="example-scenario">
+      <div class="label">Defusion Practice</div>
+      <strong>Therapist:</strong> "Let's take your first thought — 'everyone will think something is wrong with me.' Can you say it as 'I notice I am having the thought that everyone will think something is wrong with me'?"<br>
+      <strong>Suresh:</strong> [tries it] "It sounds different when I say it that way."<br>
+      <strong>Therapist:</strong> "How?"<br>
+      <strong>Suresh:</strong> "Like... it's my thought. Not a fact."<br>
+      <strong>Therapist:</strong> "Exactly. People probably won't think anything. And even if they do — that thought on a leaf, drifting past. Now: if you say no to alcohol at a wedding, and someone asks why — what could you actually say?"<br>
+      <strong>Suresh:</strong> "I could say I'm on medication. Or I'm taking a break for health reasons."<br>
+      <strong>Therapist:</strong> "That is SOBER → Respond. You just planned a skilful response."
+    </div>
+  </div>
+</div>
+
+<!-- ── SECTION 8: INDIAN CONTEXT ── -->
+<div class="section" id="india">
+  <div class="section-header">
+    <div class="sec-num teal">8</div>
+    <h2>Adapting MBRP for Indian De-addiction Settings</h2>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Original MBRP Element</th>
+        <th>Challenge in Indian IPD Setting</th>
+        <th>Adaptation</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Raisin exercise</td>
+        <td>Raisins may be unfamiliar or unavailable in all settings</td>
+        <td>Use murmura (puffed rice), a single almond, or a small piece of fruit</td>
+      </tr>
+      <tr>
+        <td>Group format</td>
+        <td>Variable admission/discharge makes stable group impossible in IPD</td>
+        <td>Individual format — one patient per set of sessions</td>
+      </tr>
+      <tr>
+        <td>Written worksheets</td>
+        <td>Low literacy in many patients</td>
+        <td>Therapist scribes for patient if needed; use verbal diary with daily verbal check-in</td>
+      </tr>
+      <tr>
+        <td>Meditation language</td>
+        <td>English meditation scripts are culturally alien</td>
+        <td>All scripts in Hindi; use local metaphors — river (nadi), mountain (pahar), wave (lahar)</td>
+      </tr>
+      <tr>
+        <td>Religious sensitivity</td>
+        <td>Patient may associate meditation with religious practice and either embrace or resist based on faith identity</td>
+        <td>Explicitly frame as a psychological skill, not a spiritual practice; use secular language throughout</td>
+      </tr>
+      <tr>
+        <td>Home practice space</td>
+        <td>Ward may be noisy; post-discharge home may lack privacy</td>
+        <td>Teach patient to use even 5 minutes in a bathroom or quiet corner; emphasise that meditation does not require silence</td>
+      </tr>
+      <tr>
+        <td>Family involvement</td>
+        <td>Family is often present and influential in Indian treatment context</td>
+        <td>One optional family psychoeducation session on supporting the patient's practice without enabling use</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="highlight teal" style="margin-top:20px;">
+    <strong>Key phrase for Indian patients who are skeptical:</strong> "यह ध्यान (dhyan) नहीं है जैसा आप सोचते हैं। यह एक मानसिक अभ्यास है — जैसे exercise शरीर के लिए होती है, यह मन के लिए है।" (This is not meditation as you think. This is a mental exercise — just as exercise is for the body, this is for the mind.)
+  </div>
+</div>
+
+<!-- ── SECTION 9: EVIDENCE ── -->
+<div class="section" id="evidence">
+  <div class="section-header">
+    <div class="sec-num purple">9</div>
+    <h2>Evidence Base — What Research Shows</h2>
+  </div>
+
+  <table>
+    <thead>
+      <tr><th>Study</th><th>Design</th><th>Key Finding</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Bowen et al. (2009)</td>
+        <td>RCT, N=168, aftercare</td>
+        <td>MBRP significantly reduced craving and substance use at 4 months vs TAU</td>
+      </tr>
+      <tr>
+        <td>Bowen et al. (2014)</td>
+        <td>3-arm RCT, N=286</td>
+        <td>MBRP superior to RP and TAU at 12 months for drug use days and heavy drinking</td>
+      </tr>
+      <tr>
+        <td>Witkiewitz et al. (2013)</td>
+        <td>Mediation analysis</td>
+        <td>Mindfulness mediated the effect of MBRP on substance use — reduced craving and negative affect as mechanisms</td>
+      </tr>
+      <tr>
+        <td>Garland et al. (2014)</td>
+        <td>RCT, opioid-prescribed patients</td>
+        <td>Mindfulness-based intervention reduced opioid misuse and craving significantly vs TAU</td>
+      </tr>
+      <tr>
+        <td>Indian Studies</td>
+        <td>Small N, pre-post</td>
+        <td>Limited published data from Indian de-addiction settings — this is the gap your study fills</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Effect Sizes Reported in MBRP Studies</h3>
+  <div class="grid-3">
+    <div class="card teal" style="text-align:center;">
+      <div class="card-title">Craving Reduction</div>
+      <div style="font-size:32px;font-weight:800;color:#0e7c6b;margin:8px 0;">d = 0.61</div>
+      <p style="font-size:13px;">Medium-large effect; consistent across studies</p>
+    </div>
+    <div class="card blue" style="text-align:center;">
+      <div class="card-title">Impulsivity (BIS-11)</div>
+      <div style="font-size:32px;font-weight:800;color:#1d5fa6;margin:8px 0;">d = 0.48</div>
+      <p style="font-size:13px;">Medium effect; motor and non-planning subscales show most change</p>
+    </div>
+    <div class="card purple" style="text-align:center;">
+      <div class="card-title">Mindfulness (FFMQ)</div>
+      <div style="font-size:32px;font-weight:800;color:#4a2080;margin:8px 0;">d = 0.72</div>
+      <p style="font-size:13px;">Large effect; Non-reactivity subscale shows greatest change</p>
+    </div>
+  </div>
+</div>
+
+<!-- ── SECTION 10: COMPARISON ── -->
+<div class="section" id="vs">
+  <div class="section-header">
+    <div class="sec-num amber">10</div>
+    <h2>MBRP vs Other Interventions — How to Explain at Viva</h2>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Feature</th>
+        <th>MBRP</th>
+        <th>Standard RP (Marlatt)</th>
+        <th>CBT for Addiction</th>
+        <th>12-Step (AA/NA)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Core mechanism</strong></td>
+        <td>Mindful awareness + cognitive defusion</td>
+        <td>Coping skills + cognitive restructuring</td>
+        <td>Thought challenging + behavioural strategies</td>
+        <td>Social support + spiritual framework</td>
+      </tr>
+      <tr>
+        <td><strong>Relationship to craving</strong></td>
+        <td>Observe and tolerate without acting (Urge Surfing)</td>
+        <td>Use coping strategies to manage craving</td>
+        <td>Challenge craving-related cognitions</td>
+        <td>Share with group, surrender to higher power</td>
+      </tr>
+      <tr>
+        <td><strong>Relationship to thoughts</strong></td>
+        <td>Defusion — observe thought as mental event</td>
+        <td>Challenge and restructure thoughts</td>
+        <td>Socratic questioning, thought records</td>
+        <td>Not directly addressed</td>
+      </tr>
+      <tr>
+        <td><strong>Requires daily practice?</strong></td>
+        <td>Yes — formal meditation daily</td>
+        <td>No formal daily practice</td>
+        <td>No formal daily practice</td>
+        <td>Yes — meetings + prayer</td>
+      </tr>
+      <tr>
+        <td><strong>Evidence in addiction</strong></td>
+        <td>Strong — 3 RCTs, consistent results</td>
+        <td>Strong — decades of research</td>
+        <td>Strong — well-established</td>
+        <td>Moderate — sparse RCT data</td>
+      </tr>
+      <tr>
+        <td><strong>Religious framework needed?</strong></td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes (Higher Power concept)</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <blockquote>
+    "MBRP does not compete with CBT or RP — it adds a layer that they lack: the capacity to tolerate experience without immediately trying to change it. CBT and RP ask 'what should I do differently?' MBRP first asks 'what is actually happening right now?' The pause before the response is where MBRP lives."
+  </blockquote>
+</div>
+
+<!-- ── QUICK REFERENCE ── -->
+<div class="section">
+  <div class="section-header">
+    <div class="sec-num">11</div>
+    <h2>Quick Reference — Exam / Viva Summary</h2>
+  </div>
+
+  <div class="grid-2">
+    <div class="card blue">
+      <div class="card-title">Developed by</div>
+      Bowen, Chawla, &amp; Marlatt (2011) — University of Washington. Full manual: Guilford Press.
+    </div>
+    <div class="card blue">
+      <div class="card-title">Based on</div>
+      MBSR (Kabat-Zinn) + MBCT (Segal et al.) + Relapse Prevention (Marlatt &amp; Gordon, 1985)
+    </div>
+    <div class="card teal">
+      <div class="card-title">Target population</div>
+      Adults with substance use disorders — alcohol, opioids, stimulants, cannabis; outpatient aftercare or inpatient
+    </div>
+    <div class="card teal">
+      <div class="card-title">Format</div>
+      8 weekly group sessions × 2 hours (original) or 6-session brief individual adaptation for IPD
+    </div>
+    <div class="card purple">
+      <div class="card-title">Core techniques</div>
+      Body scan · Breath meditation · SOBER breathing space · Urge surfing · Leaves on a stream · Mountain meditation · Relapse prevention planning
+    </div>
+    <div class="card purple">
+      <div class="card-title">Core mechanisms</div>
+      Deautomatisation · Craving tolerance · Cognitive defusion · Emotional tolerance · Increased metacognitive awareness
+    </div>
+    <div class="card amber">
+      <div class="card-title">Outcome measures used</div>
+      FFMQ (mindfulness) · BIS-11 (impulsivity) · Penn Craving Scale / OCDUS · PHQ-9 (depression) · Rorschach CS FC:CF+C (affective control — exploratory)
+    </div>
+    <div class="card amber">
+      <div class="card-title">Key distinction from CBT</div>
+      CBT challenges thought content. MBRP changes the person's relationship to thoughts — defusion, not restructuring. "Thoughts are leaves, not commands."
+    </div>
+  </div>
+</div>
+
+</div><!-- /main -->
+
+<div class="footer">
+  MPhil Clinical Psychology — MBRP Reference Notes · Based on Bowen, Chawla &amp; Marlatt (2011) · For dissertation and clinical training use
+</div>
+
+</body>
+</html>
