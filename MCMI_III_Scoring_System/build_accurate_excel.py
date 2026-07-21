@@ -651,7 +651,8 @@ def build_workbook():
     wp = []
     for a, b in SCALE_W_PAIRS:
         ra, rb = item_cell(a), item_cell(b)
-        wp.append(f'IF(AND({ra}<>"",{rb}<>"",{ra}<>{rb}),1,0)')
+        # Score 1 if BOTH items in pair are TRUE (both blackened)
+        wp.append(f'IF(AND({ra}="T",{rb}="T"),1,0)')
     ws.cell(row=row, column=1, value="W")
     ws.cell(row=row, column=3, value="=" + "+".join(wp))
     ws.cell(row=row, column=4, value="<10")

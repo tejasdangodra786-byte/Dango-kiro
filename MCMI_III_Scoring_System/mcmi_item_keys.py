@@ -51,8 +51,9 @@ SCALE_Z_ITEMS = {
 SCALE_V_ITEMS = [65, 110, 157]
 
 # Scale W (Inconsistency) - 44 pairs of items
-# Each pair: if both are answered in the SAME direction (both True or both False),
-# it adds 1 point to inconsistency
+# Each pair: if BOTH items are answered TRUE (both blackened/endorsed),
+# it adds 1 point to the inconsistency score.
+# Per manual: "Each blackened pair of responses adds 1 to the scale score."
 SCALE_W_PAIRS = [
     # Key 1 pairs (items where BOTH True = inconsistent)
     (3, 149), (10, 165), (14, 94), (15, 61), (19, 150),

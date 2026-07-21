@@ -264,17 +264,16 @@ def build_v_score_formula():
 def build_w_score_formula():
     """
     Build formula for Scale W (Inconsistency).
-    Counts pairs where items are answered in OPPOSITE directions.
+    Per manual: "Each blackened pair of responses adds 1 to the scale score."
+    Score 1 for each pair where BOTH items are TRUE.
     """
     parts = []
     for item_a, item_b in SCALE_W_PAIRS:
         ref_a = get_item_cell_ref(item_a)
         ref_b = get_item_cell_ref(item_b)
-        # Score 1 if answers differ (one TRUE, one FALSE)
-        parts.append(f'IF(AND({ref_a}<>"",{ref_b}<>"",{ref_a}<>{ref_b}),1,0)')
+        # Score 1 if BOTH items in pair are TRUE (both blackened)
+        parts.append(f'IF(AND({ref_a}="TRUE",{ref_b}="TRUE"),1,0)')
     
-    # This will be very long - split into multiple lines if needed
-    # Excel supports up to 8192 chars in a formula
     formula = "=" + "+".join(parts)
     return formula
 

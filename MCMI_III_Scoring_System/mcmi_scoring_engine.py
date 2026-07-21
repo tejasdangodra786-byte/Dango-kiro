@@ -230,12 +230,18 @@ class MCMIIIScorer:
     def _check_inconsistency(self):
         """
         Step 4-1 to 4-3: Calculate Scale W (Inconsistency) score.
-        44 pairs of items. Each pair consists of items that SHOULD be
-        answered in the SAME direction (concordant pairs). If a pair
-        is answered in OPPOSITE directions, that adds 1 to inconsistency.
         
-        Per manual: Uses 5 overlay keys. The pairs are items that tap
-        similar content - disagreement between them suggests inconsistency.
+        Per manual: "The Inconsistency scale consists of 44 pairs of
+        item responses. Each blackened pair of responses adds 1 to 
+        the scale score."
+        
+        This means: For each pair (item_a, item_b), if BOTH items
+        are answered TRUE (both blackened/endorsed), that pair scores 1.
+        The score is the count of pairs where both items are TRUE.
+        
+        Uses 5 plastic overlay keys. Each key shows pairs of response
+        circles connected by lines. If both circles in a pair are 
+        filled in (TRUE), score 1 point for that pair.
         
         If W >= 10: INVALID (further scoring not recommended)
         If W == 8 or 9: Questionable
@@ -246,14 +252,12 @@ class MCMIIIScorer:
         w_score = 0
         
         for item_a, item_b in SCALE_W_PAIRS:
-            resp_a = self.responses.get(item_a, None)
-            resp_b = self.responses.get(item_b, None)
+            resp_a = self.responses.get(item_a, False)
+            resp_b = self.responses.get(item_b, False)
             
-            if resp_a is not None and resp_b is not None:
-                # Inconsistency: items answered in OPPOSITE directions
-                # (These are concordant pairs - should be same direction)
-                if resp_a != resp_b:
-                    w_score += 1
+            # Score 1 if BOTH items in the pair are TRUE (both blackened)
+            if resp_a and resp_b:
+                w_score += 1
         
         self.raw_scores['W'] = w_score
         

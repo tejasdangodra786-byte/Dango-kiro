@@ -425,22 +425,15 @@ def run_demo():
         responses[item] = True
     
     # A few more scattered True responses
-    other_items = [3, 10, 19, 25, 39, 45, 49, 57, 119, 125, 
-                   150, 160, 165, 166, 169]
+    other_items = [3, 10, 19, 39, 45, 49, 57, 125, 
+                   160, 166, 169]
     for item in other_items:
         responses[item] = True
     
-    # Ensure W (Inconsistency) pairs are concordant to keep W score low
-    # W pairs are items that should be answered in the same direction
-    # Make paired items match each other
-    from mcmi_item_keys import SCALE_W_PAIRS
-    for item_a, item_b in SCALE_W_PAIRS:
-        # Make both items agree (both True or both False)
-        if item_a in responses and responses[item_a]:
-            responses[item_b] = True
-        elif item_b in responses and responses[item_b]:
-            responses[item_a] = True
-        # If neither is True, both stay False (already concordant)
+    # Ensure W (Inconsistency) stays low - W scores 1 for each pair
+    # where BOTH items are TRUE. Our test data may have some pairs both True
+    # but since most pairs involve items from different scales, W should be 
+    # naturally low for a consistent clinical profile.
     
     # Make sure V items are False (valid protocol)
     responses[65] = False
@@ -522,14 +515,6 @@ def run_ipd_demo():
     responses[65] = False
     responses[110] = False
     responses[157] = False
-    
-    # Ensure W (Inconsistency) pairs are concordant for valid protocol
-    from mcmi_item_keys import SCALE_W_PAIRS
-    for item_a, item_b in SCALE_W_PAIRS:
-        if item_a in responses and responses[item_a]:
-            responses[item_b] = True
-        elif item_b in responses and responses[item_b]:
-            responses[item_a] = True
     
     # Score with IPD setting
     scorer = MCMIIIScorer()
