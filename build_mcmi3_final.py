@@ -386,8 +386,33 @@ for idx, (code, name, cat) in enumerate(SCALES):
 
     # RAW SCORE (Col D)
     if code == 'X':
-        parts = [cell_ref(i) for i in range(1, 176)]
-        raw_f = "=" + "+".join(parts)
+        # Scale X (Disclosure) = Sum of raw scores from scales 1 through 8B
+        # Scale 5 raw is multiplied by 2/3 before adding
+        # We'll reference D{row} for each of scales 1,2A,2B,3,4,6A,6B,7,8A,8B
+        # and for Scale 5 we use ROUND(D{scale5_row}*2/3,0)
+        # NOTE: scale_rows won't be fully populated yet, so we calculate row numbers
+        # Scales order: X=47, Y=48, Z=49, 1=50, 2A=51, 2B=52, 3=53, 4=54, 5=55,
+        # 6A=56, 6B=57, 7=58, 8A=59, 8B=60
+        x_parts = []
+        for sc in ['1','2A','2B','3','4','6A','6B','7','8A','8B']:
+            sc_row = DATA_ROW + [s[0] for s in SCALES].index(sc)
+            x_parts.append(f"D{sc_row}")
+        # Scale 5 with 2/3 multiplier
+        sc5_row = DATA_ROW + [s[0] for s in SCALES].index('5')
+        x_parts.append(f"ROUND(D{sc5_row}*2/3,0)")
+        raw_f = "=" + "+".join(x_parts)
+    elif code == '5':
+        # Scale 5 raw score is calculated normally from items
+        # (the 2/3 multiplication only applies when contributing to Scale X)
+        key = KEYS[code]
+        parts = []
+        for it in key['proto']:
+            parts.append(f"2*{cell_ref(it)}")
+        for it in key['nonproto']:
+            parts.append(cell_ref(it))
+        for it in key.get('false', []):
+            parts.append(f"(1-{cell_ref(it)})")
+        raw_f = "=" + "+".join(parts) if parts else "=0"
     elif code in ('Y', 'Z', 'V'):
         key = KEYS[code]
         parts = []
@@ -613,8 +638,35 @@ ws.cell(row=vr+3, column=2, value=(
     f'=IF(OR(B{vr+1}>1,B{vr+2}<34,B{vr+2}>178),"INVALID","VALID")'))
 ws.cell(row=vr+3, column=2).font = Font(bold=True, size=12)
 
+# Scale W Inconsistency
+wr = vr + 5
+ws.cell(row=wr, column=1, value="W INCONSISTENCY").font = SEC_FONT
+ws.cell(row=wr, column=1).fill = SEC_FILL
+ws.cell(row=wr+1, column=1, value="W Score:")
+# Build W formula: each pair scores 1 if the condition is met
+# Format: (item_a, dir_a, item_b, dir_b)
+# Score 1 point if: item_a answered dir_a AND item_b answered dir_b
+# e.g. (1,'T',4,'F') = item1=1 AND item4=0
+w_parts = []
+for item_a, dir_a, item_b, dir_b in W_PAIRS:
+    cond_a = f"{cell_ref(item_a)}=1" if dir_a == 'T' else f"{cell_ref(item_a)}=0"
+    cond_b = f"{cell_ref(item_b)}=1" if dir_b == 'T' else f"{cell_ref(item_b)}=0"
+    w_parts.append(f"IF(AND({cond_a},{cond_b}),1,0)")
+
+# Split into chunks to avoid formula length limit
+chunk_size = 22
+w_formula_parts = []
+for i in range(0, len(w_parts), chunk_size):
+    chunk = w_parts[i:i+chunk_size]
+    w_formula_parts.append("+".join(chunk))
+w_formula = "=" + "+".join(w_formula_parts)
+
+ws.cell(row=wr+1, column=2, value=w_formula)
+ws.cell(row=wr+1, column=2).fill = RESULT_FILL
+ws.cell(row=wr+1, column=3, value=f'=IF(B{wr+1}>12,"INVALID (random?)",IF(B{wr+1}>8,"CAUTION","OK"))')
+
 # Instructions
-ir2 = vr + 5
+ir2 = wr + 3
 ws.cell(row=ir2, column=1, value="BR: 85-115=PATHOLOGICAL | 75-84=PRESENT | 60-74=Suggestive | 0-59=Normal")
 ws.cell(row=ir2+2, column=1, value="HOW TO USE:").font = SEC_FONT
 ws.cell(row=ir2+3, column=1, value="1. Enter 1(TRUE) or 0(FALSE) for all 175 items")
