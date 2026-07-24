@@ -379,7 +379,7 @@ Provide the following explanation (adapted from the manual):
 ---
 
 
-## 7. SCORING SYSTEM
+## 7. SCORING SYSTEM (Based on Manual — Appendix A: Instructions for Hand Scoring the Child Behavior Profile)
 
 ### 7.1 Overview of Scoring
 
@@ -391,118 +391,336 @@ Individual Items (0, 1, 2)
 Syndrome Scale Raw Scores (8 narrow-band scales)
     ↓ Sum syndrome scales
 Broad-Band Raw Scores (Internalizing, Externalizing, Total Problems)
-    ↓ Convert using norms
-T-Scores & Percentiles (age- and sex-normed)
+    ↓ Convert using norms (age- and sex-specific tables)
+T-Scores & Percentiles
 ```
 
-### 7.2 Step-by-Step Scoring Procedure
+**IMPORTANT (from manual):** Be certain to use a scoring Profile appropriate for the child's sex and age. If a parent checks more than 1 box where only 1 should be checked, score the average of the 2 boxes checked.
 
-#### STEP 1: Check for Completeness
-- Count total items answered
-- **Rule:** If more than **8 items** are missing from the behavior problem section (113 items), the form should NOT be scored
-- For competence: if more than 1 item per scale is missing, that competence scale should not be scored
+---
 
-#### STEP 2: Score Competence Scales (Part I)
+### 7.2 PART I: SCORING THE SOCIAL COMPETENCE SCALES (Exact Manual Procedure)
 
-**Activities Scale:**
-- Assign points for number of sports (0, 1, 2, 3)
-- Assign points for participation level in each sport (0 = less, 1 = average, 2 = more)
-- Assign points for skill level in each sport (0 = less, 1 = average, 2 = more)
-- Repeat for hobbies/activities
-- Assign points for organizations (0, 1, 2, 3)
-- Assign points for jobs/chores (0, 1, 2, 3)
-- **Activities Raw Score** = Sum of all activity-related points
+---
 
-**Social Scale:**
-- Number of close friends: none=0, 1=1, 2–3=2, 4+=3
-- Frequency of contact: less=0, average=1, more=2
-- Behavior with others: worse=0, average=1, better=2
-- Behavior alone: worse=0, average=1, better=2
-- Behavior with siblings (if applicable)
-- **Social Raw Score** = Sum of all social-related points
+#### A. ACTIVITIES SCALE
 
-**School Scale:**
-- Academic performance: Failing=1, Below Average=2, Average=3, Above Average=4
-- Average across all subjects listed
-- Deductions for: special class (-1), grade retention (-1), school problems
-- **School Raw Score** = Academic average minus deductions
+**Do NOT score this scale if data are missing for more than 1 of the 6 scores below (I-A, I-B, II-A, II-B, IV-A, IV-B).**
 
-**Total Competence Raw Score** = Activities + Social + School raw scores
+##### I-A. Number of Sports
+| Parent Reports | Score Entered on Profile |
+|----------------|------------------------|
+| 0 or 1 sport | Enter **0** |
+| 2 sports | Enter **1** |
+| 3 or more sports | Enter **2** |
 
-#### STEP 3: Score Syndrome Scales (Part II)
+##### I-B. Mean Score for Participation & Skill in Sports
+- If parent reports **no sports** → enter **0**
+- For EACH sport listed, rate both "time spent" and "skill level":
+  - Less Than Average / Below Average = **0**
+  - Average = **1**
+  - More Than Average / Above Average = **2**
+- **Exclude** blanks and "Don't Know" responses
+- **Compute the MEAN** = (sum of all participation + skill scores) ÷ (number of scores summed)
+- Enter this mean on the Profile
 
-For each of the 8 syndrome scales:
-1. Identify the items assigned to that scale (see Item-to-Scale assignments in Appendix B)
-2. Sum the scores (0, 1, or 2) for each item on that scale
-3. Record the **raw score** for each syndrome scale
+##### II-A. Number of Nonsports Activities
+**Do NOT count listening to radio, TV, or "goofing off" as activities.**
 
-**Example — Scoring the Anxious/Depressed Scale:**
-- Items assigned: 14, 29, 30, 31, 32, 33, 35, 45, 50, 52, 71, 91, 112
-- If parent rated: 14=1, 29=0, 30=2, 31=1, 32=0, 33=1, 35=0, 45=2, 50=1, 52=0, 71=1, 91=0, 112=1
-- **Raw Score = 1+0+2+1+0+1+0+2+1+0+1+0+1 = 10**
+| Parent Reports | Score Entered on Profile |
+|----------------|------------------------|
+| 0 or 1 activity | Enter **0** |
+| 2 activities | Enter **1** |
+| 3 or more activities | Enter **2** |
 
-#### STEP 4: Score Broad-Band Scales
+##### II-B. Mean of Participation & Skill in Activities
+- Compute mean exactly as specified for sports in I-B above
+- Same scoring: Less Than Average = 0, Average = 1, More Than Average = 2
+- Exclude blanks and "Don't Know"
+- Enter mean on Profile
 
-- **Internalizing Raw Score** = Anxious/Depressed + Withdrawn/Depressed + Somatic Complaints
-  - Note: Items that appear on multiple syndrome scales are counted ONLY ONCE in the Internalizing total
-- **Externalizing Raw Score** = Rule-Breaking Behavior + Aggressive Behavior
-  - Note: Items on both scales counted only once in the Externalizing total
-- **Total Problems Raw Score** = Sum of ALL 113 behavior problem items (scores of 0, 1, or 2)
-  - Includes items not on any syndrome scale
-  - Item 56 sub-items: each sub-item scored and TOTAL of sub-items = score for Item 56
+##### IV-A. Number of Jobs or Chores
+**Include both paying and nonpaying jobs and chores.**
 
-#### STEP 5: Score DSM-Oriented Scales
+| Parent Reports | Score Entered on Profile |
+|----------------|------------------------|
+| 0 or 1 job | Enter **0** |
+| 2 jobs | Enter **1** |
+| 3 or more jobs | Enter **2** |
 
-- Identify items assigned to each DSM-oriented scale
-- Sum the item scores for each scale
-- Record raw scores
+##### IV-B. Mean Job Quality
+- For each job: Below Average = 0, Average = 1, Above Average = 2
+- Exclude blanks and "Don't Know"
+- Compute mean = sum of scores ÷ number of scores
+- Enter mean on Profile
 
-#### STEP 6: Convert Raw Scores to T-Scores
+##### TOTAL SCORE FOR ACTIVITIES SCALE
+- **Sum the 6 scores** just entered (I-A + I-B + II-A + II-B + IV-A + IV-B)
+- **Missing data rule:** If missing data prevent computation of 1 score, substitute the **mean of the other 5** for the missing score
+- After computing the total, **round off to the nearest .5**
+- Mark the corresponding number in the column appropriate for the child's age
 
-Using the appropriate **scoring profile** (based on child's sex and age group):
+---
 
-| Norm Group | Age | Sex |
-|------------|-----|-----|
-| Group 1 | 6–11 | Boys |
-| Group 2 | 6–11 | Girls |
-| Group 3 | 12–18 | Boys |
-| Group 4 | 12–18 | Girls |
+#### B. SOCIAL SCALE
 
-**Procedure:**
-1. Select the correct profile form for the child's age and sex
-2. Locate the raw score on the profile
-3. Read the corresponding T-score from the profile template
-4. Record T-score and percentile rank
+**Do NOT score this scale if data are missing for more than 1 of the 6 scores below (III-A, III-B, V-1, V-2, VI-A, VI-B).**
 
-### 7.3 T-Score Conversion
+##### III-A. Number of Organizations
 
-T-scores are **normalized standard scores** with:
-- **Mean (M) = 50**
-- **Standard Deviation (SD) = 10**
+| Parent Reports | Score Entered on Profile |
+|----------------|------------------------|
+| 0 or 1 organization | Enter **0** |
+| 2 organizations | Enter **1** |
+| 3 or more organizations | Enter **2** |
 
-A T-score of 65, for example, means the child scores 1.5 standard deviations above the mean (i.e., more problems than 93% of the normative sample).
+##### III-B. Mean of Participation in Organizations
+- For each organization: Less Active = 0, Average = 1, More Active = 2
+- Exclude "Don't Know"
+- Compute mean = sum ÷ number of scores
+- Enter mean on Profile
 
-### 7.4 Handling Missing Data
+##### V-1. Number of Friends
+
+| Parent Reports | Score Entered on Profile |
+|----------------|------------------------|
+| 0 or 1 friend | Enter **0** |
+| 2 or 3 friends | Enter **1** |
+| 4 or more friends | Enter **2** |
+
+##### V-2. Contacts with Friends
+- If parent checks **"None"** in V-1 → enter **0**
+
+| Parent Reports | Score Entered on Profile |
+|----------------|------------------------|
+| Less than 1 time/week | Enter **0** |
+| 1 or 2 times/week | Enter **1** |
+| 3 or more times/week | Enter **2** |
+
+##### VI-A. Behavior with Others (Items a, b, c)
+For each of the three questions (gets along with siblings, with other children, behaves with parents):
+- Worse = **0**
+- About the same = **1**
+- Better = **2**
+
+**Excluding any item for which the parent did not check a box**, compute the MEAN of the scores and enter on Profile:
+```
+VI-A = (sum of a + b + c) ÷ number of scores
+```
+
+##### VI-B. Play/Work by Self (Item d)
+- Worse = **0** → enter 0
+- About the same = **1** → enter 1
+- Better = **2** → enter 2
+
+##### TOTAL SCORE FOR SOCIAL SCALE
+- **Sum the 6 scores** (III-A + III-B + V-1 + V-2 + VI-A + VI-B)
+- **Missing data rule:** If missing data prevent computation of 1 score, substitute the mean of the other 5
+- **Round off to the nearest .5**
+- Mark the corresponding number in the column appropriate for the child's age
+
+---
+
+#### C. SCHOOL SCALE
+
+**Do NOT score if:** the child is below age 6, not in school, or if data are missing for ANY of the 4 scores (VII-1 through VII-4).
+
+##### VII-1. Mean Academic Performance
+For each academic subject checked:
+- Failing = **0**
+- Below Average = **1**
+- Average = **2**
+- Above Average = **3**
+
+**Enter the MEAN of these scores on the Profile.**
+
+**Academic subjects INCLUDE:** Reading, Writing, Arithmetic/Math, Spelling, Science, English, Foreign Language, History, Social Studies, and similar subjects.
+
+**Do NOT count:** Physical Education, Art, Music, Home Economics, Driver Education, Industrial Arts, Typing, or similar non-academic subjects.
+
+```
+VII-1 = sum of academic scores ÷ number of subjects rated
+```
+
+##### VII-2. Special Class
+- In ANY type of remedial special class (retarded, emotionally disturbed, learning disabled, perceptual-motor handicapped, reading readiness, resource room, etc.) → enter **0**
+- NOT in remedial class → enter **1**
+
+##### VII-3. Repeated Grade
+- Any grades were repeated → enter **0**
+- No grades repeated → enter **1**
+
+##### VII-4. School Problems
+- If any school problem is stated that was present in the last 6 months and was NOT already scored above → enter **0**
+- No problem beside those scored above → enter **1**
+
+##### TOTAL SCORE FOR SCHOOL SCALE
+- **Sum the 4 scores** (VII-1 + VII-2 + VII-3 + VII-4)
+- Do NOT score if 1 or more scores is missing
+- **Round off to the nearest .5**
+- Mark the corresponding number in the age-appropriate column
+
+---
+
+#### D. TOTAL SOCIAL COMPETENCE SCORE (Optional)
+- **Sum the totals of the 3 scales** (Activities + Social + School)
+- Convert to T-score using the tables in the manual (age- and sex-specific)
+
+---
+
+### 7.3 PART II: SCORING THE BEHAVIOR PROBLEM SCALES (Exact Manual Procedure)
+
+**Do NOT score if data are missing for more than 8 items** (not counting #56h and #113), unless it is clear that the parent intended blanks to be 0s.
+
+**If a parent circles two numbers for an item → score the item 1.**
+
+#### Step 1: Score Individual Items
+
+Place the appropriate template (Page 3 template for child's age and sex) over Page 3 of the CBCL. The Roman numerals and letters beside each item number indicate the scales on which the item is scored. If the parent circled 1 or 2 beside an item, enter the 1 or 2 on the appropriate scales of the Profile. Repeat using the Page 4 template on Page 4.
+
+#### Step 2: Apply Scoring Rules for Described Items
+
+**Comments written by the parent MUST be used in judging whether items deserve to be scored, with the following guidelines (from manual):**
+
+| Rule | Explanation |
+|------|-------------|
+| **(a) Most specific item rule** | For each behavior reported, ONLY the CBCL item that most specifically describes the behavior should be scored. If parent scores more than one item for the same behavior, or writes a behavior for #56h or #113 that is specifically covered elsewhere — count ONLY the most specific item. |
+| **(b) Extreme behaviors rule** | For extreme behaviors (e.g., sets fires, attempts suicide) — if parent notes that it happened once but circles 0 or leaves blank → **score 1**, unless it clearly happened earlier than the 6-month rating period. |
+| **(c) "Used to do this" rule** | If parent notes "used to do this" → score as the parent scored it, unless it clearly occurred earlier than the 6-month interval. |
+| **(d) When in doubt** | Score the item the way the parent scored it, unless it is CLEAR that the parent has scored it inappropriately. |
+
+#### Step 3: Specific Item Scoring Rules (from Manual)
+
+| Item | Rule |
+|------|------|
+| **Item 9 (Obsessions)** | Do NOT score anything that is clearly not obsessional; e.g., do not score "won't take no for an answer" |
+| **Item 28 (Eats nonfood)** | Do NOT count sweets and junk food |
+| **Item 40 (Hears things) & Item 70 (Sees things)** | Do NOT score anxiousness about sounds/sights that others also notice (e.g., afraid noises at night might be burglars). Do NOT score experiences while under the influence of drugs or alcohol. |
+| **Item 46 (Nervous movements)** | If "can't sit still" or anything entirely covered by Item 10 is entered here → score ONLY Item 10 |
+| **Item 56d (Problems with eyes)** | Do NOT score "wears glasses," "near-sighted," or other ordinary visual problems with an organic basis |
+| **Item 66 (Compulsions)** | Do NOT score noncompulsive behavior, e.g., "keeps hitting brother" |
+| **Item 72 (Sets fires)** | Score "playing with matches or lighter" if parent reports it |
+| **Item 77 (Sleeps more)** | Do NOT score "wants to stay in bed," BUT DO score difficulties in waking the child |
+| **Item 83 (Stores up things)** | Do NOT score hobby collections such as stamps, dolls, or miniatures |
+| **Item 84 (Strange behavior) & Item 85 (Strange ideas)** | If what the parent describes is specifically covered by another item → score the MORE SPECIFIC item instead |
+| **Item 105 (Alcohol or drugs)** | Do NOT score tobacco or medication |
+| **Item 113 (Additional problems)** | Score ONLY if not specifically covered by another item. If parent lists more than 1 "other" item → count only the HIGHEST toward total behavior problem score |
+
+#### Step 4: Compute Scale Scores
+
+To obtain the **total raw score for each behavior problem scale**:
+- Sum the 1s and 2s entered for each scale
+- Mark the corresponding number in the graphic display above the scale
+- Connect the marked numbers to form a profile
+- **Percentiles** (based on normal children) can be read from the LEFT side of the graphic display
+- **T-scores** can be read from the RIGHT side
+
+#### Step 5: Compute Internalizing and Externalizing Scores
+
+Using the box to the right of the Behavior Problems Profile:
+1. Enter the score (0, 1, or 2) for each behavior problem next to the item's number under the heading "Item"
+2. Sum the scores to get the **Total Internalizing score**
+3. Likewise sum for the **Total Externalizing score**
+4. Under the heading "Total," locate the total you have obtained
+5. The score to the right of that number is the **T-score**
+
+**CRITICAL NOTE (from manual):** The Internalizing and Externalizing scores **CANNOT** be computed by simply adding scale totals, because some items appear on more than one scale. You must use the item-level scoring method.
+
+#### Step 6: Compute Total Behavior Problem Score
+
+To compute the **total behavior problem score**:
+1. Sum ALL the 1s and 2s on the entire CBCL
+2. Enter the sum to the right of the Profile
+3. **If the parent has entered a problem for Item 56h or 113** that is NOT covered by another item → include the score for 56h or 113
+4. **If more than one problem has been entered for Item 113** → count ONLY the one having the highest score
+5. **Cross-check:** Subtract the number of items scored as present from the sum of 1s and 2s. The difference should equal the number of 2s.
+6. **Note:** The number and sum of items CANNOT be computed by adding scale totals, because some items appear on more than one scale.
+
+**Maximum possible Total Behavior Problem Score:** If a 2 is scored for all 118 items + 56h + 113 = **240**
+
+---
+
+### 7.4 T-SCORE CONVERSION TABLES (from Manual — Appendix A)
+
+T-scores are **normalized standard scores** (Mean = 50, SD = 10). The manual provides separate conversion tables for:
+
+| Norm Group | Pages in Manual |
+|------------|----------------|
+| Boys Aged 4–5 | Social Competence + Behavior Problems |
+| Boys Aged 6–11 | Social Competence + Behavior Problems |
+| Boys Aged 12–16 | Social Competence + Behavior Problems |
+| Girls Aged 4–5 | Social Competence + Behavior Problems |
+| Girls Aged 6–11 | Social Competence + Behavior Problems |
+| Girls Aged 12–16 | Social Competence + Behavior Problems |
+
+**How to use the tables:**
+1. Find your child's age-sex group
+2. Under "Social Competence" → locate the raw score → read T-score
+3. Under "Behavior Problems" → locate the raw score → read T-score
+4. The asterisk (*) marks the **lower limit of the "normal" range** for competence
+5. The ">" symbol marks the **upper limit of the "normal" range** for competence
+
+**Cutoff points from the manual (Chapter 7):**
+- Total Behavior Problem Score at the **90th percentile** of the normative group = good cutoff for discriminating clinically-referred from non-referred children
+- **Combined** behavior problem + social competence cutoffs provide the best discrimination
+
+---
+
+### 7.5 Handling Missing Data (Complete Rules from Manual)
 
 | Situation | Rule |
 |-----------|------|
-| 1–8 items missing on behavior problems | Score is acceptable; prorate if needed |
-| >8 items missing on behavior problems | Do NOT score the form — invalid |
-| Item scored between two values | Score as the HIGHER value |
-| Parent writes a behavior not listed | Score in most appropriate existing item or add to Total Problems only |
-| Item 56 sub-items | Score each sub-item; use total of all sub-items for scale assignment |
+| **Activities/Social Scale:** 1 item missing | Substitute the mean of the other 5 items for the missing score |
+| **Activities/Social Scale:** >1 item missing | Do NOT score that scale |
+| **School Scale:** ANY item missing | Do NOT score the School scale |
+| **Behavior Problems:** 1–8 items missing (excluding 56h and 113) | Acceptable to score; blanks treated as 0 if clearly intended |
+| **Behavior Problems:** >8 items missing | Do NOT compute behavior problem scale scores or total scores, UNLESS it is clear the respondent intends blanks to be zeros |
+| **Parent circles two numbers for one item** | Score the item **1** |
+| **Same behavior scored on two items** | Score ONLY the most specific item |
+| **Item 113:** More than 1 additional problem listed | Count ONLY the one with the highest score toward total |
+| **Item 56h:** Other physical problem listed | Include in total if not covered by another item |
 
-### 7.5 Computer Scoring (ASEBA Software)
+---
+
+### 7.6 Identifying Suspicious Protocols (from Manual)
+
+The manual provides guidelines for identifying protocols that may reflect invalidity:
+
+#### Suspiciously LOW Total Behavior Problem Scores (suggest denial/non-understanding):
+
+| Age Group | Scores suggesting invalidity | Scores suggesting possible denial |
+|-----------|-------------------------------|----------------------------------|
+| 4–5 year-olds | 0–5 | 6–15 |
+| 6–11 year-olds | 0–4 | 5–11 |
+| 12–16 year-olds | 0–2 | 3–7 |
+
+#### Suspiciously HIGH Total Behavior Problem Scores (suggest exaggeration/misunderstanding):
+
+| Age Group | Suspicious High Score |
+|-----------|----------------------|
+| Boys 4–5 | > 129 |
+| Boys 6–11 | > 121 |
+| Boys 12–16 | > 114 |
+| Girls 4–5 | > 108 |
+| Girls 6–11 | > 127 |
+| Girls 12–16 | > 120 |
+
+#### Total Social Competence Scores:
+- T-score < 13 → suggests unusually negative picture
+- T-score > 78 → suggests unusually favorable picture
+
+---
+
+### 7.7 Computer Scoring (ASEBA Software)
 
 The **ASEBA Assessment Data Manager (ADM)** software:
 - Automatically scores all scales
-- Generates T-scores and percentile ranks
-- Produces graphical profile
+- Generates T-scores, percentile ranks, and profiles
 - Performs cross-informant comparisons
-- Generates narrative report
-- Identifies critical items
+- Computes intraclass correlations with Profile types
+- Requires 132-column printer for profile output
 
-**Note for Indian Context:** Hand-scoring profiles are commonly used in Indian clinical settings. Computer scoring requires purchase of ASEBA software licenses.
+**Note for Indian Context:** Hand-scoring profiles are commonly used in Indian clinical settings. Computer scoring requires purchase of ASEBA software licenses from https://aseba.org.
 
 ---
 
