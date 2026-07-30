@@ -1,15 +1,16 @@
-# CAT (Children's Apperception Test) — COMPREHENSIVE ANALYSIS SHEET
+# CAT-H (Children's Apperception Test — Human Version) — COMPREHENSIVE ANALYSIS SHEET
 
 ## Patient Information
 - **Name:** AP
 - **Age:** 16 years
-- **Test Administered:** CAT (Children's Apperception Test)
+- **Test Administered:** CAT-H (Children's Apperception Test — Human Version, Bellak & Bellak, 1965)
 - **Scoring Framework:** Bellak's 10 Variables System (Leopold Bellak, 5th Edition)
 - **Language of Responses:** Hindi (with English translation provided)
+- **Note:** The CAT-H uses human figures substituted for the original animal figures of the CAT-A, designed for children ages 7-10+ and those with higher I.Q.s who respond better to human stimuli. The interpretation framework and 10 scoring variables remain identical to the CAT-A.
 
 ---
 
-## CARD 1 — (Chicks seated around a table with a large bird in background)
+## CARD 1 — (Children seated around a table with food; an adult figure in background)
 
 ### 1. Main Theme
 
@@ -112,7 +113,7 @@ The punishment is **proportionate to severe** — the father is ultimately caugh
 ---
 
 
-## CARD 2 — (Bears pulling a rope; one bear alone on one side, two on the other)
+## CARD 2 — (Three human figures engaged in a tug-of-war/rope-pulling scene; one figure on one side, two on the other)
 
 ### 1. Main Theme
 
@@ -223,7 +224,7 @@ The world is perceived as a **competitive arena where one's worth is measured by
 ---
 
 
-## CARD 3 — (A lion sitting on a throne with a pipe; a mouse in a hole)
+## CARD 3 — (An adult figure seated in a chair (authority/father figure); a small child figure nearby)
 
 ### 1. Main Theme
 
@@ -332,7 +333,7 @@ Concerning indicators:
 ---
 
 
-## CARD 4 — (A kangaroo with a bonnet, carrying a basket and purse; a smaller kangaroo on a bicycle)
+## CARD 4 — (An adult figure (mother) carrying packages/basket; a child on a bicycle)
 
 ### 1. Main Theme
 
@@ -443,7 +444,7 @@ Concerning indicators:
 ---
 
 
-## CARD 5 — (Two small bears in a small bed in a dark room; a larger bed in background)
+## CARD 5 — (Two children in a small bed in a dimly lit room; a larger bed in background)
 
 ### 1. Main Theme
 
@@ -545,7 +546,7 @@ The world in this story is **benign, supportive, and admiring** — a complete c
 ---
 
 
-## CARD 6 — (A cave with two bears dimly seen; a baby bear in the foreground)
+## CARD 6 — (A dark shelter/tent-like space with two figures dimly seen inside; a child figure in the foreground, outdoor/wilderness setting with trees)
 
 ### 1. Main Theme
 
@@ -664,7 +665,7 @@ Concerning indicators:
 ---
 
 
-## CARD 7 — (A tiger with bared teeth leaping at a monkey climbing a tree)
+## CARD 7 — (A threatening/grasping adult figure with menacing features approaching a child figure; steaming kettle present)
 
 ### 1. Main Theme
 
@@ -795,7 +796,7 @@ Concerning indicators:
 ---
 
 
-## CARD 8 — (Two adult monkeys on a couch; one adult monkey talking to a small monkey)
+## CARD 8 — (Two or more adult figures (one possibly in slacks) seated/standing; one adult figure speaking to a child)
 
 ### 1. Main Theme
 
@@ -923,7 +924,7 @@ Concerning indicators:
 ---
 
 
-## CARD 9 — (A rabbit in bed in a dark room looking through an open door)
+## CARD 9 — (A child in bed in a dark room, looking through an open door into an adjacent lit area)
 
 ### 1. Main Theme
 
@@ -1042,7 +1043,7 @@ Concerning indicators:
 ---
 
 
-## CARD 10 — (A puppy lying across an adult dog's lap; both in a bathroom)
+## CARD 10 — (A child figure across an adult figure's lap; bathroom/washroom setting — ambiguous between being cared for or being disciplined)
 
 ### 1. Main Theme
 
@@ -1358,13 +1359,13 @@ The superego functioning across cards is **inconsistent and predominantly extern
 
 ### Formulation
 
-AP, a 16-year-old, presents a CAT protocol characterized by pervasive themes of violence, parental inadequacy, emotional deprivation, and sibling-based worthlessness. The core psychological constellation appears to center on:
+AP, a 16-year-old, presents a CAT-H protocol characterized by pervasive themes of violence, parental inadequacy, emotional deprivation, and sibling-based worthlessness. The core psychological constellation appears to center on:
 
 **A deep sense of being invisible, unvalued, and expendable within the family system — particularly in contrast to a favored younger sibling and an academically superior older sibling. This perceived worthlessness has generated significant depressive ideation (including passive suicidal themes framed as "logical" self-sacrifice) and massive aggressive fantasy (projected onto parental figures as cannibalistic/murderous behavior). The subject's ego, while cognitively intact and capable of coherent thought, is overwhelmed by primitive aggressive and depressive content, relies heavily on splitting and projection, and has limited access to mature defensive operations. Object relations are at a pre-oedipal level (part-object relating, all-good/all-bad splitting), suggesting early relational trauma or significant attachment disruption. The one card (Card 8) showing healthy ego functioning demonstrates that therapeutic potential exists — the subject CAN mobilize perseverance, confrontation, and sublimation when the narrative structure supports it.**
 
 ---
 
-*Analysis prepared using Bellak's 10 Variables System for CAT Interpretation (Leopold Bellak, M.D., Fifth Edition) with Murray's Need-Press framework for drive analysis.*
+*Analysis prepared using Bellak's 10 Variables System for CAT-H Interpretation (Leopold Bellak, M.D., Fifth Edition) with Murray's Need-Press framework for drive analysis.*
 
 *Date of Analysis: [To be filled]*
 *Examiner: [To be filled]*
