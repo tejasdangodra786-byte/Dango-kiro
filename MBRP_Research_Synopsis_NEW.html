@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>B-MBRP Research Synopsis - Tejas Dangodra</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap');
+:root {
+  --primary: #1B2A4A;
+  --secondary: #2E86AB;
+  --accent: #F18F01;
+  --teal: #0A7B6C;
+  --rose: #C73E5A;
+  --purple: #6C3FA0;
+  --gold: #D4A017;
+  --light: #F4F7FA;
+  --white: #FFFFFF;
+  --text: #2C3E50;
+  --muted: #6B7B8D;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Poppins', sans-serif; background: #1a1a2e; }
+
+/* SLIDE CONTAINER */
+.slide {
+  width: 960px; height: 540px; margin: 30px auto;
+  border-radius: 12px; overflow: hidden; position: relative;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+  page-break-after: always;
+}
+
+/* SLIDE TYPES */
+.slide-title {
+  background: linear-gradient(135deg, #1B2A4A 0%, #2E86AB 50%, #0A7B6C 100%);
+  color: white; display: flex; flex-direction: column;
+  justify-content: center; align-items: center; text-align: center; padding: 50px;
+}
+.slide-title h1 { font-family: 'Playfair Display', serif; font-size: 28px; margin-bottom: 15px; line-height: 1.3; }
+.slide-title h2 { font-size: 15px; font-weight: 400; opacity: 0.85; margin-bottom: 25px; }
+.slide-title .meta { font-size: 12px; opacity: 0.7; line-height: 1.8; }
+
+.slide-content {
+  background: var(--white); padding: 40px 50px; display: flex; flex-direction: column;
+}
+.slide-content .slide-header {
+  display: flex; align-items: center; gap: 12px; margin-bottom: 20px;
+  padding-bottom: 12px; border-bottom: 3px solid var(--secondary);
+}
+.slide-content .slide-header .icon {
+  width: 36px; height: 36px; border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; flex-shrink: 0;
+}
+.slide-content .slide-header .icon.blue { background: #E3F2FD; }
+.slide-content .slide-header .icon.teal { background: #E0F2F1; }
+.slide-content .slide-header .icon.orange { background: #FFF3E0; }
+.slide-content .slide-header .icon.rose { background: #FCE4EC; }
+.slide-content .slide-header .icon.purple { background: #EDE7F6; }
+.slide-content .slide-header .icon.gold { background: #FFF8E1; }
+.slide-content .slide-header h2 {
+  font-size: 20px; font-weight: 700; color: var(--primary);
+}
+.slide-content .slide-num {
+  position: absolute; bottom: 12px; right: 20px;
+  font-size: 11px; color: var(--muted); font-weight: 500;
+}
+
+/* BODY TEXT */
+.slide-content p { font-size: 12.5px; line-height: 1.7; color: var(--text); margin-bottom: 8px; }
+.slide-content ul { padding-left: 18px; margin-bottom: 10px; }
+.slide-content li { font-size: 12px; line-height: 1.6; color: var(--text); margin-bottom: 5px; }
+.slide-content strong { color: var(--primary); }
+
+/* CARDS GRID */
+.cards-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 10px; }
+.cards-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-top: 10px; }
+.card {
+  background: var(--light); border-radius: 8px; padding: 14px 16px;
+  border-left: 4px solid var(--secondary);
+}
+.card.teal { border-left-color: var(--teal); }
+.card.orange { border-left-color: var(--accent); }
+.card.rose { border-left-color: var(--rose); }
+.card.purple { border-left-color: var(--purple); }
+.card.gold { border-left-color: var(--gold); }
+.card h4 { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; color: var(--secondary); }
+.card.teal h4 { color: var(--teal); }
+.card.orange h4 { color: var(--accent); }
+.card.rose h4 { color: var(--rose); }
+.card.purple h4 { color: var(--purple); }
+.card.gold h4 { color: var(--gold); }
+.card p { font-size: 11px; line-height: 1.5; margin: 0; }
+
+/* HIGHLIGHT BOX */
+.highlight {
+  background: linear-gradient(135deg, #E3F2FD, #E0F7FA);
+  border-left: 4px solid var(--secondary); border-radius: 0 8px 8px 0;
+  padding: 12px 16px; margin: 10px 0; font-size: 12px; font-weight: 500; color: var(--primary);
+}
+.highlight.rose { background: linear-gradient(135deg, #FCE4EC, #F8BBD0); border-left-color: var(--rose); }
+.highlight.teal { background: linear-gradient(135deg, #E0F2F1, #B2DFDB); border-left-color: var(--teal); }
+.highlight.orange { background: linear-gradient(135deg, #FFF3E0, #FFE0B2); border-left-color: var(--accent); }
+
+/* TABLE */
+table { width: 100%; border-collapse: collapse; margin: 8px 0; font-size: 11px; }
+th { background: var(--primary); color: white; padding: 8px 10px; text-align: left; font-weight: 600; font-size: 10px; }
+td { padding: 7px 10px; border-bottom: 1px solid #E8EEF2; }
+tr:nth-child(even) td { background: #F8FAFC; }
+
+/* STEP FLOW */
+.steps { display: flex; flex-direction: column; gap: 8px; margin-top: 8px; }
+.step { display: flex; align-items: flex-start; gap: 10px; }
+.step-num {
+  width: 24px; height: 24px; border-radius: 50%; background: var(--secondary);
+  color: white; font-size: 11px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px;
+}
+.step-num.teal { background: var(--teal); }
+.step-num.orange { background: var(--accent); }
+.step-num.rose { background: var(--rose); }
+.step-num.purple { background: var(--purple); }
+.step-text { font-size: 11.5px; line-height: 1.5; }
+.step-text strong { display: block; font-size: 12px; color: var(--primary); }
+
+/* SECTION DIVIDER SLIDE */
+.slide-divider {
+  display: flex; align-items: center; justify-content: center;
+  text-align: center; padding: 60px;
+}
+.slide-divider h2 { font-family: 'Playfair Display', serif; font-size: 32px; color: white; margin-bottom: 10px; }
+.slide-divider p { font-size: 14px; opacity: 0.7; color: white; }
+
+/* PILL TAGS */
+.pill { display: inline-block; background: #E3F2FD; color: var(--secondary); border-radius: 12px; padding: 2px 10px; font-size: 10px; font-weight: 600; margin: 2px; }
+.pill.teal { background: #E0F2F1; color: var(--teal); }
+.pill.orange { background: #FFF3E0; color: var(--accent); }
+
+/* STAT BOXES */
+.stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 12px 0; }
+.stat-box { background: var(--light); border-radius: 8px; padding: 12px; text-align: center; border: 1px solid #E8EEF2; }
+.stat-box .val { font-size: 24px; font-weight: 800; color: var(--primary); }
+.stat-box .desc { font-size: 10px; color: var(--muted); margin-top: 4px; }
+
+/* FLOW DIAGRAM */
+.flow { display: flex; align-items: center; justify-content: center; gap: 6px; margin: 12px 0; flex-wrap: wrap; }
+.flow-box { background: var(--primary); color: white; padding: 8px 14px; border-radius: 6px; font-size: 10px; font-weight: 600; text-align: center; }
+.flow-box.blue { background: var(--secondary); }
+.flow-box.teal { background: var(--teal); }
+.flow-box.orange { background: var(--accent); }
+.flow-arrow { font-size: 16px; color: var(--muted); }
+
+@media print {
+  body { background: white; }
+  .slide { box-shadow: none; margin: 0; page-break-after: always; border: 1px solid #ddd; }
+}
+</style>
+</head>
+<body>
+<!-- SLIDE 1: TITLE -->
+<div class="slide slide-title">
+  <div style="position:absolute;top:20px;left:30px;font-size:10px;opacity:0.6;letter-spacing:2px;text-transform:uppercase;">MPhil Clinical Psychology Research Synopsis</div>
+  <h1>Efficacy of Brief Mindfulness-Based Relapse Prevention (B-MBRP) Intervention on Craving, Impulsivity, and Mindfulness in Substance-Dependent Patients</h1>
+  <h2>A Pre-Test Post-Test Control Group Experimental Design</h2>
+  <div class="meta">
+    <strong>Researcher:</strong> Tejas Dangodra | <strong>Guide:</strong> Dr. Himanshi Singh<br>
+    Department of Clinical Psychology<br>
+    MAN College of Special Education &amp; Psychological Studies | Man Nasha Mukti Kendra<br>
+    Krantivir Tatya Tope Vishwavidyalaya, Guna, MP | 2025-2027
+  </div>
+</div>
+
+<!-- SLIDE 2: INTRODUCTION 1 -->
+<div class="slide slide-content">
+  <div class="slide-header"><div class="icon blue">1</div><h2>Introduction: Substance Dependence in India</h2></div>
+  <div class="cards-2">
+    <div class="card">
+      <h4>Indian Context</h4>
+      <p>MAGNITUDE study (2019): ~3.1 crore individuals affected by SUDs. Opioid dependence is a major burden in Punjab, Rajasthan, NE India. WHO estimates India accounts for ~25% of global opioid-related deaths in SE Asia.</p>
+    </div>
+    <div class="card teal">
+      <h4>Treatment Gap</h4>
+      <p>Indian de-addiction centers (incl. Man Nasha Mukti Kendra) primarily offer pharmacotherapy (OST, naltrexone) with limited structured psychotherapy. Psychosocial interventions remain under-utilized.</p>
+    </div>
+    <div class="card orange">
+      <h4>Relapse Crisis</h4>
+      <p>Relapse rates: 40-60% within first year globally (NIDA, 2020). Indian opioid studies report 70-80% (Mattoo et al., 2009). Triggers: craving, negative affect, interpersonal conflict, environmental cues.</p>
+    </div>
+    <div class="card rose">
+      <h4>Why Brief Interventions?</h4>
+      <p>Indian rehab settings have limited resources &amp; short admission windows (4-6 weeks). Traditional 8-week MBRP is impractical. Brief 6-session adaptation is essential for feasibility.</p>
+    </div>
+  </div>
+  <div class="highlight">KEY: MBRP = Mindfulness-Based Relapse Prevention | TAU = Treatment As Usual | OCDUS = Obsessive Compulsive Drug Use Scale | BIS-11 = Barratt Impulsiveness Scale | FFMQ = Five Facet Mindfulness Questionnaire</div>
+  <span class="slide-num">2 / 45</span>
+</div>
+
+<!-- SLIDE 3: INTRODUCTION 2 -->
+<div class="slide slide-content">
+  <div class="slide-header"><div class="icon blue">2</div><h2>Introduction: What is MBRP?</h2></div>
+  <p><strong>Mindfulness-Based Relapse Prevention (MBRP)</strong> was developed by Bowen, Chawla &amp; Marlatt (2011) at the University of Washington. It integrates mindfulness meditation with cognitive-behavioral Relapse Prevention.</p>
+  <div class="cards-2" style="margin-top:12px;">
+    <div class="card">
+      <h4>Core Mechanism</h4>
+      <p>Teaches patients to observe craving and emotional distress mindfully as transient mental events, without automatically acting on them. Key technique: "Urge Surfing" - riding the wave of craving until it passes.</p>
+    </div>
+    <div class="card teal">
+      <h4>Neurobiological Basis</h4>
+      <p>Mindfulness strengthens prefrontal cortex regulation over amygdala reactivity. Enhances PFC-limbic connectivity, improves inhibitory control, and reduces automatic craving-use pathways.</p>
+    </div>
+  </div>
+  <div class="highlight teal"><strong>Brief B-MBRP Adaptation:</strong> 6 structured sessions over 3 weeks, delivered in group format (6-8 patients), 45 min/session, twice weekly. Feasible within typical Indian IPD admission window.</div>
+  <div class="cards-3" style="margin-top:8px;">
+    <div class="card purple"><h4>Targets Craving</h4><p>Urge surfing disrupts automatic craving-use cycle</p></div>
+    <div class="card orange"><h4>Targets Impulsivity</h4><p>Mindful pause strengthens response inhibition</p></div>
+    <div class="card"><h4>Builds Mindfulness</h4><p>Structured meditation cultivates dispositional awareness</p></div>
+  </div>
+  <span class="slide-num">3 / 45</span>
+</div>
+
+<!-- SLIDE 4: VARIABLE 1 - CRAVING -->
+<div class="slide slide-content">
+  <div class="slide-header"><div class="icon orange">3</div><h2>Variable 1: Craving</h2></div>
+  <div class="cards-2">
+    <div class="card orange">
+      <h4>Definition</h4>
+      <p><strong>Clinical:</strong> Intense, often overwhelming desire to use a substance (DSM-5 &amp; ICD-11 core feature).<br><strong>Theoretical:</strong> Obsessive thoughts + compulsive urges related to drug use (Franken et al., 2002)</p>
+    </div>
+    <div class="card rose">
+      <h4>Relevance in Substance Dependence</h4>
+      <p>Primary trigger for relapse. Craving intensity predicts treatment dropout, lapse episodes, and full relapse (Tiffany &amp; Wray, 2012). Traditional suppression paradoxically increases intensity.</p>
+    </div>
+    <div class="card">
+      <h4>Neuropsychological Basis</h4>
+      <p>Mesolimbic dopamine pathway activation. Ventral striatum &amp; OFC hyperactivity to drug cues. Incentive sensitization (Robinson &amp; Berridge, 1993). PFC hypoactivation during craving.</p>
+    </div>
+    <div class="card teal">
+      <h4>MBRP Techniques Targeting Craving</h4>
+      <p>&#8226; Urge Surfing: Observe craving as transient wave<br>&#8226; Mindfulness Exposure: Non-reactive awareness<br>&#8226; SOBER Space: Stop-Observe-Breathe-Expand-Respond<br>&#8226; Cognitive Decentering: "I am having a craving"</p>
+    </div>
+  </div>
+  <span class="slide-num">4 / 45</span>
+</div>
+
+<!-- SLIDE 5: VARIABLE 2 - IMPULSIVITY -->
+<div class="slide slide-content">
+  <div class="slide-header"><div class="icon rose">4</div><h2>Variable 2: Impulsivity</h2></div>
+  <div class="cards-2">
+    <div class="card rose">
+      <h4>Definition</h4>
+      <p><strong>Clinical:</strong> Rapid, unplanned actions without considering consequences (Moeller et al., 2001).<br><strong>Theoretical:</strong> Motor + Attentional + Non-Planning dimensions (Patton et al., 1995)</p>
+    </div>
+    <div class="card orange">
+      <h4>Relevance in Substance Dependence</h4>
+      <p>Higher trait impulsivity predicts relapse. Mediates craving-to-use behavior. Associated with treatment non-adherence &amp; dropout. Both a risk factor for and consequence of chronic use.</p>
+    </div>
+    <div class="card purple">
+      <h4>Neuropsychological Basis</h4>
+      <p>PFC dysfunction leads to impaired executive control. Reduced inhibitory control (Go/No-Go paradigms). Impaired delay discounting. DLPFC hypoactivation in substance users.</p>
+    </div>
+    <div class="card teal">
+      <h4>MBRP Techniques Targeting Impulsivity</h4>
+      <p>&#8226; Response Inhibition: Mindful pause before action<br>&#8226; Awareness Training: Notice impulse-action sequences<br>&#8226; Mindful Decision-Making: Space between stimulus &amp; response<br>&#8226; STOP: Stop-Take a breath-Observe-Proceed</p>
+    </div>
+  </div>
+  <span class="slide-num">5 / 45</span>
+</div>
+
+
+<!-- SLIDE 6: VARIABLE 3 - MINDFULNESS -->
+<div class="slide slide-content">
+  <div class="slide-header"><div class="icon teal">5</div><h2>Variable 3: Mindfulness</h2></div>
+  <div class="cards-2">
+    <div class="card teal">
+      <h4>Definition</h4>
+      <p><strong>Clinical:</strong> Present-moment awareness with openness &amp; non-judgment.<br><strong>Theoretical:</strong> 5 facets - Observing, Describing, Acting with Awareness, Non-Judging, Non-Reactivity (Baer et al., 2006)</p>
+    </div>
+    <div class="card">
+      <h4>Relevance in Substance Dependence</h4>
+      <p>Substance users show significantly lower mindfulness. Acts as protective factor against relapse triggers. Improvements mediate MBRP treatment outcomes across studies.</p>
+    </div>
+    <div class="card purple">
+      <h4>Neuropsychological Basis</h4>
+      <p>ACC activation enhances self-regulation. Insula mediates interoceptive awareness. PFC-amygdala connectivity improves emotional regulation. DMN regulation reduces rumination.</p>
+    </div>
+    <div class="card orange">
+      <h4>MBRP Techniques for Mindfulness</h4>
+      <p>&#8226; Sitting Meditation: Focused attention on breath<br>&#8226; Body Scan: Non-judgmental bodily awareness<br>&#8226; Mindful Movement: Present-moment yoga/walking<br>&#8226; Non-Judgmental Awareness: Labeling without evaluation</p>
+    </div>
+  </div>
+  <span class="slide-num">6 / 45</span>
+</div>
+
+<!-- SLIDE 7: REVIEW OF LITERATURE 1 -->
+<div class="slide slide-content">
+  <div class="slide-header"><div class="icon blue">6</div><h2>Review of Literature (1/5): MBRP &amp; Relapse Prevention</h2></div>
+  <div class="cards-2">
+    <div class="card">
+      <h4>Bowen et al. (2014) - JAMA Psychiatry</h4>
+      <p>N=286 RCT. At 12-month follow-up, MBRP participants reported significantly fewer days of substance use and heavy drinking compared to standard RP and TAU. MBRP maintained superior long-term outcomes through cultivation of mindfulness skills as durable protective mechanism.</p>
+    </div>
+    <div class="card teal">
+      <h4>Bowen &amp; Marlatt (2009) - Psychology of Addictive Behaviors</h4>
+      <p>Brief urge surfing meditation with incarcerated substance users. Significant reductions in craving intensity and frequency vs. controls. Validates that even brief mindfulness exposure can disrupt automaticity of craving responses. Supports feasibility of 6-session B-MBRP.</p>
+    </div>
+  </div>
+  <div class="highlight">Both studies establish that MBRP integrates present-moment awareness with cognitive-behavioral strategies, creating synergistic therapeutic effects addressing both automatic reactivity and cognitive distortions.</div>
+  <span class="slide-num">7 / 45</span>
+</div>
+
+<!-- SLIDE 8: REVIEW OF LITERATURE 2 -->
+<div class="slide slide-content">
+  <div class="slide-header"><div class="icon blue">7</div><h2>Review of Literature (2/5): Craving &amp; Mindfulness Mechanisms</h2></div>
+  <div class="cards-2">
+    <div class="card orange">
+      <h4>Garland et al. (2014) - Frontiers in Psychiatry</h4>
+      <p>Demonstrates MORE reduces opioid craving through: (1) attentional reorientation away from drug cues, (2) positive reappraisal of neutral stimuli, (3) enhanced savoring of healthy pleasures. Neuroimaging shows mindfulness modulates prefrontal and limbic craving circuits.</p>
+    </div>
+    <div class="card rose">
+      <h4>Witkiewitz et al. (2013) - Addictive Behaviors</h4>
+      <p>Secondary RCT analysis. Over 4-month follow-up, MBRP participants showed lower craving AND the affect-craving pathway was significantly attenuated. Mindfulness weakens the link between negative emotions and automatic craving by cultivating non-reactive awareness.</p>
+    </div>
+  </div>
+  <div class="highlight orange"><strong>Key Mechanism:</strong> MBRP decouples the affect-craving pathway. Negative emotions no longer automatically trigger craving responses - this distinguishes MBRP from traditional RP approaches.</div>
+  <span class="slide-num">8 / 45</span>
+</div>
+
+<!-- SLIDE 9: REVIEW OF LITERATURE 3 -->
+<div class="slide slide-content">
+  <div class="slide-header"><div class="icon blue">8</div><h2>Review of Literature (3/5): Impulsivity &amp; Mindfulness</h2></div>
+  <div class="cards-2">
+    <div class="card purple">
+      <h4>Garland et al. (2016) - J Consulting &amp; Clinical Psychology</h4>
+      <p>RCT with substance-dependent adults. Mindfulness-Oriented Recovery Enhancement produced significant BIS-11 reductions in motor and attentional impulsivity. Mechanism: mindfulness strengthens prefrontal cortical inhibitory control through sustained attention and deliberate non-reactivity training.</p>
+    </div>
+    <div class="card">
+      <h4>Murphy &amp; MacKillop (2012) - Psychopharmacology</h4>
+      <p>N=340 cross-sectional. Trait mindfulness inversely associated with impulsive decision-making (delay discounting). Mindfulness moderated the impulsivity-substance use link. Higher mindfulness = weaker association between impulsivity and alcohol consequences.</p>
+    </div>
+  </div>
+  <div class="highlight teal"><strong>Implication:</strong> Mindfulness functions as a cognitive resource enabling impulsive individuals to override automatic behavioral tendencies through enhanced metacognitive awareness and response flexibility.</div>
+  <span class="slide-num">9 / 45</span>
+</div>
+
+
+<!-- SLIDE 10: REVIEW OF LITERATURE 4 -->
+<div class="slide slide-content">
+  <div class="slide-header"><div class="icon blue">9</div><h2>Review of Literature (4/5): Meta-Analyses &amp; Brief Models</h2></div>
+  <div class="cards-2">
+    <div class="card">
+      <h4>Li et al. (2017) - J Substance Abuse Treatment</h4>
+      <p>Meta-analysis of 42 RCTs. Effect sizes: substance misuse (d=0.33), craving (d=0.68), stress (d=0.44). Brief interventions (4-8 sessions) showed comparable efficacy to longer protocols when appropriately structured. Supports present study's 6-session design.</p>
+    </div>
+    <div class="card teal">
+      <h4>Glasner-Edwards et al. (2017) - Mindfulness</h4>
+      <p>Pilot RCT: Abbreviated 6-session MBRP for stimulant-dependent adults. Both feasible and effective in reducing substance use frequency and craving intensity vs. health education control. Directly validates the brief intervention model proposed in present research.</p>
+    </div>
+  </div>
+  <div class="highlight"><strong>Critical Evidence:</strong> 6-session MBRP protocols can be successfully implemented without substantial loss of efficacy, making them appropriate for Indian settings with 4-6 week admission durations.</div>
+  <span class="slide-num">10 / 45</span>
+</div>
+
+<!-- SLIDE 11: REVIEW OF LITERATURE 5 -->
+<div class="slide slide-content">
+  <div class="slide-header"><div class="icon blue">10</div><h2>Review of Literature (5/5): Indian Context &amp; Research Gap</h2></div>
+  <div class="cards-2">
+    <div class="card rose">
+      <h4>Ghosh et al. (2018) - Indian J Psychiatry</h4>
+      <p>Relapse rates >70% in North Indian opioid-dependent patients within 3 months post-discharge. Primary determinants: craving, peer influence, negative affect, lack of psychological aftercare. Indian facilities predominantly rely on pharmacology with minimal psychological interventions.</p>
+    </div>
+    <div class="card orange">
+      <h4>Sarkar &amp; Balhara (2016) + Jain et al. (2013)</h4>
+      <p>Sarkar: Highlights underutilization of structured psychological interventions in Indian de-addiction. Barriers: limited trained personnel, absent validated protocols. Jain: Preliminary evidence from MBI with alcohol-dependent patients showing initial craving reductions in India.</p>
+    </div>
+  </div>
+  <div class="highlight rose"><strong>CRITICAL GAP:</strong> No published Indian RCT has tested Brief MBRP specifically in opioid-dependent populations, simultaneously assessing craving, impulsivity, and mindfulness as treatment outcomes. The present study is the first brief MBRP trial designed for Indian de-addiction center infrastructure.</div>
+  <span class="slide-num">11 / 45</span>
+</div>
+
+<!-- SLIDE 12: RESEARCH GAP -->
+<div class="slide slide-content">
+  <div class="slide-header"><div class="icon rose">11</div><h2>Research Gap</h2></div>
+  <div class="steps">
+    <div class="step"><div class="step-num rose">1</div><div class="step-text"><strong>No Indian RCT has tested MBRP (standard or brief) in opioid-dependent populations</strong></div></div>
+    <div class="step"><div class="step-num rose">2</div><div class="step-text"><strong>Most studies examine craving OR mindfulness alone;</strong> few assess all three variables simultaneously (craving + impulsivity + mindfulness)</div></div>
+    <div class="step"><div class="step-num rose">3</div><div class="step-text"><strong>No brief MBRP (6 sessions) validated for Indian rehab settings</strong> like Man Nasha Mukti Kendra</div></div>
+    <div class="step"><div class="step-num rose">4</div><div class="step-text"><strong>Indian treatment lacks integration</strong> of evidence-based psychological interventions alongside OST</div></div>
+    <div class="step"><div class="step-num rose">5</div><div class="step-text"><strong>Global MBRP studies focus on alcohol/polysubstance;</strong> opioid-specific evidence is limited</div></div>
+  </div>
+  <div class="highlight rose" style="margin-top:12px;"><strong>PRESENT STUDY ADDRESSES:</strong> First brief MBRP trial (6 sessions / 3 weeks) in Indian opioid-dependent sample at Man Nasha Mukti Kendra, assessing craving, impulsivity, and mindfulness simultaneously with an active control.</div>
+  <span class="slide-num">12 / 45</span>
+</div>
+
+<!-- SLIDE 13: AIM -->
+<div class="slide slide-content">
+  <div class="slide-header"><div class="icon teal">12</div><h2>Aim of the Study</h2></div>
+  <div style="background:linear-gradient(135deg,#1B2A4A,#2E86AB);border-radius:12px;padding:30px 35px;margin:20px 0;color:white;">
+    <p style="color:white;font-size:14px;line-height:1.8;margin:0;">To evaluate the efficacy of a <strong style="color:#7dd3c0;">Brief Mindfulness-Based Relapse Prevention (B-MBRP)</strong> intervention (6 sessions over 3 weeks) in reducing craving and impulsivity, and enhancing mindfulness, among male substance-dependent patients at Man Nasha Mukti Kendra.</p>
+    <p style="color:rgba(255,255,255,0.8);font-size:12px;margin-top:15px;margin-bottom:0;"><strong style="color:#FFD700;">Comparing:</strong> Brief MBRP + TAU (Experimental) vs. Psychoeducation + TAU (Active Control)</p>
+  </div>
+  <div class="stats">
+    <div class="stat-box"><div class="val">60</div><div class="desc">Total Participants</div></div>
+    <div class="stat-box"><div class="val">6</div><div class="desc">B-MBRP Sessions</div></div>
+    <div class="stat-box"><div class="val">3</div><div class="desc">Weeks Duration</div></div>
+    <div class="stat-box"><div class="val">3</div><div class="desc">Outcome Variables</div></div>
+  </div>
+  <span class="slide-num">13 / 45</span>
+</div>
+
+<!-- SLIDE 14: OBJECTIVES -->
+<div class="slide slide-content">
+  <div class="slide-header"><div class="icon blue">13</div><h2>Objectives</h2></div>
+  <div class="steps">
+    <div class="step"><div class="step-num">1</div><div class="step-text">To assess and compare <strong>craving levels</strong> (pre vs. post) in Experimental (Brief MBRP + TAU) and Control (Psychoeducation + TAU) groups</div></div>
+    <div class="step"><div class="step-num teal">2</div><div class="step-text">To assess and compare <strong>impulsivity levels</strong> (pre vs. post) in both groups</div></div>
+    <div class="step"><div class="step-num orange">3</div><div class="step-text">To assess and compare <strong>mindfulness levels</strong> (pre vs. post) in both groups</div></div>
+    <div class="step"><div class="step-num purple">4</div><div class="step-text">To determine whether Brief MBRP + TAU is significantly more effective than Psychoeducation + TAU in <strong>reducing craving</strong></div></div>
+    <div class="step"><div class="step-num rose">5</div><div class="step-text">To determine whether Brief MBRP + TAU is significantly more effective than Psychoeducation + TAU in <strong>reducing impulsivity</strong></div></div>
+    <div class="step"><div class="step-num">6</div><div class="step-text">To determine whether Brief MBRP + TAU is significantly more effective than Psychoeducation + TAU in <strong>enhancing mindfulness</strong></div></div>
+  </div>
+  <span class="slide-num">14 / 45</span>
+</div>
+
+
+<!-- SLIDE 15: HYPOTHESES (NULL ONLY) -->
+<div class="slide slide-content">
+  <div class="slide-header"><div class="icon purple">14</div><h2>Hypotheses (Null Hypotheses)</h2></div>
+  <div style="margin-top:10px;">
+    <div class="card" style="margin-bottom:12px;border-left-color:var(--primary);">
+      <h4 style="color:var(--primary);">H&#8320;1: Craving</h4>
+      <p>There is no significant difference in craving scores (OCDUS) between the Experimental Group (Brief MBRP + TAU) and the Control Group (Psychoeducation + TAU) from pre-test to post-test.</p>
+    </div>
+    <div class="card" style="margin-bottom:12px;border-left-color:var(--primary);">
+      <h4 style="color:var(--primary);">H&#8320;2: Impulsivity</h4>
+      <p>There is no significant difference in impulsivity scores (BIS-11) between the Experimental Group (Brief MBRP + TAU) and the Control Group (Psychoeducation + TAU) from pre-test to post-test.</p>
+    </div>
+    <div class="card" style="border-left-color:var(--primary);">
+      <h4 style="color:var(--primary);">H&#8320;3: Mindfulness</h4>
+      <p>There is no significant difference in mindfulness scores (FFMQ) between the Experimental Group (Brief MBRP + TAU) and the Control Group (Psychoeducation + TAU) from pre-test to post-test.</p>
+    </div>
+  </div>
+  <div class="highlight" style="margin-top:12px;">Statistical testing at alpha = 0.05 (two-tailed). Primary analysis: ANCOVA with pre-test scores as covariates.</div>
+  <span class="slide-num">15 / 45</span>
+</div>
+
+<!-- SLIDE 16: OPERATIONAL DEFINITIONS -->
+<div class="slide slide-content">
+  <div class="slide-header"><div class="icon gold">15</div><h2>Operational Definitions of Key Terms (1/2)</h2></div>
+  <table>
+    <tr><th style="width:22%;">Term</th><th>Operational Definition</th></tr>
+    <tr><td><strong>Craving</strong></td><td>"Craving" in this study refers to the intensity and frequency of obsessive thoughts about drug use and compulsive urges to use opioids, as measured by the total score on the Obsessive Compulsive Drug Use Scale (OCDUS; Franken et al., 2002). Scores range from 0-48; higher scores indicate greater craving.</td></tr>
+    <tr><td><strong>Impulsivity</strong></td><td>"Impulsivity" in this study refers to the multidimensional tendency to act without adequate forethought, encompassing motor, attentional, and non-planning components, as measured by the total score and three subscale scores on the Barratt Impulsiveness Scale-11 (BIS-11; Patton et al., 1995). Scores range from 30-120; higher scores indicate greater impulsivity.</td></tr>
+    <tr><td><strong>Mindfulness</strong></td><td>"Mindfulness" in this study refers to the dispositional capacity for present-moment awareness with non-judgment and non-reactivity, as measured by the total score on the Five Facet Mindfulness Questionnaire (FFMQ; Baer et al., 2006) across five facets: Observing, Describing, Acting with Awareness, Non-Judging, Non-Reactivity. Scores range from 39-195; higher scores indicate greater mindfulness.</td></tr>
+  </table>
+  <span class="slide-num">16 / 45</span>
+</div>
+
+<!-- SLIDE 17: OPERATIONAL DEFINITIONS 2 -->
+<div class="slide slide-content">
+  <div class="slide-header"><div class="icon gold">16</div><h2>Operational Definitions of Key Terms (2/2)</h2></div>
+  <table>
+    <tr><th style="width:25%;">Term</th><th>Operational Definition</th></tr>
+    <tr><td><strong>Brief MBRP (B-MBRP)</strong></td><td>"Brief MBRP" in this study refers to a structured 6-session mindfulness-based relapse prevention intervention delivered twice weekly over 3 weeks (45 min/session) in group format (6-8 patients), adapted from Bowen, Chawla &amp; Marlatt (2011), incorporating body scan, breath meditation, urge surfing, SOBER breathing space, and relapse prevention planning.</td></tr>
+    <tr><td><strong>Substance Dependence</strong></td><td>"Substance Dependence" in this study refers to a clinical diagnosis of Substance Dependence Syndrome as per ICD-10 (F10-F19) criteria, with primary opioid dependence (heroin or pharmaceutical opioids), confirmed by a qualified psychiatrist at Man Nasha Mukti Kendra.</td></tr>
+    <tr><td><strong>Treatment As Usual (TAU)</strong></td><td>"TAU" in this study refers to the standard pharmacological treatment provided at Man Nasha Mukti Kendra, including medically supervised detoxification, Opioid Substitution Therapy (buprenorphine/methadone), naltrexone maintenance, routine counseling, and daily ward activities.</td></tr>
+    <tr><td><strong>Psychoeducation (Active Control)</strong></td><td>"Psychoeducation" in this study refers to 6 structured informational sessions (45 min, twice weekly, 3 weeks) covering addiction science, effects of opioids, relapse warning signs, health/nutrition, social consequences, and recovery motivation - matched for time and attention but containing NO mindfulness component.</td></tr>
+  </table>
+  <span class="slide-num">17 / 45</span>
+</div>
+
+<!-- SLIDE 18: RESEARCH DESIGN -->
+<div class="slide slide-content">
+  <div class="slide-header"><div class="icon blue">17</div><h2>Research Design: Pre-Test Post-Test Control Group</h2></div>
+  <div style="background:#F4F7FA;border-radius:10px;padding:16px 20px;margin:10px 0;text-align:center;">
+    <p style="font-size:13px;font-weight:600;color:var(--primary);margin-bottom:8px;">Design Notation:</p>
+    <p style="font-family:monospace;font-size:13px;margin-bottom:4px;"><strong>R &nbsp; O&#8321; &nbsp; X&#8321; &nbsp; O&#8322;</strong> &rarr; Experimental Group (Brief MBRP + TAU)</p>
+    <p style="font-family:monospace;font-size:13px;margin:0;"><strong>R &nbsp; O&#8321; &nbsp; X&#8322; &nbsp; O&#8322;</strong> &rarr; Control Group (Psychoeducation + TAU)</p>
+  </div>
+  <div class="flow">
+    <div class="flow-box">RANDOMIZATION<br>(N=60)</div>
+    <div class="flow-arrow">&rarr;</div>
+    <div class="flow-box blue">PRE-TEST (O&#8321;)<br>OCDUS + BIS-11 + FFMQ + ASSIST</div>
+    <div class="flow-arrow">&rarr;</div>
+    <div class="flow-box teal">INTERVENTION<br>3 Weeks</div>
+    <div class="flow-arrow">&rarr;</div>
+    <div class="flow-box orange">POST-TEST (O&#8322;)<br>OCDUS + BIS-11 + FFMQ</div>
+  </div>
+  <div class="cards-2" style="margin-top:10px;">
+    <div class="card"><h4>Design Features</h4><p>True experimental | Random assignment | Active control (attention-matched) | TAU continued for all | Pre-post measurement</p></div>
+    <div class="card teal"><h4>Setting</h4><p>Man Nasha Mukti Kendra, Guna, MP | Assessments by blinded RA | Intervention by MPhil Clinical Psychologist (Researcher)</p></div>
+  </div>
+  <span class="slide-num">18 / 45</span>
+</div>
+
+
+<!-- SLIDE 19: SAMPLE -->
+<div class="slide slide-content">
+  <div class="slide-header"><div class="icon blue">18</div><h2>Sample &amp; Sampling Strategy</h2></div>
+  <div class="cards-2">
+    <div class="card">
+      <h4>Stage 1: Purposive Selection</h4>
+      <p>Eligible participants identified based on inclusion/exclusion criteria from patients admitted to Man Nasha Mukti Kendra. Consecutive sampling of all eligible patients during recruitment window.</p>
+    </div>
+    <div class="card teal">
+      <h4>Stage 2: Random Assignment</h4>
+      <p>Computer-generated randomization allocating eligible participants to Experimental (n=30) or Control (n=30) groups using sealed opaque envelopes.</p>
+    </div>
+  </div>
+  <div class="stats" style="margin-top:10px;">
+    <div class="stat-box"><div class="val">60</div><div class="desc">Total (30/group)</div></div>
+    <div class="stat-box"><div class="val">70</div><div class="desc">Recruit (for attrition)</div></div>
+    <div class="stat-box"><div class="val">Male</div><div class="desc">Gender</div></div>
+    <div class="stat-box"><div class="val">18-50</div><div class="desc">Age Range</div></div>
+  </div>
+  <div class="highlight"><strong>Male-Only Justification:</strong> Indian de-addiction centers admit ~90-95% males. MAGNITUDE study reports male:female ratio ~10:1 for opioid dependence. Homogeneous sample strengthens internal validity for this initial efficacy trial.</div>
+  <span class="slide-num">19 / 45</span>
+</div>
+
+<!-- SLIDE 20: SAMPLE SIZE -->
+<div class="slide slide-content">
+  <div class="slide-header"><div class="icon blue">19</div><h2>Sample Size Estimation</h2></div>
+  <div style="background:#F4F7FA;border-radius:10px;padding:16px 20px;margin:10px 0;">
+    <p style="font-family:monospace;font-size:13px;text-align:center;color:var(--primary);font-weight:600;">n = [(Z&#945;/2 + Z&#946;)&#178; &times; 2 &times; &#963;&#178;] / d&#178;</p>
+  </div>
+  <div class="cards-2">
+    <div class="card">
+      <h4>Parameters</h4>
+      <p>&#8226; Effect size (d) = 0.50 (medium)<br>&#8226; Power (1-&#946;) = 0.80 &rarr; Z&#946; = 0.84<br>&#8226; Alpha = 0.05 (two-tailed) &rarr; Z&#945;/2 = 1.96</p>
+    </div>
+    <div class="card orange">
+      <h4>Calculation</h4>
+      <p>n = [(1.96 + 0.84)&#178; &times; 2 &times; 1] / (0.50)&#178;<br>n = [7.84 &times; 2] / 0.25 = 62.72<br>n &#8776; 63 total (~32 per group)</p>
+    </div>
+  </div>
+  <div class="highlight teal"><strong>FINAL DECISION: N = 60 (30 per group).</strong> ANCOVA as primary analysis reduces required n. G*Power 3.1 verification: ANCOVA with 1 covariate &rarr; ~34/group. Recruit 70 total (35/group) for ~15% attrition. Consistent with Glasner-Edwards et al. (2017) and Bowen &amp; Marlatt (2009).</div>
+  <span class="slide-num">20 / 45</span>
+</div>
+
+<!-- SLIDE 21: INCLUSION CRITERIA -->
+<div class="slide slide-content">
+  <div class="slide-header"><div class="icon teal">20</div><h2>Inclusion Criteria</h2></div>
+  <div class="steps">
+    <div class="step"><div class="step-num teal">1</div><div class="step-text">Diagnosis of Substance Dependence as per <strong>ICD-10 (F10-F19) / ICD-11</strong> criteria</div></div>
+    <div class="step"><div class="step-num teal">2</div><div class="step-text">Primary substance: <strong>Opioids</strong> (heroin, pharmaceutical opioids); polysubstance with primary opioid dependence included</div></div>
+    <div class="step"><div class="step-num teal">3</div><div class="step-text"><strong>Male</strong> participants aged <strong>18-50 years</strong></div></div>
+    <div class="step"><div class="step-num teal">4</div><div class="step-text">Completed <strong>detoxification phase</strong> (minimum 7 days post-withdrawal)</div></div>
+    <div class="step"><div class="step-num teal">5</div><div class="step-text">Currently admitted at <strong>Man Nasha Mukti Kendra</strong></div></div>
+    <div class="step"><div class="step-num teal">6</div><div class="step-text">Minimum education: <strong>5th standard</strong> (ability to comprehend psychometric tools)</div></div>
+    <div class="step"><div class="step-num teal">7</div><div class="step-text">Willingness to provide <strong>written informed consent</strong></div></div>
+    <div class="step"><div class="step-num teal">8</div><div class="step-text">Able to attend all <strong>6 intervention sessions</strong> during 3-week period</div></div>
+  </div>
+  <span class="slide-num">21 / 45</span>
+</div>
+
+<!-- SLIDE 22: EXCLUSION CRITERIA -->
+<div class="slide slide-content">
+  <div class="slide-header"><div class="icon rose">21</div><h2>Exclusion Criteria</h2></div>
+  <div class="steps">
+    <div class="step"><div class="step-num rose">1</div><div class="step-text"><strong>Severe psychiatric comorbidity:</strong> Psychotic disorders, Bipolar I, severe MDE with suicidality</div></div>
+    <div class="step"><div class="step-num rose">2</div><div class="step-text"><strong>Significant cognitive impairment</strong> (MMSE < 24) or intellectual disability</div></div>
+    <div class="step"><div class="step-num rose">3</div><div class="step-text"><strong>Active withdrawal symptoms</strong> (COWS score > 12)</div></div>
+    <div class="step"><div class="step-num rose">4</div><div class="step-text">History of <strong>traumatic brain injury</strong> with LOC > 30 minutes</div></div>
+    <div class="step"><div class="step-num rose">5</div><div class="step-text">Current participation in <strong>another structured psychological intervention</strong> study</div></div>
+    <div class="step"><div class="step-num rose">6</div><div class="step-text"><strong>Medical instability</strong> requiring acute/intensive care</div></div>
+    <div class="step"><div class="step-num rose">7</div><div class="step-text">History of prior formal <strong>mindfulness/meditation training</strong> exceeding 1 month</div></div>
+  </div>
+  <span class="slide-num">22 / 45</span>
+</div>
+
+<!-- SLIDE 23: VARIABLES -->
+<div class="slide slide-content">
+  <div class="slide-header"><div class="icon purple">22</div><h2>Variables of the Study</h2></div>
+  <table>
+    <tr><th>Type</th><th>Variable</th><th>Levels / Measurement</th></tr>
+    <tr><td><strong>Independent Variable (IV)</strong></td><td>Type of Intervention</td><td>Level 1: Brief MBRP + TAU (Experimental)<br>Level 2: Psychoeducation + TAU (Control)</td></tr>
+    <tr><td><strong>DV 1</strong></td><td>Craving</td><td>OCDUS total score (0-48)</td></tr>
+    <tr><td><strong>DV 2</strong></td><td>Impulsivity</td><td>BIS-11 total + 3 subscales (30-120)</td></tr>
+    <tr><td><strong>DV 3</strong></td><td>Mindfulness</td><td>FFMQ total + 5 facets (39-195)</td></tr>
+  </table>
+  <div class="highlight" style="margin-top:10px;"><strong>Controlled Variables:</strong> Age, education, duration of use, severity (ASSIST baseline), TAU components constant across groups, session duration equalized (45 min &times; 6 sessions for both groups)</div>
+  <span class="slide-num">23 / 45</span>
+</div>
+
+
+<!-- SLIDE 24: TOOLS - OCDUS -->
+<div class="slide slide-content">
+  <div class="slide-header"><div class="icon orange">23</div><h2>Tool 1: OCDUS (Craving Measure)</h2></div>
+  <div style="background:var(--light);border-radius:10px;padding:16px 20px;border:1px solid #E8EEF2;margin-bottom:12px;">
+    <p style="font-size:14px;font-weight:700;color:var(--primary);margin-bottom:8px;">Obsessive Compulsive Drug Use Scale (OCDUS) - Franken et al. (2002)</p>
+    <p style="font-size:12px;">12-item self-report measuring obsessive thoughts about drug use and compulsive urges. Captures both cognitive (obsessive) and behavioral (compulsive) craving dimensions.</p>
+  </div>
+  <div class="cards-2">
+    <div class="card orange">
+      <h4>Scoring</h4>
+      <p>5-point scale (0-4) | Total range: 0-48 | Higher = greater craving<br><strong>Subscales:</strong> (1) Obsessive thoughts/interference, (2) Desire/control, (3) Resistance to thoughts</p>
+    </div>
+    <div class="card">
+      <h4>Psychometric Properties</h4>
+      <p>Internal consistency: &#945; = 0.86-0.90<br>Test-retest reliability: r = 0.78<br>Convergent validity with VAS craving: r = 0.55-0.67<br>Predicts relapse; sensitive to treatment changes</p>
+    </div>
+  </div>
+  <div class="highlight orange"><strong>Justification:</strong> Applicable across substances including opioids. Brief (5 min). Captures multidimensional craving. Suitable for pre-post design. Adaptable for Hindi administration.</div>
+  <span class="slide-num">24 / 45</span>
+</div>
+
+<!-- SLIDE 25: TOOLS - BIS-11 & FFMQ -->
+<div class="slide slide-content">
+  <div class="slide-header"><div class="icon purple">24</div><h2>Tool 2: BIS-11 &amp; Tool 3: FFMQ</h2></div>
+  <div class="cards-2">
+    <div class="card rose" style="padding:12px 14px;">
+      <h4>Barratt Impulsiveness Scale (BIS-11) - Patton et al., 1995</h4>
+      <p>&#8226; 30 items | 4-point scale (1-4) | Range: 30-120<br>&#8226; 3 factors: Attentional, Motor, Non-Planning<br>&#8226; Higher = greater impulsivity<br>&#8226; &#945; = 0.79-0.83; test-retest r = 0.83<br>&#8226; Discriminates SUD from controls<br>&#8226; Hindi validated version available</p>
+    </div>
+    <div class="card teal" style="padding:12px 14px;">
+      <h4>Five Facet Mindfulness Questionnaire (FFMQ) - Baer et al., 2006</h4>
+      <p>&#8226; 39 items | 5-point scale (1-5) | Range: 39-195<br>&#8226; 5 facets: Observing, Describing, Acting with Awareness, Non-Judging, Non-Reactivity<br>&#8226; Higher = greater mindfulness<br>&#8226; &#945; = 0.75-0.91 across facets<br>&#8226; Sensitive to mindfulness interventions<br>&#8226; Hindi adaptation available</p>
+    </div>
+  </div>
+  <div class="highlight"><strong>Both tools:</strong> Self-report | Validated in substance use populations | Available in Hindi | Administered at PRE-TEST and POST-TEST | 10-15 min each</div>
+  <span class="slide-num">25 / 45</span>
+</div>
+
+<!-- SLIDE 26: TOOLS - ASSIST -->
+<div class="slide slide-content">
+  <div class="slide-header"><div class="icon blue">25</div><h2>Tool 4: WHO-ASSIST (Baseline Severity)</h2></div>
+  <div style="background:var(--light);border-radius:10px;padding:16px 20px;border:1px solid #E8EEF2;margin-bottom:12px;">
+    <p style="font-size:14px;font-weight:700;color:var(--primary);margin-bottom:6px;">Alcohol, Smoking and Substance Involvement Screening Test (ASSIST) - WHO, 2002</p>
+    <p style="font-size:12px;">8-item screening for risk level across 10 substance categories. WHO-validated, Hindi version available.</p>
+  </div>
+  <div class="cards-3">
+    <div class="card"><h4>Scoring</h4><p>Substance-specific risk:<br>Low: 0-3<br>Moderate: 4-26<br>High: 27+</p></div>
+    <div class="card teal"><h4>Reliability</h4><p>Test-retest: r = 0.58-0.90<br>Alpha: &#945; = 0.77-0.94<br>Sensitivity: 0.80<br>Specificity: 0.71</p></div>
+    <div class="card orange"><h4>Purpose in Study</h4><p><strong>PRE-TEST ONLY</strong><br>Establish baseline severity<br>Ensure group equivalence<br>NOT an outcome measure</p></div>
+  </div>
+  <div class="highlight teal">Used in NDDTC studies across India. Administration time: 5-10 minutes. Provides standardized severity classification for sample description.</div>
+  <span class="slide-num">26 / 45</span>
+</div>
+
+<!-- SLIDE 27: DETAILED DATA COLLECTION PROCEDURE -->
+<div class="slide slide-content">
+  <div class="slide-header"><div class="icon teal">26</div><h2>Data Collection Procedure: Step-by-Step</h2></div>
+  <div class="flow" style="margin-bottom:12px;">
+    <div class="flow-box">Screen</div><div class="flow-arrow">&rarr;</div>
+    <div class="flow-box blue">Consent</div><div class="flow-arrow">&rarr;</div>
+    <div class="flow-box teal">Pre-Test</div><div class="flow-arrow">&rarr;</div>
+    <div class="flow-box">Randomize</div><div class="flow-arrow">&rarr;</div>
+    <div class="flow-box orange">Intervention<br>(3 wks)</div><div class="flow-arrow">&rarr;</div>
+    <div class="flow-box teal">Post-Test</div><div class="flow-arrow">&rarr;</div>
+    <div class="flow-box">Analyze</div>
+  </div>
+  <div class="steps" style="font-size:11px;">
+    <div class="step"><div class="step-num">1</div><div class="step-text"><strong>Screening (Day 1-3):</strong> Review admission records. Identify male patients (18-50) with opioid dependence (ICD-10) who have completed 7+ days detox. Check MMSE &#8805; 24, COWS &#8804; 12. Apply inclusion/exclusion criteria.</div></div>
+    <div class="step"><div class="step-num teal">2</div><div class="step-text"><strong>Informed Consent (Day 3-4):</strong> Individual meeting in Hindi. Explain study purpose, procedures, duration, voluntary nature, right to withdraw, confidentiality. Obtain written signed consent.</div></div>
+    <div class="step"><div class="step-num orange">3</div><div class="step-text"><strong>Pre-Test Assessment (Day 4-5):</strong> Administer in quiet room: ASSIST (severity baseline) + OCDUS (craving) + BIS-11 (impulsivity) + FFMQ (mindfulness). ~40 min total. Conducted by blinded Research Assistant.</div></div>
+    <div class="step"><div class="step-num purple">4</div><div class="step-text"><strong>Randomization (Day 5):</strong> Computer-generated random sequence. Sealed opaque envelopes. Allocate to Experimental (MBRP) or Control (Psychoeducation). Stratified by ASSIST severity.</div></div>
+    <div class="step"><div class="step-num rose">5</div><div class="step-text"><strong>Intervention (Weeks 1-3):</strong> 6 sessions, twice weekly, 45 min each. Groups of 6-8. MBRP group: mindfulness techniques. Control: psychoeducation. Both continue TAU throughout.</div></div>
+    <div class="step"><div class="step-num">6</div><div class="step-text"><strong>Post-Test (Within 1 week of final session):</strong> Re-administer OCDUS + BIS-11 + FFMQ only (no ASSIST). Same blinded RA. Same conditions as pre-test.</div></div>
+  </div>
+  <span class="slide-num">27 / 45</span>
+</div>
+
+<!-- SLIDE 28: HOW DATA WILL BE COLLECTED - DETAILS -->
+<div class="slide slide-content">
+  <div class="slide-header"><div class="icon orange">27</div><h2>Data Collection: Techniques &amp; Conditions</h2></div>
+  <div class="cards-2">
+    <div class="card">
+      <h4>Assessment Setting</h4>
+      <p>&#8226; Quiet, private room within Man Nasha Mukti Kendra<br>&#8226; Comfortable seating, adequate lighting<br>&#8226; No distractions or other patients present<br>&#8226; Morning hours (9-12 AM) to avoid medication effects<br>&#8226; Same room &amp; conditions for pre &amp; post</p>
+    </div>
+    <div class="card teal">
+      <h4>Administration Protocol</h4>
+      <p>&#8226; Researcher-assisted (read aloud if literacy issues)<br>&#8226; Hindi language throughout<br>&#8226; Standardized instructions read verbatim<br>&#8226; Unlimited time (typically 35-45 min total)<br>&#8226; Practice items completed first to ensure comprehension</p>
+    </div>
+    <div class="card orange">
+      <h4>Blinding &amp; Bias Control</h4>
+      <p>&#8226; Assessor (RA) blinded to group allocation<br>&#8226; Participants instructed not to reveal group<br>&#8226; Standardized order: OCDUS &rarr; BIS-11 &rarr; FFMQ<br>&#8226; Social desirability managed via anonymous coding<br>&#8226; No researcher present during assessment</p>
+    </div>
+    <div class="card rose">
+      <h4>Data Management</h4>
+      <p>&#8226; Participant ID codes (no names on forms)<br>&#8226; Double data entry for accuracy<br>&#8226; Locked cabinet for paper forms<br>&#8226; Electronic data password-protected<br>&#8226; Access restricted to research team only</p>
+    </div>
+  </div>
+  <span class="slide-num">28 / 45</span>
+</div>
+
+
+<!-- SLIDE 29: B-MBRP TECHNIQUES OVERVIEW -->
+<div class="slide slide-content">
+  <div class="slide-header"><div class="icon teal">28</div><h2>B-MBRP Techniques Used in the Study</h2></div>
+  <table>
+    <tr><th>Technique</th><th>Description</th><th>Target Variable</th></tr>
+    <tr><td><strong>Body Scan Meditation</strong></td><td>Systematic attention to bodily sensations from head to toe without judgment. Builds interoceptive awareness.</td><td>Mindfulness (Observing)</td></tr>
+    <tr><td><strong>Breath Awareness</strong></td><td>Focused attention on natural breathing rhythm. Anchor for present-moment awareness.</td><td>Mindfulness (Acting with Awareness)</td></tr>
+    <tr><td><strong>Urge Surfing</strong></td><td>Observing craving as a wave that rises, peaks, and falls. Non-reactive witnessing without acting.</td><td>Craving reduction</td></tr>
+    <tr><td><strong>SOBER Breathing Space</strong></td><td>Stop-Observe-Breathe-Expand-Respond. 3-min emergency technique for high-risk situations.</td><td>Impulsivity (response inhibition)</td></tr>
+    <tr><td><strong>Trigger Mapping</strong></td><td>Identifying personal high-risk situations, people, places, emotions that trigger use urges.</td><td>Craving awareness</td></tr>
+    <tr><td><strong>Cognitive Decentering</strong></td><td>Labeling thoughts as thoughts: "I am having the thought that..." Creates distance from automatic patterns.</td><td>Impulsivity + Craving</td></tr>
+    <tr><td><strong>Loving-Kindness Meditation</strong></td><td>Cultivating self-compassion and positive affect. Counters shame/guilt cycle.</td><td>Mindfulness (Non-Judging)</td></tr>
+    <tr><td><strong>Mindful Movement</strong></td><td>Gentle yoga/walking with full present-moment attention to body.</td><td>Mindfulness (Observing)</td></tr>
+  </table>
+  <span class="slide-num">29 / 45</span>
+</div>
+
+<!-- SLIDE 30: SESSION-BY-SESSION - EXPERIMENTAL -->
+<div class="slide slide-content">
+  <div class="slide-header"><div class="icon teal">29</div><h2>Intervention: B-MBRP Session-by-Session Protocol</h2></div>
+  <table style="font-size:10.5px;">
+    <tr><th>Session</th><th>Title &amp; Theme</th><th>Activities (45 min)</th><th>Home Practice</th></tr>
+    <tr><td><strong>S1</strong></td><td>Autopilot &amp; Awareness</td><td>Welcome (5 min) &rarr; Raisin exercise (10 min) &rarr; Discussion on automatic patterns in addiction (10 min) &rarr; Brief body scan (12 min) &rarr; Debrief &amp; assign practice (8 min)</td><td>5 min daily body scan (audio)</td></tr>
+    <tr><td><strong>S2</strong></td><td>Triggers &amp; Body Scan</td><td>Practice review (5 min) &rarr; Full body scan (15 min) &rarr; Personal trigger mapping exercise (15 min) &rarr; Discussion: body signals of craving (10 min)</td><td>Body scan + trigger diary</td></tr>
+    <tr><td><strong>S3</strong></td><td>Breath &amp; SOBER Space</td><td>Practice review (5 min) &rarr; 10 min breath meditation &rarr; Teach SOBER technique (10 min) &rarr; Role-play SOBER in high-risk scenario (10 min) &rarr; Integration (10 min)</td><td>Breath meditation + 3x daily SOBER</td></tr>
+    <tr><td><strong>S4</strong></td><td>Urge Surfing &amp; Decentering</td><td>Practice review (5 min) &rarr; Guided urge surfing meditation (15 min) &rarr; Cognitive decentering exercise: "I am having a craving" (10 min) &rarr; Group sharing (15 min)</td><td>Urge surfing when craving arises</td></tr>
+    <tr><td><strong>S5</strong></td><td>Acceptance &amp; Non-Reactivity</td><td>Practice review (5 min) &rarr; Sitting meditation with open awareness (12 min) &rarr; Discussion: acceptance vs. avoidance (10 min) &rarr; Skillful action planning (10 min) &rarr; Wrap-up (8 min)</td><td>Open awareness meditation daily</td></tr>
+    <tr><td><strong>S6</strong></td><td>Integration &amp; Maintenance</td><td>Practice review (5 min) &rarr; Loving-kindness meditation (10 min) &rarr; Personal relapse prevention plan with mindfulness tools (15 min) &rarr; Group feedback &amp; closure (15 min)</td><td>Personalized daily practice plan</td></tr>
+  </table>
+  <div class="highlight teal"><strong>Delivery:</strong> Twice weekly | 45 min/session | Group (6-8) | Hindi audio meditations provided | Practice logs maintained</div>
+  <span class="slide-num">30 / 45</span>
+</div>
+
+<!-- SLIDE 31: HOW EACH SESSION IS CONDUCTED -->
+<div class="slide slide-content">
+  <div class="slide-header"><div class="icon orange">30</div><h2>How Each B-MBRP Session is Conducted</h2></div>
+  <p style="font-size:11.5px;margin-bottom:10px;"><strong>Standard Session Structure (every session follows this format):</strong></p>
+  <div class="steps">
+    <div class="step"><div class="step-num">1</div><div class="step-text"><strong>Opening Meditation (5 min):</strong> Brief breath awareness to settle the group. Participants sit comfortably with eyes closed. Therapist guides attention to breath in Hindi.</div></div>
+    <div class="step"><div class="step-num teal">2</div><div class="step-text"><strong>Practice Review (5 min):</strong> Participants share home practice experiences. Troubleshoot difficulties. Normalize challenges. Non-judgmental discussion.</div></div>
+    <div class="step"><div class="step-num orange">3</div><div class="step-text"><strong>Core Meditation/Exercise (12-15 min):</strong> Session-specific guided meditation (body scan, urge surfing, etc.). Conducted in Hindi using pre-recorded audio + live guidance by therapist.</div></div>
+    <div class="step"><div class="step-num purple">4</div><div class="step-text"><strong>Psychoeducation &amp; Discussion (10-12 min):</strong> Brief teaching on session theme (e.g., "craving as a wave"). Group discussion linking mindfulness to personal recovery. Culturally relevant examples.</div></div>
+    <div class="step"><div class="step-num rose">5</div><div class="step-text"><strong>Experiential Exercise (8-10 min):</strong> Active practice or role-play (e.g., SOBER in a high-risk scenario, trigger mapping on paper, decentering exercise with craving thoughts).</div></div>
+    <div class="step"><div class="step-num">6</div><div class="step-text"><strong>Closing &amp; Home Practice Assignment (5 min):</strong> Summary of key learning. Assign specific home practice (5-10 min daily). Distribute audio recordings. Record attendance.</div></div>
+  </div>
+  <span class="slide-num">31 / 45</span>
+</div>
+
+<!-- SLIDE 32: CONTROL GROUP - PSYCHOEDUCATION -->
+<div class="slide slide-content">
+  <div class="slide-header"><div class="icon blue">31</div><h2>Control Group: Psychoeducation (6 Sessions / 3 Weeks)</h2></div>
+  <table style="font-size:10.5px;">
+    <tr><th>Session</th><th>Topic</th><th>Content</th></tr>
+    <tr><td><strong>S1</strong></td><td>Understanding Addiction</td><td>Disease model of addiction; brain changes with chronic use; genetic &amp; environmental factors</td></tr>
+    <tr><td><strong>S2</strong></td><td>Effects of Opioids</td><td>Physical consequences (liver, heart, immune); psychological effects; withdrawal timeline</td></tr>
+    <tr><td><strong>S3</strong></td><td>Understanding Relapse</td><td>Warning signs; high-risk situations; Marlatt's relapse model; cognitive distortions</td></tr>
+    <tr><td><strong>S4</strong></td><td>Health &amp; Nutrition</td><td>Physical recovery during treatment; sleep hygiene; exercise benefits; nutrition for recovery</td></tr>
+    <tr><td><strong>S5</strong></td><td>Social Consequences</td><td>Family impact; legal issues; stigma; workplace; rehabilitation resources</td></tr>
+    <tr><td><strong>S6</strong></td><td>Motivation &amp; Goals</td><td>Stages of change; recovery planning; goal setting; community resources; discharge planning</td></tr>
+  </table>
+  <div class="highlight"><strong>Active Control Design:</strong> Matched for time (45 min), format (group 6-8), frequency (2x/week), attention, and therapist contact. Uses handouts + visual aids + discussion. Contains <strong>NO mindfulness component</strong> whatsoever.</div>
+  <span class="slide-num">32 / 45</span>
+</div>
+
+
+<!-- SLIDE 33: DATA ANALYSIS -->
+<div class="slide slide-content">
+  <div class="slide-header"><div class="icon purple">32</div><h2>Data Analysis Plan</h2></div>
+  <div class="cards-2">
+    <div class="card purple">
+      <h4>Statistical Tests</h4>
+      <p>&#8226; Descriptive: Mean, SD, frequencies<br>&#8226; Normality: Shapiro-Wilk test<br>&#8226; Within-group: Paired t-test / Wilcoxon<br>&#8226; Between-group: Independent t-test / Mann-Whitney<br>&#8226; <strong>Primary: ANCOVA</strong><br>&#8226; Effect size: Partial &#951;&#178;, Cohen's d<br>&#8226; Alpha = 0.05 (two-tailed) | Software: SPSS 26.0</p>
+    </div>
+    <div class="card">
+      <h4>ANCOVA Model</h4>
+      <p><strong>DV:</strong> Post-test scores (OCDUS / BIS-11 / FFMQ)<br><strong>IV:</strong> Group (Experimental vs. Control)<br><strong>Covariate:</strong> Pre-test scores (same measure)<br><strong>ITT:</strong> Last Observation Carried Forward (LOCF)</p>
+    </div>
+  </div>
+  <div class="highlight purple" style="background:linear-gradient(135deg,#EDE7F6,#D1C4E9);border-left-color:var(--purple);">
+    <strong>ANCOVA Justification:</strong> (a) Controls for baseline differences even after randomization, (b) Increases statistical power by reducing within-group error, (c) Provides more precise treatment effect estimate, (d) Reduces required sample size vs. independent t-test, (e) Recommended for pre-post designs (Tabachnick &amp; Fidell, 2013; Field, 2018)
+  </div>
+  <span class="slide-num">33 / 45</span>
+</div>
+
+<!-- SLIDE 34: ETHICAL CONSIDERATIONS -->
+<div class="slide slide-content">
+  <div class="slide-header"><div class="icon rose">33</div><h2>Ethical Considerations</h2></div>
+  <div class="steps">
+    <div class="step"><div class="step-num">1</div><div class="step-text"><strong>Informed Consent:</strong> Written consent in Hindi; participants fully informed of purpose, procedures, duration, risks, benefits</div></div>
+    <div class="step"><div class="step-num teal">2</div><div class="step-text"><strong>Voluntary Participation:</strong> Right to withdraw anytime without penalty or impact on treatment at Man Nasha Mukti Kendra</div></div>
+    <div class="step"><div class="step-num orange">3</div><div class="step-text"><strong>Confidentiality:</strong> Data coded with participant IDs; no identifying information in publications; secure locked storage</div></div>
+    <div class="step"><div class="step-num purple">4</div><div class="step-text"><strong>Non-Maleficence:</strong> Control receives active psychoeducation (not waitlist/no treatment); TAU continued for all participants</div></div>
+    <div class="step"><div class="step-num rose">5</div><div class="step-text"><strong>Institutional Approval:</strong> Ethical clearance from Institutional Ethics Committee (IEC) prior to data collection</div></div>
+    <div class="step"><div class="step-num">6</div><div class="step-text"><strong>Debriefing:</strong> Control group offered brief MBRP orientation post-study completion</div></div>
+    <div class="step"><div class="step-num teal">7</div><div class="step-text"><strong>Compliance:</strong> ICMR (2017) National Ethical Guidelines for Biomedical and Health Research Involving Human Participants</div></div>
+  </div>
+  <span class="slide-num">34 / 45</span>
+</div>
+
+<!-- SLIDE 35: EXPECTED RESULTS -->
+<div class="slide slide-content">
+  <div class="slide-header"><div class="icon teal">34</div><h2>Expected Results</h2></div>
+  <div class="cards-3">
+    <div class="card orange">
+      <h4>Craving (OCDUS)</h4>
+      <p>Significant <strong>REDUCTION</strong> in MBRP group vs. Control<br><br>Expected effect: d = 0.50-0.80<br><br><em>Mechanism:</em> Urge surfing disrupts automatic craving-use cycle</p>
+    </div>
+    <div class="card rose">
+      <h4>Impulsivity (BIS-11)</h4>
+      <p>Significant <strong>REDUCTION</strong> (Motor + Attentional subscales)<br><br>Expected effect: d = 0.40-0.60<br><br><em>Mechanism:</em> Mindfulness strengthens prefrontal inhibitory control</p>
+    </div>
+    <div class="card teal">
+      <h4>Mindfulness (FFMQ)</h4>
+      <p>Significant <strong>INCREASE</strong> in MBRP group (Acting with Awareness &amp; Non-Reactivity facets)<br><br>Expected effect: d = 0.50-0.70<br><br><em>Mechanism:</em> Structured meditation cultivates dispositional mindfulness</p>
+    </div>
+  </div>
+  <div class="highlight teal" style="margin-top:12px;"><strong>Overall:</strong> Brief MBRP + TAU expected to demonstrate superiority across all 3 DVs compared to Psychoeducation + TAU. Null hypotheses (H01, H02, H03) expected to be rejected. Supports feasibility of 6-session B-MBRP at Man Nasha Mukti Kendra.</div>
+  <span class="slide-num">35 / 45</span>
+</div>
+
+<!-- SLIDE 36: CLINICAL IMPLICATIONS -->
+<div class="slide slide-content">
+  <div class="slide-header"><div class="icon teal">35</div><h2>Clinical Implications</h2></div>
+  <div class="steps">
+    <div class="step"><div class="step-num teal">1</div><div class="step-text"><strong>Validates a brief MBRP model</strong> (6 sessions / 3 weeks) feasible for Indian de-addiction settings with limited resources</div></div>
+    <div class="step"><div class="step-num teal">2</div><div class="step-text"><strong>Evidence-based psychological intervention</strong> to complement pharmacotherapy (OST, naltrexone) in routine care</div></div>
+    <div class="step"><div class="step-num teal">3</div><div class="step-text"><strong>Cultural compatibility:</strong> Demonstrates mindfulness-based approaches are appropriate for Indian populations</div></div>
+    <div class="step"><div class="step-num teal">4</div><div class="step-text"><strong>Multi-target protocol:</strong> Addresses craving, impulsivity, and mindfulness simultaneously through single integrated intervention</div></div>
+    <div class="step"><div class="step-num teal">5</div><div class="step-text"><strong>Task-shifting potential:</strong> Brief MBRP deliverable by MPhil-trained Clinical Psychologists in district-level settings</div></div>
+    <div class="step"><div class="step-num teal">6</div><div class="step-text"><strong>Scalable model:</strong> If effective, can be disseminated to government de-addiction centers across Madhya Pradesh and India</div></div>
+  </div>
+  <span class="slide-num">36 / 45</span>
+</div>
+
+<!-- SLIDE 37: LIMITATIONS -->
+<div class="slide slide-content">
+  <div class="slide-header"><div class="icon rose">36</div><h2>Limitations</h2></div>
+  <div class="steps">
+    <div class="step"><div class="step-num rose">1</div><div class="step-text"><strong>Male-only sample</strong> from single center (Man Nasha Mukti Kendra) limits generalizability to females and other settings</div></div>
+    <div class="step"><div class="step-num rose">2</div><div class="step-text"><strong>Short-term assessment:</strong> Post-test immediately after 3-week intervention; no long-term follow-up data</div></div>
+    <div class="step"><div class="step-num rose">3</div><div class="step-text"><strong>Self-report measures</strong> (OCDUS, BIS-11, FFMQ) susceptible to social desirability bias</div></div>
+    <div class="step"><div class="step-num rose">4</div><div class="step-text"><strong>No biological markers:</strong> Craving measured subjectively without physiological corroboration (cortisol, HRV)</div></div>
+    <div class="step"><div class="step-num rose">5</div><div class="step-text"><strong>Therapist effects:</strong> Single therapist delivery may introduce confounds (mitigated by manualized protocol)</div></div>
+    <div class="step"><div class="step-num rose">6</div><div class="step-text"><strong>Attention-matched control</strong> does not fully account for specific mindfulness mechanisms vs. non-specific factors</div></div>
+    <div class="step"><div class="step-num rose">7</div><div class="step-text"><strong>Potential attrition</strong> despite over-recruitment planning (common in substance-dependent populations)</div></div>
+  </div>
+  <span class="slide-num">37 / 45</span>
+</div>
+
+
+<!-- SLIDE 38: FUTURE DIRECTIONS -->
+<div class="slide slide-content">
+  <div class="slide-header"><div class="icon blue">37</div><h2>Future Directions</h2></div>
+  <div class="cards-2">
+    <div class="card"><h4>Follow-Up &amp; Replication</h4><p>&#8226; 3-month and 6-month follow-up assessments<br>&#8226; Multi-site RCTs across Indian de-addiction centers<br>&#8226; Include female participants for gender-specific effects</p></div>
+    <div class="card teal"><h4>Mechanism Research</h4><p>&#8226; Neuroimaging (fMRI/EEG) for neural mechanisms<br>&#8226; Mediator analysis: mindfulness as mediator<br>&#8226; Dose-response: Compare 4 vs. 6 vs. 8 sessions</p></div>
+    <div class="card purple"><h4>Comparative Studies</h4><p>&#8226; MBRP vs. CBT vs. ACT in Indian samples<br>&#8226; Technology-assisted: App-based digital MBRP<br>&#8226; Post-discharge booster sessions</p></div>
+    <div class="card orange"><h4>Dissemination</h4><p>&#8226; Develop Hindi MBRP training manual<br>&#8226; Train counselors in government de-addiction centers<br>&#8226; Rural access via telehealth MBRP delivery</p></div>
+  </div>
+  <span class="slide-num">38 / 45</span>
+</div>
+
+<!-- SLIDE 39: SUMMARY -->
+<div class="slide slide-content">
+  <div class="slide-header"><div class="icon blue">38</div><h2>Study Summary</h2></div>
+  <table style="font-size:11px;">
+    <tr><th style="width:30%;">Component</th><th>Details</th></tr>
+    <tr><td><strong>Design</strong></td><td>Pre-test Post-test Control Group Experimental Design (True Experimental)</td></tr>
+    <tr><td><strong>Setting</strong></td><td>Man Nasha Mukti Kendra, Guna, Madhya Pradesh</td></tr>
+    <tr><td><strong>Population</strong></td><td>Male opioid-dependent patients, aged 18-50, N = 60 (30/group)</td></tr>
+    <tr><td><strong>Experimental Group</strong></td><td>Brief MBRP (6 sessions / 3 weeks) + Treatment As Usual</td></tr>
+    <tr><td><strong>Control Group</strong></td><td>Psychoeducation (6 sessions / 3 weeks) + Treatment As Usual</td></tr>
+    <tr><td><strong>DVs</strong></td><td>Craving (OCDUS) + Impulsivity (BIS-11) + Mindfulness (FFMQ)</td></tr>
+    <tr><td><strong>Sampling</strong></td><td>Two-stage: Purposive selection &rarr; Computer-generated random assignment</td></tr>
+    <tr><td><strong>Primary Analysis</strong></td><td>ANCOVA controlling for pre-test scores as covariates</td></tr>
+    <tr><td><strong>Hypotheses</strong></td><td>Null: No significant difference between groups on OCDUS, BIS-11, FFMQ</td></tr>
+  </table>
+  <div class="highlight" style="margin-top:10px;"><strong>SIGNIFICANCE:</strong> First brief MBRP trial in Indian opioid-dependent sample addressing critical research gap in evidence-based psychological interventions for de-addiction treatment.</div>
+  <span class="slide-num">39 / 45</span>
+</div>
+
+<!-- SLIDE 40: CONCLUSION -->
+<div class="slide slide-content">
+  <div class="slide-header"><div class="icon teal">39</div><h2>Conclusion</h2></div>
+  <div class="steps">
+    <div class="step"><div class="step-num teal">1</div><div class="step-text">Substance dependence (particularly opioid) represents a significant public health crisis in India with relapse rates >70%</div></div>
+    <div class="step"><div class="step-num teal">2</div><div class="step-text">Current treatment at Indian de-addiction centers relies heavily on pharmacotherapy with limited evidence-based psychological interventions</div></div>
+    <div class="step"><div class="step-num teal">3</div><div class="step-text">MBRP offers a theoretically grounded approach targeting craving (urge surfing), impulsivity (mindful pause), and mindfulness enhancement simultaneously</div></div>
+    <div class="step"><div class="step-num teal">4</div><div class="step-text">A brief 6-session B-MBRP protocol is clinically practical, culturally appropriate, and feasible at Man Nasha Mukti Kendra</div></div>
+    <div class="step"><div class="step-num teal">5</div><div class="step-text">If supported, Brief MBRP can be integrated into standard de-addiction protocols across Indian government rehabilitation centers</div></div>
+  </div>
+  <div class="highlight teal" style="margin-top:15px;"><strong>This study represents a critical first step</strong> in establishing an evidence base for brief mindfulness-based psychological interventions within the Indian de-addiction treatment infrastructure.</div>
+  <span class="slide-num">40 / 45</span>
+</div>
+
+<!-- SLIDE 41: REFERENCES 1 -->
+<div class="slide slide-content">
+  <div class="slide-header"><div class="icon blue">40</div><h2>References (1/4)</h2></div>
+  <ul style="font-size:10.5px;line-height:1.7;">
+    <li>Baer, R. A., Smith, G. T., Hopkins, J., Krietemeyer, J., &amp; Toney, L. (2006). Using self-report assessment methods to explore facets of mindfulness. <em>Assessment</em>, 13(1), 27-45.</li>
+    <li>Bowen, S., Chawla, N., &amp; Marlatt, G. A. (2011). <em>Mindfulness-based relapse prevention for addictive behaviors: A clinician's guide.</em> Guilford Press.</li>
+    <li>Bowen, S., &amp; Marlatt, G. A. (2009). Surfing the urge: Brief mindfulness-based intervention. <em>Psychology of Addictive Behaviors</em>, 23(4), 666-671.</li>
+    <li>Bowen, S., Witkiewitz, K., Clifasefi, S. L., et al. (2014). Relative efficacy of MBRP, standard RP, and TAU. <em>JAMA Psychiatry</em>, 71(5), 547-556.</li>
+    <li>Brewer, J. A., Mallik, S., Babuscio, T. A., et al. (2011). Mindfulness training for smoking cessation. <em>Drug and Alcohol Dependence</em>, 119(1-2), 72-80.</li>
+    <li>Chiesa, A., &amp; Serretti, A. (2014). Are MBIs effective for substance use disorders? <em>Substance Use &amp; Misuse</em>, 49(5), 492-512.</li>
+    <li>Franken, I. H. A., Hendriks, V. M., &amp; van den Brink, W. (2002). Initial validation of two opiate craving questionnaires. <em>Addictive Behaviors</em>, 27(5), 675-685.</li>
+  </ul>
+  <span class="slide-num">41 / 45</span>
+</div>
+
+<!-- SLIDE 42: REFERENCES 2 -->
+<div class="slide slide-content">
+  <div class="slide-header"><div class="icon blue">41</div><h2>References (2/4)</h2></div>
+  <ul style="font-size:10.5px;line-height:1.7;">
+    <li>Garland, E. L., Froeliger, B., &amp; Howard, M. O. (2014). Mindfulness targets neurocognitive mechanisms of addiction. <em>Frontiers in Psychiatry</em>, 4, 173.</li>
+    <li>Garland, E. L., Roberts-Lewis, A., Tronnier, C. D., et al. (2016). MORE vs. CBT for co-occurring SUDs. <em>J. Consulting and Clinical Psychology</em>, 84(4), 281-293.</li>
+    <li>Ghosh, A., Basu, D., &amp; Avasthi, A. (2018). Relapse in opioid dependence: Indian perspective. <em>Indian Journal of Psychiatry</em>, 60(Suppl 4), S469-S476.</li>
+    <li>Glasner-Edwards, S., Mooney, L. J., Ang, A., et al. (2017). MBRP for stimulant dependent adults: Pilot RCT. <em>Mindfulness</em>, 8(1), 126-135.</li>
+    <li>Grant, S., Colaiaco, B., Motala, A., et al. (2017). MBRP for SUDs: Meta-analysis. <em>J. Addiction Medicine</em>, 11(5), 386-396.</li>
+    <li>Humeniuk, R., Ali, R., Babor, T. F., et al. (2008). Validation of ASSIST. <em>Addiction</em>, 103(6), 1039-1047.</li>
+    <li>Jain, R., Majumder, P., &amp; Gupta, T. (2013). <em>Indian Journal of Psychiatry</em>, 55(Suppl 1), S86-S92.</li>
+    <li>Kabat-Zinn, J. (1990). <em>Full catastrophe living.</em> Delacorte Press.</li>
+  </ul>
+  <span class="slide-num">42 / 45</span>
+</div>
+
+<!-- SLIDE 43: REFERENCES 3 -->
+<div class="slide slide-content">
+  <div class="slide-header"><div class="icon blue">42</div><h2>References (3/4)</h2></div>
+  <ul style="font-size:10.5px;line-height:1.7;">
+    <li>Karyadi, K. A., VanderVeen, J. D., &amp; Cyders, M. A. (2014). Trait mindfulness and substance use: Meta-analysis. <em>Drug and Alcohol Dependence</em>, 143, 1-10.</li>
+    <li>Li, W., Howard, M. O., Garland, E. L., et al. (2017). Mindfulness for substance misuse: Meta-analysis. <em>J. Substance Abuse Treatment</em>, 75, 62-96.</li>
+    <li>Marlatt, G. A., &amp; Gordon, J. R. (1985). <em>Relapse prevention.</em> Guilford Press.</li>
+    <li>Mattoo, S. K., Chakrabarti, S., &amp; Anjaiah, M. (2009). Psychosocial factors in relapse. <em>Indian J. Medical Research</em>, 130(6), 702-708.</li>
+    <li>Ministry of Social Justice &amp; Empowerment. (2019). <em>Magnitude of substance use in India.</em> Government of India.</li>
+    <li>Moeller, F. G., Barratt, E. S., Dougherty, D. M., et al. (2001). Psychiatric aspects of impulsivity. <em>Am. J. Psychiatry</em>, 158(11), 1783-1793.</li>
+    <li>Murphy, C., &amp; MacKillop, J. (2012). Impulsivity, mindfulness, and alcohol misuse. <em>Psychopharmacology</em>, 219(2), 527-536.</li>
+    <li>NIDA. (2020). <em>Drugs, brains, and behavior: The science of addiction.</em></li>
+  </ul>
+  <span class="slide-num">43 / 45</span>
+</div>
+
+<!-- SLIDE 44: REFERENCES 4 -->
+<div class="slide slide-content">
+  <div class="slide-header"><div class="icon blue">43</div><h2>References (4/4)</h2></div>
+  <ul style="font-size:10.5px;line-height:1.7;">
+    <li>Patton, J. H., Stanford, M. S., &amp; Barratt, E. S. (1995). Factor structure of BIS. <em>J. Clinical Psychology</em>, 51(6), 768-774.</li>
+    <li>Robinson, T. E., &amp; Berridge, K. C. (1993). Neural basis of drug craving. <em>Brain Research Reviews</em>, 18(3), 247-291.</li>
+    <li>Sarkar, S., &amp; Balhara, Y. P. S. (2016). <em>Indian Journal of Psychiatry</em>, 58(3), 290-295.</li>
+    <li>Serre, F., Fatseas, M., Swendsen, J., &amp; Auriacombe, M. (2015). Ecological momentary assessment in the investigation of craving and substance use. <em>Addiction</em>, 110(7), 1070-1082.</li>
+    <li>Stanford, M. S., Mathias, C. W., Dougherty, D. M., et al. (2009). Fifty years of the Barratt Impulsiveness Scale. <em>Personality and Individual Differences</em>, 47(5), 385-395.</li>
+    <li>Tabachnick, B. G., &amp; Fidell, L. S. (2013). <em>Using multivariate statistics</em> (6th ed.). Pearson.</li>
+    <li>Tiffany, S. T., &amp; Wray, J. M. (2012). The clinical significance of drug craving. <em>Annals of the New York Academy of Sciences</em>, 1248(1), 1-17.</li>
+    <li>WHO ASSIST Working Group. (2002). ASSIST development. <em>Addiction</em>, 97(9), 1183-1194.</li>
+    <li>Witkiewitz, K., Bowen, S., Douglas, H., &amp; Hsu, S. H. (2013). MBRP for craving. <em>Addictive Behaviors</em>, 38(2), 1563-1571.</li>
+  </ul>
+  <span class="slide-num">44 / 45</span>
+</div>
+
+<!-- SLIDE 45: THANK YOU -->
+<div class="slide slide-title" style="background:linear-gradient(135deg, #0A7B6C 0%, #1B2A4A 50%, #2E86AB 100%);">
+  <h1 style="font-size:36px;">Thank You</h1>
+  <h2 style="font-size:18px;opacity:0.9;">Questions &amp; Discussion</h2>
+  <div class="meta" style="margin-top:30px;">
+    <strong>Tejas Dangodra</strong><br>
+    2nd Year MPhil Trainee in Clinical Psychology<br>
+    Man College of Special Education &amp; Psychological Studies<br>
+    Krantivir Tatya Tope Vishwavidyalaya, Guna, MP<br><br>
+    tejasdangodra99@gmail.com | +91 8140171722
+  </div>
+</div>
+
+</body>
+</html>
