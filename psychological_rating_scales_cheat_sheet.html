@@ -8,16 +8,16 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
-            color: #eaeaea;
+            background: #fefcf9;
+            color: #2d3748;
             line-height: 1.7;
             min-height: 100vh;
         }
         .header {
-            background: linear-gradient(135deg, #0d9488 0%, #059669 40%, #10b981 100%);
-            padding: 45px 20px;
+            background: linear-gradient(135deg, #e63946 0%, #d62828 40%, #c1121f 100%);
+            padding: 50px 20px;
             text-align: center;
-            box-shadow: 0 6px 30px rgba(16, 185, 129, 0.4);
+            box-shadow: 0 6px 25px rgba(230, 57, 70, 0.3);
             position: relative;
             overflow: hidden;
         }
@@ -28,46 +28,47 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 60%);
+            background: radial-gradient(circle, rgba(255,255,255,0.12) 0%, transparent 60%);
             animation: pulse 4s ease-in-out infinite;
         }
-        @keyframes pulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+        @keyframes pulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.03); } }
 
         .header h1 {
-            font-size: 2.5em;
+            font-size: 2.6em;
             color: #fff;
-            text-shadow: 2px 2px 6px rgba(0,0,0,0.4);
+            text-shadow: 2px 2px 6px rgba(0,0,0,0.3);
             position: relative;
             z-index: 1;
+            letter-spacing: 1px;
         }
         .header h2 {
             font-size: 1.3em;
-            color: rgba(255,255,255,0.95);
+            color: #ffeaec;
             margin-top: 10px;
             position: relative;
             z-index: 1;
         }
         .header .subtitle {
             font-size: 1em;
-            color: rgba(255,255,255,0.8);
+            color: #ffd6d9;
             margin-top: 5px;
             position: relative;
             z-index: 1;
         }
         .container { max-width: 1200px; margin: 0 auto; padding: 30px 20px; }
         .toc {
-            background: rgba(255,255,255,0.04);
-            border: 1px solid rgba(16, 185, 129, 0.2);
+            background: #fff;
+            border: 2px solid #fde2e4;
             border-radius: 15px;
             padding: 30px;
             margin-bottom: 40px;
-            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
         }
         .toc h2 {
-            color: #34d399;
+            color: #c1121f;
             font-size: 1.5em;
             margin-bottom: 15px;
-            border-bottom: 2px solid #10b981;
+            border-bottom: 3px solid #e63946;
             padding-bottom: 10px;
         }
         .toc-grid {
@@ -76,119 +77,123 @@
             gap: 10px;
         }
         .toc a {
-            color: #6ee7b7;
+            color: #1d4ed8;
             text-decoration: none;
             padding: 5px 10px;
             border-radius: 5px;
             transition: all 0.3s;
             display: block;
+            font-weight: 500;
         }
-        .toc a:hover { background: rgba(16, 185, 129, 0.15); color: #fff; }
+        .toc a:hover { background: #fef2f2; color: #c1121f; }
 
         .category-header {
-            background: linear-gradient(135deg, #059669 0%, #0d9488 50%, #14b8a6 100%);
+            background: linear-gradient(135deg, #1e3a5f 0%, #264653 50%, #2a6f97 100%);
             padding: 15px 25px;
             border-radius: 10px;
             margin: 40px 0 20px;
             font-size: 1.4em;
             font-weight: bold;
             color: #fff;
-            box-shadow: 0 4px 15px rgba(5, 150, 105, 0.35);
+            box-shadow: 0 4px 15px rgba(30, 58, 95, 0.25);
+            letter-spacing: 0.5px;
         }
         .scale-card {
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(16, 185, 129, 0.12);
-            border-radius: 15px;
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-left: 5px solid #e63946;
+            border-radius: 12px;
             padding: 30px;
-            margin-bottom: 30px;
-            backdrop-filter: blur(5px);
+            margin-bottom: 25px;
             transition: all 0.3s;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.04);
         }
         .scale-card:hover {
-            border-color: rgba(16, 185, 129, 0.4);
-            box-shadow: 0 8px 30px rgba(16, 185, 129, 0.15);
+            border-left-color: #1e3a5f;
+            box-shadow: 0 6px 25px rgba(0,0,0,0.08);
             transform: translateY(-2px);
         }
         .scale-card h3 {
-            color: #34d399;
+            color: #1e3a5f;
             font-size: 1.4em;
             margin-bottom: 5px;
             padding-bottom: 10px;
-            border-bottom: 1px solid rgba(16, 185, 129, 0.3);
+            border-bottom: 2px solid #fde2e4;
         }
         .scale-card .domain-badge {
             display: inline-block;
-            background: linear-gradient(135deg, #f59e0b, #ef4444);
+            background: linear-gradient(135deg, #e63946, #d62828);
             color: #fff;
-            padding: 3px 12px;
+            padding: 4px 14px;
             border-radius: 20px;
             font-size: 0.8em;
             margin-bottom: 15px;
             font-weight: 600;
+            letter-spacing: 0.3px;
         }
         .section-title {
-            color: #fbbf24;
+            color: #1e3a5f;
             font-size: 1.05em;
             font-weight: 700;
             margin-top: 18px;
             margin-bottom: 8px;
-            padding-left: 10px;
-            border-left: 3px solid #10b981;
+            padding-left: 12px;
+            border-left: 4px solid #e63946;
+            background: #fef9f9;
+            padding: 6px 12px;
+            border-radius: 0 5px 5px 0;
         }
         .scale-card ul { padding-left: 20px; margin: 5px 0; }
-        .scale-card li { margin-bottom: 4px; color: #d1d5db; }
-        .scale-card li strong { color: #f3f4f6; }
+        .scale-card li { margin-bottom: 4px; color: #374151; }
+        .scale-card li strong { color: #1f2937; }
 
         table {
             width: 100%;
             border-collapse: collapse;
             margin: 10px 0;
-            background: rgba(0,0,0,0.3);
+            background: #fff;
             border-radius: 8px;
             overflow: hidden;
+            border: 1px solid #e5e7eb;
         }
         th {
-            background: linear-gradient(135deg, #059669, #0d9488);
+            background: linear-gradient(135deg, #1e3a5f, #264653);
             color: #fff;
-            padding: 10px 12px;
+            padding: 11px 12px;
             text-align: center;
             font-size: 0.9em;
+            letter-spacing: 0.3px;
         }
         td {
-            padding: 8px 12px;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
+            padding: 9px 12px;
+            border-bottom: 1px solid #f3f4f6;
             text-align: center;
             font-size: 0.9em;
+            color: #374151;
         }
-        tr:hover td { background: rgba(16, 185, 129, 0.08); }
-        .highlight { color: #f5576c; font-weight: bold; }
-        .green { color: #34d399; }
-        .yellow { color: #fbbf24; }
-        .red { color: #fb7185; }
-        .blue { color: #38bdf8; }
-        .advantages { border-left: 3px solid #34d399; padding-left: 15px; margin: 10px 0; }
-        .limitations { border-left: 3px solid #fb7185; padding-left: 15px; margin: 10px 0; }
-        .alternatives { border-left: 3px solid #fbbf24; padding-left: 15px; margin: 10px 0; }
+        tr:nth-child(even) td { background: #fafafa; }
+        tr:hover td { background: #fef2f2; }
+        .highlight { color: #dc2626; font-weight: bold; }
+        .green { color: #059669; font-weight: 600; }
+        .yellow { color: #d97706; font-weight: 600; }
+        .red { color: #dc2626; font-weight: 600; }
+        .blue { color: #2563eb; font-weight: 600; }
+        .advantages { border-left: 4px solid #059669; padding-left: 15px; margin: 10px 0; background: #f0fdf4; padding: 10px 15px; border-radius: 0 8px 8px 0; }
+        .limitations { border-left: 4px solid #dc2626; padding-left: 15px; margin: 10px 0; background: #fef2f2; padding: 10px 15px; border-radius: 0 8px 8px 0; }
+        .alternatives { border-left: 4px solid #d97706; padding-left: 15px; margin: 10px 0; background: #fffbeb; padding: 10px 15px; border-radius: 0 8px 8px 0; }
         .footer {
             text-align: center;
             padding: 30px;
-            color: rgba(255,255,255,0.5);
-            border-top: 1px solid rgba(16, 185, 129, 0.2);
+            color: #6b7280;
+            border-top: 2px solid #fde2e4;
             margin-top: 50px;
+            background: #fef9f9;
         }
         @media print {
-            body { background: #fff; color: #000; }
-            .scale-card { border: 1px solid #ccc; box-shadow: none; page-break-inside: avoid; }
-            .header { background: #059669; }
-            th { background: #059669; }
-            td { border-bottom: 1px solid #ddd; }
-            .section-title { color: #1f2937; border-left-color: #059669; }
-            .scale-card h3 { color: #065f46; }
-            .toc { border: 1px solid #ccc; }
-            .green { color: #047857; }
-            .yellow { color: #b45309; }
-            .red { color: #dc2626; }
+            body { background: #fff; }
+            .scale-card { page-break-inside: avoid; box-shadow: none; }
+            .header { box-shadow: none; }
+            .category-header { box-shadow: none; }
         }
     </style>
 </head>
@@ -208,59 +213,59 @@
     <h2>&#128209; Table of Contents</h2>
     <div class="toc-grid">
         <div>
-            <strong style="color:#fbbf24;">A. Depression</strong>
+            <strong style="color:#c1121f;">A. Depression</strong>
             <a href="#bdi">&#9679; BDI-II</a>
             <a href="#hamd">&#9679; HAM-D (HDRS)</a>
         </div>
         <div>
-            <strong style="color:#fbbf24;">B. Anxiety</strong>
+            <strong style="color:#c1121f;">B. Anxiety</strong>
             <a href="#bai">&#9679; BAI</a>
             <a href="#hama">&#9679; HAM-A</a>
         </div>
         <div>
-            <strong style="color:#fbbf24;">C. Psychosis</strong>
+            <strong style="color:#c1121f;">C. Psychosis</strong>
             <a href="#bprs">&#9679; BPRS</a>
             <a href="#panss">&#9679; PANSS</a>
             <a href="#saps">&#9679; SAPS</a>
             <a href="#sans">&#9679; SANS</a>
         </div>
         <div>
-            <strong style="color:#fbbf24;">D. Mania</strong>
+            <strong style="color:#c1121f;">D. Mania</strong>
             <a href="#ymrs">&#9679; YMRS</a>
         </div>
         <div>
-            <strong style="color:#fbbf24;">E. OCD</strong>
+            <strong style="color:#c1121f;">E. OCD</strong>
             <a href="#ybocs">&#9679; Y-BOCS</a>
         </div>
         <div>
-            <strong style="color:#fbbf24;">F. Cognitive Assessment</strong>
+            <strong style="color:#c1121f;">F. Cognitive Assessment</strong>
             <a href="#mmse">&#9679; MMSE</a>
             <a href="#moca">&#9679; MoCA</a>
             <a href="#ace">&#9679; ACE</a>
         </div>
         <div>
-            <strong style="color:#fbbf24;">G. Child &amp; Adolescent</strong>
+            <strong style="color:#c1121f;">G. Child &amp; Adolescent</strong>
             <a href="#cbcl">&#9679; CBCL</a>
             <a href="#conners">&#9679; Conners</a>
             <a href="#isaa">&#9679; ISAA</a>
         </div>
         <div>
-            <strong style="color:#fbbf24;">H. Substance Use</strong>
+            <strong style="color:#c1121f;">H. Substance Use</strong>
             <a href="#audit">&#9679; AUDIT</a>
             <a href="#assist">&#9679; ASSIST</a>
             <a href="#dast">&#9679; DAST</a>
         </div>
         <div>
-            <strong style="color:#fbbf24;">I. Withdrawal</strong>
+            <strong style="color:#c1121f;">I. Withdrawal</strong>
             <a href="#ciwa">&#9679; CIWA-Ar</a>
             <a href="#cows">&#9679; COWS</a>
         </div>
         <div>
-            <strong style="color:#fbbf24;">J. Beliefs</strong>
+            <strong style="color:#c1121f;">J. Beliefs</strong>
             <a href="#babs">&#9679; BABS</a>
         </div>
         <div>
-            <strong style="color:#fbbf24;">K. Additional Scales</strong>
+            <strong style="color:#c1121f;">K. Additional Scales</strong>
             <a href="#gaf">&#9679; GAF</a>
             <a href="#phq9">&#9679; PHQ-9</a>
             <a href="#gad7">&#9679; GAD-7</a>
@@ -396,7 +401,7 @@
         <tr><td>19&ndash;22</td><td class="red">Severe Depression</td></tr>
         <tr><td>&ge;23</td><td class="red">Very Severe Depression</td></tr>
     </table>
-    <p style="margin-top:8px;color:#6ee7b7;"><strong>Response criteria:</strong> &ge;50% reduction = Response; Score &le;7 = Remission</p>
+    <p style="margin-top:8px;color:#1e3a5f;"><strong>Response criteria:</strong> &ge;50% reduction = Response; Score &le;7 = Remission</p>
 
     <div class="section-title">Clinical Interpretation</div>
     <ul>
@@ -570,7 +575,7 @@
         <tr><td>25&ndash;30</td><td class="yellow">Moderate to Severe Anxiety</td></tr>
         <tr><td>&ge;31</td><td class="red">Very Severe Anxiety</td></tr>
     </table>
-    <p style="margin-top:8px;color:#6ee7b7;"><strong>Response criteria:</strong> &ge;50% reduction in score = Treatment response</p>
+    <p style="margin-top:8px;color:#1e3a5f;"><strong>Response criteria:</strong> &ge;50% reduction in score = Treatment response</p>
 
     <div class="section-title">Clinical Interpretation</div>
     <ul>
@@ -753,7 +758,7 @@
         <tr><td>76&ndash;95</td><td class="yellow">Markedly Ill</td></tr>
         <tr><td>&ge;96</td><td class="red">Severely Ill</td></tr>
     </table>
-    <p style="margin-top:8px;color:#6ee7b7;"><strong>Response:</strong> &ge;20% reduction in total PANSS = minimal response; &ge;50% = good response</p>
+    <p style="margin-top:8px;color:#1e3a5f;"><strong>Response:</strong> &ge;20% reduction in total PANSS = minimal response; &ge;50% = good response</p>
 
     <div class="section-title">Clinical Interpretation</div>
     <ul>
@@ -930,7 +935,7 @@
         <tr><td>Anhedonia/Asociality</td><td>5</td><td>0&ndash;25</td></tr>
         <tr><td>Attention</td><td>3</td><td>0&ndash;15</td></tr>
     </table>
-    <p style="margin-top:8px;color:#6ee7b7;"><strong>Note:</strong> No universally established severity cut-offs; interpret relative to baseline and clinical context.</p>
+    <p style="margin-top:8px;color:#1e3a5f;"><strong>Note:</strong> No universally established severity cut-offs; interpret relative to baseline and clinical context.</p>
 
     <div class="section-title">Clinical Interpretation</div>
     <ul>
@@ -1021,7 +1026,7 @@
         <tr><td>20&ndash;25</td><td class="red">Moderate-Severe Mania</td></tr>
         <tr><td>&ge;26</td><td class="red">Severe Mania</td></tr>
     </table>
-    <p style="margin-top:8px;color:#6ee7b7;"><strong>Response:</strong> &ge;50% reduction = Treatment response; Score &le;12 = Remission (commonly used criterion)</p>
+    <p style="margin-top:8px;color:#1e3a5f;"><strong>Response:</strong> &ge;50% reduction = Treatment response; Score &le;12 = Remission (commonly used criterion)</p>
 
     <div class="section-title">Clinical Interpretation</div>
     <ul>
@@ -1118,7 +1123,7 @@
         <tr><td>24&ndash;31</td><td class="red">Severe OCD</td></tr>
         <tr><td>32&ndash;40</td><td class="red">Extreme OCD</td></tr>
     </table>
-    <p style="margin-top:8px;color:#6ee7b7;"><strong>Response criteria:</strong> &ge;35% reduction = Responder; &ge;25% = Partial response; Score &le;12 = Remission (commonly used)</p>
+    <p style="margin-top:8px;color:#1e3a5f;"><strong>Response criteria:</strong> &ge;35% reduction = Responder; &ge;25% = Partial response; Score &le;12 = Remission (commonly used)</p>
 
     <div class="section-title">Clinical Interpretation</div>
     <ul>
@@ -1213,7 +1218,7 @@
         <tr><td>10&ndash;17</td><td class="red">Moderate Dementia</td></tr>
         <tr><td>&lt;10</td><td class="red">Severe Dementia</td></tr>
     </table>
-    <p style="margin-top:8px;color:#6ee7b7;"><strong>Adjust for education:</strong> In Indian populations, cut-off of 24 may be too high for illiterate/low-education groups. Cut-off of 23 or lower often used. Some use 25/26 for educated populations.</p>
+    <p style="margin-top:8px;color:#1e3a5f;"><strong>Adjust for education:</strong> In Indian populations, cut-off of 24 may be too high for illiterate/low-education groups. Cut-off of 23 or lower often used. Some use 25/26 for educated populations.</p>
 
     <div class="section-title">Clinical Interpretation</div>
     <ul>
@@ -1304,7 +1309,7 @@
         <tr><td>10&ndash;17</td><td class="red">Moderate Cognitive Impairment</td></tr>
         <tr><td>&lt;10</td><td class="red">Severe Cognitive Impairment</td></tr>
     </table>
-    <p style="margin-top:8px;color:#6ee7b7;"><strong>Cut-off:</strong> &lt;26 = Cognitive impairment (original). Some studies suggest &lt;23 for Indian populations with lower education.</p>
+    <p style="margin-top:8px;color:#1e3a5f;"><strong>Cut-off:</strong> &lt;26 = Cognitive impairment (original). Some studies suggest &lt;23 for Indian populations with lower education.</p>
 
     <div class="section-title">Clinical Interpretation</div>
     <ul>
@@ -1398,7 +1403,7 @@
         <tr><td>88</td><td>94%</td><td>89%</td></tr>
         <tr><td>82</td><td>84%</td><td>100%</td></tr>
     </table>
-    <p style="margin-top:8px;color:#6ee7b7;"><strong>VLOM Ratio:</strong> &gt;3.2 suggests Alzheimer's; &lt;2.2 suggests Frontotemporal Dementia; 2.2&ndash;3.2 = indeterminate</p>
+    <p style="margin-top:8px;color:#1e3a5f;"><strong>VLOM Ratio:</strong> &gt;3.2 suggests Alzheimer's; &lt;2.2 suggests Frontotemporal Dementia; 2.2&ndash;3.2 = indeterminate</p>
 
     <div class="section-title">Clinical Interpretation</div>
     <ul>
@@ -1489,7 +1494,7 @@
         <tr><td class="yellow">65&ndash;69</td><td>Borderline Clinical</td><td>Borderline Clinical</td></tr>
         <tr><td class="red">&ge;70</td><td>Clinical Range</td><td>Clinical Range</td></tr>
     </table>
-    <p style="margin-top:8px;color:#6ee7b7;"><strong>Note:</strong> For broadband (Internalizing/Externalizing/Total), clinical cut-off is T &ge; 64; for syndrome scales, T &ge; 70.</p>
+    <p style="margin-top:8px;color:#1e3a5f;"><strong>Note:</strong> For broadband (Internalizing/Externalizing/Total), clinical cut-off is T &ge; 64; for syndrome scales, T &ge; 70.</p>
 
     <div class="section-title">Clinical Interpretation</div>
     <ul>
@@ -1579,7 +1584,7 @@
         <tr><td>65&ndash;69</td><td class="yellow">Elevated (probable clinical significance)</td></tr>
         <tr><td>&ge;70</td><td class="red">Very Elevated (highly atypical; clinically significant)</td></tr>
     </table>
-    <p style="margin-top:8px;color:#6ee7b7;"><strong>ADHD Index:</strong> Probability score; higher = more likely ADHD diagnosis. T &ge; 70 strongly suggestive.</p>
+    <p style="margin-top:8px;color:#1e3a5f;"><strong>ADHD Index:</strong> Probability score; higher = more likely ADHD diagnosis. T &ge; 70 strongly suggestive.</p>
 
     <div class="section-title">Clinical Interpretation</div>
     <ul>
@@ -1670,7 +1675,7 @@
         <tr><td>107&ndash;153</td><td class="red">Moderate Autism</td></tr>
         <tr><td>&ge;154</td><td class="red">Severe Autism</td></tr>
     </table>
-    <p style="margin-top:8px;color:#6ee7b7;"><strong>Disability certification:</strong> Score &ge;70 qualifies for autism disability certificate in India (40%+ disability). Severity determines benefit level.</p>
+    <p style="margin-top:8px;color:#1e3a5f;"><strong>Disability certification:</strong> Score &ge;70 qualifies for autism disability certificate in India (40%+ disability). Severity determines benefit level.</p>
 
     <div class="section-title">Clinical Interpretation</div>
     <ul>
@@ -1763,7 +1768,7 @@
         <tr><td>16&ndash;19</td><td class="yellow">Harmful use</td><td>Brief intervention + continued monitoring</td></tr>
         <tr><td>20&ndash;40</td><td class="red">Possible dependence</td><td>Referral for specialist assessment &amp; treatment</td></tr>
     </table>
-    <p style="margin-top:8px;color:#6ee7b7;"><strong>AUDIT-C (items 1&ndash;3 only):</strong> Quick 3-item screen. Cut-off: &ge;4 (men), &ge;3 (women) = positive screen.</p>
+    <p style="margin-top:8px;color:#1e3a5f;"><strong>AUDIT-C (items 1&ndash;3 only):</strong> Quick 3-item screen. Cut-off: &ge;4 (men), &ge;3 (women) = positive screen.</p>
 
     <div class="section-title">Clinical Interpretation</div>
     <ul>
@@ -1849,7 +1854,7 @@
         <tr><td class="yellow">11&ndash;26</td><td>11&ndash;26</td><td>4&ndash;26</td><td>Moderate risk (Brief Intervention)</td></tr>
         <tr><td class="red">&ge;27</td><td>&ge;27</td><td>&ge;27</td><td>High risk (Intensive treatment referral)</td></tr>
     </table>
-    <p style="margin-top:8px;color:#6ee7b7;"><strong>Injection drug use (Q8):</strong> Any injection in past 3 months = automatic referral regardless of score.</p>
+    <p style="margin-top:8px;color:#1e3a5f;"><strong>Injection drug use (Q8):</strong> Any injection in past 3 months = automatic referral regardless of score.</p>
 
     <div class="section-title">Clinical Interpretation</div>
     <ul>
@@ -2036,7 +2041,7 @@
         <tr><td>16&ndash;20</td><td class="red">Severe withdrawal</td><td>Benzodiazepines indicated; close monitoring</td></tr>
         <tr><td>&gt;20</td><td class="red">Very severe / Risk of seizures &amp; DT</td><td>Aggressive treatment; ICU consideration</td></tr>
     </table>
-    <p style="margin-top:8px;color:#6ee7b7;"><strong>Clinical decision:</strong> Score &ge;10 typically triggers benzodiazepine administration in symptom-triggered protocols.</p>
+    <p style="margin-top:8px;color:#1e3a5f;"><strong>Clinical decision:</strong> Score &ge;10 typically triggers benzodiazepine administration in symptom-triggered protocols.</p>
 
     <div class="section-title">Clinical Interpretation</div>
     <ul>
@@ -2120,7 +2125,7 @@
         <tr><td>25&ndash;36</td><td class="red">Moderately severe</td><td>Active treatment; buprenorphine/methadone</td></tr>
         <tr><td>&gt;36</td><td class="red">Severe withdrawal</td><td>Aggressive treatment; close monitoring</td></tr>
     </table>
-    <p style="margin-top:8px;color:#6ee7b7;"><strong>Buprenorphine induction:</strong> Typically initiated when COWS score &ge;13 (moderate withdrawal) to avoid precipitated withdrawal.</p>
+    <p style="margin-top:8px;color:#1e3a5f;"><strong>Buprenorphine induction:</strong> Typically initiated when COWS score &ge;13 (moderate withdrawal) to avoid precipitated withdrawal.</p>
 
     <div class="section-title">Clinical Interpretation</div>
     <ul>
@@ -2219,7 +2224,7 @@
         <tr><td>13&ndash;17</td><td class="red">Absent insight / Overvalued ideation</td></tr>
         <tr><td>18&ndash;24</td><td class="red">Delusional conviction</td></tr>
     </table>
-    <p style="margin-top:8px;color:#6ee7b7;"><strong>Clinical threshold:</strong> Score &ge;18 = beliefs held with delusional intensity (consider "OCD with absent insight" specifier per DSM-5).</p>
+    <p style="margin-top:8px;color:#1e3a5f;"><strong>Clinical threshold:</strong> Score &ge;18 = beliefs held with delusional intensity (consider "OCD with absent insight" specifier per DSM-5).</p>
 
     <div class="section-title">Clinical Interpretation</div>
     <ul>
@@ -2439,7 +2444,7 @@
         <tr><td>31&ndash;40</td><td class="red">Severe craving</td></tr>
         <tr><td>41&ndash;48</td><td class="red">Extreme craving</td></tr>
     </table>
-    <p style="margin-top:8px;color:#6ee7b7;"><strong>OCDS (Alcohol version):</strong> 14 items; Score range 0&ndash;56; Cut-off &ge;20 suggests clinically significant craving.</p>
+    <p style="margin-top:8px;color:#1e3a5f;"><strong>OCDS (Alcohol version):</strong> 14 items; Score range 0&ndash;56; Cut-off &ge;20 suggests clinically significant craving.</p>
 
     <div class="section-title">Clinical Interpretation</div>
     <ul>
@@ -2632,7 +2637,7 @@
         <tr><td>10&ndash;14</td><td class="yellow">Moderate Anxiety</td></tr>
         <tr><td>15&ndash;21</td><td class="red">Severe Anxiety</td></tr>
     </table>
-    <p style="margin-top:8px;color:#6ee7b7;"><strong>Cut-off &ge;10:</strong> Good sensitivity (89%) and specificity (82%) for GAD diagnosis.</p>
+    <p style="margin-top:8px;color:#1e3a5f;"><strong>Cut-off &ge;10:</strong> Good sensitivity (89%) and specificity (82%) for GAD diagnosis.</p>
 
     <div class="section-title">Administration Details</div>
     <ul>
@@ -2689,7 +2694,7 @@
         <tr><td class="red">Severe</td><td>21&ndash;27</td><td>15&ndash;19</td><td>26&ndash;33</td></tr>
         <tr><td class="red">Extremely Severe</td><td>28+</td><td>20+</td><td>34+</td></tr>
     </table>
-    <p style="margin-top:8px;color:#f5576c;"><strong>CRITICAL: Must multiply raw subscale scores &times; 2 before using cut-offs above!</strong></p>
+    <p style="margin-top:8px;color:#b91c1c;"><strong>CRITICAL: Must multiply raw subscale scores &times; 2 before using cut-offs above!</strong></p>
 
     <div class="section-title">Administration Details</div>
     <ul>
@@ -2744,7 +2749,7 @@
         <tr><td>PHQ-9</td><td>9</td><td>Self-report</td><td>0&ndash;27</td><td>&ge;10</td><td>Yes</td></tr>
         <tr><td>DASS-21 (D)</td><td>7</td><td>Self-report</td><td>0&ndash;42*</td><td>&ge;14*</td><td>Yes</td></tr>
     </table>
-    <p style="color:#6ee7b7; font-size:0.85em;">*After multiplying by 2</p>
+    <p style="color:#1e3a5f; font-size:0.85em;">*After multiplying by 2</p>
 </div>
 
 <div class="scale-card">
