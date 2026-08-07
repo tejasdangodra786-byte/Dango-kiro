@@ -1,0 +1,2818 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Psychological Rating Scales Cheat Sheet - Tejas Dangodra</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+            color: #eaeaea;
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+        .header {
+            background: linear-gradient(135deg, #0d9488 0%, #059669 40%, #10b981 100%);
+            padding: 45px 20px;
+            text-align: center;
+            box-shadow: 0 6px 30px rgba(16, 185, 129, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 60%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+        @keyframes pulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+
+        .header h1 {
+            font-size: 2.5em;
+            color: #fff;
+            text-shadow: 2px 2px 6px rgba(0,0,0,0.4);
+            position: relative;
+            z-index: 1;
+        }
+        .header h2 {
+            font-size: 1.3em;
+            color: rgba(255,255,255,0.95);
+            margin-top: 10px;
+            position: relative;
+            z-index: 1;
+        }
+        .header .subtitle {
+            font-size: 1em;
+            color: rgba(255,255,255,0.8);
+            margin-top: 5px;
+            position: relative;
+            z-index: 1;
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 30px 20px; }
+        .toc {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 40px;
+            backdrop-filter: blur(10px);
+        }
+        .toc h2 {
+            color: #34d399;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #10b981;
+            padding-bottom: 10px;
+        }
+        .toc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 10px;
+        }
+        .toc a {
+            color: #6ee7b7;
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: all 0.3s;
+            display: block;
+        }
+        .toc a:hover { background: rgba(16, 185, 129, 0.15); color: #fff; }
+
+        .category-header {
+            background: linear-gradient(135deg, #059669 0%, #0d9488 50%, #14b8a6 100%);
+            padding: 15px 25px;
+            border-radius: 10px;
+            margin: 40px 0 20px;
+            font-size: 1.4em;
+            font-weight: bold;
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(5, 150, 105, 0.35);
+        }
+        .scale-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(16, 185, 129, 0.12);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            backdrop-filter: blur(5px);
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        .scale-card:hover {
+            border-color: rgba(16, 185, 129, 0.4);
+            box-shadow: 0 8px 30px rgba(16, 185, 129, 0.15);
+            transform: translateY(-2px);
+        }
+        .scale-card h3 {
+            color: #34d399;
+            font-size: 1.4em;
+            margin-bottom: 5px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(16, 185, 129, 0.3);
+        }
+        .scale-card .domain-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #f59e0b, #ef4444);
+            color: #fff;
+            padding: 3px 12px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        .section-title {
+            color: #fbbf24;
+            font-size: 1.05em;
+            font-weight: 700;
+            margin-top: 18px;
+            margin-bottom: 8px;
+            padding-left: 10px;
+            border-left: 3px solid #10b981;
+        }
+        .scale-card ul { padding-left: 20px; margin: 5px 0; }
+        .scale-card li { margin-bottom: 4px; color: #d1d5db; }
+        .scale-card li strong { color: #f3f4f6; }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0;
+            background: rgba(0,0,0,0.3);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        th {
+            background: linear-gradient(135deg, #059669, #0d9488);
+            color: #fff;
+            padding: 10px 12px;
+            text-align: center;
+            font-size: 0.9em;
+        }
+        td {
+            padding: 8px 12px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            text-align: center;
+            font-size: 0.9em;
+        }
+        tr:hover td { background: rgba(16, 185, 129, 0.08); }
+        .highlight { color: #f5576c; font-weight: bold; }
+        .green { color: #34d399; }
+        .yellow { color: #fbbf24; }
+        .red { color: #fb7185; }
+        .blue { color: #38bdf8; }
+        .advantages { border-left: 3px solid #34d399; padding-left: 15px; margin: 10px 0; }
+        .limitations { border-left: 3px solid #fb7185; padding-left: 15px; margin: 10px 0; }
+        .alternatives { border-left: 3px solid #fbbf24; padding-left: 15px; margin: 10px 0; }
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: rgba(255,255,255,0.5);
+            border-top: 1px solid rgba(16, 185, 129, 0.2);
+            margin-top: 50px;
+        }
+        @media print {
+            body { background: #fff; color: #000; }
+            .scale-card { border: 1px solid #ccc; box-shadow: none; page-break-inside: avoid; }
+            .header { background: #059669; }
+            th { background: #059669; }
+            td { border-bottom: 1px solid #ddd; }
+            .section-title { color: #1f2937; border-left-color: #059669; }
+            .scale-card h3 { color: #065f46; }
+            .toc { border: 1px solid #ccc; }
+            .green { color: #047857; }
+            .yellow { color: #b45309; }
+            .red { color: #dc2626; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>&#128218; Psychological Rating Scales</h1>
+    <h2>Clinical Psychology Cheat Sheet</h2>
+    <p class="subtitle">MPhil Clinical Psychology | Viva | Clinical Postings | Quick Revision</p>
+    <p class="subtitle"><strong>By Tejas Dangodra</strong></p>
+</div>
+
+<div class="container">
+
+<!-- TABLE OF CONTENTS -->
+<div class="toc">
+    <h2>&#128209; Table of Contents</h2>
+    <div class="toc-grid">
+        <div>
+            <strong style="color:#fbbf24;">A. Depression</strong>
+            <a href="#bdi">&#9679; BDI-II</a>
+            <a href="#hamd">&#9679; HAM-D (HDRS)</a>
+        </div>
+        <div>
+            <strong style="color:#fbbf24;">B. Anxiety</strong>
+            <a href="#bai">&#9679; BAI</a>
+            <a href="#hama">&#9679; HAM-A</a>
+        </div>
+        <div>
+            <strong style="color:#fbbf24;">C. Psychosis</strong>
+            <a href="#bprs">&#9679; BPRS</a>
+            <a href="#panss">&#9679; PANSS</a>
+            <a href="#saps">&#9679; SAPS</a>
+            <a href="#sans">&#9679; SANS</a>
+        </div>
+        <div>
+            <strong style="color:#fbbf24;">D. Mania</strong>
+            <a href="#ymrs">&#9679; YMRS</a>
+        </div>
+        <div>
+            <strong style="color:#fbbf24;">E. OCD</strong>
+            <a href="#ybocs">&#9679; Y-BOCS</a>
+        </div>
+        <div>
+            <strong style="color:#fbbf24;">F. Cognitive Assessment</strong>
+            <a href="#mmse">&#9679; MMSE</a>
+            <a href="#moca">&#9679; MoCA</a>
+            <a href="#ace">&#9679; ACE</a>
+        </div>
+        <div>
+            <strong style="color:#fbbf24;">G. Child &amp; Adolescent</strong>
+            <a href="#cbcl">&#9679; CBCL</a>
+            <a href="#conners">&#9679; Conners</a>
+            <a href="#isaa">&#9679; ISAA</a>
+        </div>
+        <div>
+            <strong style="color:#fbbf24;">H. Substance Use</strong>
+            <a href="#audit">&#9679; AUDIT</a>
+            <a href="#assist">&#9679; ASSIST</a>
+            <a href="#dast">&#9679; DAST</a>
+        </div>
+        <div>
+            <strong style="color:#fbbf24;">I. Withdrawal</strong>
+            <a href="#ciwa">&#9679; CIWA-Ar</a>
+            <a href="#cows">&#9679; COWS</a>
+        </div>
+        <div>
+            <strong style="color:#fbbf24;">J. Beliefs</strong>
+            <a href="#babs">&#9679; BABS</a>
+        </div>
+        <div>
+            <strong style="color:#fbbf24;">K. Additional Scales</strong>
+            <a href="#gaf">&#9679; GAF</a>
+            <a href="#phq9">&#9679; PHQ-9</a>
+            <a href="#gad7">&#9679; GAD-7</a>
+            <a href="#dass">&#9679; DASS-21</a>
+        </div>
+    </div>
+</div>
+
+<!-- ============================================ -->
+<!-- SECTION A: DEPRESSION -->
+<!-- ============================================ -->
+<div class="category-header" id="depression">A. DEPRESSION SCALES</div>
+
+<!-- BDI-II -->
+<div class="scale-card" id="bdi">
+    <h3>1. Beck Depression Inventory - Second Edition (BDI-II)</h3>
+    <span class="domain-badge">Depression</span>
+
+    <div class="section-title">Purpose / Clinical Use</div>
+    <ul>
+        <li>Severity rating of depressive symptoms</li>
+        <li>Screening for depression in clinical and research settings</li>
+        <li>Monitoring treatment response over time</li>
+        <li>NOT a diagnostic tool &mdash; supports clinical judgment</li>
+    </ul>
+
+    <div class="section-title">Structure</div>
+    <ul>
+        <li><strong>Items:</strong> 21 items</li>
+        <li><strong>Response format:</strong> 4-point Likert scale (0&ndash;3) for each item</li>
+        <li><strong>Subscales:</strong> Cognitive-Affective (items 1&ndash;14) &amp; Somatic-Performance (items 15&ndash;21)</li>
+        <li><strong>Content areas:</strong> Sadness, pessimism, past failure, loss of pleasure, guilty feelings, punishment feelings, self-dislike, self-criticalness, suicidal thoughts, crying, agitation, loss of interest, indecisiveness, worthlessness, loss of energy, sleep changes, irritability, appetite changes, concentration difficulty, fatigue, loss of interest in sex</li>
+    </ul>
+
+    <div class="section-title">Scoring Method</div>
+    <ul>
+        <li><strong>Step 1:</strong> Score each item 0&ndash;3 based on severity endorsed</li>
+        <li><strong>Step 2:</strong> Sum all 21 items for total score</li>
+        <li><strong>Score range:</strong> 0&ndash;63</li>
+        <li><strong>Special rule:</strong> If patient selects two responses for one item, score the HIGHER value</li>
+        <li><strong>Item 16 (Sleep) &amp; Item 18 (Appetite):</strong> Have both increase and decrease options &mdash; score highest endorsed</li>
+    </ul>
+    <table>
+        <tr><th>Score Range</th><th>Severity</th></tr>
+        <tr><td>0&ndash;13</td><td class="green">Minimal Depression</td></tr>
+        <tr><td>14&ndash;19</td><td class="yellow">Mild Depression</td></tr>
+        <tr><td>20&ndash;28</td><td class="yellow">Moderate Depression</td></tr>
+        <tr><td>29&ndash;63</td><td class="red">Severe Depression</td></tr>
+    </table>
+
+    <div class="section-title">Clinical Interpretation</div>
+    <ul>
+        <li><strong>High scores (29+):</strong> Significant depressive episode; evaluate for suicidality</li>
+        <li><strong>Low scores (0&ndash;13):</strong> Minimal symptoms; may indicate remission or subclinical presentation</li>
+        <li><strong class="red">Red flag:</strong> Item 9 (Suicidal ideation) &mdash; any score &ge;1 requires immediate clinical follow-up</li>
+    </ul>
+
+    <div class="section-title">Administration Details</div>
+    <ul>
+        <li><strong>Type:</strong> Self-report</li>
+        <li><strong>Time:</strong> 5&ndash;10 minutes</li>
+        <li><strong>Age:</strong> 13 years and above</li>
+        <li><strong>Time frame assessed:</strong> Past 2 weeks</li>
+    </ul>
+
+    <div class="section-title">Advantages</div>
+    <div class="advantages">
+        <ul>
+            <li>Quick, easy to administer</li>
+            <li>Excellent psychometric properties (high internal consistency &alpha; = 0.92)</li>
+            <li>Aligned with DSM-IV/DSM-5 criteria</li>
+            <li>Widely validated across cultures including Indian populations</li>
+            <li>Sensitive to change &mdash; useful for treatment monitoring</li>
+        </ul>
+    </div>
+
+    <div class="section-title">Limitations</div>
+    <div class="limitations">
+        <ul>
+            <li>Self-report bias (under/over-reporting)</li>
+            <li>Somatic items may inflate scores in medical populations</li>
+            <li>Copyrighted (Pearson) &mdash; requires purchase</li>
+            <li>Not suitable for diagnosis alone</li>
+            <li>Cultural interpretation of items may vary</li>
+        </ul>
+    </div>
+
+    <div class="section-title">Alternatives / Similar Scales</div>
+    <div class="alternatives">
+        <ul>
+            <li><strong>PHQ-9:</strong> 9-item, free, directly maps DSM-5 criteria; better for screening in primary care</li>
+            <li><strong>HAM-D:</strong> Clinician-rated; better for research &amp; severe depression assessment</li>
+            <li><strong>Zung SDS:</strong> Self-report, 20 items; older, less sensitive to change</li>
+            <li><strong>CES-D:</strong> 20-item epidemiological tool; focus on community screening</li>
+        </ul>
+    </div>
+</div>
+
+<!-- HAM-D -->
+<div class="scale-card" id="hamd">
+    <h3>2. Hamilton Depression Rating Scale (HAM-D / HDRS)</h3>
+    <span class="domain-badge">Depression</span>
+
+    <div class="section-title">Purpose / Clinical Use</div>
+    <ul>
+        <li>Clinician-rated severity assessment of depression</li>
+        <li>Gold standard for clinical trials &amp; research</li>
+        <li>Monitoring treatment response (pharmacotherapy &amp; psychotherapy)</li>
+        <li>Evaluating depressive episodes in already-diagnosed patients</li>
+    </ul>
+
+    <div class="section-title">Structure</div>
+    <ul>
+        <li><strong>Items:</strong> 17 items (HAM-D-17; original), also available as 21-item &amp; 24-item versions</li>
+        <li><strong>Response format:</strong> Clinician-rated; mix of 0&ndash;4 and 0&ndash;2 scales</li>
+        <li><strong>9 items:</strong> Scored 0&ndash;4 (absent to severe)</li>
+        <li><strong>8 items:</strong> Scored 0&ndash;2 (absent, slight/doubtful, clearly present)</li>
+        <li><strong>Key domains:</strong> Depressed mood, guilt, suicide, insomnia (early/middle/late), work/activities, retardation, agitation, anxiety (psychic/somatic), somatic symptoms, genital symptoms, hypochondriasis, weight loss, insight</li>
+    </ul>
+
+    <div class="section-title">Scoring Method</div>
+    <ul>
+        <li><strong>Step 1:</strong> Rate each item based on clinical interview &amp; observation</li>
+        <li><strong>Step 2:</strong> Sum all 17 items</li>
+        <li><strong>Score range:</strong> 0&ndash;52 (17-item version)</li>
+        <li><strong>Note:</strong> Items 18&ndash;21 (in 21-item version) assess diurnal variation, depersonalization, paranoid symptoms, obsessional symptoms &mdash; NOT included in total score</li>
+    </ul>
+    <table>
+        <tr><th>Score Range (17-item)</th><th>Severity</th></tr>
+        <tr><td>0&ndash;7</td><td class="green">Normal / Remission</td></tr>
+        <tr><td>8&ndash;13</td><td class="yellow">Mild Depression</td></tr>
+        <tr><td>14&ndash;18</td><td class="yellow">Moderate Depression</td></tr>
+        <tr><td>19&ndash;22</td><td class="red">Severe Depression</td></tr>
+        <tr><td>&ge;23</td><td class="red">Very Severe Depression</td></tr>
+    </table>
+    <p style="margin-top:8px;color:#6ee7b7;"><strong>Response criteria:</strong> &ge;50% reduction = Response; Score &le;7 = Remission</p>
+
+    <div class="section-title">Clinical Interpretation</div>
+    <ul>
+        <li><strong>High scores (&ge;23):</strong> Very severe depressive episode; high functional impairment</li>
+        <li><strong>Low scores (&le;7):</strong> Clinical remission</li>
+        <li><strong class="red">Red flag:</strong> Item 3 (Suicide) &mdash; score of 3 or 4 requires immediate risk assessment</li>
+        <li>Emphasis on somatic/vegetative symptoms &mdash; may overestimate severity in medically ill</li>
+    </ul>
+
+    <div class="section-title">Administration Details</div>
+    <ul>
+        <li><strong>Type:</strong> Clinician-rated (semi-structured interview)</li>
+        <li><strong>Time:</strong> 15&ndash;20 minutes</li>
+        <li><strong>Age:</strong> Adults (18+)</li>
+        <li><strong>Training required:</strong> Yes, for reliable administration</li>
+    </ul>
+
+    <div class="section-title">Advantages</div>
+    <div class="advantages">
+        <ul>
+            <li>Gold standard in depression research</li>
+            <li>Clinician-rated &mdash; less subject to response bias</li>
+            <li>Well-established psychometric properties</li>
+            <li>Widely used in pharmacological trials</li>
+            <li>Free to use</li>
+        </ul>
+    </div>
+
+    <div class="section-title">Limitations</div>
+    <div class="limitations">
+        <ul>
+            <li>Requires trained clinician &mdash; inter-rater reliability concerns</li>
+            <li>Heavy emphasis on somatic/insomnia symptoms</li>
+            <li>Less sensitive to atypical depression features</li>
+            <li>Time-consuming compared to self-report measures</li>
+            <li>Uneven item scoring (mix of 3-point and 5-point items)</li>
+        </ul>
+    </div>
+
+    <div class="section-title">Alternatives / Similar Scales</div>
+    <div class="alternatives">
+        <ul>
+            <li><strong>MADRS:</strong> 10-item clinician-rated; more sensitive to change; less somatic emphasis</li>
+            <li><strong>BDI-II:</strong> Self-report; quicker; patient perspective</li>
+            <li><strong>PHQ-9:</strong> Brief self-report; free; maps to DSM-5 criteria directly</li>
+            <li><strong>QIDS:</strong> 16-item; equal weighting of DSM criterion domains</li>
+        </ul>
+    </div>
+</div>
+
+<!-- ============================================ -->
+<!-- SECTION B: ANXIETY -->
+<!-- ============================================ -->
+<div class="category-header" id="anxiety">B. ANXIETY SCALES</div>
+
+<!-- BAI -->
+<div class="scale-card" id="bai">
+    <h3>3. Beck Anxiety Inventory (BAI)</h3>
+    <span class="domain-badge">Anxiety</span>
+
+    <div class="section-title">Purpose / Clinical Use</div>
+    <ul>
+        <li>Measures severity of anxiety symptoms</li>
+        <li>Discriminates anxiety from depression (focuses on somatic/physiological symptoms)</li>
+        <li>Monitoring treatment response</li>
+        <li>Screening in clinical settings</li>
+    </ul>
+
+    <div class="section-title">Structure</div>
+    <ul>
+        <li><strong>Items:</strong> 21 items</li>
+        <li><strong>Response format:</strong> 4-point Likert (0&ndash;3): Not at all, Mildly, Moderately, Severely</li>
+        <li><strong>Content:</strong> Predominantly somatic/physiological anxiety symptoms (numbness, hot flashes, wobbliness, heart pounding, dizziness, trembling, etc.)</li>
+        <li><strong>Time frame:</strong> Past 1 week</li>
+    </ul>
+
+    <div class="section-title">Scoring Method</div>
+    <ul>
+        <li><strong>Step 1:</strong> Rate each item 0&ndash;3</li>
+        <li><strong>Step 2:</strong> Sum all 21 items</li>
+        <li><strong>Score range:</strong> 0&ndash;63</li>
+        <li><strong>No reverse scoring</strong></li>
+    </ul>
+    <table>
+        <tr><th>Score Range</th><th>Severity</th></tr>
+        <tr><td>0&ndash;7</td><td class="green">Minimal Anxiety</td></tr>
+        <tr><td>8&ndash;15</td><td class="yellow">Mild Anxiety</td></tr>
+        <tr><td>16&ndash;25</td><td class="yellow">Moderate Anxiety</td></tr>
+        <tr><td>26&ndash;63</td><td class="red">Severe Anxiety</td></tr>
+    </table>
+
+    <div class="section-title">Clinical Interpretation</div>
+    <ul>
+        <li><strong>High scores (26+):</strong> Significant somatic anxiety; rule out panic disorder, medical causes</li>
+        <li><strong>Low scores (0&ndash;7):</strong> Minimal anxiety; possible remission</li>
+        <li><strong>Note:</strong> May underestimate cognitive/worry-based anxiety (GAD-type)</li>
+        <li><strong class="red">Red flag:</strong> Very high scores with sudden onset &mdash; consider panic disorder or medical emergency</li>
+    </ul>
+
+    <div class="section-title">Administration Details</div>
+    <ul>
+        <li><strong>Type:</strong> Self-report</li>
+        <li><strong>Time:</strong> 5&ndash;10 minutes</li>
+        <li><strong>Age:</strong> 17 years and above</li>
+    </ul>
+
+    <div class="section-title">Advantages</div>
+    <div class="advantages">
+        <ul>
+            <li>Good discriminant validity (anxiety vs. depression)</li>
+            <li>Quick and easy</li>
+            <li>High internal consistency (&alpha; = 0.92)</li>
+            <li>Useful in panic disorder assessment</li>
+        </ul>
+    </div>
+
+    <div class="section-title">Limitations</div>
+    <div class="limitations">
+        <ul>
+            <li>Overemphasis on somatic symptoms &mdash; may miss cognitive anxiety (worry, apprehension)</li>
+            <li>May inflate scores in medical/elderly populations</li>
+            <li>Copyrighted (Pearson)</li>
+            <li>Less useful for GAD assessment</li>
+        </ul>
+    </div>
+
+    <div class="section-title">Alternatives / Similar Scales</div>
+    <div class="alternatives">
+        <ul>
+            <li><strong>GAD-7:</strong> Free, 7-item; better for cognitive/worry symptoms of GAD</li>
+            <li><strong>HAM-A:</strong> Clinician-rated; covers both somatic &amp; psychic anxiety</li>
+            <li><strong>STAI:</strong> State-Trait; differentiates current vs. trait anxiety</li>
+            <li><strong>DASS-21 (Anxiety subscale):</strong> Measures anxiety alongside depression &amp; stress</li>
+        </ul>
+    </div>
+</div>
+
+<!-- HAM-A -->
+<div class="scale-card" id="hama">
+    <h3>4. Hamilton Anxiety Rating Scale (HAM-A)</h3>
+    <span class="domain-badge">Anxiety</span>
+
+    <div class="section-title">Purpose / Clinical Use</div>
+    <ul>
+        <li>Clinician-rated severity assessment of anxiety</li>
+        <li>Monitoring treatment efficacy in anxiety disorders</li>
+        <li>Research tool for pharmacological trials</li>
+        <li>Assesses both psychic and somatic anxiety</li>
+    </ul>
+
+    <div class="section-title">Structure</div>
+    <ul>
+        <li><strong>Items:</strong> 14 items</li>
+        <li><strong>Response format:</strong> Clinician-rated, 5-point scale (0&ndash;4) per item</li>
+        <li><strong>Two clusters:</strong></li>
+        <li style="list-style:none; margin-left:20px;"><strong>Psychic Anxiety (7 items):</strong> Anxious mood, tension, fears, insomnia, intellectual/cognitive, depressed mood, behavior at interview</li>
+        <li style="list-style:none; margin-left:20px;"><strong>Somatic Anxiety (7 items):</strong> Muscular, sensory, cardiovascular, respiratory, GI, genitourinary, autonomic symptoms</li>
+    </ul>
+
+    <div class="section-title">Scoring Method</div>
+    <ul>
+        <li><strong>Step 1:</strong> Rate each item 0 (not present) to 4 (very severe/incapacitating)</li>
+        <li><strong>Step 2:</strong> Sum all 14 items</li>
+        <li><strong>Score range:</strong> 0&ndash;56</li>
+        <li><strong>Subscale scores:</strong> Psychic anxiety (items 1&ndash;6, 14) + Somatic anxiety (items 7&ndash;13)</li>
+    </ul>
+    <table>
+        <tr><th>Score Range</th><th>Severity</th></tr>
+        <tr><td>&lt;17</td><td class="green">Mild Anxiety</td></tr>
+        <tr><td>18&ndash;24</td><td class="yellow">Mild to Moderate Anxiety</td></tr>
+        <tr><td>25&ndash;30</td><td class="yellow">Moderate to Severe Anxiety</td></tr>
+        <tr><td>&ge;31</td><td class="red">Very Severe Anxiety</td></tr>
+    </table>
+    <p style="margin-top:8px;color:#6ee7b7;"><strong>Response criteria:</strong> &ge;50% reduction in score = Treatment response</p>
+
+    <div class="section-title">Clinical Interpretation</div>
+    <ul>
+        <li><strong>High scores (&ge;31):</strong> Severe, incapacitating anxiety; significant functional impairment</li>
+        <li><strong>Low scores (&lt;17):</strong> Mild anxiety; may not require intensive intervention</li>
+        <li><strong>Psychic &gt; Somatic:</strong> Suggests generalized anxiety/worry pattern</li>
+        <li><strong>Somatic &gt; Psychic:</strong> Suggests prominent physical anxiety; rule out medical causes</li>
+    </ul>
+
+    <div class="section-title">Administration Details</div>
+    <ul>
+        <li><strong>Type:</strong> Clinician-rated (semi-structured interview)</li>
+        <li><strong>Time:</strong> 10&ndash;15 minutes</li>
+        <li><strong>Age:</strong> Adults (18+)</li>
+    </ul>
+
+    <div class="section-title">Advantages</div>
+    <div class="advantages">
+        <ul>
+            <li>Comprehensive coverage of both psychic &amp; somatic anxiety</li>
+            <li>Gold standard for clinical trials</li>
+            <li>Free to use</li>
+            <li>Good sensitivity to treatment change</li>
+        </ul>
+    </div>
+
+    <div class="section-title">Limitations</div>
+    <div class="limitations">
+        <ul>
+            <li>Overlap with depression symptoms (Item 6 = depressed mood)</li>
+            <li>Requires trained clinician</li>
+            <li>Poor discriminant validity between anxiety &amp; depression</li>
+            <li>Developed for GAD; less specific for panic/social anxiety/OCD</li>
+        </ul>
+    </div>
+
+    <div class="section-title">Alternatives / Similar Scales</div>
+    <div class="alternatives">
+        <ul>
+            <li><strong>BAI:</strong> Self-report; better discriminant validity from depression; somatic focus</li>
+            <li><strong>GAD-7:</strong> Brief, free, self-report; specific to GAD</li>
+            <li><strong>STAI:</strong> Differentiates state vs. trait anxiety</li>
+            <li><strong>Liebowitz Social Anxiety Scale:</strong> Specific for social phobia</li>
+        </ul>
+    </div>
+</div>
+
+<!-- ============================================ -->
+<!-- SECTION C: PSYCHOSIS -->
+<!-- ============================================ -->
+<div class="category-header" id="psychosis">C. PSYCHOSIS SCALES</div>
+
+<!-- BPRS -->
+<div class="scale-card" id="bprs">
+    <h3>5. Brief Psychiatric Rating Scale (BPRS)</h3>
+    <span class="domain-badge">Psychosis / General Psychopathology</span>
+
+    <div class="section-title">Purpose / Clinical Use</div>
+    <ul>
+        <li>Assesses severity of general psychiatric symptoms</li>
+        <li>Monitoring treatment response in psychotic disorders</li>
+        <li>Quick overall psychopathology assessment</li>
+        <li>Widely used in inpatient and research settings</li>
+    </ul>
+
+    <div class="section-title">Structure</div>
+    <ul>
+        <li><strong>Items:</strong> 18 items (expanded version: 24 items)</li>
+        <li><strong>Response format:</strong> Clinician-rated, 7-point scale (1&ndash;7) per item</li>
+        <li>1 = Not present, 2 = Very mild, 3 = Mild, 4 = Moderate, 5 = Moderately severe, 6 = Severe, 7 = Extremely severe</li>
+        <li><strong>Domains covered:</strong> Somatic concern, anxiety, emotional withdrawal, conceptual disorganization, guilt, tension, mannerisms, grandiosity, depressed mood, hostility, suspiciousness, hallucinatory behavior, motor retardation, uncooperativeness, unusual thought content, blunted affect, excitement, disorientation</li>
+    </ul>
+
+    <div class="section-title">Scoring Method</div>
+    <ul>
+        <li><strong>Step 1:</strong> Rate each item 1&ndash;7 based on interview + observation</li>
+        <li><strong>Step 2:</strong> Sum all 18 items for total score</li>
+        <li><strong>Score range:</strong> 18&ndash;126 (18-item version)</li>
+        <li><strong>Note:</strong> Minimum score is 18 (not 0), since lowest rating per item = 1</li>
+    </ul>
+    <table>
+        <tr><th>Score Range</th><th>Severity</th></tr>
+        <tr><td>18&ndash;31</td><td class="green">Minimal / Not Ill</td></tr>
+        <tr><td>32&ndash;40</td><td class="yellow">Mildly Ill</td></tr>
+        <tr><td>41&ndash;52</td><td class="yellow">Moderately Ill</td></tr>
+        <tr><td>53&ndash;65</td><td class="red">Markedly Ill</td></tr>
+        <tr><td>&ge;66</td><td class="red">Severely Ill</td></tr>
+    </table>
+
+    <div class="section-title">Clinical Interpretation</div>
+    <ul>
+        <li><strong>High scores (&ge;53):</strong> Significant psychopathology; likely needs inpatient care</li>
+        <li><strong>Low scores (&le;31):</strong> Minimal symptoms; possible remission</li>
+        <li><strong>Pattern analysis:</strong> Look at individual item clusters for positive symptoms vs. negative symptoms vs. affective symptoms</li>
+    </ul>
+
+    <div class="section-title">Administration Details</div>
+    <ul>
+        <li><strong>Type:</strong> Clinician-rated</li>
+        <li><strong>Time:</strong> 15&ndash;20 minutes</li>
+        <li><strong>Age:</strong> Adults (18+)</li>
+        <li><strong>Based on:</strong> Clinical interview + behavioral observation</li>
+    </ul>
+
+    <div class="section-title">Advantages</div>
+    <div class="advantages">
+        <ul>
+            <li>Brief and comprehensive</li>
+            <li>Covers wide range of psychopathology (not limited to psychosis)</li>
+            <li>Good inter-rater reliability with training</li>
+            <li>Free to use</li>
+            <li>Useful in acute settings</li>
+        </ul>
+    </div>
+
+    <div class="section-title">Limitations</div>
+    <div class="limitations">
+        <ul>
+            <li>Does not differentiate positive from negative symptoms as well as PANSS</li>
+            <li>Requires trained rater</li>
+            <li>Limited assessment of negative symptoms</li>
+            <li>Less specific than PANSS for schizophrenia research</li>
+        </ul>
+    </div>
+
+    <div class="section-title">Alternatives / Similar Scales</div>
+    <div class="alternatives">
+        <ul>
+            <li><strong>PANSS:</strong> 30-item; separate positive, negative &amp; general subscales; more detailed for schizophrenia</li>
+            <li><strong>CGI:</strong> 1-item global severity; ultra-brief clinical impression</li>
+            <li><strong>SAPS/SANS:</strong> Separate scales for positive &amp; negative symptoms; more detailed item-level assessment</li>
+        </ul>
+    </div>
+</div>
+
+<!-- PANSS -->
+<div class="scale-card" id="panss">
+    <h3>6. Positive and Negative Syndrome Scale (PANSS)</h3>
+    <span class="domain-badge">Schizophrenia / Psychosis</span>
+
+    <div class="section-title">Purpose / Clinical Use</div>
+    <ul>
+        <li>Comprehensive assessment of schizophrenia symptom dimensions</li>
+        <li>Differentiates positive, negative, and general psychopathology</li>
+        <li>Gold standard for schizophrenia research &amp; drug trials</li>
+        <li>Monitoring treatment response</li>
+    </ul>
+
+    <div class="section-title">Structure</div>
+    <ul>
+        <li><strong>Items:</strong> 30 items total</li>
+        <li><strong>3 Subscales:</strong></li>
+        <li style="list-style:none; margin-left:20px;"><strong>Positive Scale (P): 7 items</strong> &mdash; Delusions, conceptual disorganization, hallucinatory behavior, excitement, grandiosity, suspiciousness, hostility</li>
+        <li style="list-style:none; margin-left:20px;"><strong>Negative Scale (N): 7 items</strong> &mdash; Blunted affect, emotional withdrawal, poor rapport, passive/apathetic social withdrawal, difficulty in abstract thinking, lack of spontaneity, stereotyped thinking</li>
+        <li style="list-style:none; margin-left:20px;"><strong>General Psychopathology (G): 16 items</strong> &mdash; Somatic concern, anxiety, guilt, tension, mannerisms, depression, motor retardation, uncooperativeness, unusual thought content, disorientation, poor attention, lack of judgment, disturbance of volition, poor impulse control, preoccupation, active social avoidance</li>
+        <li><strong>Response format:</strong> 7-point scale (1&ndash;7) per item</li>
+    </ul>
+
+    <div class="section-title">Scoring Method</div>
+    <ul>
+        <li><strong>Step 1:</strong> Rate each item 1&ndash;7 based on 30&ndash;40 min structured interview (SCI-PANSS)</li>
+        <li><strong>Step 2:</strong> Calculate subscale scores:</li>
+        <li style="list-style:none; margin-left:20px;">Positive Scale: Sum P1&ndash;P7 (Range: 7&ndash;49)</li>
+        <li style="list-style:none; margin-left:20px;">Negative Scale: Sum N1&ndash;N7 (Range: 7&ndash;49)</li>
+        <li style="list-style:none; margin-left:20px;">General: Sum G1&ndash;G16 (Range: 16&ndash;112)</li>
+        <li><strong>Total PANSS Score:</strong> P + N + G (Range: 30&ndash;210)</li>
+        <li><strong>Composite Index:</strong> P minus N (indicates predominance of positive vs. negative symptoms)</li>
+    </ul>
+    <table>
+        <tr><th>Subscale</th><th>Range</th><th>Interpretation</th></tr>
+        <tr><td>Positive (P)</td><td>7&ndash;49</td><td>Higher = more positive symptoms</td></tr>
+        <tr><td>Negative (N)</td><td>7&ndash;49</td><td>Higher = more negative symptoms</td></tr>
+        <tr><td>General (G)</td><td>16&ndash;112</td><td>Higher = more general psychopathology</td></tr>
+        <tr><td>Total</td><td>30&ndash;210</td><td>Overall illness severity</td></tr>
+    </table>
+    <table>
+        <tr><th>Total Score</th><th>Approximate Severity</th></tr>
+        <tr><td>30&ndash;58</td><td class="green">Mildly Ill</td></tr>
+        <tr><td>59&ndash;75</td><td class="yellow">Moderately Ill</td></tr>
+        <tr><td>76&ndash;95</td><td class="yellow">Markedly Ill</td></tr>
+        <tr><td>&ge;96</td><td class="red">Severely Ill</td></tr>
+    </table>
+    <p style="margin-top:8px;color:#6ee7b7;"><strong>Response:</strong> &ge;20% reduction in total PANSS = minimal response; &ge;50% = good response</p>
+
+    <div class="section-title">Clinical Interpretation</div>
+    <ul>
+        <li><strong>P &gt; N:</strong> Predominant positive symptoms; better prognosis; more responsive to typical antipsychotics</li>
+        <li><strong>N &gt; P:</strong> Predominant negative symptoms; poorer prognosis; consider atypical antipsychotics</li>
+        <li><strong>High G scores:</strong> Significant general psychopathology beyond core schizophrenia symptoms</li>
+    </ul>
+
+    <div class="section-title">Administration Details</div>
+    <ul>
+        <li><strong>Type:</strong> Clinician-rated (requires SCI-PANSS structured interview)</li>
+        <li><strong>Time:</strong> 30&ndash;40 minutes</li>
+        <li><strong>Age:</strong> Adults (18+)</li>
+        <li><strong>Training:</strong> Required; certification recommended for research</li>
+    </ul>
+
+    <div class="section-title">Advantages</div>
+    <div class="advantages">
+        <ul>
+            <li>Most comprehensive scale for schizophrenia</li>
+            <li>Clear separation of symptom dimensions</li>
+            <li>Excellent psychometric properties</li>
+            <li>Standard in clinical trials worldwide</li>
+            <li>Composite index useful for subtype classification</li>
+        </ul>
+    </div>
+
+    <div class="section-title">Limitations</div>
+    <div class="limitations">
+        <ul>
+            <li>Time-consuming (30&ndash;40 minutes)</li>
+            <li>Requires trained rater &amp; structured interview</li>
+            <li>Copyrighted</li>
+            <li>Negative scale has been criticized for including cognitive items</li>
+            <li>May not capture full deficit syndrome</li>
+        </ul>
+    </div>
+
+    <div class="section-title">Alternatives / Similar Scales</div>
+    <div class="alternatives">
+        <ul>
+            <li><strong>BPRS:</strong> Shorter (18 items); quicker; less specific for schizophrenia</li>
+            <li><strong>SAPS/SANS:</strong> Separate detailed scales for positive/negative symptoms; more item granularity</li>
+            <li><strong>CGI-SCH:</strong> Brief global impression specific to schizophrenia</li>
+            <li><strong>PSP:</strong> Personal and Social Performance scale; focuses on functioning rather than symptoms</li>
+        </ul>
+    </div>
+</div>
+
+<!-- SAPS -->
+<div class="scale-card" id="saps">
+    <h3>7. Scale for the Assessment of Positive Symptoms (SAPS)</h3>
+    <span class="domain-badge">Psychosis &ndash; Positive Symptoms</span>
+
+    <div class="section-title">Purpose / Clinical Use</div>
+    <ul>
+        <li>Detailed assessment of positive symptoms in schizophrenia</li>
+        <li>Complements SANS for comprehensive symptom profiling</li>
+        <li>Research tool; used in longitudinal monitoring</li>
+    </ul>
+
+    <div class="section-title">Structure</div>
+    <ul>
+        <li><strong>Items:</strong> 34 items + 4 global rating items = 34 items grouped into 4 domains</li>
+        <li><strong>4 Domains (with global ratings):</strong></li>
+        <li style="list-style:none; margin-left:20px;">1. Hallucinations (7 items + 1 global)</li>
+        <li style="list-style:none; margin-left:20px;">2. Delusions (13 items + 1 global)</li>
+        <li style="list-style:none; margin-left:20px;">3. Bizarre Behavior (4 items + 1 global)</li>
+        <li style="list-style:none; margin-left:20px;">4. Positive Formal Thought Disorder (9 items + 1 global)</li>
+        <li><strong>Response format:</strong> 6-point scale (0&ndash;5) per item</li>
+        <li>0 = None, 1 = Questionable, 2 = Mild, 3 = Moderate, 4 = Marked, 5 = Severe</li>
+    </ul>
+
+    <div class="section-title">Scoring Method</div>
+    <ul>
+        <li><strong>Step 1:</strong> Rate each item 0&ndash;5</li>
+        <li><strong>Step 2:</strong> Calculate domain scores by summing items within each domain</li>
+        <li><strong>Step 3:</strong> Total score = Sum of all items OR sum of 4 global ratings (Summary score)</li>
+        <li><strong>Summary score (4 global ratings):</strong> Range 0&ndash;20</li>
+        <li><strong>Total composite score:</strong> Range 0&ndash;170 (all individual items)</li>
+        <li><strong>No formal severity cut-offs published</strong> &mdash; interpret relative to baseline &amp; norms</li>
+    </ul>
+    <table>
+        <tr><th>Domain</th><th>No. of Items</th><th>Score Range</th></tr>
+        <tr><td>Hallucinations</td><td>7</td><td>0&ndash;35</td></tr>
+        <tr><td>Delusions</td><td>13</td><td>0&ndash;65</td></tr>
+        <tr><td>Bizarre Behavior</td><td>4</td><td>0&ndash;20</td></tr>
+        <tr><td>Positive Formal Thought Disorder</td><td>9</td><td>0&ndash;45</td></tr>
+    </table>
+
+    <div class="section-title">Clinical Interpretation</div>
+    <ul>
+        <li><strong>Higher scores:</strong> More prominent positive symptoms; florid psychosis</li>
+        <li><strong>Domain-specific analysis:</strong> Helps identify predominant symptom type (e.g., hallucination-predominant vs. delusion-predominant)</li>
+        <li><strong>Change scores:</strong> Most useful for tracking treatment response over time</li>
+    </ul>
+
+    <div class="section-title">Administration Details</div>
+    <ul>
+        <li><strong>Type:</strong> Clinician-rated</li>
+        <li><strong>Time:</strong> 20&ndash;30 minutes (often combined with SANS)</li>
+        <li><strong>Age:</strong> Adults</li>
+        <li><strong>Developer:</strong> Nancy Andreasen (1984)</li>
+    </ul>
+
+    <div class="section-title">Advantages</div>
+    <div class="advantages">
+        <ul>
+            <li>Very detailed item-level assessment of positive symptoms</li>
+            <li>Includes formal thought disorder assessment</li>
+            <li>Free to use</li>
+            <li>Good for research on specific symptom dimensions</li>
+        </ul>
+    </div>
+
+    <div class="section-title">Limitations</div>
+    <div class="limitations">
+        <ul>
+            <li>No established severity cut-offs</li>
+            <li>Time-consuming when combined with SANS</li>
+            <li>Less commonly used in clinical practice (PANSS preferred)</li>
+            <li>Requires clinical expertise for rating</li>
+        </ul>
+    </div>
+
+    <div class="section-title">Alternatives / Similar Scales</div>
+    <div class="alternatives">
+        <ul>
+            <li><strong>PANSS Positive subscale:</strong> Shorter; part of comprehensive PANSS; established cut-offs</li>
+            <li><strong>BPRS:</strong> Briefer overall psychopathology assessment</li>
+            <li><strong>PSYRATS:</strong> Specific to hallucinations and delusions; dimensional assessment</li>
+        </ul>
+    </div>
+</div>
+
+<!-- SANS -->
+<div class="scale-card" id="sans">
+    <h3>8. Scale for the Assessment of Negative Symptoms (SANS)</h3>
+    <span class="domain-badge">Psychosis &ndash; Negative Symptoms</span>
+
+    <div class="section-title">Purpose / Clinical Use</div>
+    <ul>
+        <li>Detailed assessment of negative symptoms in schizophrenia</li>
+        <li>Complements SAPS for full symptom profiling</li>
+        <li>Research &amp; clinical monitoring of deficit states</li>
+        <li>Evaluating response to atypical antipsychotics</li>
+    </ul>
+
+    <div class="section-title">Structure</div>
+    <ul>
+        <li><strong>Items:</strong> 25 items grouped into 5 domains (+ 5 global ratings)</li>
+        <li><strong>5 Domains:</strong></li>
+        <li style="list-style:none; margin-left:20px;">1. Affective Flattening/Blunting (8 items + 1 global)</li>
+        <li style="list-style:none; margin-left:20px;">2. Alogia (5 items + 1 global)</li>
+        <li style="list-style:none; margin-left:20px;">3. Avolition/Apathy (4 items + 1 global)</li>
+        <li style="list-style:none; margin-left:20px;">4. Anhedonia/Asociality (5 items + 1 global)</li>
+        <li style="list-style:none; margin-left:20px;">5. Attention (3 items + 1 global)</li>
+        <li><strong>Response format:</strong> 6-point scale (0&ndash;5)</li>
+        <li>0 = None, 1 = Questionable, 2 = Mild, 3 = Moderate, 4 = Marked, 5 = Severe</li>
+    </ul>
+
+    <div class="section-title">Scoring Method</div>
+    <ul>
+        <li><strong>Step 1:</strong> Rate each item 0&ndash;5</li>
+        <li><strong>Step 2:</strong> Calculate domain scores (sum items within domain)</li>
+        <li><strong>Step 3:</strong> Summary score = Sum of 5 global ratings (Range: 0&ndash;25)</li>
+        <li><strong>Total composite score:</strong> Sum of all 25 items (Range: 0&ndash;125)</li>
+    </ul>
+    <table>
+        <tr><th>Domain</th><th>Items</th><th>Range</th></tr>
+        <tr><td>Affective Flattening</td><td>8</td><td>0&ndash;40</td></tr>
+        <tr><td>Alogia</td><td>5</td><td>0&ndash;25</td></tr>
+        <tr><td>Avolition/Apathy</td><td>4</td><td>0&ndash;20</td></tr>
+        <tr><td>Anhedonia/Asociality</td><td>5</td><td>0&ndash;25</td></tr>
+        <tr><td>Attention</td><td>3</td><td>0&ndash;15</td></tr>
+    </table>
+    <p style="margin-top:8px;color:#6ee7b7;"><strong>Note:</strong> No universally established severity cut-offs; interpret relative to baseline and clinical context.</p>
+
+    <div class="section-title">Clinical Interpretation</div>
+    <ul>
+        <li><strong>Higher scores:</strong> More prominent negative/deficit symptoms; poorer prognosis</li>
+        <li><strong>Domain patterns:</strong> Helps plan targeted rehabilitation (e.g., high avolition &rarr; behavioral activation)</li>
+        <li><strong>Distinguish:</strong> Primary negative symptoms vs. secondary (due to medication, depression, social deprivation)</li>
+    </ul>
+
+    <div class="section-title">Administration Details</div>
+    <ul>
+        <li><strong>Type:</strong> Clinician-rated (interview + observation)</li>
+        <li><strong>Time:</strong> 15&ndash;20 minutes</li>
+        <li><strong>Age:</strong> Adults</li>
+        <li><strong>Developer:</strong> Nancy Andreasen (1984)</li>
+    </ul>
+
+    <div class="section-title">Advantages</div>
+    <div class="advantages">
+        <ul>
+            <li>Most detailed scale for negative symptoms</li>
+            <li>5 clearly defined domains</li>
+            <li>Free to use</li>
+            <li>Good reliability with training</li>
+            <li>Useful for rehabilitation planning</li>
+        </ul>
+    </div>
+
+    <div class="section-title">Limitations</div>
+    <div class="limitations">
+        <ul>
+            <li>No formal severity cut-offs</li>
+            <li>Attention subscale may overlap with cognitive deficits</li>
+            <li>Does not distinguish primary vs. secondary negative symptoms</li>
+            <li>Less used in clinical trials now (PANSS-N preferred)</li>
+        </ul>
+    </div>
+
+    <div class="section-title">Alternatives / Similar Scales</div>
+    <div class="alternatives">
+        <ul>
+            <li><strong>PANSS Negative subscale:</strong> Shorter; part of PANSS; more widely used in trials</li>
+            <li><strong>BNSS (Brief Negative Symptom Scale):</strong> 13-item; newer; better construct validity</li>
+            <li><strong>CAINS:</strong> Motivation/Pleasure + Expression domains; aligned with current negative symptom models</li>
+            <li><strong>NSA-16:</strong> 16-item; clinician-rated; balances brevity &amp; comprehensiveness</li>
+        </ul>
+    </div>
+</div>
+
+<!-- ============================================ -->
+<!-- SECTION D: MANIA -->
+<!-- ============================================ -->
+<div class="category-header" id="mania">D. MANIA SCALE</div>
+
+<!-- YMRS -->
+<div class="scale-card" id="ymrs">
+    <h3>9. Young Mania Rating Scale (YMRS)</h3>
+    <span class="domain-badge">Mania / Bipolar Disorder</span>
+
+    <div class="section-title">Purpose / Clinical Use</div>
+    <ul>
+        <li>Assesses severity of manic symptoms</li>
+        <li>Monitoring treatment response in bipolar disorder (manic/mixed episodes)</li>
+        <li>Standard outcome measure in mania clinical trials</li>
+    </ul>
+
+    <div class="section-title">Structure</div>
+    <ul>
+        <li><strong>Items:</strong> 11 items</li>
+        <li><strong>Response format:</strong> Clinician-rated</li>
+        <li><strong>Scoring:</strong> 7 items scored 0&ndash;4; 4 items scored 0&ndash;8 (double-weighted items)</li>
+        <li><strong>Double-weighted items (0&ndash;8):</strong> Irritability, Speech, Thought Content, Disruptive/Aggressive Behavior</li>
+        <li><strong>Regular items (0&ndash;4):</strong> Elevated mood, Increased motor activity, Sexual interest, Sleep, Appearance, Insight, Language-thought disorder</li>
+    </ul>
+
+    <div class="section-title">Scoring Method</div>
+    <ul>
+        <li><strong>Step 1:</strong> Rate each item based on clinical interview + observation</li>
+        <li><strong>Step 2:</strong> 7 items scored 0&ndash;4; 4 items scored 0&ndash;8</li>
+        <li><strong>Step 3:</strong> Sum all items</li>
+        <li><strong>Score range:</strong> 0&ndash;60</li>
+        <li><strong>Important:</strong> Double-weighted items given extra weight due to clinical significance and poor cooperation potential</li>
+    </ul>
+    <table>
+        <tr><th>Score Range</th><th>Severity</th></tr>
+        <tr><td>0&ndash;6</td><td class="green">Not significant / Remission</td></tr>
+        <tr><td>7&ndash;12</td><td class="yellow">Mild Mania</td></tr>
+        <tr><td>13&ndash;19</td><td class="yellow">Moderate Mania</td></tr>
+        <tr><td>20&ndash;25</td><td class="red">Moderate-Severe Mania</td></tr>
+        <tr><td>&ge;26</td><td class="red">Severe Mania</td></tr>
+    </table>
+    <p style="margin-top:8px;color:#6ee7b7;"><strong>Response:</strong> &ge;50% reduction = Treatment response; Score &le;12 = Remission (commonly used criterion)</p>
+
+    <div class="section-title">Clinical Interpretation</div>
+    <ul>
+        <li><strong>High scores (&ge;26):</strong> Severe manic episode; likely requires hospitalization</li>
+        <li><strong>Low scores (&le;6):</strong> Remission or euthymic state</li>
+        <li><strong class="red">Red flags:</strong> High irritability + disruptive behavior scores = risk of aggression; High thought content score = psychotic mania</li>
+        <li><strong>Note:</strong> Does not assess depressive symptoms &mdash; use with depression scale for mixed states</li>
+    </ul>
+
+    <div class="section-title">Administration Details</div>
+    <ul>
+        <li><strong>Type:</strong> Clinician-rated</li>
+        <li><strong>Time:</strong> 15&ndash;30 minutes</li>
+        <li><strong>Age:</strong> Adults (18+); adapted versions for adolescents available</li>
+        <li><strong>Basis:</strong> Interview + observation + informant report (last 48 hours)</li>
+    </ul>
+
+    <div class="section-title">Advantages</div>
+    <div class="advantages">
+        <ul>
+            <li>Gold standard for manic episode severity</li>
+            <li>Quick and reliable</li>
+            <li>Good sensitivity to change</li>
+            <li>Free to use</li>
+            <li>Double-weighting captures disruptive mania well</li>
+        </ul>
+    </div>
+
+    <div class="section-title">Limitations</div>
+    <div class="limitations">
+        <ul>
+            <li>No assessment of depressive symptoms (problem in mixed states)</li>
+            <li>Requires clinician training</li>
+            <li>Limited psychometric data for hypomania</li>
+            <li>Double-weighted items may bias toward irritable mania</li>
+        </ul>
+    </div>
+
+    <div class="section-title">Alternatives / Similar Scales</div>
+    <div class="alternatives">
+        <ul>
+            <li><strong>Bech-Rafaelsen Mania Scale (MAS):</strong> 11-item; equal weighting; more psychometrically balanced</li>
+            <li><strong>Altman Self-Rating Mania Scale (ASRM):</strong> 5-item self-report; quick screening</li>
+            <li><strong>CARS-M:</strong> Clinician-Administered Rating Scale for Mania; distinguishes classic vs. psychotic mania</li>
+            <li><strong>MDQ (Mood Disorder Questionnaire):</strong> Self-report screening for bipolar disorder (not severity)</li>
+        </ul>
+    </div>
+</div>
+
+<!-- ============================================ -->
+<!-- SECTION E: OCD -->
+<!-- ============================================ -->
+<div class="category-header" id="ocd">E. OCD SCALE</div>
+
+<!-- Y-BOCS -->
+<div class="scale-card" id="ybocs">
+    <h3>10. Yale-Brown Obsessive Compulsive Scale (Y-BOCS)</h3>
+    <span class="domain-badge">Obsessive-Compulsive Disorder</span>
+
+    <div class="section-title">Purpose / Clinical Use</div>
+    <ul>
+        <li>Gold standard for OCD severity assessment</li>
+        <li>Rates severity independent of type/content of obsessions/compulsions</li>
+        <li>Monitoring treatment response (CBT and pharmacotherapy)</li>
+        <li>Research outcome measure</li>
+    </ul>
+
+    <div class="section-title">Structure</div>
+    <ul>
+        <li><strong>Items:</strong> 10 core items (+ optional investigation/insight items)</li>
+        <li><strong>Two subscales (5 items each):</strong></li>
+        <li style="list-style:none; margin-left:20px;"><strong>Obsession Subscale (items 1&ndash;5):</strong> Time occupied, interference, distress, resistance, control</li>
+        <li style="list-style:none; margin-left:20px;"><strong>Compulsion Subscale (items 6&ndash;10):</strong> Time occupied, interference, distress, resistance, control</li>
+        <li><strong>Response format:</strong> Clinician-rated, 5-point scale (0&ndash;4) per item</li>
+        <li><strong>Preceded by:</strong> Y-BOCS Symptom Checklist (64+ symptoms) to identify target symptoms</li>
+    </ul>
+
+    <div class="section-title">Scoring Method</div>
+    <ul>
+        <li><strong>Step 1:</strong> Administer Y-BOCS Symptom Checklist to identify current obsessions &amp; compulsions</li>
+        <li><strong>Step 2:</strong> Rate items 1&ndash;5 for obsessions (0&ndash;4 each)</li>
+        <li><strong>Step 3:</strong> Rate items 6&ndash;10 for compulsions (0&ndash;4 each)</li>
+        <li><strong>Step 4:</strong> Calculate:</li>
+        <li style="list-style:none; margin-left:20px;">Obsession subtotal = Sum items 1&ndash;5 (Range: 0&ndash;20)</li>
+        <li style="list-style:none; margin-left:20px;">Compulsion subtotal = Sum items 6&ndash;10 (Range: 0&ndash;20)</li>
+        <li style="list-style:none; margin-left:20px;"><strong>Total Y-BOCS = Obsession + Compulsion subtotals (Range: 0&ndash;40)</strong></li>
+        <li><strong>Special note:</strong> If patient has only obsessions (no compulsions), multiply obsession score &times; 2 for total equivalent</li>
+    </ul>
+    <table>
+        <tr><th>Total Score</th><th>Severity</th></tr>
+        <tr><td>0&ndash;7</td><td class="green">Subclinical</td></tr>
+        <tr><td>8&ndash;15</td><td class="yellow">Mild OCD</td></tr>
+        <tr><td>16&ndash;23</td><td class="yellow">Moderate OCD</td></tr>
+        <tr><td>24&ndash;31</td><td class="red">Severe OCD</td></tr>
+        <tr><td>32&ndash;40</td><td class="red">Extreme OCD</td></tr>
+    </table>
+    <p style="margin-top:8px;color:#6ee7b7;"><strong>Response criteria:</strong> &ge;35% reduction = Responder; &ge;25% = Partial response; Score &le;12 = Remission (commonly used)</p>
+
+    <div class="section-title">Clinical Interpretation</div>
+    <ul>
+        <li><strong>High scores (24+):</strong> Severe OCD; significant functional impairment; may need combined CBT + SSRI</li>
+        <li><strong>Low scores (&le;7):</strong> Subclinical; obsessions/compulsions not clinically significant</li>
+        <li><strong>Obsession &gt; Compulsion score:</strong> Predominantly obsessional OCD (ruminations/mental rituals)</li>
+        <li><strong class="red">Red flag:</strong> Item 3 (distress) very high with low resistance (item 4) = poor prognosis without treatment</li>
+    </ul>
+
+    <div class="section-title">Administration Details</div>
+    <ul>
+        <li><strong>Type:</strong> Clinician-rated (semi-structured interview)</li>
+        <li><strong>Time:</strong> 15&ndash;30 minutes (including symptom checklist)</li>
+        <li><strong>Age:</strong> Adults; CY-BOCS for children (ages 6&ndash;17)</li>
+    </ul>
+
+    <div class="section-title">Advantages</div>
+    <div class="advantages">
+        <ul>
+            <li>Gold standard for OCD severity</li>
+            <li>Content-independent (rates severity regardless of OCD type)</li>
+            <li>Excellent psychometric properties</li>
+            <li>Widely validated across cultures</li>
+            <li>Free to use</li>
+        </ul>
+    </div>
+
+    <div class="section-title">Limitations</div>
+    <div class="limitations">
+        <ul>
+            <li>Requires trained clinician</li>
+            <li>Does not assess insight (Item 11 optional, not in total)</li>
+            <li>May not capture avoidance behaviors well</li>
+            <li>Compulsion score may be 0 for purely obsessional OCD (use multiply rule)</li>
+        </ul>
+    </div>
+
+    <div class="section-title">Alternatives / Similar Scales</div>
+    <div class="alternatives">
+        <ul>
+            <li><strong>OCI-R (Obsessive-Compulsive Inventory-Revised):</strong> Self-report; 18 items; assesses OCD symptom dimensions</li>
+            <li><strong>DOCS (Dimensional OCD Scale):</strong> Self-report; 20 items; 4 empirically-based dimensions</li>
+            <li><strong>CY-BOCS:</strong> Child/adolescent version; same structure adapted for ages 6&ndash;17</li>
+            <li><strong>BABS:</strong> Assesses degree of conviction/insight in beliefs (used alongside Y-BOCS)</li>
+        </ul>
+    </div>
+</div>
+
+<!-- ============================================ -->
+<!-- SECTION F: COGNITIVE ASSESSMENT -->
+<!-- ============================================ -->
+<div class="category-header" id="cognitive">F. COGNITIVE ASSESSMENT SCALES</div>
+
+<!-- MMSE -->
+<div class="scale-card" id="mmse">
+    <h3>11. Mini Mental State Examination (MMSE)</h3>
+    <span class="domain-badge">Cognitive Functioning / Dementia</span>
+
+    <div class="section-title">Purpose / Clinical Use</div>
+    <ul>
+        <li>Brief screening for cognitive impairment</li>
+        <li>Detecting dementia and delirium</li>
+        <li>Monitoring cognitive decline over time</li>
+        <li>Most widely used bedside cognitive screen globally</li>
+    </ul>
+
+    <div class="section-title">Structure</div>
+    <ul>
+        <li><strong>Items:</strong> 11 items (30 points total)</li>
+        <li><strong>Domains assessed:</strong></li>
+        <li style="list-style:none; margin-left:20px;">Orientation to Time (5 points)</li>
+        <li style="list-style:none; margin-left:20px;">Orientation to Place (5 points)</li>
+        <li style="list-style:none; margin-left:20px;">Registration (3 points)</li>
+        <li style="list-style:none; margin-left:20px;">Attention &amp; Calculation (5 points) &mdash; Serial 7s or WORLD backwards</li>
+        <li style="list-style:none; margin-left:20px;">Recall (3 points)</li>
+        <li style="list-style:none; margin-left:20px;">Language (8 points) &mdash; Naming, repetition, 3-stage command, reading, writing</li>
+        <li style="list-style:none; margin-left:20px;">Visuospatial (1 point) &mdash; Copy intersecting pentagons</li>
+    </ul>
+
+    <div class="section-title">Scoring Method</div>
+    <ul>
+        <li><strong>Step 1:</strong> Score each item correct (1) or incorrect (0)</li>
+        <li><strong>Step 2:</strong> Sum all points</li>
+        <li><strong>Total score range:</strong> 0&ndash;30</li>
+        <li><strong>Higher score = better cognition</strong></li>
+    </ul>
+    <table>
+        <tr><th>Score</th><th>Interpretation</th></tr>
+        <tr><td>27&ndash;30</td><td class="green">Normal</td></tr>
+        <tr><td>24&ndash;26</td><td class="yellow">Mild Cognitive Impairment</td></tr>
+        <tr><td>18&ndash;23</td><td class="yellow">Mild Dementia</td></tr>
+        <tr><td>10&ndash;17</td><td class="red">Moderate Dementia</td></tr>
+        <tr><td>&lt;10</td><td class="red">Severe Dementia</td></tr>
+    </table>
+    <p style="margin-top:8px;color:#6ee7b7;"><strong>Adjust for education:</strong> In Indian populations, cut-off of 24 may be too high for illiterate/low-education groups. Cut-off of 23 or lower often used. Some use 25/26 for educated populations.</p>
+
+    <div class="section-title">Clinical Interpretation</div>
+    <ul>
+        <li><strong>Score &lt;24:</strong> Generally indicates cognitive impairment requiring further evaluation</li>
+        <li><strong>&ge;3 point decline over 6 months:</strong> Clinically significant deterioration</li>
+        <li><strong>Pattern analysis:</strong> Orientation loss early = Alzheimer's; Attention loss = Delirium</li>
+        <li><strong class="red">Red flag:</strong> Rapid decline (&gt;5 points in 6 months) = consider delirium, rapidly progressive dementia</li>
+    </ul>
+
+    <div class="section-title">Administration Details</div>
+    <ul>
+        <li><strong>Type:</strong> Clinician-administered</li>
+        <li><strong>Time:</strong> 5&ndash;10 minutes</li>
+        <li><strong>Age:</strong> Adults (generally 60+, but usable from 18+)</li>
+    </ul>
+
+    <div class="section-title">Advantages</div>
+    <div class="advantages">
+        <ul>
+            <li>Quick bedside administration</li>
+            <li>Universally known and recognized</li>
+            <li>Good for serial monitoring</li>
+            <li>Hindi and regional language versions available for India</li>
+        </ul>
+    </div>
+
+    <div class="section-title">Limitations</div>
+    <div class="limitations">
+        <ul>
+            <li>Copyrighted (PAR Inc.) since 2001</li>
+            <li>Ceiling effect &mdash; misses MCI and early dementia in educated individuals</li>
+            <li>Floor effect in advanced dementia</li>
+            <li>No executive function assessment</li>
+            <li>Education/literacy bias (especially in Indian context)</li>
+            <li>Poor sensitivity for frontal/subcortical dementias</li>
+        </ul>
+    </div>
+
+    <div class="section-title">Alternatives / Similar Scales</div>
+    <div class="alternatives">
+        <ul>
+            <li><strong>MoCA:</strong> Better sensitivity for MCI; includes executive function; free; 30 points</li>
+            <li><strong>ACE-III:</strong> More comprehensive (100 points); covers 5 cognitive domains; better for differentiating dementia types</li>
+            <li><strong>HMSE (Hindi Mental State Examination):</strong> Adapted for Indian illiterate populations</li>
+            <li><strong>CDR (Clinical Dementia Rating):</strong> Stages dementia severity based on 6 domains; informant-based</li>
+        </ul>
+    </div>
+</div>
+
+<!-- MoCA -->
+<div class="scale-card" id="moca">
+    <h3>12. Montreal Cognitive Assessment (MoCA)</h3>
+    <span class="domain-badge">Cognitive Functioning / MCI</span>
+
+    <div class="section-title">Purpose / Clinical Use</div>
+    <ul>
+        <li>Screening for Mild Cognitive Impairment (MCI)</li>
+        <li>More sensitive than MMSE for early/mild cognitive deficits</li>
+        <li>Assesses executive functions (unlike MMSE)</li>
+        <li>Useful across multiple neurological conditions (PD, stroke, TBI)</li>
+    </ul>
+
+    <div class="section-title">Structure</div>
+    <ul>
+        <li><strong>Items:</strong> Multiple tasks, total 30 points</li>
+        <li><strong>Domains assessed (8 cognitive areas):</strong></li>
+        <li style="list-style:none; margin-left:20px;">Visuospatial/Executive (5 points) &mdash; Trail Making B adaptation, cube copy, clock drawing</li>
+        <li style="list-style:none; margin-left:20px;">Naming (3 points) &mdash; 3 animals</li>
+        <li style="list-style:none; margin-left:20px;">Attention (6 points) &mdash; Digit span, vigilance, serial 7s</li>
+        <li style="list-style:none; margin-left:20px;">Language (3 points) &mdash; Repetition, fluency</li>
+        <li style="list-style:none; margin-left:20px;">Abstraction (2 points)</li>
+        <li style="list-style:none; margin-left:20px;">Delayed Recall (5 points) &mdash; 5 words</li>
+        <li style="list-style:none; margin-left:20px;">Orientation (6 points)</li>
+    </ul>
+
+    <div class="section-title">Scoring Method</div>
+    <ul>
+        <li><strong>Step 1:</strong> Score each task as per manual instructions</li>
+        <li><strong>Step 2:</strong> Sum all domain scores</li>
+        <li><strong>Step 3:</strong> Add 1 point if education &le;12 years (education correction)</li>
+        <li><strong>Total score range:</strong> 0&ndash;30</li>
+        <li><strong>Higher = better cognition</strong></li>
+    </ul>
+    <table>
+        <tr><th>Score</th><th>Interpretation</th></tr>
+        <tr><td>&ge;26</td><td class="green">Normal</td></tr>
+        <tr><td>18&ndash;25</td><td class="yellow">Mild Cognitive Impairment</td></tr>
+        <tr><td>10&ndash;17</td><td class="red">Moderate Cognitive Impairment</td></tr>
+        <tr><td>&lt;10</td><td class="red">Severe Cognitive Impairment</td></tr>
+    </table>
+    <p style="margin-top:8px;color:#6ee7b7;"><strong>Cut-off:</strong> &lt;26 = Cognitive impairment (original). Some studies suggest &lt;23 for Indian populations with lower education.</p>
+
+    <div class="section-title">Clinical Interpretation</div>
+    <ul>
+        <li><strong>Score &lt;26:</strong> Screen positive for cognitive impairment; needs detailed neuropsychological assessment</li>
+        <li><strong>Domain-specific deficits:</strong> Help localize impairment (e.g., low executive = frontal; low recall = temporal/hippocampal)</li>
+        <li><strong>Differentiating patterns:</strong> Alzheimer's = low delayed recall; Vascular = low executive/attention; Lewy body = visuospatial deficits</li>
+    </ul>
+
+    <div class="section-title">Administration Details</div>
+    <ul>
+        <li><strong>Type:</strong> Clinician-administered</li>
+        <li><strong>Time:</strong> 10&ndash;15 minutes</li>
+        <li><strong>Age:</strong> Adults (55+; usable from 18+)</li>
+        <li><strong>Available in:</strong> Multiple languages including Hindi</li>
+        <li><strong>Website:</strong> www.mocatest.org (free for clinical use with certification)</li>
+    </ul>
+
+    <div class="section-title">Advantages</div>
+    <div class="advantages">
+        <ul>
+            <li>Superior to MMSE for MCI detection (sensitivity 90% vs 18% for MMSE)</li>
+            <li>Assesses executive function</li>
+            <li>Free for clinical use (with online certification)</li>
+            <li>Multiple parallel versions available (reduces practice effects)</li>
+            <li>Available in 100+ languages</li>
+        </ul>
+    </div>
+
+    <div class="section-title">Limitations</div>
+    <div class="limitations">
+        <ul>
+            <li>Education bias (even with +1 correction)</li>
+            <li>Higher false positive rate in low-education populations</li>
+            <li>Ceiling effect in highly educated individuals</li>
+            <li>Requires certification for use (since 2019)</li>
+            <li>Less studied in Indian illiterate populations compared to HMSE</li>
+        </ul>
+    </div>
+
+    <div class="section-title">Alternatives / Similar Scales</div>
+    <div class="alternatives">
+        <ul>
+            <li><strong>MMSE:</strong> Simpler; less sensitive for MCI; no executive function; more widely known</li>
+            <li><strong>ACE-III:</strong> More comprehensive (100 points); better domain profiling; longer administration</li>
+            <li><strong>RUDAS:</strong> Cross-cultural cognitive screen; less education bias; 6 items</li>
+            <li><strong>Mini-ACE:</strong> 5-minute version of ACE; 30 points; good balance</li>
+        </ul>
+    </div>
+</div>
+
+<!-- ACE -->
+<div class="scale-card" id="ace">
+    <h3>13. Addenbrooke's Cognitive Examination (ACE-III / ACE-R)</h3>
+    <span class="domain-badge">Cognitive Functioning / Dementia Differentiation</span>
+
+    <div class="section-title">Purpose / Clinical Use</div>
+    <ul>
+        <li>Comprehensive bedside cognitive assessment</li>
+        <li>Differentiating types of dementia (Alzheimer's vs. Frontotemporal)</li>
+        <li>More detailed than MMSE/MoCA while remaining clinically practical</li>
+        <li>Detecting early cognitive decline across 5 domains</li>
+    </ul>
+
+    <div class="section-title">Structure</div>
+    <ul>
+        <li><strong>Items:</strong> Multiple tasks, total 100 points</li>
+        <li><strong>5 Cognitive Domains:</strong></li>
+        <li style="list-style:none; margin-left:20px;">Attention &amp; Orientation (18 points)</li>
+        <li style="list-style:none; margin-left:20px;">Memory (26 points)</li>
+        <li style="list-style:none; margin-left:20px;">Fluency (14 points) &mdash; Letter &amp; category</li>
+        <li style="list-style:none; margin-left:20px;">Language (26 points)</li>
+        <li style="list-style:none; margin-left:20px;">Visuospatial (16 points)</li>
+        <li><strong>Note:</strong> MMSE items are embedded within ACE-III (can derive MMSE score)</li>
+    </ul>
+
+    <div class="section-title">Scoring Method</div>
+    <ul>
+        <li><strong>Step 1:</strong> Score each task as per manual</li>
+        <li><strong>Step 2:</strong> Calculate domain totals</li>
+        <li><strong>Step 3:</strong> Sum all domains for total ACE-III score (0&ndash;100)</li>
+        <li><strong>VLOM Ratio:</strong> (V + L) / (O + M) &mdash; helps differentiate AD from FTD</li>
+    </ul>
+    <table>
+        <tr><th>Score (ACE-III)</th><th>Interpretation</th></tr>
+        <tr><td>&ge;88</td><td class="green">Normal (high sensitivity cut-off)</td></tr>
+        <tr><td>82&ndash;87</td><td class="yellow">Possible impairment (investigate further)</td></tr>
+        <tr><td>&lt;82</td><td class="red">Likely dementia (high specificity cut-off)</td></tr>
+    </table>
+    <table>
+        <tr><th>Cut-off</th><th>Sensitivity</th><th>Specificity</th></tr>
+        <tr><td>88</td><td>94%</td><td>89%</td></tr>
+        <tr><td>82</td><td>84%</td><td>100%</td></tr>
+    </table>
+    <p style="margin-top:8px;color:#6ee7b7;"><strong>VLOM Ratio:</strong> &gt;3.2 suggests Alzheimer's; &lt;2.2 suggests Frontotemporal Dementia; 2.2&ndash;3.2 = indeterminate</p>
+
+    <div class="section-title">Clinical Interpretation</div>
+    <ul>
+        <li><strong>Alzheimer's pattern:</strong> Low memory + low orientation; relatively preserved language</li>
+        <li><strong>FTD pattern:</strong> Low fluency + low language; relatively preserved memory &amp; visuospatial</li>
+        <li><strong>Domain profile more informative than total score alone</strong></li>
+    </ul>
+
+    <div class="section-title">Administration Details</div>
+    <ul>
+        <li><strong>Type:</strong> Clinician-administered</li>
+        <li><strong>Time:</strong> 15&ndash;20 minutes</li>
+        <li><strong>Age:</strong> Adults (typically 50+)</li>
+        <li><strong>Free to use</strong> (available online)</li>
+    </ul>
+
+    <div class="section-title">Advantages</div>
+    <div class="advantages">
+        <ul>
+            <li>Most comprehensive bedside cognitive test</li>
+            <li>VLOM ratio for dementia differentiation</li>
+            <li>Free and publicly available</li>
+            <li>5 domain scores provide cognitive profile</li>
+            <li>Embeds MMSE (backward compatible)</li>
+        </ul>
+    </div>
+
+    <div class="section-title">Limitations</div>
+    <div class="limitations">
+        <ul>
+            <li>Longer administration than MMSE/MoCA</li>
+            <li>Education and language bias</li>
+            <li>Less validation in Indian populations compared to MMSE</li>
+            <li>Ceiling effect in highly educated younger adults</li>
+        </ul>
+    </div>
+
+    <div class="section-title">Alternatives / Similar Scales</div>
+    <div class="alternatives">
+        <ul>
+            <li><strong>MoCA:</strong> Shorter (10 min); 30 points; better for MCI screening; less domain detail</li>
+            <li><strong>MMSE:</strong> Shorter (5&ndash;10 min); 30 points; less comprehensive; widely available</li>
+            <li><strong>DRS-2 (Dementia Rating Scale):</strong> 36-item; 144 points; similar domain coverage; normed</li>
+            <li><strong>ADAS-Cog:</strong> Gold standard for AD clinical trials; more detailed memory assessment</li>
+        </ul>
+    </div>
+</div>
+
+<!-- ============================================ -->
+<!-- SECTION G: CHILD & ADOLESCENT -->
+<!-- ============================================ -->
+<div class="category-header" id="child">G. CHILD &amp; ADOLESCENT SCALES</div>
+
+<!-- CBCL -->
+<div class="scale-card" id="cbcl">
+    <h3>14. Child Behavior Checklist (CBCL)</h3>
+    <span class="domain-badge">Child Behavior / Psychopathology</span>
+
+    <div class="section-title">Purpose / Clinical Use</div>
+    <ul>
+        <li>Comprehensive assessment of behavioral/emotional problems in children</li>
+        <li>Part of ASEBA (Achenbach System of Empirically Based Assessment)</li>
+        <li>Screening, clinical assessment, treatment monitoring</li>
+        <li>Parent/caregiver report of child's behavior</li>
+    </ul>
+
+    <div class="section-title">Structure</div>
+    <ul>
+        <li><strong>Versions:</strong> CBCL/1.5&ndash;5 (preschool) &amp; CBCL/6&ndash;18 (school-age)</li>
+        <li><strong>Items:</strong> 113 items (CBCL/6&ndash;18); 99 items (CBCL/1.5&ndash;5)</li>
+        <li><strong>Response format:</strong> 3-point scale: 0 = Not true, 1 = Somewhat true, 2 = Very/Often true</li>
+        <li><strong>Broadband scales:</strong></li>
+        <li style="list-style:none; margin-left:20px;"><strong>Internalizing:</strong> Anxious/Depressed, Withdrawn/Depressed, Somatic Complaints</li>
+        <li style="list-style:none; margin-left:20px;"><strong>Externalizing:</strong> Rule-Breaking Behavior, Aggressive Behavior</li>
+        <li><strong>Syndrome scales (8):</strong> Anxious/Depressed, Withdrawn/Depressed, Somatic Complaints, Social Problems, Thought Problems, Attention Problems, Rule-Breaking, Aggressive</li>
+        <li><strong>DSM-oriented scales (6):</strong> Affective, Anxiety, Somatic, ADHD, Oppositional Defiant, Conduct Problems</li>
+    </ul>
+
+    <div class="section-title">Scoring Method</div>
+    <ul>
+        <li><strong>Step 1:</strong> Sum items for each syndrome scale</li>
+        <li><strong>Step 2:</strong> Convert raw scores to T-scores using normative tables (age &amp; gender specific)</li>
+        <li><strong>Step 3:</strong> Interpret T-scores:</li>
+    </ul>
+    <table>
+        <tr><th>T-Score Range</th><th>Syndrome Scales</th><th>Broadband Scales</th></tr>
+        <tr><td class="green">&lt;65</td><td>Normal</td><td>Normal</td></tr>
+        <tr><td class="yellow">65&ndash;69</td><td>Borderline Clinical</td><td>Borderline Clinical</td></tr>
+        <tr><td class="red">&ge;70</td><td>Clinical Range</td><td>Clinical Range</td></tr>
+    </table>
+    <p style="margin-top:8px;color:#6ee7b7;"><strong>Note:</strong> For broadband (Internalizing/Externalizing/Total), clinical cut-off is T &ge; 64; for syndrome scales, T &ge; 70.</p>
+
+    <div class="section-title">Clinical Interpretation</div>
+    <ul>
+        <li><strong>Internalizing &gt; Externalizing:</strong> Emotional/anxiety/depressive issues predominate</li>
+        <li><strong>Externalizing &gt; Internalizing:</strong> Behavioral/conduct/ADHD issues predominate</li>
+        <li><strong>High Total Problems T-score:</strong> Pervasive psychopathology; multi-domain impairment</li>
+        <li><strong>Cross-informant comparison:</strong> Compare CBCL (parent) with TRF (teacher) and YSR (self-report)</li>
+    </ul>
+
+    <div class="section-title">Administration Details</div>
+    <ul>
+        <li><strong>Type:</strong> Parent/caregiver report</li>
+        <li><strong>Time:</strong> 15&ndash;20 minutes</li>
+        <li><strong>Age:</strong> 1.5&ndash;5 years OR 6&ndash;18 years</li>
+        <li><strong>Scoring:</strong> Computer scoring recommended (ASEBA software)</li>
+    </ul>
+
+    <div class="section-title">Advantages</div>
+    <div class="advantages">
+        <ul>
+            <li>Comprehensive multi-dimensional assessment</li>
+            <li>Empirically derived scales</li>
+            <li>Multi-informant system (CBCL + TRF + YSR)</li>
+            <li>Excellent psychometric properties</li>
+            <li>Widely used internationally including India</li>
+        </ul>
+    </div>
+
+    <div class="section-title">Limitations</div>
+    <div class="limitations">
+        <ul>
+            <li>Copyrighted and expensive</li>
+            <li>Informant bias (parent perspective only)</li>
+            <li>Requires computer scoring for T-scores</li>
+            <li>Limited Indian norms (use with caution)</li>
+            <li>Does not diagnose &mdash; screening/dimensional only</li>
+        </ul>
+    </div>
+
+    <div class="section-title">Alternatives / Similar Scales</div>
+    <div class="alternatives">
+        <ul>
+            <li><strong>SDQ (Strengths &amp; Difficulties Questionnaire):</strong> 25-item; free; brief; widely used in India; 5 subscales</li>
+            <li><strong>Conners:</strong> Specifically for ADHD assessment; multiple versions</li>
+            <li><strong>BASC-3:</strong> Similar multi-dimensional; also includes adaptive scales</li>
+            <li><strong>PSC (Pediatric Symptom Checklist):</strong> 35-item; brief screening; free</li>
+        </ul>
+    </div>
+</div>
+
+<!-- Conners -->
+<div class="scale-card" id="conners">
+    <h3>15. Conners Rating Scales (CRS-3 / Conners-3)</h3>
+    <span class="domain-badge">ADHD / Child Behavior</span>
+
+    <div class="section-title">Purpose / Clinical Use</div>
+    <ul>
+        <li>Assessment of ADHD and related problems in children/adolescents</li>
+        <li>Differentiation of ADHD subtypes (Inattentive, Hyperactive-Impulsive, Combined)</li>
+        <li>Treatment monitoring</li>
+        <li>Multi-informant: Parent, Teacher, Self-Report forms</li>
+    </ul>
+
+    <div class="section-title">Structure</div>
+    <ul>
+        <li><strong>Conners-3 (Full length):</strong></li>
+        <li style="list-style:none; margin-left:20px;">Parent form: 110 items</li>
+        <li style="list-style:none; margin-left:20px;">Teacher form: 115 items</li>
+        <li style="list-style:none; margin-left:20px;">Self-report (8&ndash;18 yrs): 99 items</li>
+        <li><strong>Short forms available:</strong> 43&ndash;45 items</li>
+        <li><strong>Response format:</strong> 4-point Likert: 0 = Not at all, 1 = Just a little, 2 = Pretty much, 3 = Very much</li>
+        <li><strong>Content scales:</strong> Inattention, Hyperactivity/Impulsivity, Learning Problems, Executive Functioning, Aggression, Peer Relations</li>
+        <li><strong>DSM-5 Symptom Scales:</strong> ADHD Inattentive, ADHD Hyperactive-Impulsive, Conduct Disorder, Oppositional Defiant Disorder</li>
+        <li><strong>Validity scales:</strong> Positive Impression, Negative Impression, Inconsistency Index</li>
+    </ul>
+
+    <div class="section-title">Scoring Method</div>
+    <ul>
+        <li><strong>Step 1:</strong> Sum items for each scale</li>
+        <li><strong>Step 2:</strong> Convert raw scores to T-scores (age- &amp; gender-normed)</li>
+        <li><strong>Step 3:</strong> Interpret T-scores</li>
+    </ul>
+    <table>
+        <tr><th>T-Score</th><th>Interpretation</th></tr>
+        <tr><td>&le;59</td><td class="green">Average (no concerns)</td></tr>
+        <tr><td>60&ndash;64</td><td class="yellow">High Average (possible concern)</td></tr>
+        <tr><td>65&ndash;69</td><td class="yellow">Elevated (probable clinical significance)</td></tr>
+        <tr><td>&ge;70</td><td class="red">Very Elevated (highly atypical; clinically significant)</td></tr>
+    </table>
+    <p style="margin-top:8px;color:#6ee7b7;"><strong>ADHD Index:</strong> Probability score; higher = more likely ADHD diagnosis. T &ge; 70 strongly suggestive.</p>
+
+    <div class="section-title">Clinical Interpretation</div>
+    <ul>
+        <li><strong>Inattention T &ge; 70 + Hyperactivity T &lt; 65:</strong> ADHD Predominantly Inattentive</li>
+        <li><strong>Hyperactivity T &ge; 70 + Inattention T &lt; 65:</strong> ADHD Predominantly Hyperactive-Impulsive</li>
+        <li><strong>Both elevated:</strong> ADHD Combined Presentation</li>
+        <li><strong>Cross-informant discrepancies:</strong> Common in ADHD; explore situational factors</li>
+    </ul>
+
+    <div class="section-title">Administration Details</div>
+    <ul>
+        <li><strong>Type:</strong> Parent/Teacher/Self-report (multi-informant)</li>
+        <li><strong>Time:</strong> 20 minutes (full); 10 minutes (short)</li>
+        <li><strong>Age:</strong> 6&ndash;18 years (parent/teacher); 8&ndash;18 years (self-report)</li>
+        <li><strong>Also available:</strong> Conners Adult ADHD Rating Scale (CAARS) for adults</li>
+    </ul>
+
+    <div class="section-title">Advantages</div>
+    <div class="advantages">
+        <ul>
+            <li>Gold standard for ADHD assessment in children</li>
+            <li>Multi-informant system</li>
+            <li>DSM-5 aligned symptom scales</li>
+            <li>Built-in validity indices</li>
+            <li>Normative data extensive</li>
+        </ul>
+    </div>
+
+    <div class="section-title">Limitations</div>
+    <div class="limitations">
+        <ul>
+            <li>Copyrighted and expensive (MHS publishing)</li>
+            <li>Limited Indian norms</li>
+            <li>Lengthy full-form administration</li>
+            <li>Requires computer scoring for accurate T-scores</li>
+            <li>Informant bias possible</li>
+        </ul>
+    </div>
+
+    <div class="section-title">Alternatives / Similar Scales</div>
+    <div class="alternatives">
+        <ul>
+            <li><strong>Vanderbilt ADHD Scale:</strong> Free; DSM-based; parent &amp; teacher versions; popular in India</li>
+            <li><strong>SNAP-IV:</strong> 26-item; free; maps DSM criteria for ADHD/ODD</li>
+            <li><strong>CBCL (Attention Problems scale):</strong> Part of broader behavioral assessment</li>
+            <li><strong>ADHD-RS (ADHD Rating Scale-5):</strong> 18-item; directly maps DSM-5 ADHD criteria; parent/teacher</li>
+        </ul>
+    </div>
+</div>
+
+<!-- ISAA -->
+<div class="scale-card" id="isaa">
+    <h3>16. Indian Scale for Assessment of Autism (ISAA)</h3>
+    <span class="domain-badge">Autism Spectrum Disorder (India-specific)</span>
+
+    <div class="section-title">Purpose / Clinical Use</div>
+    <ul>
+        <li><strong>Mandated by Government of India</strong> for certification of autism as disability under RPWD Act 2016</li>
+        <li>Screening and severity rating of autism in Indian context</li>
+        <li>Used for disability certification and benefit eligibility</li>
+        <li>Developed by NIMHANS, Bangalore (2009)</li>
+    </ul>
+
+    <div class="section-title">Structure</div>
+    <ul>
+        <li><strong>Items:</strong> 40 items</li>
+        <li><strong>6 Domains:</strong></li>
+        <li style="list-style:none; margin-left:20px;">1. Social Relationship &amp; Reciprocity (10 items)</li>
+        <li style="list-style:none; margin-left:20px;">2. Emotional Responsiveness (4 items)</li>
+        <li style="list-style:none; margin-left:20px;">3. Speech-Language &amp; Communication (7 items)</li>
+        <li style="list-style:none; margin-left:20px;">4. Behavior Patterns (8 items)</li>
+        <li style="list-style:none; margin-left:20px;">5. Sensory Aspects (6 items)</li>
+        <li style="list-style:none; margin-left:20px;">6. Cognitive Component (5 items)</li>
+        <li><strong>Response format:</strong> 5-point rating: 1 = Never, 2 = Rarely, 3 = Sometimes, 4 = Often, 5 = Always</li>
+    </ul>
+
+    <div class="section-title">Scoring Method</div>
+    <ul>
+        <li><strong>Step 1:</strong> Rate each item 1&ndash;5 based on observation &amp; parent interview</li>
+        <li><strong>Step 2:</strong> Sum all 40 items</li>
+        <li><strong>Score range:</strong> 40&ndash;200</li>
+        <li><strong>Higher score = more severe autism features</strong></li>
+    </ul>
+    <table>
+        <tr><th>Total Score</th><th>Severity / Interpretation</th></tr>
+        <tr><td>&lt;70</td><td class="green">No Autism / Below threshold</td></tr>
+        <tr><td>70&ndash;106</td><td class="yellow">Mild Autism</td></tr>
+        <tr><td>107&ndash;153</td><td class="red">Moderate Autism</td></tr>
+        <tr><td>&ge;154</td><td class="red">Severe Autism</td></tr>
+    </table>
+    <p style="margin-top:8px;color:#6ee7b7;"><strong>Disability certification:</strong> Score &ge;70 qualifies for autism disability certificate in India (40%+ disability). Severity determines benefit level.</p>
+
+    <div class="section-title">Clinical Interpretation</div>
+    <ul>
+        <li><strong>Score &ge;70:</strong> Meets threshold for autism; eligible for disability certification</li>
+        <li><strong>Domain analysis:</strong> Identifies specific areas of difficulty for intervention planning</li>
+        <li><strong>High Social Relationship scores:</strong> Core social deficits prominent</li>
+        <li><strong>High Behavior Pattern scores:</strong> Restrictive/repetitive behaviors prominent</li>
+    </ul>
+
+    <div class="section-title">Administration Details</div>
+    <ul>
+        <li><strong>Type:</strong> Professional-rated (psychologist/psychiatrist) based on observation + parent interview</li>
+        <li><strong>Time:</strong> 20&ndash;30 minutes</li>
+        <li><strong>Age:</strong> 3&ndash;22 years (primarily children/adolescents)</li>
+        <li><strong>Required by:</strong> District Disability Boards in India</li>
+    </ul>
+
+    <div class="section-title">Advantages</div>
+    <div class="advantages">
+        <ul>
+            <li>India-specific; culturally appropriate</li>
+            <li>Government-mandated &mdash; essential for disability certification</li>
+            <li>Covers sensory &amp; cognitive domains (beyond DSM criteria)</li>
+            <li>Free to use (government tool)</li>
+            <li>Available in multiple Indian languages</li>
+        </ul>
+    </div>
+
+    <div class="section-title">Limitations</div>
+    <div class="limitations">
+        <ul>
+            <li>Not internationally validated outside India</li>
+            <li>Psychometric properties debated</li>
+            <li>May not align perfectly with DSM-5/ICD-11 ASD criteria</li>
+            <li>Scoring can be subjective without structured guidelines</li>
+            <li>Limited use for high-functioning/Asperger's presentations</li>
+        </ul>
+    </div>
+
+    <div class="section-title">Alternatives / Similar Scales</div>
+    <div class="alternatives">
+        <ul>
+            <li><strong>CARS-2 (Childhood Autism Rating Scale):</strong> 15-item; international gold standard for autism severity; clinician-rated</li>
+            <li><strong>ADOS-2:</strong> Observational assessment; gold standard for diagnosis; requires extensive training</li>
+            <li><strong>ADI-R:</strong> Semi-structured parent interview; diagnostic; research standard</li>
+            <li><strong>SCQ (Social Communication Questionnaire):</strong> 40-item screening; parent-report; derived from ADI-R</li>
+        </ul>
+    </div>
+</div>
+
+<!-- ============================================ -->
+<!-- SECTION H: SUBSTANCE USE -->
+<!-- ============================================ -->
+<div class="category-header" id="substance">H. SUBSTANCE USE &amp; ADDICTION SCALES</div>
+
+<!-- AUDIT -->
+<div class="scale-card" id="audit">
+    <h3>17. Alcohol Use Disorders Identification Test (AUDIT)</h3>
+    <span class="domain-badge">Alcohol Use / Screening</span>
+
+    <div class="section-title">Purpose / Clinical Use</div>
+    <ul>
+        <li>Screening for hazardous and harmful alcohol use</li>
+        <li>Identifying alcohol use disorders (at-risk drinking)</li>
+        <li>Developed by WHO for primary care settings</li>
+        <li>Brief intervention decision tool (AUDIT-based stepped care)</li>
+    </ul>
+
+    <div class="section-title">Structure</div>
+    <ul>
+        <li><strong>Items:</strong> 10 items</li>
+        <li><strong>3 Domains:</strong></li>
+        <li style="list-style:none; margin-left:20px;">Hazardous Alcohol Use (items 1&ndash;3): Frequency, quantity, binge drinking</li>
+        <li style="list-style:none; margin-left:20px;">Dependence Symptoms (items 4&ndash;6): Impaired control, morning drinking, guilt, blackouts</li>
+        <li style="list-style:none; margin-left:20px;">Harmful Alcohol Use (items 7&ndash;10): Others concerned, injury, failure to fulfill obligations</li>
+        <li><strong>Response format:</strong> 5-point scale (0&ndash;4) per item</li>
+        <li><strong>Items 9 &amp; 10:</strong> Scored 0, 2, or 4 only (3 options)</li>
+    </ul>
+
+    <div class="section-title">Scoring Method</div>
+    <ul>
+        <li><strong>Step 1:</strong> Score each item 0&ndash;4</li>
+        <li><strong>Step 2:</strong> Sum all 10 items</li>
+        <li><strong>Score range:</strong> 0&ndash;40</li>
+    </ul>
+    <table>
+        <tr><th>Score</th><th>Risk Level</th><th>Intervention</th></tr>
+        <tr><td>0&ndash;7</td><td class="green">Low risk</td><td>Alcohol education</td></tr>
+        <tr><td>8&ndash;15</td><td class="yellow">Hazardous use</td><td>Simple advice / Brief intervention</td></tr>
+        <tr><td>16&ndash;19</td><td class="yellow">Harmful use</td><td>Brief intervention + continued monitoring</td></tr>
+        <tr><td>20&ndash;40</td><td class="red">Possible dependence</td><td>Referral for specialist assessment &amp; treatment</td></tr>
+    </table>
+    <p style="margin-top:8px;color:#6ee7b7;"><strong>AUDIT-C (items 1&ndash;3 only):</strong> Quick 3-item screen. Cut-off: &ge;4 (men), &ge;3 (women) = positive screen.</p>
+
+    <div class="section-title">Clinical Interpretation</div>
+    <ul>
+        <li><strong>Score 8+:</strong> Warrants further assessment; hazardous drinking pattern</li>
+        <li><strong>Score 20+:</strong> Likely alcohol dependence; needs specialist referral</li>
+        <li><strong>High items 4&ndash;6:</strong> Dependence features present</li>
+        <li><strong>High items 7&ndash;10:</strong> Harmful consequences already occurring</li>
+    </ul>
+
+    <div class="section-title">Administration Details</div>
+    <ul>
+        <li><strong>Type:</strong> Self-report or interview-based</li>
+        <li><strong>Time:</strong> 2&ndash;5 minutes</li>
+        <li><strong>Age:</strong> Adults (18+)</li>
+        <li><strong>Setting:</strong> Primary care, emergency departments, psychiatric clinics</li>
+    </ul>
+
+    <div class="section-title">Advantages</div>
+    <div class="advantages">
+        <ul>
+            <li>WHO-developed; internationally validated</li>
+            <li>Free to use</li>
+            <li>Very brief</li>
+            <li>Covers full spectrum (hazardous to dependent use)</li>
+            <li>Linked to intervention framework (WHO AUDIT manual)</li>
+            <li>Available in Hindi and other Indian languages</li>
+        </ul>
+    </div>
+
+    <div class="section-title">Limitations</div>
+    <div class="limitations">
+        <ul>
+            <li>Self-report &mdash; underreporting common</li>
+            <li>Cultural drinking norms may affect interpretation</li>
+            <li>Does not assess other substances</li>
+            <li>Standard drink definition varies across countries</li>
+        </ul>
+    </div>
+
+    <div class="section-title">Alternatives / Similar Scales</div>
+    <div class="alternatives">
+        <ul>
+            <li><strong>CAGE:</strong> 4-item; ultra-brief; 2+ positive = alcoholism screen; less sensitive for hazardous drinking</li>
+            <li><strong>MAST:</strong> 25-item; detailed; older; more for dependence detection</li>
+            <li><strong>ASSIST:</strong> Multi-substance; broader coverage; also WHO-developed</li>
+            <li><strong>AUDIT-C:</strong> First 3 items of AUDIT; ultra-brief screening version</li>
+        </ul>
+    </div>
+</div>
+
+<!-- ASSIST -->
+<div class="scale-card" id="assist">
+    <h3>18. Alcohol, Smoking and Substance Involvement Screening Test (ASSIST)</h3>
+    <span class="domain-badge">Multi-Substance Use / Screening</span>
+
+    <div class="section-title">Purpose / Clinical Use</div>
+    <ul>
+        <li>Screens for risky use of ALL substance categories</li>
+        <li>WHO-developed for primary care and general health settings</li>
+        <li>Linked to brief intervention (ASSIST-BI)</li>
+        <li>Identifies level of risk for each substance separately</li>
+    </ul>
+
+    <div class="section-title">Structure</div>
+    <ul>
+        <li><strong>Items:</strong> 8 questions asked for EACH substance</li>
+        <li><strong>Substances assessed (10 categories):</strong> Tobacco, Alcohol, Cannabis, Cocaine, Amphetamines, Inhalants, Sedatives, Hallucinogens, Opioids, Other</li>
+        <li><strong>Questions cover:</strong> Lifetime use, frequency (past 3 months), urge to use, problems caused, failed role obligations, concern expressed by others, attempts to cut down, injection use</li>
+        <li><strong>Response format:</strong> Varies per question (frequency-based or Yes/No)</li>
+    </ul>
+
+    <div class="section-title">Scoring Method</div>
+    <ul>
+        <li><strong>Step 1:</strong> Q1 (lifetime use) is a gateway question &mdash; if "No" for a substance, skip remaining questions for that substance</li>
+        <li><strong>Step 2:</strong> For each substance endorsed, sum Q2&ndash;Q7 scores</li>
+        <li><strong>Step 3:</strong> Calculate Substance-Specific Involvement Score (SSIS) for each substance</li>
+        <li><strong>Q8 (injection):</strong> Scored separately; not included in SSIS</li>
+        <li><strong>Total involvement score:</strong> Sum of all substance scores (for overall risk)</li>
+    </ul>
+    <table>
+        <tr><th>SSIS Range</th><th>Alcohol</th><th>All Other Substances</th><th>Risk Level</th></tr>
+        <tr><td class="green">0&ndash;10</td><td>0&ndash;10</td><td>0&ndash;3</td><td>Low risk</td></tr>
+        <tr><td class="yellow">11&ndash;26</td><td>11&ndash;26</td><td>4&ndash;26</td><td>Moderate risk (Brief Intervention)</td></tr>
+        <tr><td class="red">&ge;27</td><td>&ge;27</td><td>&ge;27</td><td>High risk (Intensive treatment referral)</td></tr>
+    </table>
+    <p style="margin-top:8px;color:#6ee7b7;"><strong>Injection drug use (Q8):</strong> Any injection in past 3 months = automatic referral regardless of score.</p>
+
+    <div class="section-title">Clinical Interpretation</div>
+    <ul>
+        <li><strong>Low risk (0&ndash;3/0&ndash;10):</strong> No intervention needed; brief positive feedback</li>
+        <li><strong>Moderate risk:</strong> Brief intervention (ASSIST-linked BI); psychoeducation; motivational interviewing</li>
+        <li><strong>High risk (&ge;27):</strong> Likely dependence; needs specialist referral</li>
+        <li><strong>Multiple substances elevated:</strong> Polysubstance use; complex treatment needs</li>
+    </ul>
+
+    <div class="section-title">Administration Details</div>
+    <ul>
+        <li><strong>Type:</strong> Interview-administered (preferred) or self-report</li>
+        <li><strong>Time:</strong> 5&ndash;10 minutes</li>
+        <li><strong>Age:</strong> Adults (18+)</li>
+        <li><strong>Available in:</strong> Multiple languages including Hindi</li>
+    </ul>
+
+    <div class="section-title">Advantages</div>
+    <div class="advantages">
+        <ul>
+            <li>Covers ALL substance categories in one instrument</li>
+            <li>WHO-developed; globally validated</li>
+            <li>Free to use</li>
+            <li>Directly linked to intervention framework</li>
+            <li>Efficient &mdash; skips irrelevant substances</li>
+        </ul>
+    </div>
+
+    <div class="section-title">Limitations</div>
+    <div class="limitations">
+        <ul>
+            <li>Screening only &mdash; not diagnostic</li>
+            <li>Self-report bias (underreporting)</li>
+            <li>Different cut-offs for alcohol vs. other substances can be confusing</li>
+            <li>May be too brief for comprehensive substance use assessment</li>
+        </ul>
+    </div>
+
+    <div class="section-title">Alternatives / Similar Scales</div>
+    <div class="alternatives">
+        <ul>
+            <li><strong>AUDIT:</strong> Alcohol-only; more detailed for alcohol; same risk framework</li>
+            <li><strong>DAST:</strong> Drug-only (excluding alcohol); 20/28 items</li>
+            <li><strong>CAGE-AID:</strong> 4-item; adapted to include drugs; ultra-brief</li>
+            <li><strong>TAPS:</strong> Tobacco, Alcohol, Prescription, Substance; 2-step screening</li>
+        </ul>
+    </div>
+</div>
+
+<!-- DAST -->
+<div class="scale-card" id="dast">
+    <h3>19. Drug Abuse Screening Test (DAST-20 / DAST-10)</h3>
+    <span class="domain-badge">Drug Use (Non-Alcohol)</span>
+
+    <div class="section-title">Purpose / Clinical Use</div>
+    <ul>
+        <li>Screens for drug use problems (excluding alcohol &amp; tobacco)</li>
+        <li>Quantifies degree of drug-related consequences</li>
+        <li>Brief screening in clinical settings</li>
+        <li>Identifies need for further assessment</li>
+    </ul>
+
+    <div class="section-title">Structure</div>
+    <ul>
+        <li><strong>Versions:</strong> DAST-28, DAST-20, DAST-10</li>
+        <li><strong>DAST-20:</strong> 20 items (most commonly used)</li>
+        <li><strong>DAST-10:</strong> 10 items (brief version)</li>
+        <li><strong>Response format:</strong> Yes (1) / No (0)</li>
+        <li><strong>Time frame:</strong> Past 12 months</li>
+        <li><strong>Covers:</strong> Drug use patterns, consequences, loss of control, social problems, medical issues</li>
+    </ul>
+
+    <div class="section-title">Scoring Method</div>
+    <ul>
+        <li><strong>Step 1:</strong> Score each item Yes = 1, No = 0</li>
+        <li><strong>Step 2:</strong> Reverse score items 4 &amp; 5 (DAST-20): "No" = 1; "Yes" = 0</li>
+        <li><strong>Step 3:</strong> Sum all items</li>
+        <li><strong>Score range (DAST-20):</strong> 0&ndash;20</li>
+        <li><strong>Score range (DAST-10):</strong> 0&ndash;10</li>
+    </ul>
+    <table>
+        <tr><th>DAST-20 Score</th><th>DAST-10 Score</th><th>Severity / Action</th></tr>
+        <tr><td>0</td><td>0</td><td class="green">No problems reported</td></tr>
+        <tr><td>1&ndash;5</td><td>1&ndash;2</td><td class="yellow">Low level (Monitor, brief advice)</td></tr>
+        <tr><td>6&ndash;10</td><td>3&ndash;5</td><td class="yellow">Moderate (Brief intervention)</td></tr>
+        <tr><td>11&ndash;15</td><td>6&ndash;8</td><td class="red">Substantial (Intensive assessment)</td></tr>
+        <tr><td>16&ndash;20</td><td>9&ndash;10</td><td class="red">Severe (Intensive treatment)</td></tr>
+    </table>
+
+    <div class="section-title">Clinical Interpretation</div>
+    <ul>
+        <li><strong>Score &ge;6 (DAST-20):</strong> Significant drug problem; needs comprehensive assessment</li>
+        <li><strong>Score &ge;3 (DAST-10):</strong> Moderate risk; brief intervention indicated</li>
+        <li><strong>High scores (&ge;16):</strong> Likely substance use disorder; needs specialist treatment</li>
+        <li><strong>Note:</strong> Does not specify which drug(s) are problematic &mdash; follow-up needed</li>
+    </ul>
+
+    <div class="section-title">Administration Details</div>
+    <ul>
+        <li><strong>Type:</strong> Self-report or interview</li>
+        <li><strong>Time:</strong> 5 minutes (DAST-10); 10 minutes (DAST-20)</li>
+        <li><strong>Age:</strong> Adults and adolescents</li>
+    </ul>
+
+    <div class="section-title">Advantages</div>
+    <div class="advantages">
+        <ul>
+            <li>Brief and easy to administer</li>
+            <li>Good psychometric properties</li>
+            <li>Free to use</li>
+            <li>Widely validated</li>
+            <li>Useful in primary care screening</li>
+        </ul>
+    </div>
+
+    <div class="section-title">Limitations</div>
+    <div class="limitations">
+        <ul>
+            <li>Does not identify specific drugs used</li>
+            <li>Yes/No format lacks nuance</li>
+            <li>Does not assess quantity/frequency</li>
+            <li>Reverse scoring can cause errors</li>
+            <li>Excludes alcohol and tobacco</li>
+        </ul>
+    </div>
+
+    <div class="section-title">Alternatives / Similar Scales</div>
+    <div class="alternatives">
+        <ul>
+            <li><strong>ASSIST:</strong> Covers all substances; identifies which substance is problematic</li>
+            <li><strong>AUDIT:</strong> Alcohol-specific; complementary to DAST</li>
+            <li><strong>CAGE-AID:</strong> 4-item; quick screen; adapted for drugs</li>
+            <li><strong>CRAFFT:</strong> Adolescent-specific substance screening (6 items)</li>
+        </ul>
+    </div>
+</div>
+
+<!-- ============================================ -->
+<!-- SECTION I: WITHDRAWAL SCALES -->
+<!-- ============================================ -->
+<div class="category-header" id="withdrawal">I. WITHDRAWAL SCALES</div>
+
+<!-- CIWA-Ar -->
+<div class="scale-card" id="ciwa">
+    <h3>20. Clinical Institute Withdrawal Assessment for Alcohol - Revised (CIWA-Ar)</h3>
+    <span class="domain-badge">Alcohol Withdrawal</span>
+
+    <div class="section-title">Purpose / Clinical Use</div>
+    <ul>
+        <li>Quantifies severity of alcohol withdrawal syndrome</li>
+        <li>Guides pharmacological management (symptom-triggered therapy)</li>
+        <li>Monitors withdrawal progression and treatment response</li>
+        <li>Standard tool in deaddiction and emergency settings</li>
+    </ul>
+
+    <div class="section-title">Structure</div>
+    <ul>
+        <li><strong>Items:</strong> 10 items</li>
+        <li><strong>Response format:</strong> Clinician-rated; items scored 0&ndash;7 (most items) or 0&ndash;4</li>
+        <li><strong>Items (with max scores):</strong></li>
+        <li style="list-style:none; margin-left:20px;">1. Nausea/Vomiting (0&ndash;7)</li>
+        <li style="list-style:none; margin-left:20px;">2. Tremor (0&ndash;7)</li>
+        <li style="list-style:none; margin-left:20px;">3. Paroxysmal Sweats (0&ndash;7)</li>
+        <li style="list-style:none; margin-left:20px;">4. Anxiety (0&ndash;7)</li>
+        <li style="list-style:none; margin-left:20px;">5. Agitation (0&ndash;7)</li>
+        <li style="list-style:none; margin-left:20px;">6. Tactile Disturbances (0&ndash;7)</li>
+        <li style="list-style:none; margin-left:20px;">7. Auditory Disturbances (0&ndash;7)</li>
+        <li style="list-style:none; margin-left:20px;">8. Visual Disturbances (0&ndash;7)</li>
+        <li style="list-style:none; margin-left:20px;">9. Headache/Fullness in Head (0&ndash;7)</li>
+        <li style="list-style:none; margin-left:20px;">10. Orientation/Clouding of Sensorium (0&ndash;4)</li>
+    </ul>
+
+    <div class="section-title">Scoring Method</div>
+    <ul>
+        <li><strong>Step 1:</strong> Rate each item based on observation and patient report</li>
+        <li><strong>Step 2:</strong> Sum all 10 items</li>
+        <li><strong>Score range:</strong> 0&ndash;67</li>
+        <li><strong>Frequency of assessment:</strong> Every 1&ndash;2 hours during acute withdrawal</li>
+    </ul>
+    <table>
+        <tr><th>Score</th><th>Severity</th><th>Management</th></tr>
+        <tr><td>&le;8</td><td class="green">Mild withdrawal</td><td>May not require medication; monitor</td></tr>
+        <tr><td>9&ndash;15</td><td class="yellow">Moderate withdrawal</td><td>Consider benzodiazepines (symptom-triggered)</td></tr>
+        <tr><td>16&ndash;20</td><td class="red">Severe withdrawal</td><td>Benzodiazepines indicated; close monitoring</td></tr>
+        <tr><td>&gt;20</td><td class="red">Very severe / Risk of seizures &amp; DT</td><td>Aggressive treatment; ICU consideration</td></tr>
+    </table>
+    <p style="margin-top:8px;color:#6ee7b7;"><strong>Clinical decision:</strong> Score &ge;10 typically triggers benzodiazepine administration in symptom-triggered protocols.</p>
+
+    <div class="section-title">Clinical Interpretation</div>
+    <ul>
+        <li><strong>Score &gt;20:</strong> High risk of delirium tremens &amp; seizures; medical emergency</li>
+        <li><strong>Rising scores:</strong> Worsening withdrawal; increase monitoring frequency</li>
+        <li><strong>Items 6&ndash;8 elevated:</strong> Perceptual disturbances; impending delirium tremens</li>
+        <li><strong class="red">Red flags:</strong> Score &gt;20, disorientation (item 10 &ge;3), hallucinations = ICU transfer</li>
+    </ul>
+
+    <div class="section-title">Administration Details</div>
+    <ul>
+        <li><strong>Type:</strong> Clinician-rated (nurse/physician)</li>
+        <li><strong>Time:</strong> 2&ndash;5 minutes per assessment</li>
+        <li><strong>Frequency:</strong> Every 1&ndash;4 hours during withdrawal</li>
+        <li><strong>Setting:</strong> Inpatient, emergency, deaddiction units</li>
+    </ul>
+
+    <div class="section-title">Advantages</div>
+    <div class="advantages">
+        <ul>
+            <li>Quick bedside assessment</li>
+            <li>Guides symptom-triggered benzodiazepine therapy</li>
+            <li>Reduces unnecessary medication use</li>
+            <li>Well-validated; widely used globally</li>
+            <li>Free to use</li>
+        </ul>
+    </div>
+
+    <div class="section-title">Limitations</div>
+    <div class="limitations">
+        <ul>
+            <li>Requires patient cooperation (difficult if severely agitated/delirious)</li>
+            <li>Subjective items (anxiety, headache) depend on patient report</li>
+            <li>Not suitable for polysubstance withdrawal assessment</li>
+            <li>Does not predict seizures with certainty</li>
+        </ul>
+    </div>
+
+    <div class="section-title">Alternatives / Similar Scales</div>
+    <div class="alternatives">
+        <ul>
+            <li><strong>AWS (Alcohol Withdrawal Scale):</strong> Simpler; fewer items; used in some settings</li>
+            <li><strong>PAWSS:</strong> Prediction of Alcohol Withdrawal Severity Scale; predicts risk before withdrawal begins</li>
+            <li><strong>CIWA-B:</strong> Benzodiazepine withdrawal version</li>
+            <li><strong>SHOT (Sweating, Hallucinations, Orientation, Tremor):</strong> 4-item ultra-brief assessment</li>
+        </ul>
+    </div>
+</div>
+
+<!-- COWS -->
+<div class="scale-card" id="cows">
+    <h3>21. Clinical Opiate Withdrawal Scale (COWS)</h3>
+    <span class="domain-badge">Opioid Withdrawal</span>
+
+    <div class="section-title">Purpose / Clinical Use</div>
+    <ul>
+        <li>Assesses severity of opioid withdrawal</li>
+        <li>Guides buprenorphine/methadone induction timing</li>
+        <li>Monitors withdrawal progression during detoxification</li>
+        <li>Standard in opioid substitution therapy programs</li>
+    </ul>
+
+    <div class="section-title">Structure</div>
+    <ul>
+        <li><strong>Items:</strong> 11 items</li>
+        <li><strong>Response format:</strong> Clinician-rated; items have varying scales (0&ndash;4 or 0&ndash;5)</li>
+        <li><strong>Items assessed:</strong> Resting pulse rate, Sweating, Restlessness, Pupil size, Bone/joint aches, Runny nose/tearing, GI upset, Tremor, Yawning, Anxiety/irritability, Gooseflesh skin</li>
+        <li><strong>Based on:</strong> Objective signs + patient report</li>
+    </ul>
+
+    <div class="section-title">Scoring Method</div>
+    <ul>
+        <li><strong>Step 1:</strong> Rate each item based on clinician observation and patient interview</li>
+        <li><strong>Step 2:</strong> Sum all 11 items</li>
+        <li><strong>Score range:</strong> 0&ndash;48</li>
+    </ul>
+    <table>
+        <tr><th>Score</th><th>Severity</th><th>Clinical Action</th></tr>
+        <tr><td>5&ndash;12</td><td class="yellow">Mild withdrawal</td><td>Continue monitoring; consider symptomatic treatment</td></tr>
+        <tr><td>13&ndash;24</td><td class="yellow">Moderate withdrawal</td><td>Buprenorphine induction appropriate</td></tr>
+        <tr><td>25&ndash;36</td><td class="red">Moderately severe</td><td>Active treatment; buprenorphine/methadone</td></tr>
+        <tr><td>&gt;36</td><td class="red">Severe withdrawal</td><td>Aggressive treatment; close monitoring</td></tr>
+    </table>
+    <p style="margin-top:8px;color:#6ee7b7;"><strong>Buprenorphine induction:</strong> Typically initiated when COWS score &ge;13 (moderate withdrawal) to avoid precipitated withdrawal.</p>
+
+    <div class="section-title">Clinical Interpretation</div>
+    <ul>
+        <li><strong>Score &ge;13:</strong> Safe to initiate buprenorphine (sufficient withdrawal established)</li>
+        <li><strong>Score &lt;5:</strong> Not in withdrawal; do NOT give buprenorphine (risk of precipitated withdrawal)</li>
+        <li><strong>Rising scores after buprenorphine:</strong> May indicate precipitated withdrawal</li>
+        <li><strong class="red">Red flag:</strong> Pulse &gt;120 + severe GI symptoms + extreme anxiety = medical attention needed</li>
+    </ul>
+
+    <div class="section-title">Administration Details</div>
+    <ul>
+        <li><strong>Type:</strong> Clinician-rated (observation + interview)</li>
+        <li><strong>Time:</strong> 2&ndash;5 minutes</li>
+        <li><strong>Frequency:</strong> Every 30&ndash;60 minutes during induction; then every 4&ndash;8 hours</li>
+        <li><strong>Setting:</strong> Deaddiction units, OST clinics, emergency departments</li>
+    </ul>
+
+    <div class="section-title">Advantages</div>
+    <div class="advantages">
+        <ul>
+            <li>Quick and objective (relies on observable signs)</li>
+            <li>Guides safe buprenorphine induction</li>
+            <li>Simple scoring</li>
+            <li>Free to use</li>
+            <li>Widely validated</li>
+        </ul>
+    </div>
+
+    <div class="section-title">Limitations</div>
+    <div class="limitations">
+        <ul>
+            <li>Some items subjective (anxiety, bone pain)</li>
+            <li>Pulse may be elevated for other reasons (anxiety, medical conditions)</li>
+            <li>Not validated for neonatal withdrawal (use Finnegan scale instead)</li>
+            <li>Less useful for long-acting opioid withdrawal (delayed onset)</li>
+        </ul>
+    </div>
+
+    <div class="section-title">Alternatives / Similar Scales</div>
+    <div class="alternatives">
+        <ul>
+            <li><strong>SOWS (Subjective Opiate Withdrawal Scale):</strong> Self-report; 16 items; patient perspective</li>
+            <li><strong>OOWS (Objective Opiate Withdrawal Scale):</strong> 13 objective signs only; observer-rated</li>
+            <li><strong>Finnegan Scale (NAS):</strong> Neonatal abstinence syndrome scoring; for newborns</li>
+            <li><strong>CIWA-Ar:</strong> For alcohol withdrawal (different pharmacology); not interchangeable</li>
+        </ul>
+    </div>
+</div>
+
+<!-- ============================================ -->
+<!-- SECTION J: BELIEFS / INSIGHT -->
+<!-- ============================================ -->
+<div class="category-header" id="beliefs">J. BELIEF ASSESSMENT SCALE</div>
+
+<!-- BABS -->
+<div class="scale-card" id="babs">
+    <h3>22. Brown Assessment of Beliefs Scale (BABS)</h3>
+    <span class="domain-badge">Insight / Delusional Conviction</span>
+
+    <div class="section-title">Purpose / Clinical Use</div>
+    <ul>
+        <li>Assesses degree of conviction and insight regarding a specific belief</li>
+        <li>Used across disorders: OCD (overvalued ideation), BDD, delusional disorder, psychosis</li>
+        <li>Differentiates good insight vs. poor insight vs. delusional conviction</li>
+        <li>Critical for treatment planning (poor insight = poorer CBT response)</li>
+    </ul>
+
+    <div class="section-title">Structure</div>
+    <ul>
+        <li><strong>Items:</strong> 7 items</li>
+        <li><strong>Response format:</strong> Clinician-rated, 5-point scale (0&ndash;4) per item</li>
+        <li><strong>Items assess:</strong></li>
+        <li style="list-style:none; margin-left:20px;">1. Conviction (how certain the belief is true)</li>
+        <li style="list-style:none; margin-left:20px;">2. Perception of others' views (do others share the belief?)</li>
+        <li style="list-style:none; margin-left:20px;">3. Explanation of differing views (why others disagree)</li>
+        <li style="list-style:none; margin-left:20px;">4. Fixity of ideas (willingness to consider alternatives)</li>
+        <li style="list-style:none; margin-left:20px;">5. Attempt to disprove beliefs (reality testing efforts)</li>
+        <li style="list-style:none; margin-left:20px;">6. Insight (recognition that belief may be psychiatric symptom)</li>
+        <li style="list-style:none; margin-left:20px;">7. Ideas/delusions of reference (NOT included in total score)</li>
+        <li><strong>Target belief:</strong> Identified collaboratively before administration (e.g., the primary obsession in OCD)</li>
+    </ul>
+
+    <div class="section-title">Scoring Method</div>
+    <ul>
+        <li><strong>Step 1:</strong> Identify the target belief to be assessed</li>
+        <li><strong>Step 2:</strong> Rate items 1&ndash;6 on scale of 0&ndash;4</li>
+        <li><strong>Step 3:</strong> Sum items 1&ndash;6 (Item 7 is NOT included in total)</li>
+        <li><strong>Total score range:</strong> 0&ndash;24</li>
+        <li><strong>Higher scores = poorer insight / greater delusional conviction</strong></li>
+    </ul>
+    <table>
+        <tr><th>Total Score</th><th>Level of Insight</th></tr>
+        <tr><td>0&ndash;3</td><td class="green">Good insight (recognizes belief is likely not true)</td></tr>
+        <tr><td>4&ndash;7</td><td class="green">Fair insight</td></tr>
+        <tr><td>8&ndash;12</td><td class="yellow">Poor insight</td></tr>
+        <tr><td>13&ndash;17</td><td class="red">Absent insight / Overvalued ideation</td></tr>
+        <tr><td>18&ndash;24</td><td class="red">Delusional conviction</td></tr>
+    </table>
+    <p style="margin-top:8px;color:#6ee7b7;"><strong>Clinical threshold:</strong> Score &ge;18 = beliefs held with delusional intensity (consider "OCD with absent insight" specifier per DSM-5).</p>
+
+    <div class="section-title">Clinical Interpretation</div>
+    <ul>
+        <li><strong>Score 0&ndash;7:</strong> Good to fair insight; likely to benefit from standard CBT/ERP</li>
+        <li><strong>Score 8&ndash;12:</strong> Poor insight; may need modified CBT approach; consider augmentation strategies</li>
+        <li><strong>Score &ge;13:</strong> Absent insight/delusional; poor prognosis with CBT alone; antipsychotic augmentation may be needed</li>
+        <li><strong>Use with Y-BOCS:</strong> High Y-BOCS + High BABS = OCD with poor/absent insight (DSM-5 specifier)</li>
+        <li><strong class="red">Red flag:</strong> Score &ge;18 suggests beliefs are held with delusional intensity; differentiate from primary delusional disorder</li>
+    </ul>
+
+    <div class="section-title">Administration Details</div>
+    <ul>
+        <li><strong>Type:</strong> Clinician-rated (semi-structured interview)</li>
+        <li><strong>Time:</strong> 10&ndash;15 minutes</li>
+        <li><strong>Age:</strong> Adults; adolescents (with adaptation)</li>
+        <li><strong>Prerequisite:</strong> Target belief must be identified before administration</li>
+    </ul>
+
+    <div class="section-title">Advantages</div>
+    <div class="advantages">
+        <ul>
+            <li>Only validated scale specifically for belief assessment/insight across disorders</li>
+            <li>Useful in OCD, BDD, eating disorders, delusional disorder</li>
+            <li>Brief administration</li>
+            <li>Good psychometric properties</li>
+            <li>Free to use</li>
+            <li>Maps to DSM-5 insight specifier for OCD</li>
+        </ul>
+    </div>
+
+    <div class="section-title">Limitations</div>
+    <div class="limitations">
+        <ul>
+            <li>Assesses only ONE belief at a time</li>
+            <li>Requires clinical judgment to select target belief</li>
+            <li>Limited validation in psychosis populations (developed for OCD/BDD)</li>
+            <li>May fluctuate with mood state</li>
+        </ul>
+    </div>
+
+    <div class="section-title">Alternatives / Similar Scales</div>
+    <div class="alternatives">
+        <ul>
+            <li><strong>Y-BOCS Item 11 (Insight):</strong> Single item; less detailed; part of Y-BOCS</li>
+            <li><strong>OVIS (Overvalued Ideas Scale):</strong> 11 items; assesses overvalued ideation specifically</li>
+            <li><strong>David's Insight Scale (SAI):</strong> 3 dimensions of insight; for psychosis</li>
+            <li><strong>BCIS (Beck Cognitive Insight Scale):</strong> Self-report; measures cognitive insight in psychosis</li>
+        </ul>
+    </div>
+</div>
+
+<!-- ============================================ -->
+<!-- SECTION K: SUICIDE ASSESSMENT -->
+<!-- ============================================ -->
+<div class="category-header" id="suicide">K. SUICIDE ASSESSMENT SCALE</div>
+
+<!-- C-SSRS -->
+<div class="scale-card" id="cssrs">
+    <h3>23. Columbia-Suicide Severity Rating Scale (C-SSRS)</h3>
+    <span class="domain-badge">Suicide Risk Assessment</span>
+
+    <div class="section-title">Purpose / Clinical Use</div>
+    <ul>
+        <li>Gold standard for assessing suicidal ideation and behavior</li>
+        <li>Prospective risk assessment and monitoring</li>
+        <li>Distinguishes suicidal ideation from suicidal behavior (critical distinction)</li>
+        <li>Used in clinical settings, emergency departments, research, and FDA-mandated drug trials</li>
+        <li>Available for <strong>adults</strong> and <strong>children/adolescents (age 6+)</strong></li>
+    </ul>
+
+    <div class="section-title">Structure</div>
+    <ul>
+        <li><strong>Two main sections:</strong></li>
+        <li style="list-style:none; margin-left:20px;"><strong>Section 1: Suicidal Ideation (5 items)</strong> &mdash; rated for severity</li>
+        <li style="list-style:none; margin-left:20px;">1. Wish to be dead</li>
+        <li style="list-style:none; margin-left:20px;">2. Non-specific active suicidal thoughts</li>
+        <li style="list-style:none; margin-left:20px;">3. Active suicidal ideation with any methods (not plan) without intent</li>
+        <li style="list-style:none; margin-left:20px;">4. Active suicidal ideation with some intent to act, without specific plan</li>
+        <li style="list-style:none; margin-left:20px;">5. Active suicidal ideation with specific plan and intent</li>
+        <li style="list-style:none; margin-left:20px;"><strong>Intensity rating (for most severe ideation):</strong> Frequency, Duration, Controllability, Deterrents, Reasons (each 1&ndash;5)</li>
+        <li style="list-style:none; margin-left:20px;"><strong>Section 2: Suicidal Behavior (5 categories)</strong></li>
+        <li style="list-style:none; margin-left:20px;">1. Actual attempt</li>
+        <li style="list-style:none; margin-left:20px;">2. Interrupted attempt</li>
+        <li style="list-style:none; margin-left:20px;">3. Aborted attempt</li>
+        <li style="list-style:none; margin-left:20px;">4. Preparatory acts/behavior</li>
+        <li style="list-style:none; margin-left:20px;">5. Non-suicidal self-injurious behavior (NSSI)</li>
+        <li><strong>Response format:</strong> Yes/No for presence; severity rated on ordinal categories</li>
+        <li><strong>Versions:</strong> Lifetime/Recent, Since Last Visit, Baseline/Screening, Children's version (age 6&ndash;11)</li>
+    </ul>
+
+    <div class="section-title">Scoring Method</div>
+    <ul>
+        <li><strong>Step 1:</strong> Determine highest level of suicidal ideation endorsed (1&ndash;5)</li>
+        <li><strong>Step 2:</strong> Rate intensity of most severe ideation (5 subscales, each 1&ndash;5; total intensity range: 5&ndash;25)</li>
+        <li><strong>Step 3:</strong> Determine suicidal behavior category (if any)</li>
+        <li><strong>Step 4:</strong> Rate lethality of any attempts (0&ndash;5 scale + medical damage)</li>
+        <li><strong>No single total score</strong> &mdash; interpreted categorically</li>
+    </ul>
+    <table>
+        <tr><th>Ideation Severity</th><th>Category</th><th>Risk Level</th></tr>
+        <tr><td>0</td><td>No ideation</td><td class="green">Low</td></tr>
+        <tr><td>1</td><td>Wish to be dead</td><td class="yellow">Low-Moderate</td></tr>
+        <tr><td>2</td><td>Non-specific active thoughts</td><td class="yellow">Moderate</td></tr>
+        <tr><td>3</td><td>Active ideation with methods</td><td class="red">High</td></tr>
+        <tr><td>4</td><td>Ideation with intent, no plan</td><td class="red">High</td></tr>
+        <tr><td>5</td><td>Ideation with plan and intent</td><td class="red">Very High / Emergency</td></tr>
+    </table>
+    <table>
+        <tr><th>Behavior Category</th><th>Action Required</th></tr>
+        <tr><td>Preparatory acts</td><td class="red">Immediate safety planning; consider hospitalization</td></tr>
+        <tr><td>Aborted/Interrupted attempt</td><td class="red">Urgent psychiatric evaluation</td></tr>
+        <tr><td>Actual attempt</td><td class="red">Emergency intervention; hospitalization</td></tr>
+    </table>
+
+    <div class="section-title">Children's Version (C-SSRS Children's)</div>
+    <ul>
+        <li><strong>Age:</strong> 6&ndash;11 years (simplified language)</li>
+        <li><strong>Same structure</strong> but developmentally appropriate wording</li>
+        <li><strong>Key considerations:</strong> Children may not fully understand death's permanence; assess cognitive maturity</li>
+        <li><strong>Collateral information:</strong> Always supplement with parent/caregiver interview</li>
+    </ul>
+
+    <div class="section-title">Clinical Interpretation</div>
+    <ul>
+        <li><strong>Ideation level 4&ndash;5:</strong> Imminent risk; requires immediate intervention</li>
+        <li><strong>Any suicidal behavior (actual/interrupted/aborted):</strong> High-risk; safety planning mandatory</li>
+        <li><strong>High intensity scores:</strong> Frequent, uncontrollable thoughts with few deterrents = highest concern</li>
+        <li><strong class="red">Red flags:</strong> Ideation level &ge;4, any behavior category endorsed, high lethality, low controllability, absence of deterrents</li>
+    </ul>
+
+    <div class="section-title">Administration Details</div>
+    <ul>
+        <li><strong>Type:</strong> Clinician-administered (structured interview)</li>
+        <li><strong>Time:</strong> 5&ndash;10 minutes</li>
+        <li><strong>Age:</strong> Adults (18+); Children/Adolescents (6&ndash;17 with adapted version)</li>
+        <li><strong>Training:</strong> Free online training available (cssrs.columbia.edu)</li>
+        <li><strong>Setting:</strong> Clinical, emergency, research, schools, military</li>
+    </ul>
+
+    <div class="section-title">Advantages</div>
+    <div class="advantages">
+        <ul>
+            <li>FDA gold standard for clinical trials</li>
+            <li>Clear distinction between ideation and behavior</li>
+            <li>Free to use (public domain)</li>
+            <li>Validated across populations (adults, adolescents, children)</li>
+            <li>Multiple versions for different timeframes</li>
+            <li>Categorical risk assessment aids clinical decision-making</li>
+            <li>Available in 140+ languages including Hindi</li>
+        </ul>
+    </div>
+
+    <div class="section-title">Limitations</div>
+    <div class="limitations">
+        <ul>
+            <li>No single summary score (can be complex to interpret)</li>
+            <li>Relies on patient disclosure (concealment possible)</li>
+            <li>Young children may not comprehend abstract questions about death</li>
+            <li>Snapshot in time &mdash; suicidality fluctuates rapidly</li>
+            <li>Does not replace comprehensive suicide risk assessment</li>
+        </ul>
+    </div>
+
+    <div class="section-title">Alternatives / Similar Scales</div>
+    <div class="alternatives">
+        <ul>
+            <li><strong>PHQ-9 Item 9:</strong> Single screening item for suicidal thoughts; very brief; low specificity</li>
+            <li><strong>Beck Scale for Suicidal Ideation (BSS):</strong> 21-item; self-report; quantifies ideation severity</li>
+            <li><strong>SAD PERSONS Scale:</strong> 10-item mnemonic-based risk assessment; clinical decision tool</li>
+            <li><strong>SBQ-R (Suicidal Behaviors Questionnaire-Revised):</strong> 4-item self-report; lifetime + recent</li>
+        </ul>
+    </div>
+</div>
+
+<!-- ============================================ -->
+<!-- SECTION L: CRAVING / SUBSTANCE-SPECIFIC -->
+<!-- ============================================ -->
+<div class="category-header" id="craving">L. CRAVING &amp; SUBSTANCE-SPECIFIC SCALES</div>
+
+<!-- OCDUS -->
+<div class="scale-card" id="ocdus">
+    <h3>24. Obsessive Compulsive Drug Use Scale (OCDUS)</h3>
+    <span class="domain-badge">Craving / Substance Use</span>
+
+    <div class="section-title">Purpose / Clinical Use</div>
+    <ul>
+        <li>Measures intensity and intrusiveness of drug craving using OCD-like dimensions</li>
+        <li>Conceptualizes craving as obsessive thoughts and compulsive drug-seeking behavior</li>
+        <li>Monitors craving severity during treatment and recovery</li>
+        <li>Originally developed for heroin; adapted versions for alcohol (OCDS), cocaine, nicotine</li>
+    </ul>
+
+    <div class="section-title">Structure</div>
+    <ul>
+        <li><strong>Items:</strong> 12 items (OCDUS for drugs); OCDS = 14 items (for alcohol)</li>
+        <li><strong>3 Subscales:</strong></li>
+        <li style="list-style:none; margin-left:20px;">1. <strong>Thoughts &amp; Interference:</strong> Frequency, intrusiveness, distress of drug thoughts (items 1&ndash;5)</li>
+        <li style="list-style:none; margin-left:20px;">2. <strong>Desire &amp; Control:</strong> Intensity of desire, ability to resist (items 6&ndash;9)</li>
+        <li style="list-style:none; margin-left:20px;">3. <strong>Resistance:</strong> Efforts to resist drug thoughts and use (items 10&ndash;12)</li>
+        <li><strong>Response format:</strong> 5-point Likert scale (0&ndash;4) per item</li>
+        <li><strong>Time frame:</strong> Past 7 days</li>
+    </ul>
+
+    <div class="section-title">Scoring Method</div>
+    <ul>
+        <li><strong>Step 1:</strong> Rate each item 0&ndash;4</li>
+        <li><strong>Step 2:</strong> Sum all items for total score</li>
+        <li><strong>Total score range (OCDUS-12):</strong> 0&ndash;48</li>
+        <li><strong>Subscale scores:</strong> Sum relevant items for each subscale</li>
+        <li><strong>Higher scores = more intense craving</strong></li>
+    </ul>
+    <table>
+        <tr><th>Total Score</th><th>Craving Severity</th></tr>
+        <tr><td>0&ndash;10</td><td class="green">Minimal craving</td></tr>
+        <tr><td>11&ndash;20</td><td class="yellow">Mild craving</td></tr>
+        <tr><td>21&ndash;30</td><td class="yellow">Moderate craving</td></tr>
+        <tr><td>31&ndash;40</td><td class="red">Severe craving</td></tr>
+        <tr><td>41&ndash;48</td><td class="red">Extreme craving</td></tr>
+    </table>
+    <p style="margin-top:8px;color:#6ee7b7;"><strong>OCDS (Alcohol version):</strong> 14 items; Score range 0&ndash;56; Cut-off &ge;20 suggests clinically significant craving.</p>
+
+    <div class="section-title">Clinical Interpretation</div>
+    <ul>
+        <li><strong>High Thoughts &amp; Interference:</strong> Intrusive drug thoughts dominating cognition; poor concentration</li>
+        <li><strong>High Desire &amp; Control:</strong> Intense urges with poor ability to resist; high relapse risk</li>
+        <li><strong>High Resistance (low):</strong> Patient not actively fighting craving; motivational work needed</li>
+        <li><strong>Increasing scores over time:</strong> Relapse risk increasing; intensify intervention</li>
+        <li><strong class="red">Red flag:</strong> Total &ge;30 + declining resistance = imminent relapse risk</li>
+    </ul>
+
+    <div class="section-title">Administration Details</div>
+    <ul>
+        <li><strong>Type:</strong> Self-report or clinician-administered</li>
+        <li><strong>Time:</strong> 5&ndash;10 minutes</li>
+        <li><strong>Age:</strong> Adults (18+)</li>
+        <li><strong>Versions:</strong> OCDUS (drugs), OCDS (alcohol), OCDCS (cocaine), OCDNS (nicotine)</li>
+    </ul>
+
+    <div class="section-title">Advantages</div>
+    <div class="advantages">
+        <ul>
+            <li>Captures cognitive dimension of craving (obsessive quality)</li>
+            <li>Multidimensional (thoughts + desire + resistance)</li>
+            <li>Sensitive to treatment change</li>
+            <li>Available for multiple substances</li>
+            <li>Good psychometric properties</li>
+            <li>Theoretically grounded (OCD model of addiction)</li>
+        </ul>
+    </div>
+
+    <div class="section-title">Limitations</div>
+    <div class="limitations">
+        <ul>
+            <li>No universally established clinical cut-offs</li>
+            <li>Self-report bias (denial, minimization)</li>
+            <li>Different versions for different substances (not one unified tool)</li>
+            <li>May not capture impulsive/cue-triggered craving well</li>
+        </ul>
+    </div>
+
+    <div class="section-title">Alternatives / Similar Scales</div>
+    <div class="alternatives">
+        <ul>
+            <li><strong>DDQ (Desires for Drug Questionnaire):</strong> 13 items; 3 factors; broader craving model</li>
+            <li><strong>ACQ (Alcohol Craving Questionnaire):</strong> 47/12 items; multidimensional craving</li>
+            <li><strong>Penn Alcohol Craving Scale (PACS):</strong> 5 items; brief; frequency + intensity + duration</li>
+            <li><strong>VAS (Visual Analogue Scale for Craving):</strong> Single item 0&ndash;100mm; ultra-brief; less reliable</li>
+        </ul>
+    </div>
+</div>
+
+<!-- ============================================ -->
+<!-- SECTION M: ADDITIONAL SCALES -->
+<!-- ============================================ -->
+<div class="category-header" id="additional">M. ADDITIONAL HIGH-YIELD SCALES</div>
+
+<!-- GAF -->
+<div class="scale-card" id="gaf">
+    <h3>25. Global Assessment of Functioning (GAF) Scale</h3>
+    <span class="domain-badge">Global Functioning</span>
+
+    <div class="section-title">Purpose / Clinical Use</div>
+    <ul>
+        <li>Rates overall psychological, social, and occupational functioning</li>
+        <li>Part of DSM-IV multiaxial system (Axis V)</li>
+        <li>Provides single global functioning score</li>
+        <li>Still widely used in Indian clinical settings despite DSM-5 dropping it</li>
+    </ul>
+
+    <div class="section-title">Structure</div>
+    <ul>
+        <li><strong>Format:</strong> Single continuous scale 0&ndash;100</li>
+        <li><strong>Divided into 10-point intervals</strong></li>
+        <li><strong>Higher score = better functioning</strong></li>
+    </ul>
+
+    <div class="section-title">Scoring Method</div>
+    <table>
+        <tr><th>Score Range</th><th>Level of Functioning</th></tr>
+        <tr><td>91&ndash;100</td><td class="green">Superior functioning; no symptoms</td></tr>
+        <tr><td>81&ndash;90</td><td class="green">Absent or minimal symptoms; good functioning in all areas</td></tr>
+        <tr><td>71&ndash;80</td><td class="green">Transient symptoms; slight social/occupational impairment</td></tr>
+        <tr><td>61&ndash;70</td><td class="yellow">Mild symptoms; some difficulty in social/occupational functioning</td></tr>
+        <tr><td>51&ndash;60</td><td class="yellow">Moderate symptoms; moderate difficulty in functioning</td></tr>
+        <tr><td>41&ndash;50</td><td class="yellow">Serious symptoms; serious impairment in functioning</td></tr>
+        <tr><td>31&ndash;40</td><td class="red">Major impairment in several areas; some impairment in reality testing</td></tr>
+        <tr><td>21&ndash;30</td><td class="red">Behavior influenced by delusions/hallucinations; serious impairment</td></tr>
+        <tr><td>11&ndash;20</td><td class="red">Some danger of hurting self/others; gross impairment in communication</td></tr>
+        <tr><td>1&ndash;10</td><td class="red">Persistent danger; unable to maintain minimal personal hygiene</td></tr>
+    </table>
+
+    <div class="section-title">Administration Details</div>
+    <ul>
+        <li><strong>Type:</strong> Clinician-rated</li>
+        <li><strong>Time:</strong> 1&ndash;2 minutes</li>
+        <li><strong>Note:</strong> Replaced by WHODAS 2.0 in DSM-5, but still used in practice</li>
+    </ul>
+
+    <div class="section-title">Alternatives / Similar Scales</div>
+    <div class="alternatives">
+        <ul>
+            <li><strong>WHODAS 2.0:</strong> DSM-5 replacement; 36-item; disability-focused; WHO-developed</li>
+            <li><strong>SOFAS:</strong> Social and Occupational Functioning Scale; excludes symptom severity</li>
+            <li><strong>PSP:</strong> Personal and Social Performance; 4 domains; used in schizophrenia</li>
+        </ul>
+    </div>
+</div>
+
+<!-- PHQ-9 -->
+<div class="scale-card" id="phq9">
+    <h3>26. Patient Health Questionnaire-9 (PHQ-9)</h3>
+    <span class="domain-badge">Depression Screening</span>
+
+    <div class="section-title">Purpose / Clinical Use</div>
+    <ul>
+        <li>Brief depression screening and severity measure</li>
+        <li>Directly maps to DSM-5 MDD criteria (9 criteria)</li>
+        <li>Widely used in primary care and research</li>
+        <li>Free, publicly available</li>
+    </ul>
+
+    <div class="section-title">Structure</div>
+    <ul>
+        <li><strong>Items:</strong> 9 items (each = one DSM-5 criterion)</li>
+        <li><strong>Response format:</strong> 4-point Likert (0&ndash;3): Not at all, Several days, More than half the days, Nearly every day</li>
+        <li><strong>Time frame:</strong> Past 2 weeks</li>
+        <li><strong>10th item (functional impairment):</strong> Not scored but clinically informative</li>
+    </ul>
+
+    <div class="section-title">Scoring Method</div>
+    <ul>
+        <li><strong>Sum all 9 items:</strong> Range 0&ndash;27</li>
+        <li><strong>Diagnostic algorithm:</strong> 5+ items scored &ge;2 (including item 1 or 2) = probable MDD</li>
+    </ul>
+    <table>
+        <tr><th>Score</th><th>Severity</th><th>Action</th></tr>
+        <tr><td>0&ndash;4</td><td class="green">Minimal/None</td><td>Monitor</td></tr>
+        <tr><td>5&ndash;9</td><td class="yellow">Mild</td><td>Watchful waiting; repeat at follow-up</td></tr>
+        <tr><td>10&ndash;14</td><td class="yellow">Moderate</td><td>Treatment plan; counseling or pharmacotherapy</td></tr>
+        <tr><td>15&ndash;19</td><td class="red">Moderately Severe</td><td>Active treatment with pharmacotherapy &amp;/or psychotherapy</td></tr>
+        <tr><td>20&ndash;27</td><td class="red">Severe</td><td>Immediate treatment; specialist referral</td></tr>
+    </table>
+
+    <div class="section-title">Administration Details</div>
+    <ul>
+        <li><strong>Type:</strong> Self-report</li>
+        <li><strong>Time:</strong> 2&ndash;3 minutes</li>
+        <li><strong>Age:</strong> Adolescents and adults</li>
+        <li><strong>Free to use:</strong> No copyright restrictions</li>
+    </ul>
+
+    <div class="section-title">Alternatives / Similar Scales</div>
+    <div class="alternatives">
+        <ul>
+            <li><strong>BDI-II:</strong> More comprehensive (21 items); copyrighted; better for clinical populations</li>
+            <li><strong>PHQ-2:</strong> First 2 items of PHQ-9; ultra-brief screening; cut-off &ge;3</li>
+            <li><strong>HAM-D:</strong> Clinician-rated; gold standard for research</li>
+        </ul>
+    </div>
+</div>
+
+<!-- GAD-7 -->
+<div class="scale-card" id="gad7">
+    <h3>27. Generalized Anxiety Disorder 7-item Scale (GAD-7)</h3>
+    <span class="domain-badge">Anxiety Screening</span>
+
+    <div class="section-title">Purpose / Clinical Use</div>
+    <ul>
+        <li>Brief screening for generalized anxiety disorder</li>
+        <li>Also sensitive to panic disorder, social anxiety, PTSD</li>
+        <li>Monitoring treatment response</li>
+        <li>Free, widely used in primary care</li>
+    </ul>
+
+    <div class="section-title">Structure</div>
+    <ul>
+        <li><strong>Items:</strong> 7 items</li>
+        <li><strong>Response format:</strong> 4-point Likert (0&ndash;3): Not at all, Several days, More than half the days, Nearly every day</li>
+        <li><strong>Time frame:</strong> Past 2 weeks</li>
+    </ul>
+
+    <div class="section-title">Scoring Method</div>
+    <ul>
+        <li><strong>Sum all 7 items:</strong> Range 0&ndash;21</li>
+    </ul>
+    <table>
+        <tr><th>Score</th><th>Severity</th></tr>
+        <tr><td>0&ndash;4</td><td class="green">Minimal Anxiety</td></tr>
+        <tr><td>5&ndash;9</td><td class="yellow">Mild Anxiety</td></tr>
+        <tr><td>10&ndash;14</td><td class="yellow">Moderate Anxiety</td></tr>
+        <tr><td>15&ndash;21</td><td class="red">Severe Anxiety</td></tr>
+    </table>
+    <p style="margin-top:8px;color:#6ee7b7;"><strong>Cut-off &ge;10:</strong> Good sensitivity (89%) and specificity (82%) for GAD diagnosis.</p>
+
+    <div class="section-title">Administration Details</div>
+    <ul>
+        <li><strong>Type:</strong> Self-report</li>
+        <li><strong>Time:</strong> 2&ndash;3 minutes</li>
+        <li><strong>Free to use</strong></li>
+    </ul>
+
+    <div class="section-title">Alternatives / Similar Scales</div>
+    <div class="alternatives">
+        <ul>
+            <li><strong>BAI:</strong> 21-item; somatic focus; copyrighted</li>
+            <li><strong>HAM-A:</strong> Clinician-rated; comprehensive; gold standard for trials</li>
+            <li><strong>GAD-2:</strong> First 2 items; ultra-brief screen; cut-off &ge;3</li>
+        </ul>
+    </div>
+</div>
+
+<!-- DASS-21 -->
+<div class="scale-card" id="dass">
+    <h3>28. Depression Anxiety Stress Scales - 21 (DASS-21)</h3>
+    <span class="domain-badge">Depression / Anxiety / Stress</span>
+
+    <div class="section-title">Purpose / Clinical Use</div>
+    <ul>
+        <li>Simultaneously measures depression, anxiety, and stress</li>
+        <li>Discriminates between three negative emotional states</li>
+        <li>Screening and severity assessment</li>
+        <li>Widely used in research and clinical settings in India</li>
+    </ul>
+
+    <div class="section-title">Structure</div>
+    <ul>
+        <li><strong>Items:</strong> 21 items (7 per subscale)</li>
+        <li><strong>3 Subscales (7 items each):</strong></li>
+        <li style="list-style:none; margin-left:20px;">Depression: Dysphoria, hopelessness, devaluation of life, self-deprecation, anhedonia, lack of interest, inertia</li>
+        <li style="list-style:none; margin-left:20px;">Anxiety: Autonomic arousal, skeletal muscle effects, situational anxiety, subjective anxiety</li>
+        <li style="list-style:none; margin-left:20px;">Stress: Nervous arousal, difficulty relaxing, irritability, impatience, overreaction</li>
+        <li><strong>Response format:</strong> 4-point scale (0&ndash;3): Did not apply, Applied to some degree, Applied a considerable degree, Applied very much/most of the time</li>
+        <li><strong>Time frame:</strong> Past 1 week</li>
+    </ul>
+
+    <div class="section-title">Scoring Method</div>
+    <ul>
+        <li><strong>Step 1:</strong> Sum items for each subscale (7 items each)</li>
+        <li><strong>Step 2:</strong> <strong>MULTIPLY each subscale score by 2</strong> (to match DASS-42 norms)</li>
+        <li><strong>Score range per subscale (after ×2):</strong> 0&ndash;42</li>
+    </ul>
+    <table>
+        <tr><th>Severity</th><th>Depression</th><th>Anxiety</th><th>Stress</th></tr>
+        <tr><td class="green">Normal</td><td>0&ndash;9</td><td>0&ndash;7</td><td>0&ndash;14</td></tr>
+        <tr><td class="yellow">Mild</td><td>10&ndash;13</td><td>8&ndash;9</td><td>15&ndash;18</td></tr>
+        <tr><td class="yellow">Moderate</td><td>14&ndash;20</td><td>10&ndash;14</td><td>19&ndash;25</td></tr>
+        <tr><td class="red">Severe</td><td>21&ndash;27</td><td>15&ndash;19</td><td>26&ndash;33</td></tr>
+        <tr><td class="red">Extremely Severe</td><td>28+</td><td>20+</td><td>34+</td></tr>
+    </table>
+    <p style="margin-top:8px;color:#f5576c;"><strong>CRITICAL: Must multiply raw subscale scores &times; 2 before using cut-offs above!</strong></p>
+
+    <div class="section-title">Administration Details</div>
+    <ul>
+        <li><strong>Type:</strong> Self-report</li>
+        <li><strong>Time:</strong> 5&ndash;10 minutes</li>
+        <li><strong>Age:</strong> 17+ years</li>
+        <li><strong>Free to use</strong> (public domain)</li>
+    </ul>
+
+    <div class="section-title">Advantages</div>
+    <div class="advantages">
+        <ul>
+            <li>Three constructs in one instrument</li>
+            <li>Free and publicly available</li>
+            <li>Good discriminant validity between depression, anxiety, and stress</li>
+            <li>Widely validated in Indian populations</li>
+            <li>Useful for non-clinical and clinical samples</li>
+        </ul>
+    </div>
+
+    <div class="section-title">Limitations</div>
+    <div class="limitations">
+        <ul>
+            <li>Must remember to multiply by 2 for DASS-21 (common error)</li>
+            <li>Not diagnostic; screening only</li>
+            <li>"Stress" construct not well-mapped to DSM categories</li>
+            <li>Anxiety subscale heavily somatic (like BAI)</li>
+        </ul>
+    </div>
+
+    <div class="section-title">Alternatives / Similar Scales</div>
+    <div class="alternatives">
+        <ul>
+            <li><strong>PHQ-9 + GAD-7:</strong> Separate tools for depression &amp; anxiety; DSM-aligned</li>
+            <li><strong>BDI-II + BAI:</strong> Separate Beck tools; copyrighted; more detailed</li>
+            <li><strong>K-10 (Kessler Psychological Distress Scale):</strong> 10-item; general distress; widely used in epidemiology</li>
+        </ul>
+    </div>
+</div>
+
+<!-- ============================================ -->
+<!-- QUICK REFERENCE COMPARISON TABLE -->
+<!-- ============================================ -->
+<div class="category-header" id="comparison">QUICK REFERENCE: SCALE COMPARISON TABLE</div>
+
+<div class="scale-card">
+    <h3>Depression Scales at a Glance</h3>
+    <table>
+        <tr><th>Scale</th><th>Items</th><th>Type</th><th>Range</th><th>Cut-off (Moderate)</th><th>Free?</th></tr>
+        <tr><td>BDI-II</td><td>21</td><td>Self-report</td><td>0&ndash;63</td><td>&ge;20</td><td>No</td></tr>
+        <tr><td>HAM-D</td><td>17</td><td>Clinician</td><td>0&ndash;52</td><td>&ge;14</td><td>Yes</td></tr>
+        <tr><td>PHQ-9</td><td>9</td><td>Self-report</td><td>0&ndash;27</td><td>&ge;10</td><td>Yes</td></tr>
+        <tr><td>DASS-21 (D)</td><td>7</td><td>Self-report</td><td>0&ndash;42*</td><td>&ge;14*</td><td>Yes</td></tr>
+    </table>
+    <p style="color:#6ee7b7; font-size:0.85em;">*After multiplying by 2</p>
+</div>
+
+<div class="scale-card">
+    <h3>Anxiety Scales at a Glance</h3>
+    <table>
+        <tr><th>Scale</th><th>Items</th><th>Type</th><th>Range</th><th>Cut-off (Moderate)</th><th>Free?</th></tr>
+        <tr><td>BAI</td><td>21</td><td>Self-report</td><td>0&ndash;63</td><td>&ge;16</td><td>No</td></tr>
+        <tr><td>HAM-A</td><td>14</td><td>Clinician</td><td>0&ndash;56</td><td>&ge;25</td><td>Yes</td></tr>
+        <tr><td>GAD-7</td><td>7</td><td>Self-report</td><td>0&ndash;21</td><td>&ge;10</td><td>Yes</td></tr>
+        <tr><td>DASS-21 (A)</td><td>7</td><td>Self-report</td><td>0&ndash;42*</td><td>&ge;10*</td><td>Yes</td></tr>
+    </table>
+</div>
+
+<div class="scale-card">
+    <h3>Psychosis Scales at a Glance</h3>
+    <table>
+        <tr><th>Scale</th><th>Items</th><th>Type</th><th>Range</th><th>Key Feature</th></tr>
+        <tr><td>BPRS</td><td>18</td><td>Clinician</td><td>18&ndash;126</td><td>General psychopathology; quick</td></tr>
+        <tr><td>PANSS</td><td>30</td><td>Clinician</td><td>30&ndash;210</td><td>P/N/G subscales; gold standard</td></tr>
+        <tr><td>SAPS</td><td>34</td><td>Clinician</td><td>0&ndash;170</td><td>Detailed positive symptoms only</td></tr>
+        <tr><td>SANS</td><td>25</td><td>Clinician</td><td>0&ndash;125</td><td>Detailed negative symptoms only</td></tr>
+    </table>
+</div>
+
+<div class="scale-card">
+    <h3>Cognitive Scales at a Glance</h3>
+    <table>
+        <tr><th>Scale</th><th>Max Score</th><th>Time</th><th>Executive Function?</th><th>Best For</th></tr>
+        <tr><td>MMSE</td><td>30</td><td>5&ndash;10 min</td><td>No</td><td>Dementia screening (bedside)</td></tr>
+        <tr><td>MoCA</td><td>30</td><td>10&ndash;15 min</td><td>Yes</td><td>MCI detection</td></tr>
+        <tr><td>ACE-III</td><td>100</td><td>15&ndash;20 min</td><td>Yes</td><td>Dementia type differentiation</td></tr>
+    </table>
+</div>
+
+<div class="scale-card">
+    <h3>Substance Use Scales at a Glance</h3>
+    <table>
+        <tr><th>Scale</th><th>Items</th><th>Substances</th><th>Range</th><th>Key Feature</th></tr>
+        <tr><td>AUDIT</td><td>10</td><td>Alcohol only</td><td>0&ndash;40</td><td>WHO; linked to brief intervention</td></tr>
+        <tr><td>ASSIST</td><td>8 per substance</td><td>All (10 categories)</td><td>0&ndash;39 per substance</td><td>Multi-substance; WHO</td></tr>
+        <tr><td>DAST-20</td><td>20</td><td>Drugs (not alcohol)</td><td>0&ndash;20</td><td>Drug-specific; Yes/No format</td></tr>
+        <tr><td>OCDUS</td><td>12</td><td>Drug craving</td><td>0&ndash;48</td><td>OCD model of craving</td></tr>
+    </table>
+</div>
+
+<div class="scale-card">
+    <h3>Withdrawal Scales at a Glance</h3>
+    <table>
+        <tr><th>Scale</th><th>Items</th><th>Range</th><th>Substance</th><th>Key Clinical Use</th></tr>
+        <tr><td>CIWA-Ar</td><td>10</td><td>0&ndash;67</td><td>Alcohol</td><td>Guides benzodiazepine dosing</td></tr>
+        <tr><td>COWS</td><td>11</td><td>0&ndash;48</td><td>Opioids</td><td>Guides buprenorphine induction (&ge;13)</td></tr>
+    </table>
+</div>
+
+</div><!-- end container -->
+
+<div class="footer">
+    <p><strong>&#128218; Psychological Rating Scales Cheat Sheet</strong></p>
+    <p>Compiled by <strong>Tejas Dangodra</strong></p>
+    <p>MPhil Clinical Psychology | Viva &amp; Clinical Postings Reference</p>
+    <p style="margin-top:10px; font-size:0.85em;">
+        Disclaimer: This document is for educational/revision purposes only. Always refer to original manuals for clinical use.<br>
+        Scoring cut-offs may vary by population, language adaptation, and clinical context.
+    </p>
+    <p style="margin-top:15px; font-size:0.8em; color: rgba(255,255,255,0.3);">
+        Last Updated: August 2026
+    </p>
+</div>
+
+</body>
+</html>
