@@ -1,0 +1,1932 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TAT Interpretation: Complete Clinical Guide | Tejas Dangodra</title>
+    <style>
+        :root {
+            --primary: #1a237e;
+            --primary-light: #3949ab;
+            --secondary: #c62828;
+            --accent: #ff6f00;
+            --bg-main: #fafafa;
+            --bg-card: #ffffff;
+            --bg-highlight: #e8eaf6;
+            --bg-warning: #fff3e0;
+            --bg-success: #e8f5e9;
+            --bg-danger: #ffebee;
+            --text-primary: #212121;
+            --text-secondary: #424242;
+            --border: #e0e0e0;
+            --shadow: 0 2px 8px rgba(0,0,0,0.1);
+            --shadow-hover: 0 4px 16px rgba(0,0,0,0.15);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Georgia', serif; background: var(--bg-main); color: var(--text-primary); line-height: 1.8; font-size: 16px; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 20px 40px; }
+        .header { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); color: white; padding: 60px 40px; text-align: center; border-radius: 0 0 20px 20px; margin-bottom: 40px; box-shadow: var(--shadow-hover); }
+        .header h1 { font-size: 2.8em; margin-bottom: 10px; letter-spacing: 1px; }
+        .header .subtitle { font-size: 1.3em; opacity: 0.9; margin-bottom: 15px; }
+        .header .author { font-size: 1.1em; opacity: 0.85; font-style: italic; margin-top: 20px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.3); }
+        .toc { background: var(--bg-card); border: 2px solid var(--primary); border-radius: 12px; padding: 30px 40px; margin: 30px 0; box-shadow: var(--shadow); }
+        .toc h2 { color: var(--primary); font-size: 1.6em; margin-bottom: 20px; text-align: center; }
+        .toc ol { list-style: none; counter-reset: toc-counter; }
+        .toc ol li { counter-increment: toc-counter; padding: 8px 0; border-bottom: 1px dashed var(--border); }
+        .toc ol li:before { content: counter(toc-counter) ". "; font-weight: bold; color: var(--primary); }
+        .toc ol li a { color: var(--text-primary); text-decoration: none; }
+        .toc ol li a:hover { color: var(--primary); }
+        .section { background: var(--bg-card); border-radius: 12px; padding: 40px; margin: 30px 0; box-shadow: var(--shadow); border-left: 5px solid var(--primary); }
+        .section h2 { color: var(--primary); font-size: 1.8em; margin-bottom: 25px; padding-bottom: 10px; border-bottom: 2px solid var(--bg-highlight); }
+        .section h3 { color: var(--primary-light); font-size: 1.4em; margin: 25px 0 15px 0; }
+        .section h4 { color: var(--secondary); font-size: 1.15em; margin: 20px 0 10px 0; }
+        .section p { margin-bottom: 15px; text-align: justify; }
+        .step-box { background: var(--bg-highlight); border-radius: 10px; padding: 25px 30px; margin: 20px 0; border-left: 4px solid var(--accent); }
+        .step-box h3 { color: var(--accent); margin-bottom: 15px; }
+        .clinical-note { background: var(--bg-success); border-radius: 8px; padding: 20px 25px; margin: 15px 0; border-left: 4px solid #2e7d32; }
+        .clinical-note::before { content: "Clinical Note: "; font-weight: bold; color: #2e7d32; }
+        .warning-box { background: var(--bg-warning); border-radius: 8px; padding: 20px 25px; margin: 15px 0; border-left: 4px solid var(--accent); }
+        .warning-box::before { content: "Important: "; font-weight: bold; color: var(--accent); }
+        .red-flag { background: var(--bg-danger); border-radius: 8px; padding: 20px 25px; margin: 15px 0; border-left: 4px solid var(--secondary); }
+        .red-flag::before { content: "Red Flag: "; font-weight: bold; color: var(--secondary); }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 0.95em; box-shadow: 0 1px 4px rgba(0,0,0,0.08); border-radius: 8px; overflow: hidden; }
+        thead { background: var(--primary); color: white; }
+        th { padding: 14px 16px; text-align: left; font-weight: 600; }
+        td { padding: 12px 16px; border-bottom: 1px solid var(--border); }
+        tbody tr:nth-child(even) { background: var(--bg-highlight); }
+        tbody tr:hover { background: #c5cae9; }
+        .example { background: #f3e5f5; border-radius: 8px; padding: 20px 25px; margin: 15px 0; border-left: 4px solid #7b1fa2; }
+        .example::before { content: "Example: "; font-weight: bold; color: #7b1fa2; }
+        .bracket { color: #6a1b9a; font-style: italic; font-size: 0.92em; }
+        .viva-point { background: #e0f7fa; border-radius: 8px; padding: 15px 20px; margin: 10px 0; border-left: 4px solid #00838f; }
+        .viva-point::before { content: "VIVA Point: "; font-weight: bold; color: #00838f; }
+        .formula { background: #fff9c4; border: 2px dashed #f9a825; border-radius: 8px; padding: 20px; margin: 15px 0; text-align: center; font-size: 1.1em; font-weight: 600; }
+        ul, ol { margin: 10px 0 15px 30px; }
+        li { margin-bottom: 8px; }
+        .divider { border: none; height: 2px; background: linear-gradient(to right, var(--primary), transparent); margin: 30px 0; }
+        .comparison { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px 0; }
+        .comparison .col { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 20px; }
+        .comparison .col h4 { text-align: center; margin-bottom: 15px; }
+        blockquote { border-left: 4px solid var(--primary); padding: 15px 25px; margin: 15px 0; background: var(--bg-highlight); font-style: italic; border-radius: 0 8px 8px 0; }
+        .summary-box { background: linear-gradient(135deg, #e8eaf6 0%, #c5cae9 100%); border-radius: 10px; padding: 25px 30px; margin: 20px 0; border: 1px solid var(--primary-light); }
+        .numbered-step { display: flex; align-items: flex-start; margin: 15px 0; padding: 15px; background: var(--bg-card); border-radius: 8px; border: 1px solid var(--border); }
+        .step-number { background: var(--primary); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.2em; margin-right: 15px; flex-shrink: 0; }
+        .footer { text-align: center; padding: 30px; margin-top: 40px; background: var(--primary); color: white; border-radius: 20px 20px 0 0; }
+        @media print { .header { background: var(--primary); } .section { break-inside: avoid; } body { font-size: 12pt; } }
+        @media (max-width: 768px) { .container { padding: 10px 15px; } .header { padding: 30px 20px; } .header h1 { font-size: 1.8em; } .section { padding: 20px; } .comparison { grid-template-columns: 1fr; } table { font-size: 0.85em; } }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>THEMATIC APPERCEPTION TEST (TAT)</h1>
+    <div class="subtitle">Complete Clinical Interpretation Guide</div>
+    <p>A Comprehensive, Step-by-Step Manual for Systematic TAT Interpretation</p>
+    <p style="font-size:0.95em; margin-top:10px;">Integrating Murray's Need-Press Theory + Bellak's Scoring System + Uma Chaudhary's Indian Adaptation + Contemporary Clinical Practice</p>
+    <div class="author">
+        <strong>Made by Tejas Dangodra</strong><br>
+        For MPhil Clinical Psychology Trainees | Viva Preparation | Case Formulation | Clinical Reporting | Teaching &amp; Supervision
+    </div>
+</div>
+
+<div class="container">
+
+<div class="toc">
+    <h2>Table of Contents</h2>
+    <ol>
+        <li><a href="#section1">Introduction to TAT Interpretation</a></li>
+        <li><a href="#section2">Pre-Interpretation Checks (Behavioral Observations)</a></li>
+        <li><a href="#section3">Core Interpretation Framework: Step-by-Step Analysis</a></li>
+        <li><a href="#section4">Cross-Story Analysis (Pattern Recognition)</a></li>
+        <li><a href="#section5">Personality Formulation from TAT</a></li>
+        <li><a href="#section6">Clinical Interpretation &amp; Diagnostic Correlates</a></li>
+        <li><a href="#section7">Report Writing Format with Sample Phrases</a></li>
+        <li><a href="#section8">Common Errors in TAT Interpretation</a></li>
+        <li><a href="#section9">High-Yield Viva Points &amp; Examiner Questions</a></li>
+        <li><a href="#section10">Quick Reference Tables &amp; Summary Sheets</a></li>
+    </ol>
+</div>
+
+<!-- ====================================================================== -->
+<!-- SECTION 1: INTRODUCTION TO TAT INTERPRETATION -->
+<!-- ====================================================================== -->
+<div class="section" id="section1">
+    <h2>Section 1: Introduction to TAT Interpretation</h2>
+
+    <h3>1.1 What is the TAT?</h3>
+    <p>The <strong>Thematic Apperception Test (TAT)</strong> is a <em>projective personality assessment technique</em> developed by <strong>Henry A. Murray</strong> and <strong>Christiana D. Morgan</strong> at Harvard University in 1935. It consists of 31 picture cards (30 pictures + 1 blank card) depicting ambiguous social scenes. The subject is asked to tell a story about each picture &mdash; what led up to the scene, what is happening now, what the characters are feeling and thinking, and what the outcome will be.</p>
+
+    <p>The TAT is not a "test" in the traditional sense &mdash; it does not yield a single score. Rather, it is an <strong>interpretive clinical tool</strong> <span class="bracket">(ek aisa clinical instrument jismein koi ek number nahi aata, balki clinician ko puri kahani se meaning nikalni padti hai)</span> that reveals the subject's inner world through the stories they construct.</p>
+
+    <h3>1.2 The Projective Hypothesis</h3>
+    <p>The TAT operates on the <strong>Projective Hypothesis</strong>, which states:</p>
+
+    <blockquote>
+        "When a person is confronted with an ambiguous stimulus, their responses will reflect their own needs, feelings, experiences, and modes of perceiving the world &mdash; often without conscious awareness."
+    </blockquote>
+
+    <p><span class="bracket">(Jab kisi vyakti ko ek aisi tasveer dikhai jaati hai jismein koi clear meaning nahi hai, toh woh apni khud ki feelings, zarooraten, aur experiences us tasveer mein project karta hai &mdash; bina jaane)</span></p>
+
+    <p>Key assumptions of the projective hypothesis as applied to TAT:</p>
+    <ul>
+        <li><strong>Stories are not random</strong> &mdash; they are shaped by the narrator's personality dynamics</li>
+        <li><strong>The hero of the story</strong> often represents the subject themselves</li>
+        <li><strong>Needs expressed by the hero</strong> reflect the subject's own needs (conscious or unconscious)</li>
+        <li><strong>Environmental forces in the story</strong> reflect how the subject perceives their world</li>
+        <li><strong>Outcomes of stories</strong> reflect the subject's expectations and coping patterns</li>
+    </ul>
+
+    <h3>1.3 The Concept of Apperception</h3>
+    <p>The term "apperception" is central to understanding TAT. Unlike simple "perception" (seeing what is there), <strong>apperception</strong> refers to <em>interpreting a new experience based on one's prior experiences, memories, emotions, and personality</em>.</p>
+
+    <p><span class="bracket">(Perception ka matlab hai ki jo dikhta hai woh dekhna. Apperception ka matlab hai ki jo dikhta hai usse apne purane anubhavon aur bhavnaon ke hisaab se samajhna. Do alag log ek hi tasveer dekh kar bilkul alag kahaniyaan bana sakte hain &mdash; yahi apperception hai)</span></p>
+
+    <div class="formula">
+        Apperception = Perception + Prior Experience + Current Emotional State + Personality Dynamics
+    </div>
+
+    <h3>1.4 Why Interpretation Must Be Systematic (Not Intuitive Guessing)</h3>
+
+    <div class="warning-box">
+        TAT interpretation is NOT about "reading between the lines" based on gut feeling. It requires a structured, systematic framework. Without a proper method, interpretations become subjective opinions rather than clinically valid inferences.
+    </div>
+
+    <p>Systematic interpretation is essential because:</p>
+    <ul>
+        <li><strong>Reliability</strong> &mdash; Different clinicians should arrive at similar conclusions using the same framework</li>
+        <li><strong>Validity</strong> &mdash; Structured analysis reduces wild speculation and keeps inferences grounded in data</li>
+        <li><strong>Clinical Utility</strong> &mdash; A systematic approach produces findings that can be integrated with other test results</li>
+        <li><strong>Accountability</strong> &mdash; In clinical and forensic settings, interpretations must be defensible and transparent</li>
+        <li><strong>Training</strong> &mdash; New clinicians cannot learn "intuition" &mdash; they need a teachable method</li>
+    </ul>
+
+    <p><span class="bracket">(Bahut se beginners sochtein hain ki TAT interpret karna ek "art" hai jo practice se aa jaata hai &mdash; lekin asal mein yeh ek structured skill hai jismein clear steps follow karne padte hain. Bina system ke interpretation karna guesswork ban jaata hai)</span></p>
+
+    <h3>1.5 What TAT Interpretation Can Reveal</h3>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Domain</th>
+                <th>What TAT Can Tell Us</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>Self-Concept</td><td>How the person views themselves &mdash; capable, weak, victimized, special</td></tr>
+            <tr><td>Needs &amp; Motivations</td><td>What drives the person &mdash; achievement, love, power, escape</td></tr>
+            <tr><td>Perception of Environment</td><td>How they see the world &mdash; hostile, nurturing, indifferent, threatening</td></tr>
+            <tr><td>Interpersonal Relationships</td><td>Patterns of relating &mdash; trusting, dependent, controlling, isolated</td></tr>
+            <tr><td>Emotional Functioning</td><td>Dominant affects, affect regulation, emotional conflicts</td></tr>
+            <tr><td>Defense Mechanisms</td><td>How anxiety is managed &mdash; denial, projection, rationalization</td></tr>
+            <tr><td>Conflict Areas</td><td>Core psychological conflicts &mdash; dependence vs. independence, love vs. anger</td></tr>
+            <tr><td>Ego Functioning</td><td>Reality testing, impulse control, thought processes, judgment</td></tr>
+            <tr><td>Superego Functioning</td><td>Moral standards, guilt, punishment themes</td></tr>
+            <tr><td>Coping &amp; Problem-Solving</td><td>How the person handles difficulties &mdash; approach vs. avoidance</td></tr>
+        </tbody>
+    </table>
+
+    <h3>1.6 Theoretical Foundations: Three Pillars of TAT Interpretation</h3>
+
+    <div class="comparison">
+        <div class="col">
+            <h4 style="color: var(--primary);">Murray's Need-Press Theory (1938)</h4>
+            <ul>
+                <li>Focuses on identifying <strong>Needs</strong> (internal drives) and <strong>Press</strong> (environmental forces)</li>
+                <li>The interaction of Need + Press = <strong>Thema</strong> (the fundamental unit of personality)</li>
+                <li>28 psychogenic needs identified</li>
+                <li>Environmental presses classified as alpha press (objective) and beta press (perceived)</li>
+            </ul>
+        </div>
+        <div class="col">
+            <h4 style="color: var(--secondary);">Bellak's Scoring System (1947/1975)</h4>
+            <ul>
+                <li>10-category analysis sheet for each story</li>
+                <li>Focuses on ego functioning, defenses, superego</li>
+                <li>Three levels: descriptive, interpretive, diagnostic</li>
+                <li>Most widely used clinical scoring system</li>
+                <li>Integrates psychoanalytic ego psychology</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="summary-box">
+        <h4 style="color: var(--primary); text-align:center;">Uma Chaudhary's Indian Adaptation (1960)</h4>
+        <ul>
+            <li>Modified 14 cards to reflect Indian cultural context (joint family, religious themes, tanpura replacing violin)</li>
+            <li>Based on McClelland's procedures with Murray's original framework</li>
+            <li>Emphasizes cultural sensitivity &mdash; Indian themes of duty (kartavya), family obligation, religious conflict</li>
+            <li>Important for Indian clinical practice &mdash; ensures stimuli are culturally relevant</li>
+            <li>Scoring and interpretation principles remain aligned with Murray and Bellak</li>
+        </ul>
+    </div>
+
+    <h3>1.7 The Interpretive Mindset</h3>
+    <p>Before beginning interpretation, the clinician must adopt the correct mindset:</p>
+    <ol>
+        <li><strong>Be hypothesis-generating, not conclusion-jumping</strong> &mdash; Each story generates hypotheses that must be confirmed across multiple stories</li>
+        <li><strong>Look for patterns, not single indicators</strong> &mdash; One story with aggression does not mean the person is aggressive. Repeated aggression across 5-6 stories is significant.</li>
+        <li><strong>Consider context</strong> &mdash; The stimulus (picture) partly determines the response. Unusual responses are more significant than expected ones.</li>
+        <li><strong>Use probabilistic language</strong> &mdash; "The data suggests..." not "The patient IS..."</li>
+        <li><strong>Cultural sensitivity</strong> &mdash; Always consider cultural norms before interpreting themes as pathological</li>
+    </ol>
+
+    <p><span class="bracket">(TAT interpret karte waqt clinician ko detective ki tarah sochna chahiye &mdash; har kahani ek clue hai, lekin koi bhi ek clue akele mein conclusion nahi deta. Saari kahaniyaan mil kar pattern banati hain &mdash; wohi final interpretation hai)</span></p>
+</div>
+
+<!-- ====================================================================== -->
+<!-- SECTION 2: PRE-INTERPRETATION CHECKS -->
+<!-- ====================================================================== -->
+<div class="section" id="section2">
+    <h2>Section 2: Pre-Interpretation Checks (Behavioral Observations)</h2>
+
+    <p>Before analyzing the content of stories, the clinician must evaluate the <strong>quality of the test data</strong> and the <strong>behavioral context</strong> of the testing session. This step is often neglected but is critically important.</p>
+
+    <p><span class="bracket">(Kahaniyaan padhne se pehle yeh samajhna zaroori hai ki test kitni achhi tarah liya gaya, patient ne kitna cooperate kiya, aur data ki quality kaisi hai &mdash; yeh sab interpretation ki confidence level decide karta hai)</span></p>
+
+    <h3>2.1 Number of Stories: Adequacy of Data</h3>
+
+    <table>
+        <thead>
+            <tr><th>Number of Stories</th><th>Interpretation Confidence</th><th>Clinical Implication</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>10-12 stories (standard set)</td><td>High confidence</td><td>Adequate data for comprehensive interpretation</td></tr>
+            <tr><td>8-9 stories</td><td>Moderate confidence</td><td>Acceptable; note any refused cards</td></tr>
+            <tr><td>5-7 stories</td><td>Low confidence</td><td>Interpret with extreme caution; note limitations</td></tr>
+            <tr><td>Less than 5 stories</td><td>Inadequate</td><td>Data insufficient for valid interpretation; the refusal itself is a finding</td></tr>
+        </tbody>
+    </table>
+
+    <div class="clinical-note">
+        If fewer than 8 stories are obtained, consider WHY. The refusal itself is diagnostic &mdash; it may indicate severe guardedness, paranoia, oppositionality, cognitive limitations, or acute distress.
+    </div>
+
+    <h3>2.2 Length and Richness of Stories</h3>
+
+    <table>
+        <thead>
+            <tr><th>Parameter</th><th>Rich/Adequate</th><th>Poor/Restricted</th><th>Significance</th></tr>
+        </thead>
+        <tbody>
+            <tr><td><strong>Length</strong></td><td>150-300 words per story</td><td>Less than 50 words</td><td>Very short stories = guardedness, low IQ, depression, or resistance</td></tr>
+            <tr><td><strong>Narrative Structure</strong></td><td>Has beginning, middle, end</td><td>Only describes picture</td><td>Descriptions without story = concrete thinking, guardedness</td></tr>
+            <tr><td><strong>Emotional Content</strong></td><td>Characters have feelings, thoughts</td><td>Only actions described</td><td>Absence of emotion = alexithymia, intellectualization</td></tr>
+            <tr><td><strong>Characters</strong></td><td>Multiple characters interacting</td><td>Only one character or vague</td><td>Isolation of characters = social withdrawal</td></tr>
+            <tr><td><strong>Outcome/Resolution</strong></td><td>Story has a clear ending</td><td>Story trails off, incomplete</td><td>Incomplete endings = inability to resolve conflicts</td></tr>
+        </tbody>
+    </table>
+
+    <h3>2.3 Cooperation and Engagement Level</h3>
+
+    <div class="numbered-step">
+        <div class="step-number">1</div>
+        <div><strong>Fully Cooperative &amp; Engaged</strong> &mdash; Willingly tells stories, adds elaboration, seems interested. <span class="bracket">(Patient khushi se kahaniyaan bata raha hai, detail mein ja raha hai)</span></div>
+    </div>
+    <div class="numbered-step">
+        <div class="step-number">2</div>
+        <div><strong>Cooperative but Restricted</strong> &mdash; Follows instructions but gives minimal stories. <span class="bracket">(Patient kaam toh kar raha hai lekin bahut chhoti kahaniyaan de raha hai)</span></div>
+    </div>
+    <div class="numbered-step">
+        <div class="step-number">3</div>
+        <div><strong>Intermittently Cooperative</strong> &mdash; Engages for some cards, withdraws for others. <span class="bracket">(Kuch cards par achhi kahani banaata hai, kuch par band ho jaata hai &mdash; woh specific cards clinically significant hain)</span></div>
+    </div>
+    <div class="numbered-step">
+        <div class="step-number">4</div>
+        <div><strong>Resistant/Oppositional</strong> &mdash; Refuses cards, gives one-line responses. <span class="bracket">(Patient nahi karna chahta &mdash; yeh khud mein ek finding hai)</span></div>
+    </div>
+    <div class="numbered-step">
+        <div class="step-number">5</div>
+        <div><strong>Disorganized/Inappropriate</strong> &mdash; Responses are tangential, bizarre, unrelated to pictures. <span class="bracket">(Patient ki responses tasveer se bilkul sambandhit nahi hain &mdash; possible thought disorder)</span></div>
+    </div>
+
+    <h3>2.4 Emotional Tone During Narration</h3>
+    <p>The clinician should observe and note:</p>
+    <ul>
+        <li><strong>Facial expressions</strong> while viewing cards and telling stories</li>
+        <li><strong>Voice quality</strong> &mdash; changes in volume, speed, tone (anxiety markers)</li>
+        <li><strong>Physical signs</strong> &mdash; fidgeting, sighing, shifting, blushing</li>
+        <li><strong>Latency</strong> &mdash; time taken before beginning each story (long latency = conflict around that card's theme)</li>
+        <li><strong>Emotional reactions to specific cards</strong> &mdash; laughter, disgust, discomfort, avoidance</li>
+        <li><strong>Spontaneous comments</strong> &mdash; "This is a strange picture" or "I don't like this one"</li>
+    </ul>
+
+    <div class="example">
+        A subject who becomes visibly anxious on Card 13MF (which depicts a semi-nude female figure and a male with arm over face) may be experiencing conflict around sexuality or guilt. This behavioral observation adds context to whatever story content is produced.
+    </div>
+
+    <h3>2.5 Deviations and Special Responses</h3>
+
+    <table>
+        <thead>
+            <tr><th>Deviation Type</th><th>Description</th><th>Clinical Significance</th></tr>
+        </thead>
+        <tbody>
+            <tr><td><strong>Card Refusal</strong></td><td>Subject refuses to tell story for specific card(s)</td><td>Content of refused card likely touches on core conflict area</td></tr>
+            <tr><td><strong>Blank/Minimal Response</strong></td><td>"I don't see anything" or "It's just a picture"</td><td>Severe guardedness, depression, or oppositional stance</td></tr>
+            <tr><td><strong>Pure Description</strong></td><td>Subject only describes what they see without creating a story</td><td>Concrete thinking, extreme caution, fear of revealing self</td></tr>
+            <tr><td><strong>Excessive Storytelling</strong></td><td>Very long, elaborate, tangential stories</td><td>Hypomania, histrionic features, obsessional detail, avoidance through verbosity</td></tr>
+            <tr><td><strong>Multiple Stories</strong></td><td>Subject gives 2-3 stories for one card</td><td>Ambivalence, indecisiveness, or highly conflictual theme</td></tr>
+            <tr><td><strong>Self-Reference</strong></td><td>"This reminds me of my life"</td><td>Weak ego boundaries, high identification with stimulus</td></tr>
+            <tr><td><strong>Perseveration</strong></td><td>Same theme/story repeated across multiple cards</td><td>Preoccupation with specific conflict, organic features, or psychotic process</td></tr>
+            <tr><td><strong>Bizarre/Autistic Content</strong></td><td>Stories completely unrelated to picture</td><td>Possible thought disorder, psychotic process, dissociation</td></tr>
+        </tbody>
+    </table>
+
+    <h3>2.6 When to Be Cautious in Interpretation</h3>
+
+    <div class="warning-box">
+        Exercise extreme caution and explicitly state limitations in your report when:
+    </div>
+    <ul>
+        <li>Subject was <strong>uncooperative or resistant</strong></li>
+        <li>Subject has <strong>intellectual disability</strong></li>
+        <li>Subject is in <strong>acute crisis</strong> (active psychosis, severe depression)</li>
+        <li>Subject is <strong>heavily medicated</strong></li>
+        <li>There is a <strong>language barrier</strong></li>
+        <li><strong>Fewer than 8 stories</strong> obtained</li>
+        <li>Subject shows <strong>extreme guardedness throughout</strong></li>
+    </ul>
+
+    <p><span class="bracket">(In sab situations mein hum interpret toh kar sakte hain, lekin report mein clearly likhna padta hai ki "Findings should be interpreted with caution due to..." &mdash; nahi toh hamari interpretation clinically responsible nahi hogi)</span></p>
+
+    <h3>2.7 Indicators of Defensiveness and Guardedness</h3>
+
+    <table>
+        <thead>
+            <tr><th>Indicator</th><th>How It Appears</th><th>What It Means</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>Short stories across all cards</td><td>30-50 words, no elaboration</td><td>Global guardedness &mdash; afraid of revealing self</td></tr>
+            <tr><td>Cliche/stereotyped stories</td><td>"A man is working hard and succeeds"</td><td>Socially desirable responding, intellectual defense</td></tr>
+            <tr><td>Third-person distancing</td><td>Overly formal, academic tone</td><td>Intellectualization as defense</td></tr>
+            <tr><td>Happy endings on ALL cards</td><td>Even disturbing cards get positive outcomes</td><td>Denial, Pollyanna defense, fear of negative affect</td></tr>
+            <tr><td>Avoidance of emotional words</td><td>No mention of feelings</td><td>Alexithymia, emotional constriction, repression</td></tr>
+            <tr><td>Criticizing the cards</td><td>"These pictures are silly"</td><td>Projection of discomfort, devaluation</td></tr>
+            <tr><td>Asking for reassurance</td><td>"Am I doing this right?"</td><td>Dependency needs, performance anxiety</td></tr>
+        </tbody>
+    </table>
+
+    <div class="clinical-note">
+        Guardedness itself is a finding. A person who cannot reveal anything even in a structured testing situation likely has difficulties with trust, vulnerability, and emotional expression in their real relationships as well.
+    </div>
+</div>
+
+<!-- ====================================================================== -->
+<!-- SECTION 3: CORE INTERPRETATION FRAMEWORK -->
+<!-- ====================================================================== -->
+<div class="section" id="section3">
+    <h2>Section 3: Core Interpretation Framework &mdash; Step-by-Step Analysis</h2>
+
+    <p>This section teaches the <strong>systematic, step-by-step method</strong> for analyzing EACH story told by the subject. This framework integrates <strong>Murray's Need-Press theory</strong>, <strong>Bellak's 10-category scoring system</strong>, and contemporary clinical practice.</p>
+
+    <p><span class="bracket">(Har ek kahani ko in steps mein todh kar analyse karna hai. Pehle ek kahani par practice karo, phir dheere-dheere saari kahaniyaan is method se analyse karo. Speed practice se aayegi.)</span></p>
+
+    <div class="formula">
+        For EACH Story: Hero &rarr; Needs &rarr; Press &rarr; Theme &rarr; Emotions &rarr; Relationships &rarr; Defenses &rarr; Outcome &rarr; Special Indicators
+    </div>
+
+    <hr class="divider">
+
+    <!-- STEP 1: IDENTIFY THE HERO -->
+    <div class="step-box">
+        <h3>STEP 1: Identify the Hero</h3>
+
+        <p><strong>Definition:</strong> The hero is the character in the story with whom the subject most closely identifies &mdash; usually the main character whose thoughts, feelings, and actions are most elaborated.</p>
+
+        <p><span class="bracket">(Hero woh character hai jiske baare mein subject sabse zyada baat karta hai, jiske feelings batata hai, jiski life ki story banata hai. Usually yeh subject khud hi hai ek disguised form mein)</span></p>
+
+        <h4>How to Identify the Hero:</h4>
+        <ol>
+            <li><strong>Most elaborated character</strong> &mdash; The one about whom the most detail is given</li>
+            <li><strong>Character whose thoughts/feelings are described</strong> &mdash; Inner states are attributed to this character</li>
+            <li><strong>Character similar to the subject</strong> &mdash; In age, gender, or life situation</li>
+            <li><strong>Character who appears first</strong> &mdash; When multiple characters are present</li>
+            <li><strong>Character the story revolves around</strong> &mdash; The protagonist</li>
+        </ol>
+
+        <div class="warning-box">
+            Sometimes there may be a <strong>secondary hero</strong> &mdash; a second character who is also elaborated. This may represent an <em>alternative self-concept</em> or an <em>idealized/feared version</em> of the self.
+        </div>
+
+        <h4>What Hero Identification Reveals About Self-Concept:</h4>
+
+        <table>
+            <thead>
+                <tr><th>Hero Characteristic</th><th>Reveals About Subject</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Hero is strong, capable, successful</td><td>Positive self-concept, or wish-fulfillment if contradicted by real life</td></tr>
+                <tr><td>Hero is weak, victimized, helpless</td><td>Low self-esteem, learned helplessness, victim identity</td></tr>
+                <tr><td>Hero is isolated, alone</td><td>Social withdrawal, loneliness, schizoid tendencies</td></tr>
+                <tr><td>Hero is defiant, rebellious</td><td>Authority conflicts, oppositional tendencies, need for autonomy</td></tr>
+                <tr><td>Hero is confused, uncertain</td><td>Identity diffusion, indecisiveness, role confusion</td></tr>
+                <tr><td>Hero different from subject's demographics</td><td>Possible rejection of own identity, cross-identification</td></tr>
+                <tr><td>No clear hero (vague stories)</td><td>Diffuse identity, avoidance of self-exploration, guardedness</td></tr>
+            </tbody>
+        </table>
+
+        <h4>Bellak's Hero Assessment Categories:</h4>
+        <p>According to Bellak's analysis sheet, assess the hero for:</p>
+        <ul>
+            <li><strong>Age</strong> &mdash; Same as subject? Older? Younger?</li>
+            <li><strong>Sex</strong> &mdash; Same as subject? Cross-gender identification?</li>
+            <li><strong>Vocation</strong> &mdash; What role/job is assigned?</li>
+            <li><strong>Abilities</strong> &mdash; Is hero described as capable or incapable?</li>
+            <li><strong>Interests</strong> &mdash; What does hero care about?</li>
+            <li><strong>Traits</strong> &mdash; Personality qualities attributed to hero</li>
+            <li><strong>Body Image</strong> &mdash; References to physical appearance, strength, attractiveness?</li>
+            <li><strong>Adequacy</strong> &mdash; Is hero adequate to meet challenges, or inadequate?</li>
+            <li><strong>Self-Image</strong> &mdash; How does hero see themselves?</li>
+        </ul>
+
+        <div class="example">
+            <strong>Story:</strong> "This boy is looking at the violin. He doesn't want to play it. His parents force him. He feels trapped but one day he will become a great musician and prove everyone wrong."<br><br>
+            <strong>Hero Analysis:</strong> Boy (same age group as adolescent subject). Feels trapped, controlled (low autonomy). Resolution through proving others wrong suggests need for achievement and recognition mixed with defiance. Self-image: currently inadequate/oppressed but with future grandiose potential.
+        </div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- STEP 2: IDENTIFY NEEDS -->
+    <div class="step-box">
+        <h3>STEP 2: Identify Needs (Murray's Need System)</h3>
+
+        <p><strong>Definition:</strong> A "Need" in Murray's theory is an internal drive or motivational force that organizes perception, thought, and action to move the organism from an unsatisfying situation toward a satisfying one.</p>
+
+        <p><span class="bracket">(Need ka matlab hai ek andar ki zaroorat ya drive jo insaan ko kuch karne ke liye prerit karti hai. Jaise bhookh ek need hai khane ki &mdash; waise hi achievement ki need insaan ko mehnat karne ko prerit karti hai. TAT mein hero jo karta hai ussi se hum needs identify karte hain)</span></p>
+
+        <h4>How to Infer Needs from Stories:</h4>
+        <ul>
+            <li><strong>Actions of the hero</strong> &mdash; What does the hero DO? (working hard = n Achievement)</li>
+            <li><strong>Thoughts/wishes of the hero</strong> &mdash; What does the hero WANT? (wanting love = n Affiliation)</li>
+            <li><strong>Goals stated</strong> &mdash; What is the hero trying to ACHIEVE?</li>
+            <li><strong>Emotional reactions</strong> &mdash; What makes the hero happy, sad, angry?</li>
+            <li><strong>Conflicts described</strong> &mdash; Opposing needs create conflicts (n Achievement vs. n Play)</li>
+        </ul>
+
+        <h4>Complete List of Murray's Psychogenic Needs:</h4>
+
+        <table>
+            <thead>
+                <tr><th>Need</th><th>Abbr.</th><th>Description</th><th>TAT Story Indicators</th></tr>
+            </thead>
+            <tbody>
+                <tr><td><strong>Achievement</strong></td><td>n Ach</td><td>To accomplish something difficult, to excel</td><td>Hero works hard, overcomes obstacles, succeeds through effort</td></tr>
+                <tr><td><strong>Affiliation</strong></td><td>n Aff</td><td>To form friendships, to love</td><td>Hero seeks companionship, values friendships, feels lonely</td></tr>
+                <tr><td><strong>Aggression</strong></td><td>n Agg</td><td>To assault, injure, punish, fight</td><td>Hero attacks, argues, dominates through force</td></tr>
+                <tr><td><strong>Autonomy</strong></td><td>n Auto</td><td>To resist influence, be independent</td><td>Hero breaks rules, rebels, seeks freedom</td></tr>
+                <tr><td><strong>Counteraction</strong></td><td>n Cnt</td><td>To overcome weakness by retaliating</td><td>Hero bounces back from defeat, retaliates after humiliation</td></tr>
+                <tr><td><strong>Defendance</strong></td><td>n Def</td><td>To defend against blame or criticism</td><td>Hero explains actions, justifies, offers excuses</td></tr>
+                <tr><td><strong>Deference</strong></td><td>n Dfr</td><td>To follow a superior willingly</td><td>Hero obeys authority, admires leaders, seeks guidance</td></tr>
+                <tr><td><strong>Dominance</strong></td><td>n Dom</td><td>To control others, to lead</td><td>Hero gives orders, leads groups, makes decisions for others</td></tr>
+                <tr><td><strong>Exhibition</strong></td><td>n Exh</td><td>To attract attention, to shock</td><td>Hero performs publicly, seeks spotlight, shows off</td></tr>
+                <tr><td><strong>Harmavoidance</strong></td><td>n Harm</td><td>To avoid pain, injury, death</td><td>Hero avoids danger, is cautious, fears harm</td></tr>
+                <tr><td><strong>Infavoidance</strong></td><td>n Inf</td><td>To avoid failure, shame</td><td>Hero avoids challenge, fears exposure of weakness</td></tr>
+                <tr><td><strong>Nurturance</strong></td><td>n Nur</td><td>To help, protect, comfort</td><td>Hero cares for others, helps the weak, is compassionate</td></tr>
+                <tr><td><strong>Order</strong></td><td>n Ord</td><td>To arrange, organize, keep tidy</td><td>Hero values cleanliness, dislikes disorder</td></tr>
+                <tr><td><strong>Play</strong></td><td>n Play</td><td>To relax, amuse oneself</td><td>Hero seeks entertainment, avoids work for pleasure</td></tr>
+                <tr><td><strong>Rejection</strong></td><td>n Rej</td><td>To exclude, abandon others</td><td>Hero pushes people away, isolates self</td></tr>
+                <tr><td><strong>Sentience</strong></td><td>n Sen</td><td>To seek sensory/aesthetic pleasure</td><td>Hero appreciates beauty, enjoys art/music</td></tr>
+                <tr><td><strong>Sex</strong></td><td>n Sex</td><td>To form erotic relationships</td><td>Romantic/sexual themes, attraction</td></tr>
+                <tr><td><strong>Succorance</strong></td><td>n Suc</td><td>To seek aid, protection, sympathy</td><td>Hero asks for help, feels helpless alone</td></tr>
+                <tr><td><strong>Understanding</strong></td><td>n Und</td><td>To analyze, theorize, inquire</td><td>Hero questions, seeks knowledge, reflects deeply</td></tr>
+                <tr><td><strong>Abasement</strong></td><td>n Aba</td><td>To submit, accept punishment</td><td>Hero accepts blame, puts self down, accepts suffering</td></tr>
+                <tr><td><strong>Acquisition</strong></td><td>n Acq</td><td>To gain possessions, money</td><td>Hero focuses on material gain, hoards</td></tr>
+                <tr><td><strong>Blamavoidance</strong></td><td>n Blam</td><td>To avoid blame, be well-behaved</td><td>Hero follows rules to avoid punishment</td></tr>
+                <tr><td><strong>Construction</strong></td><td>n Const</td><td>To build, create</td><td>Hero builds things, creates art</td></tr>
+                <tr><td><strong>Cognizance</strong></td><td>n Cog</td><td>To explore, satisfy curiosity</td><td>Hero is curious, investigates, explores unknown</td></tr>
+                <tr><td><strong>Exposition</strong></td><td>n Exp</td><td>To explain, teach</td><td>Hero teaches others, demonstrates knowledge</td></tr>
+                <tr><td><strong>Recognition</strong></td><td>n Rec</td><td>To gain approval, social status</td><td>Hero seeks praise, values reputation</td></tr>
+                <tr><td><strong>Retention</strong></td><td>n Ret</td><td>To retain possessions, hoard</td><td>Hero saves, doesn't share</td></tr>
+                <tr><td><strong>Passivity</strong></td><td>n Pass</td><td>To accept, be inactive</td><td>Hero does nothing, waits for things to happen</td></tr>
+            </tbody>
+        </table>
+
+        <div class="clinical-note">
+            In practice, focus on identifying the <strong>3-5 dominant needs</strong> that appear repeatedly across multiple stories. These represent the subject's core motivational structure.
+        </div>
+
+        <h4>Scoring Needs: Intensity and Frequency</h4>
+        <ul>
+            <li><strong>Frequency</strong> &mdash; In how many stories does this need appear? (4+ stories = dominant)</li>
+            <li><strong>Intensity</strong> &mdash; How strongly is the need expressed? (mild wish vs. desperate craving)</li>
+            <li><strong>Behavioral vs. Fantasy Level</strong> &mdash; Does hero act on the need or only wish for it?</li>
+            <li><strong>Satisfied vs. Frustrated</strong> &mdash; Does the need get fulfilled, or is it blocked?</li>
+        </ul>
+    </div>
+
+    <hr class="divider">
+
+    <!-- STEP 3: PRESS -->
+    <div class="step-box">
+        <h3>STEP 3: Identify Press (Environmental Forces)</h3>
+
+        <p><strong>Definition:</strong> "Press" refers to the environmental forces or pressures acting upon the hero. These represent how the subject <em>perceives</em> their world &mdash; whether as supportive, threatening, indifferent, or hostile.</p>
+
+        <p><span class="bracket">(Press ka matlab hai bahari duniya ki woh taaqatein jo hero par asar dalti hain. Yeh batata hai ki patient apni duniya ko kaisa dekhta hai &mdash; kya ussey lagta hai duniya uski madad karegi ya duniya uske khilaaf hai)</span></p>
+
+        <h4>Two Types of Press (Murray):</h4>
+        <div class="comparison">
+            <div class="col">
+                <h4 style="color: #2e7d32;">Alpha Press (Objective Reality)</h4>
+                <p>The actual environmental pressure as an objective observer would see it. <span class="bracket">(Jo sach mein ho raha hai)</span></p>
+                <p><em>Less clinically useful in TAT &mdash; we cannot verify "reality" from stories</em></p>
+            </div>
+            <div class="col">
+                <h4 style="color: var(--secondary);">Beta Press (Perceived Reality)</h4>
+                <p>How the subject <em>perceives and interprets</em> the environmental pressure. <span class="bracket">(Jo patient ko lagta hai ki ho raha hai)</span></p>
+                <p><em>THIS is what TAT reveals &mdash; the subject's subjective perception of their world</em></p>
+            </div>
+        </div>
+
+        <h4>Complete List of Environmental Presses:</h4>
+
+        <table>
+            <thead>
+                <tr><th>Press Category</th><th>Description</th><th>TAT Story Indicators</th></tr>
+            </thead>
+            <tbody>
+                <tr><td><strong>p Affiliation</strong></td><td>Others seek friendship/love with hero</td><td>Characters approach hero warmly, offer friendship</td></tr>
+                <tr><td><strong>p Aggression (Physical)</strong></td><td>Others physically harm hero</td><td>Characters hit, attack, threaten violence</td></tr>
+                <tr><td><strong>p Aggression (Emotional)</strong></td><td>Others criticize, ridicule hero</td><td>Characters mock, insult, humiliate hero</td></tr>
+                <tr><td><strong>p Dominance (Coercion)</strong></td><td>Others force, command, restrict hero</td><td>Authority figures give orders, impose rules</td></tr>
+                <tr><td><strong>p Dominance (Restraint)</strong></td><td>Others imprison, confine hero</td><td>Hero is trapped, confined, cannot leave</td></tr>
+                <tr><td><strong>p Nurturance</strong></td><td>Others help, comfort, support hero</td><td>Characters care for hero, provide support</td></tr>
+                <tr><td><strong>p Rejection</strong></td><td>Others reject, abandon, ignore hero</td><td>Characters leave, refuse contact, show indifference</td></tr>
+                <tr><td><strong>p Lack (Deprivation)</strong></td><td>Hero lacks resources, basic needs</td><td>Poverty, hunger, missing resources</td></tr>
+                <tr><td><strong>p Loss</strong></td><td>Hero loses someone/something valued</td><td>Death of loved one, separation</td></tr>
+                <tr><td><strong>p Physical Danger</strong></td><td>Physical threats in environment</td><td>Dangerous places, accidents, injuries</td></tr>
+                <tr><td><strong>p Deception</strong></td><td>Others lie to or deceive hero</td><td>Characters trick, betray, mislead hero</td></tr>
+                <tr><td><strong>p Rival</strong></td><td>A competitor threatens hero's position</td><td>Another character competes for love/status</td></tr>
+            </tbody>
+        </table>
+
+        <h4>Analyzing the Press Pattern:</h4>
+        <ul>
+            <li><strong>Is the world predominantly hostile or supportive?</strong> &mdash; Ratio of negative to positive presses</li>
+            <li><strong>Where does threat come from?</strong> &mdash; Family? Authority? Peers? Nature?</li>
+            <li><strong>Is help available?</strong> &mdash; Are there nurturing figures, or is hero alone?</li>
+            <li><strong>Need-Press interaction</strong> &mdash; Is the environment facilitating or blocking the hero's needs?</li>
+        </ul>
+
+        <div class="formula">
+            THEMA = Need + Press Interaction<br>
+            <span style="font-size:0.85em; font-weight:normal;">(The fundamental unit of personality &mdash; how internal drives interact with perceived environment)</span>
+        </div>
+
+        <div class="example">
+            <strong>Pattern:</strong> Across 8 stories, the hero repeatedly faces p Dominance (controlling authority figures) while expressing n Autonomy (desire for freedom). The hero usually submits (n Abasement) rather than rebels.<br><br>
+            <strong>Interpretation:</strong> Subject perceives the environment as controlling. Has a strong desire for independence but habitually submits. Core conflict: autonomy vs. compliance. May present as passive-aggressive in interpersonal relationships.
+        </div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- STEP 4: THEMES -->
+    <div class="step-box">
+        <h3>STEP 4: Analyze the Theme / Story Plot</h3>
+
+        <p><strong>Definition:</strong> The theme is the <em>core narrative pattern</em> of the story &mdash; the essential plot stripped of surface details.</p>
+
+        <p><span class="bracket">(Theme ka matlab hai kahani ka core message ya pattern. Surface details hatayein toh neeche kya reh jaata hai &mdash; woh theme hai. Jaise "Ek ladka mehnat karta hai, duniya rokti hai, lekin woh jeet jaata hai" &mdash; yeh theme hai achievement against adversity)</span></p>
+
+        <h4>Bellak's Three Levels of Theme Analysis:</h4>
+
+        <div class="numbered-step">
+            <div class="step-number">1</div>
+            <div><strong>Descriptive Level</strong> &mdash; Simply restating the story plot in condensed form.<br><em>Example: "A boy looks at a violin while adults watch."</em><br><span class="bracket">(Sirf kahani ko chhota kar ke likhna &mdash; koi interpretation nahi)</span></div>
+        </div>
+        <div class="numbered-step">
+            <div class="step-number">2</div>
+            <div><strong>Interpretive Level</strong> &mdash; Identifying the psychological meaning behind the plot.<br><em>Example: "A child feels pressure from parental expectations and struggles between compliance and resistance."</em><br><span class="bracket">(Kahani ke peeche ka psychological matlab samajhna)</span></div>
+        </div>
+        <div class="numbered-step">
+            <div class="step-number">3</div>
+            <div><strong>Diagnostic Level</strong> &mdash; Linking the theme to clinical patterns.<br><em>Example: "Reflects passive-aggressive pattern; compliance masking resentment."</em><br><span class="bracket">(Theme ko clinical diagnosis ya personality pattern se jodna)</span></div>
+        </div>
+
+        <h4>Common Recurring Themes and Their Meanings:</h4>
+
+        <table>
+            <thead>
+                <tr><th>Theme Pattern</th><th>Description</th><th>Clinical Significance</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Achievement through effort</td><td>Hero works hard and succeeds</td><td>Strong achievement motivation, resilience</td></tr>
+                <tr><td>Defeat/Failure</td><td>Hero tries but fails or gives up</td><td>Learned helplessness, depressive cognition</td></tr>
+                <tr><td>Abandonment/Loss</td><td>Hero is left alone, loved ones leave</td><td>Attachment insecurity, separation anxiety</td></tr>
+                <tr><td>Punishment/Guilt</td><td>Hero does wrong and is punished</td><td>Harsh superego, guilt, masochistic tendencies</td></tr>
+                <tr><td>Rescue/Salvation</td><td>Hero is helpless but saved by someone</td><td>Dependency needs, external locus of control</td></tr>
+                <tr><td>Escape/Freedom</td><td>Hero escapes from confinement</td><td>Feeling trapped, desire for autonomy</td></tr>
+                <tr><td>Betrayal/Deception</td><td>Hero is betrayed by trusted figure</td><td>Trust issues, paranoid ideation</td></tr>
+                <tr><td>Self-sacrifice</td><td>Hero gives up needs for others</td><td>Martyrdom, codependency</td></tr>
+                <tr><td>Death/Destruction</td><td>Hero or important figure dies</td><td>Preoccupation with death, grief, suicidal ideation (if persistent)</td></tr>
+                <tr><td>Power/Control</td><td>Hero dominates others</td><td>Need for dominance, compensating for powerlessness</td></tr>
+            </tbody>
+        </table>
+
+        <div class="viva-point">
+            The most clinically significant themes are those <strong>repeated across multiple cards</strong>, especially cards that do NOT typically pull that theme. Aggression on Card 1 (boy with violin) is more significant than aggression on Card 18BM (man grabbed from behind).
+        </div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- STEP 5: EMOTIONS AND AFFECT -->
+    <div class="step-box">
+        <h3>STEP 5: Analyze Emotions and Affect</h3>
+
+        <p><span class="bracket">(Yahan hum dekhte hain ki kahaniyaan mein kaun se emotions aate hain, kitne intense hain, kya woh situation ke hisaab se sahi hain, aur kya patient emotions express karta hai ya chhupata hai)</span></p>
+
+        <h4>What to Identify:</h4>
+        <ol>
+            <li><strong>Dominant Emotions</strong> &mdash; Which emotions appear most frequently across stories?</li>
+            <li><strong>Range of Emotions</strong> &mdash; Full range or restricted?</li>
+            <li><strong>Intensity of Expression</strong> &mdash; Mild or extreme?</li>
+            <li><strong>Appropriateness</strong> &mdash; Does emotion match the situation?</li>
+            <li><strong>Expression vs. Suppression</strong> &mdash; Are characters allowed to feel?</li>
+        </ol>
+
+        <h4>Emotional Patterns and Clinical Significance:</h4>
+
+        <table>
+            <thead>
+                <tr><th>Pattern</th><th>What It Looks Like</th><th>Clinical Significance</th></tr>
+            </thead>
+            <tbody>
+                <tr><td><strong>Pervasive Sadness</strong></td><td>Characters feel sad, hopeless across most stories</td><td>Depressive affect, possible mood disorder</td></tr>
+                <tr><td><strong>Pervasive Anxiety</strong></td><td>Characters worried, fearful, anticipate bad things</td><td>Anxiety disorder, generalized worry</td></tr>
+                <tr><td><strong>Restricted/Absent Affect</strong></td><td>No emotions mentioned; stories are factual, dry</td><td>Alexithymia, emotional constriction, schizoid features</td></tr>
+                <tr><td><strong>Explosive/Intense Affect</strong></td><td>Sudden extreme emotions &mdash; rage, terror</td><td>Emotional dysregulation, borderline features</td></tr>
+                <tr><td><strong>Inappropriate Affect</strong></td><td>Happy emotions in sad scenes</td><td>Thought disorder, manic defense, dissociation</td></tr>
+                <tr><td><strong>Guilt/Shame Dominance</strong></td><td>Characters feel guilty, deserve punishment</td><td>Harsh superego, internalized shame</td></tr>
+                <tr><td><strong>Anger/Rage Dominance</strong></td><td>Characters are angry, hostile</td><td>Aggression issues, possibly masked depression</td></tr>
+                <tr><td><strong>Emotional Lability</strong></td><td>Rapid shifts within one story</td><td>Emotional instability, borderline features</td></tr>
+                <tr><td><strong>Loneliness/Emptiness</strong></td><td>Characters feel empty, disconnected</td><td>Existential concerns, attachment difficulties</td></tr>
+            </tbody>
+        </table>
+
+        <h4>Affect Regulation Patterns:</h4>
+        <ul>
+            <li><strong>Containment</strong> &mdash; Hero feels emotion but manages it appropriately (healthy)</li>
+            <li><strong>Overwhelming</strong> &mdash; Emotion takes over, hero cannot function (poor regulation)</li>
+            <li><strong>Denial</strong> &mdash; Emotion-provoking situation but hero "feels fine" (pathological)</li>
+            <li><strong>Intellectualization</strong> &mdash; Hero "thinks about" instead of feeling (defense)</li>
+            <li><strong>Somatization</strong> &mdash; Hero's body reacts instead of emotional expression</li>
+            <li><strong>Acting Out</strong> &mdash; Hero immediately acts on emotion without reflection (impulsivity)</li>
+            <li><strong>Displacement</strong> &mdash; Hero directs emotion at wrong target</li>
+        </ul>
+    </div>
+
+    <hr class="divider">
+
+    <!-- STEP 6: INTERPERSONAL RELATIONSHIPS -->
+    <div class="step-box">
+        <h3>STEP 6: Analyze Interpersonal Relationships</h3>
+
+        <p><strong>Definition:</strong> This step examines how the hero relates to other characters &mdash; revealing the subject's internal models of relationships (object relations).</p>
+
+        <p><span class="bracket">(Yeh step batata hai ki patient ke andar relationships ka kya model hai &mdash; kya woh logon par bharosa karta hai, kya woh logon se darta hai, kya woh logon par nirbhar hai. Kahaniyon mein jo rishte dikhte hain wahi patient ke real-life relationships ka reflection hain)</span></p>
+
+        <h4>Bellak's Category: "Conception of the World / Figures Seen As"</h4>
+        <p>For each significant figure in the story, note:</p>
+
+        <table>
+            <thead>
+                <tr><th>Figure Type</th><th>How They Are Portrayed</th><th>Clinical Significance</th></tr>
+            </thead>
+            <tbody>
+                <tr><td><strong>Mother Figures</strong></td><td>Nurturing/cold/controlling/absent</td><td>Reveals internalized maternal object &mdash; early attachment quality</td></tr>
+                <tr><td><strong>Father Figures</strong></td><td>Supportive/punitive/distant/weak</td><td>Reveals internalized paternal object &mdash; authority relationship</td></tr>
+                <tr><td><strong>Romantic Partners</strong></td><td>Loving/betraying/demanding/idealized</td><td>Attachment style in romantic relationships</td></tr>
+                <tr><td><strong>Authority Figures</strong></td><td>Helpful/punitive/fair/arbitrary</td><td>Relationship with authority, transference patterns</td></tr>
+                <tr><td><strong>Peers/Friends</strong></td><td>Trustworthy/competitive/rejecting</td><td>Social functioning, peer relationships</td></tr>
+                <tr><td><strong>Siblings</strong></td><td>Supportive/rivalrous/absent</td><td>Sibling dynamics, competition patterns</td></tr>
+            </tbody>
+        </table>
+
+        <h4>Interpersonal Patterns to Look For:</h4>
+        <ul>
+            <li><strong>Trust vs. Distrust</strong> &mdash; Are others seen as reliable or treacherous?</li>
+            <li><strong>Closeness vs. Distance</strong> &mdash; Does hero seek intimacy or maintain distance?</li>
+            <li><strong>Dominance vs. Submission</strong> &mdash; Who has power in relationships?</li>
+            <li><strong>Dependence vs. Independence</strong> &mdash; Does hero need others or function alone?</li>
+            <li><strong>Nurturance vs. Exploitation</strong> &mdash; Do relationships involve care or use?</li>
+            <li><strong>Conflict Resolution</strong> &mdash; How are interpersonal conflicts handled?</li>
+        </ul>
+
+        <div class="example">
+            <strong>Pattern across stories:</strong> Mother figures are consistently described as controlling, critical, and impossible to please. Hero tries to win their approval but never succeeds. Father figures are weak or absent.<br><br>
+            <strong>Interpretation:</strong> Subject likely has an internalized harsh, critical maternal object. May experience chronic feelings of inadequacy in relationships with women/authority. Father perceived as non-protective. Possible anxious attachment pattern with tendency toward people-pleasing.
+        </div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- STEP 7: DEFENSE MECHANISMS -->
+    <div class="step-box">
+        <h3>STEP 7: Identify Defense Mechanisms</h3>
+
+        <p><strong>Definition:</strong> Defense mechanisms are unconscious psychological strategies used to manage anxiety arising from conflicts between id impulses, superego demands, and external reality.</p>
+
+        <p><span class="bracket">(Defense mechanisms woh psychological strategies hain jo hum unconsciously use karte hain jab humein anxiety hoti hai. TAT mein yeh is tarah dikhte hain ki kahani mein hero kaise apni problems se deal karta hai, kaise conflicts se bachta hai)</span></p>
+
+        <h4>How Defenses Appear in TAT Stories:</h4>
+
+        <table>
+            <thead>
+                <tr><th>Defense Mechanism</th><th>How It Appears in Stories</th><th>Example</th></tr>
+            </thead>
+            <tbody>
+                <tr><td><strong>Denial</strong></td><td>Disturbing card content is ignored; hero says "everything is fine"</td><td>Card 13MF: "They are just roommates, nothing happened"</td></tr>
+                <tr><td><strong>Repression</strong></td><td>Important details omitted; story lacks expected emotional content</td><td>Death scene described without any sadness or grief</td></tr>
+                <tr><td><strong>Projection</strong></td><td>Negative traits attributed to others; hero victimized by hostile world</td><td>"Everyone is jealous of him" / "They all want to hurt her"</td></tr>
+                <tr><td><strong>Rationalization</strong></td><td>Logical explanations for emotional actions; intellectualized stories</td><td>"He decided to leave because it was the rational thing to do"</td></tr>
+                <tr><td><strong>Reaction Formation</strong></td><td>Opposite emotion expressed; overtly positive stories to hostile cards</td><td>Card with aggression cues: "They love each other so much"</td></tr>
+                <tr><td><strong>Displacement</strong></td><td>Emotions directed at substitute targets</td><td>Hero angry at parent but kicks the dog instead</td></tr>
+                <tr><td><strong>Sublimation</strong></td><td>Socially acceptable outlets for drives</td><td>Angry hero channels energy into sports or art</td></tr>
+                <tr><td><strong>Regression</strong></td><td>Hero becomes childlike, dependent when stressed</td><td>Adult hero cries for mother when facing difficulty</td></tr>
+                <tr><td><strong>Isolation of Affect</strong></td><td>Events described without associated emotions</td><td>"His mother died. He went to work the next day."</td></tr>
+                <tr><td><strong>Undoing</strong></td><td>Hero tries to reverse or make up for wrongdoing</td><td>"After hurting her, he spent his whole life making amends"</td></tr>
+                <tr><td><strong>Splitting</strong></td><td>Characters are all-good or all-bad, no ambivalence</td><td>"The mother was perfect. The stepmother was pure evil."</td></tr>
+                <tr><td><strong>Idealization</strong></td><td>Figures described as perfect, without flaws</td><td>"She was the most beautiful, kind, perfect woman"</td></tr>
+                <tr><td><strong>Devaluation</strong></td><td>Figures described as worthless, contemptible</td><td>"He was a useless, pathetic man who deserved nothing"</td></tr>
+                <tr><td><strong>Intellectualization</strong></td><td>Abstract, philosophical stories; no personal engagement</td><td>"This represents the human condition..." (no story)</td></tr>
+                <tr><td><strong>Fantasy/Wish-Fulfillment</strong></td><td>Unrealistic magical resolutions</td><td>"Suddenly everything became perfect and everyone was happy"</td></tr>
+            </tbody>
+        </table>
+
+        <h4>Assessing Defense Level (Bellak):</h4>
+        <div class="comparison">
+            <div class="col">
+                <h4 style="color: #2e7d32;">Mature/Adaptive Defenses</h4>
+                <ul>
+                    <li>Sublimation</li>
+                    <li>Humor</li>
+                    <li>Suppression (conscious)</li>
+                    <li>Altruism</li>
+                    <li>Anticipation</li>
+                </ul>
+                <p><em>Indicate healthy ego functioning</em></p>
+            </div>
+            <div class="col">
+                <h4 style="color: var(--secondary);">Primitive/Maladaptive Defenses</h4>
+                <ul>
+                    <li>Splitting</li>
+                    <li>Projective identification</li>
+                    <li>Denial (gross)</li>
+                    <li>Acting out</li>
+                    <li>Devaluation/Idealization</li>
+                </ul>
+                <p><em>Indicate personality disorder level functioning</em></p>
+            </div>
+        </div>
+
+        <div class="viva-point">
+            The LEVEL of defenses used tells you about the LEVEL of personality organization (neurotic vs. borderline vs. psychotic). Neurotic patients use repression, rationalization. Borderline patients use splitting, projection. Psychotic patients use denial of reality, autistic fantasy.
+        </div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- STEP 8: OUTCOME / RESOLUTION -->
+    <div class="step-box">
+        <h3>STEP 8: Analyze Outcome / Resolution</h3>
+
+        <p><strong>Definition:</strong> The outcome or ending of each story reveals the subject's expectations about how conflicts resolve, their level of optimism/pessimism, and their problem-solving capacity.</p>
+
+        <p><span class="bracket">(Kahani ka end kaise hota hai &mdash; yeh batata hai ki patient ko lagta hai ki uski zindagi mein problems solve hongi ya nahi, kya woh hopeful hai ya hopeless. Agar sab kahaniyaan sad ending mein khatam hoti hain toh yeh depression ka indicator hai)</span></p>
+
+        <h4>Types of Outcomes:</h4>
+
+        <table>
+            <thead>
+                <tr><th>Outcome Type</th><th>Description</th><th>Clinical Significance</th></tr>
+            </thead>
+            <tbody>
+                <tr><td><strong>Positive/Happy</strong></td><td>Hero succeeds, problem solved, relationships restored</td><td>Optimism, adequate coping, positive self-efficacy</td></tr>
+                <tr><td><strong>Realistic Positive</strong></td><td>Hero succeeds through effort, realistic means</td><td>Healthy coping, realistic expectations (BEST indicator)</td></tr>
+                <tr><td><strong>Magical/Unrealistic Positive</strong></td><td>Problem suddenly disappears, miracle occurs</td><td>Wish-fulfillment, denial, inability to see realistic solutions</td></tr>
+                <tr><td><strong>Negative/Tragic</strong></td><td>Hero fails, dies, is abandoned, situation worsens</td><td>Pessimism, depressive cognition, low self-efficacy</td></tr>
+                <tr><td><strong>Ambiguous/Unclear</strong></td><td>"I don't know what happens next" / trailing off</td><td>Inability to envision resolution, hopelessness, avoidance</td></tr>
+                <tr><td><strong>Incomplete/No Ending</strong></td><td>Story simply stops without resolution</td><td>Difficulty with closure, unresolved conflicts in real life</td></tr>
+                <tr><td><strong>Punishment</strong></td><td>Hero is punished for actions (deserved or not)</td><td>Harsh superego, guilt, need for punishment</td></tr>
+                <tr><td><strong>External Rescue</strong></td><td>Someone else solves hero's problem</td><td>External locus of control, dependency</td></tr>
+                <tr><td><strong>Escape/Flight</strong></td><td>Hero runs away from problem</td><td>Avoidant coping, inability to confront issues</td></tr>
+            </tbody>
+        </table>
+
+        <h4>Bellak's Integration of the Ego Assessment:</h4>
+        <p>The outcome reveals the <strong>adequacy of ego functioning</strong>:</p>
+        <ul>
+            <li><strong>Good ego integration</strong> &mdash; Stories have realistic conflict, appropriate emotional response, and satisfactory resolution through hero's own efforts</li>
+            <li><strong>Moderate ego integration</strong> &mdash; Conflicts recognized but resolutions are partial, require external help, or are somewhat unrealistic</li>
+            <li><strong>Poor ego integration</strong> &mdash; Conflicts overwhelming, no resolution, bizarre outcomes, or complete avoidance of conflict</li>
+        </ul>
+
+        <div class="formula">
+            Outcome Pattern across ALL stories = Subject's generalized expectation about life + Problem-solving capacity + Level of hope/despair
+        </div>
+
+        <div class="clinical-note">
+            Compare outcomes in EARLY stories vs. LATER stories. If outcomes deteriorate as testing progresses (start positive, become negative), this may indicate fatigue breaking down defenses, or the subject "letting down their guard" as rapport develops.
+        </div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- STEP 9: SPECIAL INDICATORS -->
+    <div class="step-box">
+        <h3>STEP 9: Special Indicators and Red Flags</h3>
+
+        <p><span class="bracket">(Kuch aise content areas hain jo clinical practice mein special attention maangte hain &mdash; kyunki yeh either serious psychopathology ya risk indicate karte hain)</span></p>
+
+        <h4>9A: Violence and Aggression</h4>
+        <div class="red-flag">
+            Persistent violent themes require careful assessment: nature of violence, direction (toward self vs. others), intensity, presence of remorse, and reality-anchoring.
+        </div>
+        <ul>
+            <li><strong>Mild/Normative</strong> &mdash; Conflict, argument, competition (within normal limits)</li>
+            <li><strong>Moderate</strong> &mdash; Physical fights, destruction of property, angry outbursts</li>
+            <li><strong>Severe</strong> &mdash; Graphic violence, murder, torture, no remorse expressed</li>
+            <li><strong>Direction</strong> &mdash; Toward others (externalized aggression) vs. toward self (self-harm)</li>
+        </ul>
+
+        <h4>9B: Death and Suicidal Content</h4>
+        <div class="red-flag">
+            Death themes appearing across multiple cards, especially when hero dies by own choice, require immediate clinical attention. This does NOT mean every death theme = suicidal, but persistent self-directed death themes warrant further assessment.
+        </div>
+        <ul>
+            <li>Death of others (loss, grief theme) &mdash; may indicate unresolved grief</li>
+            <li>Hero's death by circumstance &mdash; may indicate hopelessness/fatalism</li>
+            <li>Hero's death by choice &mdash; most concerning &mdash; assess for suicidal ideation</li>
+            <li>Death as punishment &mdash; harsh superego, guilt</li>
+        </ul>
+
+        <h4>9C: Sexual Themes</h4>
+        <ul>
+            <li><strong>Romantic/age-appropriate</strong> &mdash; Generally normal, assess for preoccupation level</li>
+            <li><strong>Aggressive sexuality</strong> &mdash; Possible history of abuse, power dynamics issues</li>
+            <li><strong>Guilt around sexuality</strong> &mdash; Strict superego, cultural/religious conflict</li>
+            <li><strong>Bizarre sexual content</strong> &mdash; Possible thought disorder, paraphilia</li>
+        </ul>
+
+        <h4>9D: Reality Distortion</h4>
+        <table>
+            <thead>
+                <tr><th>Indicator</th><th>Description</th><th>Clinical Concern</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Perceptual distortion</td><td>Seeing things in the picture that are not there</td><td>Psychotic process, severe projection</td></tr>
+                <tr><td>Confabulation</td><td>Elaborate, bizarre additions unrelated to stimulus</td><td>Thought disorder, loose associations</td></tr>
+                <tr><td>Magical thinking</td><td>Supernatural explanations, impossible events</td><td>Psychotic thinking (if persistent), or cultural factor</td></tr>
+                <tr><td>Loss of distance</td><td>"This IS me" &mdash; unable to maintain story-telling stance</td><td>Weak ego boundaries</td></tr>
+                <tr><td>Fragmentation</td><td>Story makes no logical sense, jumps between ideas</td><td>Formal thought disorder, psychotic process</td></tr>
+            </tbody>
+        </table>
+
+        <h4>9E: Indian Cultural Considerations (Uma Chaudhary)</h4>
+        <p><span class="bracket">(Indian context mein kuch themes hain jo Western literature mein pathological lag sakte hain lekin Indian culture mein normal hain &mdash; inhe dhyan se samajhna zaroori hai)</span></p>
+        <ul>
+            <li><strong>Duty/Kartavya themes</strong> &mdash; Self-sacrifice for family is culturally normative, not necessarily pathological martyrdom</li>
+            <li><strong>Respect for elders/Deference</strong> &mdash; High n Deference toward parents is culturally appropriate, not necessarily pathological submission</li>
+            <li><strong>Religious/Spiritual themes</strong> &mdash; Finding solace in God, acceptance through faith is culturally normative</li>
+            <li><strong>Joint family dynamics</strong> &mdash; Multiple authority figures, collective decision-making is normal in Indian context</li>
+            <li><strong>Arranged marriage themes</strong> &mdash; Compliance with family wishes regarding marriage is culturally expected</li>
+            <li><strong>Gender role adherence</strong> &mdash; Traditional gender roles may be culturally endorsed, not necessarily indicating oppression</li>
+        </ul>
+
+        <div class="warning-box">
+            Always ask: "Is this response pathological, or is it culturally normative?" Cultural consultation may be needed for subjects from unfamiliar cultural backgrounds.
+        </div>
+    </div>
+
+</div><!-- End Section 3 -->
+
+<!-- ====================================================================== -->
+<!-- SECTION 4: CROSS-STORY ANALYSIS -->
+<!-- ====================================================================== -->
+<div class="section" id="section4">
+    <h2>Section 4: Cross-Story Analysis (Pattern Recognition)</h2>
+
+    <p>After analyzing each story individually using the 9 steps above, the clinician must now look <strong>across all stories</strong> to identify recurring patterns. This is where the real clinical power of TAT lies.</p>
+
+    <p><span class="bracket">(Individual story analysis ke baad sabse important kaam hai sab kahaniyaan ek saath rakh kar dekhna &mdash; kya pattern baar-baar aa rahe hain? Wohi repeated patterns subject ki personality ke core features hain)</span></p>
+
+    <div class="formula">
+        Single Story = Hypothesis &nbsp;&nbsp;|&nbsp;&nbsp; Repeated Pattern Across Stories = FINDING
+    </div>
+
+    <h3>4.1 How to Conduct Cross-Story Analysis</h3>
+
+    <div class="numbered-step">
+        <div class="step-number">1</div>
+        <div><strong>Create a Summary Table</strong><br>After scoring each story, create a table listing: Hero characteristics, Dominant Need, Dominant Press, Theme, Emotion, Outcome for each story. This makes patterns visible at a glance.</div>
+    </div>
+    <div class="numbered-step">
+        <div class="step-number">2</div>
+        <div><strong>Tally Frequencies</strong><br>Count how often each need, press, theme, and emotion appears. Which ones appear in 50%+ of stories?</div>
+    </div>
+    <div class="numbered-step">
+        <div class="step-number">3</div>
+        <div><strong>Identify Convergent Evidence</strong><br>When the same pattern appears through different variables (e.g., n Succorance appears as a need AND helpless heroes AND rescue outcomes), confidence is very high.</div>
+    </div>
+    <div class="numbered-step">
+        <div class="step-number">4</div>
+        <div><strong>Note Exceptions and Contradictions</strong><br>If 8 stories show dependency but 2 show strong autonomy, the autonomous stories may represent a wish, defense, or ideal self &mdash; not the dominant pattern.</div>
+    </div>
+    <div class="numbered-step">
+        <div class="step-number">5</div>
+        <div><strong>Compare with Card Pull</strong><br>Some cards naturally "pull" certain themes. A theme that appears even on cards that don't typically pull it is highly significant.</div>
+    </div>
+
+    <h3>4.2 Repeated Needs Pattern</h3>
+
+    <div class="example">
+        <strong>Cross-Story Finding:</strong><br>
+        &bull; n Affiliation appears in 8/10 stories<br>
+        &bull; n Succorance appears in 6/10 stories<br>
+        &bull; n Rejection (fear of) appears in 7/10 stories<br><br>
+        <strong>Integration:</strong> The subject has an intense need for love and connection (n Affiliation) with a dependent quality (n Succorance). The fear of rejection (n Infavoidance around relationships) suggests an anxious attachment style where the person desperately wants closeness but constantly fears abandonment.
+    </div>
+
+    <h3>4.3 Repeated Conflict Patterns</h3>
+
+    <p>Look for the same conflict appearing in different forms across stories:</p>
+
+    <table>
+        <thead>
+            <tr><th>Conflict Pattern</th><th>How It May Appear Differently</th><th>Core Issue</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>Independence vs. Dependence</td><td>Story 1: Son vs. controlling mother<br>Story 5: Employee vs. demanding boss<br>Story 8: Woman choosing between career and family</td><td>Autonomy-Dependency conflict is the core personality issue</td></tr>
+            <tr><td>Love vs. Achievement</td><td>Story 2: Student choosing studies over friends<br>Story 6: Father missing child's function for work<br>Story 9: Woman giving up career for relationship</td><td>Work-life balance/intimacy vs. accomplishment is the central tension</td></tr>
+            <tr><td>Anger vs. Guilt</td><td>Story 3: Boy angry at father but feels guilty<br>Story 4: Woman wants to leave husband but stays<br>Story 7: Employee wants to confront boss but doesn't</td><td>Aggression inhibition &mdash; wants to express anger but superego blocks it</td></tr>
+        </tbody>
+    </table>
+
+    <h3>4.4 Repeated Relationship Patterns</h3>
+
+    <p>Track how different types of relationships are portrayed:</p>
+    <ul>
+        <li><strong>Authority figures</strong> &mdash; consistently punitive? supportive? absent?</li>
+        <li><strong>Romantic partners</strong> &mdash; consistently betraying? idealizing? dependent?</li>
+        <li><strong>Peers</strong> &mdash; consistently competitive? supportive? rejecting?</li>
+        <li><strong>Family</strong> &mdash; consistently enmeshed? distant? conflictual?</li>
+    </ul>
+
+    <h3>4.5 Consistency vs. Variability</h3>
+
+    <div class="comparison">
+        <div class="col">
+            <h4 style="color: var(--primary);">High Consistency (Same pattern across stories)</h4>
+            <p><strong>Indicates:</strong> Well-established personality trait or schema; likely to manifest in real behavior; chronic pattern</p>
+            <p><span class="bracket">(Agar sab kahaniyaan same pattern dikha rahi hain toh yeh patient ki personality ka core feature hai)</span></p>
+        </div>
+        <div class="col">
+            <h4 style="color: var(--secondary);">High Variability (Different patterns across stories)</h4>
+            <p><strong>Indicates:</strong> May reflect situation-specific responses, identity confusion, or the person has multiple conflicting self-states</p>
+            <p><span class="bracket">(Agar har kahani alag hai toh ya toh patient ki identity confused hai, ya woh different situations mein different behave karta hai)</span></p>
+        </div>
+    </div>
+
+    <h3>4.6 Bellak's Final Integration Summary</h3>
+
+    <p>Bellak recommends creating a final summary page (the 10th category) where you note:</p>
+    <ul>
+        <li>The 3-5 most repeated themes across all stories</li>
+        <li>The dominant needs (rank ordered by frequency)</li>
+        <li>The dominant presses (rank ordered by frequency)</li>
+        <li>The predominant emotional tone</li>
+        <li>The characteristic defense pattern</li>
+        <li>The typical outcome pattern</li>
+        <li>The quality of ego integration</li>
+        <li>The severity of superego (lenient vs. harsh)</li>
+    </ul>
+
+    <div class="clinical-note">
+        This summary becomes the basis for the Personality Formulation (Section 5) and the Clinical Report (Section 7).
+    </div>
+</div>
+
+<!-- ====================================================================== -->
+<!-- SECTION 5: PERSONALITY FORMULATION -->
+<!-- ====================================================================== -->
+<div class="section" id="section5">
+    <h2>Section 5: Personality Formulation from TAT</h2>
+
+    <p>This is where all the individual analyses come together into a <strong>coherent psychological portrait</strong> of the individual. The personality formulation answers: "Based on TAT data, what kind of person is this?"</p>
+
+    <p><span class="bracket">(Ab tak humne har kahani ko alag-alag analyse kiya aur patterns identify kiye. Ab sab ko jodh kar ek complete personality picture banana hai &mdash; jaise ek puzzle ke saare pieces jodh kar poori tasveer dikhti hai)</span></p>
+
+    <h3>5.1 Self-Concept</h3>
+
+    <p>Derived from: Hero characteristics, hero adequacy, body image references</p>
+
+    <table>
+        <thead>
+            <tr><th>TAT Evidence</th><th>Self-Concept Inference</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>Heroes consistently capable, achieving, overcoming</td><td>Positive self-concept; sees self as competent</td></tr>
+            <tr><td>Heroes consistently weak, victimized, failing</td><td>Negative self-concept; feels inadequate</td></tr>
+            <tr><td>Heroes vary &mdash; sometimes strong, sometimes weak</td><td>Unstable self-concept; fluctuating self-esteem</td></tr>
+            <tr><td>Heroes have no clear identity, vague</td><td>Identity diffusion; unclear sense of self</td></tr>
+            <tr><td>Heroes are special, gifted, above others</td><td>Grandiose self-concept (may compensate for underlying inadequacy)</td></tr>
+            <tr><td>Heroes are damaged, flawed, unlovable</td><td>Shame-based self-concept; core belief of defectiveness</td></tr>
+        </tbody>
+    </table>
+
+    <h3>5.2 Interpersonal Style</h3>
+
+    <p>Derived from: Relationship patterns, figures seen as, trust/distrust, closeness/distance</p>
+
+    <table>
+        <thead>
+            <tr><th>TAT Pattern</th><th>Interpersonal Style</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>Hero seeks closeness, fears rejection, needs reassurance</td><td><strong>Anxious/Preoccupied</strong> attachment style</td></tr>
+            <tr><td>Hero keeps distance, is self-reliant, avoids intimacy</td><td><strong>Avoidant/Dismissive</strong> attachment style</td></tr>
+            <tr><td>Hero sometimes seeks, sometimes pushes away</td><td><strong>Disorganized/Fearful</strong> attachment style</td></tr>
+            <tr><td>Hero relates warmly, trusts appropriately, handles conflict</td><td><strong>Secure</strong> attachment style</td></tr>
+            <tr><td>Hero controls/dominates others</td><td><strong>Controlling/Dominant</strong> interpersonal style</td></tr>
+            <tr><td>Hero submits to everyone, cannot assert</td><td><strong>Submissive/Dependent</strong> interpersonal style</td></tr>
+            <tr><td>Hero alternates between idealizing and devaluing others</td><td><strong>Unstable</strong> object relations (borderline pattern)</td></tr>
+        </tbody>
+    </table>
+
+    <h3>5.3 Emotional Functioning</h3>
+
+    <p>Derived from: Dominant affects, affect regulation patterns, range of emotions</p>
+
+    <ul>
+        <li><strong>Predominant Affect</strong> &mdash; What is the baseline emotional tone? (anxious, depressed, angry, empty, content)</li>
+        <li><strong>Affect Regulation</strong> &mdash; Can emotions be contained and managed, or do they overwhelm?</li>
+        <li><strong>Affect Range</strong> &mdash; Full spectrum or constricted?</li>
+        <li><strong>Affect Appropriateness</strong> &mdash; Are emotions proportionate to situations?</li>
+        <li><strong>Affect Expression</strong> &mdash; Can emotions be expressed, or are they blocked/suppressed?</li>
+    </ul>
+
+    <h3>5.4 Motivation Patterns</h3>
+
+    <p>Derived from: Dominant needs, need hierarchy, need-press interactions</p>
+
+    <p>Create a <strong>need hierarchy</strong> for the subject:</p>
+
+    <div class="example">
+        <strong>Example Need Hierarchy:</strong><br>
+        1. n Affiliation (dominant &mdash; appears in 8/10 stories)<br>
+        2. n Succorance (secondary &mdash; appears in 5/10 stories)<br>
+        3. n Achievement (moderate &mdash; appears in 4/10 stories)<br>
+        4. n Infavoidance (moderate &mdash; appears in 4/10 stories)<br>
+        5. n Autonomy (latent/frustrated &mdash; appears in 2/10 stories but with high intensity)<br><br>
+        <strong>Formulation:</strong> This individual is primarily driven by the need for love and connection. They seek support and care from others (dependency). Achievement is present but secondary to relationships. They fear failure and avoid situations where they might be exposed as inadequate. There is a latent desire for independence that is not typically acted upon &mdash; suggesting an unexpressed wish for autonomy that conflicts with dependency needs.
+    </div>
+
+    <h3>5.5 Conflict Areas</h3>
+
+    <p>Identify the <strong>core psychological conflicts</strong>:</p>
+
+    <table>
+        <thead>
+            <tr><th>Conflict Type</th><th>TAT Indicators</th><th>Clinical Presentation</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>Autonomy vs. Dependence</td><td>Heroes torn between independence and needing others</td><td>Difficulty making decisions alone; resentment toward caregivers</td></tr>
+            <tr><td>Achievement vs. Fear of Failure</td><td>Heroes want to succeed but avoid trying</td><td>Procrastination, self-sabotage, underachievement</td></tr>
+            <tr><td>Intimacy vs. Fear of Rejection</td><td>Heroes want love but fear abandonment</td><td>Approach-avoidance in relationships, clingy then distant</td></tr>
+            <tr><td>Aggression vs. Guilt</td><td>Heroes angry but punished for it or feel guilty</td><td>Passive-aggressive behavior, psychosomatic symptoms</td></tr>
+            <tr><td>Sexuality vs. Superego</td><td>Sexual themes followed by punishment or guilt</td><td>Sexual inhibition, guilt around pleasure</td></tr>
+            <tr><td>Self vs. Others (Individuation)</td><td>Hero torn between own wishes and family expectations</td><td>Identity confusion, enmeshment, difficulty in separation-individuation</td></tr>
+        </tbody>
+    </table>
+
+    <h3>5.6 Ego Functioning (Bellak's Assessment)</h3>
+
+    <p>Rate the following ego functions based on TAT data:</p>
+
+    <table>
+        <thead>
+            <tr><th>Ego Function</th><th>How to Assess from TAT</th><th>Rating Guide</th></tr>
+        </thead>
+        <tbody>
+            <tr><td><strong>Reality Testing</strong></td><td>Are stories reality-based? Do characters respond to what's actually in the picture?</td><td>Good: Realistic stories. Poor: Bizarre, unrelated to stimulus</td></tr>
+            <tr><td><strong>Judgment</strong></td><td>Do heroes make reasonable decisions? Are outcomes proportionate to actions?</td><td>Good: Logical decisions. Poor: Impulsive, irrational choices</td></tr>
+            <tr><td><strong>Thought Processes</strong></td><td>Are stories organized, coherent, logical? Is there sequential thinking?</td><td>Good: Clear narrative. Poor: Tangential, fragmented</td></tr>
+            <tr><td><strong>Impulse Control</strong></td><td>Do heroes act on impulse or think before acting?</td><td>Good: Reflective heroes. Poor: Impulsive acting out</td></tr>
+            <tr><td><strong>Defensive Functioning</strong></td><td>What level of defenses are used? Are they effective?</td><td>Good: Mature defenses. Poor: Primitive defenses, or defenses failing</td></tr>
+            <tr><td><strong>Autonomous Functioning</strong></td><td>Can hero function independently? Is basic competence present?</td><td>Good: Competent hero. Poor: Cannot function without others</td></tr>
+            <tr><td><strong>Synthetic-Integrative Function</strong></td><td>Can stories integrate multiple elements coherently?</td><td>Good: Complex, integrated stories. Poor: Fragmented, contradictory</td></tr>
+        </tbody>
+    </table>
+
+    <h3>5.7 Superego Assessment</h3>
+
+    <p>Derived from: Punishment themes, guilt, moral content, outcome patterns</p>
+
+    <div class="comparison">
+        <div class="col">
+            <h4 style="color: var(--secondary);">Harsh/Punitive Superego</h4>
+            <ul>
+                <li>Heroes are punished severely for minor wrongs</li>
+                <li>Excessive guilt expressed</li>
+                <li>Self-punishment themes</li>
+                <li>Perfectionistic standards</li>
+                <li>Cannot forgive self or others</li>
+            </ul>
+            <p><em>Clinical: Depression, OCD, masochism</em></p>
+        </div>
+        <div class="col">
+            <h4 style="color: #2e7d32;">Weak/Deficient Superego</h4>
+            <ul>
+                <li>Heroes act without remorse</li>
+                <li>No guilt after wrongdoing</li>
+                <li>Others exploited without concern</li>
+                <li>Rules broken without consequence in story</li>
+                <li>Antisocial behavior normalized</li>
+            </ul>
+            <p><em>Clinical: Antisocial features, psychopathy</em></p>
+        </div>
+    </div>
+
+    <div class="clinical-note">
+        An <strong>integrated/adaptive superego</strong> shows: appropriate guilt proportional to wrongdoing, ability to make amends, realistic moral standards, and capacity for self-forgiveness.
+    </div>
+</div>
+
+<!-- ====================================================================== -->
+<!-- SECTION 6: CLINICAL INTERPRETATION -->
+<!-- ====================================================================== -->
+<div class="section" id="section6">
+    <h2>Section 6: Clinical Interpretation &amp; Diagnostic Correlates</h2>
+
+    <p>This section explains how to relate TAT findings to clinical conditions. <strong>Important caveat:</strong> TAT alone cannot diagnose. It provides <em>supportive evidence</em> that must be integrated with clinical interview, behavioral observations, and other test data.</p>
+
+    <p><span class="bracket">(TAT se hum diagnosis nahi kar sakte &mdash; lekin TAT se milne wali information clinical interview aur doosre tests ke saath milkar diagnosis support karti hai. TAT akele mein diagnostic tool nahi hai, yeh ek personality assessment tool hai)</span></p>
+
+    <div class="warning-box">
+        TAT findings should ALWAYS be reported as "consistent with" or "suggestive of" rather than "diagnostic of" any condition. Use probabilistic language.
+    </div>
+
+    <h3>6.1 Depressive Patterns</h3>
+    <table>
+        <thead>
+            <tr><th>TAT Indicator</th><th>What It Suggests</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>Pervasive sadness, hopelessness across stories</td><td>Depressive mood state</td></tr>
+            <tr><td>Heroes who are passive, give up, don't try</td><td>Psychomotor retardation, anergia</td></tr>
+            <tr><td>Negative outcomes across most/all stories</td><td>Negative cognitive triad (Beck)</td></tr>
+            <tr><td>Loss themes recurring (death, abandonment)</td><td>Grief, unresolved loss</td></tr>
+            <tr><td>Self-punishment, guilt, worthlessness themes</td><td>Depressive guilt, low self-worth</td></tr>
+            <tr><td>Short, impoverished stories throughout</td><td>Cognitive slowing, decreased motivation</td></tr>
+            <tr><td>Death themes with hero choosing death</td><td>Suicidal ideation &mdash; requires further assessment</td></tr>
+            <tr><td>Anhedonic content &mdash; no pleasure in any story</td><td>Anhedonia, loss of interest</td></tr>
+        </tbody>
+    </table>
+
+    <h3>6.2 Anxiety Patterns</h3>
+    <table>
+        <thead>
+            <tr><th>TAT Indicator</th><th>Anxiety Type</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>Heroes anticipate danger/threat constantly</td><td>Generalized anxiety</td></tr>
+            <tr><td>Specific fear themes (heights, animals, enclosed spaces)</td><td>Specific phobias</td></tr>
+            <tr><td>Social evaluation fear, shame of public failure</td><td>Social anxiety</td></tr>
+            <tr><td>Separation themes, fear of being left alone</td><td>Separation anxiety</td></tr>
+            <tr><td>Catastrophic outcomes, worst-case scenarios</td><td>Catastrophizing/worry</td></tr>
+            <tr><td>Physical symptoms described (racing heart, sweating)</td><td>Somatic anxiety/panic</td></tr>
+            <tr><td>Avoidance as primary coping in stories</td><td>Avoidant coping pattern</td></tr>
+        </tbody>
+    </table>
+
+    <h3>6.3 Personality Disorder Patterns</h3>
+
+    <h4>Borderline Personality Features:</h4>
+    <ul>
+        <li>Intense, unstable relationships (idealization followed by devaluation)</li>
+        <li>Fear of abandonment as central theme</li>
+        <li>Identity diffusion (heroes with unclear sense of self)</li>
+        <li>Emotional lability within single stories</li>
+        <li>Splitting (characters all-good or all-bad)</li>
+        <li>Impulsive behavior without consequences considered</li>
+        <li>Self-harm or suicidal themes</li>
+        <li>Chronic emptiness expressed by heroes</li>
+    </ul>
+
+    <h4>Narcissistic Personality Features:</h4>
+    <ul>
+        <li>Heroes are special, gifted, superior to others</li>
+        <li>Need for admiration as dominant theme</li>
+        <li>Exploitative relationships (using others for self-gain)</li>
+        <li>Rage when hero is not recognized or is humiliated</li>
+        <li>Lack of empathy for other characters' feelings</li>
+        <li>Grandiose outcomes (hero becomes famous, powerful, rich)</li>
+        <li>Devaluation of others who don't recognize hero's worth</li>
+    </ul>
+
+    <h4>Dependent Personality Features:</h4>
+    <ul>
+        <li>Heroes unable to function without others' guidance</li>
+        <li>Intense need for approval/reassurance</li>
+        <li>Fear of being alone/making decisions</li>
+        <li>Submissive behavior, difficulty disagreeing</li>
+        <li>Clinging relationships, fear of separation</li>
+        <li>External rescue as primary resolution pattern</li>
+    </ul>
+
+    <h4>Antisocial/Psychopathic Features:</h4>
+    <ul>
+        <li>Aggression without remorse or consequence</li>
+        <li>Others seen as objects to manipulate/exploit</li>
+        <li>Rules are for others, not hero</li>
+        <li>No guilt themes despite wrongdoing</li>
+        <li>Impulsive action without reflection</li>
+        <li>Superficial relationships (no depth of connection)</li>
+    </ul>
+
+    <h4>Obsessive-Compulsive Personality Features:</h4>
+    <ul>
+        <li>Excessive detail, orderliness in stories</li>
+        <li>Perfectionism themes &mdash; hero can't tolerate imperfection</li>
+        <li>Control themes &mdash; hero must control everything</li>
+        <li>Rigidity &mdash; cannot adapt to change</li>
+        <li>Work over pleasure consistently</li>
+        <li>Intellectualization as dominant defense</li>
+    </ul>
+
+    <h3>6.4 Psychotic Indicators</h3>
+    <div class="red-flag">
+        The following indicators suggest possible psychotic process and require careful clinical evaluation:
+    </div>
+    <ul>
+        <li>Gross perceptual distortion (seeing things not in the picture)</li>
+        <li>Bizarre, illogical story content</li>
+        <li>Loose associations &mdash; stories jump between unrelated ideas</li>
+        <li>Neologisms or private language</li>
+        <li>Loss of distance from material ("This IS happening to me right now")</li>
+        <li>Persecutory themes with no basis in card content</li>
+        <li>Fragmented narratives that cannot be followed</li>
+        <li>Contamination of reality and fantasy</li>
+    </ul>
+
+    <h3>6.5 Adjustment Disorders / Situational Reactions</h3>
+    <ul>
+        <li>Themes concentrated around a single life area (e.g., only work stories show distress)</li>
+        <li>Generally adequate ego functioning with one area of breakdown</li>
+        <li>Acute distress content that differs from baseline personality</li>
+        <li>Realistic stressors as predominant presses</li>
+        <li>Coping partially intact &mdash; some stories show resilience</li>
+    </ul>
+
+    <h3>6.6 Integration with Other Assessment Data</h3>
+
+    <p>TAT findings should be integrated with:</p>
+    <ul>
+        <li><strong>Clinical Interview</strong> &mdash; Does TAT confirm or contradict self-report?</li>
+        <li><strong>Behavioral Observations</strong> &mdash; Does observed behavior match TAT themes?</li>
+        <li><strong>Other Projective Tests</strong> &mdash; Do Rorschach findings converge with TAT?</li>
+        <li><strong>Objective Tests</strong> &mdash; MMPI/NEO findings consistent?</li>
+        <li><strong>History</strong> &mdash; Do themes reflect known life events?</li>
+    </ul>
+
+    <div class="viva-point">
+        When TAT findings CONTRADICT self-report (e.g., patient denies aggression but TAT shows intense aggression), this discrepancy itself is clinically significant &mdash; it may indicate unconscious processes, denial, or poor insight.
+    </div>
+</div>
+
+<!-- ====================================================================== -->
+<!-- SECTION 7: REPORT WRITING FORMAT -->
+<!-- ====================================================================== -->
+<div class="section" id="section7">
+    <h2>Section 7: Report Writing Format with Sample Phrases</h2>
+
+    <p>A well-written TAT report communicates findings clearly, uses appropriate clinical language, maintains objectivity, and provides actionable clinical information.</p>
+
+    <p><span class="bracket">(Report likhna ek skill hai jo practice se aata hai. Report mein hamesha probabilistic language use karo &mdash; "the data suggests" likhna hai, "the patient IS" nahi likhna. Report padhne wale ko clearly samajh aana chahiye ki TAT se kya pata chala)</span></p>
+
+    <h3>7.1 Report Structure</h3>
+
+    <div class="step-box">
+        <h3>Standard TAT Report Format</h3>
+
+        <h4>I. Test Administered &amp; Conditions</h4>
+        <ul>
+            <li>Name of test, version/adaptation used (Murray/Uma Chaudhary)</li>
+            <li>Number of cards administered</li>
+            <li>Date of testing, duration</li>
+            <li>Testing conditions (setting, rapport, language used)</li>
+        </ul>
+
+        <h4>II. Behavioral Observations</h4>
+        <ul>
+            <li>Level of cooperation and engagement</li>
+            <li>Emotional reactions during testing</li>
+            <li>Notable reactions to specific cards</li>
+            <li>Quality and adequacy of responses</li>
+            <li>Any deviations or unusual behaviors</li>
+        </ul>
+
+        <h4>III. General Story Characteristics</h4>
+        <ul>
+            <li>Average story length and richness</li>
+            <li>Narrative structure (beginning-middle-end present?)</li>
+            <li>Emotional content level</li>
+            <li>Overall engagement with task</li>
+        </ul>
+
+        <h4>IV. Thematic Analysis</h4>
+        <ul>
+            <li>Dominant themes identified across stories</li>
+            <li>Need patterns (top 3-5 needs with frequency)</li>
+            <li>Press patterns (dominant environmental perceptions)</li>
+            <li>Conflict areas identified</li>
+        </ul>
+
+        <h4>V. Personality Interpretation</h4>
+        <ul>
+            <li>Self-concept</li>
+            <li>Interpersonal style &amp; object relations</li>
+            <li>Emotional functioning &amp; affect regulation</li>
+            <li>Motivation &amp; need structure</li>
+            <li>Defense mechanisms &amp; coping style</li>
+            <li>Ego functioning</li>
+            <li>Superego functioning</li>
+        </ul>
+
+        <h4>VI. Clinical Impressions</h4>
+        <ul>
+            <li>Findings consistent with specific clinical patterns</li>
+            <li>Risk indicators (if any)</li>
+            <li>Integration with referral question</li>
+        </ul>
+
+        <h4>VII. Summary &amp; Recommendations</h4>
+        <ul>
+            <li>Brief integrated summary (1-2 paragraphs)</li>
+            <li>Key findings highlighted</li>
+            <li>Limitations noted</li>
+            <li>Recommendations for further assessment or treatment implications</li>
+        </ul>
+    </div>
+
+    <h3>7.2 Sample Phrasing (Probabilistic Language)</h3>
+
+    <p>ALWAYS use probabilistic, tentative language in TAT reports:</p>
+
+    <table>
+        <thead>
+            <tr><th>DO NOT Write (Definitive)</th><th>DO Write (Probabilistic)</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>"The patient is depressed"</td><td>"TAT findings are suggestive of depressive ideation and pessimistic expectations"</td></tr>
+            <tr><td>"He has low self-esteem"</td><td>"Heroes are consistently portrayed as inadequate, suggesting the subject may harbor feelings of inadequacy"</td></tr>
+            <tr><td>"She is aggressive"</td><td>"The prominence of aggressive themes across multiple stories indicates significant underlying hostility"</td></tr>
+            <tr><td>"The patient has dependency issues"</td><td>"A recurring pattern of seeking external rescue and inability to function independently suggests dependent personality traits"</td></tr>
+            <tr><td>"He is paranoid"</td><td>"The repeated perception of the environment as hostile and deceptive is consistent with paranoid ideation"</td></tr>
+            <tr><td>"She uses denial"</td><td>"The conspicuous absence of negative affect in response to clearly distressing card stimuli suggests the use of denial as a primary defense"</td></tr>
+        </tbody>
+    </table>
+
+    <h3>7.3 Useful Clinical Phrases for TAT Reports</h3>
+
+    <h4>For Describing Needs:</h4>
+    <ul>
+        <li>"A strong need for affiliation/achievement/autonomy emerges across the protocol..."</li>
+        <li>"The subject appears driven primarily by a need for..."</li>
+        <li>"There is evidence of frustrated need for... which manifests as..."</li>
+        <li>"The predominant motivational pattern suggests..."</li>
+    </ul>
+
+    <h4>For Describing Relationships:</h4>
+    <ul>
+        <li>"Authority figures are consistently perceived as..."</li>
+        <li>"The subject's internal model of relationships appears to be characterized by..."</li>
+        <li>"There is a recurring pattern of [trust/distrust/dependency/avoidance] in interpersonal narratives..."</li>
+        <li>"Object relations as revealed through TAT suggest..."</li>
+    </ul>
+
+    <h4>For Describing Emotions:</h4>
+    <ul>
+        <li>"The predominant affective tone across the protocol is one of..."</li>
+        <li>"Affect regulation appears [adequate/compromised/variable]..."</li>
+        <li>"Emotional expression is [constricted/labile/appropriate/intense]..."</li>
+        <li>"There is notable absence of [positive/negative] affect, suggesting..."</li>
+    </ul>
+
+    <h4>For Describing Defenses:</h4>
+    <ul>
+        <li>"The subject relies primarily on [defense] as evidenced by..."</li>
+        <li>"Defense mechanisms are predominantly at the [neurotic/borderline/psychotic] level..."</li>
+        <li>"When confronted with [type] stimuli, the subject employs [defense], suggesting..."</li>
+    </ul>
+
+    <h4>For Summary Statements:</h4>
+    <ul>
+        <li>"The overall TAT protocol is suggestive of an individual who..."</li>
+        <li>"Taken together, the data paint a picture of a person who perceives the world as... and responds by..."</li>
+        <li>"The core conflict appears to be between... and..., which is managed through..."</li>
+        <li>"These findings are consistent with [clinical pattern] and warrant further exploration through..."</li>
+    </ul>
+
+    <div class="example">
+        <strong>Sample Summary Paragraph:</strong><br><br>
+        "The TAT protocol reveals an individual who perceives herself as fundamentally inadequate and unlovable (heroes consistently portrayed as flawed and rejected). The predominant need pattern centers around affiliation and succorance, suggesting a strong desire for connection and support from others. However, the environment is consistently perceived as rejecting and unavailable (predominant p Rejection and p Loss), creating a core conflict between longing for closeness and expectation of abandonment. Defense mechanisms are primarily at the neurotic level (repression, rationalization), with occasional regression to more primitive defenses (splitting) under stress. The characteristic resolution pattern involves the hero passively accepting their fate, suggesting a pessimistic outlook and limited sense of agency. These findings are consistent with a depressive personality organization with anxious attachment features, and suggest that therapeutic work around core beliefs of unlovability and building a sense of personal agency may be indicated."
+    </div>
+</div>
+
+<!-- ====================================================================== -->
+<!-- SECTION 8: COMMON ERRORS -->
+<!-- ====================================================================== -->
+<div class="section" id="section8">
+    <h2>Section 8: Common Errors in TAT Interpretation</h2>
+
+    <p>Even experienced clinicians can fall into interpretive traps. This section identifies the most common errors and how to avoid them.</p>
+
+    <p><span class="bracket">(Yeh woh galtiyan hain jo beginners aur kabhi-kabhi experienced clinicians bhi karte hain. Inhe jaankar aur avoid karke aap apni interpretation quality mein sudhaar la sakte hain)</span></p>
+
+    <h3>Error 1: Over-Interpretation</h3>
+    <div class="red-flag">
+        Reading too much into a single story or a single detail.
+    </div>
+    <ul>
+        <li><strong>The Mistake:</strong> "In one story, the hero mentioned death &mdash; therefore the patient is suicidal"</li>
+        <li><strong>The Correction:</strong> One instance is a hypothesis, not a finding. Death themes must be consistent across multiple stories AND considered in context of card pull.</li>
+        <li><strong>Rule:</strong> Never interpret from a single story alone. Require convergent evidence from at least 3+ stories.</li>
+    </ul>
+
+    <h3>Error 2: Ignoring Cultural Context</h3>
+    <div class="red-flag">
+        Applying Western normative standards to culturally different responses.
+    </div>
+    <ul>
+        <li><strong>The Mistake:</strong> "The subject shows excessive deference to authority &mdash; pathologically dependent"</li>
+        <li><strong>The Correction:</strong> In Indian/Asian cultures, deference to elders and authority is normative. Only interpret as pathological if it causes distress or dysfunction.</li>
+        <li><strong>Rule:</strong> Always consider cultural context before labeling a theme as pathological.</li>
+    </ul>
+
+    <h3>Error 3: Literal Interpretation</h3>
+    <div class="red-flag">
+        Taking story content at face value instead of looking for symbolic meaning.
+    </div>
+    <ul>
+        <li><strong>The Mistake:</strong> "The hero killed someone in the story &mdash; the patient is violent"</li>
+        <li><strong>The Correction:</strong> Story violence may represent: repressed anger (symbolic), fantasy gratification, response to the card's aggressive pull, or even fear of one's own aggression.</li>
+        <li><strong>Rule:</strong> Always ask "What might this symbolize?" before concluding literally.</li>
+    </ul>
+
+    <h3>Error 4: Missing Repeated Patterns</h3>
+    <div class="red-flag">
+        Analyzing stories individually without looking for cross-story patterns.
+    </div>
+    <ul>
+        <li><strong>The Mistake:</strong> Writing about each card separately without synthesis</li>
+        <li><strong>The Correction:</strong> The clinical power of TAT lies in identifying PATTERNS across stories. Individual stories are raw data; patterns are findings.</li>
+        <li><strong>Rule:</strong> Always complete cross-story analysis before writing the report.</li>
+    </ul>
+
+    <h3>Error 5: Ignoring Card Pull (Stimulus Demand)</h3>
+    <div class="red-flag">
+        Not accounting for what the card typically elicits.
+    </div>
+    <ul>
+        <li><strong>The Mistake:</strong> "Card 3BM shows depression themes &mdash; patient is depressed"</li>
+        <li><strong>The Correction:</strong> Card 3BM (figure slumped by a couch) typically pulls depressive/grief themes. Depression on THIS card is expected. Depression on Card 2 (farm scene) would be more clinically significant.</li>
+        <li><strong>Rule:</strong> Know what each card typically pulls. Clinically significant findings emerge from UNUSUAL responses to cards.</li>
+    </ul>
+
+    <h3>Error 6: Confirmation Bias</h3>
+    <div class="red-flag">
+        Seeing only what confirms your pre-existing hypothesis about the patient.
+    </div>
+    <ul>
+        <li><strong>The Mistake:</strong> Knowing the referral says "depression" and then finding depression in every story</li>
+        <li><strong>The Correction:</strong> Score blind &mdash; analyze stories before looking at referral information, or at minimum, actively look for disconfirming evidence.</li>
+        <li><strong>Rule:</strong> Actively seek evidence that contradicts your initial impression.</li>
+    </ul>
+
+    <h3>Error 7: Neglecting Formal Aspects</h3>
+    <div class="red-flag">
+        Only analyzing content while ignoring HOW stories are told.
+    </div>
+    <ul>
+        <li><strong>The Mistake:</strong> Only looking at themes, ignoring story length, structure, coherence</li>
+        <li><strong>The Correction:</strong> Formal aspects (length, structure, coherence, latency, completeness) provide crucial information about ego functioning independent of content.</li>
+        <li><strong>Rule:</strong> Always assess both CONTENT (what is said) and PROCESS (how it is said).</li>
+    </ul>
+
+    <h3>Error 8: Making Diagnostic Pronouncements</h3>
+    <div class="red-flag">
+        Using TAT alone to diagnose psychiatric conditions.
+    </div>
+    <ul>
+        <li><strong>The Mistake:</strong> "TAT reveals Borderline Personality Disorder"</li>
+        <li><strong>The Correction:</strong> TAT can identify patterns CONSISTENT WITH specific conditions, but diagnosis requires integration of multiple data sources.</li>
+        <li><strong>Rule:</strong> Use "consistent with" or "suggestive of" &mdash; never "diagnostic of."</li>
+    </ul>
+
+    <h3>Error 9: Ignoring Positive/Healthy Indicators</h3>
+    <div class="red-flag">
+        Focusing only on pathology and missing strengths.
+    </div>
+    <ul>
+        <li><strong>The Mistake:</strong> Reporting only problems, conflicts, and pathology</li>
+        <li><strong>The Correction:</strong> TAT also reveals strengths: resilience, coping capacity, positive relationships, humor, insight. These are equally important for treatment planning.</li>
+        <li><strong>Rule:</strong> Always note strengths and resources alongside difficulties.</li>
+    </ul>
+
+    <h3>Error 10: Confusing Wish with Behavior</h3>
+    <div class="red-flag">
+        Assuming that story content directly predicts behavior.
+    </div>
+    <ul>
+        <li><strong>The Mistake:</strong> "Hero is aggressive in stories, therefore patient will be aggressive in real life"</li>
+        <li><strong>The Correction:</strong> TAT reveals the inner world &mdash; wishes, fantasies, fears. A person with aggressive fantasies may actually be overly controlled in behavior (the fantasy is compensatory). Context matters.</li>
+        <li><strong>Rule:</strong> Distinguish between behavioral tendencies and fantasy/wish level. Integration with behavioral data is essential.</li>
+    </ul>
+
+    <div class="summary-box">
+        <h4 style="text-align:center; color: var(--primary);">The Golden Rules of TAT Interpretation</h4>
+        <ol>
+            <li>Never interpret from a single story</li>
+            <li>Always look for patterns across multiple stories</li>
+            <li>Consider cultural context before pathologizing</li>
+            <li>Know what each card typically pulls</li>
+            <li>Assess both content AND process</li>
+            <li>Use probabilistic language always</li>
+            <li>Note strengths as well as weaknesses</li>
+            <li>Integrate with other clinical data</li>
+            <li>Distinguish wish/fantasy from behavioral prediction</li>
+            <li>When in doubt, be conservative in interpretation</li>
+        </ol>
+    </div>
+</div>
+
+<!-- ====================================================================== -->
+<!-- SECTION 9: HIGH-YIELD VIVA POINTS -->
+<!-- ====================================================================== -->
+<div class="section" id="section9">
+    <h2>Section 9: High-Yield Viva Points &amp; Examiner Questions</h2>
+
+    <p><span class="bracket">(Yeh section specifically viva preparation ke liye hai. In questions ke answers yaad rakhne se viva mein confidence aayega. Examiners commonly yeh questions poochhte hain.)</span></p>
+
+    <h3>9.1 Frequently Asked Examiner Questions</h3>
+
+    <div class="viva-point">
+        <strong>Q: What is the difference between perception and apperception?</strong><br>
+        A: Perception is the simple registration of sensory stimuli. Apperception is the interpretation of those stimuli through the lens of one's prior experiences, emotional states, needs, and personality dynamics. TAT measures apperception &mdash; how individuals meaningfully interpret ambiguous stimuli based on their unique psychological makeup.
+    </div>
+
+    <div class="viva-point">
+        <strong>Q: What are Bellak's 10 scoring categories?</strong><br>
+        A: (1) Main Theme, (2) Main Hero, (3) Main Needs and Drives, (4) Conception of Environment/World, (5) Figures Seen As (parental, peer, authority), (6) Significant Conflicts, (7) Nature of Anxieties, (8) Main Defenses Against Conflicts and Fears, (9) Adequacy of Superego, (10) Integration of Ego.
+    </div>
+
+    <div class="viva-point">
+        <strong>Q: What is the difference between Need and Press in Murray's theory?</strong><br>
+        A: Need is an internal motivational force within the individual (what the person wants/drives toward). Press is an external environmental force acting upon the individual (what the world does to the person). Their interaction creates a Thema &mdash; the basic unit of personality functioning.
+    </div>
+
+    <div class="viva-point">
+        <strong>Q: What is the standard card set used in Bellak's short form?</strong><br>
+        A: Males: 1, 2, 3BM, 4, 6BM, 7BM, 11, 12M, 13MF, 16 (blank)<br>
+        Females: 1, 2, 3BM, 4, 6GF, 7GF, 9GF, 11, 13MF, 16 (blank)<br>
+        (Herman adds 8BM to the male list)
+    </div>
+
+    <div class="viva-point">
+        <strong>Q: What is alpha press vs. beta press?</strong><br>
+        A: Alpha press = the objective environmental situation as it really is. Beta press = how the individual subjectively perceives the environment. TAT primarily reveals beta press &mdash; the subject's unique perception of their world, which may differ significantly from objective reality.
+    </div>
+
+    <div class="viva-point">
+        <strong>Q: Can TAT be used for diagnosis?</strong><br>
+        A: TAT is NOT a diagnostic test. It is a personality assessment tool that reveals personality dynamics, need patterns, conflicts, defenses, and interpersonal patterns. Findings can be "consistent with" or "suggestive of" certain clinical conditions when integrated with other data, but TAT alone should never be used for diagnosis.
+    </div>
+
+    <div class="viva-point">
+        <strong>Q: What is the significance of the blank card (Card 16)?</strong><br>
+        A: Card 16 removes all external stimulus, so the subject must project entirely from within. It reveals: (a) what is most important to the person (dominant preoccupation), (b) their wishes and fantasies, (c) their capacity for creative imagination, and (d) their comfort with unstructured situations. Responses to Card 16 are considered particularly revealing.
+    </div>
+
+    <div class="viva-point">
+        <strong>Q: What is Uma Chaudhary's contribution to TAT?</strong><br>
+        A: Dr. Uma Chaudhary developed the Indian Adaptation of TAT (1960) with 14 modified cards reflecting Indian cultural context. Key modifications: tanpura replacing violin, joint family scenes, religious/spiritual themes, culturally appropriate dress and settings. The adaptation ensures cultural relevance for Indian populations while maintaining Murray's theoretical framework.
+    </div>
+
+    <div class="viva-point">
+        <strong>Q: How do you differentiate between neurotic and psychotic responses on TAT?</strong><br>
+        A: Neurotic responses: maintain reality contact, coherent narratives, age-appropriate defenses (repression, rationalization), conflicts are recognizable and human. Psychotic responses: loss of reality testing (seeing things not there), fragmented/incoherent narratives, primitive defenses (denial of reality, autistic fantasy), bizarre/impossible content, loss of distance from material.
+    </div>
+
+    <div class="viva-point">
+        <strong>Q: What does a consistently negative outcome across all stories suggest?</strong><br>
+        A: Consistent negative outcomes suggest: (a) depressive cognitive style/pessimism, (b) low self-efficacy &mdash; belief that one cannot effectively solve problems, (c) learned helplessness, (d) possibly reflecting actual life experiences of failure. This pattern is one of the strongest TAT indicators of depressive personality organization.
+    </div>
+
+    <h3>9.2 Key Interpretation Shortcuts for Quick Analysis</h3>
+
+    <table>
+        <thead>
+            <tr><th>Quick Check</th><th>What to Note</th><th>What It Means</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>Outcomes across all stories</td><td>Positive/Negative/Mixed ratio</td><td>Optimism-Pessimism dimension</td></tr>
+            <tr><td>Hero's adequacy across all stories</td><td>Capable/Incapable/Mixed</td><td>Self-efficacy and self-concept</td></tr>
+            <tr><td>World perception</td><td>Hostile/Nurturing/Indifferent</td><td>Trust vs. Mistrust</td></tr>
+            <tr><td>Who helps the hero?</td><td>Self/Others/Nobody</td><td>Locus of control (Internal/External/Helpless)</td></tr>
+            <tr><td>Dominant emotion</td><td>Sadness/Anger/Anxiety/Emptiness</td><td>Core affective state</td></tr>
+            <tr><td>Relationships</td><td>Close/Distant/Conflictual</td><td>Attachment style</td></tr>
+            <tr><td>Defense level</td><td>Mature/Neurotic/Primitive</td><td>Level of personality organization</td></tr>
+        </tbody>
+    </table>
+
+    <h3>9.3 Important Patterns to Remember</h3>
+
+    <table>
+        <thead>
+            <tr><th>Pattern</th><th>Most Likely Clinical Correlation</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>All heroes fail + pervasive sadness + passive coping</td><td>Depression</td></tr>
+            <tr><td>World is dangerous + heroes fearful + avoidant coping</td><td>Anxiety Disorder</td></tr>
+            <tr><td>Splitting + abandonment fears + labile affect + impulsivity</td><td>Borderline Personality</td></tr>
+            <tr><td>Grandiose heroes + need for admiration + devaluation of others</td><td>Narcissistic features</td></tr>
+            <tr><td>Heroes cannot function alone + external rescue + submission</td><td>Dependent Personality</td></tr>
+            <tr><td>Aggression without guilt + manipulation + no empathy</td><td>Antisocial features</td></tr>
+            <tr><td>Fragmented stories + bizarre content + reality loss</td><td>Psychotic process</td></tr>
+            <tr><td>Excessive control + perfectionism + intellectualization</td><td>Obsessive-Compulsive features</td></tr>
+            <tr><td>Isolation themes + flat affect + minimal relationships</td><td>Schizoid features</td></tr>
+            <tr><td>Suspicion themes + hostile world + projection</td><td>Paranoid features</td></tr>
+        </tbody>
+    </table>
+
+    <h3>9.4 Card-Specific Common Pulls</h3>
+
+    <table>
+        <thead>
+            <tr><th>Card</th><th>Description</th><th>Typical Pull/Theme</th></tr>
+        </thead>
+        <tbody>
+            <tr><td><strong>Card 1</strong></td><td>Boy with violin</td><td>Achievement, parental pressure, autonomy vs. compliance, relationship with authority</td></tr>
+            <tr><td><strong>Card 2</strong></td><td>Farm scene with young woman, man, older woman</td><td>Family dynamics, aspiration, conflict between tradition and modernity, role of women</td></tr>
+            <tr><td><strong>Card 3BM</strong></td><td>Figure slumped against couch</td><td>Depression, grief, loss, suicidal ideation, helplessness</td></tr>
+            <tr><td><strong>Card 4</strong></td><td>Man and woman in close contact</td><td>Male-female relationships, conflict, separation, fidelity, emotional dynamics of couple</td></tr>
+            <tr><td><strong>Card 6BM</strong></td><td>Young man and older woman</td><td>Mother-son relationship, guilt, separation, dependence on mother</td></tr>
+            <tr><td><strong>Card 6GF</strong></td><td>Young woman and older man</td><td>Father-daughter dynamics, male authority, heterosexual relationships</td></tr>
+            <tr><td><strong>Card 7BM</strong></td><td>Two men (older and younger)</td><td>Father-son relationship, mentorship, authority, male bonding</td></tr>
+            <tr><td><strong>Card 7GF</strong></td><td>Older woman and young girl</td><td>Mother-daughter relationship, nurturance, maternal attitudes</td></tr>
+            <tr><td><strong>Card 8BM</strong></td><td>Boy with surgical scene in background</td><td>Aggression, anxiety about body harm, ambition, relation to authority/violence</td></tr>
+            <tr><td><strong>Card 9GF</strong></td><td>Two women (one running, one watching)</td><td>Female rivalry, suspicion, relationship between women</td></tr>
+            <tr><td><strong>Card 11</strong></td><td>Rocky landscape with dragon-like figure</td><td>Primitive fears, fantasy life quality, regression, anxiety</td></tr>
+            <tr><td><strong>Card 12M</strong></td><td>Young man lying down, older man leaning over</td><td>Passivity, homosexual concerns, therapy relationship, submission to authority</td></tr>
+            <tr><td><strong>Card 13MF</strong></td><td>Semi-nude woman, man with arm over face</td><td>Sexuality, guilt, aggression toward women, attitudes toward sex</td></tr>
+            <tr><td><strong>Card 16</strong></td><td>Blank card</td><td>Pure projection, dominant wishes/fears, creativity, comfort with ambiguity</td></tr>
+        </tbody>
+    </table>
+
+    <div class="viva-point">
+        <strong>Viva Tip:</strong> If asked "How do you know if a theme is significant?" &mdash; Answer: A theme is clinically significant when it (a) recurs across multiple stories, (b) appears on cards that don't typically pull that theme, (c) is expressed with high emotional intensity, and (d) converges with other data sources (clinical interview, behavioral observations).
+    </div>
+</div>
+
+<!-- ====================================================================== -->
+<!-- SECTION 10: QUICK REFERENCE TABLES -->
+<!-- ====================================================================== -->
+<div class="section" id="section10">
+    <h2>Section 10: Quick Reference Tables &amp; Summary Sheets</h2>
+
+    <p><span class="bracket">(Yeh tables quick revision ke liye hain. Inhe print karke apne paas rakh lo &mdash; scoring practice ke waqt aur viva se pehle revision mein kaam aayenge)</span></p>
+
+    <h3>10.1 Bellak's 10-Category Scoring Summary</h3>
+
+    <table>
+        <thead>
+            <tr><th>#</th><th>Category</th><th>What to Assess</th><th>Key Questions</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>1</td><td><strong>Main Theme</strong></td><td>Core plot at descriptive, interpretive, and diagnostic levels</td><td>What is the story essentially about? What does it mean psychologically?</td></tr>
+            <tr><td>2</td><td><strong>Main Hero</strong></td><td>Age, sex, vocation, abilities, traits, body image, adequacy, self-image</td><td>Who does the subject identify with? How adequate is this self-representation?</td></tr>
+            <tr><td>3</td><td><strong>Main Needs &amp; Drives</strong></td><td>Behavioral needs of hero + figures/objects introduced + figures/objects omitted</td><td>What does the hero want? What has the subject added or left out from the card?</td></tr>
+            <tr><td>4</td><td><strong>Conception of Environment</strong></td><td>World as hostile/friendly/dangerous/nurturing/indifferent</td><td>How is the environment portrayed? What presses dominate?</td></tr>
+            <tr><td>5</td><td><strong>Figures Seen As</strong></td><td>How parental, peer, and authority figures are characterized</td><td>Are parents nurturing or punitive? Are peers friendly or hostile?</td></tr>
+            <tr><td>6</td><td><strong>Significant Conflicts</strong></td><td>Core psychological conflicts in the story</td><td>What is the hero torn between? What competing forces are at work?</td></tr>
+            <tr><td>7</td><td><strong>Nature of Anxieties</strong></td><td>Physical harm, punishment, disapproval, abandonment, helplessness</td><td>What is the hero afraid of? What threat is perceived?</td></tr>
+            <tr><td>8</td><td><strong>Main Defenses</strong></td><td>How hero copes with conflicts and anxiety</td><td>What psychological strategies does the hero use to manage distress?</td></tr>
+            <tr><td>9</td><td><strong>Adequacy of Superego</strong></td><td>Guilt, punishment, morality, "shoulds"</td><td>Is the superego too harsh (excessive guilt)? Too lenient (no remorse)? Appropriate?</td></tr>
+            <tr><td>10</td><td><strong>Integration of Ego</strong></td><td>Hero's ability to function, solve problems, deal with reality</td><td>Can the hero cope? Are outcomes realistic? Is thinking organized?</td></tr>
+        </tbody>
+    </table>
+
+    <h3>10.2 Murray's Top Needs &mdash; Quick Reference</h3>
+
+    <table>
+        <thead>
+            <tr><th>Need</th><th>One-Line Description</th><th>Opposite/Paired Need</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>n Achievement</td><td>Drive to excel, accomplish, overcome obstacles</td><td>n Infavoidance (fear of failure)</td></tr>
+            <tr><td>n Affiliation</td><td>Drive to form bonds, love, belong</td><td>n Rejection (drive to push away)</td></tr>
+            <tr><td>n Aggression</td><td>Drive to attack, overpower, punish</td><td>n Abasement (submission)</td></tr>
+            <tr><td>n Autonomy</td><td>Drive to be free, independent, resist control</td><td>n Deference (drive to obey)</td></tr>
+            <tr><td>n Dominance</td><td>Drive to lead, influence, control</td><td>n Abasement/Deference (submission)</td></tr>
+            <tr><td>n Exhibition</td><td>Drive to be seen, admired, noticed</td><td>n Infavoidance (fear of exposure)</td></tr>
+            <tr><td>n Nurturance</td><td>Drive to care for, protect, help</td><td>n Aggression (drive to harm)</td></tr>
+            <tr><td>n Succorance</td><td>Drive to be helped, protected, cared for</td><td>n Autonomy (self-reliance)</td></tr>
+            <tr><td>n Order</td><td>Drive to organize, be precise, systematic</td><td>n Play (spontaneity)</td></tr>
+            <tr><td>n Sex</td><td>Drive toward erotic/romantic relationships</td><td>n Harmavoidance (avoidance of intimacy risk)</td></tr>
+        </tbody>
+    </table>
+
+    <h3>10.3 Defense Mechanisms Hierarchy</h3>
+
+    <table>
+        <thead>
+            <tr><th>Level</th><th>Defenses</th><th>Associated Pathology Level</th><th>TAT Indicator</th></tr>
+        </thead>
+        <tbody>
+            <tr><td><strong>Mature (Healthy)</strong></td><td>Sublimation, Humor, Suppression, Altruism, Anticipation</td><td>Normal/Neurotic</td><td>Heroes redirect drives constructively; use humor; plan ahead</td></tr>
+            <tr><td><strong>Neurotic</strong></td><td>Repression, Displacement, Reaction Formation, Intellectualization, Rationalization, Undoing</td><td>Neurotic disorders</td><td>Heroes avoid threatening content; redirect emotions; over-explain</td></tr>
+            <tr><td><strong>Immature</strong></td><td>Projection, Passive-Aggression, Acting Out, Fantasy, Somatization</td><td>Personality Disorders</td><td>Heroes blame others; act impulsively; retreat to fantasy</td></tr>
+            <tr><td><strong>Primitive/Psychotic</strong></td><td>Splitting, Denial (gross), Projective Identification, Devaluation, Idealization, Autistic Fantasy</td><td>Severe PD / Psychotic</td><td>All-good/all-bad characters; gross reality distortion; bizarre fusion</td></tr>
+        </tbody>
+    </table>
+
+    <h3>10.4 Quick Scoring Checklist (Per Story)</h3>
+
+    <table>
+        <thead>
+            <tr><th>Step</th><th>Question to Ask</th><th>Write Down</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>1</td><td>Who is the hero?</td><td>Age, sex, role, adequacy</td></tr>
+            <tr><td>2</td><td>What does the hero WANT?</td><td>Primary need (n ___)</td></tr>
+            <tr><td>3</td><td>What does the WORLD do to the hero?</td><td>Primary press (p ___)</td></tr>
+            <tr><td>4</td><td>What is the core PLOT?</td><td>Theme (one sentence)</td></tr>
+            <tr><td>5</td><td>What is the hero FEELING?</td><td>Dominant emotion</td></tr>
+            <tr><td>6</td><td>How are RELATIONSHIPS portrayed?</td><td>Quality of connections</td></tr>
+            <tr><td>7</td><td>How does hero COPE with difficulty?</td><td>Defense mechanism(s)</td></tr>
+            <tr><td>8</td><td>How does the story END?</td><td>Outcome type (positive/negative/absent)</td></tr>
+            <tr><td>9</td><td>Any RED FLAGS?</td><td>Violence, death, sexuality, reality distortion</td></tr>
+        </tbody>
+    </table>
+
+    <h3>10.5 Interpretation-to-Report Translation Guide</h3>
+
+    <table>
+        <thead>
+            <tr><th>TAT Finding (Raw)</th><th>Report Language (Professional)</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>Hero always fails</td><td>"Stories are characterized by consistently negative outcomes, suggesting a pessimistic cognitive style and low self-efficacy"</td></tr>
+            <tr><td>Hero always alone</td><td>"The subject's narratives reflect a pervasive sense of isolation, with heroes typically portrayed as disconnected from supportive relationships"</td></tr>
+            <tr><td>Lots of anger themes</td><td>"Significant underlying hostility is suggested by the prominence of aggressive themes across the protocol"</td></tr>
+            <tr><td>Hero very dependent</td><td>"A recurring pattern of seeking external support and rescue suggests strong dependency needs and possible difficulty with autonomous functioning"</td></tr>
+            <tr><td>No emotions in stories</td><td>"The conspicuous absence of affective content across narratives suggests significant emotional constriction, possibly indicative of repression or alexithymic features"</td></tr>
+            <tr><td>World is scary/dangerous</td><td>"The environment is consistently perceived as threatening and hostile, reflecting a world-view dominated by mistrust and hypervigilance"</td></tr>
+            <tr><td>Stories make no sense</td><td>"Narrative coherence is significantly compromised, with loose associations and fragmented story construction suggestive of possible formal thought disorder"</td></tr>
+            <tr><td>Everything ends happily (even bad cards)</td><td>"The uniformly positive outcomes, including on cards with distinctly negative stimulus pull, suggest the operation of denial as a pervasive defense"</td></tr>
+        </tbody>
+    </table>
+
+    <h3>10.6 The Complete TAT Interpretation Flowchart</h3>
+
+    <div class="formula">
+        STEP 1: Behavioral Observations (Pre-Interpretation Checks)<br>
+        &darr;<br>
+        STEP 2: Score Each Story (9-Step Framework)<br>
+        &darr;<br>
+        STEP 3: Cross-Story Pattern Analysis<br>
+        &darr;<br>
+        STEP 4: Personality Formulation<br>
+        &darr;<br>
+        STEP 5: Clinical Integration<br>
+        &darr;<br>
+        STEP 6: Write Report
+    </div>
+
+    <h3>10.7 Key Differences: Murray vs. Bellak Approach</h3>
+
+    <table>
+        <thead>
+            <tr><th>Dimension</th><th>Murray's Approach</th><th>Bellak's Approach</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>Focus</td><td>Needs and Presses</td><td>Ego functioning and defenses</td></tr>
+            <tr><td>Unit of Analysis</td><td>Thema (Need-Press interaction)</td><td>10-category scoring per story</td></tr>
+            <tr><td>Theoretical Base</td><td>Personology (Murray's theory)</td><td>Psychoanalytic ego psychology</td></tr>
+            <tr><td>Primary Output</td><td>Need hierarchy, dominant themas</td><td>Ego strength, defense level, superego quality</td></tr>
+            <tr><td>Clinical Use</td><td>Motivation analysis</td><td>Comprehensive personality assessment</td></tr>
+            <tr><td>Scoring</td><td>Quantitative (need intensity scores)</td><td>Qualitative + semi-quantitative</td></tr>
+        </tbody>
+    </table>
+
+    <div class="summary-box">
+        <h4 style="text-align:center; color: var(--primary);">Final Integration: The Ideal TAT Interpretation Combines</h4>
+        <ul>
+            <li><strong>Murray's contribution:</strong> Systematic identification of needs and environmental presses</li>
+            <li><strong>Bellak's contribution:</strong> Comprehensive ego-psychological assessment using 10 categories</li>
+            <li><strong>Uma Chaudhary's contribution:</strong> Cultural sensitivity and relevance for Indian populations</li>
+            <li><strong>Contemporary clinical practice:</strong> Integration with attachment theory, object relations, cognitive schemas, and evidence-based assessment</li>
+        </ul>
+    </div>
+</div>
+
+<!-- ====================================================================== -->
+<!-- BONUS SECTION: CARD-BY-CARD INTERPRETATION GUIDE -->
+<!-- ====================================================================== -->
+<div class="section" id="bonus">
+    <h2>Bonus Section: Card-by-Card Interpretation Tips</h2>
+
+    <p><span class="bracket">(Har card ka apna ek "typical pull" hota hai &mdash; yaani usually log us card par kaisi kahani banate hain. Jab koi patient typical pull se bahut alag response deta hai tab woh clinically significant hota hai)</span></p>
+
+    <h3>Card 1: Boy with Violin</h3>
+    <ul>
+        <li><strong>Typical Pull:</strong> Achievement vs. compliance; relationship with authority/parents; attitude toward imposed tasks</li>
+        <li><strong>Look For:</strong> Does hero comply willingly (n Deference)? Rebel (n Autonomy)? Succeed through effort (n Achievement)? Give up (n Passivity)?</li>
+        <li><strong>Significant If:</strong> Aggression themes, destruction of violin, extreme sadness &mdash; unexpected for this card</li>
+    </ul>
+
+    <h3>Card 2: Farm Scene</h3>
+    <ul>
+        <li><strong>Typical Pull:</strong> Family relationships, aspiration, tradition vs. modernity, women's roles</li>
+        <li><strong>Look For:</strong> Does young woman identify with farming (tradition) or books (aspiration)? How is pregnant woman perceived? Generational conflict?</li>
+        <li><strong>Significant If:</strong> Isolation from family, aggressive themes, sexual themes &mdash; unusual for this card</li>
+    </ul>
+
+    <h3>Card 3BM: Figure Slumped</h3>
+    <ul>
+        <li><strong>Typical Pull:</strong> Depression, grief, guilt, despair, loss</li>
+        <li><strong>Look For:</strong> Nature of loss (what caused the depression?), object on floor (gun? keys?), resolution (gets better vs. suicide vs. stays stuck)</li>
+        <li><strong>Significant If:</strong> Happy story on this card (strong denial); suicidal resolution; aggression toward others</li>
+    </ul>
+
+    <h3>Card 4: Man/Woman Couple</h3>
+    <ul>
+        <li><strong>Typical Pull:</strong> Male-female relationship dynamics, infidelity, separation, conflict in romantic relationships</li>
+        <li><strong>Look For:</strong> Is man leaving or being held back? Power dynamics in couple. Third party (background figure) &mdash; is it noticed?</li>
+        <li><strong>Significant If:</strong> Extreme violence between couple; complete denial of relationship tension; bizarre interpretations</li>
+    </ul>
+
+    <h3>Card 6BM: Mother-Son</h3>
+    <ul>
+        <li><strong>Typical Pull:</strong> Mother-son relationship, separation, guilt about leaving mother, news of death/loss</li>
+        <li><strong>Look For:</strong> Is separation conflictual or smooth? Guilt present? Mother controlling or accepting? Son's emotional state?</li>
+        <li><strong>Significant If:</strong> Sexual themes between figures; extreme aggression toward mother figure; inability to tell a story</li>
+    </ul>
+
+    <h3>Card 7BM: Father-Son / Two Males</h3>
+    <ul>
+        <li><strong>Typical Pull:</strong> Father-son relationship, mentorship, authority dynamics, male bonding</li>
+        <li><strong>Look For:</strong> Is older man supportive or critical? Is younger man receptive or rebellious? Trust vs. suspicion?</li>
+        <li><strong>Significant If:</strong> Conspiracy/plotting themes (paranoid); homosexual themes; violent confrontation</li>
+    </ul>
+
+    <h3>Card 8BM: Surgical Scene</h3>
+    <ul>
+        <li><strong>Typical Pull:</strong> Aggression, ambition, relationship to authority, anxiety about bodily harm, medical themes</li>
+        <li><strong>Look For:</strong> Is boy watching surgery (curiosity) or imagining it (fantasy)? Is operation aggressive or healing? Hero's relation to the scene?</li>
+        <li><strong>Significant If:</strong> Hero is the aggressor; detailed sadistic content; complete avoidance of aggression content</li>
+    </ul>
+
+    <h3>Card 11: Rocky Landscape/Dragon</h3>
+    <ul>
+        <li><strong>Typical Pull:</strong> Primitive fears, oral aggression, fantasy quality, regression level</li>
+        <li><strong>Look For:</strong> Can subject create a coherent story from this unusual card? What creatures/dangers are perceived? How are fears managed?</li>
+        <li><strong>Significant If:</strong> Very bizarre/disorganized responses (ego weakness); inability to respond (overwhelmed by ambiguity)</li>
+    </ul>
+
+    <h3>Card 13MF: Male/Female in Bedroom</h3>
+    <ul>
+        <li><strong>Typical Pull:</strong> Sexual attitudes, guilt, aggression toward women, intimacy, relationship dynamics</li>
+        <li><strong>Look For:</strong> Is this described as sex? death? illness? assault? What emotion follows? Is there guilt?</li>
+        <li><strong>Significant If:</strong> Extreme denial (just roommates); graphic violence; no emotional reaction to clearly charged content</li>
+    </ul>
+
+    <h3>Card 16: Blank Card</h3>
+    <ul>
+        <li><strong>Typical Pull:</strong> Pure projection &mdash; reveals dominant wishes, fears, preoccupations</li>
+        <li><strong>Look For:</strong> What does the subject CHOOSE to create when given total freedom? Is it positive or negative? Realistic or fantastic?</li>
+        <li><strong>Significant If:</strong> Complete inability to respond (poor imagination/guardedness); extremely bizarre content; this is often the most personal story</li>
+    </ul>
+</div>
+
+<!-- ====================================================================== -->
+<!-- FOOTER -->
+<!-- ====================================================================== -->
+</div><!-- End container -->
+
+<div class="footer">
+    <h3>TAT Interpretation: Complete Clinical Guide</h3>
+    <p><strong>Made by Tejas Dangodra</strong></p>
+    <p>Integrating Murray + Bellak + Uma Chaudhary + Contemporary Clinical Practice</p>
+    <p style="margin-top:15px; font-size:0.9em; opacity:0.8;">
+        For MPhil Clinical Psychology Trainees | Viva Preparation | Case Formulation | Clinical Reporting<br>
+        &copy; All interpretive frameworks adapted from Murray (1938), Bellak (1947, 1975), and Uma Chaudhary (1960)
+    </p>
+</div>
+
+</body>
+</html>
