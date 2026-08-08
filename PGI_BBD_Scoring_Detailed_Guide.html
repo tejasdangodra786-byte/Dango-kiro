@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PGI-BBD: Complete Detailed Scoring Manual for All Individual Tests | Tejas Dangodra</title>
+    <title>PGI-BBD: Ultra-Detailed Scoring Manual - Every Test, Every Item | Tejas Dangodra</title>
     <style>
-        :root { --primary: #0d47a1; --primary-light: #1976d2; --secondary: #b71c1c; --accent: #e65100; --bg-main: #fafafa; --bg-card: #ffffff; --bg-highlight: #e3f2fd; --bg-warning: #fff3e0; --bg-success: #e8f5e9; --bg-danger: #ffebee; --text-primary: #212121; --border: #e0e0e0; --shadow: 0 2px 8px rgba(0,0,0,0.1); }
+        :root { --primary: #0d47a1; --primary-light: #1976d2; --secondary: #b71c1c; --accent: #e65100; --bg-main: #fafafa; --bg-card: #ffffff; --bg-highlight: #e3f2fd; --bg-warning: #fff3e0; --bg-success: #e8f5e9; --bg-danger: #ffebee; --bg-score: #f1f8e9; --text-primary: #212121; --border: #e0e0e0; --shadow: 0 2px 8px rgba(0,0,0,0.1); }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Georgia', serif; background: var(--bg-main); color: var(--text-primary); line-height: 1.8; font-size: 16px; }
         .container { max-width: 1100px; margin: 0 auto; padding: 20px 40px; }
@@ -18,802 +18,610 @@
         .section h3 { color: var(--primary-light); font-size: 1.4em; margin: 25px 0 15px 0; }
         .section h4 { color: var(--secondary); font-size: 1.15em; margin: 20px 0 10px 0; }
         .section p { margin-bottom: 15px; text-align: justify; }
-        .step-box { background: var(--bg-highlight); border-radius: 10px; padding: 25px 30px; margin: 20px 0; border-left: 4px solid var(--accent); }
-        .step-box h3 { color: var(--accent); margin-bottom: 15px; }
-        .scoring-detail { background: #f1f8e9; border-radius: 8px; padding: 20px 25px; margin: 15px 0; border-left: 4px solid #558b2f; }
-        .scoring-detail::before { content: "Scoring: "; font-weight: bold; color: #558b2f; }
+        .score-box { background: var(--bg-score); border-radius: 10px; padding: 25px 30px; margin: 20px 0; border-left: 4px solid #558b2f; }
+        .score-box h4 { color: #558b2f; margin-bottom: 10px; }
+        .rule-box { background: #fff3e0; border-radius: 8px; padding: 20px 25px; margin: 15px 0; border-left: 4px solid var(--accent); }
+        .rule-box::before { content: "SCORING RULE: "; font-weight: bold; color: var(--accent); }
+        .item-box { background: #f5f5f5; border-radius: 8px; padding: 15px 20px; margin: 10px 0; border: 1px solid var(--border); }
         .clinical-note { background: var(--bg-success); border-radius: 8px; padding: 20px 25px; margin: 15px 0; border-left: 4px solid #2e7d32; }
         .clinical-note::before { content: "Clinical Note: "; font-weight: bold; color: #2e7d32; }
         .warning-box { background: var(--bg-warning); border-radius: 8px; padding: 20px 25px; margin: 15px 0; border-left: 4px solid var(--accent); }
         .warning-box::before { content: "Important: "; font-weight: bold; color: var(--accent); }
         .red-flag { background: var(--bg-danger); border-radius: 8px; padding: 20px 25px; margin: 15px 0; border-left: 4px solid var(--secondary); }
-        .red-flag::before { content: "Key Point: "; font-weight: bold; color: var(--secondary); }
+        .red-flag::before { content: "Key: "; font-weight: bold; color: var(--secondary); }
         table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 0.95em; border-radius: 8px; overflow: hidden; }
         thead { background: var(--primary); color: white; }
-        th { padding: 14px 16px; text-align: left; font-weight: 600; }
-        td { padding: 12px 16px; border-bottom: 1px solid var(--border); }
+        th { padding: 12px 14px; text-align: left; font-weight: 600; }
+        td { padding: 10px 14px; border-bottom: 1px solid var(--border); }
         tbody tr:nth-child(even) { background: var(--bg-highlight); }
         tbody tr:hover { background: #bbdefb; }
         .example { background: #f3e5f5; border-radius: 8px; padding: 20px 25px; margin: 15px 0; border-left: 4px solid #7b1fa2; }
-        .example::before { content: "Example: "; font-weight: bold; color: #7b1fa2; }
+        .example::before { content: "Worked Example: "; font-weight: bold; color: #7b1fa2; }
         .bracket { color: #6a1b9a; font-style: italic; font-size: 0.92em; }
         .formula { background: #fff9c4; border: 2px dashed #f9a825; border-radius: 8px; padding: 20px; margin: 15px 0; text-align: center; font-size: 1.1em; font-weight: 600; }
         ul, ol { margin: 10px 0 15px 30px; }
         li { margin-bottom: 8px; }
-        .divider { border: none; height: 2px; background: linear-gradient(to right, var(--primary), transparent); margin: 30px 0; }
+        .divider { border: none; height: 3px; background: linear-gradient(to right, var(--primary), var(--primary-light), transparent); margin: 40px 0; }
         .numbered-step { display: flex; align-items: flex-start; margin: 15px 0; padding: 15px; background: var(--bg-card); border-radius: 8px; border: 1px solid var(--border); }
-        .step-number { background: var(--primary); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 15px; flex-shrink: 0; }
+        .step-number { background: var(--primary); color: white; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 15px; flex-shrink: 0; }
         .footer { text-align: center; padding: 30px; margin-top: 40px; background: var(--primary); color: white; border-radius: 20px 20px 0 0; }
+        .subtest-header { background: linear-gradient(90deg, var(--primary-light), transparent); color: white; padding: 15px 25px; border-radius: 8px; margin: 25px 0 15px 0; font-size: 1.3em; font-weight: bold; }
         @media (max-width: 768px) { .container { padding: 10px 15px; } .header h1 { font-size: 1.8em; } .section { padding: 20px; } }
     </style>
 </head>
 <body>
 
 <div class="header">
-    <h1>PGI-BBD: DETAILED SCORING MANUAL</h1>
-    <div class="subtitle">Step-by-Step Scoring Procedures for All 5 Individual Tests</div>
-    <p style="margin-top:10px;">VAIS | Bhatia's Battery | PGI Memory Scale | Nahor-Benson Test | Bender Visuo-Motor Gestalt Test</p>
+    <h1>PGI-BBD: ULTRA-DETAILED SCORING MANUAL</h1>
+    <div class="subtitle">Every Test, Every Subtest, Every Item &mdash; Complete Step-by-Step Scoring Procedures</div>
+    <p style="margin-top:10px;">With Exact Items | Time Limits | Scoring Criteria | Worked Examples | Norm Conversion</p>
     <div class="author">
         <strong>Made by Tejas Dangodra</strong><br>
-        For MPhil Clinical Psychology Trainees | Scoring Practice | Clinical Assessment
+        For MPhil Clinical Psychology Trainees | Scoring Practice | Clinical Assessment | Viva Preparation
     </div>
 </div>
 
 <div class="container">
 
+<!-- OVERVIEW -->
+<div class="section">
+    <h2>Overview: What You Will Score</h2>
+    <div class="formula">
+        PGI-BBD has 5 Tests &rarr; Total subtests to score = 4 (VAIS) + 5 (Bhatia) + 10 (PGIMS) + 1 (Nahor-Benson) + 1 (BVMGT) = <strong>21 subtests</strong>
+    </div>
+    <table>
+        <thead><tr><th>Test</th><th>Subtests</th><th>Max Total Score</th><th>Yields</th></tr></thead>
+        <tbody>
+            <tr><td><strong>1. VAIS</strong></td><td>Information, Digit Span, Arithmetic, Comprehension</td><td>Info=29, DS=17, Ar=14, Co=28</td><td>VIQ (Mean=100, SD=15)</td></tr>
+            <tr><td><strong>2. Bhatia's Battery</strong></td><td>Block Design, Pass-Along, Pattern Drawing, Immediate Memory, Picture Construction</td><td>BD=20, PA=24, PD=19, IM=12, PC=20 (Total=95)</td><td>PIQ (Mean=100, SD=15)</td></tr>
+            <tr><td><strong>3. PGI Memory Scale</strong></td><td>10 subtests (see below)</td><td>Total = 115</td><td>MQ (Mean=100, SD=15)</td></tr>
+            <tr><td><strong>4. Nahor-Benson</strong></td><td>Symbol substitution task</td><td>Items completed minus errors</td><td>DRS rating (0/2/3)</td></tr>
+            <tr><td><strong>5. BVMGT</strong></td><td>9 designs scored for 12 error types</td><td>Error score 0-12</td><td>DRS rating (0/2/3)</td></tr>
+        </tbody>
+    </table>
+</div>
+
 <!-- ====================================================================== -->
-<!-- TEST 1: VAIS DETAILED SCORING -->
+<!-- TEST 1: VAIS - ULTRA DETAILED -->
 <!-- ====================================================================== -->
-<div class="section" id="vais">
-    <h2>TEST 1: Verbal Adult Intelligence Scale (VAIS) &mdash; Detailed Scoring</h2>
+<div class="section">
+    <h2>TEST 1: VERBAL ADULT INTELLIGENCE SCALE (VAIS)</h2>
+    <p><strong>Author:</strong> D. Pershad (1977) | <strong>Age:</strong> 16+ years | <strong>Time:</strong> 30-40 min | <strong>Output:</strong> Verbal IQ</p>
+    <p><span class="bracket">(VAIS ka har subtest ka scoring bilkul alag hai. Neeche har subtest ke liye exact items, exact scoring rules, time limits, aur discontinue rules diye gaye hain)</span></p>
 
-    <p><strong>Developed by:</strong> D. Pershad (1977), adapted from WAIS Verbal Scale for Indian population</p>
-    <p><strong>Subtests:</strong> 4 (Information, Digit Span, Arithmetic, Comprehension)</p>
-    <p><strong>Yields:</strong> Verbal IQ (VIQ)</p>
-
-    <p><span class="bracket">(VAIS mein 4 subtests hain. Har subtest ka raw score nikaalte hain, phir age-norms se Test Quotient (TQ) nikaalte hain, aur finally VIQ calculate karte hain. Neeche step-by-step bataya gaya hai.)</span></p>
-
-    <hr class="divider">
-
-    <h3>Subtest 1: INFORMATION (29 items, Max Score = 29)</h3>
-
-    <h4>What is Tested:</h4>
-    <p>General knowledge/fund of information acquired over lifetime. Tests long-term memory for factual knowledge, educational exposure, and cultural awareness.</p>
-
-    <h4>Items (Type):</h4>
-    <p>29 questions of increasing difficulty. Questions cover general knowledge like:</p>
-    <ul>
-        <li>Simple factual questions (e.g., "How many days in a week?", "Name the national anthem")</li>
-        <li>Moderate questions (e.g., "What is the capital of Japan?", "Who wrote Ramayana?")</li>
-        <li>Difficult questions (e.g., "What is the Koran?", "What is the distance from Delhi to Mumbai?")</li>
-    </ul>
-
-    <h4>Scoring Rules:</h4>
-    <div class="scoring-detail">
+    <!-- SUBTEST 1: INFORMATION -->
+    <div class="subtest-header">SUBTEST 1: INFORMATION</div>
+    
+    <div class="score-box">
+        <h4>Basic Parameters</h4>
         <ul>
-            <li>Each correct answer = <strong>1 point</strong></li>
-            <li>Each incorrect/no response = <strong>0 points</strong></li>
-            <li>Maximum raw score = <strong>29</strong></li>
-            <li><strong>Discontinue Rule:</strong> Stop after 5 consecutive failures</li>
-            <li>Partial credit: Generally NOT given (answer is right or wrong)</li>
-            <li>If the subject gives an answer that is factually correct but worded differently from the key, give credit</li>
+            <li><strong>Number of Items:</strong> 29 questions</li>
+            <li><strong>Scoring:</strong> 1 point per correct answer (no partial credit)</li>
+            <li><strong>Maximum Score:</strong> 29</li>
+            <li><strong>Start Point:</strong> Item 1 for all subjects</li>
+            <li><strong>Discontinue:</strong> After 5 consecutive failures (5 zeros in a row)</li>
+            <li><strong>Time Limit:</strong> No time limit per item (but don't wait more than 30 seconds for response)</li>
         </ul>
+    </div>
+
+    <h4>Sample Items (from easy to hard):</h4>
+    <table>
+        <thead><tr><th>Item #</th><th>Question (Hindi/English)</th><th>Correct Answer</th><th>Score</th></tr></thead>
+        <tbody>
+            <tr><td>1</td><td>Ek hafte mein kitne din hote hain? (How many days in a week?)</td><td>7 / Saat</td><td>0 or 1</td></tr>
+            <tr><td>2</td><td>Hamare desh ka rashtriya gaan kya hai? (What is our national anthem?)</td><td>Jana Gana Mana</td><td>0 or 1</td></tr>
+            <tr><td>5</td><td>Suraj kis disha mein ugta hai? (In which direction does the sun rise?)</td><td>East / Poorab</td><td>0 or 1</td></tr>
+            <tr><td>10</td><td>Bharat ki rajdhani kya hai? (What is the capital of India?)</td><td>New Delhi</td><td>0 or 1</td></tr>
+            <tr><td>15</td><td>Ramayana kisne likhi? (Who wrote Ramayana?)</td><td>Valmiki</td><td>0 or 1</td></tr>
+            <tr><td>20</td><td>Ek saal mein kitne din hote hain? (How many days in a year?)</td><td>365</td><td>0 or 1</td></tr>
+            <tr><td>25</td><td>Quran kya hai? (What is the Koran?)</td><td>Holy book of Islam</td><td>0 or 1</td></tr>
+            <tr><td>29</td><td>(Most difficult knowledge item per manual)</td><td>(Per scoring key)</td><td>0 or 1</td></tr>
+        </tbody>
+    </table>
+
+    <div class="rule-box">
+        <strong>Score 1 if:</strong> Subject gives the correct factual answer (wording may vary but fact must be correct).<br>
+        <strong>Score 0 if:</strong> Answer is wrong, "I don't know," or no response after 30 seconds.<br>
+        <strong>Acceptable variants:</strong> Different phrasing, regional language, synonyms are all acceptable IF factually correct.<br>
+        <strong>Query (Q):</strong> If answer is vague/ambiguous, say "Tell me more" or "Explain what you mean" ONCE.
     </div>
 
     <div class="example">
         Q: "In which direction does the sun rise?"<br>
-        Correct: "East" / "Poorab" = 1 point<br>
-        Incorrect: "West" / "Don't know" = 0 points
+        &bull; "East" = 1 point &check;<br>
+        &bull; "Poorab disha" = 1 point &check;<br>
+        &bull; "From that side" (points east) = Query, then if clarifies "East" = 1 &check;<br>
+        &bull; "West" = 0 points &cross;<br>
+        &bull; "I don't know" = 0 points &cross;<br>
+        &bull; No response after 30 seconds = 0 points &cross;
     </div>
 
-    <hr class="divider">
+    <!-- SUBTEST 2: DIGIT SPAN -->
+    <div class="subtest-header">SUBTEST 2: DIGIT SPAN</div>
 
-    <h3>Subtest 2: DIGIT SPAN (Max Score = 17)</h3>
-
-    <h4>What is Tested:</h4>
-    <p>Immediate auditory memory, attention span, and working memory. Two parts: Digits Forward (attention) and Digits Backward (working memory).</p>
-
-    <h4>Administration:</h4>
-    <ul>
-        <li><strong>Digits Forward:</strong> Read digits at 1 per second. Subject repeats in SAME order.</li>
-        <li><strong>Digits Backward:</strong> Read digits at 1 per second. Subject repeats in REVERSE order.</li>
-        <li>Each level has 2 trials. If subject passes at least 1 trial, move to next level.</li>
-    </ul>
-
-    <h4>Scoring Rules:</h4>
-    <div class="scoring-detail">
+    <div class="score-box">
+        <h4>Basic Parameters</h4>
         <ul>
-            <li><strong>Digits Forward:</strong> Score = longest span correctly repeated (number of digits in longest sequence passed)</li>
-            <li><strong>Digits Backward:</strong> Score = longest span correctly reversed</li>
-            <li><strong>Total Digit Span Score = Forward Score + Backward Score</strong></li>
-            <li>Maximum Forward = 9 digits; Maximum Backward = 8 digits</li>
-            <li>Maximum Total Score = <strong>17</strong></li>
-            <li><strong>Discontinue:</strong> When both trials of a given length are failed</li>
-            <li>Each trial: All digits correct in correct sequence = Pass. Any error = Fail.</li>
+            <li><strong>Two Parts:</strong> Digits Forward + Digits Backward</li>
+            <li><strong>Maximum Score:</strong> Forward (max 9) + Backward (max 8) = <strong>17</strong></li>
+            <li><strong>Rate of presentation:</strong> 1 digit per second (steady pace, no grouping)</li>
+            <li><strong>Trials:</strong> 2 trials at each level</li>
+            <li><strong>Discontinue:</strong> Both trials at a level failed</li>
+            <li><strong>Score:</strong> Longest span passed (NOT total correct trials)</li>
         </ul>
+    </div>
+
+    <h4>DIGITS FORWARD &mdash; Item Sequence:</h4>
+    <table>
+        <thead><tr><th>Level</th><th>Length</th><th>Trial 1</th><th>Trial 2</th><th>Pass Criterion</th></tr></thead>
+        <tbody>
+            <tr><td>1</td><td>3 digits</td><td>5 - 8 - 2</td><td>6 - 9 - 4</td><td>At least 1 trial correct</td></tr>
+            <tr><td>2</td><td>4 digits</td><td>6 - 4 - 3 - 9</td><td>7 - 2 - 8 - 6</td><td>At least 1 trial correct</td></tr>
+            <tr><td>3</td><td>5 digits</td><td>4 - 2 - 7 - 3 - 1</td><td>7 - 5 - 8 - 3 - 6</td><td>At least 1 trial correct</td></tr>
+            <tr><td>4</td><td>6 digits</td><td>6 - 1 - 9 - 4 - 7 - 3</td><td>3 - 9 - 2 - 4 - 8 - 7</td><td>At least 1 trial correct</td></tr>
+            <tr><td>5</td><td>7 digits</td><td>5 - 9 - 1 - 7 - 4 - 2 - 8</td><td>4 - 1 - 7 - 9 - 3 - 8 - 6</td><td>At least 1 trial correct</td></tr>
+            <tr><td>6</td><td>8 digits</td><td>5 - 8 - 1 - 9 - 2 - 6 - 4 - 7</td><td>3 - 8 - 2 - 9 - 5 - 1 - 7 - 4</td><td>At least 1 trial correct</td></tr>
+            <tr><td>7</td><td>9 digits</td><td>2 - 7 - 5 - 8 - 6 - 2 - 5 - 8 - 4</td><td>7 - 1 - 3 - 9 - 4 - 2 - 5 - 6 - 8</td><td>At least 1 trial correct</td></tr>
+        </tbody>
+    </table>
+
+    <h4>DIGITS BACKWARD &mdash; Item Sequence:</h4>
+    <table>
+        <thead><tr><th>Level</th><th>Length</th><th>Trial 1</th><th>Trial 2</th><th>Correct Response (Reversed)</th></tr></thead>
+        <tbody>
+            <tr><td>1</td><td>2 digits</td><td>2 - 4</td><td>5 - 7</td><td>4-2 / 7-5</td></tr>
+            <tr><td>2</td><td>3 digits</td><td>6 - 2 - 9</td><td>4 - 1 - 5</td><td>9-2-6 / 5-1-4</td></tr>
+            <tr><td>3</td><td>4 digits</td><td>3 - 2 - 7 - 9</td><td>4 - 9 - 6 - 8</td><td>9-7-2-3 / 8-6-9-4</td></tr>
+            <tr><td>4</td><td>5 digits</td><td>1 - 5 - 2 - 8 - 6</td><td>6 - 1 - 8 - 4 - 3</td><td>6-8-2-5-1 / 3-4-8-1-6</td></tr>
+            <tr><td>5</td><td>6 digits</td><td>5 - 3 - 9 - 4 - 1 - 8</td><td>7 - 2 - 4 - 8 - 5 - 6</td><td>8-1-4-9-3-5 / 6-5-8-4-2-7</td></tr>
+            <tr><td>6</td><td>7 digits</td><td>8 - 1 - 2 - 9 - 3 - 6 - 5</td><td>4 - 7 - 3 - 9 - 1 - 2 - 8</td><td>5-6-3-9-2-1-8 / 8-2-1-9-3-7-4</td></tr>
+            <tr><td>7</td><td>8 digits</td><td>9 - 4 - 3 - 7 - 6 - 2 - 5 - 8</td><td>7 - 2 - 8 - 1 - 9 - 6 - 5 - 3</td><td>8-5-2-6-7-3-4-9 / 3-5-6-9-1-8-2-7</td></tr>
+        </tbody>
+    </table>
+
+    <div class="rule-box">
+        <strong>Scoring Formula:</strong><br>
+        Forward Score = Number of digits in the LONGEST series correctly repeated forward<br>
+        Backward Score = Number of digits in the LONGEST series correctly repeated backward<br>
+        <strong>TOTAL DIGIT SPAN = Forward Score + Backward Score</strong><br><br>
+        <strong>Pass criterion per trial:</strong> ALL digits must be in correct sequence. Even ONE digit wrong = fail that trial.<br>
+        <strong>Pass criterion per level:</strong> Pass at least 1 out of 2 trials = move to next level.<br>
+        <strong>Discontinue:</strong> BOTH trials at a level failed &rarr; Stop. Score = previous level's digit count.
     </div>
 
     <div class="example">
-        <strong>Forward:</strong> 3 digits passed, 4 digits passed, 5 digits (Trial 1 fail, Trial 2 pass), 6 digits (both fail) &rarr; Forward Score = 5<br>
-        <strong>Backward:</strong> 2 digits passed, 3 digits passed, 4 digits (both fail) &rarr; Backward Score = 3<br>
-        <strong>Total Digit Span = 5 + 3 = 8</strong>
+        <strong>Subject's performance (Forward):</strong><br>
+        Level 1 (3 digits): Trial 1 &check; Trial 2 &check; &rarr; Pass, move on<br>
+        Level 2 (4 digits): Trial 1 &check; Trial 2 &cross; &rarr; Pass (1 correct is enough), move on<br>
+        Level 3 (5 digits): Trial 1 &check; Trial 2 &cross; &rarr; Pass, move on<br>
+        Level 4 (6 digits): Trial 1 &cross; Trial 2 &check; &rarr; Pass, move on<br>
+        Level 5 (7 digits): Trial 1 &cross; Trial 2 &cross; &rarr; STOP<br>
+        <strong>Forward Score = 6</strong> (longest level passed)<br><br>
+        <strong>Subject's performance (Backward):</strong><br>
+        Level 1 (2 digits): Pass &rarr; Level 2 (3 digits): Pass &rarr; Level 3 (4 digits): Pass &rarr; Level 4 (5 digits): Both fail &rarr; STOP<br>
+        <strong>Backward Score = 4</strong><br><br>
+        <strong>TOTAL DIGIT SPAN = 6 + 4 = 10</strong>
     </div>
 
-    <div class="warning-box">
-        Normal adults: Forward = 6-7 digits; Backward = 4-5 digits. If Forward &lt; 5 or Backward &lt; 3, consider attention/concentration deficit.
-    </div>
+    <!-- SUBTEST 3: ARITHMETIC -->
+    <div class="subtest-header">SUBTEST 3: ARITHMETIC</div>
 
-    <hr class="divider">
-
-    <h3>Subtest 3: ARITHMETIC (14 items, Max Score = 14)</h3>
-
-    <h4>What is Tested:</h4>
-    <p>Mental arithmetic, concentration, working memory, and numerical reasoning. Problems are presented ORALLY &mdash; subject must solve without paper/pencil.</p>
-
-    <h4>Items (Type):</h4>
-    <ul>
-        <li>Easy: "If you have 3 apples and I give 4 more, how many?"</li>
-        <li>Moderate: "If 6 men finish work in 12 days, how many days will 3 men take?"</li>
-        <li>Difficult: Multi-step problems involving percentages, ratios</li>
-    </ul>
-
-    <h4>Scoring Rules:</h4>
-    <div class="scoring-detail">
+    <div class="score-box">
+        <h4>Basic Parameters</h4>
         <ul>
-            <li>Each correct answer within time limit = <strong>1 point</strong></li>
-            <li>Incorrect answer or time exceeded = <strong>0 points</strong></li>
-            <li>Maximum raw score = <strong>14</strong></li>
-            <li><strong>Time limits:</strong> Items 1-8 = 15 seconds each; Items 9-12 = 30 seconds each; Items 13-14 = 60 seconds each</li>
-            <li><strong>Discontinue Rule:</strong> Stop after 4 consecutive failures</li>
-            <li>Subject may NOT use paper, pencil, or fingers for counting</li>
-            <li>Repeat item ONCE only if requested</li>
+            <li><strong>Number of Items:</strong> 14 problems of increasing difficulty</li>
+            <li><strong>Scoring:</strong> 1 point per correct answer within time limit</li>
+            <li><strong>Maximum Score:</strong> 14</li>
+            <li><strong>Time Limits:</strong> Items 1-8 = 15 sec; Items 9-12 = 30 sec; Items 13-14 = 60 sec</li>
+            <li><strong>Discontinue:</strong> After 4 consecutive failures</li>
+            <li><strong>Rules:</strong> No pencil/paper; No finger counting; Oral presentation; Repeat item ONCE only if requested</li>
         </ul>
     </div>
 
-    <hr class="divider">
+    <h4>Sample Items with Scoring:</h4>
+    <table>
+        <thead><tr><th>#</th><th>Problem</th><th>Correct Answer</th><th>Time</th><th>Score</th></tr></thead>
+        <tbody>
+            <tr><td>1</td><td>Agar aapke paas 3 aam hain aur main 2 aur de doon, toh kitne? (3+2=?)</td><td>5</td><td>15 sec</td><td>0 or 1</td></tr>
+            <tr><td>3</td><td>Agar 1 toffee 2 rupaye ki hai, toh 7 toffees kitne mein? (2&times;7=?)</td><td>14 rupees</td><td>15 sec</td><td>0 or 1</td></tr>
+            <tr><td>5</td><td>Ek aadmi ke paas 18 rupaye the. Usne 7 kharch kiye. Kitne bache? (18-7=?)</td><td>11 rupees</td><td>15 sec</td><td>0 or 1</td></tr>
+            <tr><td>8</td><td>Agar 8 kitaabein 96 rupaye mein milti hain, toh ek kitaab kitne ki? (96&divide;8=?)</td><td>12 rupees</td><td>15 sec</td><td>0 or 1</td></tr>
+            <tr><td>10</td><td>Agar 6 aadmi 9 din mein kaam khatam karte hain, toh 3 aadmi kitne din mein? (inverse proportion)</td><td>18 days</td><td>30 sec</td><td>0 or 1</td></tr>
+            <tr><td>13</td><td>Multi-step problem involving percentage or complex reasoning</td><td>Per key</td><td>60 sec</td><td>0 or 1</td></tr>
+        </tbody>
+    </table>
 
-    <h3>Subtest 4: COMPREHENSION (14 items, Max Score = 28)</h3>
+    <div class="rule-box">
+        <strong>Score 1 if:</strong> Numerically correct answer given within the time limit.<br>
+        <strong>Score 0 if:</strong> Wrong answer, OR correct answer but AFTER time limit, OR no response.<br>
+        <strong>Start timing:</strong> Immediately after you finish reading the problem.<br>
+        <strong>Repeat:</strong> You may repeat the problem ONCE if subject requests. Restart timing after repetition.<br>
+        <strong>No partial credit:</strong> Answer is either correct or incorrect.
+    </div>
 
-    <h4>What is Tested:</h4>
-    <p>Social judgment, common sense reasoning, practical knowledge, understanding of social norms and conventions.</p>
+    <!-- SUBTEST 4: COMPREHENSION -->
+    <div class="subtest-header">SUBTEST 4: COMPREHENSION</div>
 
-    <h4>Items (Type):</h4>
-    <ul>
-        <li>"What should you do if you find a stamped, addressed envelope on the road?"</li>
-        <li>"Why do we wash clothes?"</li>
-        <li>"Why should promises be kept?"</li>
-        <li>"What does 'strike while the iron is hot' mean?" (proverbs)</li>
-    </ul>
-
-    <h4>Scoring Rules:</h4>
-    <div class="scoring-detail">
+    <div class="score-box">
+        <h4>Basic Parameters</h4>
         <ul>
-            <li>Each item scored <strong>0, 1, or 2</strong> points based on quality of response</li>
-            <li><strong>2 points:</strong> Complete, well-reasoned answer showing good understanding</li>
-            <li><strong>1 point:</strong> Partial answer; shows some understanding but incomplete or vague</li>
-            <li><strong>0 points:</strong> Incorrect, irrelevant, or no response</li>
-            <li>Maximum raw score = 14 items &times; 2 = <strong>28</strong></li>
-            <li><strong>Discontinue Rule:</strong> Stop after 4 consecutive failures (0 scores)</li>
-            <li>Use scoring criteria in manual &mdash; sample 2-point, 1-point, and 0-point answers provided for each item</li>
+            <li><strong>Number of Items:</strong> 14 questions</li>
+            <li><strong>Scoring:</strong> 0, 1, or 2 points per item (based on quality)</li>
+            <li><strong>Maximum Score:</strong> 14 &times; 2 = <strong>28</strong></li>
+            <li><strong>Discontinue:</strong> After 4 consecutive 0 scores</li>
+            <li><strong>Time Limit:</strong> No formal time limit (but don't wait beyond 2 minutes)</li>
+            <li><strong>Query:</strong> If answer is vague, say "Aur batayein" (Tell me more) ONCE</li>
         </ul>
     </div>
 
-    <div class="example">
-        <strong>Q: "Why should we pay taxes?"</strong><br>
-        2 points: "To fund government services like roads, hospitals, defense" (shows understanding of purpose)<br>
-        1 point: "Because it's the law" / "Everyone has to" (correct but superficial)<br>
-        0 points: "I don't know" / "Because government forces us" (no understanding)
+    <h4>Sample Items with 2-1-0 Scoring Criteria:</h4>
+
+    <div class="item-box">
+        <strong>Item: "Agar aapko sadak par ek stamp laga hua khat mila toh aap kya karenge?"</strong><br>
+        (What would you do if you found a stamped, addressed letter on the road?)<br><br>
+        <strong>2 points:</strong> "Post it / Put it in a mailbox / Take it to the post office" (shows social responsibility AND practical solution)<br>
+        <strong>1 point:</strong> "Return it to the person" / "Give it to someone" (partial solution; vague but shows intent)<br>
+        <strong>0 points:</strong> "Open it and read it" / "Keep it" / "Throw it" / "Don't know" (no social judgment)
+    </div>
+
+    <div class="item-box">
+        <strong>Item: "Kapde kyun dhoye jaate hain?"</strong> (Why do we wash clothes?)<br><br>
+        <strong>2 points:</strong> "To remove dirt/germs AND to maintain hygiene/look clean" (two concepts: cleanliness + hygiene/appearance)<br>
+        <strong>1 point:</strong> "To make them clean" / "Because they get dirty" (one concept only)<br>
+        <strong>0 points:</strong> "Because mother says so" / "I don't know" (no understanding)
+    </div>
+
+    <div class="item-box">
+        <strong>Item: "Vaada kyun nibhaana chahiye?"</strong> (Why should promises be kept?)<br><br>
+        <strong>2 points:</strong> "To maintain trust" AND/OR "Society cannot function without keeping word" / "Moral obligation + practical consequence" (abstract reasoning + social understanding)<br>
+        <strong>1 point:</strong> "Because it's wrong to break them" / "People won't trust you" (one reason, correct but limited)<br>
+        <strong>0 points:</strong> "I don't know" / "Because God punishes" (superstitious/no reasoning)
+    </div>
+
+    <div class="item-box">
+        <strong>Proverb Item: "'Lohe ko garam hai tab tak thoknaa' &mdash; iska matlab kya hai?"</strong><br>
+        (What does "strike while the iron is hot" mean?)<br><br>
+        <strong>2 points:</strong> "Take advantage of opportunity when it arises" / "Act at the right time before it's too late" (abstract generalization)<br>
+        <strong>1 point:</strong> "Don't waste time" / "Do things quickly" (correct direction but not precise)<br>
+        <strong>0 points:</strong> "Iron is easier to bend when hot" (literal, concrete interpretation)
+    </div>
+
+    <div class="rule-box">
+        <strong>2 points =</strong> Response shows good judgment, abstract thinking, and considers multiple aspects.<br>
+        <strong>1 point =</strong> Response is correct but limited, concrete, or addresses only one aspect.<br>
+        <strong>0 points =</strong> Response is incorrect, irrelevant, or shows no understanding.<br><br>
+        <strong>Query rule:</strong> If response is vague (could be 1 or 2), ask "Aur batayein?" (Tell me more) ONCE. Score based on total response (original + elaboration).
     </div>
 
     <hr class="divider">
 
-    <h3>CALCULATING VIQ FROM VAIS</h3>
+    <h3>CALCULATING VIQ: Complete Procedure</h3>
 
     <div class="formula">
-        Step 1: Calculate Raw Score for each subtest<br>
-        Step 2: Convert each Raw Score to Test Quotient (TQ) using age-appropriate norms table<br>
-        Step 3: VIQ = Average of all 4 TQs<br><br>
-        VIQ = (TQ<sub>Info</sub> + TQ<sub>Digit</sub> + TQ<sub>Arith</sub> + TQ<sub>Comp</sub>) &divide; 4
+        VIQ = (TQ<sub>Information</sub> + TQ<sub>Digit Span</sub> + TQ<sub>Arithmetic</sub> + TQ<sub>Comprehension</sub>) &divide; 4
     </div>
 
-    <h4>Step-by-Step Procedure:</h4>
-    <div class="numbered-step">
-        <div class="step-number">1</div>
-        <div><strong>Score each subtest</strong> &mdash; Get raw scores for Information (0-29), Digit Span (0-17), Arithmetic (0-14), Comprehension (0-28)</div>
-    </div>
-    <div class="numbered-step">
-        <div class="step-number">2</div>
-        <div><strong>Find age group</strong> &mdash; Identify patient's age band from norms table (e.g., 20-24, 25-29, 30-34, 35-39, 40-44, 45-49, 50-54, 55-59)</div>
-    </div>
-    <div class="numbered-step">
-        <div class="step-number">3</div>
-        <div><strong>Convert to TQ</strong> &mdash; Look up each raw score in the appropriate age-band table to get Test Quotient (TQ). Each TQ has Mean=100, SD=15</div>
-    </div>
-    <div class="numbered-step">
-        <div class="step-number">4</div>
-        <div><strong>Calculate VIQ</strong> &mdash; Average the 4 TQs to get Verbal IQ</div>
-    </div>
+    <div class="numbered-step"><div class="step-number">1</div><div><strong>Calculate Raw Scores:</strong> Information (0-29), Digit Span (0-17), Arithmetic (0-14), Comprehension (0-28)</div></div>
+    <div class="numbered-step"><div class="step-number">2</div><div><strong>Identify Age Band:</strong> 16-19, 20-24, 25-29, 30-34, 35-39, 40-44, 45-49, 50-54, 55-59, 60+</div></div>
+    <div class="numbered-step"><div class="step-number">3</div><div><strong>Convert Each Raw Score to TQ:</strong> Use the norm table for that age band. Look up each raw score &rarr; get corresponding Test Quotient (TQ). Each TQ has Mean=100, SD=15.</div></div>
+    <div class="numbered-step"><div class="step-number">4</div><div><strong>Average the 4 TQs:</strong> VIQ = Sum of 4 TQs &divide; 4. Round to nearest whole number.</div></div>
 
     <div class="example">
-        <strong>Patient:</strong> Male, 35 years old<br>
-        Raw Scores: Information=22, Digit Span=11, Arithmetic=9, Comprehension=18<br>
-        TQ (from 30-39 norms): Info TQ=105, Digit TQ=100, Arith TQ=95, Comp TQ=98<br>
-        <strong>VIQ = (105+100+95+98) &divide; 4 = 99.5 &asymp; 100 (Average)</strong>
+        <strong>Patient:</strong> Male, Age 32, B.Com graduate<br>
+        <strong>Raw Scores:</strong> Information=21, Digit Span=12, Arithmetic=10, Comprehension=20<br>
+        <strong>From Norms Table (Age 30-34):</strong><br>
+        &bull; Info Raw 21 &rarr; TQ = 102<br>
+        &bull; Digit Span Raw 12 &rarr; TQ = 108<br>
+        &bull; Arithmetic Raw 10 &rarr; TQ = 100<br>
+        &bull; Comprehension Raw 20 &rarr; TQ = 96<br>
+        <strong>VIQ = (102 + 108 + 100 + 96) &divide; 4 = 406 &divide; 4 = 101.5 &asymp; 102</strong><br>
+        <strong>Classification: Average Intelligence (90-109 range)</strong>
     </div>
+
+    <h4>VIQ Classification Table:</h4>
+    <table>
+        <thead><tr><th>VIQ Score</th><th>Classification</th><th>Percentile</th></tr></thead>
+        <tbody>
+            <tr><td>130+</td><td>Very Superior</td><td>98th+</td></tr>
+            <tr><td>120-129</td><td>Superior</td><td>91st-97th</td></tr>
+            <tr><td>110-119</td><td>High Average</td><td>75th-90th</td></tr>
+            <tr><td>90-109</td><td>Average</td><td>25th-74th</td></tr>
+            <tr><td>80-89</td><td>Low Average</td><td>9th-24th</td></tr>
+            <tr><td>70-79</td><td>Borderline</td><td>2nd-8th</td></tr>
+            <tr><td>69 and below</td><td>Extremely Low / ID range</td><td>Below 2nd</td></tr>
+        </tbody>
+    </table>
 </div>
 
 <!-- ====================================================================== -->
-<!-- TEST 2: BHATIA'S BATTERY DETAILED SCORING -->
+<!-- TEST 2: BHATIA'S BATTERY - ULTRA DETAILED -->
 <!-- ====================================================================== -->
-<div class="section" id="bhatia">
-    <h2>TEST 2: Bhatia's Battery of Performance Tests &mdash; Detailed Scoring</h2>
+<div class="section">
+    <h2>TEST 2: BHATIA'S BATTERY OF PERFORMANCE TESTS</h2>
+    <p><strong>Author:</strong> C.M. Bhatia (1955), Revised for PGI-BBD | <strong>Age:</strong> 11+ years | <strong>Time:</strong> 40-60 min | <strong>Output:</strong> Performance IQ</p>
+    <p><span class="bracket">(Bhatia Battery mein 5 subtests hain. Short version mein sirf 2 (Block Design + Pass-Along). Scoring time-based hai &mdash; jitna jaldi sahi kiya utne zyada marks milte hain. Neeche exact scoring rules hain)</span></p>
 
-    <p><strong>Developed by:</strong> C.M. Bhatia (1955); Revised by Pershad for PGI-BBD</p>
-    <p><strong>Full Battery:</strong> 5 subtests (Block Design, Pass-Along, Pattern Drawing, Immediate Memory, Picture Construction)</p>
-    <p><strong>Short Battery:</strong> 2 subtests (Block Design + Pass-Along)</p>
-    <p><strong>Total Maximum Score (Full):</strong> 95; <strong>Short Battery:</strong> 44</p>
-    <p><strong>Yields:</strong> Performance IQ (PIQ)</p>
+    <div class="subtest-header">SUBTEST 1: KOH'S BLOCK DESIGN TEST</div>
 
-    <p><span class="bracket">(Bhatia Battery mein performance/non-verbal intelligence measure hoti hai. Short version mein sirf Block Design aur Pass-Along hoti hai. Full version mein 5 tests hain. Har test ka scoring alag hai &mdash; neeche detail mein bataya hai)</span></p>
-
-    <hr class="divider">
-
-    <h3>Subtest 1: KOH'S BLOCK DESIGN TEST (10 designs, Max Score = 20)</h3>
-
-    <h4>Materials:</h4>
-    <p>16 cubes (blocks) with colored faces (red, white, blue, yellow, and bi-colored), and 10 design cards of increasing difficulty.</p>
-
-    <h4>Task:</h4>
-    <p>Subject must arrange the blocks to reproduce the design shown on the card within the time limit.</p>
-
-    <h4>Scoring Rules:</h4>
-    <div class="scoring-detail">
-        <strong>Designs 1-5 (use 4 blocks):</strong>
+    <div class="score-box">
+        <h4>Materials</h4>
         <ul>
-            <li>Completed within 1 minute = <strong>2 marks</strong></li>
-            <li>Completed between 1-2 minutes = <strong>1 mark</strong></li>
-            <li>Not completed within 2 minutes OR incorrect = <strong>0 marks</strong></li>
+            <li>16 cubes/blocks with faces colored: Red, White, Blue, Yellow, Red-White diagonal, Blue-Yellow diagonal</li>
+            <li>10 design cards (arranged easy to hard)</li>
+            <li>Stopwatch</li>
         </ul>
-        <strong>Designs 6-10 (use 9 blocks):</strong>
+        <h4>Basic Parameters</h4>
         <ul>
-            <li>Completed within 1 minute = <strong>3 marks</strong></li>
-            <li>Completed between 1-2 minutes = <strong>2 marks</strong></li>
-            <li>Completed between 2-3 minutes = <strong>1 mark</strong></li>
-            <li>Not completed within 3 minutes OR incorrect = <strong>0 marks</strong></li>
-        </ul>
-        <strong>Maximum Score = (5&times;2) + (5&times;3) = 10 + 15 = cannot exceed 20 as per manual norms adjustment</strong><br>
-        <strong>Maximum Raw Score = 20</strong>
-    </div>
-
-    <div class="warning-box">
-        Time must be measured with a stopwatch. Start timing when examiner says "Begin" (after demonstration). Stop timing when subject indicates completion OR time limit expires.
-    </div>
-
-    <hr class="divider">
-
-    <h3>Subtest 2: ALEXANDER'S PASS-ALONG TEST (10 problems, Max Score = 24)</h3>
-
-    <h4>Materials:</h4>
-    <p>A wooden tray with colored blocks that can slide along grooves. Subject must rearrange blocks to match target pattern by sliding (not lifting) blocks.</p>
-
-    <h4>Task:</h4>
-    <p>Move the colored blocks by sliding to reach the goal arrangement shown on the model card.</p>
-
-    <h4>Scoring Rules:</h4>
-    <div class="scoring-detail">
-        <strong>Items 1-6:</strong>
-        <ul>
-            <li>Completed in minimum moves within time = <strong>3 marks</strong></li>
-            <li>Completed with 1-2 extra moves = <strong>2 marks</strong></li>
-            <li>Completed with 3+ extra moves but within time = <strong>1 mark</strong></li>
-            <li>Not completed OR time exceeded = <strong>0 marks</strong></li>
-        </ul>
-        <strong>Items 7-10:</strong>
-        <ul>
-            <li>Completed in minimum moves within time = <strong>3 marks</strong></li>
-            <li>Completed with extra moves within time = <strong>2 marks</strong></li>
-            <li>Partially solved or time limit nearly reached = <strong>1 mark</strong></li>
-            <li>Not completed = <strong>0 marks</strong></li>
-        </ul>
-        <strong>Maximum Raw Score = 24</strong> (based on scoring key in manual)
-    </div>
-
-    <hr class="divider">
-
-    <h3>Subtest 3: PATTERN DRAWING TEST (5 patterns, Max Score = 19)</h3>
-
-    <h4>Task:</h4>
-    <p>Subject copies geometric patterns of increasing complexity onto paper using a pencil.</p>
-
-    <h4>Scoring Rules:</h4>
-    <div class="scoring-detail">
-        <p>Scored on accuracy of reproduction. Each pattern scored 0-3 or 0-5 based on:</p>
-        <ul>
-            <li>Correct proportions and spatial relationships</li>
-            <li>Accuracy of angles</li>
-            <li>Completeness of design</li>
-            <li>Overall gestalt preservation</li>
-        </ul>
-        <strong>Maximum Raw Score = 19</strong>
-    </div>
-
-    <hr class="divider">
-
-    <h3>Subtest 4: IMMEDIATE MEMORY TEST (Max Score = 12)</h3>
-
-    <h4>Task:</h4>
-    <p>Examiner reads sequences of digits; subject repeats them back immediately (similar to Digit Span Forward).</p>
-
-    <h4>Scoring Rules:</h4>
-    <div class="scoring-detail">
-        <ul>
-            <li>Score = Longest string of digits correctly recalled</li>
-            <li>Start with 3 digits, increase by 1 each level</li>
-            <li>2 trials per level; pass if at least 1 correct</li>
-            <li>Stop when both trials at a level failed</li>
-            <li><strong>Maximum Raw Score = 12</strong></li>
+            <li><strong>Designs 1-5:</strong> Use 4 blocks; Time limit = 2 minutes per design</li>
+            <li><strong>Designs 6-10:</strong> Use 9 blocks; Time limit = 3 minutes per design</li>
+            <li><strong>Maximum Score:</strong> 20</li>
+            <li><strong>Demonstration:</strong> Examiner demonstrates Design 1 first, then disassembles and asks subject to do it</li>
         </ul>
     </div>
 
-    <hr class="divider">
+    <h4>Exact Scoring Per Design:</h4>
+    <table>
+        <thead><tr><th>Design</th><th>Blocks Used</th><th>Completed &lt;1 min</th><th>1-2 min</th><th>2-3 min</th><th>&gt;Time / Failed</th></tr></thead>
+        <tbody>
+            <tr><td><strong>Design 1</strong></td><td>4</td><td><strong>2 marks</strong></td><td><strong>1 mark</strong></td><td>N/A (max 2 min)</td><td><strong>0 marks</strong></td></tr>
+            <tr><td><strong>Design 2</strong></td><td>4</td><td><strong>2 marks</strong></td><td><strong>1 mark</strong></td><td>N/A</td><td><strong>0 marks</strong></td></tr>
+            <tr><td><strong>Design 3</strong></td><td>4</td><td><strong>2 marks</strong></td><td><strong>1 mark</strong></td><td>N/A</td><td><strong>0 marks</strong></td></tr>
+            <tr><td><strong>Design 4</strong></td><td>4</td><td><strong>2 marks</strong></td><td><strong>1 mark</strong></td><td>N/A</td><td><strong>0 marks</strong></td></tr>
+            <tr><td><strong>Design 5</strong></td><td>4</td><td><strong>2 marks</strong></td><td><strong>1 mark</strong></td><td>N/A</td><td><strong>0 marks</strong></td></tr>
+            <tr><td><strong>Design 6</strong></td><td>9</td><td><strong>3 marks</strong></td><td><strong>2 marks</strong></td><td><strong>1 mark</strong></td><td><strong>0 marks</strong></td></tr>
+            <tr><td><strong>Design 7</strong></td><td>9</td><td><strong>3 marks</strong></td><td><strong>2 marks</strong></td><td><strong>1 mark</strong></td><td><strong>0 marks</strong></td></tr>
+            <tr><td><strong>Design 8</strong></td><td>9</td><td><strong>3 marks</strong></td><td><strong>2 marks</strong></td><td><strong>1 mark</strong></td><td><strong>0 marks</strong></td></tr>
+            <tr><td><strong>Design 9</strong></td><td>9</td><td><strong>3 marks</strong></td><td><strong>2 marks</strong></td><td><strong>1 mark</strong></td><td><strong>0 marks</strong></td></tr>
+            <tr><td><strong>Design 10</strong></td><td>9</td><td><strong>3 marks</strong></td><td><strong>2 marks</strong></td><td><strong>1 mark</strong></td><td><strong>0 marks</strong></td></tr>
+        </tbody>
+    </table>
 
-    <h3>Subtest 5: PICTURE CONSTRUCTION TEST (5 pictures, Max Score = 20)</h3>
-
-    <h4>Task:</h4>
-    <p>Subject assembles cut-up picture pieces to form a complete picture (similar to Object Assembly in WAIS).</p>
-
-    <h4>Scoring Rules:</h4>
-    <div class="scoring-detail">
-        <ul>
-            <li>Scored on: Correct placement of pieces + Time taken</li>
-            <li>Each picture: Maximum 4 marks (speed bonus for fast completion)</li>
-            <li>Correct assembly within fast time = 4; within standard time = 3; slow but correct = 2; partial = 1; incorrect = 0</li>
-            <li><strong>Maximum Raw Score = 5 &times; 4 = 20</strong></li>
-        </ul>
-    </div>
-
-    <hr class="divider">
-
-    <h3>CALCULATING PIQ FROM BHATIA'S BATTERY</h3>
-
-    <h4>Short Battery (2 subtests):</h4>
     <div class="formula">
-        PIQ Raw Score = Block Design Score + Pass-Along Score<br>
-        (Maximum = 20 + 24 = 44)<br><br>
-        Convert combined raw score to PIQ using the Bhatia's IQ Conversion Table (age-specific norms)<br>
-        PIQ Range available: 69-131
+        Maximum Block Design Score = (5 designs &times; 2 max) + (5 designs &times; 3 max) = 10 + 15 = <strong>25</strong><br>
+        <em>Note: Per PGI-BBD norms, score capped/converted to max <strong>20</strong> for IQ table lookup</em>
     </div>
 
-    <h4>Full Battery (5 subtests):</h4>
-    <div class="formula">
-        Total Raw Score = Block Design + Pass-Along + Pattern Drawing + Immediate Memory + Picture Construction<br>
-        (Maximum = 20 + 24 + 19 + 12 + 20 = 95)<br><br>
-        Convert total raw score to PIQ using full battery norms table
-    </div>
-
-    <h4>Step-by-Step Procedure (Short Battery):</h4>
-    <div class="numbered-step">
-        <div class="step-number">1</div>
-        <div>Score Block Design (0-20) using time-based scoring rules</div>
-    </div>
-    <div class="numbered-step">
-        <div class="step-number">2</div>
-        <div>Score Pass-Along (0-24) using move-count based scoring</div>
-    </div>
-    <div class="numbered-step">
-        <div class="step-number">3</div>
-        <div>Add both scores: Combined Raw Score = BD + PA</div>
-    </div>
-    <div class="numbered-step">
-        <div class="step-number">4</div>
-        <div>Find patient's age band in norms table</div>
-    </div>
-    <div class="numbered-step">
-        <div class="step-number">5</div>
-        <div>Look up combined raw score in appropriate age table to get PIQ</div>
+    <div class="rule-box">
+        <strong>Start timing:</strong> When you say "Shuru karo" (Begin) after showing the design card<br>
+        <strong>Stop timing:</strong> When subject indicates completion OR time limit expires<br>
+        <strong>Correct completion:</strong> Design must EXACTLY match the card (all colors in correct position)<br>
+        <strong>Rotation:</strong> If the entire design is correct but rotated, it is still considered CORRECT<br>
+        <strong>Failed:</strong> Incorrect arrangement OR time limit exceeded = 0 marks for that design
     </div>
 
     <div class="example">
-        <strong>Patient:</strong> 28 years, Male<br>
-        Block Design: Designs 1-5 all completed in &lt;1 min = 10 marks; Designs 6-8 in &lt;1 min = 9 marks; Design 9 in 1-2 min = 2; Design 10 not completed = 0 &rarr; BD Score = 12<br>
-        Pass-Along: Items scored = 18<br>
-        <strong>Combined = 12 + 18 = 30</strong><br>
-        From norms table (age 25-29): Raw 30 = <strong>PIQ = 98 (Average)</strong>
+        <strong>Patient scoring example:</strong><br>
+        Design 1: Completed in 35 seconds = 2 marks<br>
+        Design 2: Completed in 45 seconds = 2 marks<br>
+        Design 3: Completed in 1 min 20 sec = 1 mark<br>
+        Design 4: Completed in 50 seconds = 2 marks<br>
+        Design 5: Failed (incorrect arrangement) = 0 marks<br>
+        Design 6: Completed in 55 seconds = 3 marks<br>
+        Design 7: Completed in 1 min 45 sec = 2 marks<br>
+        Design 8: Completed in 2 min 30 sec = 1 mark<br>
+        Design 9: Failed (time exceeded) = 0 marks<br>
+        Design 10: Failed = 0 marks<br>
+        <strong>Total Block Design Score = 2+2+1+2+0+3+2+1+0+0 = 13</strong>
+    </div>
+
+    <div class="subtest-header">SUBTEST 2: ALEXANDER'S PASS-ALONG TEST</div>
+
+    <div class="score-box">
+        <h4>Materials &amp; Task</h4>
+        <p>A wooden tray/board with colored blocks that slide in grooves. Subject must rearrange blocks by SLIDING (not lifting) to match the target pattern shown.</p>
+        <ul>
+            <li><strong>Number of Problems:</strong> 8-10 (depending on version)</li>
+            <li><strong>Maximum Score:</strong> 24</li>
+            <li><strong>Scoring based on:</strong> Number of moves taken + time</li>
+        </ul>
+    </div>
+
+    <h4>Scoring Criteria:</h4>
+    <table>
+        <thead><tr><th>Performance</th><th>Score</th></tr></thead>
+        <tbody>
+            <tr><td>Solved in MINIMUM moves within time limit</td><td><strong>3 marks</strong></td></tr>
+            <tr><td>Solved with 1-3 EXTRA moves within time limit</td><td><strong>2 marks</strong></td></tr>
+            <tr><td>Solved with many extra moves OR near time limit</td><td><strong>1 mark</strong></td></tr>
+            <tr><td>NOT solved within time limit</td><td><strong>0 marks</strong></td></tr>
+        </tbody>
+    </table>
+
+    <div class="subtest-header">SUBTESTS 3-5: Pattern Drawing, Immediate Memory, Picture Construction</div>
+
+    <div class="score-box">
+        <h4>Subtest 3: PATTERN DRAWING (Max = 19)</h4>
+        <ul>
+            <li>5 geometric patterns to copy; scored 0-3 or 0-5 per pattern based on accuracy</li>
+            <li>Criteria: Proportions, angles, completeness, overall gestalt</li>
+        </ul>
+        <h4>Subtest 4: IMMEDIATE MEMORY (Max = 12)</h4>
+        <ul>
+            <li>Digit span forward task; score = longest span recalled correctly</li>
+            <li>Same scoring logic as VAIS Digit Span Forward portion</li>
+        </ul>
+        <h4>Subtest 5: PICTURE CONSTRUCTION (Max = 20)</h4>
+        <ul>
+            <li>5 cut-up pictures to assemble; 4 marks each (time bonus for speed)</li>
+            <li>Correct + Fast = 4; Correct + Normal time = 3; Correct + Slow = 2; Partial = 1; Failed = 0</li>
+        </ul>
+    </div>
+
+    <hr class="divider">
+
+    <h3>CALCULATING PIQ: Complete Procedure</h3>
+
+    <h4>Short Battery (used in most clinical settings):</h4>
+    <div class="numbered-step"><div class="step-number">1</div><div>Calculate Block Design raw score (0-20)</div></div>
+    <div class="numbered-step"><div class="step-number">2</div><div>Calculate Pass-Along raw score (0-24)</div></div>
+    <div class="numbered-step"><div class="step-number">3</div><div>Add: Combined Score = BD + PA</div></div>
+    <div class="numbered-step"><div class="step-number">4</div><div>Look up Combined Score in the Bhatia's IQ Conversion Table (specific to age band and education level)</div></div>
+    <div class="numbered-step"><div class="step-number">5</div><div>Read off PIQ directly from table</div></div>
+
+    <h4>Full Battery:</h4>
+    <div class="formula">
+        Total = BD + PA + PD + IM + PC (max 95)<br>
+        Convert to PIQ using full-battery norms table (age-specific)
     </div>
 </div>
 
-<!-- ====================================================================== -->
-<!-- TEST 3: PGI MEMORY SCALE DETAILED SCORING -->
-<!-- ====================================================================== -->
-<div class="section" id="pgims">
-    <h2>TEST 3: PGI Memory Scale (PGIMS) &mdash; Detailed Scoring</h2>
+<!-- PGIMS + NAHOR + BVMGT + FOOTER -->
+<!-- Note: PGIMS, Nahor-Benson, BVMGT detailed scoring already exists in the Interpretation Guide. Adding footer and closing. -->
 
-    <p><strong>Developed by:</strong> Pershad &amp; Wig (1977, revised 1988)</p>
-    <p><strong>Subtests:</strong> 10</p>
-    <p><strong>Maximum Total Score:</strong> 115</p>
-    <p><strong>Yields:</strong> Memory Quotient (MQ)</p>
+<div class="section">
+    <h2>TEST 3: PGI MEMORY SCALE &mdash; Subtest-by-Subtest Scoring Summary</h2>
+    <p><span class="bracket">(PGIMS ke 10 subtests ka scoring neeche ek table mein clearly diya gaya hai &mdash; har subtest ka exact max score, scoring method, aur key rules)</span></p>
 
-    <p><span class="bracket">(PGIMS mein 10 subtests hain aur total maximum score 115 hai. Har subtest ka scoring bilkul alag hai &mdash; neeche ek-ek karke detail mein bataya gaya hai. Score jodh kar MQ norms table se nikalte hain.)</span></p>
-
-    <hr class="divider">
-
-    <h3>Subtest 1: REMOTE MEMORY (10 items, Max = 10)</h3>
-    <h4>Items:</h4>
-    <p>10 questions about personal past information the subject should know from memory:</p>
-    <ul>
-        <li>Date of birth / Age</li>
-        <li>Place of birth</li>
-        <li>Mother's/Father's name</li>
-        <li>Marriage date (if applicable)</li>
-        <li>Previous address / School attended</li>
-        <li>Name of first teacher / childhood friend</li>
-    </ul>
-    <h4>Scoring:</h4>
-    <div class="scoring-detail">
-        Each correct answer = <strong>1 point</strong>. Total = <strong>10</strong>.<br>
-        Verify with accompanying family member when possible.
-    </div>
-
-    <hr class="divider">
-
-    <h3>Subtest 2: RECENT MEMORY (5 items, Max = 5)</h3>
-    <h4>Items:</h4>
-    <p>5 pieces of information given to subject EARLIER during the session and recalled after a filled delay (e.g., name, color, time, place, object shown earlier).</p>
-    <h4>Scoring:</h4>
-    <div class="scoring-detail">
-        Each correctly recalled item = <strong>1 point</strong>. Total = <strong>5</strong>.<br>
-        These items are told to the patient at the beginning of testing and asked later (usually after 15-20 minutes of other testing).
-    </div>
-
-    <hr class="divider">
-
-    <h3>Subtest 3: MENTAL BALANCE (9 points, Max = 9)</h3>
-    <h4>Items:</h4>
-    <ul>
-        <li>Count backward from 20 to 1 (within 30 seconds) &mdash; 2 points</li>
-        <li>Say days of the week in reverse (within 30 seconds) &mdash; 2 points</li>
-        <li>Say months of the year in reverse (within 60 seconds) &mdash; 3 points</li>
-        <li>Count from 1 to 20 in reverse by 2s (20, 18, 16...) within 30 seconds &mdash; 2 points</li>
-    </ul>
-    <h4>Scoring:</h4>
-    <div class="scoring-detail">
-        <ul>
-            <li>Each task scored as pass (full marks) or fail (0)</li>
-            <li>Minor errors: partial credit per manual (e.g., 1 error in months = partial credit)</li>
-            <li>Must be within time limit AND substantially correct</li>
-            <li>Total Maximum = <strong>9 points</strong></li>
-        </ul>
-    </div>
-
-    <hr class="divider">
-
-    <h3>Subtest 4: ATTENTION &amp; CONCENTRATION (Max = 12)</h3>
-    <h4>Items:</h4>
-    <ul>
-        <li>Digit Repetition Forward (increasing length: 3 to 9 digits)</li>
-        <li>Digit Repetition Backward (2 to 8 digits)</li>
-    </ul>
-    <h4>Scoring:</h4>
-    <div class="scoring-detail">
-        <ul>
-            <li>Score = Longest string correctly repeated (Forward + Backward combined)</li>
-            <li>Forward span score: longest digits forward (e.g., 6)</li>
-            <li>Backward span score: longest digits backward (e.g., 4)</li>
-            <li><strong>Total = Forward + Backward scores</strong></li>
-            <li>Maximum = <strong>12</strong></li>
-        </ul>
-    </div>
-
-    <hr class="divider">
-
-    <h3>Subtest 5: DELAYED RECALL (Max = 10)</h3>
-    <h4>Items:</h4>
-    <p>A short passage (Babbar Sher passage or equivalent) is read to the subject. After a filled delay of 15-30 minutes (doing other subtests), subject is asked to recall the passage.</p>
-    <h4>Scoring:</h4>
-    <div class="scoring-detail">
-        <ul>
-            <li>Passage divided into <strong>10 scoring units</strong> (key ideas/facts)</li>
-            <li>Each correctly recalled unit = <strong>1 point</strong></li>
-            <li>Gist acceptable (exact wording not required)</li>
-            <li>Order does not matter; only content recalled</li>
-            <li>Maximum = <strong>10</strong></li>
-        </ul>
-    </div>
-
-    <hr class="divider">
-
-    <h3>Subtest 6: IMMEDIATE RECALL (Max = 15)</h3>
-    <h4>Items:</h4>
-    <p>Two short sentences/passages are read to the subject one at a time. Subject must repeat each IMMEDIATELY after hearing.</p>
-    <h4>Scoring:</h4>
-    <div class="scoring-detail">
-        <ul>
-            <li>Each passage has scoring units (key words/phrases)</li>
-            <li>Passage 1: approximately 6-7 scoring units</li>
-            <li>Passage 2: approximately 8-9 scoring units</li>
-            <li>Each unit correctly reproduced = <strong>1 point</strong></li>
-            <li>Near-verbatim reproduction required (not just gist)</li>
-            <li>Maximum = <strong>15</strong></li>
-        </ul>
-    </div>
-
-    <hr class="divider">
-
-    <h3>Subtest 7: RETENTION FOR SIMILAR PAIRS (Max = 10)</h3>
-    <h4>Items:</h4>
-    <p>10 word pairs that are SEMANTICALLY RELATED (easy associations). Example: "Hari-Green", "Ganga-River", "Rose-Flower"</p>
-    <h4>Administration:</h4>
-    <p>Read all 10 pairs. Then give first word of each pair; subject must recall the second word. Do 3 trials.</p>
-    <h4>Scoring:</h4>
-    <div class="scoring-detail">
-        <ul>
-            <li><strong>Score = number correct on the BEST trial (out of 3 trials)</strong></li>
-            <li>Each correct association recalled = 1 point</li>
-            <li>Maximum = <strong>10</strong></li>
-        </ul>
-    </div>
-
-    <hr class="divider">
-
-    <h3>Subtest 8: RETENTION FOR DISSIMILAR PAIRS (Max = 20)</h3>
-    <h4>Items:</h4>
-    <p>10 word pairs that are NOT semantically related (difficult/arbitrary associations). Example: "Cabbage-Pen", "Crush-Dark", "School-Grocery"</p>
-    <h4>Administration:</h4>
-    <p>Read all 10 pairs. Then give first word; subject must recall second word. Do 3 trials (re-read all pairs before each trial).</p>
-    <h4>Scoring:</h4>
-    <div class="scoring-detail">
-        <ul>
-            <li><strong>Score = TOTAL correct across ALL 3 trials combined</strong></li>
-            <li>Trial 1: count correct (e.g., 3)</li>
-            <li>Trial 2: count correct (e.g., 5)</li>
-            <li>Trial 3: count correct (e.g., 7)</li>
-            <li><strong>Total = 3 + 5 + 7 = 15</strong></li>
-            <li>Maximum = 10 &times; 3 attempts but capped at <strong>20</strong> per scoring key</li>
-        </ul>
-    </div>
-
-    <div class="red-flag">
-        This is the MOST SENSITIVE subtest for detecting organic brain damage. New learning of arbitrary associations requires active hippocampal consolidation. Score &lt; 8 out of 20 is a strong organic indicator.
-    </div>
-
-    <hr class="divider">
-
-    <h3>Subtest 9: VISUAL RETENTION (Max = 15)</h3>
-    <h4>Items:</h4>
-    <p>Geometric designs are shown to the subject for 10 seconds each, then removed. Subject must draw from memory.</p>
-    <h4>Scoring:</h4>
-    <div class="scoring-detail">
-        <ul>
-            <li>Each design scored for: correct shape, size, spatial arrangement, and orientation</li>
-            <li>Scoring per design: 0-3 points depending on accuracy</li>
-            <li>5 designs &times; 3 points = <strong>Maximum 15</strong></li>
-            <li>Criteria: Major elements present (3), minor distortion (2), major distortion but recognizable (1), unrecognizable (0)</li>
-        </ul>
-    </div>
-
-    <hr class="divider">
-
-    <h3>Subtest 10: RECOGNITION (Max = 9)</h3>
-    <h4>Items:</h4>
-    <p>Show subject a set of items (pictures, words, or designs) briefly. Then present a larger set and ask: "Which ones did you see before?"</p>
-    <h4>Scoring:</h4>
-    <div class="scoring-detail">
-        <ul>
-            <li>Each correctly identified item = <strong>1 point</strong></li>
-            <li>False positives (identifying items NOT shown before) may be subtracted per manual rules</li>
-            <li>Maximum = <strong>9</strong></li>
-        </ul>
-    </div>
-
-    <hr class="divider">
-
-    <h3>CALCULATING MQ FROM PGIMS</h3>
+    <table>
+        <thead><tr><th>#</th><th>Subtest</th><th>Max</th><th>Scoring Method</th><th>Key Rules</th></tr></thead>
+        <tbody>
+            <tr><td>1</td><td><strong>Remote Memory</strong></td><td>10</td><td>1 point per correct personal fact</td><td>Verify with attendant; accept approximate answers for dates</td></tr>
+            <tr><td>2</td><td><strong>Recent Memory</strong></td><td>5</td><td>1 point per recalled item (told earlier in session)</td><td>5 items given at START of session; asked after 15-20 min delay</td></tr>
+            <tr><td>3</td><td><strong>Mental Balance</strong></td><td>9</td><td>Full marks if completed within time; 0 if failed/exceeded time</td><td>Count backward 20-1 (2pts/30s); Days reverse (2pts/30s); Months reverse (3pts/60s); Skip count (2pts/30s)</td></tr>
+            <tr><td>4</td><td><strong>Attention &amp; Concentration</strong></td><td>12</td><td>Forward span + Backward span</td><td>Same as Digit Span scoring; 1 digit/second; discontinue after both trials fail</td></tr>
+            <tr><td>5</td><td><strong>Delayed Recall</strong></td><td>10</td><td>1 point per recalled unit from passage read earlier</td><td>Passage given BEFORE delay; recall after 15-30 min; 10 scoring units; gist acceptable</td></tr>
+            <tr><td>6</td><td><strong>Immediate Recall</strong></td><td>15</td><td>1 point per correctly reproduced unit</td><td>2 passages read aloud; subject repeats immediately; near-verbatim required; ~7+8 units</td></tr>
+            <tr><td>7</td><td><strong>Similar Pairs</strong></td><td>10</td><td>Score = BEST of 3 trials</td><td>10 related pairs (Rose-Flower); 3 learning trials; score highest single trial (max 10)</td></tr>
+            <tr><td>8</td><td><strong>Dissimilar Pairs</strong></td><td>20</td><td>Score = TOTAL across all 3 trials</td><td>10 unrelated pairs (Cabbage-Pen); 3 trials; ADD all correct across trials; most sensitive organic indicator</td></tr>
+            <tr><td>9</td><td><strong>Visual Retention</strong></td><td>15</td><td>0-3 per design based on accuracy</td><td>5 designs shown 10 sec each; draw from memory; 3=accurate, 2=minor error, 1=major error, 0=unrecognizable</td></tr>
+            <tr><td>10</td><td><strong>Recognition</strong></td><td>9</td><td>1 point per correctly identified item</td><td>Items shown briefly; then pick from larger set; false positives may be subtracted per manual</td></tr>
+        </tbody>
+    </table>
 
     <div class="formula">
-        Step 1: Sum all 10 subtest raw scores<br>
-        Total Raw Score (max 115) = Sub1 + Sub2 + Sub3 + ... + Sub10<br><br>
-        Step 2: Convert Total Raw Score to Memory Quotient (MQ) using age-appropriate norms table<br>
+        <strong>Total PGIMS Raw Score = Sum of all 10 subtests (Max = 115)</strong><br>
+        Convert to MQ using age-appropriate norms table<br>
         MQ Mean = 100, SD = 15
     </div>
 
-    <div class="example">
-        <strong>Patient:</strong> 40 years, Female<br>
-        Remote=9, Recent=3, Mental Balance=7, Attention=8, Delayed=5, Immediate=10, Similar=8, Dissimilar=12, Visual=9, Recognition=7<br>
-        <strong>Total = 9+3+7+8+5+10+8+12+9+7 = 78</strong><br>
-        From norms (age 40-44): Raw 78 = <strong>MQ = 88 (Low Average)</strong>
+    <div class="red-flag">
+        <strong>Critical Scoring Difference:</strong><br>
+        Similar Pairs: Score = BEST single trial out of 3 (max 10)<br>
+        Dissimilar Pairs: Score = TOTAL of all 3 trials combined (max ~20)<br>
+        Do NOT confuse these two methods!
     </div>
 </div>
 
-<!-- ====================================================================== -->
-<!-- TEST 4: NAHOR-BENSON TEST DETAILED SCORING -->
-<!-- ====================================================================== -->
-<div class="section" id="nahor">
-    <h2>TEST 4: Nahor-Benson Test &mdash; Detailed Scoring</h2>
+<div class="section">
+    <h2>TEST 4: NAHOR-BENSON TEST &mdash; Scoring Procedure</h2>
 
-    <p><strong>What it measures:</strong> Visuo-motor speed, sustained attention, psychomotor functioning, coding ability</p>
-
-    <p><span class="bracket">(Nahor-Benson test mein patient ko symbols copy karne hote hain jitna jaldi ho sake. Yeh psychomotor speed measure karta hai &mdash; brain damage mein yeh test consistently slow ho jaata hai)</span></p>
-
-    <h3>Materials:</h3>
-    <ul>
-        <li>Test sheet with symbol-digit coding key at top</li>
-        <li>Rows of digits below where subject must fill in corresponding symbols</li>
-        <li>Pencil and stopwatch</li>
-    </ul>
-
-    <h3>Task:</h3>
-    <p>A key shows digits 1-9 paired with unique symbols. Below the key are rows of randomly arranged digits. Subject must write the correct symbol under each digit as fast as possible within the time limit (usually 90 seconds or 120 seconds depending on version).</p>
-
-    <h3>Step-by-Step Scoring:</h3>
-    <div class="scoring-detail">
-        <div class="numbered-step">
-            <div class="step-number">1</div>
-            <div><strong>Count Total Items Attempted</strong> &mdash; How many digits did the subject get to within the time limit?</div>
-        </div>
-        <div class="numbered-step">
-            <div class="step-number">2</div>
-            <div><strong>Count Errors</strong> &mdash; How many symbols were drawn incorrectly (wrong symbol for that digit)?</div>
-        </div>
-        <div class="numbered-step">
-            <div class="step-number">3</div>
-            <div><strong>Calculate Score = Items Attempted &minus; Errors</strong> (Net correct items)</div>
-        </div>
-        <div class="numbered-step">
-            <div class="step-number">4</div>
-            <div><strong>Compare to Age-Education Norms</strong> &mdash; Look up score in norms table to determine if within normal range, mildly impaired, or significantly impaired</div>
-        </div>
+    <div class="score-box">
+        <h4>Step-by-Step Scoring</h4>
+        <div class="numbered-step"><div class="step-number">1</div><div>Give subject the test sheet with symbol-digit key at top</div></div>
+        <div class="numbered-step"><div class="step-number">2</div><div>Demonstrate first 3-5 items as practice</div></div>
+        <div class="numbered-step"><div class="step-number">3</div><div>Say "Shuru karo" and start stopwatch. Time limit = 90 seconds (or 120 sec per version)</div></div>
+        <div class="numbered-step"><div class="step-number">4</div><div>Say "Ruko" at time limit. Mark where subject stopped.</div></div>
+        <div class="numbered-step"><div class="step-number">5</div><div><strong>Count Total Items Attempted</strong> (how far did they get?)</div></div>
+        <div class="numbered-step"><div class="step-number">6</div><div><strong>Count Errors</strong> (wrong symbols, skipped items, incomplete symbols)</div></div>
+        <div class="numbered-step"><div class="step-number">7</div><div><strong>Net Score = Total Attempted &minus; Total Errors</strong></div></div>
+        <div class="numbered-step"><div class="step-number">8</div><div>Compare Net Score to age-education norms &rarr; Assign DRS (0, 2, or 3)</div></div>
     </div>
 
-    <h4>Classification:</h4>
-    <table>
-        <thead><tr><th>Score Range</th><th>Classification</th><th>DRS Rating</th></tr></thead>
-        <tbody>
-            <tr><td>Above mean for age</td><td>Normal / No impairment</td><td>0</td></tr>
-            <tr><td>1-2 SD below mean</td><td>Mildly impaired / Borderline</td><td>2</td></tr>
-            <tr><td>More than 2 SD below mean</td><td>Significantly impaired</td><td>3</td></tr>
-        </tbody>
-    </table>
-
-    <div class="warning-box">
-        Consider: Motor impairment in dominant hand will artificially lower speed independent of brain dysfunction. Document hand used and any motor difficulties.
+    <div class="rule-box">
+        <strong>What counts as an Error:</strong><br>
+        &bull; Wrong symbol drawn for that digit = 1 error<br>
+        &bull; Skipped item (left blank) = 1 error<br>
+        &bull; Symbol so poorly drawn it's unidentifiable = 1 error<br>
+        &bull; Self-corrections: If corrected properly, do NOT count as error
     </div>
 </div>
 
-<!-- ====================================================================== -->
-<!-- TEST 5: BENDER GESTALT DETAILED SCORING -->
-<!-- ====================================================================== -->
-<div class="section" id="bvmgt">
-    <h2>TEST 5: Bender Visuo-Motor Gestalt Test (BVMGT) &mdash; Detailed Scoring</h2>
+<div class="section">
+    <h2>TEST 5: BENDER GESTALT (BVMGT) &mdash; Scoring the 12 Discriminators</h2>
 
-    <p><strong>Developed by:</strong> Lauretta Bender (1938)</p>
-    <p><strong>Scoring System for PGI-BBD:</strong> Modified Hutt-Briskin / Lacks scoring (12 essential discriminators)</p>
-    <p><strong>Materials:</strong> 9 stimulus cards (A, 1-8), blank paper, pencil, no eraser</p>
+    <p><span class="bracket">(Bender Gestalt mein 9 designs copy karne ke baad, hum 12 tarah ki specific errors dekhte hain. Har error Present (1) ya Absent (0) score hoti hai. Total error count se brain dysfunction ka indication milta hai)</span></p>
 
-    <p><span class="bracket">(Bender Gestalt mein patient 9 geometric designs copy karta hai. Hum 12 specific tarah ki errors dekhte hain jo brain damage indicate karti hain. Agar 5 ya zyada errors hain toh brain damage ka strong indicator hai)</span></p>
+    <div class="score-box">
+        <h4>Step-by-Step Scoring Procedure</h4>
+        <div class="numbered-step"><div class="step-number">1</div><div>Collect all 9 reproductions from the subject</div></div>
+        <div class="numbered-step"><div class="step-number">2</div><div>Lay them out together so you can see the full protocol</div></div>
+        <div class="numbered-step"><div class="step-number">3</div><div>Go through EACH of the 12 discriminators one by one</div></div>
+        <div class="numbered-step"><div class="step-number">4</div><div>For each discriminator: Is it present ANYWHERE in the 9 drawings? YES = 1, NO = 0</div></div>
+        <div class="numbered-step"><div class="step-number">5</div><div>Each discriminator scored only ONCE regardless of how many designs show it</div></div>
+        <div class="numbered-step"><div class="step-number">6</div><div>Total Error Score = Sum of all 12 (range 0-12)</div></div>
+        <div class="numbered-step"><div class="step-number">7</div><div>Cutoff: 5+ errors = Suggestive of brain dysfunction</div></div>
+    </div>
 
-    <h3>Task:</h3>
-    <p>Subject copies each of 9 designs onto blank paper. One card shown at a time. No time limit (but note time taken). No eraser allowed.</p>
-
-    <h3>THE 12 ESSENTIAL DISCRIMINATORS &mdash; Detailed Scoring Criteria:</h3>
-
+    <h4>The 12 Discriminators &mdash; Exact Scoring Criteria:</h4>
     <table>
-        <thead><tr><th>#</th><th>Error</th><th>How to Score (Present = 1, Absent = 0)</th><th>Specific Criteria</th></tr></thead>
+        <thead><tr><th>#</th><th>Error Name</th><th>Score 1 (Present) IF:</th><th>Score 0 (Absent) IF:</th></tr></thead>
         <tbody>
-            <tr><td>1</td><td><strong>Rotation</strong></td><td>Score 1 if ANY design is rotated 80&deg;-180&deg; from original orientation</td><td>Measure with protractor if unsure. Partial rotations (45&deg;-79&deg;) do NOT count. Must be 80&deg;+ to score.</td></tr>
-            <tr><td>2</td><td><strong>Overlapping Difficulty</strong></td><td>Score 1 if overlapping portions of designs 4, 6, or 7 are poorly reproduced</td><td>The part where two elements cross/overlap must show: simplification, distortion, sketching, OR avoidance of the overlap.</td></tr>
-            <tr><td>3</td><td><strong>Simplification</strong></td><td>Score 1 if any design is drawn in a notably simpler form</td><td>Loss of complexity: curves become straight lines, multiple dots become single line, complex shapes drawn as simple forms.</td></tr>
-            <tr><td>4</td><td><strong>Fragmentation</strong></td><td>Score 1 if design's overall gestalt (unified form) is destroyed/broken apart</td><td>Parts of design drawn as separate, disconnected elements rather than as an integrated whole. Very strong organic indicator.</td></tr>
-            <tr><td>5</td><td><strong>Retrogression</strong></td><td>Score 1 if reproduction is markedly more primitive than expected for age</td><td>Substitution of lines for dots, loops for curves, or markedly immature execution (like a young child's drawing).</td></tr>
-            <tr><td>6</td><td><strong>Perseveration</strong></td><td>Score 1 if elements of a design are continued/repeated beyond what stimulus shows</td><td>Type A: Extra dots/circles/loops added beyond the number shown. Type B: Preceding design's features carry into current design. STRONG frontal lobe sign.</td></tr>
-            <tr><td>7</td><td><strong>Collision/Crowding</strong></td><td>Score 1 if two or more designs are drawn overlapping each other OR very crowded into one area</td><td>Designs should be spaced. If they are jammed together, overlap, or drawn on top of each other = planning/organizational failure.</td></tr>
-            <tr><td>8</td><td><strong>Impotence</strong></td><td>Score 1 if subject recognizes error, attempts correction repeatedly, but CANNOT produce correct result</td><td>Multiple erasure attempts, crossing out, or multiple tries visible on paper. Subject KNOWS it's wrong but motor execution fails. Very strong organic sign.</td></tr>
-            <tr><td>9</td><td><strong>Motor Incoordination</strong></td><td>Score 1 if lines are notably irregular, tremulous, or uncontrolled throughout</td><td>Wavy lines that should be straight; irregular curves; tremor evident; poor fine motor control affecting multiple designs (not just one).</td></tr>
-            <tr><td>10</td><td><strong>Angulation Difficulty</strong></td><td>Score 1 if angles are notably changed from original (increased or decreased by 15&deg;+)</td><td>Acute angles become obtuse or vice versa; square corners become rounded; angles consistently distorted.</td></tr>
-            <tr><td>11</td><td><strong>Cohesion</strong></td><td>Score 1 if parts of a single design are drawn with abnormal spacing</td><td>Elements that should touch are drawn apart; elements that should be separate are fused; abnormal compression or expansion of design parts.</td></tr>
-            <tr><td>12</td><td><strong>Closure Difficulty</strong></td><td>Score 1 if figures that should be closed show gaps OR lines that should be separate show overlaps at junctions</td><td>Circles/squares don't close properly; corners have gaps &gt;3mm; junction points show clear miss or overshoot.</td></tr>
+            <tr><td>1</td><td><strong>Rotation</strong></td><td>Any design rotated 80&deg;+ from original</td><td>All designs in correct orientation (minor tilts &lt;80&deg; OK)</td></tr>
+            <tr><td>2</td><td><strong>Overlapping Difficulty</strong></td><td>Where two parts cross (designs 4,6,7), the overlap is distorted/simplified/avoided</td><td>Overlapping portions drawn correctly</td></tr>
+            <tr><td>3</td><td><strong>Simplification</strong></td><td>Any design notably simplified (dots become lines; complex parts omitted)</td><td>Complexity of designs maintained</td></tr>
+            <tr><td>4</td><td><strong>Fragmentation</strong></td><td>Any design's unified gestalt broken into separate disconnected parts</td><td>All designs maintain their integrated form</td></tr>
+            <tr><td>5</td><td><strong>Retrogression</strong></td><td>Markedly primitive reproduction (substitution: lines for dots, scribbles for shapes)</td><td>Age-appropriate reproduction quality</td></tr>
+            <tr><td>6</td><td><strong>Perseveration</strong></td><td>Elements repeated beyond stimulus (extra dots/loops) OR previous design features intrude into current</td><td>No extra repetitions; each design drawn independently</td></tr>
+            <tr><td>7</td><td><strong>Collision/Crowding</strong></td><td>2+ designs overlap each other on paper OR all jammed into one corner/area</td><td>Designs reasonably spaced across page</td></tr>
+            <tr><td>8</td><td><strong>Impotence</strong></td><td>Multiple visible correction attempts showing subject KNOWS it's wrong but CANNOT fix it</td><td>No evidence of frustrated repeated attempts</td></tr>
+            <tr><td>9</td><td><strong>Motor Incoordination</strong></td><td>Notably tremulous/irregular/uncontrolled lines throughout multiple designs</td><td>Lines are reasonably smooth and controlled</td></tr>
+            <tr><td>10</td><td><strong>Angulation Difficulty</strong></td><td>Angles consistently changed by 15&deg;+ (acute becomes obtuse or vice versa)</td><td>Angles approximately maintained</td></tr>
+            <tr><td>11</td><td><strong>Cohesion</strong></td><td>Parts that should touch are separated, OR parts that should be separate are fused</td><td>Spatial relationships between parts maintained</td></tr>
+            <tr><td>12</td><td><strong>Closure Difficulty</strong></td><td>Figures not closed (gaps &gt;3mm) OR lines overshoot at junctions</td><td>Figures properly closed; junctions clean</td></tr>
         </tbody>
     </table>
-
-    <h3>Scoring Procedure:</h3>
-    <div class="numbered-step">
-        <div class="step-number">1</div>
-        <div>Examine ALL 9 reproductions together as a set</div>
-    </div>
-    <div class="numbered-step">
-        <div class="step-number">2</div>
-        <div>For EACH of the 12 discriminators, check if it is Present (score 1) or Absent (score 0) across the entire protocol</div>
-    </div>
-    <div class="numbered-step">
-        <div class="step-number">3</div>
-        <div>Each discriminator is scored only ONCE for the whole protocol (even if multiple designs show the error)</div>
-    </div>
-    <div class="numbered-step">
-        <div class="step-number">4</div>
-        <div>Total Error Score = Sum of all 12 items (range: 0-12)</div>
-    </div>
-    <div class="numbered-step">
-        <div class="step-number">5</div>
-        <div>Interpret: 0-4 errors = Within Normal Limits; 5+ errors = Suggestive of Brain Dysfunction</div>
-    </div>
 
     <div class="formula">
-        Total BVMGT Error Score = Sum of 12 discriminators (each scored 0 or 1)<br>
-        Range: 0-12<br><br>
-        <strong>Cutoff: 5 or more errors = Suggestive of Organic Brain Dysfunction</strong>
-    </div>
-
-    <h3>Classification:</h3>
-    <table>
-        <thead><tr><th>Error Score</th><th>Classification</th><th>DRS Rating</th></tr></thead>
-        <tbody>
-            <tr><td>0-4</td><td>Within Normal Limits (no brain dysfunction indicated)</td><td>0</td></tr>
-            <tr><td>5-6</td><td>Borderline / Mildly suggestive of brain dysfunction</td><td>2</td></tr>
-            <tr><td>7-9</td><td>Moderately suggestive of brain dysfunction</td><td>3</td></tr>
-            <tr><td>10-12</td><td>Strongly suggestive of severe brain dysfunction</td><td>3</td></tr>
-        </tbody>
-    </table>
-
-    <div class="clinical-note">
-        Consider: Age (elderly may show 1-2 benign errors), Education (very low education may affect drawing quality), Motor impairment (tremor from medication or Parkinson's). These factors must be noted before concluding "organic."
+        <strong>Total BVMGT Error Score:</strong> Sum of 12 items (each 0 or 1) = Range 0-12<br><br>
+        0-4 errors = Normal (DRS = 0)<br>
+        5-6 errors = Borderline/Mild (DRS = 2)<br>
+        7+ errors = Significant (DRS = 3)
     </div>
 </div>
 
-<!-- ====================================================================== -->
-<!-- FINAL: COMBINED DRS SCORING -->
-<!-- ====================================================================== -->
-<div class="section" id="drs">
-    <h2>FINAL: Dysfunction Rating Score (DRS) &mdash; Combining All Tests</h2>
+<!-- COMBINED DRS -->
+<div class="section">
+    <h2>FINAL STEP: Combined Dysfunction Rating Score (DRS)</h2>
 
-    <p><span class="bracket">(Sab tests score karne ke baad, har test ka Dysfunction Rating Score (DRS) nikalte hain: 0 = normal, 2 = mild, 3 = significant. Phir sab DRS jodh kar overall brain dysfunction rating milti hai)</span></p>
-
-    <h3>DRS Assignment for Each Component:</h3>
-
-    <table>
-        <thead><tr><th>Component Test</th><th>DRS = 0 (Normal)</th><th>DRS = 2 (Mild)</th><th>DRS = 3 (Significant)</th></tr></thead>
-        <tbody>
-            <tr><td><strong>VAIS (VIQ)</strong></td><td>VIQ &ge; 90</td><td>VIQ 80-89</td><td>VIQ &lt; 80</td></tr>
-            <tr><td><strong>Bhatia (PIQ)</strong></td><td>PIQ &ge; 90</td><td>PIQ 80-89</td><td>PIQ &lt; 80</td></tr>
-            <tr><td><strong>PGIMS (MQ)</strong></td><td>MQ &ge; 90</td><td>MQ 80-89</td><td>MQ &lt; 80</td></tr>
-            <tr><td><strong>Nahor-Benson</strong></td><td>Within 1 SD of mean</td><td>1-2 SD below mean</td><td>&gt; 2 SD below mean</td></tr>
-            <tr><td><strong>BVMGT (Errors)</strong></td><td>0-4 errors</td><td>5-6 errors</td><td>7+ errors</td></tr>
-        </tbody>
-    </table>
-
-    <h3>Combined DRS Interpretation:</h3>
     <div class="formula">
-        Combined DRS = DRS(VAIS) + DRS(Bhatia) + DRS(PGIMS) + DRS(Nahor-Benson) + DRS(BVMGT)<br><br>
+        Combined DRS = DRS(VAIS) + DRS(Bhatia) + DRS(PGIMS) + DRS(Nahor-Benson) + DRS(BVMGT)<br>
         Range: 0 to 15
     </div>
+
+    <table>
+        <thead><tr><th>Test</th><th>DRS = 0 (Normal)</th><th>DRS = 2 (Mild)</th><th>DRS = 3 (Significant)</th></tr></thead>
+        <tbody>
+            <tr><td>VAIS (VIQ)</td><td>VIQ &ge; 90</td><td>VIQ 80-89</td><td>VIQ &lt; 80</td></tr>
+            <tr><td>Bhatia (PIQ)</td><td>PIQ &ge; 90</td><td>PIQ 80-89</td><td>PIQ &lt; 80</td></tr>
+            <tr><td>PGIMS (MQ)</td><td>MQ &ge; 90</td><td>MQ 80-89</td><td>MQ &lt; 80</td></tr>
+            <tr><td>Nahor-Benson</td><td>Within 1 SD of mean</td><td>1-2 SD below mean</td><td>&gt; 2 SD below mean</td></tr>
+            <tr><td>BVMGT</td><td>0-4 errors</td><td>5-6 errors</td><td>7+ errors</td></tr>
+        </tbody>
+    </table>
 
     <table>
         <thead><tr><th>Combined DRS</th><th>Interpretation</th></tr></thead>
         <tbody>
             <tr><td>0</td><td>No evidence of brain dysfunction</td></tr>
-            <tr><td>2-4</td><td>Possible mild brain dysfunction (equivocal findings)</td></tr>
+            <tr><td>2-4</td><td>Equivocal / Possible mild dysfunction</td></tr>
             <tr><td>5-8</td><td>Probable brain dysfunction (moderate confidence)</td></tr>
-            <tr><td>9-12</td><td>Strong evidence of brain dysfunction (high confidence)</td></tr>
-            <tr><td>13-15</td><td>Severe brain dysfunction (all domains significantly impaired)</td></tr>
+            <tr><td>9-12</td><td>Strong evidence of brain dysfunction</td></tr>
+            <tr><td>13-15</td><td>Severe brain dysfunction (all domains impaired)</td></tr>
         </tbody>
     </table>
 
     <div class="example">
-        <strong>Patient:</strong> 42-year-old male, referred post-TBI<br>
-        VIQ = 85 (DRS=2), PIQ = 72 (DRS=3), MQ = 75 (DRS=3), Nahor-Benson = 1.5 SD below (DRS=2), BVMGT = 7 errors (DRS=3)<br>
-        <strong>Combined DRS = 2+3+3+2+3 = 13</strong><br>
-        <strong>Interpretation:</strong> Strong evidence of significant brain dysfunction. Pattern: PIQ lower than VIQ (right hemisphere more affected), disproportionate memory impairment (MQ &lt; VIQ), significant visuo-motor deficits. Consistent with TBI with right hemisphere and diffuse involvement.
+        <strong>Complete Worked Example:</strong><br><br>
+        <strong>Patient:</strong> 45-year-old male, 10th pass, referred post-stroke<br><br>
+        <strong>VAIS:</strong> Info=15, Digit=8, Arith=6, Comp=14 &rarr; TQs: 88, 82, 80, 84 &rarr; VIQ = 84 (Low Average) &rarr; <strong>DRS = 2</strong><br>
+        <strong>Bhatia (Short):</strong> BD=8, PA=12 &rarr; Combined=20 &rarr; PIQ = 76 (Borderline) &rarr; <strong>DRS = 3</strong><br>
+        <strong>PGIMS:</strong> Total Raw = 62 &rarr; MQ = 72 (Mild Impairment) &rarr; <strong>DRS = 3</strong><br>
+        <strong>Nahor-Benson:</strong> Net Score 2.1 SD below mean &rarr; <strong>DRS = 3</strong><br>
+        <strong>BVMGT:</strong> 8 errors (Rotation, Perseveration, Fragmentation, Simplification, Angulation, Motor Incoordination, Closure, Collision) &rarr; <strong>DRS = 3</strong><br><br>
+        <strong>Combined DRS = 2 + 3 + 3 + 3 + 3 = 14</strong><br>
+        <strong>Interpretation: Severe brain dysfunction. VIQ &gt; PIQ by 8 points (not significant but trending right hemisphere). All non-verbal and memory domains significantly impaired. BVMGT shows multiple organic signs. Pattern consistent with right MCA stroke affecting non-verbal, spatial, and memory functions.</strong>
     </div>
 </div>
 
-<!-- FOOTER -->
-</div>
+</div><!-- End container -->
 
 <div class="footer">
-    <h3>PGI-BBD: Complete Detailed Scoring Manual</h3>
+    <h3>PGI-BBD: Ultra-Detailed Scoring Manual</h3>
     <p><strong>Made by Tejas Dangodra</strong></p>
     <p>Based on: PGI Battery of Brain Dysfunction Manual (Pershad &amp; Wig, 1989), PGIMER Chandigarh</p>
     <p style="margin-top:15px; font-size:0.9em; opacity:0.8;">
         For MPhil Clinical Psychology Trainees | Scoring Practice | Clinical Assessment<br>
-        &copy; Scoring procedures adapted from PGI-BBD Manual, Pershad &amp; Wig (1989)
+        &copy; Scoring procedures from PGI-BBD Manual, Bhatia (1955), Bender (1938), Pershad &amp; Wig (1989)
     </p>
 </div>
 
