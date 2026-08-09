@@ -1,0 +1,1697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rorschach Inkblot Test — Complete Coding Guide | Exner's Comprehensive System</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #fce4ec 0%, #e8eaf6 25%, #e0f7fa 50%, #f3e5f5 75%, #fff8e1 100%);
+  background-attachment: fixed;
+  color: #2d3436;
+  line-height: 1.7;
+  padding: 20px;
+}
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  background: rgba(255,255,255,0.92);
+  border-radius: 20px;
+  padding: 50px 60px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.08), 0 0 0 1px rgba(255,255,255,0.5);
+  backdrop-filter: blur(10px);
+}
+.header {
+  text-align: center;
+  padding: 40px 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 16px;
+  margin-bottom: 40px;
+  position: relative;
+  overflow: hidden;
+}
+.header::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
+  animation: pulse 4s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.1); opacity: 1; }
+}
+.header h1 {
+  color: #fff;
+  font-size: 2.4em;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  position: relative;
+  z-index: 1;
+}
+.header h2 {
+  color: rgba(255,255,255,0.9);
+  font-size: 1.3em;
+  font-weight: 400;
+  margin-top: 10px;
+  position: relative;
+  z-index: 1;
+}
+.author-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+  color: #fff;
+  padding: 8px 24px;
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: 1em;
+  margin-top: 20px;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 4px 15px rgba(238,90,36,0.3);
+  letter-spacing: 1px;
+}
+.notice-box {
+  background: linear-gradient(135deg, #fff3cd, #ffeaa7);
+  border-left: 5px solid #fdcb6e;
+  border-radius: 10px;
+  padding: 20px 25px;
+  margin: 30px 0;
+  font-size: 0.95em;
+}
+.notice-box strong { color: #e17055; }
+.caution-box {
+  background: linear-gradient(135deg, #ffcccc, #ffe0e0);
+  border-left: 5px solid #e74c3c;
+  border-radius: 10px;
+  padding: 20px 25px;
+  margin: 20px 0;
+  font-size: 0.95em;
+}
+.caution-box::before {
+  content: "CAUTION: ";
+  font-weight: 700;
+  color: #c0392b;
+}
+.tip-box {
+  background: linear-gradient(135deg, #d4efdf, #abebc6);
+  border-left: 5px solid #27ae60;
+  border-radius: 10px;
+  padding: 20px 25px;
+  margin: 20px 0;
+  font-size: 0.95em;
+}
+.tip-box::before {
+  content: "TIP: ";
+  font-weight: 700;
+  color: #1e8449;
+}
+.remember-box {
+  background: linear-gradient(135deg, #d6eaf8, #aed6f1);
+  border-left: 5px solid #2980b9;
+  border-radius: 10px;
+  padding: 20px 25px;
+  margin: 20px 0;
+  font-size: 0.95em;
+}
+.remember-box::before {
+  content: "REMEMBER: ";
+  font-weight: 700;
+  color: #1a5276;
+}
+h2 {
+  color: #6c5ce7;
+  font-size: 1.8em;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 3px solid #dfe6e9;
+  position: relative;
+}
+h2::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(to right, #6c5ce7, #a29bfe);
+}
+h3 {
+  color: #e17055;
+  font-size: 1.4em;
+  margin-top: 35px;
+  margin-bottom: 15px;
+}
+h4 {
+  color: #00b894;
+  font-size: 1.15em;
+  margin-top: 25px;
+  margin-bottom: 10px;
+}
+h5 {
+  color: #636e72;
+  font-size: 1.05em;
+  margin-top: 20px;
+  margin-bottom: 8px;
+}
+p { margin-bottom: 12px; }
+ul, ol {
+  margin: 10px 0 15px 25px;
+}
+li { margin-bottom: 8px; }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+}
+th {
+  background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+  color: #fff;
+  padding: 14px 18px;
+  text-align: left;
+  font-weight: 600;
+}
+td {
+  padding: 12px 18px;
+  border-bottom: 1px solid #eee;
+}
+tr:nth-child(even) { background: #f8f9ff; }
+tr:hover { background: #eef2ff; }
+code {
+  background: #f1f2f6;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9em;
+  color: #e74c3c;
+}
+.coding-example {
+  background: linear-gradient(135deg, #ffecd2, #fcb69f);
+  border-radius: 12px;
+  padding: 25px;
+  margin: 20px 0;
+  border: 1px solid #f8b500;
+}
+.coding-example h5 {
+  color: #d63031;
+  margin-top: 0;
+}
+.section-icon {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+  border-radius: 50%;
+  text-align: center;
+  line-height: 40px;
+  color: #fff;
+  font-weight: 700;
+  margin-right: 12px;
+  font-size: 1.1em;
+  vertical-align: middle;
+}
+.toc {
+  background: linear-gradient(135deg, #f5f7fa, #e8ecf1);
+  border-radius: 14px;
+  padding: 30px 40px;
+  margin: 30px 0;
+}
+.toc h3 { color: #6c5ce7; margin-top: 0; }
+.toc ol { counter-reset: toc-counter; list-style: none; padding-left: 0; }
+.toc ol li {
+  counter-increment: toc-counter;
+  padding: 8px 0;
+  border-bottom: 1px dashed #ddd;
+}
+.toc ol li::before {
+  content: counter(toc-counter) ". ";
+  font-weight: 700;
+  color: #6c5ce7;
+}
+.toc ol li a {
+  color: #2d3436;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.toc ol li a:hover { color: #6c5ce7; }
+.step-header {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: #fff;
+  padding: 15px 25px;
+  border-radius: 10px;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  font-size: 1.3em;
+  font-weight: 700;
+  box-shadow: 0 4px 15px rgba(102,126,234,0.3);
+}
+.inkblot-decoration {
+  text-align: center;
+  margin: 30px 0;
+  font-size: 3em;
+  opacity: 0.3;
+}
+.formula-box {
+  background: #f8f9fa;
+  border: 2px dashed #6c5ce7;
+  border-radius: 10px;
+  padding: 15px 25px;
+  margin: 15px 0;
+  font-family: 'Courier New', monospace;
+  text-align: center;
+  font-size: 1.1em;
+}
+.footer {
+  text-align: center;
+  padding: 40px 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 16px;
+  margin-top: 50px;
+  color: #fff;
+}
+.footer .author-badge {
+  font-size: 1.2em;
+  padding: 12px 30px;
+}
+.grid-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin: 20px 0;
+}
+@media (max-width: 768px) {
+  .container { padding: 20px; }
+  .grid-2col { grid-template-columns: 1fr; }
+  .header h1 { font-size: 1.6em; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- HEADER -->
+<div class="header">
+<h1>RORSCHACH INKBLOT TEST<br>Complete Coding Guide</h1>
+<h2>Exner's Comprehensive System (CS)</h2>
+<div class="author-badge">MADE BY TEJAS DANGODRA</div>
+</div>
+
+<div class="notice-box">
+<strong>PURPOSE:</strong> This document is a <strong>step-by-step teaching guide</strong> for CODING Rorschach responses using the Exner Comprehensive System. It is designed for independent learning, viva preparation, and clinical training.<br><br>
+<strong>THIS GUIDE DOES NOT COVER INTERPRETATION</strong> — it covers ONLY the rules and procedures for assigning codes/scores to responses.<br><br>
+<strong>Reference:</strong> Based on the Exner Comprehensive System OCR Manual (repository source) — all coding rules strictly follow this reference.
+</div>
+
+<!-- TABLE OF CONTENTS -->
+<div class="toc">
+<h3>Table of Contents</h3>
+<ol>
+<li><a href="#sec1">Introduction</a></li>
+<li><a href="#sec2">Pre-Coding Requirements</a></li>
+<li><a href="#sec3">Overview of Coding Variables</a></li>
+<li><a href="#sec4">Step-by-Step Coding Procedure (Main Section)</a></li>
+<li><a href="#sec5">Step 1: Location Coding</a></li>
+<li><a href="#sec6">Step 2: Developmental Quality (DQ)</a></li>
+<li><a href="#sec7">Step 3: Determinants (Most Important)</a></li>
+<li><a href="#sec8">Step 4: Form Quality (FQ)</a></li>
+<li><a href="#sec9">Step 5: Content Coding</a></li>
+<li><a href="#sec10">Step 6: Popular Responses (P)</a></li>
+<li><a href="#sec11">Step 7: Special Scores (Critical Section)</a></li>
+<li><a href="#sec12">Step 8: Multiple Coding Rules</a></li>
+<li><a href="#sec13">Step 9: Coding Format & Sequence</a></li>
+<li><a href="#sec14">Step 10: Common Coding Errors</a></li>
+<li><a href="#sec15">Step 11: Practice Examples</a></li>
+<li><a href="#sec16">High-Yield Viva Points</a></li>
+</ol>
+</div>
+
+<div class="inkblot-decoration">&#10070; &#10070; &#10070;</div>
+
+<!-- SECTION 1: INTRODUCTION -->
+<h2 id="sec1"><span class="section-icon">1</span> INTRODUCTION</h2>
+
+<h3>1.1 Purpose of Coding in Rorschach</h3>
+<p>Coding (also called "scoring") is the process of translating a subject's verbal responses to the Rorschach inkblots into a standardized set of symbols. These symbols represent the <strong>perceptual, cognitive, and affective operations</strong> that were involved in forming each response.</p>
+
+<p>As stated in the Exner manual: <em>"Every interpreter should always be aware that it is impossible to overemphasize the importance of accurate coding of the responses, compiling the sequence of scores correctly, recording frequency data precisely, and accurately calculating the numerous ratios, percentages, and derived variables."</em></p>
+
+<h3>1.2 Role of Coding in Exner's System</h3>
+<p>In the Comprehensive System, coding serves as the <strong>bridge between raw verbal responses and the Structural Summary</strong>. The Structural Summary — which contains all frequencies, ratios, percentages, and indices — is derived entirely from the coding decisions made for each response.</p>
+
+<p>The system produces three interrelated data sets:</p>
+<ol>
+<li><strong>Verbiage</strong> — the exact words used by the person</li>
+<li><strong>Sequence of Scores</strong> — the order and coding of responses</li>
+<li><strong>Structural Summary</strong> — the statistical plot of all coded variables (frequencies, ratios, percentages, indices)</li>
+</ol>
+
+<h3>1.3 Importance of Accuracy and Standardization</h3>
+<div class="caution-box">
+Even a SINGLE coding error can have a "domino effect" leading to multiple errors in interpretive hypotheses. For example, failing to code FT (Form-Texture) when present in the Popular response to Card VI could yield T=0 in the structural data, which would generate entirely wrong interpretive conclusions about interpersonal relations, es values, Adjusted D scores, and multiple indices.
+</div>
+
+<p>The manual explicitly states two types of scoring errors:</p>
+<ul>
+<li><strong>Errors of Omission</strong> — forgetting to include a determinant in a blend, neglecting to code a pair, forgetting a Popular, or neglecting secondary contents. (More common in experienced scorers.)</li>
+<li><strong>Errors of Commission</strong> — neglecting the step-down principle and coding C instead of CF, scoring C' instead of Y when intent is unclear, selecting the wrong Z score, coding Vista when the answer is really FD, or selecting the wrong special score. (More common in less experienced scorers.)</li>
+</ul>
+
+<div class="remember-box">
+Always review ALL coding before proceeding to interpretation. This is not necessarily to challenge the scoring but to ensure that omission or commission errors have not occurred.
+</div>
+
+<!-- SECTION 2: PRE-CODING REQUIREMENTS -->
+<h2 id="sec2"><span class="section-icon">2</span> PRE-CODING REQUIREMENTS</h2>
+
+<h3>2.1 Verbatim Recording of Responses</h3>
+<p>The Exner manual states unequivocally: <em>"Examiners should never fail to make a verbatim record of the verbalizations of the subject."</em></p>
+<ul>
+<li>Record EVERY word the subject says — do not paraphrase or summarize</li>
+<li>Use standard abbreviations only (e.g., "S" for subject, "E" for examiner, "Rpts" for repeats, "resp" for response)</li>
+<li>Note non-verbal behaviors (pointing, tracing, turning card) in brackets</li>
+<li>Record response time and card position if possible</li>
+</ul>
+
+<div class="caution-box">
+There is NO excuse for failing to record verbatim. Without exact words, you cannot accurately determine determinants (especially the crucial distinction between shading types), special scores (which depend on exact wording), or content nuances.
+</div>
+
+<h3>2.2 The Inquiry Phase — Why It Is Critical for Coding</h3>
+<p>The Inquiry phase is where the examiner clarifies three things essential for coding:</p>
+<ol>
+<li><strong>Location</strong> — WHERE on the blot was the response seen?</li>
+<li><strong>Determinants</strong> — WHAT features of the blot made it look like that? (form, color, shading, movement)</li>
+<li><strong>Content Clarification</strong> — WHAT exactly did the person see? (to determine content codes and form quality)</li>
+</ol>
+
+<p><strong>Key Inquiry Technique:</strong> The examiner repeats the subject's response and asks "What made it look like that?" or "I'm not sure I see it the way you do. Help me." The goal is to get the subject to articulate the perceptual features without leading them.</p>
+
+<div class="caution-box">
+NEVER ask leading questions in inquiry (e.g., "Was it the color?" or "Did the shape remind you?"). Leading questions contaminate the response and make accurate coding impossible. The inquiry must be NON-DIRECTIVE.
+</div>
+
+<h3>2.3 Location Clarification</h3>
+<p>The examiner must be clear about exactly WHICH area of the blot was used. This requires:</p>
+<ul>
+<li>Use of a location sheet (a reduced copy of the blot on which the subject outlines or points to the area used)</li>
+<li>Subject's verbal description of the location ("the whole thing," "just the top part," "this little thing over here")</li>
+<li>Comparing the subject's location to the D and Dd tables in the manual</li>
+</ul>
+
+<h3>2.4 Determinant Probing</h3>
+<p>In the Inquiry phase, the examiner seeks to identify what perceptual features (determinants) contributed to the formation of the response:</p>
+<ul>
+<li><strong>Form</strong> — "What made it look like [object]?" (shape/contour)</li>
+<li><strong>Color</strong> — Listen for color references; if color is used on chromatic cards, note whether it was mentioned spontaneously</li>
+<li><strong>Shading/Texture</strong> — Listen for references to "light," "dark," "fuzzy," "soft," "shadowy"</li>
+<li><strong>Movement</strong> — Listen for action words, postures, tensions</li>
+</ul>
+
+<div class="tip-box">
+If the subject says something is "dark" or "shaded" and the intent is NOT clear, the Exner system has a specific rule: <strong>code diffuse shading (Y) rather than achromatic color (C')</strong>. This is the "step-down principle" — when in doubt between C' and Y, code Y.
+</div>
+
+<h3>2.5 Common Recording Errors to Avoid</h3>
+<ul>
+<li>Paraphrasing instead of verbatim recording</li>
+<li>Not recording inquiry responses fully</li>
+<li>Missing non-verbal cues (card rotations, pointing)</li>
+<li>Adding interpretive notes that contaminate the raw data</li>
+<li>Failing to clarify ambiguous responses during inquiry</li>
+<li>Recording only the "interesting" responses and abbreviating others</li>
+</ul>
+
+<!-- SECTION 3: OVERVIEW OF CODING VARIABLES -->
+<h2 id="sec3"><span class="section-icon">3</span> OVERVIEW OF CODING VARIABLES</h2>
+
+<p>Every Rorschach response is coded across <strong>seven categories</strong>. These are always assigned in a specific sequence:</p>
+
+<table>
+<tr><th>#</th><th>Category</th><th>What It Captures</th><th>Example Codes</th></tr>
+<tr><td>1</td><td><strong>Location</strong></td><td>WHERE on the blot was it seen?</td><td>W, D, Dd, S</td></tr>
+<tr><td>2</td><td><strong>Developmental Quality (DQ)</strong></td><td>HOW well-organized is the percept?</td><td>+, o, v/+, v</td></tr>
+<tr><td>3</td><td><strong>Determinant(s)</strong></td><td>WHAT blot features made it look like that?</td><td>F, M, FM, m, FC, CF, C, FT, TF, T, FV, VF, V, FY, YF, Y, FD, Fr, rF</td></tr>
+<tr><td>4</td><td><strong>Form Quality (FQ)</strong></td><td>HOW WELL does the response fit the blot area?</td><td>+, o, u, -</td></tr>
+<tr><td>5</td><td><strong>Content</strong></td><td>WHAT was seen?</td><td>H, Hd, A, Ad, An, Bl, Sex, Na, Obj, etc.</td></tr>
+<tr><td>6</td><td><strong>Popular (P)</strong></td><td>Is this a commonly given response?</td><td>P (or blank)</td></tr>
+<tr><td>7</td><td><strong>Special Scores</strong></td><td>Are there unusual cognitive/verbal features?</td><td>DV, INC, DR, FAB, ALOG, CONTAM, MOR, AG, COP, PSV, PER, AB, etc.</td></tr>
+</table>
+
+<div class="formula-box">
+<strong>Standard Coding Sequence:</strong><br>
+Location — DQ — Determinant(s) — Form Quality — (Pair) — Content — Popular — Special Scores
+</div>
+
+<div class="remember-box">
+Every single response MUST be coded for ALL seven categories. If a category does not apply, it is simply omitted from the code string (e.g., no Special Score, no Popular). But Location, DQ, at least one Determinant, Form Quality, and at least one Content must ALWAYS be assigned.
+</div>
+
+<!-- SECTION 4-5: STEP 1 - LOCATION CODING -->
+<h2 id="sec4"><span class="section-icon">4</span> STEP-BY-STEP CODING PROCEDURE</h2>
+<p>This is the main section of the guide. Each step below corresponds to one coding category, presented in the order in which coding decisions should be made.</p>
+
+<div class="step-header" id="sec5">STEP 1: LOCATION CODING</div>
+
+<p>Location coding identifies <strong>which part of the inkblot</strong> the subject used to form their response. There are four main location codes:</p>
+
+<h3>A. Whole Response (W)</h3>
+<p><strong>Definition:</strong> The subject uses the <strong>entire blot</strong> (all of the inkblot area) to form the response.</p>
+<ul>
+<li>The ENTIRE blot area must be incorporated — nothing left out</li>
+<li>If even a small area is excluded, it is NOT a W</li>
+<li>White space included WITH the whole blot = WS (W with Space)</li>
+</ul>
+<p><strong>Example:</strong> Card V — "A bat" (using the whole blot) = <code>W</code></p>
+
+<div class="tip-box">
+If the subject says "the whole thing" but clearly describes only a portion during inquiry, code it as D or Dd based on what was actually used, NOT what they claim to have used.
+</div>
+
+<h3>B. Common Detail (D)</h3>
+<p><strong>Definition:</strong> The subject uses a <strong>commonly identified area</strong> of the blot — an area that is frequently selected by most people taking the test.</p>
+<ul>
+<li>D areas are listed in the Exner manual tables for each card</li>
+<li>These are areas that at least 5% of the population use</li>
+<li>Each card has numbered D areas (D1, D2, D3, etc.)</li>
+<li>The specific D number should be recorded on the location sheet</li>
+</ul>
+<p><strong>Example:</strong> Card III — "Two people" (using the common dark lateral figures) = <code>D</code></p>
+
+<h3>C. Unusual Detail (Dd)</h3>
+<p><strong>Definition:</strong> The subject uses an <strong>infrequently identified area</strong> of the blot — an area that is NOT commonly selected (used by fewer than 5% of people).</p>
+<ul>
+<li>Dd areas are also numbered in the manual tables (Dd21, Dd22, etc.)</li>
+<li>Any area not classified as W or D is automatically Dd</li>
+<li>Includes very small areas, unusual cuts, or edge details</li>
+<li>If the subject uses an area that is NOT in the manual tables at all, it is still coded Dd</li>
+</ul>
+<p><strong>Example:</strong> Card I — "A tiny face" (using only a very small top center area) = <code>Dd</code></p>
+
+<h3>D. Space Response (S)</h3>
+<p><strong>Definition:</strong> The subject incorporates <strong>white space</strong> (the area between or within the inkblot) as a meaningful part of their response.</p>
+<ul>
+<li>S is ALWAYS coded in addition to W, D, or Dd — it is a modifier</li>
+<li>If white space is used WITH the whole blot: <code>WS</code></li>
+<li>If white space is used WITH a common detail: <code>DS</code></li>
+<li>If white space alone is used (rare): <code>DS</code> or <code>DdS</code> depending on the specific space area</li>
+</ul>
+
+<div class="caution-box">
+Space (S) is NEVER coded alone — it is always combined with W, D, or Dd. The S indicates that white space was incorporated as a meaningful feature of the percept, not merely that the response happens to be near white space.
+</div>
+
+<h3>E. Ambiguity Handling for Location</h3>
+<table>
+<tr><th>Situation</th><th>Rule</th></tr>
+<tr><td>Subject says "the whole thing" but describes only part</td><td>Code based on what was ACTUALLY used (verify in inquiry)</td></tr>
+<tr><td>Subject uses almost all of blot but omits a tiny area</td><td>If the omitted area is very small and trivial, code W; otherwise code D or Dd</td></tr>
+<tr><td>Subject combines two D areas</td><td>If the combination is common (listed as D), code D; if not, code W or Dd depending on total area used</td></tr>
+<tr><td>Subject uses white space as figure and ink as ground</td><td>Code with S modifier (figure-ground reversal)</td></tr>
+</table>
+
+<div class="remember-box">
+Always refer to the location tables in the Exner manual for each card. The tables specify exactly which areas are D (common) and which are Dd (unusual). Do NOT guess — verify against the tables.
+</div>
+
+<!-- STEP 2: DEVELOPMENTAL QUALITY -->
+<div class="step-header" id="sec6">STEP 2: DEVELOPMENTAL QUALITY (DQ)</div>
+
+<p>Developmental Quality reflects <strong>how well the response is organized or integrated</strong> — essentially, how sophisticated the perceptual-cognitive processing was.</p>
+
+<h3>A. Synthesized Response (DQ+) — Symbol: <code>+</code></h3>
+<p><strong>Definition:</strong> The response involves the <strong>meaningful integration of two or more discrete areas</strong> of the blot into a single, coherent percept. The areas must be related to each other in a meaningful way.</p>
+<ul>
+<li>Two or more objects are seen AND they are in a specific, meaningful relationship to each other</li>
+<li>OR a single object is described with clearly differentiated parts that are specifically related</li>
+<li>The KEY criterion: there must be ACTIVE INTEGRATION — the parts must relate to each other</li>
+</ul>
+<p><strong>Examples:</strong></p>
+<ul>
+<li>"Two people lifting a pot" (Card III) — Two separate areas integrated into a relational scene = <code>DQ+</code></li>
+<li>"A butterfly sitting on a flower" — Two objects in meaningful spatial relationship = <code>DQ+</code></li>
+<li>"A woman in a long dress with a hat on her head" — Single object with specifically differentiated, related parts = <code>DQ+</code></li>
+</ul>
+
+<div class="tip-box">
+The essential question for DQ+ is: "Are two or more discrete blot areas (or discrete parts of an object) meaningfully related in the percept?" If YES = DQ+.
+</div>
+
+<h3>B. Ordinary Response (DQo) — Symbol: <code>o</code></h3>
+<p><strong>Definition:</strong> The response identifies a <strong>discrete, specific object</strong> with a natural outline or form demand, BUT without synthesizing multiple areas into a relationship.</p>
+<ul>
+<li>The object has a specific shape (not vague or amorphous)</li>
+<li>Only one object is seen OR multiple objects are seen but NOT in a meaningful relationship</li>
+<li>Most common DQ level in records</li>
+</ul>
+<p><strong>Examples:</strong></p>
+<ul>
+<li>"A bat" (Card V, whole) — Specific form demand, single object, no synthesis = <code>DQo</code></li>
+<li>"A butterfly" (Card I, whole) — Specific form, no integration of separate parts = <code>DQo</code></li>
+<li>"Two people" (Card III) — Even though two objects are mentioned, if they are NOT described in a meaningful interaction = <code>DQo</code></li>
+</ul>
+
+<h3>C. Vague/Synthesized Response (DQv/+) — Symbol: <code>v/+</code></h3>
+<p><strong>Definition:</strong> A synthesized response where at least one of the integrated components is <strong>formless or vague</strong>.</p>
+<ul>
+<li>Two or more areas are integrated into a relationship (like DQ+)</li>
+<li>BUT at least one component has no specific form demand (is vague/amorphous)</li>
+</ul>
+<p><strong>Example:</strong></p>
+<ul>
+<li>"Clouds surrounding a mountain" — Integration exists (spatial relationship), but "clouds" has no specific form demand = <code>DQv/+</code></li>
+</ul>
+
+<h3>D. Vague Response (DQv) — Symbol: <code>v</code></h3>
+<p><strong>Definition:</strong> The response identifies an object or impression that has <strong>no specific form demand</strong> — it is amorphous, diffuse, or could look like anything.</p>
+<ul>
+<li>Objects with no definite shape: clouds, smoke, fog, blood (without specific shape), darkness, shadow, paint</li>
+<li>No integration with other areas</li>
+<li>The object could be any shape and still be called that</li>
+</ul>
+<p><strong>Examples:</strong></p>
+<ul>
+<li>"Smoke" = <code>DQv</code></li>
+<li>"Blood" (without specific shape) = <code>DQv</code></li>
+<li>"Just darkness" = <code>DQv</code></li>
+<li>"Paint splattered" = <code>DQv</code></li>
+</ul>
+
+<div class="caution-box">
+"Blood" can be DQo if the subject describes it with a specific shape (e.g., "a drop of blood" — drops have specific shapes). But "blood splattered everywhere" = DQv because no form demand exists.
+</div>
+
+<h3>E. DQ Decision Tree (Simple Language)</h3>
+<table>
+<tr><th>Ask This Question</th><th>If YES</th><th>If NO</th></tr>
+<tr><td>Are two or more areas/parts meaningfully integrated?</td><td>Go to next question</td><td>Go to question 3</td></tr>
+<tr><td>Do ALL parts of the integrated response have specific form?</td><td><strong>DQ+</strong></td><td><strong>DQv/+</strong></td></tr>
+<tr><td>Does the single object have a specific, definite shape?</td><td><strong>DQo</strong></td><td><strong>DQv</strong></td></tr>
+</table>
+
+<!-- STEP 3: DETERMINANTS -->
+<div class="step-header" id="sec7">STEP 3: DETERMINANTS (MOST IMPORTANT SECTION)</div>
+
+<p>Determinants are the <strong>features of the blot</strong> that contributed to forming the response. This is the most complex and critical coding category. A response may have ONE determinant (single) or MULTIPLE determinants (blend, separated by periods).</p>
+
+<div class="notice-box">
+<strong>THE GOLDEN RULE:</strong> A determinant is coded ONLY if the subject provides evidence during either the Response Phase or the Inquiry that the blot feature contributed to forming the response. Do NOT assume determinants — they must be ARTICULATED by the subject.
+</div>
+
+<h3>A. FORM (F)</h3>
+<h4>Pure Form — Symbol: <code>F</code></h4>
+<p><strong>Definition:</strong> The response is based SOLELY on the <strong>shape or outline</strong> of the blot area. No other blot feature (color, shading, perceived movement) contributed to the response.</p>
+<ul>
+<li>Code F when the ONLY feature used is the contour/shape of the area</li>
+<li>F is the most "basic" and "economical" determinant</li>
+<li>It reflects the tactic of dealing with stimuli on a simple, economical level</li>
+<li>If ANY other feature (color, shading, movement) contributed, do NOT code pure F — code the other determinant(s) instead</li>
+</ul>
+<p><strong>Examples:</strong></p>
+<ul>
+<li>"A bat — because of the shape, the wings spread out" = <code>F</code></li>
+<li>"A map — it's shaped like Africa" = <code>F</code></li>
+</ul>
+
+<div class="remember-box">
+F means ONLY shape was used. The moment any other feature is involved, it is no longer pure F. Even if form is ALSO used (e.g., "it's red and shaped like a butterfly"), the code becomes FC (Form-Color), not F.
+</div>
+
+<h4>Lambda (L) — Related Concept</h4>
+<p>Lambda represents the proportion of Pure F responses in a record:</p>
+<div class="formula-box">Lambda = Number of Pure F responses / (R - Number of Pure F responses)</div>
+<p>A Lambda greater than 0.99 suggests an avoidant style (simplifying complexity). This is relevant when interpreting but important for coders to understand why accurate F coding matters.</p>
+
+<h3>B. MOVEMENT DETERMINANTS</h3>
+<p>Movement determinants are coded when the subject <strong>perceives or attributes motion, action, or tension</strong> to the percept. The movement is NOT actually in the blot — it is projected by the subject.</p>
+
+<div class="caution-box">
+Movement is NEVER actually in the blot (it's a still image). Movement is ALWAYS attributed/projected by the subject. This makes it a particularly important determinant for understanding cognitive operations.
+</div>
+
+<h4>B1. Human Movement (M)</h4>
+<p><strong>Definition:</strong> A human (or human-like creature) is perceived as engaging in a <strong>kinesthetic activity</strong> — an action that requires the use of muscles or joints.</p>
+
+<table>
+<tr><th>Code M When:</th><th>Do NOT Code M When:</th></tr>
+<tr><td>A human is performing an action (running, dancing, bending, lifting, fighting)</td><td>A human is merely described as "standing there" without postural tension (this is debatable — see note below)</td></tr>
+<tr><td>A human-like creature (angel, witch, elf, cartoon character) performs an action</td><td>An animal performs an animal-like action (use FM instead)</td></tr>
+<tr><td>A human figure is described in a tense posture that implies muscular effort</td><td>An inanimate object is moving (use m instead)</td></tr>
+<tr><td>An animal performs a clearly HUMAN-like action (talking, cooking, arguing)</td><td>The subject merely identifies a person without movement</td></tr>
+</table>
+
+<div class="tip-box">
+<strong>Key Distinction:</strong> If an animal is doing something that ONLY humans do (e.g., two bears arguing, a rabbit cooking), it gets coded M (because the activity is human-like). If an animal is doing something animals naturally do (e.g., a bird flying, a dog running), it gets coded FM.
+</div>
+
+<p><strong>Active vs. Passive M:</strong></p>
+<ul>
+<li><strong>Ma (active)</strong> — The figure is performing an action: "two people fighting," "a woman dancing"</li>
+<li><strong>Mp (passive)</strong> — The figure is in a passive posture: "a person sleeping," "someone kneeling in prayer," "two people looking at each other"</li>
+</ul>
+
+<h4>B2. Animal Movement (FM)</h4>
+<p><strong>Definition:</strong> An animal is perceived as engaging in an action that is <strong>natural or typical for that animal species</strong>.</p>
+<ul>
+<li>"A bird flying" = <code>FM</code></li>
+<li>"Two dogs fighting" = <code>FM</code></li>
+<li>"A frog jumping" = <code>FM</code></li>
+<li>"A spider crawling" = <code>FM</code></li>
+</ul>
+
+<div class="caution-box">
+If an animal is doing something ONLY humans do, code M not FM. "Two bears playing chess" = M (bears don't play chess in nature). "Two bears wrestling" = FM (bears naturally wrestle).
+</div>
+
+<h4>B3. Inanimate Movement (m)</h4>
+<p><strong>Definition:</strong> An inanimate object or a natural force is perceived as being in <strong>motion or dynamic tension</strong>.</p>
+<ul>
+<li>"A rocket blasting off" = <code>m</code></li>
+<li>"An explosion" = <code>m</code></li>
+<li>"Smoke rising" = <code>m</code></li>
+<li>"Blood dripping" = <code>m</code></li>
+<li>"Water falling" = <code>m</code></li>
+<li>"A leaf falling" = <code>m</code> (the leaf is not acting by its own volition)</li>
+</ul>
+
+<div class="remember-box">
+<strong>The M vs FM vs m Decision:</strong><br>
+- Is the moving thing HUMAN or doing something ONLY humans do? → <code>M</code><br>
+- Is the moving thing an ANIMAL doing something natural for animals? → <code>FM</code><br>
+- Is the moving thing INANIMATE (object, force of nature) or is motion occurring WITHOUT volition? → <code>m</code>
+</div>
+
+<h4>Active vs. Passive Superscript for All Movement</h4>
+<p>All movement determinants (M, FM, m) are further classified as active (a) or passive (p):</p>
+<ul>
+<li><strong>Active (a)</strong> — involves effort, exertion, dynamic action: running, fighting, exploding, flying upward</li>
+<li><strong>Passive (p)</strong> — involves rest, repose, static posture, drifting: sleeping, lying down, floating gently, hanging</li>
+</ul>
+
+<h3>C. COLOR DETERMINANTS</h3>
+<p>Color determinants are coded when the <strong>chromatic (colored) features</strong> of the blot contributed to forming the response.</p>
+
+<div class="notice-box">
+<strong>CHROMATIC vs. ACHROMATIC:</strong> Chromatic color refers to the actual colors (red, orange, green, blue, pink, etc.) on Cards II, III, VIII, IX, X. Achromatic color refers to the black, grey, and white features (Cards I, IV, V, VI, VII and the dark areas on other cards). These are coded DIFFERENTLY.
+</div>
+
+<h4>C1. Chromatic Color (The Form-Color Hierarchy)</h4>
+<p>When chromatic color is used, the relationship between FORM and COLOR determines the specific code. This is the <strong>"step-down" principle</strong>:</p>
+
+<table>
+<tr><th>Code</th><th>Symbol</th><th>Definition</th><th>Form Dominance</th><th>Example</th></tr>
+<tr><td>Form-Color</td><td><code>FC</code></td><td>Form is PRIMARY, color is secondary. The object has a definite shape, and color adds to it.</td><td>Form > Color</td><td>"A red butterfly" (shape defines it, color enhances it)</td></tr>
+<tr><td>Color-Form</td><td><code>CF</code></td><td>Color is PRIMARY, form is secondary. The color drives the response, but some vague form exists.</td><td>Color > Form</td><td>"A paint splatter, it's all colorful" (color drives it, vague shape)</td></tr>
+<tr><td>Pure Color</td><td><code>C</code></td><td>Color is the ONLY determinant. No form whatsoever. The object could be any shape.</td><td>No Form</td><td>"Blood" (on a red area — no shape required, just the redness)</td></tr>
+</table>
+
+<div class="caution-box">
+<strong>THE STEP-DOWN PRINCIPLE (Critical Rule):</strong> If there is ANY doubt about whether to code FC or CF, always "step down" to the LESS form-dominated code. This means: when in doubt between FC and CF, code CF. This is because the system requires clear evidence of form dominance before coding FC.
+</div>
+
+<p><strong>How to Decide FC vs CF vs C:</strong></p>
+<ol>
+<li>Does the response have a SPECIFIC, well-defined shape? If YES and color is only secondary → <code>FC</code></li>
+<li>Does color drive the response but there's still some (vague) shape? → <code>CF</code></li>
+<li>Is there absolutely NO form — the object could literally be any shape? → <code>C</code></li>
+</ol>
+
+<h4>C2. Achromatic Color (C')</h4>
+<p>Achromatic color is coded when the <strong>black, grey, or white features</strong> of the blot are used AS COLOR (not as shading/texture). The subject references the darkness or lightness as a color property.</p>
+
+<table>
+<tr><th>Code</th><th>Symbol</th><th>Definition</th><th>Example</th></tr>
+<tr><td>Form-Achromatic Color</td><td><code>FC'</code></td><td>Form is primary, achromatic color is secondary</td><td>"A black cat" (shape defines it, blackness adds to it)</td></tr>
+<tr><td>Achromatic Color-Form</td><td><code>C'F</code></td><td>Achromatic color is primary, form is secondary</td><td>"Something dark and ominous, kind of shapeless"</td></tr>
+<tr><td>Pure Achromatic Color</td><td><code>C'</code></td><td>Achromatic color only, no form</td><td>"Darkness" or "Night" (no shape at all)</td></tr>
+</table>
+
+<div class="caution-box">
+<strong>CRITICAL DISTINCTION — C' vs Y (Shading):</strong> This is one of the MOST COMMON coding errors. The rule from Exner's manual states clearly: <em>"If the intent is not clear when the words 'light' or 'dark' are used, the coding for diffuse shading (Y) is more appropriate."</em><br><br>
+<strong>Code C'</strong> when the subject clearly uses black/grey/white AS A COLOR (e.g., "it's black like coal," "it's a white wedding dress")<br>
+<strong>Code Y</strong> when the subject references light/dark gradations for shading effects (e.g., "the lighter parts look fuzzy," "it's shadowy")<br>
+<strong>WHEN IN DOUBT → Code Y (not C')</strong>
+</div>
+
+<h3>D. SHADING DETERMINANTS</h3>
+<p>Shading determinants are coded when the subject uses the <strong>light-dark variations</strong> (shading nuances) within the blot to create their percept. There are THREE types of shading:</p>
+
+<h4>D1. Texture (T)</h4>
+<p><strong>Definition:</strong> The shading features create a <strong>tactile impression</strong> — the subject describes how the object would FEEL to touch.</p>
+
+<table>
+<tr><th>Code</th><th>Symbol</th><th>Definition</th><th>Example</th></tr>
+<tr><td>Form-Texture</td><td><code>FT</code></td><td>Form primary, texture secondary</td><td>"A furry bear — it looks soft because of the shading"</td></tr>
+<tr><td>Texture-Form</td><td><code>TF</code></td><td>Texture primary, form secondary</td><td>"Something furry and soft, maybe an animal skin"</td></tr>
+<tr><td>Pure Texture</td><td><code>T</code></td><td>Texture only, no form</td><td>"It just feels soft/fuzzy" (no shape identified)</td></tr>
+</table>
+
+<p><strong>Key Words That Signal Texture:</strong> furry, soft, rough, smooth, silky, fuzzy, woolly, bumpy, grainy, hairy, velvety, slimy, wet, slippery, coarse</p>
+
+<h4>D2. Vista (V)</h4>
+<p><strong>Definition:</strong> The shading features create an impression of <strong>depth or dimensionality</strong> — things appear to be at different distances (near/far, above/below).</p>
+
+<table>
+<tr><th>Code</th><th>Symbol</th><th>Definition</th><th>Example</th></tr>
+<tr><td>Form-Vista</td><td><code>FV</code></td><td>Form primary, vista/depth secondary</td><td>"A valley with mountains in the background — the shading makes it look far away"</td></tr>
+<tr><td>Vista-Form</td><td><code>VF</code></td><td>Vista primary, form secondary</td><td>"It looks like depth, with something vague in the distance"</td></tr>
+<tr><td>Pure Vista</td><td><code>V</code></td><td>Vista/depth only, no form</td><td>"Just depth, like looking into a dark tunnel"</td></tr>
+</table>
+
+<div class="caution-box">
+<strong>Vista (V) vs Form Dimension (FD):</strong> Both create depth/dimensionality, but they use DIFFERENT blot features:<br>
+- <strong>V (Vista):</strong> Uses SHADING (light-dark variations) to create depth<br>
+- <strong>FD (Form Dimension):</strong> Uses SIZE and SHAPE differences to create depth (NO shading involved)<br><br>
+If the subject says "this part looks farther away because it's lighter/darker" → Code V<br>
+If the subject says "this part looks farther away because it's smaller" → Code FD
+</div>
+
+<h4>D3. Diffuse Shading (Y)</h4>
+<p><strong>Definition:</strong> The shading features create a general impression of <strong>light, dark, or shading</strong> without creating texture or depth. It is a diffuse, undifferentiated use of the shading.</p>
+
+<table>
+<tr><th>Code</th><th>Symbol</th><th>Definition</th><th>Example</th></tr>
+<tr><td>Form-Diffuse Shading</td><td><code>FY</code></td><td>Form primary, shading secondary</td><td>"An X-ray — you can see through it because of the shading"</td></tr>
+<tr><td>Diffuse Shading-Form</td><td><code>YF</code></td><td>Shading primary, form secondary</td><td>"Something smoky, with a vague shape"</td></tr>
+<tr><td>Pure Diffuse Shading</td><td><code>Y</code></td><td>Shading only, no form</td><td>"Fog" or "shadows" or "just darkness/lightness"</td></tr>
+</table>
+
+<p><strong>Key Words That Signal Diffuse Shading:</strong> shaded, light, dark (when NOT used as color), shadowy, smoky, foggy, X-ray, transparent, faded, dim, murky</p>
+
+<div class="remember-box">
+<strong>Shading Decision Tree:</strong><br>
+1. Is the shading used to describe how something FEELS (touch)? → Code <strong>T</strong> (Texture)<br>
+2. Is the shading used to create DEPTH (near/far)? → Code <strong>V</strong> (Vista)<br>
+3. Is the shading used in a general, diffuse way (light/dark, smoky, transparent)? → Code <strong>Y</strong> (Diffuse Shading)<br>
+4. Is "dark" or "black" used clearly AS A COLOR (not shading)? → Code <strong>C'</strong> (Achromatic Color)<br>
+5. WHEN IN DOUBT between C' and Y → Always code <strong>Y</strong>
+</div>
+
+<h3>E. FORM DIMENSION (FD)</h3>
+<h4>Symbol: <code>FD</code></h4>
+<p><strong>Definition:</strong> The response involves an impression of <strong>depth or three-dimensionality</strong> created SOLELY by the <strong>size or shape</strong> of objects — NOT by shading.</p>
+<ul>
+<li>"This person is farther away because they're smaller" = <code>FD</code></li>
+<li>"It's a road going into the distance — the narrowing makes it look deep" = <code>FD</code></li>
+<li>"One thing is behind the other — the overlap shows depth" = <code>FD</code></li>
+</ul>
+
+<div class="caution-box">
+FD has NO form hierarchy — there is no "DF" or "pure D." It is ALWAYS coded as FD. If shading creates the depth impression, code V (Vista), not FD.
+</div>
+
+<h3>F. PAIRS AND REFLECTIONS</h3>
+
+<h4>F1. Pair (2)</h4>
+<p><strong>Definition:</strong> Two <strong>identical objects</strong> are reported, based on the <strong>bilateral symmetry</strong> of the blot. They are the same object seen on both sides.</p>
+<ul>
+<li>The objects must be identical (same thing on both sides of the blot's axis of symmetry)</li>
+<li>Coded as <code>(2)</code> — placed after form quality in the code string</li>
+<li>"Two butterflies" (one on each side) = Pair</li>
+<li>If the objects are NOT based on symmetry (e.g., "two different things"), do NOT code pair</li>
+</ul>
+
+<div class="caution-box">
+Pair is coded ONLY when the two objects are based on the bilateral symmetry of the blot. If the subject sees two separate things that happen to be alike but are NOT reflections of each other across the midline, do NOT code pair.
+</div>
+
+<h4>F2. Reflection (Fr, rF)</h4>
+<p><strong>Definition:</strong> The subject identifies an object and its <strong>mirror image or reflection</strong>, based on the bilateral symmetry of the blot. The subject explicitly states or implies that one side is a reflection of the other.</p>
+
+<table>
+<tr><th>Code</th><th>Symbol</th><th>Definition</th><th>Example</th></tr>
+<tr><td>Form-Reflection</td><td><code>Fr</code></td><td>Form primary in the reflected object</td><td>"A person looking at their reflection in water — same shape on both sides"</td></tr>
+<tr><td>Reflection-Form</td><td><code>rF</code></td><td>The reflection impression dominates, form is vague</td><td>"Something reflected in water, no clear shape"</td></tr>
+</table>
+
+<div class="remember-box">
+<strong>Reflection vs. Pair — Key Difference:</strong><br>
+- <strong>Pair (2):</strong> "Two butterflies" — two separate objects that happen to be identical<br>
+- <strong>Reflection (Fr/rF):</strong> "A butterfly and its reflection in water" — ONE object and its mirror image<br><br>
+If the word "reflection," "mirror," "reflected," or "mirror image" is used → Code <strong>Reflection</strong><br>
+If two identical objects are seen without reflection language → Code <strong>Pair</strong><br>
+NOTE: When Reflection is coded, Pair is NOT coded for the same response (they are mutually exclusive).
+</div>
+
+<!-- STEP 4: FORM QUALITY -->
+<div class="step-header" id="sec8">STEP 4: FORM QUALITY (FQ)</div>
+
+<p>Form Quality assesses <strong>how well the response matches the contours/shape of the blot area used</strong>. It is a measure of perceptual accuracy — how closely the subject's percept "fits" the actual inkblot area.</p>
+
+<div class="notice-box">
+<strong>IMPORTANT:</strong> Form Quality is determined by comparing the subject's response to <strong>Form Quality Tables</strong> in the Exner manual, which list common responses for each specific blot area (location). These tables are based on large normative samples. You CANNOT determine FQ by "just looking at the blot" — you MUST consult the tables.
+</div>
+
+<h3>A. FQ+ (Superior/Overelaborated)</h3>
+<p><strong>Symbol:</strong> <code>+</code></p>
+<p><strong>Definition:</strong> The response shows <strong>unusually detailed, enriched articulation</strong> of form that is clearly evident in the blot. The fit is not only accurate but exceptionally well-specified.</p>
+<ul>
+<li>The percept fits the blot area extremely well</li>
+<li>The subject provides additional form detail that enhances the accuracy</li>
+<li>Rare — very few responses earn FQ+</li>
+<li>The elaboration must be form-based (not just content elaboration)</li>
+</ul>
+<p><strong>Example:</strong> "A woman in a Victorian dress with her arms outstretched, you can see the folds of the fabric" — where ALL described features match the blot contours precisely.</p>
+
+<h3>B. FQo (Ordinary)</h3>
+<p><strong>Symbol:</strong> <code>o</code></p>
+<p><strong>Definition:</strong> The response demonstrates <strong>common, readily perceived accuracy</strong> — the percept fits the area well and is frequently reported by others.</p>
+<ul>
+<li>The object clearly fits the blot area</li>
+<li>Listed as "ordinary" in the FQ tables for that specific location</li>
+<li>Most responses in a typical protocol should be FQo</li>
+<li>Indicates accurate, conventional perception</li>
+</ul>
+<p><strong>Example:</strong> Card V, whole — "A bat" = <code>FQo</code> (listed as ordinary for W on Card V)</p>
+
+<h3>C. FQu (Unusual)</h3>
+<p><strong>Symbol:</strong> <code>u</code></p>
+<p><strong>Definition:</strong> The response is <strong>uncommon but can be readily seen</strong> — the fit is reasonable when pointed out, even though it is not frequently given.</p>
+<ul>
+<li>Not listed as "ordinary" in the FQ tables but is a legitimate fit</li>
+<li>When the examiner looks at the blot, they CAN see how it fits</li>
+<li>It is an idiosyncratic but NOT distorted perception</li>
+<li>The contours of the blot area DO support the percept</li>
+</ul>
+<p><strong>Example:</strong> Card I — "A jack-o-lantern" (center area) — uncommon but the shape supports it = <code>FQu</code></p>
+
+<h3>D. FQ- (Minus/Distorted)</h3>
+<p><strong>Symbol:</strong> <code>-</code></p>
+<p><strong>Definition:</strong> The response demonstrates <strong>poor, distorted perception</strong> — the percept does NOT fit the contours of the blot area used. The shape of the blot does not support the response.</p>
+<ul>
+<li>The object simply does NOT match the blot area's contours</li>
+<li>Even when explained, the examiner cannot see how it fits</li>
+<li>The form is imposed on the blot rather than derived from it</li>
+<li>Indicates distorted or inaccurate perception</li>
+</ul>
+<p><strong>Example:</strong> Card V, whole — "A giraffe" — the shape of the whole Card V does not look like a giraffe = <code>FQ-</code></p>
+
+<div class="caution-box">
+<strong>Common Error — Overuse of FQ-:</strong> Less experienced coders tend to assign FQ- too frequently because they don't consult the FQ tables carefully. Many responses that seem unusual are actually FQu (unusual but legitimate fit). Always check the tables before assigning FQ-.
+</div>
+
+<h3>E. FQ none (No Form)</h3>
+<p><strong>Symbol:</strong> (no FQ assigned or "none")</p>
+<p><strong>Definition:</strong> The response has <strong>no form demand</strong> — the determinant is pure C, pure T, pure Y, pure V, or pure C'. Since there is no form to evaluate, FQ cannot be assessed.</p>
+<ul>
+<li>Applied ONLY to formless responses (Pure C, Pure T, Pure Y, Pure V, Pure C')</li>
+<li>"Blood" (pure C, no shape) — no FQ can be assigned</li>
+<li>"Softness" (pure T, no shape) — no FQ can be assigned</li>
+</ul>
+
+<h3>F. How to Determine Form Quality — Step by Step</h3>
+<ol>
+<li>Identify the EXACT location (blot area) used for the response</li>
+<li>Look up that location in the <strong>FQ Tables</strong> for that card in the Exner manual</li>
+<li>Check if the response content is LISTED for that location:
+<ul>
+<li>If listed as "o" → code <code>FQo</code></li>
+<li>If listed as "u" → code <code>FQu</code></li>
+<li>If listed as "-" → code <code>FQ-</code></li>
+</ul></li>
+<li>If the response is NOT listed at all in the tables:
+<ul>
+<li>Examine whether the contours of the area support the percept</li>
+<li>If yes (you can see the fit) → code <code>FQu</code></li>
+<li>If no (the fit is impossible or grossly distorted) → code <code>FQ-</code></li>
+</ul></li>
+<li>For FQ+: the response must be listed AND the subject provides additional form detail that enriches accuracy beyond the ordinary</li>
+</ol>
+
+<div class="remember-box">
+<strong>FQ is LOCATION-SPECIFIC:</strong> The same content (e.g., "butterfly") may be FQo in one location and FQ- in another. A "butterfly" seen in the whole of Card V = FQo. A "butterfly" seen in a tiny side detail of Card IV might = FQ-. ALWAYS check the specific location.
+</div>
+
+<!-- STEP 5: CONTENT CODING -->
+<div class="step-header" id="sec9">STEP 5: CONTENT CODING</div>
+
+<p>Content coding identifies <strong>WHAT the subject saw</strong> — the category of the perceived object. Multiple content codes can be assigned to a single response if more than one category of content is present.</p>
+
+<h3>Complete List of Content Categories</h3>
+
+<table>
+<tr><th>Code</th><th>Category</th><th>Definition</th><th>Examples</th></tr>
+<tr><td><code>H</code></td><td>Whole Human</td><td>A complete, REAL human figure</td><td>A man, a woman, a person, a child</td></tr>
+<tr><td><code>(H)</code></td><td>Whole Human (fictional)</td><td>A complete human figure that is fictional, mythological, or supernatural</td><td>A witch, an angel, a fairy, Santa Claus, a cartoon character, a giant</td></tr>
+<tr><td><code>Hd</code></td><td>Human Detail</td><td>An INCOMPLETE real human figure (part of a human)</td><td>A hand, a face, a leg, a head, feet</td></tr>
+<tr><td><code>(Hd)</code></td><td>Human Detail (fictional)</td><td>An incomplete fictional/mythological human part</td><td>The eyes of a witch, a devil's head, an elf's hat</td></tr>
+<tr><td><code>Hx</code></td><td>Human Experience</td><td>Abstract human emotion or sensory experience</td><td>Love, anger, happiness, depression, sadness</td></tr>
+<tr><td><code>A</code></td><td>Whole Animal</td><td>A complete, REAL animal figure</td><td>A bat, a dog, a butterfly, a spider, a bear</td></tr>
+<tr><td><code>(A)</code></td><td>Whole Animal (fictional)</td><td>A complete fictional/mythological animal</td><td>A dragon, a unicorn, a phoenix, Bugs Bunny</td></tr>
+<tr><td><code>Ad</code></td><td>Animal Detail</td><td>An incomplete real animal (part of an animal)</td><td>A claw, a wing, a tail, an animal head, paw prints</td></tr>
+<tr><td><code>(Ad)</code></td><td>Animal Detail (fictional)</td><td>An incomplete fictional animal part</td><td>A dragon's head, unicorn horn</td></tr>
+<tr><td><code>An</code></td><td>Anatomy</td><td>Internal body parts (skeletal, muscular, or organ)</td><td>Bones, skeleton, lungs, brain, spine, pelvis, ribs</td></tr>
+<tr><td><code>Art</code></td><td>Art</td><td>Paintings, drawings, illustrations, sculptures, decorations</td><td>A painting, a sculpture, a design, a crest, an emblem</td></tr>
+<tr><td><code>Ay</code></td><td>Anthropology</td><td>Objects with specific cultural or historical reference</td><td>A totem pole, Roman helmet, arrowhead, tribal mask</td></tr>
+<tr><td><code>Bl</code></td><td>Blood</td><td>Blood (in any form)</td><td>Blood, blood stains, blood drops</td></tr>
+<tr><td><code>Bt</code></td><td>Botany</td><td>Plant life of any kind</td><td>Flower, tree, leaves, bush, seaweed, roots</td></tr>
+<tr><td><code>Cg</code></td><td>Clothing</td><td>Items of clothing or accessories</td><td>Hat, boots, dress, tie, belt, jacket</td></tr>
+<tr><td><code>Cl</code></td><td>Cloud</td><td>Clouds (specifically)</td><td>Clouds, storm clouds</td></tr>
+<tr><td><code>Ex</code></td><td>Explosion</td><td>An explosion or blast</td><td>Explosion, fireworks, nuclear blast</td></tr>
+<tr><td><code>Fd</code></td><td>Food</td><td>Any food item</td><td>Chicken leg, ice cream, fruit, steak</td></tr>
+<tr><td><code>Fi</code></td><td>Fire</td><td>Fire or flames</td><td>Fire, flames, candle flame</td></tr>
+<tr><td><code>Ge</code></td><td>Geography</td><td>Maps or specific geographic features</td><td>A map, an island, a lake shape, continent</td></tr>
+<tr><td><code>Hh</code></td><td>Household</td><td>Household items and furnishings</td><td>Chair, lamp, bed, vase, chandelier, rug</td></tr>
+<tr><td><code>Ls</code></td><td>Landscape</td><td>Landscape scenes or features</td><td>Mountain, valley, desert, cave, island, cliff</td></tr>
+<tr><td><code>Na</code></td><td>Nature</td><td>Natural phenomena (not landscape)</td><td>Rainbow, sunset, rain, snow, ice, lightning, sky</td></tr>
+<tr><td><code>Sc</code></td><td>Science</td><td>Scientific or technological objects</td><td>Rocket, microscope, spaceship, robot, X-ray machine</td></tr>
+<tr><td><code>Sx</code></td><td>Sex</td><td>Sexual organs or sexual activity</td><td>Penis, vagina, breasts, buttocks, testicles</td></tr>
+<tr><td><code>Xy</code></td><td>X-ray</td><td>X-ray images (skeletal or organ images seen as X-rays)</td><td>"An X-ray of the pelvis," "X-ray of the chest"</td></tr>
+<tr><td><code>Id</code></td><td>Idiographic</td><td>Content that does not fit any other category</td><td>Anything truly unique that cannot be classified</td></tr>
+</table>
+
+<h3>Multiple Content Coding Rules</h3>
+<ul>
+<li>A single response can have MULTIPLE content codes</li>
+<li>List the PRIMARY content first, then secondary contents separated by commas</li>
+<li>Example: "A woman in a red dress dancing near a fire" = <code>H, Cg, Fi</code></li>
+<li>If a response contains both a human and what the human is wearing, code BOTH: H and Cg</li>
+</ul>
+
+<div class="caution-box">
+Do NOT forget secondary contents! A common error of omission is neglecting secondary content categories. If a person sees "two people holding a pot over a fire," the content is H, Hh, Fi (human, household object, fire) — NOT just H.
+</div>
+
+<div class="remember-box">
+<strong>H vs (H) vs Hd vs (Hd) — Quick Guide:</strong><br>
+- Real + Complete = <strong>H</strong> (a man, a woman, a child)<br>
+- Fictional + Complete = <strong>(H)</strong> (a witch, an angel, a monster with human form)<br>
+- Real + Partial = <strong>Hd</strong> (a hand, a face, just the legs)<br>
+- Fictional + Partial = <strong>(Hd)</strong> (a devil's horns, a fairy's wing)<br><br>
+The SAME logic applies to animals: A/(A)/Ad/(Ad)
+</div>
+
+<!-- STEP 6: POPULAR RESPONSES -->
+<div class="step-header" id="sec10">STEP 6: POPULAR RESPONSES (P)</div>
+
+<p>Popular responses are those that occur with <strong>very high frequency</strong> in the normative population — given by at least one-third of all subjects. They represent the ability to perceive the obvious, consensual response that most people produce.</p>
+
+<h3>Standard Popular Responses by Card</h3>
+<p>The following are the <strong>13 Popular responses</strong> in the Exner Comprehensive System:</p>
+
+<table>
+<tr><th>Card</th><th>Location</th><th>Popular Response</th><th>Key Features Required</th></tr>
+<tr><td>I</td><td>W</td><td>Bat or Butterfly</td><td>The whole blot as a bat or butterfly (wings must be included)</td></tr>
+<tr><td>II</td><td>D1</td><td>Animal (bear, dog, elephant, or similar 4-legged animal)</td><td>The common dark side figures — must be a whole, real animal</td></tr>
+<tr><td>III</td><td>D1 or D9</td><td>Two human figures (or representations thereof)</td><td>The lateral dark figures seen as people in some form of activity</td></tr>
+<tr><td>IV</td><td>W or D7</td><td>Human or human-like figure</td><td>A large figure — giant, monster, person in a coat, etc.</td></tr>
+<tr><td>V</td><td>W</td><td>Bat or Butterfly</td><td>The whole blot as a bat or butterfly</td></tr>
+<tr><td>VI</td><td>W or D1</td><td>Animal skin, hide, pelt, or rug</td><td>Some reference to skin/hide/pelt quality (often involves texture)</td></tr>
+<tr><td>VII</td><td>D1 or D9</td><td>Human head or face</td><td>The upper two-thirds — human faces, heads, or profiles</td></tr>
+<tr><td>VIII</td><td>D1</td><td>Animal figure (whole, real animal)</td><td>The lateral pink/orange figures — any real animal in motion</td></tr>
+<tr><td>IX</td><td>D3</td><td>Human or human-like figure</td><td>The orange lateral area — a person, witch, wizard, etc.</td></tr>
+<tr><td>X</td><td>D1</td><td>Spider or Crab</td><td>The lateral blue figures — any multi-legged creature</td></tr>
+<tr><td>X</td><td>D1</td><td>Also: Any multi-legged creature (spider, crab, octopus)</td><td>Same area as above</td></tr>
+</table>
+
+<h3>Rules for Assigning P</h3>
+<ul>
+<li>The response must use the CORRECT location for that Popular</li>
+<li>The content must match the Popular content (or a close variation)</li>
+<li>Minor elaborations are acceptable (e.g., "a bat with its wings spread" still = P for Card V W)</li>
+<li>The response does NOT need to be FQo to be P (though it usually is)</li>
+<li>Some variation in the Popular is allowed (e.g., Card VIII: any four-legged animal counts)</li>
+</ul>
+
+<div class="caution-box">
+A common error is FORGETTING to code P. After coding all other elements, always check: "Is this response one of the 13 Populars?" If yes, add P to the code string. Missing a P is an error of omission.
+</div>
+
+<div class="tip-box">
+Card VI Popular (animal skin/hide) is particularly important because it often involves a Texture (T) determinant. Failing to code the FT or TF in this response, as noted in the Exner manual, can lead to T=0 in the structural summary, which has major interpretive implications.
+</div>
+
+<!-- STEP 7: SPECIAL SCORES -->
+<div class="step-header" id="sec11">STEP 7: SPECIAL SCORES (CRITICAL SECTION)</div>
+
+<p>Special Scores identify <strong>unusual features</strong> in the verbal material or the cognitive processes revealed by the response. They are divided into Cognitive Special Scores, Affective/Thematic Special Scores, and Other Special Scores.</p>
+
+<div class="notice-box">
+Special Scores are among the most commonly MISSED codes (errors of omission). Always carefully review the verbatim response and inquiry for evidence of unusual verbalization, illogical thinking, or thematic content that warrants a special score.
+</div>
+
+<h3>A. COGNITIVE SPECIAL SCORES (Thinking Disturbance)</h3>
+<p>These scores reflect varying degrees of <strong>disturbed thinking, faulty logic, or unusual verbalization</strong>. They are organized in a hierarchy from mild to severe:</p>
+
+<h4>A1. Deviant Verbalization (DV) — Level 1 and Level 2</h4>
+<p><strong>Definition:</strong> The subject uses a <strong>word or phrase incorrectly</strong> — either a neologism (made-up word) or a redundancy (saying the same thing twice unnecessarily).</p>
+
+<table>
+<tr><th>Type</th><th>Definition</th><th>Example</th><th>Level</th></tr>
+<tr><td>Neologism</td><td>A word that doesn't exist or is used in a clearly wrong way</td><td>"A wingish thing" or "It's very humanoid-like"</td><td>DV1 (mild)</td></tr>
+<tr><td>Redundancy</td><td>Unnecessary repetition of meaning</td><td>"A tiny little small bug" or "It's a pair of two things"</td><td>DV1 (mild)</td></tr>
+<tr><td>Bizarre Neologism</td><td>A word so bizarre or distant from meaning that it suggests serious cognitive slippage</td><td>"It's a flimdingle" or "The armpitated section"</td><td>DV2 (severe)</td></tr>
+</table>
+
+<div class="tip-box">
+DV1 is mild and common even in normal protocols. DV2 is severe and suggests significant cognitive disturbance. The distinction depends on HOW bizarre or inappropriate the verbalization is.
+</div>
+
+<h4>A2. Deviant Response (DR) — Level 1 and Level 2</h4>
+<p><strong>Definition:</strong> The subject makes an <strong>inappropriate, tangential, or circumstantial remark</strong> that goes beyond what is needed to identify the response.</p>
+
+<table>
+<tr><th>Type</th><th>Definition</th><th>Example</th><th>Level</th></tr>
+<tr><td>Inappropriate Phrase</td><td>An aside or comment unrelated to the task</td><td>"A bat — I used to be afraid of those as a kid, my mother would scream"</td><td>DR1 (mild)</td></tr>
+<tr><td>Circumstantial Response</td><td>Rambling that strays far from the response</td><td>"It's like a pelvis... reminds me of when I had my hip surgery three years ago in that hospital on Main Street..."</td><td>DR1 (mild)</td></tr>
+<tr><td>Bizarre Tangent</td><td>A comment so disconnected that it suggests serious cognitive slippage</td><td>"A butterfly — they have them on Mars you know, the blue ones"</td><td>DR2 (severe)</td></tr>
+</table>
+
+<h4>A3. Incongruous Combination (INCOM/INC) — Level 1 and Level 2</h4>
+<p><strong>Definition:</strong> A <strong>single object</strong> is described with features or attributes that are <strong>incongruous or impossible</strong> — features that don't go together in reality.</p>
+
+<table>
+<tr><th>Level</th><th>Definition</th><th>Example</th></tr>
+<tr><td>INC1 (Level 1)</td><td>An object with inappropriate features — mildly incongruous</td><td>"A butterfly with human hands" or "A red bear" (when referring to real animal)</td></tr>
+<tr><td>INC2 (Level 2)</td><td>A grossly impossible combination of features — severely incongruous</td><td>"A headless person who is talking" or "A fish with tree branches growing from it"</td></tr>
+</table>
+
+<div class="remember-box">
+<strong>INC is about ONE object with wrong features.</strong> The key: can this combination exist in reality? "A blue dog" = INC1 (unusual but not impossible — blue heelers exist, could be colored). "A dog with wings" = INC1-2 depending on context (could be fictional). "A talking tree with human legs" = INC2.
+</div>
+
+<h4>A4. Fabulized Combination (FABCOM/FAB) — Level 1 and Level 2</h4>
+<p><strong>Definition:</strong> <strong>Two or more objects</strong> are combined in an <strong>impossible or implausible relationship</strong> with each other.</p>
+
+<table>
+<tr><th>Level</th><th>Definition</th><th>Example</th></tr>
+<tr><td>FAB1 (Level 1)</td><td>Two objects in an implausible but not truly impossible relationship</td><td>"Two chickens holding up a building" or "A bug carrying a mountain"</td></tr>
+<tr><td>FAB2 (Level 2)</td><td>Two objects in a grotesquely or bizarrely impossible relationship</td><td>"Two elephants growing out of a person's head" or "A worm swallowing a planet"</td></tr>
+</table>
+
+<div class="caution-box">
+<strong>INC vs FABCOM — Key Distinction:</strong><br>
+- <strong>INC:</strong> ONE object with wrong features (attribute problem): "A cat with wings"<br>
+- <strong>FABCOM:</strong> TWO objects in a wrong relationship (relational problem): "A cat sitting on top of the moon"<br><br>
+Ask yourself: Is it ONE thing with impossible parts (INC) or TWO things in an impossible relationship (FABCOM)?
+</div>
+
+<h4>A5. Contamination (CONTAM)</h4>
+<p><strong>Definition:</strong> The <strong>MOST severe</strong> cognitive special score. Two or more impressions are <strong>fused into a single response</strong> in a way that violates reality. The percept is a merger of two distinct concepts into one.</p>
+<ul>
+<li>Two objects literally occupy the same blot space and are fused together</li>
+<li>"It's a butterfly-person" (NOT a butterfly AND a person, but a single fused entity)</li>
+<li>"A blood island" (where blood and island are fused as one concept, not blood ON an island)</li>
+<li>Extremely rare in non-psychotic individuals</li>
+</ul>
+
+<div class="caution-box">
+CONTAM is the most severe thinking disturbance score. It indicates a fusion of two separate perceptions into one without awareness that this is illogical. It is ALWAYS Level 2 severity. It is rare and should be coded very carefully — make sure it's truly a fusion (one merged entity) and not just a FABCOM (two things in an impossible relationship).
+</div>
+
+<h4>A6. Inappropriate Logic (ALOG)</h4>
+<p><strong>Definition:</strong> The subject uses <strong>clearly strained or inappropriate reasoning</strong> to justify their response without being prompted to do so.</p>
+<ul>
+<li>The subject spontaneously offers reasoning that is clearly faulty</li>
+<li>"It must be a king because it's in the middle" (positional logic)</li>
+<li>"It's bigger so it must be the mother" (size logic applied inappropriately)</li>
+<li>"This has to be blood because it's red" (color used as exclusive proof)</li>
+</ul>
+
+<div class="tip-box">
+ALOG is coded when the subject SPONTANEOUSLY offers faulty reasoning. If the examiner's inquiry question PROMPTS the justification, be cautious about coding ALOG — the flawed logic must be offered freely.
+</div>
+
+<h4>Summary: Cognitive Special Scores — Severity Hierarchy</h4>
+<table>
+<tr><th>Score</th><th>Level 1 (Mild)</th><th>Level 2 (Severe)</th><th>Weighted Value (Lv1/Lv2)</th></tr>
+<tr><td>DV</td><td>Odd word use, redundancy</td><td>Bizarre neologism</td><td>1 / 2</td></tr>
+<tr><td>DR</td><td>Tangential aside</td><td>Bizarre tangent</td><td>3 / 6</td></tr>
+<tr><td>INC</td><td>Mildly incongruous features</td><td>Grossly impossible features</td><td>2 / 4</td></tr>
+<tr><td>FAB</td><td>Implausible relationship</td><td>Impossible/bizarre relationship</td><td>4 / 7</td></tr>
+<tr><td>ALOG</td><td colspan="2">Inappropriate logic (no levels)</td><td>5</td></tr>
+<tr><td>CONTAM</td><td colspan="2">Fused percepts (always severe)</td><td>7</td></tr>
+</table>
+
+<div class="formula-box">
+<strong>WSum6 (Weighted Sum of 6 Special Scores):</strong><br>
+WSum6 = (DV1 x 1) + (DV2 x 2) + (DR1 x 3) + (DR2 x 6) + (INC1 x 2) + (INC2 x 4) + (FAB1 x 4) + (FAB2 x 7) + (ALOG x 5) + (CONTAM x 7)
+</div>
+
+<h3>B. AFFECTIVE/THEMATIC SPECIAL SCORES</h3>
+
+<h4>B1. Morbid Content (MOR)</h4>
+<p><strong>Definition:</strong> The response attributes <strong>death, damage, destruction, dysphoria, or decay</strong> to the percept.</p>
+<ul>
+<li>Code MOR when: An object is identified as dead, broken, ruined, damaged, decaying, torn, destroyed, hurt, wounded, spoiled, old and worn out</li>
+<li>Also code MOR when: A clearly dysphoric quality is attributed ("a sad tree," "a depressed-looking face")</li>
+</ul>
+<p><strong>Examples:</strong></p>
+<ul>
+<li>"A dead butterfly" = MOR</li>
+<li>"A broken vase" = MOR</li>
+<li>"A wilted, dying flower" = MOR</li>
+<li>"Parts of a body that are in a state of decay" = MOR</li>
+<li>"A sad-looking clown" = MOR</li>
+<li>"A person who has been squashed" = MOR</li>
+</ul>
+
+<h4>B2. Aggressive Movement (AG)</h4>
+<p><strong>Definition:</strong> The response involves an <strong>action that is clearly aggressive</strong> — one object actively hurting, attacking, or destroying another, or engaging in aggressive activity.</p>
+<ul>
+<li>The aggression must be ONGOING (happening right now), not past or potential</li>
+<li>"Two people fighting" = AG</li>
+<li>"A lion attacking a zebra" = AG</li>
+<li>"An explosion destroying a building" = AG</li>
+<li>Do NOT code AG for: "A mean-looking person" (no aggressive ACTION) or "A person who was stabbed" (past tense = MOR, not AG)</li>
+</ul>
+
+<div class="caution-box">
+AG requires ACTIVE, ONGOING aggression. If the aggression already happened (past tense), it is likely MOR, not AG. "Two people fighting" = AG. "A person who was beaten up" = MOR (damage already done).
+</div>
+
+<h4>B3. Cooperative Movement (COP)</h4>
+<p><strong>Definition:</strong> The response involves <strong>two or more objects engaged in clearly cooperative, positive interaction</strong>.</p>
+<ul>
+<li>"Two people dancing together" = COP</li>
+<li>"Two angels helping each other" = COP</li>
+<li>"Animals working together to build something" = COP</li>
+<li>The interaction must be CLEARLY positive/cooperative — neutral interactions (e.g., "two people looking at each other") do NOT qualify</li>
+</ul>
+
+<h3>C. OTHER SPECIAL SCORES</h3>
+
+<h4>C1. Perseveration (PSV)</h4>
+<p><strong>Definition:</strong> The subject gives the <strong>same response repeatedly</strong> across different cards or within the same card. There are three types:</p>
+<ul>
+<li><strong>Within-Card Perseveration:</strong> Same content given to different areas of the same card using the same determinant and DQ</li>
+<li><strong>Content Perseveration:</strong> The same content appears repeatedly across cards (the exact same specific content, not just general category)</li>
+<li><strong>Mechanical Perseveration:</strong> Identical response given to consecutive cards (same location, determinant, content — essentially a copy)</li>
+</ul>
+
+<h4>C2. Personal (PER)</h4>
+<p><strong>Definition:</strong> The subject references <strong>personal knowledge or experience</strong> to justify or elaborate the response.</p>
+<ul>
+<li>"It looks like a bat — I studied them in biology class"</li>
+<li>"That's a pelvis — I know because I'm a nurse"</li>
+<li>"Looks like the mountains near my home"</li>
+</ul>
+
+<h4>C3. Abstract Content (AB)</h4>
+<p><strong>Definition:</strong> The response is a clearly <strong>abstract concept</strong> that is represented by the use of color or form. The subject uses the blot to represent an abstract idea.</p>
+<ul>
+<li>"This represents evil — the darkness symbolizes it" = AB</li>
+<li>"It's a painting of sadness" = AB</li>
+<li>"The colors represent happiness and joy" = AB</li>
+<li>Must be a CLEAR abstraction, not just a vague response</li>
+</ul>
+
+<h4>C4. Color Projection (CP)</h4>
+<p><strong>Definition:</strong> The subject <strong>identifies chromatic color in an area of the blot that is actually achromatic</strong> (black, grey, or white). They "project" color onto a colorless area.</p>
+<ul>
+<li>"This is a beautiful blue bird" (said about a black area) = CP</li>
+<li>Very rare</li>
+</ul>
+
+<h4>C5. Good Human Representation (GHR) and Poor Human Representation (PHR)</h4>
+<p><strong>Definition:</strong> Every response containing human content (H, (H), Hd, (Hd), Hx) or human movement (M) is coded as EITHER GHR or PHR based on a decision algorithm:</p>
+<ul>
+<li><strong>GHR:</strong> Response meets criteria for adaptive human representation (good form quality, no cognitive special scores, no aggressive/morbid content)</li>
+<li><strong>PHR:</strong> Response has poor form quality, contains cognitive special scores, AG, or FABCOM, or other indicators of maladaptive representation</li>
+</ul>
+
+<div class="remember-box">
+<strong>GHR/PHR Decision Rules (simplified):</strong><br>
+1. If FQ is + or o, AND no cognitive special scores (DV2, DR2, INC2, FAB2, ALOG, CONTAM), AND no AG or MOR → code <strong>GHR</strong><br>
+2. If FQ is -, OR contains Level 2 cognitive special scores, OR FABCOM, OR ALOG, OR CONTAM → code <strong>PHR</strong><br>
+3. For other combinations, additional decision rules apply (consult the Exner tables for the complete algorithm)
+</div>
+
+<!-- STEP 8: MULTIPLE CODING RULES -->
+<div class="step-header" id="sec12">STEP 8: MULTIPLE CODING RULES (BLENDS)</div>
+
+<p>When a single response involves <strong>more than one determinant</strong>, it is called a <strong>BLEND</strong>. Blends are coded with all contributing determinants separated by periods (dots).</p>
+
+<h3>When to Assign Multiple Determinants</h3>
+<ul>
+<li>A blend is coded when TWO OR MORE different determinant categories contribute to the SAME response</li>
+<li>Each determinant must have clear evidence from the response or inquiry</li>
+<li>Example: "A red butterfly flying" — The subject uses FORM (shape), COLOR (red), and MOVEMENT (flying) → coded as <code>Ma.FC</code></li>
+</ul>
+
+<h3>Blend Coding Format</h3>
+<div class="formula-box">
+Determinant1 . Determinant2 . Determinant3<br>
+(separated by periods/dots)
+</div>
+
+<p><strong>Examples of Blends:</strong></p>
+<ul>
+<li>"A furry black bear" (form + texture + achromatic color) = <code>FT.FC'</code></li>
+<li>"Smoke rising from a fire" (movement + diffuse shading + form) = <code>ma.FY</code> (with Fi content)</li>
+<li>"Two people in colorful costumes dancing" (human movement + color) = <code>Ma.FC</code></li>
+<li>"A woman tied to a stake with smoke all around her" (from the Exner manual example) = <code>M.m.YF</code></li>
+</ul>
+
+<h3>Priority/Sequencing Rules for Blends</h3>
+<ol>
+<li><strong>Movement determinants are listed FIRST</strong> (M before FM before m)</li>
+<li><strong>Then chromatic color</strong> (FC, CF, C)</li>
+<li><strong>Then achromatic color</strong> (FC', C'F, C')</li>
+<li><strong>Then shading</strong> (FT/TF/T, then FV/VF/V, then FY/YF/Y)</li>
+<li><strong>Then Form Dimension</strong> (FD)</li>
+<li><strong>Then Pair/Reflection</strong> (Fr, rF)</li>
+</ol>
+
+<div class="caution-box">
+<strong>Common Blend Error:</strong> Forgetting to include a determinant in a complex blend is one of the most common errors of omission identified in the Exner manual. After coding a blend, always re-read the verbatim response and inquiry to check: "Did I capture ALL the perceptual features the subject used?"
+</div>
+
+<h3>Special Blend Types (Important for Structural Summary)</h3>
+<table>
+<tr><th>Blend Type</th><th>Definition</th><th>Example</th></tr>
+<tr><td><strong>Color-Shading Blend</strong></td><td>A blend containing BOTH a chromatic color determinant AND a shading determinant (T, V, or Y) or achromatic color (C')</td><td><code>CF.FC'</code> or <code>FC.FY</code></td></tr>
+<tr><td><strong>Shading Blend</strong></td><td>A blend containing TWO OR MORE different shading determinants (any combination of T, V, Y, C')</td><td><code>FT.FY</code> or <code>FC'.FV</code></td></tr>
+<tr><td><strong>m and Y Blend</strong></td><td>A blend containing both inanimate movement (m) and diffuse shading (Y) — indicates situational stress</td><td><code>ma.YF</code></td></tr>
+</table>
+
+<div class="remember-box">
+<strong>Pure F is NEVER in a blend.</strong> If any other determinant is present, it is no longer "pure" form. If form is used together with color, it becomes FC/CF. If form is used with movement, it becomes M/FM/m (which inherently have form). Pure F means ONLY shape was used — nothing else.
+</div>
+
+<!-- STEP 9: CODING FORMAT -->
+<div class="step-header" id="sec13">STEP 9: CODING FORMAT & SEQUENCE</div>
+
+<p>Every response is coded in a <strong>standard sequence</strong>. This is the format used in the Sequence of Scores (the line-by-line coding of all responses).</p>
+
+<h3>Standard Coding Sequence</h3>
+<div class="formula-box">
+<strong>Card # — Response # — Location DQ — Determinant(s) FQ — (2) — Content(s) — P — Z Score — Special Scores</strong>
+</div>
+
+<h3>Detailed Format Breakdown</h3>
+<table>
+<tr><th>Position</th><th>Element</th><th>Example</th><th>Notes</th></tr>
+<tr><td>1</td><td>Card Number</td><td>I, II, III... X</td><td>Roman numerals</td></tr>
+<tr><td>2</td><td>Response Number</td><td>1, 2, 3...</td><td>Sequential across all cards</td></tr>
+<tr><td>3</td><td>Location + DQ</td><td>W+, Do, DdS o, Wv</td><td>Location code immediately followed by DQ symbol</td></tr>
+<tr><td>4</td><td>Determinant(s) + FQ</td><td>Fo, Ma.FCo, FT.FC'u</td><td>Determinant(s) followed by FQ symbol at the end</td></tr>
+<tr><td>5</td><td>Pair</td><td>(2)</td><td>Only if pair is present</td></tr>
+<tr><td>6</td><td>Content(s)</td><td>H, A, An, Bt, H,Cg,Fi</td><td>Multiple contents separated by commas</td></tr>
+<tr><td>7</td><td>Popular</td><td>P</td><td>Only if response is Popular</td></tr>
+<tr><td>8</td><td>Z Score</td><td>1.0, 2.5, 4.0, 5.5, 6.0</td><td>Organizational activity score (if applicable)</td></tr>
+<tr><td>9</td><td>Special Scores</td><td>MOR, AG, DV, INC2, FABCOM</td><td>All applicable special scores</td></tr>
+</table>
+
+<h3>Example of a Complete Coded Response</h3>
+<div class="coding-example">
+<h5>Response to Card I:</h5>
+<p><strong>Response:</strong> "It reminds me of a woman tied to a stake with smoke all around her"</p>
+<p><strong>Inquiry:</strong> "She's in the center with her hands up in the air and this part is dark, like smoke rising all around her... like floating upward, from a fire, she's standing there, helpless, like Joan of Arc"</p>
+<p><strong>Coding:</strong></p>
+<p><code>W+ M?.m!.YFu H, Fi, Ay 4.0 MOR</code></p>
+<p><strong>Breakdown:</strong></p>
+<ul>
+<li><strong>W+</strong> = Whole blot, Synthesized (woman + smoke + fire = integrated scene)</li>
+<li><strong>M?.m!.YF</strong> = Human movement (standing helpless) + inanimate movement (smoke rising) + Diffuse shading-form (the dark/smoke quality)</li>
+<li><strong>u</strong> = Unusual form quality (uncommon but can be seen)</li>
+<li><strong>H, Fi, Ay</strong> = Human, Fire, Anthropology (Joan of Arc historical reference)</li>
+<li><strong>4.0</strong> = Z score for W integration on Card I</li>
+<li><strong>MOR</strong> = Morbid (helpless, tied to stake — dysphoric/damaged quality)</li>
+</ul>
+</div>
+
+<h3>Z Score (Organizational Activity)</h3>
+<p>Z scores are assigned when the subject <strong>organizes</strong> parts of the blot into a meaningful relationship. Z scores are assigned for:</p>
+<ul>
+<li><strong>ZW:</strong> Any W response (the entire blot was organized)</li>
+<li><strong>ZA:</strong> Two or more adjacent D areas are integrated</li>
+<li><strong>ZD:</strong> Two or more distant D areas are integrated</li>
+<li><strong>ZS:</strong> White space is integrated with adjacent blot areas</li>
+</ul>
+<p>Each card has specific Z values for each type (listed in the Z tables in the manual). The sum of all Z scores = Zsum. The expected Z for a given Zf = Zest.</p>
+
+<div class="formula-box">
+<strong>Zd = Zsum - Zest</strong><br>
+(Difference between actual and expected organizational activity; indicates over- or under-incorporation)
+</div>
+
+<!-- STEP 10: COMMON CODING ERRORS -->
+<div class="step-header" id="sec14">STEP 10: COMMON CODING ERRORS</div>
+
+<p>The Exner manual specifically identifies these coding errors. Being aware of them can prevent cascading interpretation errors:</p>
+
+<h3>A. Determinant Errors</h3>
+<table>
+<tr><th>Error</th><th>Description</th><th>Correct Approach</th></tr>
+<tr><td>C' instead of Y</td><td>Coding achromatic color when the subject's intent suggests diffuse shading</td><td>When "dark" or "light" is ambiguous, ALWAYS code Y (step-down rule)</td></tr>
+<tr><td>C instead of CF</td><td>Neglecting the step-down principle; coding pure color when some form exists</td><td>If there is ANY vague form, code CF not C. Pure C = absolutely NO form.</td></tr>
+<tr><td>Vista instead of FD</td><td>Coding V when depth is created by size/shape (not shading)</td><td>V = shading creates depth; FD = size/position creates depth</td></tr>
+<tr><td>Missing blend determinants</td><td>Forgetting to include all determinants in a complex response</td><td>Re-read the response; check for form, color, shading, AND movement</td></tr>
+<tr><td>Coding F in a blend</td><td>Including pure F alongside another determinant</td><td>Pure F is NEVER part of a blend — form is already subsumed in FC, FT, etc.</td></tr>
+</table>
+
+<h3>B. Form Quality Errors</h3>
+<table>
+<tr><th>Error</th><th>Description</th><th>Correct Approach</th></tr>
+<tr><td>Overuse of FQ-</td><td>Assigning minus too frequently without consulting FQ tables</td><td>ALWAYS check the tables; many unusual percepts are FQu, not FQ-</td></tr>
+<tr><td>Not checking location-specific norms</td><td>Applying general FQ without considering the specific blot area</td><td>FQ is location-specific — "bat" may be FQo in W but FQ- in D4</td></tr>
+<tr><td>Confusing FQu with FQ-</td><td>Calling something distorted when it's merely uncommon</td><td>FQu = uncommon but you CAN see the fit; FQ- = you CANNOT see the fit</td></tr>
+</table>
+
+<h3>C. Location Errors</h3>
+<table>
+<tr><th>Error</th><th>Description</th><th>Correct Approach</th></tr>
+<tr><td>Incorrect D/Dd classification</td><td>Calling a common detail area Dd, or vice versa</td><td>ALWAYS verify against the location tables for each card</td></tr>
+<tr><td>Missing S coding</td><td>Forgetting to note white space incorporation</td><td>Check: did the subject use white space as a meaningful part?</td></tr>
+<tr><td>Wrong W coding</td><td>Coding W when the subject didn't use the entire blot</td><td>W = ALL of the blot area must be used; verify in inquiry</td></tr>
+</table>
+
+<h3>D. Special Score Errors</h3>
+<table>
+<tr><th>Error</th><th>Description</th><th>Correct Approach</th></tr>
+<tr><td>Missing MOR</td><td>Not coding morbid when damage/death/dysphoria is present</td><td>Any reference to dead, broken, damaged, decayed, sad = MOR</td></tr>
+<tr><td>Missing Pair (2)</td><td>Forgetting to code pair when symmetry-based identical objects are seen</td><td>If two identical things based on symmetry → always code (2)</td></tr>
+<tr><td>Missing Popular (P)</td><td>Forgetting to check if the response is a Popular</td><td>After coding everything else, always check the 13 Populars</td></tr>
+<tr><td>Wrong cognitive special score level</td><td>Coding Level 1 when it should be Level 2, or vice versa</td><td>Level 2 = bizarre, grossly impossible; Level 1 = mild, unusual</td></tr>
+<tr><td>INC vs FABCOM confusion</td><td>Confusing single-object attribute error with relational error</td><td>INC = one object, wrong features; FABCOM = two objects, wrong relationship</td></tr>
+</table>
+
+<div class="caution-box">
+The Exner manual warns: "While errors in the scoring of responses are undesirable, the presence of one or two mistakes usually does not alter the interpretive significance of the structural data. However, there are circumstances in which even one error can impact substantially on interpretation." Always strive for 100% coding accuracy.
+</div>
+
+<!-- STEP 11: PRACTICE EXAMPLES -->
+<div class="step-header" id="sec15">STEP 11: PRACTICE EXAMPLES</div>
+
+<h3>Practice Example 1</h3>
+<div class="coding-example">
+<h5>Card V — Response:</h5>
+<p><strong>Response:</strong> "A bat"</p>
+<p><strong>Inquiry:</strong> "The whole thing — the wings out to the side, the head up here, the legs at the bottom. Just the shape of it."</p>
+<p><strong>Step-by-Step Coding:</strong></p>
+<ol>
+<li><strong>Location:</strong> Whole blot used → <code>W</code></li>
+<li><strong>DQ:</strong> Single specific object, no integration of separate parts → <code>o</code> (ordinary)</li>
+<li><strong>Determinant:</strong> Only shape mentioned ("just the shape") → <code>F</code> (pure form)</li>
+<li><strong>Form Quality:</strong> Bat on W of Card V → check tables → <code>o</code> (ordinary — it's listed)</li>
+<li><strong>Pair:</strong> One bat, not two → no pair</li>
+<li><strong>Content:</strong> Bat is a whole animal → <code>A</code></li>
+<li><strong>Popular:</strong> Bat on Card V whole = Popular → <code>P</code></li>
+<li><strong>Z Score:</strong> W response on Card V → Z = 1.0</li>
+<li><strong>Special Scores:</strong> Nothing unusual → none</li>
+</ol>
+<p><strong>Final Code:</strong> <code>Wo Fo A P 1.0</code></p>
+</div>
+
+<h3>Practice Example 2</h3>
+<div class="coding-example">
+<h5>Card II — Response:</h5>
+<p><strong>Response:</strong> "Two bears fighting, with blood between them"</p>
+<p><strong>Inquiry:</strong> "These dark parts on the sides are the bears — they're pushing against each other. The red in the middle is blood, it's red so it looks like blood."</p>
+<p><strong>Step-by-Step Coding:</strong></p>
+<ol>
+<li><strong>Location:</strong> Uses the common dark lateral areas (D1) plus center red (D3) → this uses multiple D areas in combination → <code>W+</code> (or D+ if not using entire blot — check location sheet)</li>
+<li><strong>DQ:</strong> Two objects in meaningful relationship (fighting) + blood related to them → <code>+</code> (synthesized)</li>
+<li><strong>Determinants:</strong>
+<ul>
+<li>Bears are in action (fighting) — animal doing natural animal activity → <code>FMa</code> (animal movement, active)</li>
+<li>Blood identified by red color → <code>C</code> (pure color — "it's red so it looks like blood" = color only, no form for the blood)</li>
+<li>This is a BLEND: <code>FMa.C</code></li>
+</ul></li>
+<li><strong>Form Quality:</strong> Bears in D1 of Card II → check tables → likely <code>o</code></li>
+<li><strong>Pair:</strong> "Two bears" — identical, based on symmetry → <code>(2)</code></li>
+<li><strong>Content:</strong> Bears = whole animal; Blood = blood → <code>A, Bl</code></li>
+<li><strong>Popular:</strong> Animal in D1 of Card II = Popular → <code>P</code></li>
+<li><strong>Z Score:</strong> W+ on Card II → Z score per table</li>
+<li><strong>Special Scores:</strong> Bears are fighting = AG (aggressive movement) → <code>AG</code></li>
+</ol>
+<p><strong>Final Code:</strong> <code>W+ FMa.Co (2) A, Bl P 4.5 AG</code></p>
+</div>
+
+<h3>Practice Example 3</h3>
+<div class="coding-example">
+<h5>Card VI — Response:</h5>
+<p><strong>Response:</strong> "An animal skin, like a bearskin rug"</p>
+<p><strong>Inquiry:</strong> "The whole thing — it's flat and spread out like a hide. The shading makes it look furry, soft to the touch."</p>
+<p><strong>Step-by-Step Coding:</strong></p>
+<ol>
+<li><strong>Location:</strong> Whole blot → <code>W</code></li>
+<li><strong>DQ:</strong> Single object, specific shape → <code>o</code></li>
+<li><strong>Determinants:</strong>
+<ul>
+<li>Shape is mentioned (flat, spread out) → Form</li>
+<li>"Shading makes it look furry, soft to the touch" → Texture (FT) — tactile quality from shading</li>
+<li>Form is primary (it has the shape of a hide), texture is secondary → <code>FTo</code></li>
+</ul></li>
+<li><strong>Form Quality:</strong> Animal skin/hide on W of Card VI → check tables → <code>o</code></li>
+<li><strong>Pair:</strong> One skin → no pair</li>
+<li><strong>Content:</strong> Animal skin → <code>Ad</code> (it's a PART of an animal — the skin)</li>
+<li><strong>Popular:</strong> Animal skin/hide on Card VI = Popular → <code>P</code></li>
+<li><strong>Z Score:</strong> W on Card VI → Z = 2.5</li>
+<li><strong>Special Scores:</strong> None</li>
+</ol>
+<p><strong>Final Code:</strong> <code>Wo FTo Ad P 2.5</code></p>
+</div>
+
+<div class="caution-box">
+This Card VI response is specifically highlighted in the Exner manual as critical. Failing to code FT here (when the subject clearly mentions the furry/soft/tactile quality from shading) would result in T=0 in the structural summary, which cascades into errors in the interpersonal cluster, es, Adjusted D, and multiple indices.
+</div>
+
+<h3>Practice Example 4</h3>
+<div class="coding-example">
+<h5>Card III — Response:</h5>
+<p><strong>Response:</strong> "Two people picking something up together"</p>
+<p><strong>Inquiry:</strong> "The dark figures on the sides — they're bending over, reaching for this thing in the middle. The shape of them — you can see their heads, bodies, and legs."</p>
+<p><strong>Step-by-Step Coding:</strong></p>
+<ol>
+<li><strong>Location:</strong> Common lateral dark figures (D1 or D9) → <code>D</code></li>
+<li><strong>DQ:</strong> Two objects in meaningful relationship (cooperating to pick something up) + object being picked up → <code>+</code> (synthesized)</li>
+<li><strong>Determinants:</strong>
+<ul>
+<li>People performing a human action (bending, reaching, picking up) → <code>Ma</code> (human movement, active)</li>
+<li>Only shape is mentioned beyond the movement → form is subsumed in M</li>
+</ul></li>
+<li><strong>Form Quality:</strong> Two people in D1 of Card III → check tables → <code>o</code></li>
+<li><strong>Pair:</strong> "Two people" — identical, based on symmetry → <code>(2)</code></li>
+<li><strong>Content:</strong> Two whole human figures → <code>H</code></li>
+<li><strong>Popular:</strong> Two human figures on Card III = Popular → <code>P</code></li>
+<li><strong>Z Score:</strong> D+ integration → Z per table</li>
+<li><strong>Special Scores:</strong> Cooperative activity → <code>COP</code></li>
+</ol>
+<p><strong>Final Code:</strong> <code>D+ Mao (2) H P 3.0 COP</code></p>
+</div>
+
+<h3>Practice Example 5 — Complex Blend</h3>
+<div class="coding-example">
+<h5>Card IX — Response:</h5>
+<p><strong>Response:</strong> "A colorful explosion, with fire and smoke going everywhere, it's all chaotic and destructive"</p>
+<p><strong>Inquiry:</strong> "All of it — the oranges and greens are the fire, the lighter parts are smoke rising up, the whole thing is just blasting outward"</p>
+<p><strong>Step-by-Step Coding:</strong></p>
+<ol>
+<li><strong>Location:</strong> Whole blot → <code>W</code></li>
+<li><strong>DQ:</strong> Integration present (fire + smoke in relationship) but some components are formless → <code>v/+</code></li>
+<li><strong>Determinants:</strong>
+<ul>
+<li>"Blasting outward" = inanimate movement → <code>ma</code></li>
+<li>"The oranges and greens are the fire" = chromatic color, vague form → <code>CF</code></li>
+<li>"Lighter parts are smoke rising" = diffuse shading + vague form → <code>YF</code></li>
+<li>BLEND: <code>ma.CF.YF</code></li>
+</ul></li>
+<li><strong>Form Quality:</strong> Explosion on W of Card IX → likely <code>u</code></li>
+<li><strong>Content:</strong> Explosion + Fire → <code>Ex, Fi</code></li>
+<li><strong>Popular:</strong> Not a Popular for Card IX → no P</li>
+<li><strong>Z Score:</strong> W on Card IX → Z per table</li>
+<li><strong>Special Scores:</strong> "Chaotic and destructive" — is this MOR? The explosion is described as destructive → <code>MOR</code></li>
+</ol>
+<p><strong>Final Code:</strong> <code>Wv/+ ma.CF.YFu Ex, Fi 5.5 MOR</code></p>
+</div>
+
+<!-- SECTION 12: HIGH-YIELD VIVA POINTS -->
+<h2 id="sec16"><span class="section-icon">5</span> HIGH-YIELD VIVA POINTS</h2>
+
+<h3>Frequently Asked Coding Rules</h3>
+
+<h4>1. The Step-Down Principle</h4>
+<ul>
+<li>When in doubt between FC and CF → code <strong>CF</strong></li>
+<li>When in doubt between CF and C → code <strong>CF</strong> (not C)</li>
+<li>When in doubt between C' and Y → code <strong>Y</strong></li>
+<li>When in doubt between FV and FD → determine if SHADING is used (V) or only size/position (FD)</li>
+<li><strong>Principle:</strong> Always step down to the less pathologically significant code when ambiguity exists</li>
+</ul>
+
+<h4>2. Key Distinctions (Most Commonly Asked)</h4>
+
+<table>
+<tr><th>Distinction</th><th>Code A</th><th>Code B</th><th>How to Differentiate</th></tr>
+<tr><td><strong>M vs FM vs m</strong></td><td>M = Human action</td><td>FM = Animal action (natural)<br>m = Inanimate motion</td><td>WHO/WHAT is moving? Human → M; Animal naturally → FM; Object/force → m. Animal doing human things → M.</td></tr>
+<tr><td><strong>FC vs CF vs C</strong></td><td>FC = Form primary</td><td>CF = Color primary<br>C = Color only</td><td>Does the object have a SPECIFIC shape? Yes + color secondary → FC. Color drives it + vague shape → CF. No form at all → C.</td></tr>
+<tr><td><strong>C' vs Y</strong></td><td>C' = Black/grey/white used AS color</td><td>Y = Shading (diffuse light-dark)</td><td>Is "dark/black" used as a COLOR attribute? → C'. Is shading used for a diffuse effect (smoky, foggy, transparent)? → Y. WHEN UNCLEAR → Y.</td></tr>
+<tr><td><strong>T vs V vs Y</strong></td><td>T = Touch/feel (texture)</td><td>V = Depth from shading<br>Y = Diffuse/general shading</td><td>Does shading create a tactile impression? → T. Does shading create depth? → V. Is it general/diffuse? → Y.</td></tr>
+<tr><td><strong>V vs FD</strong></td><td>V = Depth from SHADING</td><td>FD = Depth from SIZE/POSITION</td><td>Does the subject reference light/dark/shading for depth? → V. Does the subject reference size/overlap/position for depth? → FD.</td></tr>
+<tr><td><strong>INC vs FABCOM</strong></td><td>INC = One object, wrong features</td><td>FABCOM = Two objects, wrong relationship</td><td>Is it ONE thing with impossible attributes? → INC. Two things in impossible relation? → FABCOM.</td></tr>
+<tr><td><strong>AG vs MOR</strong></td><td>AG = Ongoing aggression</td><td>MOR = Past damage/death/dysphoria</td><td>Is aggression HAPPENING NOW? → AG. Has damage already occurred? → MOR. Can be both if aggressive act is destroying something.</td></tr>
+<tr><td><strong>Pair (2) vs Reflection (Fr/rF)</strong></td><td>Pair = Two identical objects</td><td>Reflection = One object + its mirror image</td><td>Does the subject say "reflection," "mirror," "reflected"? → Fr/rF. Just two identical things? → Pair (2).</td></tr>
+<tr><td><strong>DQ+ vs DQo</strong></td><td>+ = Synthesized (parts relate)</td><td>o = Ordinary (single form)</td><td>Are multiple areas MEANINGFULLY RELATED? → DQ+. Just one thing or unrelated things? → DQo.</td></tr>
+<tr><td><strong>H vs (H) vs Hd</strong></td><td>H = Real, complete human</td><td>(H) = Fictional complete<br>Hd = Real, partial</td><td>Real or fictional? Complete or partial? Both answers determine the code.</td></tr>
+</table>
+
+<h4>3. Color Hierarchy Rules (Viva Favorite)</h4>
+<div class="coding-example">
+<h5>The FC : CF : C Continuum</h5>
+<ul>
+<li><strong>FC</strong> — Maximum form, minimum color: "A red butterfly" (butterfly has definite shape; red is secondary)</li>
+<li><strong>CF</strong> — Moderate form, dominant color: "A splash of paint, reddish" (color drives it; vague form)</li>
+<li><strong>C</strong> — No form, only color: "Blood" (on a red area — any shape = blood; only color matters)</li>
+</ul>
+<p><strong>Clinical Significance (brief, for viva):</strong> FC = well-modulated affect; CF = less controlled emotion; C = raw, unmodulated emotional discharge. Higher FC:CF+C ratio = better emotional control.</p>
+</div>
+
+<h4>4. When NOT to Code Movement</h4>
+<ul>
+<li>"A person" (just identified, no action described) → NO movement, just F</li>
+<li>"A dead bird" → NO movement (dead = MOR, not FM)</li>
+<li>"A butterfly" (without any action) → NO movement, just F</li>
+<li>"Footprints" → NO movement (the person is gone; these are just marks)</li>
+</ul>
+
+<h4>5. The Barely Yield Phenomenon (From the Exner Manual)</h4>
+<p>The Exner manual specifically discusses the "barely yield phenomenon" — when a structural finding barely reaches a threshold (e.g., Adjusted D is barely zero or barely minus). In these cases:</p>
+<ul>
+<li>Go back and REVIEW the coding of responses that contribute to that variable</li>
+<li>Check for possible coding errors that might have tipped the value one way or the other</li>
+<li>A single coding error in these situations can completely change the interpretive conclusion</li>
+<li>This is why coding accuracy is so critical</li>
+</ul>
+
+<h4>6. Lambda and Pure F — Key Points</h4>
+<ul>
+<li>Lambda = Pure F responses divided by (Total R - Pure F responses)</li>
+<li>Lambda > 0.99 = significant (avoidant style or situational defensiveness)</li>
+<li>When Lambda > 0.99 AND EA < 4.0 AND R < 17 → likely situational defensiveness (invalid record)</li>
+<li>When Lambda > 0.99 AND EA >= 4.0 OR R > 16 → likely avoidant STYLE</li>
+</ul>
+
+<h4>7. Key Formulas Used in Structural Summary (Need to Know for Coding Context)</h4>
+<table>
+<tr><th>Formula</th><th>Components</th></tr>
+<tr><td><strong>EB</strong> (Experience Balance)</td><td>Sum M : Weighted Sum Color (WSumC)</td></tr>
+<tr><td><strong>WSumC</strong></td><td>(FC x 0.5) + (CF x 1.0) + (C x 1.5)</td></tr>
+<tr><td><strong>EA</strong> (Experience Actual)</td><td>Sum M + WSumC</td></tr>
+<tr><td><strong>eb</strong> (experience base)</td><td>(FM + m) : (Sum C' + Sum T + Sum V + Sum Y)</td></tr>
+<tr><td><strong>es</strong> (experienced stimulation)</td><td>(FM + m) + (Sum C' + Sum T + Sum V + Sum Y)</td></tr>
+<tr><td><strong>Adj es</strong></td><td>es minus situational factors (excess m and Y beyond 1 each)</td></tr>
+<tr><td><strong>D Score</strong></td><td>EA - es (converted to standard units)</td></tr>
+<tr><td><strong>Adj D Score</strong></td><td>EA - Adj es (converted to standard units)</td></tr>
+<tr><td><strong>Lambda</strong></td><td>Pure F / (R - Pure F)</td></tr>
+<tr><td><strong>Afr</strong> (Affective Ratio)</td><td>Responses to Cards VIII+IX+X / Responses to Cards I-VII</td></tr>
+<tr><td><strong>3r+(2)/R</strong> (Egocentricity Index)</td><td>(3 x Reflections + Pairs) / Total R</td></tr>
+<tr><td><strong>X+%</strong></td><td>FQ+ and FQo responses / R</td></tr>
+<tr><td><strong>XA%</strong></td><td>(FQ+, FQo, FQu) / R</td></tr>
+<tr><td><strong>X-%</strong></td><td>FQ- responses / R</td></tr>
+<tr><td><strong>Xu%</strong></td><td>FQu responses / R</td></tr>
+<tr><td><strong>Isolation Index</strong></td><td>(Bt + 2Cl + Ge + Ls + 2Na) / R</td></tr>
+<tr><td><strong>Intellectualization Index</strong></td><td>2AB + (Art + Ay)</td></tr>
+</table>
+
+<h4>8. Quick Checklist Before Finalizing Coding</h4>
+<ol>
+<li>Is the Location correct? (Verified against tables?)</li>
+<li>Is the DQ appropriate? (Integration vs. single object?)</li>
+<li>Are ALL determinants captured? (Check for missing blend components)</li>
+<li>Is Form Quality correct? (Checked against FQ tables for that specific location?)</li>
+<li>Is Pair coded when applicable? (Two identical objects from symmetry?)</li>
+<li>Are ALL content categories listed? (Primary AND secondary?)</li>
+<li>Is Popular assigned where applicable? (Checked the 13 Populars?)</li>
+<li>Is the Z score correct for this type of organizational activity?</li>
+<li>Are ALL applicable Special Scores assigned? (MOR, AG, COP, cognitive scores?)</li>
+<li>Is the step-down principle applied correctly for ambiguous determinants?</li>
+</ol>
+
+<div class="inkblot-decoration">&#10070; &#10070; &#10070;</div>
+
+<!-- QUICK REFERENCE SUMMARY TABLE -->
+<h2><span class="section-icon">6</span> QUICK REFERENCE: ALL DETERMINANT CODES</h2>
+
+<table>
+<tr><th>Category</th><th>Form Primary</th><th>Determinant Primary</th><th>Pure (No Form)</th></tr>
+<tr><td>Form (only)</td><td colspan="3"><code>F</code> (Pure Form — shape only)</td></tr>
+<tr><td>Human Movement</td><td colspan="3"><code>M</code> (always has form implicit — classified as Ma or Mp)</td></tr>
+<tr><td>Animal Movement</td><td colspan="3"><code>FM</code> (always has form implicit — classified as FMa or FMp)</td></tr>
+<tr><td>Inanimate Movement</td><td colspan="3"><code>m</code> (classified as ma or mp)</td></tr>
+<tr><td>Chromatic Color</td><td><code>FC</code></td><td><code>CF</code></td><td><code>C</code></td></tr>
+<tr><td>Achromatic Color</td><td><code>FC'</code></td><td><code>C'F</code></td><td><code>C'</code></td></tr>
+<tr><td>Texture (shading)</td><td><code>FT</code></td><td><code>TF</code></td><td><code>T</code></td></tr>
+<tr><td>Vista (shading)</td><td><code>FV</code></td><td><code>VF</code></td><td><code>V</code></td></tr>
+<tr><td>Diffuse Shading</td><td><code>FY</code></td><td><code>YF</code></td><td><code>Y</code></td></tr>
+<tr><td>Form Dimension</td><td colspan="3"><code>FD</code> (always form-based, no hierarchy)</td></tr>
+<tr><td>Reflection</td><td><code>Fr</code></td><td><code>rF</code></td><td>—</td></tr>
+</table>
+
+<h2>COMPLETE SPECIAL SCORES REFERENCE</h2>
+
+<table>
+<tr><th>Category</th><th>Score</th><th>Full Name</th><th>Brief Definition</th></tr>
+<tr><td rowspan="6">Cognitive (Thinking)</td><td><code>DV1/DV2</code></td><td>Deviant Verbalization</td><td>Wrong word use (neologism/redundancy)</td></tr>
+<tr><td><code>DR1/DR2</code></td><td>Deviant Response</td><td>Tangential/circumstantial remarks</td></tr>
+<tr><td><code>INC1/INC2</code></td><td>Incongruous Combination</td><td>One object with impossible features</td></tr>
+<tr><td><code>FAB1/FAB2</code></td><td>Fabulized Combination</td><td>Two objects in impossible relationship</td></tr>
+<tr><td><code>ALOG</code></td><td>Inappropriate Logic</td><td>Strained, faulty reasoning</td></tr>
+<tr><td><code>CONTAM</code></td><td>Contamination</td><td>Fusion of two percepts into one (most severe)</td></tr>
+<tr><td rowspan="3">Thematic</td><td><code>MOR</code></td><td>Morbid</td><td>Death, damage, dysphoria attributed</td></tr>
+<tr><td><code>AG</code></td><td>Aggressive Movement</td><td>Ongoing aggressive action</td></tr>
+<tr><td><code>COP</code></td><td>Cooperative Movement</td><td>Positive cooperative interaction</td></tr>
+<tr><td rowspan="5">Other</td><td><code>PSV</code></td><td>Perseveration</td><td>Same response repeated</td></tr>
+<tr><td><code>PER</code></td><td>Personal</td><td>Personal knowledge/experience cited</td></tr>
+<tr><td><code>AB</code></td><td>Abstract Content</td><td>Abstract concept represented</td></tr>
+<tr><td><code>CP</code></td><td>Color Projection</td><td>Color attributed to achromatic area</td></tr>
+<tr><td><code>GHR/PHR</code></td><td>Good/Poor Human Rep.</td><td>Quality of human representation</td></tr>
+</table>
+
+<div class="inkblot-decoration">&#10070; &#10070; &#10070;</div>
+
+<!-- ADDITIONAL CAUTIONS AND NOTES -->
+<h2><span class="section-icon">!</span> ADDITIONAL CAUTIONS & IMPORTANT NOTES</h2>
+
+<div class="caution-box">
+<strong>Never Code from Memory:</strong> Always have the verbatim protocol, location sheet, and FQ tables in front of you when coding. Do not code from memory or paraphrase.
+</div>
+
+<div class="caution-box">
+<strong>Never Add Determinants Not Articulated:</strong> A determinant is coded ONLY if the subject provides evidence that the blot feature contributed to the response. If you THINK color was used because the area is colored, but the subject never mentions color — do NOT code color.
+</div>
+
+<div class="caution-box">
+<strong>Re-Check the Inquiry:</strong> Information from both the Response Phase AND the Inquiry are used together. Sometimes critical determinant information appears ONLY in the inquiry. Always read both phases before coding.
+</div>
+
+<div class="caution-box">
+<strong>Card-Turning Effects:</strong> If a subject turns the card, note the position (rotated, inverted). This can affect location coding. Record card position using the standard notation system.
+</div>
+
+<div class="caution-box">
+<strong>Multiple Responses per Card:</strong> Each separate response to a card is coded independently. A subject may give 1 response or 5 responses to a single card. Each one gets its own complete code line in the Sequence of Scores.
+</div>
+
+<div class="caution-box">
+<strong>R (Total Number of Responses):</strong> Only TRUE responses are counted. Rejected cards (subject says "I don't see anything") are NOT counted. Comments or questions are NOT responses. A response must involve identifying what the blot (or part of it) looks like.
+</div>
+
+<div class="caution-box">
+<strong>The Number of Responses (R) Matters:</strong> Records with fewer than 14 responses should be considered potentially invalid (the Exner system typically requires R >= 14 for reliable interpretation). If R < 14, consider re-administration. However, even brief protocols are still coded using the same rules.
+</div>
+
+<div class="remember-box">
+<strong>Final Coding Verification:</strong> Per the Exner manual — "it is probably wise for any interpreter to review the coding of all responses before proceeding to the interpretation. This is not necessarily to challenge the scoring that has been assigned, but simply to try to ensure that omission or commission errors have not occurred."
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+<p style="font-size: 1.1em; margin-bottom: 15px;">This comprehensive guide covers ALL essential coding rules of the Exner Comprehensive System for the Rorschach Inkblot Test.</p>
+<p style="font-size: 0.9em; opacity: 0.8; margin-bottom: 20px;">Based on: Exner Comprehensive System Manual (OCR Repository Source)<br>
+For educational and clinical training purposes only.</p>
+<div class="author-badge">MADE BY TEJAS DANGODRA</div>
+<p style="margin-top: 15px; font-size: 0.85em; opacity: 0.7;">All coding rules strictly follow the Exner Comprehensive System. No interpretation content included.</p>
+</div>
+
+</div>
+</body>
+</html>
