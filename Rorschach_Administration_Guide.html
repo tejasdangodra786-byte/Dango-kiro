@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rorschach Inkblot Test - Complete Administration Guide | Exner Comprehensive System</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #e8f5e9 0%, #e3f2fd 25%, #fce4ec 50%, #fff3e0 75%, #f3e5f5 100%); background-attachment: fixed; color: #2d3436; line-height: 1.7; padding: 20px; }
+.container { max-width: 1100px; margin: 0 auto; background: rgba(255,255,255,0.93); border-radius: 20px; padding: 50px 60px; box-shadow: 0 20px 60px rgba(0,0,0,0.08); }
+.header { text-align: center; padding: 40px 20px; background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%); border-radius: 16px; margin-bottom: 40px; position: relative; overflow: hidden; }
+.header::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 60%); animation: pulse 5s ease-in-out infinite; }
+@keyframes pulse { 0%, 100% { transform: scale(1); opacity: 0.5; } 50% { transform: scale(1.1); opacity: 1; } }
+.header h1 { color: #fff; font-size: 2.2em; text-shadow: 0 2px 10px rgba(0,0,0,0.2); position: relative; z-index: 1; }
+.header h2 { color: rgba(255,255,255,0.9); font-size: 1.2em; font-weight: 400; margin-top: 10px; position: relative; z-index: 1; }
+.author-badge { display: inline-block; background: linear-gradient(135deg, #e74c3c, #c0392b); color: #fff; padding: 8px 24px; border-radius: 30px; font-weight: 700; font-size: 1em; margin-top: 20px; position: relative; z-index: 1; box-shadow: 0 4px 15px rgba(192,57,43,0.3); letter-spacing: 1px; }
+.notice-box { background: linear-gradient(135deg, #fff3cd, #ffeaa7); border-left: 5px solid #fdcb6e; border-radius: 10px; padding: 20px 25px; margin: 25px 0; }
+.notice-box strong { color: #e17055; }
+.caution-box { background: linear-gradient(135deg, #ffcccc, #ffe0e0); border-left: 5px solid #e74c3c; border-radius: 10px; padding: 20px 25px; margin: 20px 0; }
+.caution-box strong { color: #c0392b; }
+.tip-box { background: linear-gradient(135deg, #d4efdf, #abebc6); border-left: 5px solid #27ae60; border-radius: 10px; padding: 20px 25px; margin: 20px 0; }
+.tip-box strong { color: #1e8449; }
+.remember-box { background: linear-gradient(135deg, #d6eaf8, #aed6f1); border-left: 5px solid #2980b9; border-radius: 10px; padding: 20px 25px; margin: 20px 0; }
+.remember-box strong { color: #1a5276; }
+.donot-box { background: linear-gradient(135deg, #f5b7b1, #fadbd8); border-left: 5px solid #922b21; border-radius: 10px; padding: 20px 25px; margin: 20px 0; }
+.donot-box strong { color: #922b21; }
+h2 { color: #2c3e50; font-size: 1.7em; margin-top: 45px; margin-bottom: 18px; padding-bottom: 10px; border-bottom: 3px solid #ecf0f1; position: relative; }
+h2::after { content: ''; position: absolute; bottom: -3px; left: 0; width: 80px; height: 3px; background: linear-gradient(to right, #3498db, #2ecc71); }
+h3 { color: #e74c3c; font-size: 1.35em; margin-top: 30px; margin-bottom: 12px; }
+h4 { color: #27ae60; font-size: 1.1em; margin-top: 22px; margin-bottom: 8px; }
+p { margin-bottom: 12px; }
+ul, ol { margin: 10px 0 15px 25px; }
+li { margin-bottom: 8px; }
+table { width: 100%; border-collapse: collapse; margin: 20px 0; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 15px rgba(0,0,0,0.05); }
+th { background: linear-gradient(135deg, #2c3e50, #34495e); color: #fff; padding: 14px 18px; text-align: left; font-weight: 600; }
+td { padding: 12px 18px; border-bottom: 1px solid #eee; }
+tr:nth-child(even) { background: #f8f9ff; }
+tr:hover { background: #eef2ff; }
+.step-header { background: linear-gradient(135deg, #2c3e50, #3498db); color: #fff; padding: 15px 25px; border-radius: 10px; margin-top: 40px; margin-bottom: 20px; font-size: 1.25em; font-weight: 700; box-shadow: 0 4px 15px rgba(52,152,219,0.3); }
+.toc { background: linear-gradient(135deg, #f5f7fa, #e8ecf1); border-radius: 14px; padding: 30px 40px; margin: 30px 0; }
+.toc h3 { color: #2c3e50; margin-top: 0; }
+.toc ol { counter-reset: toc-counter; list-style: none; padding-left: 0; }
+.toc ol li { counter-increment: toc-counter; padding: 7px 0; border-bottom: 1px dashed #ddd; }
+.toc ol li::before { content: counter(toc-counter) ". "; font-weight: 700; color: #3498db; }
+.verbatim-box { background: #f8f9fa; border: 2px solid #3498db; border-radius: 10px; padding: 20px 25px; margin: 15px 0; font-family: 'Courier New', monospace; font-size: 0.95em; white-space: pre-wrap; }
+.footer { text-align: center; padding: 40px 20px; background: linear-gradient(135deg, #2c3e50, #3498db); border-radius: 16px; margin-top: 50px; color: #fff; }
+.hinglish { background: linear-gradient(135deg, #ffecd2, #fcb69f); border-radius: 10px; padding: 18px 22px; margin: 15px 0; border-left: 4px solid #e67e22; font-style: italic; }
+.hinglish strong { font-style: normal; color: #d35400; }
+.golden-rule { background: linear-gradient(135deg, #fff9c4, #fff176); border: 3px solid #f9a825; border-radius: 12px; padding: 22px 28px; margin: 20px 0; text-align: center; font-size: 1.1em; }
+@media (max-width: 768px) { .container { padding: 20px; } .header h1 { font-size: 1.5em; } }
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- HEADER -->
+<div class="header">
+<h1>RORSCHACH INKBLOT TEST<br>Complete Administration Guide</h1>
+<h2>Exner's Comprehensive System &mdash; How to Conduct the Test</h2>
+<div class="author-badge">MADE BY TEJAS DANGODRA</div>
+</div>
+
+<!-- IMPORTANT NOTICE -->
+<div class="notice-box">
+<strong>PURPOSE:</strong> This is a <strong>step-by-step guide on HOW TO ADMINISTER/CONDUCT the Rorschach Inkblot Test</strong> using the Exner Comprehensive System. It covers all phases of administration, exact instructions, cautions, age criteria, seating, recording, and inquiry procedures.<br><br>
+<strong>UDESHYA (Purpose - Hinglish mein):</strong> Yeh guide aapko batata hai ki Rorschach test kaise conduct karna hai &mdash; step by step. Ismein administration ke saare phases, exact instructions, savdhaniyan (cautions), age criteria, seating arrangement, recording, aur inquiry procedures sab kuch detail mein diya gaya hai.<br><br>
+<strong>CRITICAL RULE / MAHATVAPURN NIYAM:</strong> In Rorschach Inquiry, we <strong>NEVER</strong> ask "Kyun?" (Why?) &mdash; we <strong>ALWAYS</strong> ask <strong>"Kis vajah se aisa laga?"</strong> (What made it look like that?). "Kyun" sounds challenging and interrogative. "Kis vajah se" is non-directive and helps the subject explain their perception without feeling pressured.<br><br>
+<strong>Reference:</strong> Based on Exner Comprehensive System Manual
+</div>
+
+<!-- TABLE OF CONTENTS -->
+<div class="toc">
+<h3>Table of Contents (Vishay Soochi)</h3>
+<ol>
+<li>Introduction &amp; Overview (Parichay)</li>
+<li>Age Criteria &amp; Applicability (Aayu Mapdand)</li>
+<li>Materials Required (Samagri)</li>
+<li>Pre-Administration Preparation (Tayyari)</li>
+<li>Seating Arrangement (Baithne ki Vyavastha)</li>
+<li>Rapport Building (Sampark Sthapna)</li>
+<li>Phase 1: Response Phase &mdash; Free Association (Uttar Charan)</li>
+<li>Phase 2: Inquiry Phase (Jankari Charan)</li>
+<li>Phase 3: Testing the Limits (Seema Parikshan &mdash; Optional)</li>
+<li>Recording Procedures (Abhilekhan Prakriya)</li>
+<li>Card-by-Card Administration Notes</li>
+<li>Special Populations &amp; Modifications</li>
+<li>Common Administration Errors</li>
+<li>Complete Cautions &amp; Do's and Don'ts</li>
+<li>Hinglish Quick Reference Summary</li>
+</ol>
+</div>
+
+<!-- SECTION 1: INTRODUCTION -->
+<h2>1. Introduction &amp; Overview (Parichay)</h2>
+
+<p>The Rorschach Inkblot Test is a <strong>projective personality assessment</strong> that uses 10 symmetrical inkblot cards to assess an individual's personality structure, emotional functioning, thought processes, and perception of reality.</p>
+
+<ul>
+<li><strong>Developer:</strong> Hermann Rorschach (1921) &mdash; Swiss psychiatrist</li>
+<li><strong>Systematized by:</strong> John E. Exner Jr. (Comprehensive System &mdash; most widely used standardized approach)</li>
+<li><strong>Type:</strong> Projective personality test</li>
+<li><strong>Stimuli:</strong> 10 symmetrical inkblot cards (5 achromatic, 2 with red, 3 fully chromatic)</li>
+<li><strong>Purpose:</strong> Assesses personality structure, emotional functioning, thought processes, perceptual accuracy, interpersonal perception, stress management, and reality testing</li>
+<li><strong>Theoretical basis:</strong> How a person perceives and organizes ambiguous stimuli reveals their psychological functioning</li>
+</ul>
+
+<div class="hinglish">
+<strong>HINGLISH:</strong> Rorschach ek projective personality test hai jismein 10 symmetrical inkblot cards use hote hain. Yeh test Hermann Rorschach ne 1921 mein develop kiya tha aur John Exner ne isse Comprehensive System ke roop mein standardize kiya. Isse personality structure, emotions, soch ki prakriya (thought process), aur perception (dharna) ko samjha ja sakta hai. Jab koi vyakti ambiguous (aspasht) stimuli ko organize karta hai, toh usse uski psychological functioning ka pata chalta hai.
+</div>
+
+<!-- SECTION 2: AGE CRITERIA -->
+<h2>2. Age Criteria &amp; Applicability (Aayu Mapdand)</h2>
+
+<ul>
+<li><strong>Minimum age:</strong> 5 years onwards</li>
+<li><strong>No upper age limit</strong> &mdash; can be used with elderly populations</li>
+<li><strong>Children below 5:</strong> Generally cannot participate meaningfully; cognitive and verbal development insufficient</li>
+<li><strong>Children ages 5-7:</strong> Shorter protocols expected (R=14-17 typical), more FM (animal movement) responses, simpler content</li>
+<li><strong>Children ages 8-12:</strong> Responses become more complex; begin to approximate adult patterns</li>
+<li><strong>Adolescents (13-17):</strong> Similar to adult protocols but show more variability; emotional and identity themes common</li>
+<li><strong>Adults (18+):</strong> Full standard administration; average R=22-23 responses</li>
+<li><strong>Elderly:</strong> Standard administration with allowances for fatigue, visual limitations</li>
+<li><strong>Special norms:</strong> Exner's system provides separate normative tables for different age groups</li>
+</ul>
+
+<div class="hinglish">
+<strong>HINGLISH:</strong> Yeh test 5 saal se upar ki umar ke logon par lagaya ja sakta hai &mdash; bacche, kishor (adolescents), vayask (adults), aur buzurg (elderly) sab par. 5 saal se chhote bacche meaningful responses dene mein asmarth hote hain kyunki unki cognitive aur verbal development puri nahin hoti. 5-7 saal ke bacchon mein kam responses (14-17) aate hain aur zyaada FM responses hote hain. Adults mein average 22-23 responses aate hain.
+</div>
+
+<!-- SECTION 3: MATERIALS REQUIRED -->
+<h2>3. Materials Required (Samagri)</h2>
+
+<ul>
+<li><strong>10 standard Rorschach inkblot cards</strong> (Cards I through X, in correct order)</li>
+<li><strong>Location sheet</strong> &mdash; reduced-size copies of each card for marking response areas during inquiry</li>
+<li><strong>Recording forms / blank paper</strong> &mdash; for verbatim transcription</li>
+<li><strong>Stopwatch / timer</strong> &mdash; for recording reaction time (card presentation to first response) and total time per card</li>
+<li><strong>Pen / pencils</strong> &mdash; for recording and location marking</li>
+<li><strong>Comfortable seating arrangement</strong> &mdash; chairs positioned side-by-side</li>
+<li><strong>Quiet, distraction-free room</strong> &mdash; private, well-lit, comfortable temperature</li>
+<li><strong>Flat table or surface</strong> &mdash; for placing cards</li>
+</ul>
+
+<div class="hinglish">
+<strong>HINGLISH:</strong> Aapko chahiye: 10 standard Rorschach cards (sahi kram mein I se X), location sheet (chhoti copies jismein area mark kar sakein), recording forms ya blank paper (verbatim likhne ke liye), stopwatch (reaction time aur total time ke liye), pen/pencils, comfortable seating (side-by-side), aur ek shant, achhi roshni wala, private kamra jahan koi distraction na ho.
+</div>
+
+<!-- SECTION 4: PRE-ADMINISTRATION PREPARATION -->
+<h2>4. Pre-Administration Preparation (Tayyari)</h2>
+
+<ol>
+<li>Ensure all 10 cards are present and in correct order (I through X)</li>
+<li>Cards should be placed face down in a neat pile on the table</li>
+<li>Check that cards are clean, undamaged, and free of marks</li>
+<li>Prepare all recording materials (forms, pens, location sheets, stopwatch)</li>
+<li>Ensure the room is private, quiet, and well-lit (no harsh lighting)</li>
+<li>Remove potential distractions (phones on silent, door closed, no interruptions)</li>
+<li>Have clock/timer ready and tested</li>
+<li>Review subject's background information if available (referral reason, history)</li>
+<li>Set up seating arrangement (side-by-side, slight angle)</li>
+<li>Mentally prepare your standard instructions</li>
+</ol>
+
+<div class="hinglish">
+<strong>HINGLISH:</strong> Test se pehle tayyari: 10 cards ko sahi order mein rakhein (I se X), face down pile mein. Check karein ki cards saaf aur undamaged hain. Recording materials tayyar rakhein. Kamra shant, private, aur achhi roshni wala ho. Phones silent par, darwaza band. Stopwatch ready rakhein. Subject ki background info review karein agar available ho. Seating side-by-side set karein.
+</div>
+
+<!-- SECTION 5: SEATING ARRANGEMENT -->
+<h2>5. Seating Arrangement (Baithne ki Vyavastha)</h2>
+
+<p>The seating arrangement in Rorschach administration is <strong>critically important</strong> and follows specific rules in the Exner Comprehensive System:</p>
+
+<ul>
+<li><strong>Standard position:</strong> Examiner sits BESIDE the subject (side-by-side), NOT across from them</li>
+<li><strong>Rationale:</strong> This prevents the examiner's facial expressions from influencing the subject's responses</li>
+<li><strong>Preferred angle:</strong> Examiner slightly behind and to the side (about 90-degree angle)</li>
+<li><strong>Subject comfort:</strong> Subject should be seated comfortably with adequate table/surface for cards</li>
+<li><strong>Visual access:</strong> Examiner should be able to see the card (for noting position/rotation) and write notes</li>
+<li><strong>Children modification:</strong> For very young children (5-7), may sit across at a low table if side-by-side creates discomfort, but this is not ideal</li>
+</ul>
+
+<div class="caution-box">
+<strong>CAUTION:</strong> Never sit directly facing the subject in standard Rorschach administration. Your facial reactions (surprise, concern, amusement, curiosity) can influence their responses and contaminate the data. Even subtle micro-expressions can be picked up by subjects.
+</div>
+
+<div class="hinglish">
+<strong>HINGLISH:</strong> Examiner subject ke BAGAL mein baithta hai (side-by-side), saamne NAHIN. Yeh Exner system ka standard rule hai. Iska kaaran yeh hai ki agar aap saamne baithenge toh aapke chehra ke expressions (surprise, concern, amusement) subject ko influence kar sakte hain aur data contaminate ho sakta hai. Examiner thoda peeche aur side mein baithe (90-degree angle). Bacchon ke liye (5-7 saal) agar side-by-side uncomfortable ho toh saamne baith sakte hain, lekin yeh ideal nahin hai.
+</div>
+
+<!-- SECTION 6: RAPPORT BUILDING -->
+<h2>6. Rapport Building (Sampark Sthapna)</h2>
+
+<ul>
+<li>Establish a comfortable, relaxed atmosphere before beginning</li>
+<li>Brief informal conversation to put the subject at ease</li>
+<li>Explain general purpose simply: "I'm going to show you some inkblots and ask what they might look like to you"</li>
+<li>Keep explanation brief and non-technical</li>
+<li>Do NOT over-explain the test or give too many details</li>
+<li>Do NOT call it a "personality test" or "psychological test" if this may create anxiety</li>
+<li>Answer subject's questions briefly and non-directively</li>
+<li>If asked "What is this for?" &mdash; say "It's a task where you tell me what you see in some inkblots. There are no right or wrong answers."</li>
+<li>If asked "Can I fail?" &mdash; say "No, there are no right or wrong answers. Just tell me what you see."</li>
+</ul>
+
+<div class="tip-box">
+<strong>TIP:</strong> The goal is to make the subject feel comfortable enough to respond freely without feeling judged or evaluated. A few minutes of casual conversation can significantly improve the quality of the protocol.
+</div>
+
+<div class="hinglish">
+<strong>HINGLISH:</strong> Pehle subject ko comfortable aur relaxed karein. Thodi informal baat-cheet karein. Batayein ki "Main aapko kuch inkblots (syahi ke dhabbe) dikhaunga aur poochunga ki yeh aapko kya lagta hai." Zyada detail MAT dein &mdash; anxiety ho sakti hai. "Personality test" ya "psychological test" mat kahein agar subject nervous ho sakta hai. Agar puchhe "Kya koi sahi ya galat jawab hai?" toh bolein "Nahin, koi sahi ya galat jawab nahin hota. Bas batayein ki aapko kya dikhta hai."
+</div>
+
+<!-- SECTION 7: PHASE 1 - RESPONSE PHASE -->
+<h2>7. Phase 1: Response Phase &mdash; Free Association (Uttar Charan)</h2>
+
+<div class="step-header">MOST IMPORTANT PHASE &mdash; This is where all responses are collected</div>
+
+<h3>Standard Instructions to the Subject:</h3>
+
+<div class="verbatim-box"><strong>English:</strong> "What might this be?" or "What does this look like?"
+
+<strong>Hinglish:</strong> "Yeh aapko kya lagta hai?" or "Yeh kya ho sakta hai?"</div>
+
+<h3>Procedure &mdash; Step by Step:</h3>
+<ol>
+<li>Pick up Card I from the face-down pile</li>
+<li>Hand Card I to the subject, face up, in its correct orientation (right side up)</li>
+<li>Say the standard instruction: "Yeh aapko kya lagta hai?" / "What might this be?"</li>
+<li>Start the stopwatch immediately when the card is presented</li>
+<li>Record the <strong>reaction time</strong> (time from card presentation to first verbal response)</li>
+<li>Record <strong>EVERY word</strong> the subject says &mdash; VERBATIM (shabd-shabd)</li>
+<li>Note the total time spent on each card</li>
+<li>When subject indicates they are done, take the card back</li>
+<li>Present Card II &mdash; do NOT repeat the instruction for subsequent cards, just hand the card</li>
+<li>Continue this process for all 10 cards (I through X)</li>
+</ol>
+
+<h3>What To Do During Responses:</h3>
+<ul>
+<li><strong>Stay neutral</strong> &mdash; no encouraging or discouraging facial expressions</li>
+<li><strong>Do NOT comment</strong> on the quality of responses ("Good!" "Interesting!" "That's different!")</li>
+<li><strong>Do NOT ask questions</strong> during this phase (save everything for Inquiry)</li>
+<li><strong>If subject asks "Can I turn it?"</strong> &mdash; say "It's up to you" / "Aap chahen toh"</li>
+<li><strong>If subject asks "Should I use the whole thing?"</strong> &mdash; say "It's up to you, people see all sorts of things" / "Aapki marzi, log tarah tarah ki cheezein dekhte hain"</li>
+<li><strong>If subject asks "Is there a right answer?"</strong> &mdash; say "There are no right or wrong answers" / "Koi sahi ya galat jawab nahin hai"</li>
+</ul>
+
+<h3>Special Situations:</h3>
+
+<h4>Only ONE response to Card I:</h4>
+<p>After taking back Card I, gently encourage: "Most people see more than one thing" / "Zyaadatar log ek se zyada cheezein dekhte hain." Then hand them Card I again. Do this ONLY for Card I, never for subsequent cards.</p>
+
+<h4>No response at all:</h4>
+<p>Wait patiently. If still nothing after 30+ seconds, say: "Take your time, most people can find something" / "Apna time lijiye, zyaadatar logon ko kuch na kuch dikhta hai." If still nothing, move to the next card.</p>
+
+<h4>Excessive responses (more than 8-10 per card):</h4>
+<p>If a subject is giving an unusually high number of responses, after the 5th response on a single card, you may say: "It looks like you're finding many things. I'd like you to move along, but take a look at this next one." Use this sparingly.</p>
+
+<h3>Minimum Response Requirement:</h3>
+<ul>
+<li>If total R (responses across all 10 cards) is fewer than 14, the protocol may be <strong>invalid</strong></li>
+<li>If subject consistently gives only 1 response per card, the encouragement after Card I should help</li>
+<li>Do NOT force or pressure &mdash; if fewer than 14, note it; re-administration may be needed</li>
+</ul>
+
+<div class="caution-box">
+<strong>CAUTION:</strong> NEVER say "What else?" in a pushing manner. Never show disappointment at brief responses. Never react with surprise at unusual content. Never rush the subject. Your job is to be a neutral, patient recorder.
+</div>
+
+<div class="hinglish">
+<strong>HINGLISH SUMMARY (Phase 1):</strong><br><br>
+Card I dijiye aur kahiye: "Yeh aapko kya lagta hai?" &mdash; sirf Card I par instruction dein. Baaki cards (II se X) bas haath mein de dein bina kuch kahe. Subject jo bhi bole, <strong>SHABD-SHABD (verbatim)</strong> likhein. Koi bhi response par comment NA karein &mdash; na "accha" bolein, na "interesting" bolein, na koi bhi reaction dein. Agar subject puchhe "Ghuma sakta hoon?" toh bolein "Aapki marzi." Agar Card I par sirf 1 response de toh Card I wapas lete waqt bolein "Zyaadatar log ek se zyada cheezein dekhte hain" aur dobara Card I dein. Yeh sirf Card I ke liye hai, baaki cards par nahin. Reaction time (card dene se pehle response tak ka samay) aur total time note karein. NEUTRAL rahein &mdash; chahe subject kuch bhi bole.
+</div>
+
+<!-- SECTION 8: PHASE 2 - INQUIRY PHASE -->
+<h2>8. Phase 2: Inquiry Phase &mdash; CRITICAL (Jankari Charan)</h2>
+
+<div class="step-header">CRITICAL PHASE &mdash; Where we clarify Location, Determinants, and Content</div>
+
+<h3>Purpose of Inquiry:</h3>
+<p>The Inquiry phase clarifies THREE essential things for accurate coding:</p>
+<ol>
+<li><strong>LOCATION (Jagah)</strong> &mdash; Where exactly on the card did they see it? (Whole blot? Part? Which part?)</li>
+<li><strong>DETERMINANTS (Nirdhaarak Tatva)</strong> &mdash; What features of the blot made it look like that? (Shape? Color? Shading? Movement?)</li>
+<li><strong>CONTENT CLARIFICATION (Vishay Spashteekaran)</strong> &mdash; What exactly did they see? (What kind of animal? Doing what?)</li>
+</ol>
+
+<h3>When to Do Inquiry:</h3>
+<div class="remember-box">
+<strong>REMEMBER:</strong> Inquiry happens AFTER all 10 cards have been presented and ALL responses collected. NEVER do inquiry card-by-card during the Response Phase. Always wait until all 10 cards are done, then go back to Card I and inquire about EACH response, one by one, in order through Card X.
+</div>
+
+<h3>Standard Inquiry Instructions (What to Say):</h3>
+
+<div class="verbatim-box"><strong>English:</strong> "Now I'm going to go through your responses again. I want to see what you saw and understand what made it look like that to you. I'll read back what you said and I'd like you to show me where you saw it and tell me what about it made it look that way."
+
+<strong>Hinglish:</strong> "Ab main aapke jawaabon ko dobara dekhna chahunga. Main aapke response padhunga, aur aap mujhe batayein ki aapne yeh KAHAN dekha aur KIS VAJAH SE aisa laga."</div>
+
+<h3>THE GOLDEN INQUIRY QUESTION:</h3>
+
+<div class="golden-rule">
+<strong>ENGLISH:</strong> "What made it look like that?" / "What about it makes it look like [object]?"<br><br>
+<strong>HINGLISH:</strong> "Kis vajah se aisa laga?" / "Ismein aisi kya baat hai jis vajah se [object] jaisa laga?"<br><br>
+<span style="color: #c0392b; font-weight: 700; font-size: 1.2em;">NEVER USE "KYUN?" / "WHY?" &mdash; KABHI "KYUN" MAT POOCHHEIN!</span>
+</div>
+
+<h3>CRITICAL RULE &mdash; WHY "KYUN" IS FORBIDDEN:</h3>
+
+<div class="donot-box">
+<strong>DO NOT:</strong> NEVER say "Why does it look like that?" / "Kyun aisa lagta hai?" / "Why?" / "Kyun?"<br><br>
+<strong>Reason (Kaaran):</strong>
+<ul>
+<li>"Kyun" / "Why" sounds <strong>challenging and interrogative</strong></li>
+<li>It makes the subject feel they need to JUSTIFY or DEFEND their response</li>
+<li>It can make the subject defensive, anxious, or change their response</li>
+<li>It implies there might be a "wrong" answer</li>
+</ul>
+<br>
+<strong>ALWAYS USE INSTEAD:</strong>
+<ul>
+<li>"Kis vajah se aisa laga?" (What made it look like that?)</li>
+<li>"Ismein aisi kya baat hai?" (What about it?)</li>
+<li>"What made it look like that?"</li>
+<li>"What about it makes it look like [X]?"</li>
+</ul>
+<br>
+These are <strong>NON-DIRECTIVE</strong> and help the subject articulate perceptual features without pressure. The focus is on the BLOT'S features, not on the subject's reasoning.
+</div>
+
+<h3>Inquiry Technique &mdash; Step by Step:</h3>
+<ol>
+<li><strong>Read back</strong> the subject's response verbatim: "You said you saw [X]..."</li>
+<li><strong>Ask for location:</strong> "Show me where you see that" / "Yeh kahan dekha aapne?" &mdash; Mark on location sheet</li>
+<li><strong>Ask the golden question:</strong> "Kis vajah se aisa laga?" / "What made it look like [that]?"</li>
+<li><strong>If still unclear:</strong> "I'm not sure I see it the way you do, help me understand" / "Mujhe waise nahin dikh raha jaise aapko dikha, thoda aur batayein"</li>
+<li><strong>Mark location</strong> on the location sheet carefully</li>
+<li><strong>Listen carefully</strong> for references to: color, shading, texture, movement, shape, depth, symmetry</li>
+<li>Move to next response and repeat</li>
+</ol>
+
+<h3>What to Listen/Probe For (Without Leading):</h3>
+<table>
+<tr><th>Subject Says...</th><th>May Indicate...</th><th>Coding Relevance</th></tr>
+<tr><td>"It's dark" / "black" / "grey"</td><td>Achromatic color</td><td>C' (achromatic color)</td></tr>
+<tr><td>"It looks soft" / "furry" / "rough"</td><td>Texture</td><td>T (texture)</td></tr>
+<tr><td>"It's flying" / "running" / "dancing"</td><td>Movement</td><td>M, FM, or m</td></tr>
+<tr><td>"Because it's red" / "the blue part"</td><td>Chromatic color</td><td>FC, CF, or C</td></tr>
+<tr><td>"It looks deep" / "like a valley"</td><td>Vista/depth</td><td>V or FD</td></tr>
+<tr><td>"It's fading" / "misty"</td><td>Diffuse shading</td><td>Y (diffuse shading)</td></tr>
+<tr><td>"The shape of it"</td><td>Form</td><td>F (pure form)</td></tr>
+</table>
+
+<h3>LEADING QUESTIONS &mdash; ABSOLUTELY FORBIDDEN:</h3>
+
+<div class="donot-box">
+<strong>DO NOT ASK LEADING QUESTIONS:</strong>
+<ul>
+<li>"Was it the color?" / "Kya rang ki vajah se?" &mdash; GALAT!</li>
+<li>"Did it look like it was moving?" / "Kya yeh hilta hua laga?" &mdash; GALAT!</li>
+<li>"Was it the shape?" / "Kya shape ki vajah se?" &mdash; GALAT!</li>
+<li>"Is it because of the shading?" / "Kya shading ki vajah se?" &mdash; GALAT!</li>
+<li>"Does it look like it has texture?" &mdash; GALAT!</li>
+</ul>
+<br>
+<strong>NEVER suggest determinants.</strong> Let the subject tell you freely what features of the blot contributed to their percept. Your job is to ASK OPEN-ENDED QUESTIONS ONLY.
+</div>
+
+<div class="hinglish">
+<strong>HINGLISH SUMMARY (Phase 2 - Inquiry):</strong><br><br>
+Saare 10 cards khatam hone ke BAAD, dobara Card I se shuru karein. Har response ke liye:<br>
+1. Response padh kar sunayein: "Aapne bataya tha ki [X] dikha..."<br>
+2. Poochhein: "Yeh KAHAN dekha aapne?" &rarr; location sheet par mark karein<br>
+3. Poochhein: <strong>"KIS VAJAH SE aisa laga?"</strong> (KYUN NAHIN! KIS VAJAH SE!)<br>
+4. Agar unclear ho: "Mujhe waise nahin dikh raha jaise aapko dikha, thoda aur samjhayein"<br>
+5. Color, shading, texture, movement ke references dhyan se sunein<br>
+6. KABHI BHI LEADING QUESTION MAT POOCHHEIN! ("Kya rang ki vajah se?" = GALAT)<br>
+7. Har response ke liye yahi process repeat karein &mdash; Card I se Card X tak<br><br>
+<strong>YAAD RAKHEIN: "KYUN" = GALAT. "KIS VAJAH SE" = SAHI.</strong> "Kyun" challenging/interrogative lagta hai. "Kis vajah se" non-directive hai aur subject ko comfortable rakhta hai.
+</div>
+
+<!-- SECTION 9: TESTING THE LIMITS -->
+<h2>9. Phase 3: Testing the Limits (Seema Parikshan &mdash; Optional)</h2>
+
+<ul>
+<li>Done <strong>ONLY after Inquiry is completely finished</strong></li>
+<li>Used when examiner wants to check if subject can perceive Popular responses they missed</li>
+<li>Or to check if they can use determinants (like color) they haven't used at all</li>
+<li><strong>NOT standard</strong> &mdash; used selectively based on clinical judgment</li>
+<li>Data from Testing the Limits is <strong>NOT coded</strong> in the Structural Summary</li>
+<li>It provides supplementary clinical information only</li>
+</ul>
+
+<h4>Examples:</h4>
+<ul>
+<li>If subject gave no Popular on Card V: Show Card V again and say "Some people see a bat or butterfly here, can you see that?" / "Kuch logon ko yahan chamgaadad ya titli dikhti hai, kya aap dekh sakte hain?"</li>
+<li>If subject used no color at all on Cards VIII-X: Show a chromatic card and ask "Does the color make it look like anything to you?" / "Kya rang ki vajah se aapko kuch dikhta hai?"</li>
+</ul>
+
+<div class="remember-box">
+<strong>REMEMBER:</strong> Testing the Limits data is NEVER included in the formal Structural Summary coding. It is supplementary clinical information only. Always complete it AFTER full Inquiry is done.
+</div>
+
+<div class="hinglish">
+<strong>HINGLISH:</strong> Yeh optional phase hai jo Inquiry ke BAAD hota hai. Agar subject ne koi Popular response nahin diya (jaise Card V par bat ya butterfly) ya koi determinant bilkul use nahin kiya (jaise rang ka koi response nahin), toh check kar sakte hain. Example: Card V dikhayein aur bolein "Kuch logon ko yahan chamgaadad dikhti hai, kya aap dekh sakte hain?" Lekin yaad rakhein &mdash; iska data Structural Summary mein code NAHIN hota. Yeh sirf extra clinical information ke liye hai.
+</div>
+
+<!-- SECTION 10: RECORDING PROCEDURES -->
+<h2>10. Recording Procedures (Abhilekhan Prakriya)</h2>
+
+<h3>Core Principle: Record EVERYTHING Verbatim</h3>
+<p>The Exner manual states: <em>"Examiners should NEVER fail to make a verbatim record of the verbalizations of the subject."</em> Without verbatim recording, accurate coding is IMPOSSIBLE.</p>
+
+<h3>What to Record:</h3>
+<ul>
+<li><strong>Every word</strong> the subject says &mdash; VERBATIM (word for word, shabd-shabd)</li>
+<li><strong>Card number</strong> for each response</li>
+<li><strong>Card position/rotation:</strong> ^ = upright, v = inverted, &lt; = turned left, &gt; = turned right</li>
+<li><strong>Reaction time</strong> &mdash; time from card presentation to first response (in seconds)</li>
+<li><strong>Total time</strong> per card (from presentation to when card is returned)</li>
+<li><strong>Non-verbal behaviors</strong> in brackets: [points to top], [turns card], [laughs], [long pause], [squints], [holds card far away]</li>
+<li><strong>Inquiry responses</strong> &mdash; recorded separately but linked to original response number</li>
+<li><strong>Locations</strong> marked on location sheet during inquiry</li>
+</ul>
+
+<h3>Standard Abbreviations:</h3>
+<table>
+<tr><th>Abbreviation</th><th>Meaning</th></tr>
+<tr><td>S</td><td>Subject</td></tr>
+<tr><td>E</td><td>Examiner</td></tr>
+<tr><td>Rpts</td><td>Repeats</td></tr>
+<tr><td>resp</td><td>Response</td></tr>
+<tr><td>prt / pt</td><td>Part / Point</td></tr>
+<tr><td>ctr</td><td>Center</td></tr>
+<tr><td>lt</td><td>Left</td></tr>
+<tr><td>rt</td><td>Right</td></tr>
+<tr><td>tp</td><td>Top</td></tr>
+<tr><td>bt</td><td>Bottom</td></tr>
+<tr><td>lkd</td><td>Looked</td></tr>
+<tr><td>w/</td><td>With</td></tr>
+<tr><td>u</td><td>You</td></tr>
+<tr><td>lik</td><td>Like</td></tr>
+<tr><td>fr</td><td>From</td></tr>
+</table>
+
+<div class="caution-box">
+<strong>CAUTION:</strong> Without verbatim recording, accurate coding is IMPOSSIBLE. Never paraphrase. Never summarize. Write EXACT words. If you miss something, ask the subject to repeat (during the response, not later). Use abbreviations to keep up with speed, but never lose the exact content.
+</div>
+
+<div class="hinglish">
+<strong>HINGLISH:</strong> Subject jo bhi bole &mdash; SHABD SHABD likhein (verbatim). Card number, card position (ghuma liya toh ^ v &lt; &gt; se mark karein), reaction time (card dene se pehle response tak ka time), total time per card &mdash; sab note karein. Non-verbal behaviors ko [brackets] mein likhein jaise [points to top], [laughs], [long pause]. Standard abbreviations use karein time bachane ke liye (S = Subject, E = Examiner, lt = left, rt = right, tp = top, bt = bottom, etc.). Inquiry ke responses alag se likhein lekin original response number se link karein. KABHI paraphrase ya summarize MAT karein &mdash; EXACT words chahiye!
+</div>
+
+<!-- SECTION 11: CARD-BY-CARD NOTES -->
+<h2>11. Card-by-Card Administration Notes</h2>
+
+<h3>Card Characteristics:</h3>
+<table>
+<tr><th>Card</th><th>Color</th><th>Features</th><th>Common/Popular Content</th></tr>
+<tr><td><strong>I</strong></td><td>Grey/Black</td><td>Symmetrical, relatively simple, first card</td><td>Bat, butterfly, moth</td></tr>
+<tr><td><strong>II</strong></td><td>Grey/Black + Red</td><td>Color introduction; white spaces prominent</td><td>Two animals/people, blood, butterfly</td></tr>
+<tr><td><strong>III</strong></td><td>Grey/Black + Red</td><td>Human-like figures clearly visible</td><td>Two people (Popular), butterfly (center red)</td></tr>
+<tr><td><strong>IV</strong></td><td>Grey/Black (dark)</td><td>Dark, massive, heavy shading, imposing</td><td>Giant, monster, animal skin, large figure</td></tr>
+<tr><td><strong>V</strong></td><td>Grey/Black</td><td>Simplest card, bat-like shape</td><td>Bat, butterfly (most common Popular)</td></tr>
+<tr><td><strong>VI</strong></td><td>Grey/Black</td><td>Strong shading, texture prominent</td><td>Animal skin, hide, rug (Texture card)</td></tr>
+<tr><td><strong>VII</strong></td><td>Light Grey</td><td>Light, soft, open spaces, "feminine"</td><td>Faces, women, children, heads</td></tr>
+<tr><td><strong>VIII</strong></td><td>Full Color (first)</td><td>First fully chromatic card, multiple colors</td><td>Animals on sides (Popular), anatomy</td></tr>
+<tr><td><strong>IX</strong></td><td>Full Color</td><td>Complex, diffuse colors, most difficult</td><td>Complex/varied percepts, often rejected</td></tr>
+<tr><td><strong>X</strong></td><td>Full Color</td><td>Most fragmented, many separate colored areas</td><td>Various small animals/objects, crabs, spiders</td></tr>
+</table>
+
+<h3>Key Clinical Notes per Card:</h3>
+<ul>
+<li><strong>Card I:</strong> First card &mdash; sets the tone. Observe initial reaction, approach to new/ambiguous situations. Most important for seeing how subject handles novelty.</li>
+<li><strong>Card II:</strong> First introduction of color (red). Watch for "color shock" &mdash; delay, discomfort, or avoidance of colored areas.</li>
+<li><strong>Card III:</strong> Human figure card. If subject does NOT see two people here, clinically noteworthy (Popular response).</li>
+<li><strong>Card IV:</strong> Often called "father card" &mdash; large, dark, imposing. May elicit responses related to authority, power, or threat.</li>
+<li><strong>Card V:</strong> "Easiest" card &mdash; almost everyone sees bat/butterfly. If no Popular response here, it is clinically VERY significant (possible perceptual disturbance).</li>
+<li><strong>Card VI:</strong> Most likely to elicit Texture (T) responses &mdash; animal skin/hide is the Popular. Important for attachment-related coding.</li>
+<li><strong>Card VII:</strong> Often called "mother card" &mdash; soft, light, open. May elicit responses related to femininity, nurturing, or relationships.</li>
+<li><strong>Card VIII:</strong> First fully chromatic card &mdash; watch for color shock (hesitation, discomfort, increased reaction time). Animals on sides is the Popular.</li>
+<li><strong>Card IX:</strong> Most difficult card &mdash; highest rejection rate. Complex colors and forms make it challenging to organize.</li>
+<li><strong>Card X:</strong> Most fragmented &mdash; many separate colored areas. May elicit many responses (each area seen separately) or confusion.</li>
+</ul>
+
+<div class="hinglish">
+<strong>HINGLISH:</strong> Har card ki apni khaasiyat hai: Card I pehla card hai &mdash; subject kaise react karta hai yeh dekhein. Card V sabse aasaan hai &mdash; agar yahan bat/butterfly na dikhe toh significant hai. Card VI par Texture (T) responses aate hain (animal skin Popular hai). Card VIII pehla poora rangeen card hai &mdash; "color shock" ke liye dekhein (hesitation, discomfort). Card IX sabse mushkil hai &mdash; highest rejection rate. Card X sabse fragmented hai &mdash; bahut saare alag-alag rang ke areas hain.
+</div>
+
+<!-- SECTION 12: SPECIAL POPULATIONS -->
+<h2>12. Special Populations &amp; Modifications</h2>
+
+<h3>Children (Ages 5-12):</h3>
+<ul>
+<li>Use simpler language: "Yeh kya jaisa lagta hai?" / "What does this look like to you?"</li>
+<li>May need more encouragement and patience</li>
+<li>Shorter attention spans &mdash; briefer protocols expected and normal</li>
+<li>Fewer responses per card is developmentally appropriate</li>
+<li>May sit across from examiner if side-by-side creates discomfort (not ideal but acceptable)</li>
+<li>Record behavioral observations very carefully (fidgeting, distraction, fatigue)</li>
+<li>May need breaks between cards</li>
+<li>Use Exner's child norms for interpretation</li>
+</ul>
+
+<h3>Adolescents (13-17):</h3>
+<ul>
+<li>Standard adult administration generally applies</li>
+<li>May show more resistance, defensiveness, or sarcasm</li>
+<li>Normalize the situation: "There are no right or wrong answers" / "Koi sahi ya galat jawab nahin hai"</li>
+<li>May need extra rapport-building time</li>
+<li>Identity-related and emotional themes may be more prominent</li>
+<li>Use adolescent norms for interpretation</li>
+</ul>
+
+<h3>Elderly:</h3>
+<ul>
+<li>Standard administration applies</li>
+<li>Allow more time &mdash; slower processing is normal</li>
+<li>Ensure adequate lighting (visual acuity may be reduced)</li>
+<li>May need larger location sheets</li>
+<li>Physical comfort is very important (supportive chair, breaks if needed)</li>
+<li>Fatigue may limit protocol length &mdash; this is acceptable</li>
+</ul>
+
+<h3>Psychiatric Patients:</h3>
+<ul>
+<li>May need modified seating (face-to-face if patient is paranoid about being behind them)</li>
+<li>Be prepared for unusual reactions: card rejection, extreme anxiety, bizarre verbalizations</li>
+<li>Maintain neutral, supportive, calm stance throughout</li>
+<li>Note all behavioral observations meticulously</li>
+<li>May need to reassure: "There are no right or wrong answers"</li>
+<li>Do NOT discontinue unless patient is in acute distress</li>
+</ul>
+
+<h3>Forensic Settings:</h3>
+<ul>
+<li>Document informed consent clearly and thoroughly</li>
+<li>Note motivational set (possible malingering vs. defensive responding)</li>
+<li>Standard administration applies without modification</li>
+<li>Extra attention to validity indicators in coding</li>
+</ul>
+
+<div class="hinglish">
+<strong>HINGLISH:</strong> Bacchon ke liye (5-12 saal) saral bhasha use karein aur zyada patience rakhein. Kam responses normal hain. Agar side-by-side uncomfortable ho toh saamne baith sakte hain (ideal nahin par chalta hai). Adolescents (13-17) mein resistance ya defensiveness ho sakti hai &mdash; normalize karein. Buzurgon ko zyada time dein, achhi roshni rakhein, aur physical comfort ka dhyan rakhein. Psychiatric patients ke saath seating modify karna pad sakta hai (paranoid patients ke saamne baith sakte hain). Forensic setting mein consent document karein aur malingering ke indicators par dhyan dein.
+</div>
+
+<!-- SECTION 13: COMMON ERRORS -->
+<h2>13. Common Administration Errors</h2>
+
+<table>
+<tr><th>Error</th><th>Problem It Causes</th><th>Correct Approach</th></tr>
+<tr><td>Sitting face-to-face</td><td>Examiner's expressions influence responses</td><td>Always sit side-by-side (bagal mein)</td></tr>
+<tr><td>Asking "Why?" / "Kyun?"</td><td>Feels challenging, directive, creates defensiveness</td><td>Ask "Kis vajah se aisa laga?" (What made it look like that?)</td></tr>
+<tr><td>Leading questions in inquiry</td><td>Contaminates determinant data, invalid coding</td><td>Let subject explain freely; ask open-ended questions only</td></tr>
+<tr><td>Not recording verbatim</td><td>Cannot code accurately later, data lost</td><td>Write EVERY single word exactly as spoken</td></tr>
+<tr><td>Encouraging/praising responses</td><td>Creates response set, biases subsequent responses</td><td>Stay completely neutral always</td></tr>
+<tr><td>Rushing the subject</td><td>Reduces richness, misses responses</td><td>Allow subject's own natural pace</td></tr>
+<tr><td>Commenting on content</td><td>Influences subsequent responses, breaks neutrality</td><td>Never react to any content, no matter what</td></tr>
+<tr><td>Not noting card position</td><td>Lose critical location data for coding</td><td>Always note if card is rotated (^ v &lt; &gt;)</td></tr>
+<tr><td>Limiting number of responses</td><td>Creates artificial restriction, invalid protocol</td><td>Let subject give as many responses as they want</td></tr>
+<tr><td>Doing inquiry card-by-card</td><td>Inquiry between cards alters subsequent responses</td><td>Always do ALL inquiry AFTER all 10 cards are done</td></tr>
+<tr><td>Repeating instructions after Card I</td><td>Over-structuring the task</td><td>Give instruction only for Card I; just hand subsequent cards</td></tr>
+<tr><td>Showing reactions to disturbing content</td><td>Subject censors future responses</td><td>Maintain poker face regardless of content</td></tr>
+</table>
+
+<div class="hinglish">
+<strong>HINGLISH:</strong> Sabse common galtiyan: Saamne baithna (bagal mein baithein!), "Kyun" poochhna ("Kis vajah se" poochhein!), leading questions (subject ko khud batane dein!), verbatim na likhna (har shabd likhein!), responses par comment karna (neutral rahein!), subject ko jaldi karna (unki speed par chalein!), card position note na karna (rotation note karein!), beech-beech mein inquiry karna (saare 10 ke BAAD karein!).
+</div>
+
+<!-- SECTION 14: CAUTIONS & DO'S AND DON'TS -->
+<h2>14. Complete Cautions &amp; Do's and Don'ts</h2>
+
+<h3>DO's (Karein):</h3>
+<div class="tip-box">
+<strong>DO's / KAREIN:</strong>
+<ul>
+<li>DO record verbatim &mdash; every single word (har ek shabd likhein)</li>
+<li>DO sit side-by-side with subject (bagal mein baithein)</li>
+<li>DO maintain neutral, non-judgmental demeanor (neutral rahein)</li>
+<li>DO time each card: reaction time + total time (samay note karein)</li>
+<li>DO note all non-verbal behaviors in brackets</li>
+<li>DO present cards in order I through X (sahi kram mein)</li>
+<li>DO present cards right-side-up (sahi taraf upar)</li>
+<li>DO allow card turning if subject wants (ghumane dein)</li>
+<li>DO encourage after Card I ONLY if only one response given</li>
+<li>DO conduct inquiry AFTER all 10 cards are done (10 ke baad)</li>
+<li>DO ask "Kis vajah se aisa laga?" in inquiry</li>
+<li>DO use location sheets to mark areas</li>
+<li>DO record card position/rotation</li>
+<li>DO be patient and allow natural pace</li>
+<li>DO note everything &mdash; pauses, laughs, sighs, gestures</li>
+</ul>
+</div>
+
+<h3>DON'Ts (Na Karein):</h3>
+<div class="donot-box">
+<strong>DON'Ts / NA KAREIN:</strong>
+<ul>
+<li>DO NOT ask "Kyun?" / "Why?" &mdash; always use "Kis vajah se?" (KABHI "Kyun" mat poochhein!)</li>
+<li>DO NOT lead during inquiry ("Was it the color?" / "Kya rang ki vajah se?" = GALAT)</li>
+<li>DO NOT sit facing the subject (saamne mat baithein)</li>
+<li>DO NOT comment on responses ("Good!" "Interesting!" "That's unusual!" = GALAT)</li>
+<li>DO NOT show surprise, concern, or amusement at any response</li>
+<li>DO NOT limit the number of responses</li>
+<li>DO NOT rush the subject (jaldi mat karein)</li>
+<li>DO NOT explain what the blots "really are" (they are just inkblots)</li>
+<li>DO NOT tell the subject what others have seen (during Response Phase)</li>
+<li>DO NOT discuss responses during administration</li>
+<li>DO NOT allow subject to see you react emotionally to their content</li>
+<li>DO NOT administer if subject is acutely intoxicated, extremely fatigued, or febrile (&gt;103&deg;F)</li>
+<li>DO NOT paraphrase &mdash; record EXACT words (shabd-shabd likhein)</li>
+<li>DO NOT forget to inquire about EVERY response</li>
+<li>DO NOT do inquiry after each card &mdash; wait until all 10 are done</li>
+<li>DO NOT give the test in a noisy or distracting environment</li>
+<li>DO NOT express any opinion about any response</li>
+</ul>
+</div>
+
+<h3>Critical Cautions (Mahatvapurn Savdhaniyan):</h3>
+
+<div class="caution-box">
+<strong>CAUTION 1 &mdash; "KYUN" FORBIDDEN:</strong> "Kyun" KABHI nahin poochhna &mdash; "Kyun" challenging lagta hai aur subject defensive ho jata hai. HAMESHA "Kis vajah se aisa laga?" poochhein. Yeh non-directive hai aur subject ko pressure feel nahin hota. This is the MOST important rule in Rorschach Inquiry.
+</div>
+
+<div class="caution-box">
+<strong>CAUTION 2 &mdash; NO LEADING:</strong> Inquiry mein KABHI leading question mat poochhein. "Kya rang ki vajah se laga?" / "Was it the color?" &mdash; yeh GALAT hai. Subject khud bataye ki kis feature ne contribute kiya. Aap sirf "Kis vajah se aisa laga?" poochhein aur sunein.
+</div>
+
+<div class="caution-box">
+<strong>CAUTION 3 &mdash; INQUIRY TIMING:</strong> Saare 10 cards khatam hone ke BAAD hi inquiry karein. Beech mein (card-by-card) inquiry karne se baaki cards ke responses influence ho sakte hain. Subject samajh jayega ki aap kya dhundh rahe hain aur apne responses change kar sakta hai.
+</div>
+
+<div class="caution-box">
+<strong>CAUTION 4 &mdash; VERBATIM RECORDING:</strong> Verbatim recording ZAROORI hai. Exner manual kehta hai: "Examiners should NEVER fail to make a verbatim record." Bina exact words ke, accurate coding ASAMBHAV hai. Ek bhi shabd miss karna coding error create kar sakta hai.
+</div>
+
+<div class="caution-box">
+<strong>CAUTION 5 &mdash; NEUTRALITY:</strong> Neutral rahein &mdash; koi bhi response par (chahe kitna bhi disturbing, violent, sexual, ya unusual ho) koi reaction mat dikhayein. Na chehra badlein, na awaaz mein farak layein, na body language mein tension dikhayein. Subject aapki har micro-expression padh sakta hai.
+</div>
+
+<div class="caution-box">
+<strong>CAUTION 6 &mdash; MINIMUM RESPONSES:</strong> Agar total responses (R) 14 se kam hain protocol khatam hone par, toh protocol potentially invalid hai. Pehle Card I par encouragement dein. Agar phir bhi kam hain, re-administration consider karein (alag session mein).
+</div>
+
+<div class="caution-box">
+<strong>CAUTION 7 &mdash; TEXTURE ON CARD VI:</strong> Card VI par Texture (T) response dhyan se sunein inquiry mein. Agar subject "furry," "soft," "rough," "smooth" jaise words use kare toh T code relevant hai. Isko miss karna Structural Summary mein serious cascading errors create kar sakta hai jo interpretation badal deta hai.
+</div>
+
+<div class="caution-box">
+<strong>CAUTION 8 &mdash; POPULAR ON CARD V:</strong> Card V par agar subject bat ya butterfly nahin dekhta (Popular miss), toh yeh clinically BAHUT significant hai &mdash; possible perceptual disturbance indicate karta hai. Testing the Limits mein zaroor check karein.
+</div>
+
+<!-- SECTION 15: HINGLISH QUICK REFERENCE -->
+<h2>15. Hinglish Quick Reference Summary (Tvarit Sandarbh)</h2>
+
+<div class="step-header">Poori Prakriya (Complete Procedure) &mdash; Step by Step</div>
+
+<h3>Tayyari (Preparation):</h3>
+<ol>
+<li>10 cards sahi order mein ready karein (I se X)</li>
+<li>Location sheets, recording forms, stopwatch tayyar karein</li>
+<li>Kamra shant aur achhi roshni wala ho &mdash; koi distraction nahin</li>
+<li>Subject ke BAGAL mein baithein (side-by-side) &mdash; saamne NAHIN</li>
+<li>Subject ko comfortable karein, thodi informal baat karein</li>
+</ol>
+
+<h3>Response Phase (Uttar Charan):</h3>
+<ol start="6">
+<li>Card I haath mein dein (face up, correct orientation)</li>
+<li>Kahein: <strong>"Yeh aapko kya lagta hai?"</strong> (sirf Card I par instruction)</li>
+<li>Stopwatch shuru karein &mdash; reaction time note karein</li>
+<li>Subject jo bole &mdash; <strong>SHABD SHABD likhein</strong> (verbatim)</li>
+<li>Card position note karein (agar ghuma liya toh: ^ v &lt; &gt;)</li>
+<li>Non-verbal behavior [brackets] mein likhein</li>
+<li>Card wapas lein, Card II dein &mdash; <strong>koi instruction NAHIN deni</strong></li>
+<li>Agar Card I par sirf 1 response: "Zyaadatar log ek se zyada cheezein dekhte hain" &mdash; phir Card I dobara dein</li>
+<li>10 cards tak same process repeat karein</li>
+<li><strong>KOI BHI COMMENT NA KAREIN</strong> responses par &mdash; na accha, na bura, na interesting</li>
+<li>Total time per card note karein</li>
+</ol>
+
+<h3>Inquiry Phase (Jankari Charan):</h3>
+<ol start="17">
+<li><strong>SAARE 10 cards khatam hone ke BAAD</strong> shuru karein</li>
+<li>Card I nikaalein, pehla response padh kar sunayein</li>
+<li>Poochhein: <strong>"Yeh KAHAN dekha aapne?"</strong> &rarr; location sheet par mark karein</li>
+<li>Poochhein: <strong>"KIS VAJAH SE aisa laga?"</strong></li>
+<li style="color: #c0392b; font-weight: 700;">"KYUN" KABHI NAHIN POOCHHNA! HAMESHA "KIS VAJAH SE"!</li>
+<li>Agar unclear ho: "Mujhe waise nahin dikh raha, thoda aur samjhayein"</li>
+<li>Color, texture, shading, movement ke references dhyan se sunein</li>
+<li><strong>LEADING QUESTION KABHI MAT POOCHHEIN</strong> ("Kya rang ki vajah se?" = GALAT)</li>
+<li>Har response ke liye yahi process repeat karein</li>
+<li>Card I se Card X tak &mdash; saare responses inquire karein</li>
+</ol>
+
+<h3>Testing the Limits (Optional):</h3>
+<ol start="27">
+<li>Inquiry ke BAAD &mdash; agar koi Popular miss hua ya kuch check karna ho</li>
+<li>Example: "Kuch logon ko yahan [X] dikhta hai, kya aap dekh sakte hain?"</li>
+<li>Yeh data code NAHIN hota &mdash; sirf extra clinical information ke liye</li>
+</ol>
+
+<h3>Ek Nazar Mein Yaad Rakhein (At-a-Glance Memory Aid):</h3>
+
+<div class="golden-rule">
+<strong>"Yeh kya lagta hai?"</strong> = Standard instruction (sirf Card I par)<br><br>
+<strong>"Kis vajah se aisa laga?"</strong> = Inquiry ka standard question<br>
+<span style="color: #c0392b; font-size: 1.3em; font-weight: 700;">"KYUN" = GALAT! "KIS VAJAH SE" = SAHI!</span><br><br>
+<strong>Side-by-side baithein</strong> (saamne NAHIN)<br>
+<strong>Verbatim likhein</strong> (har shabd)<br>
+<strong>Neutral rahein</strong> (koi reaction nahin)<br>
+<strong>10 cards ke BAAD inquiry</strong> (beech mein nahin)<br>
+<strong>Leading questions = GALAT</strong><br>
+<strong>Minimum 14 responses</strong> chahiye validity ke liye
+</div>
+
+<hr style="margin: 40px 0; border: none; border-top: 2px dashed #bdc3c7;">
+
+<div class="remember-box">
+<strong>FINAL REMINDER / ANTIM YAADDEHANI:</strong><br><br>
+Rorschach test ek powerful projective tool hai lekin iska sahi administration BAHUT zaroori hai. Galat administration se data invalid ho jata hai aur interpretation galat ho jati hai. Is guide mein diye gaye saare rules follow karein &mdash; khaskar:<br>
+1. <strong>"Kyun" KABHI mat poochhein &mdash; "Kis vajah se aisa laga?" poochhein</strong><br>
+2. <strong>Side-by-side baithein</strong><br>
+3. <strong>Verbatim record karein</strong><br>
+4. <strong>Neutral rahein &mdash; koi reaction nahin</strong><br>
+5. <strong>Inquiry saare 10 cards ke BAAD karein</strong><br>
+6. <strong>Leading questions KABHI mat poochhein</strong><br><br>
+In rules ko follow karein toh aapka protocol valid hoga aur accurate interpretation possible hogi!
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+<h2 style="color: #fff; border: none; margin: 0; padding: 0;">RORSCHACH INKBLOT TEST</h2>
+<h3 style="color: rgba(255,255,255,0.9); margin-top: 8px;">Complete Administration Guide &mdash; Exner's Comprehensive System</h3>
+<p style="margin-top: 20px; font-size: 0.95em; color: rgba(255,255,255,0.8);">Based on Exner Comprehensive System Manual</p>
+<div style="display: inline-block; background: linear-gradient(135deg, #e74c3c, #c0392b); color: #fff; padding: 12px 35px; border-radius: 30px; font-weight: 700; font-size: 1.2em; margin-top: 25px; box-shadow: 0 4px 15px rgba(192,57,43,0.4); letter-spacing: 1.5px;">MADE BY TEJAS DANGODRA</div>
+<p style="margin-top: 20px; color: rgba(255,255,255,0.7); font-size: 0.85em;">Remember: "Kyun" NAHIN &mdash; "Kis vajah se aisa laga?" HAMESHA!</p>
+</div>
+
+</div><!-- end container -->
+</body>
+</html>
