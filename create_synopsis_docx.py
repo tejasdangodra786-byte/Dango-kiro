@@ -731,16 +731,13 @@ def build_aim():
     return paras
 
 def build_objectives():
-    """Objectives - exactly 6."""
+    """Objectives - exactly 3 (one per DV, matching 3 hypotheses)."""
     paras = []
     paras.append(make_heading1("Objectives"))
     objectives = [
-        "To assess and compare craving levels (pre vs. post) in Experimental (Brief MBRP + TAU) and Control (Psychoeducation + TAU) groups.",
-        "To assess and compare impulsivity levels (pre vs. post) in both groups.",
-        "To assess and compare mindfulness levels (pre vs. post) in both groups.",
-        "To determine whether Brief MBRP + TAU is significantly more effective than Psychoeducation + TAU in reducing craving.",
-        "To determine whether Brief MBRP + TAU is significantly more effective than Psychoeducation + TAU in reducing impulsivity.",
-        "To determine whether Brief MBRP + TAU is significantly more effective than Psychoeducation + TAU in enhancing mindfulness.",
+        "To assess and compare the effect of Brief MBRP + TAU versus Psychoeducation + TAU on craving (as measured by OCDUS) from pre-test to post-test.",
+        "To assess and compare the effect of Brief MBRP + TAU versus Psychoeducation + TAU on impulsivity (as measured by BIS-11) from pre-test to post-test.",
+        "To assess and compare the effect of Brief MBRP + TAU versus Psychoeducation + TAU on mindfulness (as measured by FFMQ) from pre-test to post-test.",
     ]
     for i, obj in enumerate(objectives, 1):
         paras.append(make_body(f"{i}. {obj}"))
@@ -749,22 +746,22 @@ def build_objectives():
 
 
 def build_hypotheses():
-    """Hypotheses - exactly 6 null hypotheses."""
+    """Hypotheses - exactly 3 null hypotheses (matching 3 objectives)."""
     paras = []
     paras.append(make_heading1("Hypotheses"))
     paras.append(make_body(
-        "The following null hypotheses will be tested in the present study:"
+        "The following null hypotheses were formulated for the present study:"
     ))
     hypotheses = [
-        "H01: There is no significant difference in pre-test and post-test craving scores (OCDUS) in the Experimental Group (Brief MBRP + TAU).",
-        "H02: There is no significant difference in pre-test and post-test impulsivity scores (BIS-11) in the Experimental Group (Brief MBRP + TAU).",
-        "H03: There is no significant difference in pre-test and post-test mindfulness scores (FFMQ) in the Experimental Group (Brief MBRP + TAU).",
-        "H04: There is no significant difference in craving scores (OCDUS) between the Experimental Group (Brief MBRP + TAU) and the Control Group (Psychoeducation + TAU) from pre-test to post-test.",
-        "H05: There is no significant difference in impulsivity scores (BIS-11) between the Experimental Group (Brief MBRP + TAU) and the Control Group (Psychoeducation + TAU) from pre-test to post-test.",
-        "H06: There is no significant difference in mindfulness scores (FFMQ) between the Experimental Group (Brief MBRP + TAU) and the Control Group (Psychoeducation + TAU) from pre-test to post-test.",
+        "H01: There is no significant difference in craving scores (OCDUS) between the Experimental Group (Brief MBRP + TAU) and the Control Group (Psychoeducation + TAU) from pre-test to post-test.",
+        "H02: There is no significant difference in impulsivity scores (BIS-11) between the Experimental Group (Brief MBRP + TAU) and the Control Group (Psychoeducation + TAU) from pre-test to post-test.",
+        "H03: There is no significant difference in mindfulness scores (FFMQ) between the Experimental Group (Brief MBRP + TAU) and the Control Group (Psychoeducation + TAU) from pre-test to post-test.",
     ]
     for h in hypotheses:
         paras.append(make_body(h))
+    paras.append(make_body(
+        "Statistical testing: Alpha = 0.05 (two-tailed). Primary analysis: ANCOVA with pre-test scores as covariates."
+    ))
     return paras
 
 
