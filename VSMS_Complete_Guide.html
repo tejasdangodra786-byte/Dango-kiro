@@ -5,475 +5,504 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>VSMS — Complete Clinical Psychology Guide</title>
 <style>
-:root{--lavender:#E6E0F3;--lilac:#D4C5E2;--powder-blue:#D6EAF8;--sage:#D5E8D4;--mint:#D0F0E0;--peach:#FDEBD0;--blush:#FADBD8;--cream:#FEF9E7;--light-grey:#F4F6F7;--text:#2C3E50;--heading:#4A235A;--border:#D5D8DC;--shadow:0 4px 15px rgba(0,0,0,0.08);--radius:12px}
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;color:var(--text);background:linear-gradient(135deg,#f8f6ff 0%,#f0f8ff 100%);line-height:1.7;padding:0}
-.cover{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(160deg,var(--lavender) 0%,var(--powder-blue) 50%,var(--mint) 100%);text-align:center;padding:40px 20px}
-.cover h1{font-size:2.8em;color:var(--heading);margin-bottom:15px}
-.cover h2{font-size:1.3em;color:#6C3483;margin-bottom:10px;font-weight:500}
-.cover h3{font-size:1.1em;color:#5B2C6F;margin-bottom:30px;font-weight:400}
-.cover .credit{margin-top:50px;font-size:1.1em;color:#4A235A;font-weight:600}
+:root{--lavender:#E6E0F3;--lilac:#D4C5E2;--powder-blue:#D6EAF8;--sage:#D5E8D4;--mint:#D0F0E0;--peach:#FDEBD0;--blush:#FADBD8;--cream:#FEF9E7;--light-grey:#F4F6F7;--text:#2C3E50;--heading:#4A235A;--shadow:0 4px 15px rgba(0,0,0,0.08);--radius:12px}
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;color:var(--text);background:linear-gradient(135deg,#f8f6ff,#f0f8ff);line-height:1.7}
+.cover{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(160deg,var(--lavender),var(--powder-blue),var(--mint));text-align:center;padding:40px 20px}
+.cover h1{font-size:2.8em;color:var(--heading);margin-bottom:15px}.cover h2{font-size:1.3em;color:#6C3483;font-weight:500;margin-bottom:10px}.cover h3{font-size:1.1em;color:#5B2C6F;font-weight:400;margin-bottom:30px}.cover .credit{margin-top:50px;font-size:1.1em;color:#4A235A;font-weight:600}
 .container{max-width:1100px;margin:0 auto;padding:30px 20px}
-h1{font-size:2em;color:var(--heading);margin:40px 0 20px;border-bottom:3px solid var(--lilac);padding-bottom:10px}
-h2{font-size:1.5em;color:#6C3483;margin:30px 0 15px}
-h3{font-size:1.2em;color:#4A235A;margin:20px 0 10px}
-h4{font-size:1.05em;color:#5B2C6F;margin:15px 0 8px}
-p,li{margin-bottom:8px}
-ul,ol{padding-left:25px;margin-bottom:15px}
+h1{font-size:2em;color:var(--heading);margin:40px 0 20px;border-bottom:3px solid var(--lilac);padding-bottom:10px}h2{font-size:1.5em;color:#6C3483;margin:30px 0 15px}h3{font-size:1.2em;color:#4A235A;margin:20px 0 10px}h4{font-size:1.05em;color:#5B2C6F;margin:15px 0 8px}
+p,li{margin-bottom:8px}ul,ol{padding-left:25px;margin-bottom:15px}
 .card{background:white;border-radius:var(--radius);box-shadow:var(--shadow);padding:25px;margin:20px 0;border-left:5px solid var(--lilac)}
-.card.theory{background:var(--lavender);border-left-color:#9B59B6}
-.card.admin{background:var(--powder-blue);border-left-color:#3498DB}
-.card.scoring{background:var(--peach);border-left-color:#E67E22}
-.card.domain{background:var(--sage);border-left-color:#27AE60}
-.card.sasq{background:var(--mint);border-left-color:#1ABC9C}
-.card.interpret{background:var(--cream);border-left-color:#F39C12}
-.card.case{background:var(--blush);border-left-color:#E74C3C}
-.card.report{background:var(--powder-blue);border-left-color:#2980B9}
-.alert-box{border-radius:10px;padding:18px 22px;margin:15px 0;font-size:0.95em}
-.alert-box.key{background:#EBF5FB;border:2px solid #85C1E9}
-.alert-box.important{background:#FDEDEC;border:2px solid #F1948A}
-.alert-box.scoring-alert{background:#FEF9E7;border:2px solid #F9E79F}
-.alert-box.domain-alert{background:#EAFAF1;border:2px solid #82E0AA}
-.alert-box.clinical{background:#F4ECF7;border:2px solid #C39BD3}
-.alert-box.error{background:#FDEDEC;border:2px solid #E74C3C}
-.alert-box.version{background:#FDF2E9;border:2px solid #E67E22}
-.alert-box.remember{background:#EBF5FB;border:2px solid #5DADE2}
+.card.theory{background:var(--lavender);border-left-color:#9B59B6}.card.admin{background:var(--powder-blue);border-left-color:#3498DB}.card.scoring{background:var(--peach);border-left-color:#E67E22}.card.domain{background:var(--sage);border-left-color:#27AE60}.card.sasq{background:var(--mint);border-left-color:#1ABC9C}.card.interpret{background:var(--cream);border-left-color:#F39C12}.card.case{background:var(--blush);border-left-color:#E74C3C}.card.report{background:var(--powder-blue);border-left-color:#2980B9}
+.alert-box{border-radius:10px;padding:18px 22px;margin:15px 0;font-size:0.95em}.alert-box.key{background:#EBF5FB;border:2px solid #85C1E9}.alert-box.important{background:#FDEDEC;border:2px solid #F1948A}.alert-box.scoring-alert{background:#FEF9E7;border:2px solid #F9E79F}.alert-box.domain-alert{background:#EAFAF1;border:2px solid #82E0AA}.alert-box.clinical{background:#F4ECF7;border:2px solid #C39BD3}.alert-box.error{background:#FDEDEC;border:2px solid #E74C3C}.alert-box.version{background:#FDF2E9;border:2px solid #E67E22}.alert-box.remember{background:#EBF5FB;border:2px solid #5DADE2}
 .alert-box strong{display:block;margin-bottom:5px;font-size:1.05em}
-table{width:100%;border-collapse:collapse;margin:15px 0;font-size:0.92em;background:white;border-radius:8px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.05)}
-th{background:var(--lavender);color:var(--heading);padding:12px 15px;text-align:left;font-weight:600;border-bottom:2px solid var(--lilac)}
-td{padding:10px 15px;border-bottom:1px solid #EAECEE}
-tr:nth-child(even) td{background:var(--light-grey)}
+table{width:100%;border-collapse:collapse;margin:15px 0;font-size:0.9em;background:white;border-radius:8px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.05)}th{background:var(--lavender);color:var(--heading);padding:10px 12px;text-align:left;font-weight:600;border-bottom:2px solid var(--lilac)}td{padding:9px 12px;border-bottom:1px solid #EAECEE}tr:nth-child(even) td{background:var(--light-grey)}
 .table-wrapper{overflow-x:auto;margin:15px 0}
-.calc-card{background:linear-gradient(135deg,var(--mint),var(--cream));border-radius:var(--radius);padding:20px;margin:15px 0;text-align:center;box-shadow:var(--shadow)}
-.calc-card .formula{font-size:1.4em;font-weight:700;color:#1ABC9C;margin:10px 0}
-.domain-card{background:white;border-radius:var(--radius);padding:20px;margin:15px 0;box-shadow:var(--shadow);border-top:4px solid #27AE60}
-.domain-card h4{color:#1E8449;margin-bottom:10px}
-.toc{background:white;border-radius:var(--radius);padding:30px;margin:30px 0;box-shadow:var(--shadow)}
-.toc a{color:#6C3483;text-decoration:none;display:block;padding:5px 0;border-bottom:1px dotted #D5D8DC}
-.toc a:hover{color:#9B59B6;padding-left:10px;transition:0.3s}
-.ca-cap-box{border:4px solid #C0392B;background:#FDEDEC;border-radius:14px;padding:30px;margin:25px 0;font-size:1.05em}
-.ca-cap-box h3{color:#C0392B;font-size:1.4em;margin-bottom:15px;text-align:center}
-.footer{text-align:center;padding:30px;background:var(--lavender);margin-top:50px;border-radius:var(--radius) var(--radius) 0 0;color:var(--heading)}
-@media(max-width:768px){.cover h1{font-size:1.8em}.container{padding:15px 10px}h1{font-size:1.5em}.card,.domain-card{padding:15px}table{font-size:0.8em}th,td{padding:8px 10px}}
-@media print{body{background:white}.cover{page-break-after:always}.card,.domain-card,.alert-box{break-inside:avoid}h1{page-break-before:always}}
+.calc-card{background:linear-gradient(135deg,var(--mint),var(--cream));border-radius:var(--radius);padding:20px;margin:15px 0;text-align:center;box-shadow:var(--shadow)}.calc-card .formula{font-size:1.3em;font-weight:700;color:#1ABC9C;margin:10px 0}
+.domain-card{background:white;border-radius:var(--radius);padding:18px;margin:12px 0;box-shadow:var(--shadow);border-top:4px solid #27AE60}.domain-card h4{color:#1E8449;margin-bottom:8px}
+.toc{background:white;border-radius:var(--radius);padding:30px;margin:30px 0;box-shadow:var(--shadow)}.toc a{color:#6C3483;text-decoration:none;display:block;padding:4px 0;border-bottom:1px dotted #D5D8DC}.toc a:hover{color:#9B59B6;padding-left:10px;transition:0.3s}
+.ca-cap-box{border:4px solid #C0392B;background:#FDEDEC;border-radius:14px;padding:28px;margin:25px 0;font-size:1.02em}.ca-cap-box h3{color:#C0392B;font-size:1.3em;margin-bottom:12px;text-align:center}
+.footer{text-align:center;padding:30px;background:var(--lavender);margin-top:50px;color:var(--heading)}
+@media(max-width:768px){.cover h1{font-size:1.8em}.container{padding:15px 10px}h1{font-size:1.4em}table{font-size:0.8em}th,td{padding:7px 8px}}
+@media print{body{background:white}.cover{page-break-after:always}.card,.alert-box{break-inside:avoid}}
 </style>
 </head>
 <body>
 
-<!-- ========== COVER ========== -->
 <div class="cover">
 <h1>VINELAND SOCIAL MATURITY SCALE</h1>
-<h2>Administration • Scoring • Domain-wise Analysis • Social Age • Social Quotient • Interpretation</h2>
+<h2>Administration • Scoring • Domain-wise Analysis<br>• Social Age • Social Quotient • Interpretation</h2>
 <h3>Comprehensive Clinical Psychology Practical Guide</h3>
 <p style="margin-top:20px;color:#5B2C6F;">Prepared for MPhil Clinical Psychology Training (RCI-Oriented)</p>
 <p class="credit">Made by Tejas Dangodra</p>
 </div>
 
-<!-- ========== TOC ========== -->
 <div class="container">
 <div class="toc">
 <h2 style="text-align:center;margin-bottom:20px;">📋 Table of Contents</h2>
-<a href="#intro">1. Introduction, History &amp; Purpose</a>
-<a href="#cacap">2. 🚨 CA Cap of 15 Years — Special Rule</a>
-<a href="#admin">3. Administration Procedure</a>
-<a href="#basal">4. Basal &amp; Ceiling</a>
-<a href="#scoring">5. Scoring — Item-Value Method (Total SA &amp; SQ)</a>
-<a href="#items">6. Complete 89 Items by Age Level</a>
-<a href="#domains">7. Domain-wise Classification &amp; Scoring</a>
-<a href="#domainprofile">8. Domain-wise Norms for Profile Analysis (Table)</a>
-<a href="#domainscore">9. How to Do Domain-wise Scoring</a>
-<a href="#worked">10. Worked Examples (Total SA + Domain-wise)</a>
-<a href="#sq-class">11. SQ Classification</a>
-<a href="#interpret">12. Interpretation &amp; Clinical Meaning of Domains</a>
-<a href="#clinical">13. Clinical Applications</a>
-<a href="#reports">14. Sample Reports</a>
-<a href="#errors">15. Common Errors</a>
+<a href="#p1">Part I — Basic Information</a>
+<a href="#p2">Part II — Domains</a>
+<a href="#p3">Part III — Domain-wise Question Bank (89 Items)</a>
+<a href="#p4">Part IV — Administration</a>
+<a href="#p5">Part V — Scoring (Item-Value Method)</a>
+<a href="#p6">Part VI — Basal and Ceiling</a>
+<a href="#p7">Part VII — Domain-wise Scoring</a>
+<a href="#p8">Part VIII — Social Age</a>
+<a href="#p9">Part IX — Social Quotient &amp; CA Cap</a>
+<a href="#p10">Part X — Domain-wise Clinical Interpretation</a>
+<a href="#p11">Part XI — Clinical Application</a>
+<a href="#p12">Part XII — Case Studies</a>
+<a href="#p13">Part XIII — Report Writing</a>
+<a href="#p14">Part XIV — Differential Understanding</a>
+<a href="#p15">Part XV — Psychometric Properties</a>
+<a href="#p16">Part XVI — Cultural &amp; Clinical Considerations</a>
+<a href="#p17">Part XVII — Common Scoring Errors</a>
+<a href="#p18">Part XVIII — Practical Scoring Workbook &amp; Worked Examples</a>
+<a href="#norms">Domain Norms Table (Profile Analysis)</a>
+<a href="#master">Master Table &amp; Master Scoring Algorithm</a>
+<a href="#version">Version Control &amp; Reconciliation</a>
 </div>
 </div>
 
-<!-- ========== 1. INTRO ========== -->
-<div class="container" id="intro">
-<h1>1. Introduction, History &amp; Purpose</h1>
+<!-- ===== PART I ===== -->
+<div class="container" id="p1">
+<h1>Part I — Basic Information</h1>
 <div class="card theory">
 <h2>What is VSMS?</h2>
-<p><strong>Full Name:</strong> Vineland Social Maturity Scale (VSMS)</p>
+<p><strong>Full Name:</strong> Vineland Social Maturity Scale</p>
 <p><strong>Indian Adaptation:</strong> Dr. A.J. Malin (1965, revised 1971)</p>
-<p><strong>Original Developer:</strong> Edgar A. Doll (1935), Vineland Training School, New Jersey, USA</p>
-<p><strong>Nature:</strong> Informant-based developmental scale measuring social maturity / adaptive behaviour</p>
+<p><strong>Original:</strong> Edgar A. Doll (1935), Vineland Training School, New Jersey, USA</p>
+<p><strong>Nature:</strong> Informant-based developmental scale measuring social maturity/adaptive behaviour through 89 items grouped into year levels (0–15 years).</p>
+<p><strong>Correlation with intelligence:</strong> 0.80</p>
+<p><strong>Method:</strong> Examiner collects information through direct observation and by interviewing the mother.</p>
+<p><strong>Output:</strong> Social Age (SA) and Social Quotient (SQ) for overall + each of 8 domains.</p>
 
-<h3>Historical Development</h3>
+<h3>History</h3>
 <ul>
-<li><strong>1935:</strong> Edgar Doll published original VSMS</li>
-<li><strong>1953:</strong> Revised manual — "Measurement of Social Competence"</li>
-<li><strong>1965:</strong> Dr. A.J. Malin adapted for Indian population</li>
-<li><strong>1971:</strong> Malin's revised Indian adaptation with norms</li>
+<li>1935 — Doll published original VSMS</li>
+<li>1953 — Revised manual "Measurement of Social Competence"</li>
+<li>1965 — Malin's Indian adaptation</li>
+<li>1971 — Revised Indian edition with norms</li>
 </ul>
 
-<h3>Key Features (From Manual)</h3>
-<ul>
-<li>89 test items grouped into year levels (age 0–15 years)</li>
-<li>Measures social maturation in <strong>8 social areas</strong>: SHG, SHE, SHD, SD, OCC, COM, LOC, SOC</li>
-<li>High correlation (0.80) with intelligence</li>
-<li>Examiner collects information through direct observation and by interviewing the mother</li>
-<li>Provides Social Age (SA) and Social Quotient (SQ)</li>
-<li>SA is found from Appendix-11 of VSMS manual</li>
-<li>SQ = SA ÷ CA × 100 (both in months; CA max = 180)</li>
-</ul>
-
-<h3>What VSMS Measures vs Does NOT Measure</h3>
-<div class="table-wrapper"><table>
-<tr><th>VSMS Measures</th><th>VSMS Does NOT Measure</th></tr>
+<h3>What VSMS Measures vs Does NOT</h3>
+<table>
+<tr><th>Measures</th><th>Does NOT Measure</th></tr>
 <tr><td>Social maturity / adaptive behaviour</td><td>Intelligence (IQ)</td></tr>
 <tr><td>Functional independence</td><td>Academic achievement</td></tr>
 <tr><td>Daily living skills</td><td>Personality</td></tr>
-<tr><td>Developmental level (SA)</td><td>Psychiatric diagnosis</td></tr>
-<tr><td>Domain-wise strengths/weaknesses</td><td>Neuropsychological functions</td></tr>
-</table></div>
-
-<div class="alert-box key">
-<strong>🔑 SQ ≠ IQ. VSMS does NOT measure intelligence. It measures adaptive/social functioning only.</strong>
-</div>
-
-<h3>Clinical Uses</h3>
-<ul>
-<li>Adaptive functioning assessment in Intellectual Disability (supports Criterion 2 of ID diagnosis)</li>
-<li>Developmental assessment of children</li>
-<li>Disability certification in India (RPWD Act 2016)</li>
-<li>Rehabilitation planning (domain-specific targets)</li>
-<li>Monitoring intervention progress</li>
-<li>Situations where direct cognitive testing is not possible</li>
-</ul>
-
-<div class="alert-box important">
-<strong>⚠️ VSMS alone CANNOT diagnose Intellectual Disability.</strong> ID requires BOTH: (1) Sub-average IQ AND (2) Sub-average adaptive functioning. VSMS provides only the adaptive component.
-</div>
-</div>
-</div>
-
-<!-- ========== 2. CA CAP ========== -->
-<div class="container" id="cacap">
-<h1>2. Chronological Age Rule</h1>
-<div class="ca-cap-box">
-<h3>🚨🚨 SPECIAL NOTE — CA MAXIMUM = 15 YEARS (180 MONTHS) 🚨🚨</h3>
-<p style="font-size:1.1em;text-align:center;margin:15px 0;"><strong>VSMS uses a MAXIMUM Chronological Age of 15 years (180 months) for ALL calculations.</strong></p>
-<div class="table-wrapper"><table>
-<tr style="background:#FADBD8;"><th>Actual Age</th><th>CA Used</th><th>Example</th></tr>
-<tr><td><strong>Below 15 years</strong></td><td>Actual age in months</td><td>8 years → 96 months</td></tr>
-<tr><td><strong>Exactly 15 years</strong></td><td>180 months</td><td>15 years → 180 months</td></tr>
-<tr style="background:#FADBD8;"><td><strong>Above 15 years (20, 30, 40, 50…)</strong></td><td><strong>180 MONTHS (cap)</strong></td><td>25 years → 180 months (NOT 300)</td></tr>
-</table></div>
-<p style="margin-top:15px;"><strong>WHY?</strong> Scale covers items only up to 15 years. Max SA ≈ 180 months. Using actual CA above 180 would deflate scores artificially.</p>
-<h4>Quick Reference:</h4>
-<table>
-<tr><th>Actual Age</th><th>CA (months)</th></tr>
-<tr><td>6 years</td><td>72 (actual)</td></tr>
-<tr><td>10 yr 6 mo</td><td>126 (actual)</td></tr>
-<tr><td>14 years</td><td>168 (actual)</td></tr>
-<tr style="background:#FADBD8;"><td>20 years</td><td><strong>180 (capped)</strong></td></tr>
-<tr style="background:#FADBD8;"><td>30 years</td><td><strong>180 (capped)</strong></td></tr>
-<tr style="background:#FADBD8;"><td>50 years</td><td><strong>180 (capped)</strong></td></tr>
+<tr><td>Developmental level</td><td>Psychiatric diagnosis</td></tr>
 </table>
+<div class="alert-box key"><strong>🔑 SQ ≠ IQ. VSMS measures adaptive functioning, NOT intelligence.</strong></div>
 </div>
 </div>
 
-<!-- ========== 3. ADMINISTRATION ========== -->
-<div class="container" id="admin">
-<h1>3. Administration Procedure</h1>
+<!-- ===== PART II ===== -->
+<div class="container" id="p2">
+<h1>Part II — Domains</h1>
+<div class="card domain">
+<p>VSMS measures 8 social areas (from manual page 215):</p>
+<div class="domain-card"><h4>SHG — Self-Help General</h4><p>Toileting, bathing, grooming, hygiene, balance, safety. Indicates basic self-care independence.</p></div>
+<div class="domain-card"><h4>SHE — Self-Help Eating</h4><p>Drinking, chewing, feeding, utensil use, table management. Indicates feeding independence.</p></div>
+<div class="domain-card"><h4>SHD — Self-Help Dressing</h4><p>Removing/putting on clothes, buttoning, lacing, selecting clothes. Indicates dressing independence.</p></div>
+<div class="domain-card"><h4>SD — Self-Direction</h4><p>Initiative, responsibility, money management, planning, time concepts, self-regulation. Key for vocational prognosis.</p></div>
+<div class="domain-card"><h4>OCC — Occupation</h4><p>Purposeful activity — play, tools, household tasks, creative work, pre-vocational skills.</p></div>
+<div class="domain-card"><h4>COM — Communication</h4><p>Speaking, understanding, reading, writing. Expressive and receptive language.</p></div>
+<div class="domain-card"><h4>LOC — Locomotion</h4><p>Crawling, walking, climbing, neighbourhood navigation, independent travel.</p></div>
+<div class="domain-card"><h4>SOC — Socialization</h4><p>Cooperative play, group participation, friendships, social awareness.</p></div>
+
+<h3>Domain Item Assignment (From Profile Analysis Norms)</h3>
+<table>
+<tr><th>Domain</th><th>Item Numbers</th></tr>
+<tr><td><strong>SHG</strong></td><td>2,3,5,6,8,9,13,15,23,26,35,39,41,50,51,52,62,64,65,66,70,74,75</td></tr>
+<tr><td><strong>SHE</strong></td><td>11,16,20,25,28,30,33,38,67,72</td></tr>
+<tr><td><strong>SHD</strong></td><td>21,37,40,42,47,54,83,86,87</td></tr>
+<tr><td><strong>SD</strong></td><td>36,43,48,55,57,60,63,68,71,72,76,79,80,82,83,89</td></tr>
+<tr><td><strong>OCC</strong></td><td>7,10,17,19,22,24,31,34,36,43,44,48,55,58,63,73,76,79,80,81,82,84,87,89</td></tr>
+<tr><td><strong>COM</strong></td><td>1,10,17,31,34,44,58,63,73,81,84</td></tr>
+<tr><td><strong>LOC</strong></td><td>12,18,29,32,45,53,61,74,77,84,88</td></tr>
+<tr><td><strong>SOC</strong></td><td>4,14,27,46,49,53,56,59,61,68,69,77,78,85,88</td></tr>
+</table>
+<div class="alert-box version"><strong>Note:</strong> Some items appear in multiple domains for profile analysis. For total SA, each item counted once.</div>
+</div>
+</div>
+
+<!-- ===== PART III ===== -->
+<div class="container" id="p3">
+<h1>Part III — Domain-wise Question Bank (All 89 Items)</h1>
+<div class="card scoring">
+<h3>0–1 Year (Items 1–17) | Value = 0.71 mo/item</h3>
+<table><tr><th>#</th><th>Item</th><th>Domain</th></tr><tr><td>1</td><td>"Crows", Laugh</td><td>COM</td></tr><tr><td>2</td><td>Balance head</td><td>SHG</td></tr><tr><td>3</td><td>Grasps objects within reach</td><td>SHG</td></tr><tr><td>4</td><td>Reaches for familiar persons</td><td>SOC</td></tr><tr><td>5</td><td>Rolls over (unassisted)</td><td>SHG</td></tr><tr><td>6</td><td>Reaches for nearby objects</td><td>SHG</td></tr><tr><td>7</td><td>Occupies self-upright</td><td>OCC</td></tr><tr><td>8</td><td>Sits unsupported</td><td>SHG</td></tr><tr><td>9</td><td>Pulls self upright</td><td>SHG</td></tr><tr><td>10</td><td>"Talks", imitates sounds</td><td>COM</td></tr><tr><td>11</td><td>Drinks from cup or glass assisted</td><td>SHE</td></tr><tr><td>12</td><td>Moves about on floor (creeping, crawling)</td><td>LOC</td></tr><tr><td>13</td><td>Grasps with thumb and finger</td><td>SHG</td></tr><tr><td>14</td><td>Demands personal attention</td><td>SOC</td></tr><tr><td>15</td><td>Stands alone</td><td>SHG</td></tr><tr><td>16</td><td>Does not drool</td><td>SHE</td></tr><tr><td>17</td><td>Follows simple instructions</td><td>COM</td></tr></table>
+
+<h3>1–2 Years (Items 18–34) | Value = 0.71 mo/item</h3>
+<table><tr><th>#</th><th>Item</th><th>Domain</th></tr><tr><td>18</td><td>Walks about room unattended</td><td>LOC</td></tr><tr><td>19</td><td>Marks with pencil or crayon or chalk</td><td>OCC</td></tr><tr><td>20</td><td>Masticates (chews) solid or semi-solid food</td><td>SHE</td></tr><tr><td>21</td><td>Pulls off clothes</td><td>SHD</td></tr><tr><td>22</td><td>Transfers objects</td><td>OCC</td></tr><tr><td>23</td><td>Overcomes simple obstacles</td><td>SHG</td></tr><tr><td>24</td><td>Fetches or carries familiar objects</td><td>OCC</td></tr><tr><td>25</td><td>Drinks from cup or glass</td><td>SHE</td></tr><tr><td>26</td><td>Walks without support</td><td>SHG</td></tr><tr><td>27</td><td>Plays with other children</td><td>SOC</td></tr><tr><td>28</td><td>Eats with own hands (biscuits, bread, etc.)</td><td>SHE</td></tr><tr><td>29</td><td>Goes about house or yard</td><td>LOC</td></tr><tr><td>30</td><td>Discriminates edible substances from non-edibles</td><td>SHE</td></tr><tr><td>31</td><td>Uses names of familiar objects</td><td>COM</td></tr><tr><td>32</td><td>Walks upstairs unassisted</td><td>LOC</td></tr><tr><td>33</td><td>Unwraps sweets, chocolates</td><td>SHE</td></tr><tr><td>34</td><td>Talks in short sentences</td><td>COM</td></tr></table>
+
+<h3>2–3 Years (Items 35–44) | Value = 1.20 mo/item</h3>
+<table><tr><th>#</th><th>Item</th><th>Domain</th></tr><tr><td>35</td><td>Signals to go to toilet</td><td>SHG</td></tr><tr><td>36</td><td>Initiates own play activities</td><td>OCC</td></tr><tr><td>37</td><td>Removes shirt or frock if unbuttoned</td><td>SHD</td></tr><tr><td>38</td><td>Eats with spoon/hands (food)</td><td>SHE</td></tr><tr><td>39</td><td>Gets drink (water) unassisted</td><td>SHG</td></tr><tr><td>40</td><td>Dries own hands</td><td>SHD</td></tr><tr><td>41</td><td>Avoids simple hazards</td><td>SHG</td></tr><tr><td>42</td><td>Puts on short or frock unassisted (need not button)</td><td>SHD</td></tr><tr><td>43</td><td>Can do paper folding</td><td>OCC</td></tr><tr><td>44</td><td>Relates experience</td><td>COM</td></tr></table>
+
+<h3>3–4 Years (Items 45–50) | Value = 2.00 mo/item</h3>
+<table><tr><th>#</th><th>Item</th><th>Domain</th></tr><tr><td>45</td><td>Walks downstairs, one step at a time</td><td>LOC</td></tr><tr><td>46</td><td>Plays co-operatively at kindergarten level</td><td>SOC</td></tr><tr><td>47</td><td>Buttons shirt or frock</td><td>SHD</td></tr><tr><td>48</td><td>Helps at little household tasks</td><td>OCC</td></tr><tr><td>49</td><td>"Performs" for others (reciting, singing, dancing)</td><td>SOC</td></tr><tr><td>50</td><td>Washes hands unaided</td><td>SHG</td></tr></table>
+
+<h3>4–5 Years (Items 51–56) | Value = 2.00 mo/item</h3>
+<table><tr><th>#</th><th>Item</th><th>Domain</th></tr><tr><td>51</td><td>Cares for self at toilet</td><td>SHG</td></tr><tr><td>52</td><td>Washes face unassisted</td><td>SHG</td></tr><tr><td>53</td><td>Goes about neighborhood unattended</td><td>LOC</td></tr><tr><td>54</td><td>Dresses self except for tying</td><td>SHD</td></tr><tr><td>55</td><td>Uses pencil or crayon or chalk for drawing</td><td>OCC</td></tr><tr><td>56</td><td>Plays competitive exercise games</td><td>SOC</td></tr></table>
+
+<h3>5–6 Years (Items 57–61) | Value = 2.40 mo/item</h3>
+<table><tr><th>#</th><th>Item</th><th>Domain</th></tr><tr><td>57</td><td>Uses hoops, flies kites, or uses knife</td><td>OCC</td></tr><tr><td>58</td><td>Prints (writes) simple words</td><td>COM</td></tr><tr><td>59</td><td>Plays simple games which require taking turns</td><td>SOC</td></tr><tr><td>60</td><td>Is trusted with money</td><td>SD</td></tr><tr><td>61</td><td>Goes to school unattended</td><td>LOC</td></tr></table>
+
+<h3>6–7 Years (Items 62–65) | Value = 3.00 mo/item</h3>
+<table><tr><th>#</th><th>Item</th><th>Domain</th></tr><tr><td>62</td><td>Mixes rice "properly unassisted"</td><td>SHE</td></tr><tr><td>63</td><td>Use pencil or chalk for writing</td><td>COM</td></tr><tr><td>64</td><td>Bathes self assisted</td><td>SHG</td></tr><tr><td>65</td><td>Goes to bed unassisted</td><td>SHG</td></tr></table>
+
+<h3>7–8 Years (Items 66–70) | Value = 2.40 mo/item</h3>
+<table><tr><th>#</th><th>Item</th><th>Domain</th></tr><tr><td>66</td><td>Can differentiate between AM &amp; PM</td><td>SD</td></tr><tr><td>67</td><td>Helps himself during meals</td><td>SHE</td></tr><tr><td>68</td><td>Understands and keeps family secrets</td><td>SD</td></tr><tr><td>69</td><td>Participates in pre-adolescent play</td><td>SOC</td></tr><tr><td>70</td><td>Combs or brushes hair</td><td>SHG</td></tr></table>
+
+<h3>8–9 Years (Items 71–74) | Value = 3.00 mo/item</h3>
+<table><tr><th>#</th><th>Item</th><th>Domain</th></tr><tr><td>71</td><td>Uses tools or utensils</td><td>OCC</td></tr><tr><td>72</td><td>Does routine household tasks</td><td>OCC</td></tr><tr><td>73</td><td>Reads on own initiative</td><td>COM</td></tr><tr><td>74</td><td>Bathes self unaided</td><td>SHG</td></tr></table>
+
+<h3>9–10 Years (Items 75–77) | Value = 4.00 mo/item</h3>
+<table><tr><th>#</th><th>Item</th><th>Domain</th></tr><tr><td>75</td><td>Cares for self at meals</td><td>SHE</td></tr><tr><td>76</td><td>Makes minor purchase</td><td>SD</td></tr><tr><td>77</td><td>Goes about home town freely</td><td>LOC</td></tr></table>
+
+<h3>10–11 Years (Items 78–81) | Value = 3.00 mo/item</h3>
+<table><tr><th>#</th><th>Item</th><th>Domain</th></tr><tr><td>78</td><td>Distinguishes between friends and play mates</td><td>SOC</td></tr><tr><td>79</td><td>Makes independent choice of shops</td><td>SD</td></tr><tr><td>80</td><td>Does small remunerative work; makes articles</td><td>OCC</td></tr><tr><td>81</td><td>Follows local current events</td><td>COM</td></tr></table>
+
+<h3>11–12 Years (Items 82–84) | Value = 4.00 mo/item</h3>
+<table><tr><th>#</th><th>Item</th><th>Domain</th></tr><tr><td>82</td><td>Does simple creative work</td><td>OCC</td></tr><tr><td>83</td><td>Is left to care for self or others</td><td>SD</td></tr><tr><td>84</td><td>Enjoys reading books, newspapers and magazines</td><td>COM</td></tr></table>
+
+<h3>12–15 Years (Items 85–89) | Value = 7.20 mo/item</h3>
+<table><tr><th>#</th><th>Item</th><th>Domain</th></tr><tr><td>85</td><td>Plays difficult games</td><td>SOC</td></tr><tr><td>86</td><td>Exercises complete care of dress</td><td>SHD</td></tr><tr><td>87</td><td>Buys own clothing accessories</td><td>SD</td></tr><tr><td>88</td><td>Engages in adolescent group activities</td><td>SOC</td></tr><tr><td>89</td><td>Performs responsible routine chores</td><td>OCC</td></tr></table>
+</div>
+</div>
+
+<!-- ===== PART IV ===== -->
+<div class="container" id="p4">
+<h1>Part IV — Administration</h1>
 <div class="card admin">
 <h3>Informant</h3>
-<p>Primary caregiver (usually mother) with daily contact. Must know child's <strong>habitual</strong> behaviour — what they <em>actually do</em> regularly, not what they <em>could</em> do.</p>
-
-<h3>Step-by-Step</h3>
+<p>Mother or primary caregiver with daily contact who knows the child's <strong>habitual</strong> behaviour.</p>
+<h3>Method (From Manual)</h3>
+<p>"The examiner should collect information on VSMS test items regarding child's abilities through direct observation and supplement it by interviewing the mother."</p>
+<h3>Procedure</h3>
 <ol>
-<li><strong>Rapport:</strong> Explain purpose simply. "No right or wrong answers."</li>
-<li><strong>Calculate CA:</strong> (Date of Testing − Date of Birth) expressed in months. Cap at 180 if ≥15 years.</li>
-<li><strong>Start point:</strong> One year below CA level.</li>
-<li><strong>Go backward</strong> if items fail at starting level → find basal.</li>
-<li><strong>Go forward</strong> scoring each item until ceiling reached.</li>
-<li><strong>Score:</strong> ✓ (pass=1), ½ (half=0.5), × (fail=0).</li>
-<li><strong>Calculate SA</strong> using item-value method.</li>
-<li><strong>Calculate SQ</strong> = (SA months ÷ CA months) × 100.</li>
+<li>Establish rapport. Explain: "I'll ask about daily activities. Tell me what [name] actually does regularly."</li>
+<li>Calculate CA in months. Cap at 180 if ≥15 years.</li>
+<li>Start items one year below CA level.</li>
+<li>Go backward if items fail → establish basal.</li>
+<li>Go forward scoring each item → establish ceiling.</li>
+<li>Record: ✓ (pass), ½ (half credit), × (fail).</li>
+<li>Calculate SA using item-value method.</li>
+<li>Calculate SQ = (SA months ÷ CA months) × 100.</li>
 </ol>
-
 <h3>Recording (From Manual)</h3>
 <p>"Use Record Sheet for noting the child's responses. Mark the item pass (✓) if the child is able to perform correct and fail (×) if otherwise. Half credits may be given if it can be presumed that the child could have passed the item if the opportunity was present. These half credits receive full credit if they lie between two passed items."</p>
-
-<h3>What to tell informant:</h3>
-<p><em>"I will ask about things [name] does in daily life. Tell me what he/she actually does regularly — not what they might be able to do."</em></p>
 </div>
 </div>
 
-<!-- ========== 4. BASAL & CEILING ========== -->
-<div class="container" id="basal">
-<h1>4. Basal &amp; Ceiling</h1>
+<!-- ===== PART V ===== -->
+<div class="container" id="p5">
+<h1>Part V — Scoring (Item-Value Method)</h1>
+<div class="card scoring">
+<h3>Marking</h3>
+<table><tr><th>Mark</th><th>Meaning</th><th>Credit</th></tr>
+<tr><td>✓ (+)</td><td>Pass — habitually &amp; independently performs</td><td>1 item</td></tr>
+<tr><td>½ (+F)</td><td>Half — emerging / presumed capable / between 2 passes</td><td>0.5 item</td></tr>
+<tr><td>× (−)</td><td>Fail — does not perform</td><td>0</td></tr></table>
+
+<h3>Item-Value Calculation</h3>
+<div class="calc-card"><p class="formula">Item Value = Months in that range ÷ Number of items in range</p></div>
+<table>
+<tr><th>Age Range</th><th>Items</th><th>N</th><th>Months</th><th>Item Value</th></tr>
+<tr><td>0–1 yr</td><td>1–17</td><td>17</td><td>12</td><td><strong>0.71</strong></td></tr>
+<tr><td>1–2 yr</td><td>18–34</td><td>17</td><td>12</td><td><strong>0.71</strong></td></tr>
+<tr><td>2–3 yr</td><td>35–44</td><td>10</td><td>12</td><td><strong>1.20</strong></td></tr>
+<tr><td>3–4 yr</td><td>45–50</td><td>6</td><td>12</td><td><strong>2.00</strong></td></tr>
+<tr><td>4–5 yr</td><td>51–56</td><td>6</td><td>12</td><td><strong>2.00</strong></td></tr>
+<tr><td>5–6 yr</td><td>57–61</td><td>5</td><td>12</td><td><strong>2.40</strong></td></tr>
+<tr><td>6–7 yr</td><td>62–65</td><td>4</td><td>12</td><td><strong>3.00</strong></td></tr>
+<tr><td>7–8 yr</td><td>66–70</td><td>5</td><td>12</td><td><strong>2.40</strong></td></tr>
+<tr><td>8–9 yr</td><td>71–74</td><td>4</td><td>12</td><td><strong>3.00</strong></td></tr>
+<tr><td>9–10 yr</td><td>75–77</td><td>3</td><td>12</td><td><strong>4.00</strong></td></tr>
+<tr><td>10–11 yr</td><td>78–81</td><td>4</td><td>12</td><td><strong>3.00</strong></td></tr>
+<tr><td>11–12 yr</td><td>82–84</td><td>3</td><td>12</td><td><strong>4.00</strong></td></tr>
+<tr><td>12–15 yr</td><td>85–89</td><td>5</td><td>36</td><td><strong>7.20</strong></td></tr>
+</table>
+
+<h3>SA Calculation</h3>
+<div class="calc-card"><p class="formula">SA contribution per range = Credited items × Item Value</p></div>
+<div class="calc-card"><p class="formula">Total SA (months) = Sum of ALL range contributions</p></div>
+
+<h3>SQ Calculation</h3>
+<div class="calc-card"><p class="formula">SQ = (SA in months ÷ CA in months) × 100</p><p><strong>CA maximum = 180 months (15 years)</strong></p></div>
+
+<div class="alert-box scoring-alert"><strong>📊 From Manual:</strong> "Add up passed scores (full and half). Find out the Social Age (SA) from Appendix-11 of VSMS manual. Compute Social Quotient (SQ) by dividing SA by CA and multiplying by 100."</div>
+</div>
+</div>
+
+<!-- ===== PART VI ===== -->
+<div class="container" id="p6">
+<h1>Part VI — Basal and Ceiling</h1>
 <div class="card admin">
 <h3>Basal</h3>
-<p><strong>Definition:</strong> Highest age level where ALL items are passed. All items below basal = automatically credited at full value.</p>
+<p>Highest age level where ALL items pass. All items below = automatically credited at full value.</p>
 <h3>Ceiling</h3>
-<p><strong>Definition:</strong> Lowest age level where ALL items are failed. Testing stops. Nothing above ceiling credited.</p>
-<h3>Rules</h3>
+<p>Lowest age level where ALL items fail. Testing stops. Nothing above credited.</p>
+<h3>Procedure</h3>
 <ul>
 <li>Start one year below CA</li>
-<li>If any item fails → go backward until you find a level where ALL pass = basal</li>
-<li>Continue forward scoring individually until all items at one level fail = ceiling</li>
-<li>Between basal and ceiling: score each item individually</li>
+<li>If any fail → go backward until all pass at one level = basal</li>
+<li>From basal, score each item forward individually</li>
+<li>When all items at one level fail = ceiling → stop</li>
 </ul>
 </div>
 </div>
 
-<!-- ========== 5. SCORING ========== -->
-<div class="container" id="scoring">
-<h1>5. Scoring — Item-Value Method</h1>
-<div class="card scoring">
-<h2>Total Social Age Calculation</h2>
-
-<h3>Step 1: Mark items</h3>
-<table>
-<tr><th>Mark</th><th>Meaning</th><th>Credit</th></tr>
-<tr><td>✓ (+)</td><td>Pass — performs habitually &amp; independently</td><td>1 item</td></tr>
-<tr><td>½ (+F)</td><td>Half — emerging / no opportunity but presumed capable</td><td>0.5 item</td></tr>
-<tr><td>× (−)</td><td>Fail — does not perform</td><td>0</td></tr>
-</table>
-
-<h3>Step 2: Item Value per Age Range</h3>
-<div class="calc-card">
-<p class="formula">Item Value = Months in range ÷ Number of items in that range</p>
-</div>
-<div class="table-wrapper"><table>
-<tr><th>Age Range</th><th>Items</th><th>N</th><th>Months</th><th>Item Value</th></tr>
-<tr><td>0–1 Year</td><td>1–17</td><td>17</td><td>12</td><td><strong>0.71 mo</strong></td></tr>
-<tr><td>1–2 Years</td><td>18–34</td><td>17</td><td>12</td><td><strong>0.71 mo</strong></td></tr>
-<tr><td>2–3 Years</td><td>35–44</td><td>10</td><td>12</td><td><strong>1.20 mo</strong></td></tr>
-<tr><td>3–4 Years</td><td>45–50</td><td>6</td><td>12</td><td><strong>2.00 mo</strong></td></tr>
-<tr><td>4–5 Years</td><td>51–56</td><td>6</td><td>12</td><td><strong>2.00 mo</strong></td></tr>
-<tr><td>5–6 Years</td><td>57–61</td><td>5</td><td>12</td><td><strong>2.40 mo</strong></td></tr>
-<tr><td>6–7 Years</td><td>62–65</td><td>4</td><td>12</td><td><strong>3.00 mo</strong></td></tr>
-<tr><td>7–8 Years</td><td>66–70</td><td>5</td><td>12</td><td><strong>2.40 mo</strong></td></tr>
-<tr><td>8–9 Years</td><td>71–74</td><td>4</td><td>12</td><td><strong>3.00 mo</strong></td></tr>
-<tr><td>9–10 Years</td><td>75–77</td><td>3</td><td>12</td><td><strong>4.00 mo</strong></td></tr>
-<tr><td>10–11 Years</td><td>78–81</td><td>4</td><td>12</td><td><strong>3.00 mo</strong></td></tr>
-<tr><td>11–12 Years</td><td>82–84</td><td>3</td><td>12</td><td><strong>4.00 mo</strong></td></tr>
-<tr><td>12–15 Years</td><td>85–89</td><td>5</td><td>36</td><td><strong>7.20 mo</strong></td></tr>
-</table></div>
-
-<h3>Step 3: SA contribution per range</h3>
-<div class="calc-card"><p class="formula">SA contribution = Credited items in that range × Item Value</p></div>
-
-<h3>Step 4: Total SA</h3>
-<div class="calc-card"><p class="formula">Total SA (months) = Sum of ALL range contributions</p></div>
-
-<h3>Step 5: SQ</h3>
-<div class="calc-card"><p class="formula">SQ = (SA in months ÷ CA in months) × 100</p>
-<p><strong>CA always in months. Maximum CA = 180 months.</strong></p></div>
-</div>
-</div>
-
-<!-- ========== 6. ITEMS ========== -->
-<div class="container" id="items">
-<h1>6. Complete 89 Items (From VSMS Record Sheet)</h1>
-<div class="card scoring">
-
-<h3>0–1 Year (Items 1–17) | 0.71 mo/item</h3>
-<table><tr><th>#</th><th>Item</th><th>Domain</th></tr>
-<tr><td>1</td><td>"Crows", Laugh</td><td>COM</td></tr>
-<tr><td>2</td><td>Balance head</td><td>SHG</td></tr>
-<tr><td>3</td><td>Grasps objects within reach</td><td>SHG</td></tr>
-<tr><td>4</td><td>Reaches for familiar persons</td><td>SOC</td></tr>
-<tr><td>5</td><td>Rolls over (unassisted)</td><td>SHG</td></tr>
-<tr><td>6</td><td>Reaches for nearby objects</td><td>SHG</td></tr>
-<tr><td>7</td><td>Occupies self-upright</td><td>OCC</td></tr>
-<tr><td>8</td><td>Sits unsupported</td><td>SHG</td></tr>
-<tr><td>9</td><td>Pulls self upright</td><td>SHG</td></tr>
-<tr><td>10</td><td>"Talks", imitates sounds</td><td>COM</td></tr>
-<tr><td>11</td><td>Drinks from cup or glass assisted</td><td>SHE</td></tr>
-<tr><td>12</td><td>Moves about on floor (creeping, crawling)</td><td>LOC</td></tr>
-<tr><td>13</td><td>Grasps with thumb and finger</td><td>SHG</td></tr>
-<tr><td>14</td><td>Demands personal attention</td><td>SOC</td></tr>
-<tr><td>15</td><td>Stands alone</td><td>SHG</td></tr>
-<tr><td>16</td><td>Does not drool</td><td>SHE</td></tr>
-<tr><td>17</td><td>Follows simple instructions</td><td>COM</td></tr></table>
-
-<h3>1–2 Years (Items 18–34) | 0.71 mo/item</h3>
-<table><tr><th>#</th><th>Item</th><th>Domain</th></tr>
-<tr><td>18</td><td>Walks about room unattended</td><td>LOC</td></tr>
-<tr><td>19</td><td>Marks with pencil or crayon or chalk</td><td>OCC</td></tr>
-<tr><td>20</td><td>Masticates (chews) solid or semi-solid food</td><td>SHE</td></tr>
-<tr><td>21</td><td>Pulls off clothes</td><td>SHD</td></tr>
-<tr><td>22</td><td>Transfers objects</td><td>OCC</td></tr>
-<tr><td>23</td><td>Overcomes simple obstacles</td><td>SHG</td></tr>
-<tr><td>24</td><td>Fetches or carries familiar objects</td><td>OCC</td></tr>
-<tr><td>25</td><td>Drinks from cup or glass</td><td>SHE</td></tr>
-<tr><td>26</td><td>Walks without support</td><td>SHG</td></tr>
-<tr><td>27</td><td>Plays with other children</td><td>SOC</td></tr>
-<tr><td>28</td><td>Eats with own hands (biscuits, bread, etc.)</td><td>SHE</td></tr>
-<tr><td>29</td><td>Goes about house or yard</td><td>LOC</td></tr>
-<tr><td>30</td><td>Discriminates edible substances from non-edibles</td><td>SHE</td></tr>
-<tr><td>31</td><td>Uses names of familiar objects</td><td>COM</td></tr>
-<tr><td>32</td><td>Walks upstairs unassisted</td><td>LOC</td></tr>
-<tr><td>33</td><td>Unwraps sweets, chocolates</td><td>SHE</td></tr>
-<tr><td>34</td><td>Talks in short sentences</td><td>COM</td></tr></table>
-
-<h3>2–3 Years (Items 35–44) | 1.20 mo/item</h3>
-<table><tr><th>#</th><th>Item</th><th>Domain</th></tr>
-<tr><td>35</td><td>Signals to go to toilet</td><td>SHG</td></tr>
-<tr><td>36</td><td>Initiates own play activities</td><td>OCC</td></tr>
-<tr><td>37</td><td>Removes shirt or frock if unbuttoned</td><td>SHD</td></tr>
-<tr><td>38</td><td>Eats with spoon/hands (food)</td><td>SHE</td></tr>
-<tr><td>39</td><td>Gets drink (water) unassisted</td><td>SHG</td></tr>
-<tr><td>40</td><td>Dries own hands</td><td>SHD</td></tr>
-<tr><td>41</td><td>Avoids simple hazards</td><td>SHG</td></tr>
-<tr><td>42</td><td>Puts on short or frock unassisted (need not button)</td><td>SHD</td></tr>
-<tr><td>43</td><td>Can do paper folding</td><td>OCC</td></tr>
-<tr><td>44</td><td>Relates experience</td><td>COM</td></tr></table>
-
-<h3>3–4 Years (Items 45–50) | 2.00 mo/item</h3>
-<table><tr><th>#</th><th>Item</th><th>Domain</th></tr>
-<tr><td>45</td><td>Walks downstairs, one step at a time</td><td>LOC</td></tr>
-<tr><td>46</td><td>Plays co-operatively at kindergarten level</td><td>SOC</td></tr>
-<tr><td>47</td><td>Buttons shirt or frock</td><td>SHD</td></tr>
-<tr><td>48</td><td>Helps at little household tasks</td><td>OCC</td></tr>
-<tr><td>49</td><td>"Performs" for others (reciting, singing, dancing)</td><td>SOC</td></tr>
-<tr><td>50</td><td>Washes hands unaided</td><td>SHG</td></tr></table>
-
-<h3>4–5 Years (Items 51–56) | 2.00 mo/item</h3>
-<table><tr><th>#</th><th>Item</th><th>Domain</th></tr>
-<tr><td>51</td><td>Cares for self at toilet</td><td>SHG</td></tr>
-<tr><td>52</td><td>Washes face unassisted</td><td>SHG</td></tr>
-<tr><td>53</td><td>Goes about neighborhood unattended</td><td>LOC</td></tr>
-<tr><td>54</td><td>Dresses self except for tying</td><td>SHD</td></tr>
-<tr><td>55</td><td>Uses pencil or crayon or chalk for drawing</td><td>OCC</td></tr>
-<tr><td>56</td><td>Plays competitive exercise games</td><td>SOC</td></tr></table>
-
-<h3>5–6 Years (Items 57–61) | 2.40 mo/item</h3>
-<table><tr><th>#</th><th>Item</th><th>Domain</th></tr>
-<tr><td>57</td><td>Uses hoops, flies kites, or uses knife</td><td>OCC</td></tr>
-<tr><td>58</td><td>Prints (writes) simple words</td><td>COM</td></tr>
-<tr><td>59</td><td>Plays simple games which require taking turns</td><td>SOC</td></tr>
-<tr><td>60</td><td>Is trusted with money</td><td>SD</td></tr>
-<tr><td>61</td><td>Goes to school unattended</td><td>LOC</td></tr></table>
-
-<h3>6–7 Years (Items 62–65) | 3.00 mo/item</h3>
-<table><tr><th>#</th><th>Item</th><th>Domain</th></tr>
-<tr><td>62</td><td>Mixes rice "properly unassisted"</td><td>SHE</td></tr>
-<tr><td>63</td><td>Use pencil or chalk for writing</td><td>COM</td></tr>
-<tr><td>64</td><td>Bathes self assisted</td><td>SHG</td></tr>
-<tr><td>65</td><td>Goes to bed unassisted</td><td>SHG</td></tr></table>
-
-<h3>7–8 Years (Items 66–70) | 2.40 mo/item</h3>
-<table><tr><th>#</th><th>Item</th><th>Domain</th></tr>
-<tr><td>66</td><td>Can differentiate between AM &amp; PM</td><td>SD</td></tr>
-<tr><td>67</td><td>Helps himself during meals</td><td>SHE</td></tr>
-<tr><td>68</td><td>Understands and keeps family secrets</td><td>SD</td></tr>
-<tr><td>69</td><td>Participates in pre-adolescent play</td><td>SOC</td></tr>
-<tr><td>70</td><td>Combs or brushes hair</td><td>SHG</td></tr></table>
-
-<h3>8–9 Years (Items 71–74) | 3.00 mo/item</h3>
-<table><tr><th>#</th><th>Item</th><th>Domain</th></tr>
-<tr><td>71</td><td>Uses tools or utensils</td><td>OCC</td></tr>
-<tr><td>72</td><td>Does routine household tasks</td><td>OCC</td></tr>
-<tr><td>73</td><td>Reads on own initiative</td><td>COM</td></tr>
-<tr><td>74</td><td>Bathes self unaided</td><td>SHG</td></tr></table>
-
-<h3>9–10 Years (Items 75–77) | 4.00 mo/item</h3>
-<table><tr><th>#</th><th>Item</th><th>Domain</th></tr>
-<tr><td>75</td><td>Cares for self at meals</td><td>SHE</td></tr>
-<tr><td>76</td><td>Makes minor purchase</td><td>SD</td></tr>
-<tr><td>77</td><td>Goes about home town freely</td><td>LOC</td></tr></table>
-
-<h3>10–11 Years (Items 78–81) | 3.00 mo/item</h3>
-<table><tr><th>#</th><th>Item</th><th>Domain</th></tr>
-<tr><td>78</td><td>Distinguishes between friends and play mates</td><td>SOC</td></tr>
-<tr><td>79</td><td>Makes independent choice of shops</td><td>SD</td></tr>
-<tr><td>80</td><td>Does small remunerative work; makes articles</td><td>OCC</td></tr>
-<tr><td>81</td><td>Follows local current events</td><td>COM</td></tr></table>
-
-<h3>11–12 Years (Items 82–84) | 4.00 mo/item</h3>
-<table><tr><th>#</th><th>Item</th><th>Domain</th></tr>
-<tr><td>82</td><td>Does simple creative work</td><td>OCC</td></tr>
-<tr><td>83</td><td>Is left to care for self or others</td><td>SD</td></tr>
-<tr><td>84</td><td>Enjoys reading books, newspapers and magazines</td><td>COM</td></tr></table>
-
-<h3>12–15 Years (Items 85–89) | 7.20 mo/item</h3>
-<table><tr><th>#</th><th>Item</th><th>Domain</th></tr>
-<tr><td>85</td><td>Plays difficult games</td><td>SOC</td></tr>
-<tr><td>86</td><td>Exercises complete care of dress</td><td>SHD</td></tr>
-<tr><td>87</td><td>Buys own clothing accessories</td><td>SD</td></tr>
-<tr><td>88</td><td>Engages in adolescent group activities</td><td>SOC</td></tr>
-<tr><td>89</td><td>Performs responsible routine chores</td><td>OCC</td></tr></table>
-</div>
-</div>
-
-<!-- ========== 7. DOMAIN CLASSIFICATION ========== -->
-<div class="container" id="domains">
-<h1>7. Domain-wise Classification &amp; What Each Domain Means</h1>
+<!-- ===== PART VII ===== -->
+<div class="container" id="p7">
+<h1>Part VII — Domain-wise Scoring</h1>
 <div class="card domain">
+<h3>How Domain-wise Scoring Works</h3>
+<ol>
+<li>Identify items belonging to each domain (from Profile Analysis norms table).</li>
+<li>Find the <strong>highest-numbered item PASSED</strong> in that domain.</li>
+<li>Look up that item in the Profile Analysis norms table → the corresponding <strong>maturity level (months)</strong> = Domain Social Age.</li>
+<li><strong>Domain SQ = (Domain SA months ÷ CA months) × 100</strong></li>
+<li>Repeat for all 8 domains. Compare to find strengths/weaknesses.</li>
+</ol>
 
-<div class="domain-card">
-<h4>SHG — Self-Help General</h4>
-<p><strong>Items:</strong> 2, 3, 5, 6, 8, 9, 13, 15, 23, 26, 35, 39, 41, 50, 51, 52, 62, 64, 65, 66, 70, 74, 75</p>
-<p><strong>Meaning:</strong> General personal care — toileting, bathing, grooming, hygiene, balance, safety awareness. Low SHG = dependence in basic self-care.</p>
-</div>
-
-<div class="domain-card">
-<h4>SHE — Self-Help Eating</h4>
-<p><strong>Items:</strong> 11, 16, 20, 25, 28, 30, 33, 38, 67, 72</p>
-<p><strong>Meaning:</strong> Eating/feeding skills — drinking, chewing, using utensils, serving self. Low SHE = needs help with feeding.</p>
-</div>
-
-<div class="domain-card">
-<h4>SHD — Self-Help Dressing</h4>
-<p><strong>Items:</strong> 21, 37, 40, 42, 47, 54, 83, 86, 87</p>
-<p><strong>Meaning:</strong> Dressing skills — removing/putting on clothes, buttoning, complete dress care. Low SHD = cannot dress independently.</p>
-</div>
-
-<div class="domain-card">
-<h4>SD — Self-Direction</h4>
-<p><strong>Items:</strong> 36, 43, 48, 55, 57, 60, 63, 68, 71, 72, 76, 79, 80, 82, 83, 89</p>
-<p><strong>Meaning:</strong> Initiative, responsibility, planning, money management, self-regulation. Low SD = limited independence, cannot plan or manage resources. Key domain for vocational prognosis.</p>
-</div>
-
-<div class="domain-card">
-<h4>OCC — Occupation</h4>
-<p><strong>Items:</strong> 7, 10, 17, 19, 22, 24, 31, 34, 36, 43, 44, 48, 55, 58, 63, 73, 76, 79, 80, 81, 82, 84, 87, 89</p>
-<p><strong>Meaning:</strong> Purposeful/constructive activity — play, tools, household tasks, creative work, pre-vocational skills. Low OCC = limited productive engagement.</p>
-</div>
-
-<div class="domain-card">
-<h4>COM — Communication</h4>
-<p><strong>Items:</strong> 1, 10, 17, 31, 34, 44, 58, 63, 73, 81, 84</p>
-<p><strong>Meaning:</strong> Expressive and receptive communication — speaking, understanding, reading, writing. Low COM = language delay, possible hearing issues.</p>
-</div>
-
-<div class="domain-card">
-<h4>LOC — Locomotion</h4>
-<p><strong>Items:</strong> 12, 18, 29, 32, 45, 53, 61, 74, 77, 84, 88</p>
-<p><strong>Meaning:</strong> Physical movement — crawling, walking, climbing, independent travel. Low LOC = motor disability or environmental restriction.</p>
-</div>
-
-<div class="domain-card">
-<h4>SOC — Socialization</h4>
-<p><strong>Items:</strong> 4, 14, 27, 46, 49, 53, 56, 59, 61, 68, 69, 77, 78, 85, 88</p>
-<p><strong>Meaning:</strong> Social interaction — cooperative play, group participation, friendships, social awareness. Low SOC = social withdrawal, possible ASD features.</p>
-</div>
-</div>
-</div>
-
-<!-- ========== 8. DOMAIN NORMS TABLE ========== -->
-<div class="container" id="domainprofile">
-<h1>8. Domain-wise Norms for Profile Analysis</h1>
-<div class="card domain">
-<p>This table (from the VSMS manual) shows which item numbers fall at each maturity level (in months) for each domain. Use this to find the <strong>domain-wise Social Age</strong>.</p>
-
+<h3>Domain-wise Norms for Profile Analysis (From Manual)</h3>
 <div class="table-wrapper"><table>
-<tr><th>Maturity Level (Yrs)</th><th>Months</th><th>SHG</th><th>SHE</th><th>SHD</th><th>SD</th><th>OCC</th><th>COM</th><th>LOC</th><th>SOC</th></tr>
+<tr><th>Level (Yr)</th><th>Months</th><th>SHG</th><th>SHE</th><th>SHD</th><th>SD</th><th>OCC</th><th>COM</th><th>LOC</th><th>SOC</th></tr>
 <tr><td>I</td><td>1.5–12</td><td>2,3,5,6,8,9,13,15</td><td>11,16</td><td>—</td><td>—</td><td>7</td><td>1,10</td><td>12</td><td>4,14</td></tr>
-<tr><td>II</td><td>14.4–24</td><td>23,26</td><td>20,25,28,30,33</td><td>21</td><td>—</td><td>19,22,24</td><td>17,31,34</td><td>18,29,32</td><td>27</td></tr>
+<tr><td>II</td><td>14–24</td><td>23,26</td><td>20,25,28,30,33</td><td>21</td><td>—</td><td>19,22,24</td><td>17,31,34</td><td>18,29,32</td><td>27</td></tr>
 <tr><td>III</td><td>28–36</td><td>35,39,41</td><td>38</td><td>37,40,42</td><td>36</td><td>36,43</td><td>44</td><td>—</td><td>—</td></tr>
 <tr><td>IV</td><td>40–48</td><td>—</td><td>—</td><td>47</td><td>—</td><td>48</td><td>44</td><td>45</td><td>46,49</td></tr>
 <tr><td>V</td><td>52–60</td><td>50,51,52</td><td>—</td><td>54</td><td>55</td><td>55</td><td>—</td><td>53</td><td>56</td></tr>
 <tr><td>VI</td><td>64–72</td><td>—</td><td>62</td><td>—</td><td>57,60</td><td>57</td><td>58</td><td>61</td><td>56,59</td></tr>
 <tr><td>VII</td><td>76–84</td><td>64,65</td><td>—</td><td>—</td><td>63</td><td>—</td><td>63</td><td>—</td><td>—</td></tr>
-<tr><td>VII</td><td>88–96</td><td>66</td><td>67</td><td>—</td><td>68</td><td>—</td><td>—</td><td>—</td><td>69,68</td></tr>
+<tr><td>VIII</td><td>88–96</td><td>66</td><td>67</td><td>—</td><td>68</td><td>—</td><td>—</td><td>—</td><td>69,68</td></tr>
+<tr><td>IX</td><td>100–108</td><td>70</td><td>—</td><td>—</td><td>71,72</td><td>71</td><td>73</td><td>—</td><td>—</td></tr>
+<tr><td>X</td><td>112–120</td><td>74</td><td>75</td><td>—</td><td>76</td><td>76</td><td>—</td><td>77</td><td>—</td></tr>
+<tr><td>XI</td><td>124–132</td><td>—</td><td>—</td><td>—</td><td>79</td><td>79</td><td>80,81</td><td>—</td><td>78</td></tr>
+<tr><td>XII</td><td>136–144</td><td>—</td><td>—</td><td>83</td><td>—</td><td>82</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td>XV</td><td>156–180</td><td>—</td><td>—</td><td>86</td><td>87</td><td>89</td><td>84</td><td>84,88</td><td>85,88</td></tr>
+</table></div>
+
+<h3>Example: Domain SQ for SHG</h3>
+<p>Child CA = 84 months. SHG items passed: 2,3,5,6,8,9,13,15,23,26,35,39,41,50,51,52. Failed: 64,65.</p>
+<p>Highest passed = Item 52 → Level V (52–60 months) → <strong>Domain SA ≈ 56 months</strong></p>
+<p>Domain SQ (SHG) = (56 ÷ 84) × 100 = <strong>67</strong></p>
+</div>
+</div>
+
+<!-- ===== PART VIII ===== -->
+<div class="container" id="p8">
+<h1>Part VIII — Social Age</h1>
+<div class="card sasq">
+<h3>Definition</h3>
+<p>Social Age (SA) = the adaptive developmental age equivalent in months, calculated by summing item-value contributions from each age range.</p>
+<h3>Meaning</h3>
+<ul>
+<li>SA &lt; CA → adaptive delay</li>
+<li>SA ≈ CA → age-appropriate</li>
+<li>SA &gt; CA → advanced (rare in clinical populations)</li>
+</ul>
+<h3>Calculation Summary</h3>
+<p>For each age range: count credited items × item value = months contributed. Sum all = Total SA.</p>
+</div>
+</div>
+
+<!-- ===== PART IX ===== -->
+<div class="container" id="p9">
+<h1>Part IX — Social Quotient &amp; CA Cap</h1>
+<div class="card sasq">
+<div class="calc-card"><p class="formula">SQ = (SA in months ÷ CA in months) × 100</p></div>
+<div class="ca-cap-box">
+<h3>🚨 CA MAXIMUM = 15 YEARS (180 MONTHS) 🚨</h3>
+<table><tr style="background:#FADBD8;"><th>Actual Age</th><th>CA Used</th></tr>
+<tr><td>Below 15 years</td><td>Actual age in months</td></tr>
+<tr><td>15 years or older (20, 30, 40, 50...)</td><td><strong>180 months (CAPPED)</strong></td></tr></table>
+<p style="margin-top:10px;"><strong>WHY?</strong> Scale covers only up to 15 years. Max SA ≈ 180 months.</p>
+</div>
+<h3>SQ Classification</h3>
+<table><tr><th>SQ</th><th>Classification</th></tr>
+<tr><td>90–109</td><td>Average</td></tr><tr><td>80–89</td><td>Below Average</td></tr><tr><td>70–79</td><td>Borderline</td></tr><tr><td>50–69</td><td>Mild ID</td></tr><tr><td>35–49</td><td>Moderate ID</td></tr><tr><td>20–34</td><td>Severe ID</td></tr><tr><td>&lt;20</td><td>Profound ID</td></tr></table>
+</div>
+</div>
+
+<!-- ===== PART X ===== -->
+<div class="container" id="p10">
+<h1>Part X — Domain-wise Clinical Interpretation</h1>
+<div class="card interpret">
+<table><tr><th>Pattern</th><th>Interpretation</th><th>Action</th></tr>
+<tr><td>All domains uniformly low</td><td>Global delay / ID</td><td>Comprehensive rehab</td></tr>
+<tr><td>Low COM, rest better</td><td>Language delay / hearing loss</td><td>Speech therapy; audiological check</td></tr>
+<tr><td>Low SOC, rest better</td><td>ASD features / withdrawal</td><td>ASD evaluation; social skills</td></tr>
+<tr><td>Low LOC, rest better</td><td>Motor disability (CP)</td><td>Physiotherapy; mobility aids</td></tr>
+<tr><td>Low SHG/SHD, COM better</td><td>Overprotection</td><td>Independence training; parent counselling</td></tr>
+<tr><td>Low SD</td><td>Limited executive function</td><td>Graded responsibility training</td></tr>
+<tr><td>Low OCC</td><td>Limited productive engagement</td><td>Vocational training</td></tr></table>
+<div class="alert-box clinical"><strong>🩺 Domain scores alone NEVER diagnose a condition. They guide intervention.</strong></div>
+</div>
+</div>
+
+<!-- ===== PART XI ===== -->
+<div class="container" id="p11">
+<h1>Part XI — Clinical Application</h1>
+<div class="card interpret">
+<h3>Intellectual Disability</h3>
+<p>ID (ICD-10/DSM-5) requires: (1) Sub-average IQ + (2) Sub-average adaptive + (3) Developmental onset. VSMS provides criterion 2.</p>
+<h3>Other Applications</h3>
+<ul><li>ASD — documents adaptive impact</li><li>Cerebral Palsy — shows motor vs cognitive profile</li><li>Rehabilitation planning</li><li>Disability certification (India)</li><li>Progress monitoring post-intervention</li></ul>
+<h3>Limitations</h3>
+<ul><li>Informant/recall bias</li><li>Cultural differences</li><li>Opportunity vs capacity confusion</li><li>Old norms (1971)</li><li>Cannot diagnose alone</li></ul>
+</div>
+</div>
+
+<!-- ===== PART XII ===== -->
+<div class="container" id="p12">
+<h1>Part XII — Case Studies</h1>
+<div class="card case">
+<h2>Case 1: Child 8 years (CA = 96 months)</h2>
+<table><tr><th>Range</th><th>N</th><th>Value</th><th>Credited</th><th>SA</th></tr>
+<tr><td>0–1</td><td>17</td><td>0.71</td><td>17</td><td>12.0</td></tr><tr><td>1–2</td><td>17</td><td>0.71</td><td>17</td><td>12.0</td></tr><tr><td>2–3</td><td>10</td><td>1.20</td><td>10</td><td>12.0</td></tr><tr><td>3–4</td><td>6</td><td>2.00</td><td>6</td><td>12.0</td></tr><tr><td>4–5</td><td>6</td><td>2.00</td><td>4</td><td>8.0</td></tr><tr><td>5–6</td><td>5</td><td>2.40</td><td>2</td><td>4.8</td></tr><tr><td>6–7</td><td>4</td><td>3.00</td><td>0.5</td><td>1.5</td></tr><tr><td>7–8 (ceil)</td><td>5</td><td>2.40</td><td>0</td><td>0</td></tr></table>
+<div class="calc-card"><p><strong>SA = 12+12+12+12+8+4.8+1.5 = 62.3 months</strong></p><p class="formula">SQ = (62.3 ÷ 96) × 100 = 65 → Mild ID</p></div>
+</div>
+<div class="card case">
+<h2>Case 2: Adult 25 years (CA = 180 months CAPPED)</h2>
+<table><tr><th>Range</th><th>N</th><th>Value</th><th>Credited</th><th>SA</th></tr>
+<tr><td>0–1</td><td>17</td><td>0.71</td><td>17</td><td>12.0</td></tr><tr><td>1–2</td><td>17</td><td>0.71</td><td>17</td><td>12.0</td></tr><tr><td>2–3</td><td>10</td><td>1.20</td><td>10</td><td>12.0</td></tr><tr><td>3–4</td><td>6</td><td>2.00</td><td>6</td><td>12.0</td></tr><tr><td>4–5</td><td>6</td><td>2.00</td><td>4</td><td>8.0</td></tr><tr><td>5–6</td><td>5</td><td>2.40</td><td>2</td><td>4.8</td></tr><tr><td>6–7</td><td>4</td><td>3.00</td><td>1</td><td>3.0</td></tr><tr><td>7–8 (ceil)</td><td>5</td><td>2.40</td><td>0</td><td>0</td></tr></table>
+<div class="calc-card"><p><strong>SA = 63.8 months | CA = 180 months (capped)</strong></p><p class="formula">SQ = (63.8 ÷ 180) × 100 = 35 → Moderate ID</p></div>
+<div class="alert-box important"><strong>🚨 Age 20, 30, 40, 50 → all use CA=180 → same SQ=35</strong></div>
+</div>
+</div>
+
+<!-- ===== PART XIII ===== -->
+<div class="container" id="p13">
+<h1>Part XIII — Report Writing</h1>
+<div class="card report">
+<h3>Structure</h3>
+<ol><li>Identifying Information</li><li>Referral Source &amp; Reason</li><li>Informant Details</li><li>Brief Background</li><li>Behavioural Observations</li><li>Test Administered</li><li>Results: CA (months), SA (months), SQ, Classification</li><li>Domain-wise Findings</li><li>Interpretation</li><li>Limitations</li><li>Recommendations</li></ol>
+<h3>Sample Report</h3>
+<div style="background:white;padding:20px;border-radius:10px;border:1px solid #D5D8DC;">
+<p style="text-align:center;font-weight:bold;">PSYCHOLOGICAL ASSESSMENT REPORT</p>
+<p><strong>Name:</strong> Master A | <strong>Age:</strong> 8 yr | <strong>Sex:</strong> M | <strong>Informant:</strong> Mother</p>
+<p><strong>Test:</strong> VSMS (Malin's Indian Adaptation)</p>
+<p><strong>CA:</strong> 96 months | <strong>SA:</strong> 62 months | <strong>SQ:</strong> (62÷96)×100 = <strong>65</strong> | <strong>Classification:</strong> Mild ID (Adaptive)</p>
+<p><strong>Domain Profile:</strong> LOC=84mo, SOC=72mo, SHG=60mo, COM=48mo, SD=40mo</p>
+<p><strong>Interpretation:</strong> Adaptive functioning in Mild ID range. LOC &amp; SOC are strengths. COM &amp; SD are weaknesses needing intervention.</p>
+<p><strong>Recommendations:</strong> (1) Cognitive testing (BKT). (2) Speech therapy. (3) Self-direction training. (4) Parent counselling for independence.</p>
+</div>
+<div class="alert-box error"><strong>🚫 NEVER write "IQ = [SQ]". VSMS gives SQ, not IQ.</strong></div>
+</div>
+</div>
+
+<!-- ===== PART XIV ===== -->
+<div class="container" id="p14">
+<h1>Part XIV — Differential Understanding</h1>
+<div class="card theory">
+<table><tr><th>Feature</th><th>VSMS (Malin's)</th><th>VABS-II/III</th></tr>
+<tr><td>Items</td><td>89</td><td>400+</td></tr>
+<tr><td>Domains</td><td>8</td><td>4 + subdomains</td></tr>
+<tr><td>Output</td><td>SA + SQ (ratio)</td><td>Standard scores + percentiles</td></tr>
+<tr><td>Indian norms</td><td>Yes (1971)</td><td>Limited</td></tr>
+<tr><td>Use in India</td><td>Widely used clinically</td><td>Research mainly</td></tr></table>
+</div>
+</div>
+
+<!-- ===== PART XV ===== -->
+<div class="container" id="p15">
+<h1>Part XV — Psychometric Properties</h1>
+<div class="card theory">
+<table><tr><th>Property</th><th>Value</th></tr>
+<tr><td>Test-retest reliability</td><td>r = 0.92</td></tr>
+<tr><td>Inter-rater reliability</td><td>r = 0.90+</td></tr>
+<tr><td>Split-half reliability</td><td>r = 0.88–0.93</td></tr>
+<tr><td>Correlation with IQ</td><td>r = 0.80</td></tr>
+<tr><td>Standardization sample</td><td>~1500 Indian children (Nagpur, 1960s-70s)</td></tr></table>
+<h3>Limitations</h3>
+<ul><li>Old norms (1971)</li><li>Urban Maharashtra sample primarily</li><li>Ratio SQ (not deviation scores)</li><li>Some items culturally dated</li><li>No separate gender/SES norms</li></ul>
+</div>
+</div>
+
+<!-- ===== PART XVI ===== -->
+<div class="container" id="p16">
+<h1>Part XVI — Cultural &amp; Clinical Considerations</h1>
+<div class="card interpret">
+<ul>
+<li><strong>Rural vs urban:</strong> Opportunities differ (urban: more structured activities; rural: more physical independence)</li>
+<li><strong>Overprotection:</strong> Artificially lowers SHG, SHD, SD scores</li>
+<li><strong>Educational access:</strong> Items requiring literacy depend on schooling opportunity — use +NO if appropriate</li>
+<li><strong>Gender expectations:</strong> Girls may score higher on SHG/SHE; boys on LOC in some cultures</li>
+<li><strong>Poverty:</strong> May limit opportunity, not capacity — differentiate carefully</li>
+</ul>
+<div class="alert-box clinical"><strong>🩺 A child not performing a task may lack OPPORTUNITY, not CAPACITY. Always ask: "Has the child been given the chance?"</strong></div>
+</div>
+</div>
+
+<!-- ===== PART XVII ===== -->
+<div class="container" id="p17">
+<h1>Part XVII — Common Scoring Errors</h1>
+<div class="card scoring">
+<ul>
+<li>❌ Using CA above 15 years (must cap at 180 months)</li>
+<li>❌ Calculating SQ in years instead of months</li>
+<li>❌ Reporting SQ as "IQ"</li>
+<li>❌ Diagnosing ID from VSMS alone</li>
+<li>❌ Not establishing proper basal (not going backward)</li>
+<li>❌ Stopping before true ceiling</li>
+<li>❌ Giving full credit for "with physical help"</li>
+<li>❌ Accepting vague answers without probing</li>
+<li>❌ Mixing item values between age ranges</li>
+<li>❌ Forgetting 12–15 yr range = 36 months (not 12)</li>
+<li>❌ Not using Profile Analysis norms for domain scoring</li>
+<li>❌ Equating low domain score with psychiatric diagnosis</li>
+</ul>
+</div>
+</div>
+
+<!-- ===== PART XVIII ===== -->
+<div class="container" id="p18">
+<h1>Part XVIII — Practical Scoring Workbook &amp; Worked Examples</h1>
+<div class="card scoring">
+<h2>Worked Example: Child 7 years (CA = 84 months)</h2>
+<table><tr><th>Range</th><th>N</th><th>Value</th><th>Credited</th><th>SA (mo)</th></tr>
+<tr><td>0–1</td><td>17</td><td>0.71</td><td>17</td><td>12.0</td></tr>
+<tr><td>1–2</td><td>17</td><td>0.71</td><td>17</td><td>12.0</td></tr>
+<tr><td>2–3</td><td>10</td><td>1.20</td><td>10</td><td>12.0</td></tr>
+<tr><td>3–4</td><td>6</td><td>2.00</td><td>5</td><td>10.0</td></tr>
+<tr><td>4–5</td><td>6</td><td>2.00</td><td>3.5</td><td>7.0</td></tr>
+<tr><td>5–6</td><td>5</td><td>2.40</td><td>1</td><td>2.4</td></tr>
+<tr><td>6–7 (ceil)</td><td>4</td><td>3.00</td><td>0</td><td>0</td></tr></table>
+<div class="calc-card"><p><strong>SA = 55.4 months | CA = 84 months</strong></p><p class="formula">SQ = (55.4 ÷ 84) × 100 = 66 → Mild ID</p></div>
+
+<h2>Worked Example: Adult 25 years (CA = 180 CAPPED)</h2>
+<table><tr><th>Range</th><th>N</th><th>Value</th><th>Credited</th><th>SA (mo)</th></tr>
+<tr><td>0–1</td><td>17</td><td>0.71</td><td>17</td><td>12.0</td></tr>
+<tr><td>1–2</td><td>17</td><td>0.71</td><td>17</td><td>12.0</td></tr>
+<tr><td>2–3</td><td>10</td><td>1.20</td><td>10</td><td>12.0</td></tr>
+<tr><td>3–4</td><td>6</td><td>2.00</td><td>6</td><td>12.0</td></tr>
+<tr><td>4–5</td><td>6</td><td>2.00</td><td>4</td><td>8.0</td></tr>
+<tr><td>5–6</td><td>5</td><td>2.40</td><td>2</td><td>4.8</td></tr>
+<tr><td>6–7</td><td>4</td><td>3.00</td><td>1</td><td>3.0</td></tr>
+<tr><td>7–8 (ceil)</td><td>5</td><td>2.40</td><td>0</td><td>0</td></tr></table>
+<div class="calc-card"><p><strong>SA = 63.8 months | CA = 180 months (capped, actual=25yr)</strong></p><p class="formula">SQ = (63.8 ÷ 180) × 100 = 35 → Moderate ID</p></div>
+<div class="alert-box important"><strong>🚨 Anyone ≥15 years with same SA gets same SQ (20yr, 30yr, 40yr, 50yr → all CA=180 → same result)</strong></div>
+</div>
+</div>
+
+<!-- ===== DOMAIN NORMS ===== -->
+<div class="container" id="norms">
+<h1>Domain Norms Table (Profile Analysis)</h1>
+<div class="card domain">
+<p>Use this table to find domain-wise SA. Find highest passed item in each domain → look up maturity level in months.</p>
+<div class="table-wrapper"><table>
+<tr><th>Level</th><th>Months</th><th>SHG</th><th>SHE</th><th>SHD</th><th>SD</th><th>OCC</th><th>COM</th><th>LOC</th><th>SOC</th></tr>
+<tr><td>I</td><td>1.5–12</td><td>2,3,5,6,8,9,13,15</td><td>11,16</td><td>—</td><td>—</td><td>7</td><td>1,10</td><td>12</td><td>4,14</td></tr>
+<tr><td>II</td><td>14–24</td><td>23,26</td><td>20,25,28,30,33</td><td>21</td><td>—</td><td>19,22,24</td><td>17,31,34</td><td>18,29,32</td><td>27</td></tr>
+<tr><td>III</td><td>28–36</td><td>35,39,41</td><td>38</td><td>37,40,42</td><td>36</td><td>36,43</td><td>44</td><td>—</td><td>—</td></tr>
+<tr><td>IV</td><td>40–48</td><td>—</td><td>—</td><td>47</td><td>—</td><td>48</td><td>44</td><td>45</td><td>46,49</td></tr>
+<tr><td>V</td><td>52–60</td><td>50,51,52</td><td>—</td><td>54</td><td>55</td><td>55</td><td>—</td><td>53</td><td>56</td></tr>
+<tr><td>VI</td><td>64–72</td><td>—</td><td>62</td><td>—</td><td>57,60</td><td>57</td><td>58</td><td>61</td><td>56,59</td></tr>
+<tr><td>VII</td><td>76–84</td><td>64,65</td><td>—</td><td>—</td><td>63</td><td>—</td><td>63</td><td>—</td><td>—</td></tr>
+<tr><td>VIII</td><td>88–96</td><td>66</td><td>67</td><td>—</td><td>68</td><td>—</td><td>—</td><td>—</td><td>69,68</td></tr>
 <tr><td>IX</td><td>100–108</td><td>70</td><td>—</td><td>—</td><td>71,72</td><td>71</td><td>73</td><td>—</td><td>—</td></tr>
 <tr><td>X</td><td>112–120</td><td>74</td><td>75</td><td>—</td><td>76</td><td>76</td><td>—</td><td>77</td><td>—</td></tr>
 <tr><td>XI</td><td>124–132</td><td>—</td><td>—</td><td>—</td><td>79</td><td>79</td><td>80,81</td><td>—</td><td>78</td></tr>
@@ -483,221 +512,57 @@ tr:nth-child(even) td{background:var(--light-grey)}
 </div>
 </div>
 
-<!-- ========== 9. HOW TO DO DOMAIN-WISE SCORING ========== -->
-<div class="container" id="domainscore">
-<h1>9. How to Do Domain-wise Scoring</h1>
-<div class="card domain">
-<h3>Method:</h3>
+<!-- ===== MASTER TABLE & ALGORITHM ===== -->
+<div class="container" id="master">
+<h1>Master Table &amp; Master Scoring Algorithm</h1>
+<div class="card scoring">
+<h3>Master Scoring Algorithm (Memorise This)</h3>
 <ol>
-<li>For each domain, identify all items belonging to that domain (from the norms table above).</li>
-<li>Find the <strong>highest-numbered item PASSED</strong> in that domain.</li>
-<li>Look up that item number in the norms table → the corresponding <strong>maturity level (in months)</strong> is the <strong>Domain SA</strong> for that domain.</li>
-<li>Calculate domain SQ: <strong>Domain SQ = (Domain SA in months ÷ CA in months) × 100</strong></li>
-<li>Repeat for all 8 domains.</li>
-<li>Compare domain SQs to identify strengths and weaknesses.</li>
+<li><strong>Calculate CA in months</strong> (cap at 180 if ≥15 years)</li>
+<li><strong>Select informant</strong> (mother/caregiver with daily contact)</li>
+<li><strong>Start items</strong> one year below CA</li>
+<li><strong>Establish basal</strong> (go backward until all pass at one level)</li>
+<li><strong>Score forward</strong>: ✓=1, ½=0.5, ×=0 for each item</li>
+<li><strong>Establish ceiling</strong> (all fail at one level → stop)</li>
+<li><strong>For each age range:</strong> Count credited items × item value = SA contribution</li>
+<li><strong>Sum all contributions</strong> = Total SA (months)</li>
+<li><strong>SQ = (SA months ÷ CA months) × 100</strong></li>
+<li><strong>Classify SQ</strong>: Avg 90-109, Border 70-79, Mild 50-69, Mod 35-49, Severe 20-34, Profound &lt;20</li>
+<li><strong>Domain scoring:</strong> Highest passed item per domain → norms table → domain SA → domain SQ</li>
+<li><strong>Interpret</strong> profile: identify strengths/weaknesses</li>
+<li><strong>Write report</strong></li>
 </ol>
+</div>
+</div>
 
-<h3>Example:</h3>
-<p>Child CA = 84 months (7 years). In the <strong>SHG domain</strong>:</p>
+<!-- ===== VERSION CONTROL ===== -->
+<div class="container" id="version">
+<h1>Version Control &amp; Reconciliation</h1>
+<div class="card theory">
+<h3>Which Version Are You Using?</h3>
+<table><tr><th>Feature</th><th>Malin's 1971 (Standard)</th></tr>
+<tr><td>Items</td><td>89</td></tr>
+<tr><td>Domains</td><td>8 (SHG, SHE, SHD, SD, OCC, COM, LOC, SOC)</td></tr>
+<tr><td>Scoring</td><td>✓, ½, × → Item-value method → SA → SQ</td></tr>
+<tr><td>CA Rule</td><td>Maximum 15 years (180 months)</td></tr>
+<tr><td>SQ Formula</td><td>(SA months ÷ CA months) × 100</td></tr>
+<tr><td>Norms</td><td>Indian (Nagpur sample, 1960s-70s)</td></tr></table>
+
+<h3>Key Rules — Never Mix Versions</h3>
 <ul>
-<li>Items passed: 2, 3, 5, 6, 8, 9, 13, 15, 23, 26, 35, 39, 41, 50, 51, 52</li>
-<li>Items failed: 64, 65 onwards</li>
-<li>Highest passed item = <strong>52</strong></li>
-<li>Item 52 falls at maturity level V (52–60 months range) → Domain SA ≈ <strong>56 months</strong></li>
-<li>Domain SQ (SHG) = (56 ÷ 84) × 100 = <strong>67</strong></li>
+<li>Always use items, scoring, and norms from the SAME manual edition</li>
+<li>The newer manual is the primary authority</li>
+<li>If question file and manual disagree → follow the manual</li>
+<li>Document which version you used in the report</li>
 </ul>
-<p>Do the same for all 8 domains, then compare:</p>
-<ul>
-<li>If all domain SQs are similar → global delay</li>
-<li>If some domains much lower → specific weakness → targeted intervention</li>
-</ul>
-
-<div class="alert-box clinical">
-<strong>🩺 CLINICAL USE:</strong> Domain profile tells you WHERE to intervene. Low SHG → self-care training. Low COM → speech therapy. Low LOC → physiotherapy. Low SOC → social skills training. Low SD → independence training.
-</div>
+<div class="alert-box version"><strong>If something cannot be verified from the manual: State "Not verified from available manual." NEVER guess.</strong></div>
 </div>
 </div>
 
-<!-- ========== 10. WORKED EXAMPLES ========== -->
-<div class="container" id="worked">
-<h1>10. Worked Examples</h1>
-
-<div class="card scoring">
-<h2>Example 1: Child aged 7 years (CA = 84 months)</h2>
-<div class="table-wrapper"><table>
-<tr><th>Age Range</th><th>N</th><th>Item Value</th><th>Credited</th><th>SA Contribution</th></tr>
-<tr><td>0–1 yr</td><td>17</td><td>0.71</td><td>17</td><td>12.0 mo</td></tr>
-<tr><td>1–2 yr</td><td>17</td><td>0.71</td><td>17</td><td>12.0 mo</td></tr>
-<tr><td>2–3 yr</td><td>10</td><td>1.20</td><td>10</td><td>12.0 mo</td></tr>
-<tr><td>3–4 yr</td><td>6</td><td>2.00</td><td>5</td><td>10.0 mo</td></tr>
-<tr><td>4–5 yr</td><td>6</td><td>2.00</td><td>3.5</td><td>7.0 mo</td></tr>
-<tr><td>5–6 yr</td><td>5</td><td>2.40</td><td>1</td><td>2.4 mo</td></tr>
-<tr><td>6–7 yr (ceiling)</td><td>4</td><td>3.00</td><td>0</td><td>0 mo</td></tr>
-</table></div>
-<div class="calc-card">
-<p><strong>Total SA = 12 + 12 + 12 + 10 + 7 + 2.4 + 0 = 55.4 months</strong></p>
-<p>CA = 84 months</p>
-<p class="formula">SQ = (55.4 ÷ 84) × 100 = 66 → Mild ID range</p>
-</div>
-</div>
-
-<div class="card scoring">
-<h2>Example 2: Adult aged 25 years (CA CAPPED = 180 months)</h2>
-<div class="table-wrapper"><table>
-<tr><th>Age Range</th><th>N</th><th>Item Value</th><th>Credited</th><th>SA Contribution</th></tr>
-<tr><td>0–1 yr</td><td>17</td><td>0.71</td><td>17</td><td>12.0 mo</td></tr>
-<tr><td>1–2 yr</td><td>17</td><td>0.71</td><td>17</td><td>12.0 mo</td></tr>
-<tr><td>2–3 yr</td><td>10</td><td>1.20</td><td>10</td><td>12.0 mo</td></tr>
-<tr><td>3–4 yr</td><td>6</td><td>2.00</td><td>6</td><td>12.0 mo</td></tr>
-<tr><td>4–5 yr</td><td>6</td><td>2.00</td><td>4</td><td>8.0 mo</td></tr>
-<tr><td>5–6 yr</td><td>5</td><td>2.40</td><td>2</td><td>4.8 mo</td></tr>
-<tr><td>6–7 yr</td><td>4</td><td>3.00</td><td>1</td><td>3.0 mo</td></tr>
-<tr><td>7–8 yr (ceiling)</td><td>5</td><td>2.40</td><td>0</td><td>0 mo</td></tr>
-</table></div>
-<div class="calc-card">
-<p><strong>Total SA = 12+12+12+12+8+4.8+3+0 = 63.8 months</strong></p>
-<p>Actual age 25 yr → <strong>CA CAPPED at 180 months</strong></p>
-<p class="formula">SQ = (63.8 ÷ 180) × 100 = 35 → Moderate ID range</p>
-</div>
-<div class="alert-box important">
-<strong>🚨 Anyone ≥15 years with SA=63.8 gets SQ=35, whether they are 20, 30, 40, or 50 years old.</strong>
-</div>
-</div>
-</div>
-
-<!-- ========== 11. SQ CLASSIFICATION ========== -->
-<div class="container" id="sq-class">
-<h1>11. SQ Classification</h1>
-<div class="card sasq">
-<table>
-<tr><th>SQ Range</th><th>Classification</th></tr>
-<tr><td>90–109</td><td>Average / Normal</td></tr>
-<tr><td>80–89</td><td>Below Average</td></tr>
-<tr><td>70–79</td><td>Borderline</td></tr>
-<tr><td>50–69</td><td>Mild Intellectual Disability</td></tr>
-<tr><td>35–49</td><td>Moderate Intellectual Disability</td></tr>
-<tr><td>20–34</td><td>Severe Intellectual Disability</td></tr>
-<tr><td>Below 20</td><td>Profound Intellectual Disability</td></tr>
-</table>
-</div>
-</div>
-
-<!-- ========== 12. INTERPRETATION ========== -->
-<div class="container" id="interpret">
-<h1>12. Interpretation &amp; Clinical Meaning of Domains</h1>
-<div class="card interpret">
-<h3>Domain Profile Patterns:</h3>
-<table>
-<tr><th>Pattern</th><th>Possible Interpretation</th><th>Action</th></tr>
-<tr><td>All domains uniformly low</td><td>Global developmental delay / ID</td><td>Comprehensive rehab programme</td></tr>
-<tr><td>Low COM, rest better</td><td>Language delay / hearing loss / ASD</td><td>Speech therapy; audiological check</td></tr>
-<tr><td>Low SOC, rest better</td><td>ASD features / social withdrawal</td><td>ASD evaluation; social skills training</td></tr>
-<tr><td>Low LOC, rest better</td><td>Motor disability (CP, physical)</td><td>Physiotherapy; mobility aids</td></tr>
-<tr><td>Low SHG/SHD, COM better</td><td>Overprotection / lack of training</td><td>Independence training; parent counselling</td></tr>
-<tr><td>Low SD</td><td>Limited executive function / overprotection</td><td>Graded responsibility; money management</td></tr>
-<tr><td>Low OCC</td><td>Limited productive engagement</td><td>Vocational training; sheltered workshop</td></tr>
-</table>
-<div class="alert-box clinical"><strong>🩺 Domain scores alone NEVER diagnose a condition. They guide intervention targets.</strong></div>
-</div>
-</div>
-
-<!-- ========== 13. CLINICAL ========== -->
-<div class="container" id="clinical">
-<h1>13. Clinical Applications</h1>
-<div class="card interpret">
-<h3>Intellectual Disability</h3>
-<p>ID diagnosis (ICD-10/DSM-5) requires: (1) Sub-average IQ + (2) Sub-average adaptive functioning + (3) Onset in developmental period. VSMS provides criterion 2 evidence.</p>
-<h3>Other Uses</h3>
-<ul>
-<li><strong>ASD:</strong> Documents adaptive impact (low SOC/COM with better SHG/LOC)</li>
-<li><strong>Cerebral Palsy:</strong> Shows motor domains low, cognitive domains may be preserved</li>
-<li><strong>Rehabilitation:</strong> Domain weaknesses = specific intervention targets</li>
-<li><strong>Disability certification:</strong> RPWD Act 2016 (India)</li>
-<li><strong>Progress monitoring:</strong> Re-test after 6–12 months of intervention</li>
-</ul>
-<h3>Limitations</h3>
-<ul>
-<li>Informant bias / recall bias</li>
-<li>Cultural differences in expectations</li>
-<li>Environmental opportunity vs actual capacity</li>
-<li>Old norms (1971)</li>
-<li>Cannot diagnose alone — needs IQ test also</li>
-</ul>
-</div>
-</div>
-
-<!-- ========== 14. SAMPLE REPORTS ========== -->
-<div class="container" id="reports">
-<h1>14. Sample Reports</h1>
-
-<div class="card report">
-<h2>Report 1: Child with Mild ID (CA = 96 months / 8 years)</h2>
-<div style="background:white;padding:20px;border-radius:10px;border:1px solid #D5D8DC;">
-<p style="text-align:center;font-weight:bold;">PSYCHOLOGICAL ASSESSMENT REPORT</p>
-<p><strong>Name:</strong> Master A (pseudonym) | <strong>Age:</strong> 8 years 0 months | <strong>Sex:</strong> Male</p>
-<p><strong>DOT:</strong> 15/03/2024 | <strong>Informant:</strong> Mother (reliable, daily contact)</p>
-<p><strong>Referral:</strong> Assessment of adaptive functioning for suspected ID</p>
-<p><strong>Test:</strong> VSMS (Malin's Indian Adaptation)</p>
-<p><strong>Results:</strong></p>
-<ul>
-<li>CA = 8 years = <strong>96 months</strong> (below 15, actual used)</li>
-<li>Total SA (item-value method) = <strong>62 months</strong></li>
-<li>SQ = (62 ÷ 96) × 100 = <strong>65</strong></li>
-<li>Classification: <strong>Mild Intellectual Disability range (Adaptive)</strong></li>
-</ul>
-<p><strong>Domain Profile:</strong> LOC = 84 mo (strength), SOC = 72 mo, SHG = 60 mo, COM = 48 mo (weakness), SD = 40 mo (weakness)</p>
-<p><strong>Interpretation:</strong> Adaptive functioning is in the Mild ID range. Motor and social development are relative strengths. Communication and Self-Direction are significantly below age, indicating need for speech-language intervention and graded independence training.</p>
-<p><strong>Recommendations:</strong> (1) Cognitive assessment (BKT) to confirm IQ level. (2) Speech therapy for communication. (3) Self-direction training. (4) Parent counselling to promote independence.</p>
-</div>
-</div>
-
-<div class="card report">
-<h2>Report 2: Adult with Moderate ID (Actual age 22 years, CA = 180 months)</h2>
-<div style="background:white;padding:20px;border-radius:10px;border:1px solid #D5D8DC;">
-<p style="text-align:center;font-weight:bold;">PSYCHOLOGICAL ASSESSMENT REPORT</p>
-<p><strong>Name:</strong> Mr. B (pseudonym) | <strong>Age:</strong> 22 years | <strong>Sex:</strong> Male</p>
-<p><strong>Informant:</strong> Father | <strong>Referral:</strong> Disability certification</p>
-<p><strong>Test:</strong> VSMS (Malin's Indian Adaptation)</p>
-<p><strong>Results:</strong></p>
-<ul>
-<li>Actual age = 22 years → <strong>CA capped at 180 months</strong></li>
-<li>Total SA = <strong>68 months</strong></li>
-<li>SQ = (68 ÷ 180) × 100 = <strong>38</strong></li>
-<li>Classification: <strong>Moderate Intellectual Disability range (Adaptive)</strong></li>
-</ul>
-<p><strong>Domain Profile:</strong> SHG = 96 mo, SHE = 96 mo, LOC = 108 mo, SHD = 84 mo, SOC = 72 mo, COM = 60 mo, OCC = 52 mo, SD = 48 mo</p>
-<p><strong>Interpretation:</strong> Adaptive functioning is in the Moderate ID range. Basic self-care and mobility are relative strengths (trained in special school). Communication, Occupation, and Self-Direction are weak. Findings support disability certification and indicate need for sheltered vocational training.</p>
-<p><strong>Note:</strong> CA capped at 180 months as per VSMS rules (individual is above 15 years).</p>
-<p><strong>Recommendations:</strong> (1) Disability certification supported. (2) Sheltered vocational training. (3) Community skills training. (4) Continued self-care maintenance.</p>
-</div>
-</div>
-</div>
-
-<!-- ========== 15. ERRORS ========== -->
-<div class="container" id="errors">
-<h1>15. Common Errors to Avoid</h1>
-<div class="card scoring">
-<ul>
-<li>❌ Using CA above 15 years in calculation (must cap at 180 months)</li>
-<li>❌ Calculating SQ in years instead of months</li>
-<li>❌ Reporting SQ as "IQ"</li>
-<li>❌ Diagnosing Intellectual Disability based on VSMS alone</li>
-<li>❌ Not establishing proper basal</li>
-<li>❌ Stopping before true ceiling</li>
-<li>❌ Giving full credit when informant says "with physical help"</li>
-<li>❌ Accepting vague answers without asking for examples</li>
-<li>❌ Mixing item values between age ranges</li>
-<li>❌ Forgetting 12–15 year range = 36 months (not 12)</li>
-<li>❌ Not using the Profile Analysis norms for domain-wise scoring</li>
-<li>❌ Equating low domain score with a psychiatric diagnosis</li>
-</ul>
-</div>
-</div>
-
-<!-- ========== FOOTER ========== -->
+<!-- ===== FOOTER ===== -->
 <div class="footer">
 <p><strong>Vineland Social Maturity Scale — Clinical Psychology Study Guide</strong></p>
-<p>Administration • Scoring • Domain-wise Analysis • Social Age • Social Quotient • Interpretation</p>
+<p>Administration • Scoring • Domain Analysis • Social Age • Social Quotient • Interpretation</p>
 <p style="margin-top:15px;font-size:1.1em;font-weight:700;">Made by Tejas Dangodra</p>
 </div>
 </body>
