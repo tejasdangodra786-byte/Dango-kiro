@@ -116,7 +116,20 @@
   footer .fmain{font-weight:600; color:#4b4560;}
   footer .fauth{margin-top:8px; font-weight:800; color:#5a4aa8; font-size:1.05rem;}
 
+  /* ===== Watermark & copy protection ===== */
+  .wm-layer{
+    position:fixed; inset:0; z-index:9999; pointer-events:none;
+    background-repeat:repeat;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='340' height='200'><text x='170' y='110' font-family='Segoe UI,Arial,sans-serif' font-size='22' font-weight='700' fill='rgba(120,100,175,0.10)' text-anchor='middle' transform='rotate(-30 170 110)'>Made by Tejas Dangodra</text></svg>");
+    opacity:1;
+  }
+  body{ -webkit-user-select:none; -moz-user-select:none; -ms-user-select:none; user-select:none; }
+  /* still allow selecting inside code/calc blocks for study, but they carry attribution on copy */
+  .content-attr{ position:relative; }
+
   @media print{
+    .wm-layer{ position:fixed; display:block !important; opacity:1 !important;
+      -webkit-print-color-adjust:exact; print-color-adjust:exact; }
     body{background:#fff; font-size:11.5pt;}
     .cover,.section-body,.toc,.calc-card,.box,footer{box-shadow:none;}
     .backtop{display:none;}
@@ -129,6 +142,9 @@
 </style>
 </head>
 <body>
+
+<!-- repeating diagonal watermark overlay -->
+<div class="wm-layer" aria-hidden="true"></div>
 
 <!-- ============ COVER ============ -->
 <div class="cover">
@@ -1366,5 +1382,38 @@ Domain profile: Language ~7y, Memory ~7y, Reasoning ~6y, Conceptual ~6y, Visuo-M
 </footer>
 
 </div><!-- /wrap -->
+
+<script>
+/* ---- Copy protection & attribution injection ---- */
+(function(){
+  var CREDIT = "\n\n— © Made by Tejas Dangodra · Binet-Kamat Test Clinical Psychology Study Guide. Unauthorised copying is not permitted.";
+
+  // 1. Append attribution to anything the user copies
+  document.addEventListener('copy', function(e){
+    try{
+      var sel = (window.getSelection && window.getSelection().toString()) || '';
+      if(sel.length){
+        e.clipboardData.setData('text/plain', sel + CREDIT);
+        e.preventDefault();
+      }
+    }catch(err){}
+  });
+
+  // 2. Discourage cut / context-menu / drag of content
+  ['contextmenu','dragstart','cut'].forEach(function(evt){
+    document.addEventListener(evt, function(e){ e.preventDefault(); }, {passive:false});
+  });
+
+  // 3. Discourage common "view/save/print-to-steal" keyboard shortcuts
+  document.addEventListener('keydown', function(e){
+    var k = (e.key || '').toLowerCase();
+    var blockCombo = (e.ctrlKey || e.metaKey) && ['s','u','c','x','p'].indexOf(k) !== -1;
+    var blockDevtools = k === 'f12' ||
+      ((e.ctrlKey || e.metaKey) && e.shiftKey && ['i','j','c'].indexOf(k) !== -1);
+    if(blockCombo || blockDevtools){ e.preventDefault(); e.stopPropagation(); return false; }
+  }, {passive:false});
+})();
+</script>
+
 </body>
 </html>
