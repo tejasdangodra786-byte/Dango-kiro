@@ -10,7 +10,6 @@
   body{
     margin:0; font-family:"Segoe UI",Roboto,Helvetica,Arial,sans-serif; color:var(--ink);
     background:linear-gradient(180deg,#faf9fd,#f4f1fa); line-height:1.6;
-    -webkit-user-select:none; -moz-user-select:none; user-select:none;
   }
   .wrap{max-width:820px; margin:0 auto; padding:30px 22px 70px;}
   .card{background:#fff; border:1px solid var(--line); border-radius:18px; padding:24px 26px;
@@ -25,9 +24,10 @@
     text-align:center; border:1px solid var(--line); margin-top:30px;}
   footer .a{font-weight:800; color:#5a4aa8; margin-top:6px;}
 
-  /* ===== Subtle watermark (the reusable bit) ===== */
+  /* ===== Sparse subtle watermark (the reusable bit) ===== */
   #wmLayer{
     position:fixed; inset:0; z-index:9999; pointer-events:none; background-repeat:repeat;
+    background-size:50vw 50vh;   /* 2x2 grid = ~4 marks */
   }
   @media print{
     body{background:#fff;}
@@ -54,16 +54,16 @@
     <p class="muted">Move the sliders to see how the watermark's visibility and density change. Copy the resulting
     values into the CSS in <code>Watermark_Style_Guide.md</code>.</p>
     <div class="row">
-      <label>Opacity: <span id="opVal">0.035</span></label>
-      <input class="demo-slider" id="op" type="range" min="0.01" max="0.15" step="0.005" value="0.035">
+      <label>Opacity: <span id="opVal">0.04</span></label>
+      <input class="demo-slider" id="op" type="range" min="0.01" max="0.15" step="0.005" value="0.04">
     </div>
     <div class="row">
-      <label>Tile size: <span id="tileVal">560</span> px</label>
-      <input class="demo-slider" id="tile" type="range" min="240" max="700" step="20" value="560">
+      <label>Marks on page: <span id="marksVal">4</span></label>
+      <input class="demo-slider" id="marks" type="range" min="1" max="16" step="1" value="4">
     </div>
     <div class="row">
-      <label>Font size: <span id="fsVal">14</span> px</label>
-      <input class="demo-slider" id="fs" type="range" min="10" max="30" step="1" value="14">
+      <label>Font size: <span id="fsVal">13</span> px</label>
+      <input class="demo-slider" id="fs" type="range" min="10" max="30" step="1" value="13">
     </div>
     <div class="row">
       <label>Angle: <span id="angVal">-24</span>°</label>
@@ -72,63 +72,71 @@
   </div>
 
   <div class="card">
-    <h2>Sample body text</h2>
-    <p>The Binet-Kamat Test is an individually administered age-scale intelligence test. This paragraph exists so
-    you can attempt to select and copy it — notice that copied text automatically gets a credit line appended, and
-    right-click / drag / common save shortcuts are discouraged.</p>
+    <h2>Sample body text — try copying it</h2>
+    <p>The Binet-Kamat Test is an individually administered age-scale intelligence test. Selecting and copying is
+    fully allowed — but when you paste, you'll see "Made by Tejas Dangodra" woven all through the copied text (a
+    header, a tag roughly every 12 words, and a footer).</p>
     <p>Adjust the opacity slider toward <code>0.02</code> for almost-invisible, or toward <code>0.10</code> for
-    clearly visible. My default subtle setting is <code>0.035</code>.</p>
+    clearly visible. My default subtle setting is <code>0.04</code> with about <strong>4 marks</strong> on the page.</p>
   </div>
 
   <footer>
-    <div>Watermark &amp; Copy-Protection Demo</div>
+    <div>Watermark &amp; Copy-Attribution Demo</div>
     <div class="a">Made by Tejas Dangodra</div>
   </footer>
 </div>
 
 <script>
-/* ---- Build the watermark SVG from current dial values ---- */
+/* ---- Build the sparse watermark from current dial values ---- */
 function buildWatermark(){
-  var op   = document.getElementById('op').value;
-  var tile = parseInt(document.getElementById('tile').value,10);
-  var fs   = document.getElementById('fs').value;
-  var ang  = document.getElementById('ang').value;
-  var h    = Math.round(tile*0.64);
-  var cx=Math.round(tile/2), cy=Math.round(h/2);
+  var op    = document.getElementById('op').value;
+  var marks = parseInt(document.getElementById('marks').value,10);
+  var fs    = document.getElementById('fs').value;
+  var ang   = document.getElementById('ang').value;
 
-  document.getElementById('opVal').textContent   = op;
-  document.getElementById('tileVal').textContent = tile;
-  document.getElementById('fsVal').textContent   = fs;
-  document.getElementById('angVal').textContent  = ang;
+  document.getElementById('opVal').textContent    = op;
+  document.getElementById('marksVal').textContent = marks;
+  document.getElementById('fsVal').textContent    = fs;
+  document.getElementById('angVal').textContent   = ang;
 
-  var svg = "<svg xmlns='http://www.w3.org/2000/svg' width='"+tile+"' height='"+h+"'>"
+  // number of marks = grid^2, so grid = round(sqrt(marks)); size = 100/grid vw/vh
+  var grid = Math.max(1, Math.round(Math.sqrt(marks)));
+  var pct  = (100/grid).toFixed(2);
+  var W=800, H=560, cx=W/2, cy=H/2;
+
+  var svg = "<svg xmlns='http://www.w3.org/2000/svg' width='"+W+"' height='"+H+"'>"
           + "<text x='"+cx+"' y='"+cy+"' font-family='Segoe UI,Arial,sans-serif' font-size='"+fs+"'"
           + " font-weight='500' letter-spacing='1' fill='rgba(120,100,175,"+op+")'"
           + " text-anchor='middle' transform='rotate("+ang+" "+cx+" "+cy+")'>Tejas Dangodra</text></svg>";
-  document.getElementById('wmLayer').style.backgroundImage =
-    "url(\"data:image/svg+xml;utf8," + svg + "\")";
+  var wm = document.getElementById('wmLayer');
+  wm.style.backgroundSize  = pct+"vw "+pct+"vh";
+  wm.style.backgroundImage = "url(\"data:image/svg+xml;utf8," + svg + "\")";
 }
-['op','tile','fs','ang'].forEach(function(id){
+['op','marks','fs','ang'].forEach(function(id){
   document.getElementById(id).addEventListener('input', buildWatermark);
 });
 buildWatermark();
 
-/* ---- Copy protection ---- */
+/* ---- Copying is ALLOWED; the credit is woven throughout the copied text ---- */
 (function(){
-  var CREDIT = "\n\n— © Made by Tejas Dangodra";
+  var TAG    = " [Made by Tejas Dangodra] ";
+  var HEADER = "Made by Tejas Dangodra\n\n";
+  var FOOTER = "\n\n— © Made by Tejas Dangodra";
+
+  function weave(text){
+    var words = text.split(/(\s+)/), out = [], n = 0;
+    for(var i=0;i<words.length;i++){
+      out.push(words[i]);
+      if(/\S/.test(words[i])){ n++; if(n % 12 === 0){ out.push(TAG); } }
+    }
+    return HEADER + out.join('') + FOOTER;
+  }
   document.addEventListener('copy', function(e){
-    var sel = (window.getSelection && window.getSelection().toString()) || '';
-    if(sel.length){ e.clipboardData.setData('text/plain', sel + CREDIT); e.preventDefault(); }
+    try{
+      var sel = (window.getSelection && window.getSelection().toString()) || '';
+      if(sel.length){ e.clipboardData.setData('text/plain', weave(sel)); e.preventDefault(); }
+    }catch(err){}
   });
-  ['contextmenu','dragstart','cut'].forEach(function(evt){
-    document.addEventListener(evt, function(e){ e.preventDefault(); }, {passive:false});
-  });
-  document.addEventListener('keydown', function(e){
-    var k=(e.key||'').toLowerCase();
-    var block = ((e.ctrlKey||e.metaKey) && ['s','u','c','x','p'].indexOf(k)!==-1) ||
-                k==='f12' || ((e.ctrlKey||e.metaKey)&&e.shiftKey&&['i','j','c'].indexOf(k)!==-1);
-    if(block){ e.preventDefault(); e.stopPropagation(); return false; }
-  }, {passive:false});
 })();
 </script>
 </body>

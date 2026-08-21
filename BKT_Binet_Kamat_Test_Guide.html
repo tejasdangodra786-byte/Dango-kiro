@@ -117,15 +117,15 @@
   footer .fauth{margin-top:8px; font-weight:800; color:#5a4aa8; font-size:1.05rem;}
 
   /* ===== Watermark & copy protection ===== */
+  /* Very sparse watermark: a large tile means only ~4 faint marks appear across the page.
+     Copying IS allowed; the credit is injected into copied text by JS instead. */
   .wm-layer{
     position:fixed; inset:0; z-index:9999; pointer-events:none;
     background-repeat:repeat;
-    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='560' height='360'><text x='280' y='190' font-family='Segoe UI,Arial,sans-serif' font-size='14' font-weight='500' letter-spacing='1' fill='rgba(120,100,175,0.035)' text-anchor='middle' transform='rotate(-24 280 190)'>Tejas Dangodra</text></svg>");
+    background-size:50vw 50vh;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='800' height='560'><text x='400' y='290' font-family='Segoe UI,Arial,sans-serif' font-size='13' font-weight='500' letter-spacing='1' fill='rgba(120,100,175,0.04)' text-anchor='middle' transform='rotate(-24 400 290)'>Tejas Dangodra</text></svg>");
     opacity:1;
   }
-  body{ -webkit-user-select:none; -moz-user-select:none; -ms-user-select:none; user-select:none; }
-  /* still allow selecting inside code/calc blocks for study, but they carry attribution on copy */
-  .content-attr{ position:relative; }
 
   @media print{
     .wm-layer{ position:fixed; display:block !important; opacity:1 !important;
@@ -1385,34 +1385,35 @@ Domain profile: Language ~7y, Memory ~7y, Reasoning ~6y, Conceptual ~6y, Visuo-M
 </div><!-- /wrap -->
 
 <script>
-/* ---- Copy protection & attribution injection ---- */
+/* ---- Copying is ALLOWED. On copy, the credit is woven THROUGHOUT the copied text. ---- */
 (function(){
-  var CREDIT = "\n\n— © Made by Tejas Dangodra · Binet-Kamat Test Clinical Psychology Study Guide. Unauthorised copying is not permitted.";
+  var TAG    = " [Made by Tejas Dangodra] ";
+  var HEADER = "Made by Tejas Dangodra\n\n";
+  var FOOTER = "\n\n— © Made by Tejas Dangodra · Binet-Kamat Test Clinical Psychology Study Guide.";
 
-  // 1. Append attribution to anything the user copies
+  // Insert the tag after roughly every ~12 words so it appears all over the copied text.
+  function weave(text){
+    var words = text.split(/(\s+)/);   // keep whitespace tokens
+    var out = [], wordCount = 0;
+    for(var i=0;i<words.length;i++){
+      out.push(words[i]);
+      if(/\S/.test(words[i])){
+        wordCount++;
+        if(wordCount % 12 === 0){ out.push(TAG); }
+      }
+    }
+    return HEADER + out.join('') + FOOTER;
+  }
+
   document.addEventListener('copy', function(e){
     try{
       var sel = (window.getSelection && window.getSelection().toString()) || '';
       if(sel.length){
-        e.clipboardData.setData('text/plain', sel + CREDIT);
-        e.preventDefault();
+        e.clipboardData.setData('text/plain', weave(sel));
+        e.preventDefault();   // only to rewrite the payload — selection/copy itself stays enabled
       }
-    }catch(err){}
+    }catch(err){ /* if anything fails, let the normal copy proceed */ }
   });
-
-  // 2. Discourage cut / context-menu / drag of content
-  ['contextmenu','dragstart','cut'].forEach(function(evt){
-    document.addEventListener(evt, function(e){ e.preventDefault(); }, {passive:false});
-  });
-
-  // 3. Discourage common "view/save/print-to-steal" keyboard shortcuts
-  document.addEventListener('keydown', function(e){
-    var k = (e.key || '').toLowerCase();
-    var blockCombo = (e.ctrlKey || e.metaKey) && ['s','u','c','x','p'].indexOf(k) !== -1;
-    var blockDevtools = k === 'f12' ||
-      ((e.ctrlKey || e.metaKey) && e.shiftKey && ['i','j','c'].indexOf(k) !== -1);
-    if(blockCombo || blockDevtools){ e.preventDefault(); e.stopPropagation(); return false; }
-  }, {passive:false});
 })();
 </script>
 
