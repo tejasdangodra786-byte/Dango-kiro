@@ -1,0 +1,1256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Binet-Kamat Test of Intelligence (BKT) — Clinical Psychology Study Guide</title>
+<style>
+  :root{
+    --lavender:#ece7fb; --lavender-deep:#d9cff5;
+    --lilac:#f0e6fa; --lilac-deep:#e0ccf3;
+    --blue:#e2eefb; --blue-deep:#c8ddf3;
+    --peach:#fdeee0; --peach-deep:#f8d8bd;
+    --sage:#e7f2e5; --sage-deep:#cfe6ca;
+    --mint:#e3f5f0; --mint-deep:#c6eae0;
+    --cream:#fbf6e9; --cream-deep:#f2e8cf;
+    --blush:#fce8ec; --blush-deep:#f6ccd6;
+    --grey:#f5f6f8; --ink:#2f2b3a; --muted:#6a6478;
+    --line:#e6e2ef; --card-shadow:0 6px 22px rgba(80,70,120,.09);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0; font-family:"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink); background:linear-gradient(180deg,#faf9fd 0%,#f4f1fa 100%);
+    line-height:1.62; font-size:16px;
+  }
+  .wrap{max-width:1080px; margin:0 auto; padding:0 20px 80px;}
+  a{color:#6b52c4; text-decoration:none;}
+  a:hover{text-decoration:underline;}
+
+  /* Cover */
+  .cover{
+    background:linear-gradient(135deg,var(--lavender) 0%,var(--blue) 45%,var(--mint) 100%);
+    border-radius:26px; margin:26px auto; padding:56px 40px; text-align:center;
+    box-shadow:var(--card-shadow); border:1px solid var(--line); max-width:1080px;
+  }
+  .cover .badge{display:inline-block; background:#fff; color:#6b52c4; font-weight:600;
+    padding:6px 16px; border-radius:999px; font-size:.8rem; letter-spacing:.06em; box-shadow:var(--card-shadow);}
+  .cover h1{font-size:2.35rem; margin:22px 0 6px; letter-spacing:.01em; line-height:1.2;}
+  .cover .sub1{font-size:1.12rem; color:#4b4560; font-weight:600; margin:8px 0;}
+  .cover .sub2{font-size:1rem; color:var(--muted); margin:6px 0 22px;}
+  .cover .prep{display:inline-block; background:rgba(255,255,255,.7); padding:10px 20px;
+    border-radius:14px; font-size:.95rem; color:#4b4560;}
+  .cover .author{margin-top:26px; font-size:1.05rem; font-weight:700; color:#5a4aa8;}
+
+  h2.section{font-size:1.6rem; margin:46px 0 4px; padding:14px 20px; border-radius:16px 16px 0 0;
+    border:1px solid var(--line); border-bottom:none;}
+  .section-body{border:1px solid var(--line); border-radius:0 0 16px 16px; background:#fff;
+    padding:22px 24px; box-shadow:var(--card-shadow); margin-bottom:8px;}
+  h3{font-size:1.2rem; margin:26px 0 8px; color:#3d3552;}
+  h4{font-size:1.03rem; margin:18px 0 6px; color:#4b4560;}
+
+  /* Section theme accents */
+  .theory{background:var(--lavender);} .theory+.section-body{border-top:3px solid var(--lavender-deep);}
+  .admin{background:var(--blue);} .admin+.section-body{border-top:3px solid var(--blue-deep);}
+  .scoring{background:var(--peach);} .scoring+.section-body{border-top:3px solid var(--peach-deep);}
+  .iqcalc{background:var(--sage);} .iqcalc+.section-body{border-top:3px solid var(--sage-deep);}
+  .interp{background:var(--mint);} .interp+.section-body{border-top:3px solid var(--mint-deep);}
+  .cases{background:var(--cream);} .cases+.section-body{border-top:3px solid var(--cream-deep);}
+  .report{background:var(--blush);} .report+.section-body{border-top:3px solid var(--blush-deep);}
+  .viva{background:var(--lilac);} .viva+.section-body{border-top:3px solid var(--lilac-deep);}
+
+  /* TOC */
+  .toc{background:#fff; border:1px solid var(--line); border-radius:18px; padding:24px 28px;
+    box-shadow:var(--card-shadow); margin:20px 0;}
+  .toc h2{margin-top:0;font-size:1.3rem;}
+  .toc ol{columns:2; column-gap:34px; margin:0; padding-left:20px;}
+  .toc li{margin:5px 0; break-inside:avoid;}
+  @media(max-width:640px){.toc ol{columns:1;}}
+
+  /* Boxes */
+  .box{border-radius:14px; padding:14px 18px 14px 16px; margin:16px 0; border:1px solid var(--line);
+    position:relative; border-left-width:6px;}
+  .box .box-t{font-weight:700; font-size:.82rem; letter-spacing:.05em; text-transform:uppercase; display:block; margin-bottom:5px;}
+  .key{background:var(--lavender); border-left-color:#a58fe8;}
+  .imp{background:#fff4d9; border-left-color:#e6b53d;}
+  .alert{background:var(--peach); border-left-color:#e79355;}
+  .iqbox{background:var(--sage); border-left-color:#7ab472;}
+  .pearl{background:var(--mint); border-left-color:#57bfa5;}
+  .vivatip{background:var(--lilac); border-left-color:#b083d8;}
+  .err{background:var(--blush); border-left-color:#e07a92;}
+  .remember{background:var(--grey); border-left-color:#9a94a8;}
+
+  /* Tables */
+  .tbl-scroll{overflow-x:auto; margin:16px 0; border-radius:14px; border:1px solid var(--line);}
+  table{border-collapse:collapse; width:100%; min-width:520px; font-size:.93rem; background:#fff;}
+  th,td{padding:9px 12px; text-align:left; border-bottom:1px solid var(--line); vertical-align:top;}
+  thead th{background:var(--lavender-deep); color:#3d3552; font-weight:700; position:sticky; top:0;}
+  tbody tr:nth-child(even){background:#faf8fd;}
+  table.peachhead thead th{background:var(--peach-deep);}
+  table.sagehead thead th{background:var(--sage-deep);}
+  table.minthead thead th{background:var(--mint-deep);}
+  table.bluehead thead th{background:var(--blue-deep);}
+
+  /* Calculation cards */
+  .calc-card{background:linear-gradient(180deg,#fff,#f6fbf4); border:1px solid var(--sage-deep);
+    border-radius:16px; padding:18px 20px; margin:18px 0; box-shadow:var(--card-shadow);}
+  .calc-flow{display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin:10px 0; font-size:.86rem;}
+  .calc-flow span{background:#fff; border:1px solid var(--sage-deep); border-radius:10px; padding:6px 12px; font-weight:600;}
+  .calc-flow .arrow{border:none; background:none; color:#7ab472; font-weight:800; padding:0 2px;}
+  .calc-step{background:#fff; border-radius:10px; padding:10px 14px; margin:8px 0; border:1px dashed var(--sage-deep); font-family:"Consolas",monospace; font-size:.9rem;}
+
+  ul,ol{padding-left:22px;} li{margin:4px 0;}
+  .pill{display:inline-block; background:var(--lavender-deep); color:#463a70; border-radius:999px;
+    padding:2px 11px; font-size:.78rem; font-weight:600; margin:2px 3px;}
+  .two-col{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+  @media(max-width:720px){.two-col{grid-template-columns:1fr;}}
+  .muted{color:var(--muted);}
+  .backtop{display:block; text-align:right; font-size:.8rem; margin-top:6px;}
+  hr.soft{border:none; border-top:1px solid var(--line); margin:26px 0;}
+
+  footer{background:linear-gradient(135deg,var(--lavender),var(--lilac)); border-radius:18px;
+    padding:26px; text-align:center; margin:40px auto 0; border:1px solid var(--line); box-shadow:var(--card-shadow);}
+  footer .fmain{font-weight:600; color:#4b4560;}
+  footer .fauth{margin-top:8px; font-weight:800; color:#5a4aa8; font-size:1.05rem;}
+
+  @media print{
+    body{background:#fff; font-size:11.5pt;}
+    .cover,.section-body,.toc,.calc-card,.box,footer{box-shadow:none;}
+    .backtop{display:none;}
+    h2.section{page-break-after:avoid;}
+    .box,.calc-card,table{page-break-inside:avoid;}
+    .section-body{page-break-inside:auto;}
+    a{color:var(--ink); text-decoration:none;}
+    .cover{background:#fff !important; border:2px solid #ccc;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ COVER ============ -->
+<div class="cover">
+  <span class="badge">CLINICAL PSYCHOLOGY • MPhil PRACTICAL & VIVA</span>
+  <h1>Binet-Kamat Test of Intelligence</h1>
+  <div class="sub1">Administration • Scoring • IQ Conversion • Domain-wise Scoring • Interpretation</div>
+  <div class="sub2">Comprehensive Clinical Psychology Practical &amp; Viva Guide</div>
+  <div class="prep">Prepared for Clinical Psychology Training</div>
+  <div class="author">Made by Tejas Dangodra</div>
+</div>
+
+<div class="wrap">
+
+<div class="box imp">
+  <span class="box-t">Important — What this manual actually is</span>
+  The file in the repository labelled <em>"BKT Manual.pdf"</em> is a scanned copy of the
+  <strong>Binet-Kamat Test of Intelligence (BKT)</strong> — V. V. Kamat's Indian revision of the
+  Binet-Simon scale — <strong>not</strong> Bhatia's Battery of Performance Tests. Your attached
+  response/recording sheets (Age Levels III–XVI, Basal Age, Mental Age, IQ = MA/TA×100) and the
+  domain-wise classification sheet are also the <strong>Binet-Kamat</strong> ones. This guide is
+  therefore built on the <strong>Binet-Kamat Test</strong>, using the repository manual as the primary
+  source. Where "BKT" appears below it means <strong>Binet-Kamat Test</strong>.
+  <br><br>
+  The scanned PDF contained no selectable text (89 image pages, CCITT Group-4). It was converted
+  page-by-page into readable images and read directly to build this guide, so the content reflects the
+  actual manual rather than generic web material.
+</div>
+
+<!-- ============ TOC ============ -->
+<div class="toc">
+  <h2>Table of Contents</h2>
+  <ol>
+    <li><a href="#what">What is the Binet-Kamat Test?</a></li>
+    <li><a href="#history">History &amp; Versions (Binet, Stanford-Binet, Kamat)</a></li>
+    <li><a href="#ratio">Ratio IQ vs Deviation IQ</a></li>
+    <li><a href="#purpose">Purpose &amp; When to Use</a></li>
+    <li><a href="#structure">Structure &amp; Age Levels</a></li>
+    <li><a href="#materials">Materials Required</a></li>
+    <li><a href="#admin">General Administration</a></li>
+    <li><a href="#agewise">Age-level Items (III–XXII)</a></li>
+    <li><a href="#scoring">Scoring: The Core Chain</a></li>
+    <li><a href="#ca">Chronological Age Calculation</a></li>
+    <li><a href="#ma">Basal Age &amp; Mental Age</a></li>
+    <li><a href="#iq">IQ Calculation (Ratio IQ)</a></li>
+    <li><a href="#adjust">SD 18.7 → 15 Adjusted IQ</a></li>
+    <li><a href="#prorate">Prorating &amp; Terminal Age</a></li>
+    <li><a href="#worked">Worked IQ Examples</a></li>
+    <li><a href="#checklist">IQ Calculation Checklist</a></li>
+    <li><a href="#domains">Domain-wise Scoring &amp; Meaning</a></li>
+    <li><a href="#observe">Behavioural Observation</a></li>
+    <li><a href="#interp">IQ Classification &amp; Interpretation</a></li>
+    <li><a href="#diff">Comparison with Other Tests</a></li>
+    <li><a href="#cases">Case Studies</a></li>
+    <li><a href="#report">Report Writing</a></li>
+    <li><a href="#psychometric">Psychometric Properties</a></li>
+    <li><a href="#ethics">Ethical Considerations</a></li>
+    <li><a href="#viva">Viva — Key Points to Remember</a></li>
+    <li><a href="#revision">Quick Revision (5/10 min)</a></li>
+  </ol>
+</div>
+
+
+<!-- ============ 1. WHAT IS BKT ============ -->
+<h2 class="section theory" id="what">1 · What is the Binet-Kamat Test?</h2>
+<div class="section-body">
+  <table>
+    <tbody>
+      <tr><th style="width:34%">Full name</th><td>Binet-Kamat Test of Intelligence</td></tr>
+      <tr><th>Common abbreviation</th><td>BKT</td></tr>
+      <tr><th>Developer</th><td>V. V. Kamat (Indian adaptation / revision of the Binet-Simon Intelligence Scale)</td></tr>
+      <tr><th>Type</th><td>Individually administered, <strong>age-scale</strong> intelligence test yielding a <strong>ratio IQ</strong> (MA/CA×100)</td></tr>
+      <tr><th>Nature</th><td>Mixed — contains both <strong>verbal</strong> and <strong>non-verbal / performance</strong> items (it is <em>not</em> a purely performance test)</td></tr>
+      <tr><th>Theoretical basis</th><td>Binet's concept of intelligence as a <strong>global / general ability</strong> that increases with mental age; tests are grouped by the age at which most children pass them</td></tr>
+      <tr><th>Population</th><td>Indian children &amp; young people, <strong>age 3 to 22 years</strong> (Kannada- and Marathi-speaking standardization)</td></tr>
+      <tr><th>Output</th><td>Basal Age, Mental Age (MA), IQ, and a <strong>6-domain profile</strong></td></tr>
+    </tbody>
+  </table>
+
+  <div class="box key"><span class="box-t">Key Concept</span>
+    BKT is an <strong>age-scale</strong>: items are sorted into the age level (Year III, IV, V … XVI, and adult
+    levels) at which a majority of standardization children first pass them. A child earns "months of credit"
+    for each item passed, these are summed into a Mental Age, and IQ is the ratio of Mental Age to
+    Chronological Age.
+  </div>
+
+  <h3>Layered answers (for viva)</h3>
+  <div class="box vivatip"><span class="box-t">A · One-sentence answer</span>
+    BKT is V. V. Kamat's Indian revision of the Binet-Simon scale — an individually administered age-scale
+    intelligence test for ages 3–22 that yields a ratio IQ (MA/CA×100) and a six-domain profile.
+  </div>
+  <div class="box vivatip"><span class="box-t">B · One-minute answer</span>
+    The Binet-Kamat Test is the Indian adaptation of the Binet-Simon scale, standardized on Kannada- and
+    Marathi-speaking children. Items are arranged by age level from Year III upward. The examiner establishes a
+    <em>basal age</em> (highest age level where all items pass), adds month-credits for items passed above it to
+    get the <em>Mental Age</em>, and computes IQ as MA ÷ CA × 100. It samples six domains — language, memory,
+    reasoning, conceptual thinking, visuo-motor and social intelligence — and is still widely used in Indian
+    clinical settings because it is simple, economical and available in Indian languages.
+  </div>
+  <div class="box vivatip"><span class="box-t">C · Five-minute answer (adds)</span>
+    Historically the test descends from Binet &amp; Simon (1905/1908/1911) in France, revised by Terman as the
+    Stanford-Binet in the USA, and by Cyril Burt in Britain; Kamat's revision located each item at the age
+    position that best matched Binet's original and Indian data. It is a <strong>ratio-IQ</strong> test, which
+    is its most-quoted limitation — the standardization sample (N≈1074) gave a mean IQ near 100 but a
+    <strong>standard deviation of 18.7</strong>, wider than the 15 used by modern tests, so BKT tends to produce
+    more extreme scores. Administration is adaptive (start near the child's age, work down to a basal, up to a
+    ceiling), and behavioural observation during testing is an integral part of interpretation. The six-domain
+    classification (adapted from Lezak) allows a qualitative profile beyond the single global IQ.
+  </div>
+
+  <h3>Advantages &amp; Limitations</h3>
+  <div class="two-col">
+    <div class="box pearl"><span class="box-t">Advantages</span>
+      <ul>
+        <li>Available in <strong>Indian languages</strong> (Kannada, Marathi) — culturally more appropriate than imported tests.</li>
+        <li>Simple, quick and <strong>economical</strong> to administer, score and interpret.</li>
+        <li>Wide age band (3–22) in a single instrument.</li>
+        <li>Yields a rich <strong>qualitative</strong> picture (basal/ceiling spread, domain profile, behaviour).</li>
+      </ul>
+    </div>
+    <div class="box err"><span class="box-t">Limitations</span>
+      <ul>
+        <li>Uses <strong>ratio IQ</strong> — conceptually weak in adolescence/adulthood (MA plateaus while CA rises).</li>
+        <li><strong>SD = 18.7</strong> makes scores non-comparable with SD-15 tests and inflates extreme values.</li>
+        <li>Old norms; limited to Kannada/Marathi standardization.</li>
+        <li>Heavily <strong>language-loaded</strong>; not ideal as a sole test for language-impaired or hearing-impaired clients.</li>
+      </ul>
+    </div>
+  </div>
+  <a class="backtop" href="#what">▲ top</a>
+</div>
+
+<!-- ============ 2. HISTORY ============ -->
+<h2 class="section theory" id="history">2 · History &amp; Versions</h2>
+<div class="section-body">
+  <p>BKT sits at the end of a long lineage of "Binet-type" age-scale tests. Understanding the family tree is a
+  common viva demand.</p>
+
+  <div class="tbl-scroll">
+  <table>
+    <thead><tr><th>Milestone</th><th>Who / When</th><th>What it contributed</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Binet-Simon Scale</strong></td><td>Alfred Binet &amp; Théodore Simon, France, 1905; revised 1908 &amp; 1911</td><td>First practical intelligence scale; introduced the <strong>mental age</strong> concept and the age-scale format (items grouped by age level).</td></tr>
+      <tr><td><strong>Ratio IQ formula</strong></td><td>William Stern (1912); popularised by Terman</td><td>IQ = (Mental Age ÷ Chronological Age) × 100. This is the formula BKT still uses.</td></tr>
+      <tr><td><strong>Stanford-Binet</strong></td><td>Lewis Terman, Stanford Univ., USA, 1916 (rev. 1937, 1960, 1986, 2003)</td><td>American revision &amp; restandardization of Binet-Simon; established the Stanford-Binet as the benchmark age-scale. Later editions moved to <strong>deviation IQ</strong>.</td></tr>
+      <tr><td><strong>Burt's revision</strong></td><td>Cyril Burt, Britain</td><td>British adaptation; the manual repeatedly compares the position of each item across <em>Binet, Terman &amp; Burt</em>.</td></tr>
+      <tr><td><strong>Binet-Kamat Test (BKT)</strong></td><td>V. V. Kamat, India (original revision ~1934; widely reprinted, e.g. 1967)</td><td>Indian adaptation for <strong>Kannada &amp; Marathi</strong> speakers; relocated items to fit Indian data; standardization N≈1074, mean IQ ≈ 99.8, <strong>SD 18.7</strong>.</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="box key"><span class="box-t">Key Concept — where BKT fits</span>
+    Binet-Simon (raw material) → Stanford-Binet / Burt (Western revisions) → <strong>Binet-Kamat</strong>
+    (Indian revision). Kamat's own manual notes that in the present revision each digit-span and picture item
+    was placed at the age level that "agrees best with Binet's" original placement, using Indian pass-rates.
+  </div>
+
+  <h3>Binet-Kamat vs Stanford-Binet — quick contrast</h3>
+  <div class="tbl-scroll">
+  <table class="bluehead">
+    <thead><tr><th>Feature</th><th>Stanford-Binet (modern)</th><th>Binet-Kamat (BKT)</th></tr></thead>
+    <tbody>
+      <tr><td>Origin</td><td>US revision of Binet-Simon</td><td>Indian revision of Binet-Simon</td></tr>
+      <tr><td>Language / culture</td><td>English, Western norms</td><td>Kannada / Marathi, Indian norms</td></tr>
+      <tr><td>IQ type</td><td>Deviation IQ (SD 15/16) in current editions</td><td><strong>Ratio IQ</strong> (MA/CA×100), SD 18.7</td></tr>
+      <tr><td>Age range</td><td>2 to 85+ (current editions)</td><td>3 to 22 years</td></tr>
+      <tr><td>Restandardization</td><td>Repeatedly restandardized</td><td>Old norms; not recently restandardized</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="box imp"><span class="box-t">Note on "Indian adaptation"</span>
+    The English version in the manual is provided <strong>only</strong> for English readers and for comparison
+    with earlier revisions — the manual explicitly states it should <em>never</em> be used with Indian children.
+    Indian children are tested in the <strong>Kannada or Marathi</strong> version (their mother-tongue / school
+    language), published separately (Purohit &amp; Purohit, Poona).
+  </div>
+  <a class="backtop" href="#history">▲ top</a>
+</div>
+
+<!-- ============ 3. RATIO IQ ============ -->
+<h2 class="section theory" id="ratio">3 · Ratio IQ vs Deviation IQ</h2>
+<div class="section-body">
+  <p>You were right — <strong>BKT is a ratio-IQ test.</strong> This is one of its defining features and its
+  biggest conceptual limitation, so it is worth being precise.</p>
+  <div class="two-col">
+    <div class="box key"><span class="box-t">Ratio IQ (used by BKT)</span>
+      IQ = (Mental Age ÷ Chronological Age) × 100.<br>
+      Introduced by Stern; assumes mental growth is roughly linear with age. Works reasonably for children but
+      <strong>breaks down after ~15–16 years</strong>, because mental age stops rising while chronological age
+      keeps increasing — so a normal adult's "ratio IQ" would artificially fall. BKT handles this by capping the
+      age denominator (Terminal Age) for older testees.
+    </div>
+    <div class="box remember"><span class="box-t">Deviation IQ (used by modern tests)</span>
+      IQ is a standard score showing how far a person sits from the mean of their <em>own age group</em>
+      (mean 100, SD 15). Used by Wechsler scales and modern Stanford-Binet. It does not depend on the mental-age
+      concept and stays valid across adulthood.
+    </div>
+  </div>
+  <div class="box alert"><span class="box-t">Scoring Alert</span>
+    Because BKT's SD is <strong>18.7</strong> (not 15), a BKT IQ is <em>not directly comparable</em> to a Wechsler
+    IQ. A BKT IQ of 70 is <em>not</em> the same distance below the mean as a Wechsler IQ of 70. Use the
+    adjustment formula (Section 13) when comparison to SD-15 tests is required.
+  </div>
+  <a class="backtop" href="#ratio">▲ top</a>
+</div>
+
+<!-- ============ 4. PURPOSE ============ -->
+<h2 class="section theory" id="purpose">4 · Purpose &amp; When to Use</h2>
+<div class="section-body">
+  <h4>Use BKT for:</h4>
+  <ul>
+    <li>General intellectual assessment of children/adolescents (3–22 yrs) in Indian settings.</li>
+    <li>Estimating <strong>Mental Age</strong> and <strong>IQ</strong> for educational placement and certification.</li>
+    <li>Screening / assessment in <strong>intellectual disability</strong>, learning problems and developmental delay.</li>
+    <li>Baseline cognitive assessment in child psychiatric / clinical populations.</li>
+    <li>Situations needing an <strong>Indian-language</strong> instrument.</li>
+  </ul>
+  <h4>BKT may NOT be sufficient alone when:</h4>
+  <ul>
+    <li>The client is a normal <strong>adult</strong> (ratio IQ becomes unreliable → prefer Wechsler/deviation-IQ test).</li>
+    <li>The client has significant <strong>language, speech or hearing</strong> impairment (test is language-loaded → add a performance test, e.g. Bhatia's Battery or Raven's).</li>
+    <li>A precise, defensible classification for <strong>disability certification</strong> is needed and the wide SD (18.7) would distort the cut-off.</li>
+    <li>Fine profile analysis (index scores) is required — use a factor-based test.</li>
+  </ul>
+  <div class="box pearl"><span class="box-t">Clinical Pearl</span>
+    A frequent clinical pairing: <strong>Binet-Kamat (verbal + non-verbal, language-based)</strong> plus a pure
+    performance test such as <strong>Bhatia's Battery</strong> — so the two together cover both language-loaded
+    and language-free abilities.
+  </div>
+  <a class="backtop" href="#purpose">▲ top</a>
+</div>
+
+
+<!-- ============ 5. STRUCTURE ============ -->
+<h2 class="section theory" id="structure">5 · Structure &amp; Age Levels</h2>
+<div class="section-body">
+  <p>BKT is organised as an <strong>age scale</strong>. Each age level (a "Test for Age") holds a fixed set of
+  items — typically <strong>6 main items plus one or more alternatives</strong>. The recording sheet lays these
+  out in columns headed by Roman numerals: <span class="pill">III</span><span class="pill">IV</span>
+  <span class="pill">V</span><span class="pill">VI</span><span class="pill">VII</span><span class="pill">VIII</span>
+  <span class="pill">IX</span><span class="pill">X</span><span class="pill">XII</span><span class="pill">XIV</span>
+  <span class="pill">XVI</span> … and adult levels up to <span class="pill">XXII</span>.</p>
+
+  <div class="box key"><span class="box-t">Key Concept — age spacing</span>
+    Below ~Year V the scale ideally needs finer age fractions (the manual notes that a Year-III item is one
+    passed by ~50% of children between 2y0m and 2y2m, and so on). In practice each completed age level
+    contributes a block of months toward Mental Age.
+  </div>
+
+  <h3>The item families that recur across ages</h3>
+  <p>Rather than being separate "subtests", the same <em>types</em> of task reappear at increasing difficulty and
+  are cross-referenced on grouped cards:</p>
+  <div class="tbl-scroll">
+  <table>
+    <thead><tr><th>Item family</th><th>What it taps</th><th>Grows across ages as…</th></tr></thead>
+    <tbody>
+      <tr><td>Repeating Digits (forward)</td><td>Auditory attention / immediate memory span</td><td>2 digits (III) → 3 (IV) → 4 (VI) → 5 (VIII) → 6 (XII) → 7 (XVI) → 8 (XXII)</td></tr>
+      <tr><td>Repeating Digits <em>Reversed</em></td><td>Working memory / mental manipulation</td><td>3 (VII) → 4 (IX) → 5 (XII) → 6 (XVI)</td></tr>
+      <tr><td>Repeating Syllables (sentences)</td><td>Verbal memory &amp; articulation</td><td>6–7 syllables (III) → 12–13 (IV) → 16–18 (VII) → 20–22 (X) → 30 (XIX)</td></tr>
+      <tr><td>Comprehension (degrees)</td><td>Practical reasoning / social judgement</td><td>1st degree (IV) → 2nd (VI) → 3rd (VIII) → 4th (XII)</td></tr>
+      <tr><td>Pictures</td><td>Perception → conception</td><td>Enumeration (III) → Description (VI) → Interpretation (XII)</td></tr>
+      <tr><td>Vocabulary</td><td>Word knowledge</td><td>20 words (IX) → 30 (XII) → 45 (XVI)</td></tr>
+      <tr><td>Similarities / Differences</td><td>Abstraction &amp; conceptual thinking</td><td>2 things (IX) → 3 things (XIV); differences (VII, XVI)</td></tr>
+      <tr><td>Absurdities, Fables, Problem Qs, Reversing clock hands</td><td>Higher reasoning / abstraction</td><td>appear at XII, XVI</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3>The six domains sampled</h3>
+  <p>Across all age levels, items collectively sample six cognitive domains (basis of the profile in Section 17):</p>
+  <p>
+    <span class="pill">Language</span>
+    <span class="pill">Memory</span>
+    <span class="pill">Reasoning</span>
+    <span class="pill">Conceptual Thinking</span>
+    <span class="pill">Visuo-Motor</span>
+    <span class="pill">Social Intelligence</span>
+  </p>
+  <a class="backtop" href="#structure">▲ top</a>
+</div>
+
+<!-- ============ 6. MATERIALS ============ -->
+<h2 class="section theory" id="materials">6 · Materials Required</h2>
+<div class="section-body">
+  <ul>
+    <li><strong>Test kit / item cards</strong> — the boxed "Test for Age" cards (Age 3 … 22) and the grouped
+      cross-reference cards (Repeating Digits, Comprehension, Syllables, Enumeration/Description/Interpretation of
+      Pictures, Digits Reversed, Similarities/Differences).</li>
+    <li><strong>Picture cards</strong> — Railway Station, Reception (at home), Motor Accident, Domestic Scene.</li>
+    <li><strong>Comparison-of-lines card</strong> and <strong>aesthetic-comparison card</strong>.</li>
+    <li><strong>Form / discrimination cards</strong> (Kuhlmann forms), <strong>divided (cut-up) card</strong>,
+      <strong>missing-features</strong> pictures, colour cards (Red, Yellow, Blue, Green).</li>
+    <li><strong>Small objects</strong> for naming: key, paisa/coin, closed penknife, watch, ordinary lead pencil;
+      counting materials — paper strips / coins (up to 13), coins for "counting four paisa".</li>
+    <li><strong>Construction / form-board puzzle</strong> (Healy–Fernald type) for higher ages.</li>
+    <li><strong>Paper &amp; pencil</strong> for copying a square, pattern drawing, etc.</li>
+    <li><strong>Recording sheet</strong> (with Age-Level grid, Basal Age, Mental Age, Terminal Age, IQ) and a
+      <strong>stopwatch</strong>.</li>
+  </ul>
+  <div class="box imp"><span class="box-t">Important</span>
+    Use only the objects/cards specified for the version you are administering, and use the
+    <strong>Kannada or Marathi</strong> stimulus set with Indian children — never the English text.
+  </div>
+  <a class="backtop" href="#materials">▲ top</a>
+</div>
+
+<!-- ============ 7. GENERAL ADMINISTRATION ============ -->
+<h2 class="section admin" id="admin">7 · General Administration</h2>
+<div class="section-body">
+  <div class="two-col">
+    <div>
+      <h4>Setting &amp; rapport</h4>
+      <ul>
+        <li>Quiet, well-lit, distraction-free room; child comfortably seated across a small table.</li>
+        <li>Build rapport first; keep the child at ease — with very young children the biggest challenge is
+          <strong>securing and holding attention</strong>.</li>
+      </ul>
+      <h4>Instructions &amp; examiner behaviour</h4>
+      <ul>
+        <li>Use the manual's exact wording ("formula") for each item; the manual sometimes softens wording to hold
+          attention (e.g. "This is one and this is another").</li>
+        <li>Present each item neutrally; give encouragement, but <strong>never</strong> cue the correct answer by
+          look, tone or gesture.</li>
+        <li>Allow the specified repetitions and time limits precisely.</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Where to start, stop &amp; record</h4>
+      <ul>
+        <li><strong>Start</strong> at an age level a little below the child's expected level.</li>
+        <li>Work <strong>downward</strong> until a <em>basal</em> is reached (an age level where <strong>all</strong>
+          items pass).</li>
+        <li>Work <strong>upward</strong> until a <em>ceiling</em> is reached (an age level where <strong>all</strong>
+          items fail).</li>
+        <li>Record every item as <strong>+</strong> (pass) or <strong>−</strong> (fail) in the age-level grid, plus
+          verbatim responses and behaviour.</li>
+      </ul>
+      <h4>Handling questions / errors / interruptions</h4>
+      <ul>
+        <li>Score the response as given; do not correct the child.</li>
+        <li>Accept baby-talk / abbreviated names where the manual allows (e.g. "tick-tick" for a watch at Year III).</li>
+        <li>If attention breaks, re-secure it and, where permitted, re-present the trial series once.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="box remember"><span class="box-t">Remember — 12-step per-item routine</span>
+    Prepare → place material → give the instruction (formula) → demonstrate (if allowed) → practice item (if any)
+    → present test items → time → apply discontinuation → record (+/−) → score → convert to month-credit →
+    interpret. This routine is the same for every item; only the content and pass-criterion change.
+  </div>
+
+  <div class="box err"><span class="box-t">Common Error</span>
+    Failing to establish a proper <strong>basal</strong> before testing upward. If you skip this, the Mental-Age
+    sum is wrong and the whole IQ is invalid.
+  </div>
+  <a class="backtop" href="#admin">▲ top</a>
+</div>
+
+
+<!-- ============ 8. AGE-WISE ITEMS ============ -->
+<h2 class="section admin" id="agewise">8 · Age-level Items (Year III → Adult)</h2>
+<div class="section-body">
+  <p>This is the actual item content from the manual's "Test for Age" cards. Pass-criteria are shown in
+  brackets. <em>"c = Xb"</em> marks the cross-reference card carrying the detailed procedure. Item content is
+  reproduced from the manual for study; administer only from the official kit in the appropriate Indian language.</p>
+
+  <h3>Year III (Age 3)</h3>
+  <div class="tbl-scroll"><table>
+    <thead><tr><th>#</th><th>Item</th><th>Pass criterion</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Pointing to parts of the body (Nose, Eyes, Mouth, Hair)</td><td>3 out of 4</td></tr>
+      <tr><td>2</td><td>Naming familiar objects (Key, Coin, Penknife, Watch, Pencil)</td><td>3 out of 5</td></tr>
+      <tr><td>3</td><td>Repeating two digits (4-2; 3-7; 6-4; 7-2)</td><td>1 out of 3; read 1 every ½ second</td></tr>
+      <tr><td>4</td><td>Enumeration of objects in a picture (Railway station / Reception / Motor accident)</td><td>≥2 objects in any one picture, spontaneously</td></tr>
+      <tr><td>5</td><td>Repeating 6–7 syllables (e.g. "I have a little dog")</td><td>1 out of 3</td></tr>
+      <tr><td>6</td><td>Comparison of lines</td><td>3 out of 3, or 5 out of 6</td></tr>
+      <tr><td colspan="3"><em>Alternatives:</em> giving sex; giving proper name</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>Year IV (Age 4)</h3>
+  <div class="tbl-scroll"><table>
+    <thead><tr><th>#</th><th>Item</th><th>Pass criterion</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Repeating 3 digits (6-4-1; 3-5-2; 8-3-7)</td><td>1 out of 3</td></tr>
+      <tr><td>2</td><td>Discrimination of forms (Kuhlmann)</td><td>7 out of 10</td></tr>
+      <tr><td>3</td><td>Comprehension, 1st degree (sleepy / cold / hungry)</td><td>2 out of 3</td></tr>
+      <tr><td>4</td><td>Repeating 12–13 syllables</td><td>1 of 3 fully correct, or 2 with ≤1 error each</td></tr>
+      <tr><td>5</td><td>Counting four paisa (coins)</td><td>correct</td></tr>
+      <tr><td>6</td><td>Copying a square</td><td>1 out of 3</td></tr>
+      <tr><td colspan="3"><em>Alternative:</em> comparison of two weights (3/3 or 4/5)</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>Year V (Age 5)</h3>
+  <div class="tbl-scroll"><table>
+    <thead><tr><th>#</th><th>Item</th><th>Pass criterion</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Aesthetic comparison (present the card)</td><td>no errors</td></tr>
+      <tr><td>2</td><td>Definitions in terms of use (chair, spoon, doll, pencil, blanket)</td><td>4 out of 6; wait 1 min each</td></tr>
+      <tr><td>3</td><td>Three commissions (in proper sequence)</td><td>all 3 correct, in order</td></tr>
+      <tr><td>4</td><td>Distinguishing right and left</td><td>3 of 3, or 4 of 5</td></tr>
+      <tr><td>5</td><td>Naming four coins (50p, ₹1, ₹2, ₹5)</td><td>3 out of 4</td></tr>
+      <tr><td>6</td><td>Counting 13 paper strips or coins</td><td>1 of 2 without errors</td></tr>
+      <tr><td colspan="3"><em>Alternatives:</em> forenoon/afternoon; giving family (full) name; giving age</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>Year VI (Age 6)</h3>
+  <div class="tbl-scroll"><table>
+    <thead><tr><th>#</th><th>Item</th><th>Pass criterion</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Repeating 4 digits (4-7-3-9; 2-8-5-4; 7-2-6-1)</td><td>1 out of 3</td></tr>
+      <tr><td>2</td><td>Comprehension, 2nd degree (raining / house on fire / miss the train)</td><td>2 out of 3, ½ min each</td></tr>
+      <tr><td>3</td><td>Divided (cut-up) card</td><td>2 of 3 trials, 1 min each</td></tr>
+      <tr><td>4</td><td>Giving number of fingers (one hand / two hands / both)</td><td>no errors</td></tr>
+      <tr><td>5</td><td>Description of pictures</td><td>2 of 3, 2 min each</td></tr>
+      <tr><td>6</td><td>Missing features</td><td>3 of 4, ½ min each</td></tr>
+      <tr><td colspan="3"><em>Alternative:</em> naming colours — Red, Yellow, Blue, Green (no errors)</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>Year VII / Age 7 &amp; Year IX / Age 9</h3>
+  <div class="tbl-scroll"><table>
+    <thead><tr><th>Age</th><th>Representative items</th></tr></thead>
+    <tbody>
+      <tr><td><strong>7</strong></td><td>Repeating 3 digits reversed (1 of 3); differences (Fly–Butterfly, stone–potato, wood–glass; 2 of 3); + memory/picture items at this level.</td></tr>
+      <tr><td><strong>9</strong></td><td>Repeating 4 digits reversed (1 of 3); Making change (2 of 3, 15 s each); Similarities of 2 things (Mango–Banana, Iron–Silver, Bus–Auto, Wood–Charcoal; 2 of 4); using 3 words in a sentence (2 of 3); Reading &amp; report (6 facts / 5 errors, 1 min); Free association (35 words in 3 min). <em>Alt:</em> Vocabulary 20 words.</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>Year XII (Age 12)</h3>
+  <div class="tbl-scroll"><table>
+    <thead><tr><th>#</th><th>Item</th><th>Pass criterion</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Detecting absurdities</td><td>3 of 5, ½ min each (re-read once after 5 s)</td></tr>
+      <tr><td>2</td><td>Construction puzzle (Healy–Fernald)</td><td>3 times in 5 minutes</td></tr>
+      <tr><td>3</td><td>Defining abstract words (pity, revenge, charity, envy, injustice)</td><td>3 of 5, 1 min each to begin</td></tr>
+      <tr><td>4</td><td>Repeating 5 digits reversed</td><td>1 of 3, 1 per second</td></tr>
+      <tr><td>5</td><td>Interpretation of fables (Hercules &amp; Wagoner; Milkmaid; Fox &amp; Crow; Farmer &amp; Stork; Miller, son &amp; donkey)</td><td>4 marks (2 correct or equivalent; ½ credit each), 2 min</td></tr>
+      <tr><td>6</td><td>Interpretation of pictures</td><td>3 of 4, 2 min each</td></tr>
+      <tr><td colspan="3"><em>Alternatives:</em> Vocabulary 30 words; Repeating 6 digits; Comprehension 4th degree</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>Year XVI (Age 16)</h3>
+  <div class="tbl-scroll"><table>
+    <thead><tr><th>#</th><th>Item</th><th>Pass criterion</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Interpretation of fables</td><td>8 marks</td></tr>
+      <tr><td>2</td><td>Reversing hands of a clock</td><td>2 of 3, ≤3 min error, ½ min each</td></tr>
+      <tr><td>3</td><td>Difference between President &amp; PM (or Governor &amp; CM)</td><td>2 of 4, any form</td></tr>
+      <tr><td>4</td><td>Repeating 6 digits reversed</td><td>1 of 3, 1 per second</td></tr>
+      <tr><td>5</td><td>Problem questions</td><td>2 of 3, 1 min to begin reply</td></tr>
+      <tr><td>6</td><td>Repeating 7 digits</td><td>1 of 2, 1 per second</td></tr>
+      <tr><td colspan="3"><em>Alternatives:</em> Vocabulary 45 words; Free association 60 words in 3 min</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>Higher levels (Year XIX / XXII — adult)</h3>
+  <p>The highest levels add the longest memory spans (e.g. repeating 30 syllables at XIX; 8 digits at XXII) and
+  the most abstract reasoning items, and are used to establish the <strong>ceiling / Terminal Age</strong> for
+  older testees.</p>
+
+  <div class="box err"><span class="box-t">Common Error</span>
+    Reading digit series at the wrong pace. The manual specifies pacing carefully — most series are read
+    <strong>one every half-second</strong>, but the longer/starred series (5, 6, 7, 8 digits and all
+    <em>reversed</em> series) are read <strong>one per second</strong>. Wrong pacing invalidates the item.
+  </div>
+  <a class="backtop" href="#agewise">▲ top</a>
+</div>
+
+
+<!-- ============ 9. SCORING CHAIN ============ -->
+<h2 class="section scoring" id="scoring">9 · Scoring — The Core Chain</h2>
+<div class="section-body">
+  <p>This is the most important part. Keep the chain in mind and never collapse two steps into one.</p>
+  <div class="calc-card">
+    <div class="calc-flow">
+      <span>Raw performance (+/− per item)</span><span class="arrow">→</span>
+      <span>Basal Age</span><span class="arrow">→</span>
+      <span>+ month-credits for items passed above basal</span><span class="arrow">→</span>
+      <span>Mental Age (MA)</span><span class="arrow">→</span>
+      <span>IQ = MA / CA × 100</span><span class="arrow">→</span>
+      <span>Classification + Domain profile</span>
+    </div>
+  </div>
+
+  <div class="box alert"><span class="box-t">Scoring Alert — keep these distinct</span>
+    <ul style="margin:6px 0 0">
+      <li><strong>Raw score</strong> = pass/fail (+/−) on each item.</li>
+      <li><strong>Basal Age</strong> = highest age level where <em>all</em> items pass.</li>
+      <li><strong>Mental Age</strong> = Basal Age (in months) + summed month-credits for items passed above basal.</li>
+      <li><strong>IQ</strong> = MA ÷ CA × 100 (a <em>ratio</em>, not a mental age).</li>
+      <li><strong>Adjusted IQ</strong> = the BKT IQ rescaled from SD 18.7 to SD 15 (see §13).</li>
+    </ul>
+  </div>
+
+  <h3>How each item is scored</h3>
+  <ul>
+    <li>Each item is scored <strong>pass (+) or fail (−)</strong> against its stated criterion (e.g. "1 out of 3",
+      "3 of 4", "no errors", within the time limit).</li>
+    <li>There is generally <strong>no partial credit per item</strong> — the item either meets its criterion or not.
+      (Exceptions are items scored in <em>marks</em>, e.g. fables at XII scored out of 4 with ½-credit each; these
+      marks then determine whether the age-level item counts as passed.)</li>
+    <li>Time-limited items failed on time are scored as fails.</li>
+    <li>Items <strong>below the basal</strong> are assumed passed; items <strong>at/above the ceiling</strong> are
+      assumed failed.</li>
+  </ul>
+
+  <h3>Month-credit per item</h3>
+  <div class="box key"><span class="box-t">Key Concept</span>
+    Each age level spans a number of months (e.g. one year = 12 months) and holds a fixed number of items, so
+    <strong>each item passed above the basal is worth</strong> = (months in that age level) ÷ (number of items at
+    that level). Because most BKT age levels carry <strong>6 items across 12 months</strong>, each item passed is
+    typically worth <strong>2 months</strong> of Mental Age. (Use the exact credit printed for each level in the
+    version you administer.)
+  </div>
+  <a class="backtop" href="#scoring">▲ top</a>
+</div>
+
+<!-- ============ 10. CA ============ -->
+<h2 class="section scoring" id="ca">10 · Chronological Age (CA)</h2>
+<div class="section-body">
+  <p>CA is <strong>Date of Testing − Date of Birth</strong>, expressed in years and months (days are usually
+  rounded). Subtract day-from-day, month-from-month, year-from-year, <strong>borrowing</strong> where needed.</p>
+
+  <div class="calc-card">
+    <strong>Worked example</strong>
+    <div class="calc-step">
+Date of Testing : 2026 - 08 - 21  (Y-M-D)
+Date of Birth   : 2016 - 11 - 28
+</div>
+    <div class="calc-step">
+Days : 21 − 28 → borrow 1 month (30 d): 51 − 28 = 23 days
+Months: (8 − 1 borrowed) = 7 ; 7 − 11 → borrow 1 year (12 m): 19 − 11 = 8 months
+Years : (2026 − 1 borrowed) = 2025 ; 2025 − 2016 = 9 years
+</div>
+    <div class="calc-step">CA = 9 years 8 months (23 days) → for BKT use <strong>9y 8m</strong> = <strong>116 months</strong></div>
+  </div>
+  <div class="box remember"><span class="box-t">Remember</span>
+    Convert CA to <strong>months</strong> for the IQ formula: months = (years × 12) + months. 9y 8m = 116 months.
+    Rounding convention for days: ≥16 days often rounds up a month — follow your centre's convention consistently.
+  </div>
+  <a class="backtop" href="#ca">▲ top</a>
+</div>
+
+<!-- ============ 11. MA ============ -->
+<h2 class="section scoring" id="ma">11 · Basal Age &amp; Mental Age (MA)</h2>
+<div class="section-body">
+  <h4>Step 1 — Basal Age (BA)</h4>
+  <p>Find the <strong>highest age level at which the testee passes every item</strong>. Everything below is
+  credited automatically. Express BA in months (e.g. Year VI basal = 72 months).</p>
+
+  <h4>Step 2 — Add credits above the basal</h4>
+  <p>For every item passed at levels <em>above</em> the basal, add its month-credit (typically 2 months per item
+  when a 12-month level has 6 items).</p>
+
+  <div class="calc-card">
+    <strong>Worked example — building MA</strong>
+    <div class="calc-step">
+Basal Age            : Year VI, all 6 items passed  → 72 months
+Year VII : passed 4 of 6 items  → 4 × 2 = 8 months
+Year VIII: passed 3 of 6 items  → 3 × 2 = 6 months
+Year IX  : passed 1 of 6 items  → 1 × 2 = 2 months
+Year X   : passed 0 items       → ceiling reached
+</div>
+    <div class="calc-step">MA = 72 + 8 + 6 + 2 = <strong>88 months</strong> = 7 years 4 months</div>
+  </div>
+
+  <div class="box err"><span class="box-t">Common Error</span>
+    Forgetting to credit the basal months, or double-counting items below the basal. Below-basal items are
+    <em>already</em> inside the basal figure — only add credits for items passed <strong>above</strong> the basal.
+  </div>
+  <a class="backtop" href="#ma">▲ top</a>
+</div>
+
+<!-- ============ 12. IQ ============ -->
+<h2 class="section iqcalc" id="iq">12 · IQ Calculation (Ratio IQ)</h2>
+<div class="section-body">
+  <div class="box iqbox"><span class="box-t">IQ Calculation — the formula</span>
+    <div style="font-size:1.15rem; text-align:center; margin:8px 0;">
+      <strong>IQ = ( Mental Age ÷ Chronological Age ) × 100</strong>
+    </div>
+    Both MA and CA in the <strong>same units</strong> (months). For older testees who have reached the top of the
+    scale, CA is replaced by the <strong>Terminal Age (TA)</strong>: IQ = (MA ÷ TA) × 100 (see §14 and the
+    recording sheet).
+  </div>
+
+  <div class="calc-card">
+    <strong>Worked example (continuing §11)</strong>
+    <div class="calc-flow">
+      <span>MA = 88 months</span><span class="arrow">→</span>
+      <span>CA = 116 months</span><span class="arrow">→</span>
+      <span>IQ = 88/116 × 100</span><span class="arrow">→</span>
+      <span>IQ ≈ 75.9 ≈ 76</span>
+    </div>
+    <div class="calc-step">IQ = (88 ÷ 116) × 100 = 0.7586 × 100 = <strong>75.9 → 76</strong> (BKT ratio IQ)</div>
+  </div>
+
+  <div class="box alert"><span class="box-t">Scoring Alert</span>
+    Do not stop at MA and call it "IQ". MA is an age; IQ is a ratio. A 9-year-old with MA 7y4m has a
+    <strong>ratio IQ of ~76</strong>, not "76 months" and not "7.4".
+  </div>
+  <a class="backtop" href="#iq">▲ top</a>
+</div>
+
+<!-- ============ 13. ADJUSTED IQ ============ -->
+<h2 class="section iqcalc" id="adjust">13 · SD 18.7 → 15 Adjusted IQ</h2>
+<div class="section-body">
+  <p>BKT was standardized with a <strong>standard deviation of 18.7</strong>. To compare a BKT IQ with tests that
+  use SD 15 (Wechsler, modern Stanford-Binet), rescale it. This is the formula from the figure you supplied:</p>
+  <div class="box iqbox"><span class="box-t">IQ Calculation — adjustment formula</span>
+    <div style="font-size:1.1rem; text-align:center; margin:8px 0;">
+      <strong>Adjusted IQ = 100 − [ ( (100 − BKT IQ) ÷ 18.7 ) × 15 ]</strong>
+    </div>
+    This converts a score expressed on an SD-18.7 scale onto an SD-15 scale, keeping the mean at 100.
+  </div>
+  <div class="calc-card">
+    <strong>Worked example</strong> (BKT IQ = 76 from §12)
+    <div class="calc-step">
+100 − BKT IQ            = 100 − 76 = 24
+24 ÷ 18.7              = 1.283 (SD units below mean)
+1.283 × 15            = 19.25
+Adjusted IQ = 100 − 19.25 = <strong>80.75 ≈ 81</strong>
+</div>
+    <div class="calc-step">So a BKT IQ of 76 (SD 18.7) ≈ an SD-15 IQ of ~81.</div>
+  </div>
+  <div class="box pearl"><span class="box-t">Clinical Pearl</span>
+    Because SD 18.7 spreads scores more widely, extreme BKT IQs pull <em>toward</em> 100 when rescaled to SD 15.
+    Always state which scale a reported IQ is on.
+  </div>
+  <a class="backtop" href="#adjust">▲ top</a>
+</div>
+
+<!-- ============ 14. PRORATING / TA ============ -->
+<h2 class="section iqcalc" id="prorate">14 · Terminal Age &amp; Prorating</h2>
+<div class="section-body">
+  <h4>Terminal Age (TA) — for older testees</h4>
+  <p>Ratio IQ fails for adults because MA plateaus. BKT solves this by capping the denominator at a
+  <strong>Terminal Age</strong> (the maximum chronological age the scale credits). The recording sheet's adult
+  formula is:</p>
+  <div class="box iqbox"><span class="box-t">IQ Calculation — adult / terminal formula</span>
+    <div style="text-align:center; font-size:1.1rem;"><strong>IQ = ( MA ÷ TA ) × 100</strong></div>
+    Use CA for children; substitute TA once CA exceeds the scale's terminal age.
+  </div>
+
+  <h4>Prorating (when an item/subtest is spoiled)</h4>
+  <p>"Prorating" means estimating a total from the portion actually completed, when part of the test could not be
+  given validly (e.g. a picture card is missing, or one timed item was invalidated). It is <strong>not</strong>
+  the same thing as computing IQ from mental age.</p>
+  <div class="box imp"><span class="box-t">Important — distinction</span>
+    <ul style="margin:6px 0 0">
+      <li><strong>IQ from mental age</strong> = the normal route: MA/CA×100. Always done.</li>
+      <li><strong>Prorating</strong> = a repair used <em>only</em> when a component is missing/invalid, by
+        distributing the expected credit across the items that <em>were</em> validly administered. Used cautiously,
+        flagged in the report.</li>
+    </ul>
+  </div>
+  <div class="calc-card">
+    <strong>Worked example — prorating a spoiled item</strong>
+    <div class="calc-step">
+At Year VIII the child validly attempted only 5 of the 6 items (1 item spoiled: card missing).
+Passed 3 of the 5 valid items.
+Estimated pass proportion = 3 / 5 = 0.60
+Expected passes over all 6 items = 0.60 × 6 = 3.6 → round to 4 items credited
+Credit = 4 × 2 months = 8 months at Year VIII
+</div>
+    <div class="calc-step">This prorated 8-month credit is then added into MA as usual. Note the proration in the report.</div>
+  </div>
+  <div class="box alert"><span class="box-t">Scoring Alert — when NOT to prorate</span>
+    Never prorate from a single item, never prorate to "rescue" a clearly invalid administration, and never
+    prorate an entire age level. Prefer re-testing the spoiled item if at all possible.
+  </div>
+  <a class="backtop" href="#prorate">▲ top</a>
+</div>
+
+
+<!-- ============ 15. WORKED EXAMPLES ============ -->
+<h2 class="section iqcalc" id="worked">15 · Three Complete Worked IQ Examples</h2>
+<div class="section-body">
+  <p class="muted">All data fictional. Credit assumed at 2 months/item (6 items over a 12-month level).</p>
+
+  <div class="calc-card">
+    <strong>Example A — all items completed (child)</strong>
+    <div class="calc-flow"><span>INPUT</span><span class="arrow">→</span><span>MA build</span><span class="arrow">→</span><span>FORMULA</span><span class="arrow">→</span><span>RESULT</span><span class="arrow">→</span><span>INTERPRET</span></div>
+    <div class="calc-step">
+DOB 2018-03-10, Tested 2026-08-21 → CA = 8y 5m = 101 months
+Basal: Year VII (all pass) = 84 months
+Year VIII: 5/6 passed → 10 m ; Year IX: 3/6 → 6 m ; Year X: 1/6 → 2 m ; Year XII: 0 → ceiling
+MA = 84 + 10 + 6 + 2 = 102 months (8y 6m)
+IQ = 102 / 101 × 100 = 100.99 ≈ <strong>101</strong>
+Adjusted (SD15) = 100 − ((100−101)/18.7 ×15) = 100 + 0.80 ≈ <strong>101</strong>
+</div>
+    <div class="calc-step">Interpretation: Average intellectual functioning.</div>
+  </div>
+
+  <div class="calc-card">
+    <strong>Example B — one component unavailable (proration)</strong>
+    <div class="calc-step">
+DOB 2016-06-01, Tested 2026-08-21 → CA = 10y 2m = 122 months
+Basal: Year VIII = 96 months
+Year IX: 4/6 passed → 8 m
+Year X: only 5 of 6 items valid (1 spoiled); passed 2 of the 5 valid
+   prorate: 2/5 = 0.40 ; 0.40 × 6 = 2.4 → 2 items credited → 4 m
+Year XII: 0 → ceiling
+MA = 96 + 8 + 4 = 108 months (9y 0m)
+IQ = 108 / 122 × 100 = <strong>88.5 ≈ 89</strong>  (note: Year-X credit prorated)
+Adjusted (SD15) = 100 − ((100−89)/18.7 ×15) = 100 − 8.82 ≈ <strong>91</strong>
+</div>
+    <div class="calc-step">Interpretation: Low-average / high end of below-average; proration flagged in report.</div>
+  </div>
+
+  <div class="calc-card">
+    <strong>Example C — older testee (Terminal Age)</strong>
+    <div class="calc-step">
+DOB 2007-01-15, Tested 2026-08-21 → CA = 19y 7m (exceeds scale)
+Scale Terminal Age (TA) taken as the scale maximum used at your centre — here TA = 16y = 192 months
+Basal Year XII = 144 m ; Year XIV: 3/6 → 6 m ; Year XVI: 2/6 → 4 m ; adult levels 0
+MA = 144 + 6 + 4 = 154 months (12y 10m)
+IQ = MA / TA × 100 = 154 / 192 × 100 = <strong>80.2 ≈ 80</strong>
+Adjusted (SD15) = 100 − ((100−80)/18.7 ×15) = 100 − 16.04 ≈ <strong>84</strong>
+</div>
+    <div class="calc-step">Interpretation: Below-average; TA substituted for CA because CA exceeded the scale.</div>
+  </div>
+  <div class="box imp"><span class="box-t">Important</span>
+    The exact Terminal Age and month-credits differ by version/centre. Use the values printed on
+    <em>your</em> recording sheet and manual; the arithmetic method above stays the same.
+  </div>
+  <a class="backtop" href="#worked">▲ top</a>
+</div>
+
+<!-- ============ 16. CHECKLIST ============ -->
+<h2 class="section iqcalc" id="checklist">16 · IQ Calculation Checklist</h2>
+<div class="section-body">
+  <div class="box iqbox"><span class="box-t">IQ Calculation Checklist</span>
+    <ul style="list-style:none; padding-left:4px;">
+      <li>☐ Chronological age computed correctly (borrowing done, converted to months)</li>
+      <li>☐ Basal age correctly identified (highest level all-pass)</li>
+      <li>☐ Ceiling correctly identified (level all-fail)</li>
+      <li>☐ Each item scored +/− against the exact criterion &amp; time limit</li>
+      <li>☐ Correct month-credit per item applied above basal</li>
+      <li>☐ Below-basal items not double-counted</li>
+      <li>☐ Mental Age summed correctly (basal + credits)</li>
+      <li>☐ Correct denominator used (CA for children, TA for older testees)</li>
+      <li>☐ IQ = MA/CA×100 computed &amp; rounded</li>
+      <li>☐ SD-18.7→15 adjustment done if comparison needed</li>
+      <li>☐ Any proration noted &amp; justified</li>
+      <li>☐ Classification assigned; domain profile completed</li>
+    </ul>
+  </div>
+  <a class="backtop" href="#checklist">▲ top</a>
+</div>
+
+<!-- ============ 17. DOMAINS ============ -->
+<h2 class="section scoring" id="domains">17 · Domain-wise Scoring &amp; What Each Domain Means</h2>
+<div class="section-body">
+  <p>Beyond the single IQ, BKT items can be re-grouped into <strong>six cognitive domains</strong>. The
+  classification you attached is adapted from <em>Lezak, M. D. (1983), Neuropsychological Assessment (2nd ed.),
+  Oxford University Press, pp. 288–291</em> (Prasad Psycho Corporation sheet). Each cell of that sheet lists, for a
+  given <strong>age level</strong>, which <strong>item numbers</strong> load on which domain (A1/A2/A3 = alternative
+  items).</p>
+
+  <h3>What each domain means (in simple language)</h3>
+  <div class="tbl-scroll"><table class="peachhead">
+    <thead><tr><th>Domain</th><th>Plain-language meaning</th><th>Example BKT items</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Language</strong></td><td>Understanding and using words — naming things, defining words, vocabulary, following spoken instructions.</td><td>Naming objects, definitions in terms of use, vocabulary, comprehension</td></tr>
+      <tr><td><strong>Memory</strong><br><span class="muted">(meaningful / non-meaningful / non-verbal)</span></td><td>Holding information briefly and repeating it back. <em>Meaningful</em> = sentences/ideas that make sense; <em>non-meaningful</em> = digit strings with no meaning; <em>non-verbal</em> = remembering shapes/designs.</td><td>Repeating digits (non-meaningful), repeating sentences/syllables (meaningful), design recall (non-verbal)</td></tr>
+      <tr><td><strong>Reasoning</strong><br><span class="muted">(verbal / non-verbal / numerical)</span></td><td>Thinking things through logically — in words, in pictures/shapes, or with numbers.</td><td>Comprehension ("what would you do if…"), absurdities, problem questions, making change (numerical)</td></tr>
+      <tr><td><strong>Conceptual Thinking</strong></td><td>Grasping abstract ideas and relationships — how things are alike, categories, meanings behind stories.</td><td>Similarities, differences, defining abstract words, interpreting fables</td></tr>
+      <tr><td><strong>Visuo-Motor</strong></td><td>Coordinating what you see with what your hands do — copying, drawing, assembling.</td><td>Copying a square, pattern drawing, construction/divided-card puzzles</td></tr>
+      <tr><td><strong>Social Intelligence</strong></td><td>Everyday social know-how — practical judgement, understanding people and situations.</td><td>Comprehension of social situations, giving sex/age/name, interpreting pictures of social scenes</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="box key"><span class="box-t">Key Concept — how domain scoring works</span>
+    For each domain, look up (from the Lezak-adapted sheet) which item numbers at each age level belong to that
+    domain, mark which of those the testee <strong>passed</strong>, and read off the <strong>highest age level</strong>
+    reached in that domain. This gives a <em>domain-wise age profile</em> — e.g. Memory at 8-year level but
+    Conceptual Thinking only at 6-year level — highlighting relative strengths and weaknesses that the single IQ
+    hides.
+  </div>
+
+  <h3>Reading the attached response sheet — worked illustration</h3>
+  <p>Your domain sheet lists item numbers per domain per age (reading age levels down the left, e.g.
+  22, 19, 16, 14, 12, 10, 9, 8, 7, 6, 5, 4, 3). To score a domain:</p>
+  <div class="calc-card">
+    <div class="calc-step">
+1. Pick a domain column (e.g. MEMORY → Meaningful).
+2. For each age row, note the item numbers the sheet assigns to that domain
+   (e.g. Age 8 → item 6 ; Age 5 → item 3 ; etc.; "A1/A2" = alternative items).
+3. Tick those items the testee passed on the record sheet.
+4. The highest age row where the domain's items were passed = that domain's age level.
+5. Compare domain age levels against overall MA to describe strengths/weaknesses.
+</div>
+    <div class="calc-step">Report as a small profile, e.g.: Language ≈ 9y • Memory ≈ 8y • Reasoning ≈ 7y • Conceptual Thinking ≈ 6y • Visuo-Motor ≈ 8y • Social Intelligence ≈ 7y.</div>
+  </div>
+  <div class="box imp"><span class="box-t">Important — use the sheet, don't invent</span>
+    The exact item-to-domain mapping is fixed by the Lezak-adapted sheet you provided. Always read the mapping
+    off that sheet for the specific age level; the sheet — not memory — is the authority for which item belongs to
+    which domain.
+  </div>
+  <div class="box pearl"><span class="box-t">Clinical Pearl</span>
+    A wide gap between domains (e.g. strong Memory but weak Conceptual Thinking) is often more clinically
+    informative than the global IQ — it can point to specific learning difficulties, language deprivation, or
+    uneven development.
+  </div>
+  <a class="backtop" href="#domains">▲ top</a>
+</div>
+
+
+<!-- ============ 18. OBSERVATION ============ -->
+<h2 class="section interp" id="observe">18 · Behavioural Observation</h2>
+<div class="section-body">
+  <p>Behaviour during testing is part of the data. Record it separately from interpretation.</p>
+  <div class="two-col">
+    <div class="box pearl"><span class="box-t">Observe (describe)</span>
+      Rapport, cooperation, motivation, attention/distractibility, persistence vs giving up, impulsivity vs
+      reflection, strategy &amp; planning, trial-and-error, response to failure, need for encouragement, fatigue,
+      speed vs accuracy, speech &amp; language quality.
+    </div>
+    <div class="box remember"><span class="box-t">Interpret (later, cautiously)</span>
+      Only after describing behaviour do you infer meaning (e.g. "frequent giving-up on harder items may have
+      lowered the ceiling and slightly under-estimated ability"). Keep the two clearly separated in the report.
+    </div>
+  </div>
+  <div class="box err"><span class="box-t">Common Error</span>
+    Writing interpretation as if it were observation ("the child was anxious" is an inference; "the child fidgeted,
+    avoided eye contact and asked to stop twice" is an observation).
+  </div>
+  <a class="backtop" href="#observe">▲ top</a>
+</div>
+
+<!-- ============ 19. INTERPRETATION ============ -->
+<h2 class="section interp" id="interp">19 · IQ Classification &amp; Interpretation</h2>
+<div class="section-body">
+  <div class="box imp"><span class="box-t">Important — which classification to use</span>
+    BKT yields a <strong>ratio IQ on an SD-18.7 scale</strong>. Use the classification bands printed in your BKT
+    manual/centre protocol. The table below is a widely used descriptive framework for orientation; because of the
+    SD-18.7 scaling, prefer the <strong>adjusted (SD-15) IQ</strong> when applying any band borrowed from SD-15
+    tests, and always report which scale you used.
+  </div>
+  <div class="tbl-scroll"><table class="minthead">
+    <thead><tr><th>IQ range (orientation)</th><th>Descriptive classification</th><th>Clinical meaning</th></tr></thead>
+    <tbody>
+      <tr><td>130 and above</td><td>Very superior</td><td>Well above age-peers</td></tr>
+      <tr><td>120–129</td><td>Superior</td><td>Above age-peers</td></tr>
+      <tr><td>110–119</td><td>High average</td><td>Upper end of normal</td></tr>
+      <tr><td>90–109</td><td>Average</td><td>Typical for age</td></tr>
+      <tr><td>80–89</td><td>Below average / low average</td><td>Lower end of normal</td></tr>
+      <tr><td>70–79</td><td>Borderline</td><td>Between normal and disability range</td></tr>
+      <tr><td>Below 70</td><td>Intellectual disability range (mild → profound)</td><td>Confirm with adaptive-behaviour assessment before diagnosis</td></tr>
+    </tbody>
+  </table></div>
+  <div class="box alert"><span class="box-t">Scoring Alert</span>
+    Never diagnose intellectual disability from an IQ number alone — DSM-5/ICD-11 require deficits in
+    <strong>adaptive functioning</strong> too. BKT gives the intellectual estimate; pair it with an adaptive-behaviour
+    scale (e.g. VSMS).
+  </div>
+
+  <h3>Profile interpretation</h3>
+  <ul>
+    <li>Report the <strong>global IQ</strong> and classification first, with a confidence caveat.</li>
+    <li>Then describe the <strong>basal→ceiling spread</strong> (a wide, scattered spread suggests uneven abilities;
+      a narrow spread suggests consistent functioning).</li>
+    <li>Add the <strong>six-domain profile</strong> — relative strengths and weaknesses.</li>
+    <li>Integrate <strong>behavioural observations</strong>.</li>
+    <li>Explain why the IQ should <em>not</em> be read in isolation.</li>
+  </ul>
+
+  <div class="two-col">
+    <div class="box remember"><span class="box-t">Low performance — differentials</span>
+      Genuine intellectual limitation, poor attention, low motivation, anxiety, language/cultural mismatch, motor or
+      visual-spatial difficulty, neurological factors, fatigue, or an artificially low ceiling from early giving-up.
+    </div>
+    <div class="box remember"><span class="box-t">High performance — cautions</span>
+      Genuine strength, but also task familiarity, coaching/practice effects, rich educational opportunity, high
+      motivation. Avoid over-claiming from a single test.
+    </div>
+  </div>
+  <a class="backtop" href="#interp">▲ top</a>
+</div>
+
+<!-- ============ 20. COMPARISON ============ -->
+<h2 class="section interp" id="diff">20 · Comparison with Other Tests</h2>
+<div class="section-body">
+  <div class="tbl-scroll"><table class="minthead">
+    <thead><tr><th>Test</th><th>Strength</th><th>Limitation</th><th>Best use</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Binet-Kamat (BKT)</strong></td><td>Indian-language age scale; MA + IQ; broad 3–22 range</td><td>Ratio IQ, SD 18.7, old norms, language-loaded</td><td>Indian children/adolescents; MA-based reporting</td></tr>
+      <tr><td>Stanford-Binet (modern)</td><td>Deviation IQ, wide age range, strong norms</td><td>Western norms; cost</td><td>Broad clinical IQ where Western norms acceptable</td></tr>
+      <tr><td>Wechsler (WISC/WAIS)</td><td>Index/profile scores, deviation IQ, excellent psychometrics</td><td>Costly; training-heavy; culture-bound content</td><td>Detailed cognitive profiling</td></tr>
+      <tr><td>Raven's Progressive Matrices</td><td>Culture-fair, non-verbal, quick</td><td>Measures only reasoning "g"; no verbal</td><td>Language/hearing-impaired; culture-fair screening</td></tr>
+      <tr><td>Bhatia's Battery</td><td>Pure performance/non-verbal; Indian</td><td>No verbal component</td><td>Language-limited Indian clients; pairs well with BKT</td></tr>
+    </tbody>
+  </table></div>
+  <div class="box vivatip"><span class="box-t">Viva Tip</span>
+    Never say BKT is "the best" test. Say it is a <em>useful, economical Indian-language age scale</em> whose main
+    caveats are ratio IQ and SD 18.7 — and name what you would add for a fuller picture.
+  </div>
+  <a class="backtop" href="#diff">▲ top</a>
+</div>
+
+<!-- ============ 21. CASE STUDIES ============ -->
+<h2 class="section cases" id="cases">21 · Case Studies</h2>
+<div class="section-body">
+  <p class="muted">All cases fictional; illustrate how interpretation changes with the picture.</p>
+
+  <div class="box remember"><span class="box-t">Case 1 · Average functioning</span>
+    9y-old, referred for school review. CA 108 m, MA 106 m → IQ ≈ 98. Even basal→ceiling spread; flat domain
+    profile. Good rapport, reflective. <em>Impression:</em> average intellectual functioning; no cognitive barrier
+    to learning — look elsewhere for the school concern.
+  </div>
+  <div class="box remember"><span class="box-t">Case 2 · Borderline / below-average</span>
+    10y-old. CA 120 m, MA 92 m → IQ ≈ 77 (adjusted ≈ 82). Wide scatter; weak Conceptual Thinking. <em>Impression:</em>
+    borderline range; recommend adaptive-behaviour assessment and educational support.
+  </div>
+  <div class="box remember"><span class="box-t">Case 3 · Markedly low</span>
+    8y-old. CA 96 m, MA 54 m → IQ ≈ 56. Low ceiling reached early across all domains. <em>Impression:</em> functioning
+    in the ID range; confirm with adaptive measures before any diagnosis; parent counselling.
+  </div>
+  <div class="box remember"><span class="box-t">Case 4 · Uneven profile</span>
+    11y-old. IQ ≈ 95 (average) but Memory at 11y level and Conceptual Thinking only at 7y level. <em>Impression:</em>
+    average global IQ masks a specific reasoning weakness — investigate for a specific learning difficulty.
+  </div>
+  <div class="box remember"><span class="box-t">Case 5 · Language-limited</span>
+    7y-old, home language differs from test language; verbal items depressed, visuo-motor intact. <em>Impression:</em>
+    verbal IQ likely under-estimates true ability; re-test in mother-tongue and add a performance test.
+  </div>
+  <div class="box remember"><span class="box-t">Case 6 · Poor cooperation (child)</span>
+    5y-old, fidgety, gave up early → premature ceiling. <em>Impression:</em> obtained IQ is a <em>minimum</em>
+    estimate; recommend re-assessment when settled.
+  </div>
+  <div class="box remember"><span class="box-t">Case 7 · High anxiety</span>
+    12y-old, visibly anxious, self-corrected constantly, slow. Timed items failed on speed not ability.
+    <em>Impression:</em> anxiety likely lowered timed-item performance; interpret IQ as a conservative estimate.
+  </div>
+  <div class="box remember"><span class="box-t">Case 8 · Possible neurocognitive difficulty</span>
+    14y-old post-illness. Marked visuo-motor and memory drop vs preserved language. <em>Impression:</em> pattern
+    suggests acquired difficulty; refer for neuropsychological work-up.
+  </div>
+
+  <h3>Fully worked case (child)</h3>
+  <div class="calc-card">
+    <div class="calc-step">
+Identifying info : "R", male, 9y 8m, Std IV, Marathi-speaking.
+Referral         : Teacher — poor academic progress.
+Behaviour        : Cooperative, attentive early, slowed and gave up on harder items.
+CA = 116 months. Basal = Year VI (72 m).
+Year VII 4/6 → 8m ; Year VIII 3/6 → 6m ; Year IX 1/6 → 2m ; Year X 0 → ceiling.
+MA = 72+8+6+2 = 88 m (7y 4m).
+IQ = 88/116 × 100 = 76 (BKT).  Adjusted (SD15) ≈ 81.
+Domain profile: Language ~7y, Memory ~7y, Reasoning ~6y, Conceptual ~6y, Visuo-Motor ~8y, Social ~7y.
+</div>
+    <div class="calc-step">Impression: Borderline intellectual functioning (ratio IQ 76). Relative visuo-motor strength; reasoning/conceptual weakness. Recommend adaptive-behaviour assessment, remedial support, re-test if motivation improves.</div>
+  </div>
+  <a class="backtop" href="#cases">▲ top</a>
+</div>
+
+
+<!-- ============ 22. REPORT WRITING ============ -->
+<h2 class="section report" id="report">22 · Report Writing</h2>
+<div class="section-body">
+  <h3>Standard BKT report structure</h3>
+  <ol>
+    <li>Identifying information</li>
+    <li>Referral source</li>
+    <li>Reason for referral</li>
+    <li>Test administered (Binet-Kamat Test of Intelligence) &amp; purpose</li>
+    <li>Relevant background</li>
+    <li>Behavioural observations</li>
+    <li>Administration notes (language used, basal/ceiling, any proration)</li>
+    <li>Test results (results table + domain profile)</li>
+    <li>Scoring &amp; IQ calculation (CA, basal, MA, IQ, adjusted IQ)</li>
+    <li>Interpretation &amp; classification</li>
+    <li>Clinical impression</li>
+    <li>Limitations</li>
+    <li>Recommendations</li>
+  </ol>
+
+  <h3>Results table (template)</h3>
+  <div class="tbl-scroll"><table class="peachhead">
+    <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+    <tbody>
+      <tr><td>Chronological Age (CA)</td><td>___ y ___ m (___ months)</td></tr>
+      <tr><td>Basal Age (BA)</td><td>Year ___ (___ months)</td></tr>
+      <tr><td>Mental Age (MA)</td><td>___ y ___ m (___ months)</td></tr>
+      <tr><td>Ceiling / Terminal Age</td><td>Year ___</td></tr>
+      <tr><td>IQ (BKT, ratio, SD 18.7)</td><td>___</td></tr>
+      <tr><td>Adjusted IQ (SD 15)</td><td>___</td></tr>
+      <tr><td>Classification</td><td>___</td></tr>
+    </tbody>
+  </table></div>
+  <div class="tbl-scroll"><table class="peachhead">
+    <thead><tr><th>Domain</th><th>Approx. age level</th><th>Comment</th></tr></thead>
+    <tbody>
+      <tr><td>Language</td><td></td><td></td></tr>
+      <tr><td>Memory</td><td></td><td></td></tr>
+      <tr><td>Reasoning</td><td></td><td></td></tr>
+      <tr><td>Conceptual Thinking</td><td></td><td></td></tr>
+      <tr><td>Visuo-Motor</td><td></td><td></td></tr>
+      <tr><td>Social Intelligence</td><td></td><td></td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="box pearl"><span class="box-t">Professional wording examples</span>
+    <em>"On the Binet-Kamat Test of Intelligence, the client obtained a Mental Age of 7 years 4 months against a
+    Chronological Age of 9 years 8 months, yielding a ratio IQ of 76 (SD 18.7; adjusted IQ ≈ 81 on an SD-15 scale),
+    placing current intellectual functioning in the borderline range. A relative strength in visuo-motor tasks and
+    a relative weakness in verbal reasoning were noted. As BKT uses a ratio IQ, findings should be interpreted
+    alongside adaptive functioning before any diagnostic conclusion."</em>
+  </div>
+
+  <h3>Three brief sample reports</h3>
+  <div class="box remember"><span class="box-t">Report 1 · Child</span>
+    6y girl, CA 74 m, MA 78 m → IQ ≈ 105. Average functioning; cooperative; no concerns; routine follow-up.
+  </div>
+  <div class="box remember"><span class="box-t">Report 2 · Adolescent</span>
+    14y boy, CA 168 m, MA 132 m → IQ ≈ 79 (adj ≈ 83). Borderline; uneven profile with weak abstraction; educational
+    support + adaptive assessment recommended.
+  </div>
+  <div class="box remember"><span class="box-t">Report 3 · Older testee (Terminal Age)</span>
+    19y, CA exceeds scale → TA 192 m used; MA 154 m → IQ = 80 (adj ≈ 84). Below-average; note TA substitution and
+    recommend a deviation-IQ adult test for confirmation.
+  </div>
+  <a class="backtop" href="#report">▲ top</a>
+</div>
+
+<!-- ============ 23. PSYCHOMETRICS ============ -->
+<h2 class="section theory" id="psychometric">23 · Psychometric Properties</h2>
+<div class="section-body">
+  <ul>
+    <li><strong>Standardization:</strong> Indian (Kannada- &amp; Marathi-speaking) sample of ~1074 children; mean IQ
+      ≈ 99.8, <strong>SD 18.7</strong>.</li>
+    <li><strong>Validity:</strong> the manual reports item–mental-age correlations (e.g. individual items around
+      0.83 with MA); good face and content validity for general ability.</li>
+    <li><strong>Reliability:</strong> reasonable for an age scale, though based on decades-old data.</li>
+    <li><strong>Cultural fit:</strong> a major strength — content and language localized to Indian children.</li>
+    <li><strong>Limitations:</strong> ratio-IQ metric, wide SD (18.7), ageing norms, restricted standardization
+      languages. Do not overstate the psychometric evidence.</li>
+  </ul>
+  <p class="muted">Historical/psychometric facts corroborated with published summaries of the Binet-Kamat Test
+  (mean ≈ 99.8, SD 18.7, N ≈ 1074; ratio-IQ method). Content rephrased for licensing compliance.</p>
+  <a class="backtop" href="#psychometric">▲ top</a>
+</div>
+
+<!-- ============ 24. ETHICS ============ -->
+<h2 class="section theory" id="ethics">24 · Ethical &amp; Clinical Considerations</h2>
+<div class="section-body">
+  <ul>
+    <li><strong>Qualified use:</strong> administer/interpret only if trained (RCI-relevant in India).</li>
+    <li><strong>Standardization:</strong> follow exact procedure, timing and language; do not coach.</li>
+    <li><strong>Informed consent / assent:</strong> from guardian and, appropriately, the child.</li>
+    <li><strong>Confidentiality:</strong> secure records; share results appropriately.</li>
+    <li><strong>No diagnostic overreach:</strong> an IQ is not a diagnosis; integrate history, adaptive functioning
+      and other data.</li>
+    <li><strong>Test security:</strong> protect items and scoring keys.</li>
+  </ul>
+  <a class="backtop" href="#ethics">▲ top</a>
+</div>
+
+<!-- ============ 25. VIVA ============ -->
+<h2 class="section viva" id="viva">25 · Viva — Key Points to Remember</h2>
+<div class="section-body">
+  <p>Kept short, as requested — the essentials most likely to be asked.</p>
+  <div class="box vivatip"><span class="box-t">Must-know facts</span>
+    <ul style="margin:6px 0 0">
+      <li>BKT = <strong>Binet-Kamat Test</strong>, V. V. Kamat's Indian revision of the <strong>Binet-Simon</strong> scale.</li>
+      <li>Age range <strong>3–22</strong>; individually administered <strong>age scale</strong>.</li>
+      <li>Yields a <strong>ratio IQ = MA/CA × 100</strong>; <strong>SD 18.7</strong>, mean ≈ 100 (N ≈ 1074).</li>
+      <li>Both verbal &amp; non-verbal items → <strong>not</strong> a pure performance test.</li>
+      <li>Six domains: Language, Memory, Reasoning, Conceptual Thinking, Visuo-Motor, Social Intelligence.</li>
+      <li>Indian children tested in <strong>Kannada/Marathi</strong>, never the English version.</li>
+    </ul>
+  </div>
+  <div class="box vivatip"><span class="box-t">Trap questions — crisp answers</span>
+    <ul style="margin:6px 0 0">
+      <li><strong>MA vs CA?</strong> MA = mental level reached on the test; CA = actual age since birth.</li>
+      <li><strong>What is prorated IQ?</strong> An IQ where a missing/invalid component's credit was estimated from
+        the validly completed items — not the same as IQ-from-MA.</li>
+      <li><strong>Prorating vs IQ from MA?</strong> IQ-from-MA is the normal calculation; prorating is a repair used
+        only when part of the test is spoiled.</li>
+      <li><strong>When prorate?</strong> Only when a component can't be validly given; never from one item; flag it.</li>
+      <li><strong>One item unfinished — IQ from it?</strong> No; you need the basal→ceiling pattern.</li>
+      <li><strong>Why not a pure performance test?</strong> Because it contains strong verbal items too.</li>
+      <li><strong>Main limitation?</strong> Ratio IQ + wide SD (18.7) → less suitable for adults and for precise
+        disability cut-offs; old, language-specific norms.</li>
+      <li><strong>Basal age?</strong> Highest level where all items pass. <strong>Ceiling?</strong> Level where all fail.</li>
+    </ul>
+  </div>
+  <a class="backtop" href="#viva">▲ top</a>
+</div>
+
+<!-- ============ 26. REVISION ============ -->
+<h2 class="section viva" id="revision">26 · Quick Revision</h2>
+<div class="section-body">
+  <div class="box remember"><span class="box-t">BKT in 5 minutes</span>
+    Indian age-scale IQ test (Kamat, from Binet-Simon), ages 3–22, verbal + non-verbal items grouped by age level.
+    Find basal (all-pass) → add month-credits above it → Mental Age → IQ = MA/CA×100 (ratio IQ, SD 18.7). Six-domain
+    profile + behaviour complete the picture. Pair with adaptive measures before diagnosis.
+  </div>
+  <div class="box remember"><span class="box-t">Scoring in 5 minutes</span>
+    Score each item +/− vs its criterion &amp; time. Basal = highest all-pass level (in months). Each item passed
+    above basal ≈ 2 months. MA = basal + credits. IQ = MA/CA×100. Rescale SD18.7→15 if comparing to Wechsler.
+  </div>
+  <div class="box iqbox"><span class="box-t">IQ calculation in 5 minutes</span>
+    CA (months) → Basal (months) → + credits → MA (months) → IQ = MA/CA×100 → (older: use TA) → adjust to SD15 →
+    classify. Check the §16 checklist.
+  </div>
+  <div class="box vivatip"><span class="box-t">One-page master summary</span>
+    Binet-Kamat • Kamat • 3–22 y • age scale • verbal + non-verbal • basal→MA→ratio IQ (MA/CA×100) • SD 18.7 •
+    6 domains • Kannada/Marathi • strengths: Indian, economical • limits: ratio IQ, wide SD, old norms.
+  </div>
+  <a class="backtop" href="#revision">▲ top</a>
+</div>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="fmain">Binet-Kamat Test of Intelligence — Clinical Psychology Study Guide</div>
+  <div class="fauth">Made by Tejas Dangodra</div>
+</footer>
+
+</div><!-- /wrap -->
+</body>
+</html>
