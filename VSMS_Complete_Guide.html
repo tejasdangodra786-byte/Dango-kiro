@@ -28,7 +28,22 @@ body {
   background: linear-gradient(135deg, #f8f6ff 0%, #f0f8ff 100%);
   line-height: 1.7;
   padding: 0;
+  position: relative;
 }
+/* Subtle repeating background watermark */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='340' height='200'><text x='0' y='100' fill='rgba(74,35,90,0.05)' font-size='22' font-family='Segoe UI, sans-serif' font-weight='700' transform='rotate(-30 170 100)'>Made by Tejas Dangodra</text></svg>");
+  background-repeat: repeat;
+}
+.container, .cover, .footer { position: relative; z-index: 1; }
+/* Copy protection styling */
+::selection { background: #f5b7b1; color: #641e16; }
+::-moz-selection { background: #f5b7b1; color: #641e16; }
 .cover {
   min-height: 100vh;
   display: flex;
@@ -2383,7 +2398,34 @@ The following elements in this guide are based on standard clinical training sou
 <p>Administration • Item-wise Scoring • Domain-wise Scoring • Social Age • Social Quotient • Interpretation</p>
 <p>Comprehensive MPhil Clinical Psychology Practical & Viva Reference</p>
 <div style="margin-top:20px;"><span style="display:inline-block;background:linear-gradient(135deg,#e74c3c,#c0392b);color:#fff;padding:12px 35px;border-radius:30px;font-weight:700;font-size:1.2em;box-shadow:0 4px 15px rgba(192,57,43,0.4);letter-spacing:1.5px;">MADE BY TEJAS DANGODRA</span></div>
+<p style="margin-top:18px;font-size:0.9em;color:#6C3483;">© <span id="cpyr"></span> Tejas Dangodra. All Rights Reserved.<br>This document and its contents are the intellectual property of Tejas Dangodra. Unauthorized copying, reproduction, or distribution is prohibited.</p>
 </div>
+
+<script>
+(function(){
+  document.getElementById('cpyr').textContent = new Date().getFullYear();
+  var NOTICE = "\n\n— — — — — — — — — — — — — — — —\nSource: Vineland Social Maturity Scale — Complete Clinical Psychology Guide\nMade by Tejas Dangodra. © Tejas Dangodra. All Rights Reserved.\nUnauthorized copying or distribution is prohibited.\n— — — — — — — — — — — — — — — —";
+  document.addEventListener('copy', function(e){
+    try {
+      var sel = window.getSelection().toString();
+      if (sel && sel.length > 0) {
+        e.clipboardData.setData('text/plain', sel + NOTICE);
+        e.preventDefault();
+      }
+    } catch(err) {}
+  });
+  document.addEventListener('cut', function(e){
+    try {
+      var sel = window.getSelection().toString();
+      if (sel && sel.length > 0) {
+        e.clipboardData.setData('text/plain', sel + NOTICE);
+        e.preventDefault();
+      }
+    } catch(err) {}
+  });
+  document.addEventListener('contextmenu', function(e){ e.preventDefault(); });
+})();
+</script>
 
 </body>
 </html>
