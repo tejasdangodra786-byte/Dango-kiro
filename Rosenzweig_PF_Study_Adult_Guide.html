@@ -25,11 +25,12 @@
     margin:0; background:var(--bg); color:var(--text);
     font-family:"Inter","Poppins","Source Sans 3",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
     line-height:1.72; font-size:16.5px; -webkit-font-smoothing:antialiased;
+    -webkit-user-select:none; -moz-user-select:none; -ms-user-select:none; user-select:none;
   }
   /* ---- sparse watermark overlay ---- */
   #wm{
     position:fixed; inset:0; z-index:9999; pointer-events:none;
-    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='420' height='300'><text x='50%25' y='50%25' font-family='Inter,Arial,sans-serif' font-size='13' font-weight='500' fill='rgba(120,100,175,0.04)' transform='rotate(-24 210 150)' text-anchor='middle' dominant-baseline='middle'>Tejas Dangodra</text></svg>");
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='460' height='300'><text x='50%25' y='50%25' font-family='Inter,Arial,sans-serif' font-size='13' font-weight='500' fill='rgba(120,100,175,0.04)' transform='rotate(-24 230 150)' text-anchor='middle' dominant-baseline='middle'>Made by Tejas Dangodra</text></svg>");
     background-size:50vw 50vh; background-repeat:repeat;
     -webkit-print-color-adjust:exact; print-color-adjust:exact;
   }
@@ -1052,25 +1053,37 @@ E&#39; I&#39; M&#39; / E I M / e i m. <b>Indices:</b> profile %, GCR, S-E patter
 </div>
 
 <script>
-/* Weave the credit through any copied text (copying still succeeds). */
+/* Content protection. Client-side deterrent only — it discourages casual
+   copying but cannot fully stop a determined user. */
 (function(){
-  var CREDIT = "Made by Tejas Dangodra";
-  document.addEventListener('copy', function(e){
+  var NOTICE = "Made by Tejas Dangodra — All Rights Reserved. \u00A9 Tejas Dangodra. "
+             + "This content is protected. Unauthorised copying is not permitted.";
+
+  // Replace clipboard payload on copy / cut.
+  function guardClipboard(e){
     try{
-      var sel = window.getSelection ? String(window.getSelection()) : '';
-      if(!sel || !sel.trim()) return;
-      var words = sel.split(/\s+/);
-      var out = [];
-      for(var i=0;i<words.length;i++){
-        out.push(words[i]);
-        if((i+1)%12===0) out.push("[" + CREDIT + "]");
-      }
-      var woven = CREDIT + "\n" + out.join(" ") + "\n— © " + CREDIT;
       if(e.clipboardData){
-        e.clipboardData.setData('text/plain', woven);
+        e.clipboardData.setData('text/plain', NOTICE);
         e.preventDefault();
       }
-    }catch(err){/* never block a real copy */}
+    }catch(err){/* ignore */}
+  }
+  document.addEventListener('copy', guardClipboard);
+  document.addEventListener('cut', guardClipboard);
+
+  // Block right-click context menu and drag of content.
+  document.addEventListener('contextmenu', function(e){ e.preventDefault(); });
+  document.addEventListener('dragstart', function(e){ e.preventDefault(); });
+
+  // Block common copy / save / print / view-source / devtools shortcuts.
+  document.addEventListener('keydown', function(e){
+    var k = (e.key || '').toLowerCase();
+    var ctrl = e.ctrlKey || e.metaKey;
+    // F12 -> devtools
+    if(e.key === 'F12'){ e.preventDefault(); return; }
+    if(ctrl && ['c','x','s','u','p','a'].indexOf(k) !== -1){ e.preventDefault(); return; }
+    // Ctrl/Cmd+Shift+I / J / C -> devtools
+    if(ctrl && e.shiftKey && ['i','j','c'].indexOf(k) !== -1){ e.preventDefault(); return; }
   });
 })();
 </script>
