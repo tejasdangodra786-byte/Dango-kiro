@@ -4,8 +4,8 @@ A reusable recipe for my signature look on any HTML study-guide / document. Copy
 
 The effect has two parts:
 
-1. **A very sparse, subtle watermark** — only about **4 faint marks** reading "Made by Tejas Dangodra"
-   spread across the whole page (also shows when printed).
+1. **A clearly visible tiled watermark** — soft diagonal marks reading "Made by Tejas Dangodra" spread
+   across the whole page in the background (also shows when printed).
 2. **Copying is blocked** — text selection is disabled, right-click / drag / copy-save-view-source
    shortcuts are prevented, and if any text still reaches the clipboard it is replaced with a
    **"Made by Tejas Dangodra — All Rights Reserved"** notice.
@@ -15,17 +15,17 @@ The effect has two parts:
 
 ---
 
-## 1 · The watermark — only ~4 marks on the page
+## 1 · The watermark — clearly visible, tiled in the background
 
 ### Step A — add this CSS inside your `<style>` block
 
 ```css
-/* Very sparse, subtle watermark: background-size 50vw 50vh forces a 2x2 grid = ~4 marks. */
+/* Visible tiled watermark: background-size ~34vw 30vh gives a ~3-column diagonal grid. */
 .wm-layer{
   position:fixed; inset:0; z-index:9999; pointer-events:none;
   background-repeat:repeat;
-  background-size:50vw 50vh;   /* <-- this is what keeps it to ~4 marks, on any screen size */
-  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='800' height='560'><text x='400' y='290' font-family='Segoe UI,Arial,sans-serif' font-size='13' font-weight='500' letter-spacing='1' fill='rgba(120,100,175,0.04)' text-anchor='middle' transform='rotate(-24 400 290)'>Made by Tejas Dangodra</text></svg>");
+  background-size:34vw 30vh;   /* <-- controls how many marks show (smaller = more marks) */
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='560' height='360'><text x='280' y='190' font-family='Segoe UI,Arial,sans-serif' font-size='15' font-weight='600' letter-spacing='1' fill='rgba(120,100,175,0.10)' text-anchor='middle' transform='rotate(-24 280 190)'>Made by Tejas Dangodra</text></svg>");
 }
 @media print{
   .wm-layer{ -webkit-print-color-adjust:exact; print-color-adjust:exact; }
@@ -46,16 +46,16 @@ It floats behind everything and never blocks clicks (`pointer-events:none`).
 
 | What you want | Setting to change | Notes |
 |---|---|---|
-| **Fewer marks (default ~4)** | `background-size:50vw 50vh` | `50vw 50vh` = 2×2 grid = ~4 marks. Use `100vw 100vh` for **1** mark, `33vw 33vh` for ~9 |
-| **More marks** | make the `background-size` smaller | e.g. `25vw 25vh` ≈ 16 marks |
-| **Fainter / more subtle** | `fill='rgba(120,100,175, 0.04)'` → lower last number | `0.04` = barely visible (my default) · `0.02` = almost invisible · `0.10` = clearly visible |
-| **Smaller / lighter text** | `font-size='13'`, `font-weight='500'` | keep small & light |
-| **Different tilt** | `transform='rotate(-24 400 290)'` | change `-24`; keep the pivot at half of width/height |
+| **More marks** | make `background-size` smaller | `34vw 30vh` ≈ 3 columns (my default) · `25vw 25vh` ≈ more · `20vw 18vh` = dense |
+| **Fewer marks** | make `background-size` bigger | `50vw 50vh` = ~4 marks · `100vw 100vh` = 1 mark |
+| **Stronger / more visible** | `fill='rgba(120,100,175, 0.10)'` → raise last number | `0.10` = clearly visible (my default) · `0.13` = stronger · `0.07` = softer · `0.04` = barely visible |
+| **Bigger / bolder text** | `font-size='15'`, `font-weight='600'` | raise for more presence |
+| **Different tilt** | `transform='rotate(-24 280 190)'` | change `-24`; keep the pivot at half of width/height |
 | **Different colour** | the `rgb` part of `fill` | `120,100,175` = soft lavender — match your theme |
-| **Different text** | the words `Tejas Dangodra` | keep it short |
+| **Different text** | the words `Made by Tejas Dangodra` | keep it short |
 
-> ✅ **My preferred default:** ~**4 marks** (`background-size:50vw 50vh`), opacity **0.04**, font
-> **13px / weight 500**, rotation **−24°**, soft lavender, text **"Tejas Dangodra"**.
+> ✅ **My preferred default:** clearly visible tiled marks (`background-size:34vw 30vh`), opacity **0.10**,
+> font **15px / weight 600**, rotation **−24°**, soft lavender, text **"Made by Tejas Dangodra"**.
 
 ---
 

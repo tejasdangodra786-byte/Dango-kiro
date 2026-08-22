@@ -55,16 +55,16 @@
     <p class="muted">Move the sliders to see how the watermark's visibility and density change. Copy the resulting
     values into the CSS in <code>Watermark_Style_Guide.md</code>.</p>
     <div class="row">
-      <label>Opacity: <span id="opVal">0.04</span></label>
-      <input class="demo-slider" id="op" type="range" min="0.01" max="0.15" step="0.005" value="0.04">
+      <label>Opacity: <span id="opVal">0.10</span></label>
+      <input class="demo-slider" id="op" type="range" min="0.01" max="0.20" step="0.005" value="0.10">
     </div>
     <div class="row">
-      <label>Marks on page: <span id="marksVal">4</span></label>
-      <input class="demo-slider" id="marks" type="range" min="1" max="16" step="1" value="4">
+      <label>Marks on page: <span id="marksVal">9</span></label>
+      <input class="demo-slider" id="marks" type="range" min="1" max="16" step="1" value="9">
     </div>
     <div class="row">
-      <label>Font size: <span id="fsVal">13</span> px</label>
-      <input class="demo-slider" id="fs" type="range" min="10" max="30" step="1" value="13">
+      <label>Font size: <span id="fsVal">15</span> px</label>
+      <input class="demo-slider" id="fs" type="range" min="10" max="30" step="1" value="15">
     </div>
     <div class="row">
       <label>Angle: <span id="angVal">-24</span>°</label>
@@ -77,8 +77,8 @@
     <p>The Binet-Kamat Test is an individually administered age-scale intelligence test. Selecting and copying are
     blocked here — if any text does reach the clipboard, it is replaced with a "Made by Tejas Dangodra — All Rights
     Reserved" notice. Right-click, drag and copy/save/view-source shortcuts are also disabled.</p>
-    <p>Adjust the opacity slider toward <code>0.02</code> for almost-invisible, or toward <code>0.10</code> for
-    clearly visible. My default subtle setting is <code>0.04</code> with about <strong>4 marks</strong> on the page.</p>
+    <p>Adjust the opacity slider toward <code>0.05</code> for softer, or toward <code>0.15</code> for stronger.
+    My default is <code>0.10</code> with about <strong>9 tiled marks</strong> so it is clearly visible in the background.</p>
   </div>
 
   <footer>
@@ -107,7 +107,7 @@ function buildWatermark(){
 
   var svg = "<svg xmlns='http://www.w3.org/2000/svg' width='"+W+"' height='"+H+"'>"
           + "<text x='"+cx+"' y='"+cy+"' font-family='Segoe UI,Arial,sans-serif' font-size='"+fs+"'"
-          + " font-weight='500' letter-spacing='1' fill='rgba(120,100,175,"+op+")'"
+          + " font-weight='600' letter-spacing='1' fill='rgba(120,100,175,"+op+")'"
           + " text-anchor='middle' transform='rotate("+ang+" "+cx+" "+cy+")'>Made by Tejas Dangodra</text></svg>";
   var wm = document.getElementById('wmLayer');
   wm.style.backgroundSize  = pct+"vw "+pct+"vh";
