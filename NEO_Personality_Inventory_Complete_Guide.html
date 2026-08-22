@@ -1,0 +1,1789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NEO Personality Inventory — Complete Clinical Psychology Guide</title>
+<style>
+:root{
+  --lavender:#ece8f7; --lavender-d:#c9bde8; --lilac:#f3edfb;
+  --powder:#e4eef7; --powder-d:#bcd6ec;
+  --sage:#e7f1e6; --sage-d:#bcd9b8;
+  --mint:#e3f4ee; --mint-d:#b4e0d0;
+  --peach:#fdeee2; --peach-d:#f6cdaa;
+  --blush:#fbe9ee; --blush-d:#f2c1cf;
+  --cream:#fbf6ea; --cream-d:#eddfbf;
+  --softblue:#e8eefb; --softblue-d:#c3d2f2;
+  --grey:#f5f6f8; --grey-d:#e2e5ea;
+  --ink:#33323d; --ink-soft:#565463; --muted:#7d7b89;
+  --line:#e4e2ec; --white:#ffffff;
+  --radius:18px; --shadow:0 6px 22px rgba(90,80,140,0.09);
+  --shadow-sm:0 2px 10px rgba(90,80,140,0.07);
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0; font-family:"Segoe UI",Roboto,-apple-system,"Helvetica Neue",Arial,sans-serif;
+  color:var(--ink); background:linear-gradient(135deg,#faf9fd 0%,#f4f6fb 100%);
+  line-height:1.68; font-size:16px;
+  -webkit-user-select:none; -moz-user-select:none; -ms-user-select:none; user-select:none;
+}
+/* ===== Watermark overlay (visible, tiled diagonal) ===== */
+#wm{
+  position:fixed; inset:0; z-index:9999; pointer-events:none;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='420' height='300'><text x='20' y='160' transform='rotate(-24 20 160)' fill='rgba(120,100,175,0.10)' font-family='Segoe UI, Arial, sans-serif' font-size='15' font-weight='600'>Made by Tejas Dangodra</text></svg>");
+  background-repeat:repeat; background-size:34vw 30vh;
+  -webkit-print-color-adjust:exact; print-color-adjust:exact;
+}
+/* ===== Layout ===== */
+.wrap{max-width:1080px; margin:0 auto; padding:0 20px 80px;}
+section{scroll-margin-top:20px;}
+h1,h2,h3,h4{line-height:1.28; color:var(--ink); font-weight:700;}
+h2{font-size:1.72rem; margin:0 0 4px;}
+h3{font-size:1.24rem; margin:26px 0 10px;}
+h4{font-size:1.04rem; margin:18px 0 8px; color:var(--ink-soft);}
+p{margin:10px 0;}
+a{color:#7b5fc0; text-decoration:none;}
+a:hover{text-decoration:underline;}
+strong{color:var(--ink);}
+small{color:var(--muted);}
+
+/* ===== Cover ===== */
+.cover{
+  min-height:96vh; display:flex; flex-direction:column; justify-content:center; align-items:center;
+  text-align:center; padding:60px 24px; position:relative;
+  background:
+    radial-gradient(circle at 18% 22%,rgba(201,189,232,0.5),transparent 42%),
+    radial-gradient(circle at 82% 30%,rgba(188,214,236,0.5),transparent 42%),
+    radial-gradient(circle at 30% 82%,rgba(180,224,208,0.45),transparent 42%),
+    radial-gradient(circle at 78% 80%,rgba(246,205,170,0.4),transparent 42%),
+    linear-gradient(135deg,#faf8fe,#eef3fb);
+}
+.cover .badge{display:inline-block; padding:7px 18px; border-radius:40px; background:rgba(255,255,255,0.7);
+  border:1px solid var(--lavender-d); color:#6b56a8; font-size:.82rem; letter-spacing:.14em; text-transform:uppercase; margin-bottom:26px;}
+.cover h1{font-size:3.1rem; margin:0; letter-spacing:.5px;
+  background:linear-gradient(120deg,#6b56a8,#4f79b0 55%,#4a9c86); -webkit-background-clip:text; background-clip:text; color:transparent;}
+.cover .sub1{font-size:1.12rem; color:var(--ink-soft); max-width:760px; margin:22px auto 6px; font-weight:600;}
+.cover .sub2{font-size:1.02rem; color:var(--muted); max-width:680px; margin:4px auto;}
+.cover .prep{margin-top:34px; font-size:.95rem; color:var(--ink-soft); background:rgba(255,255,255,0.6);
+  border:1px solid var(--line); border-radius:14px; padding:12px 24px;}
+.cover .made{margin-top:40px; font-size:1.05rem; font-weight:700; color:#6b56a8; letter-spacing:.04em;}
+.cover .manualref{margin-top:14px; font-size:.82rem; color:var(--muted); max-width:640px;}
+.ribbon{display:flex; gap:10px; margin-top:40px; flex-wrap:wrap; justify-content:center;}
+.ribbon span{width:64px; height:26px; border-radius:6px; transform:skewX(-18deg); box-shadow:var(--shadow-sm);}
+.ribbon .r1{background:var(--lavender-d);} .ribbon .r2{background:var(--powder-d);}
+.ribbon .r3{background:var(--sage-d);} .ribbon .r4{background:var(--peach-d);} .ribbon .r5{background:var(--blush-d);}
+
+/* ===== TOC ===== */
+.toc{background:var(--white); border:1px solid var(--line); border-radius:var(--radius); padding:26px 30px; box-shadow:var(--shadow); margin:44px 0;}
+.toc h2{color:#6b56a8;}
+.toc-grid{columns:2; column-gap:36px;}
+.toc-grid a{display:block; padding:5px 0; font-size:.95rem; color:var(--ink-soft); break-inside:avoid;}
+.toc-grid a:hover{color:#6b56a8;}
+.toc .part{font-weight:700; color:#4f79b0; margin-top:12px; font-size:.86rem; text-transform:uppercase; letter-spacing:.06em;}
+@media(max-width:640px){.toc-grid{columns:1;}}
+
+/* ===== Section banners (colour coded) ===== */
+.banner{border-radius:var(--radius); padding:22px 28px; margin:52px 0 8px; box-shadow:var(--shadow-sm); border:1px solid rgba(0,0,0,0.03);}
+.banner .tag{font-size:.74rem; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-soft); font-weight:700; opacity:.8;}
+.banner h2{margin-top:4px;}
+.b-theory{background:linear-gradient(120deg,var(--lavender),var(--lilac));}
+.b-admin{background:linear-gradient(120deg,var(--powder),#eef5fc);}
+.b-scoring{background:linear-gradient(120deg,var(--peach),#fef6ef);}
+.b-domain{background:linear-gradient(120deg,var(--sage),#f0f7ef);}
+.b-facet{background:linear-gradient(120deg,var(--mint),#eefaf5);}
+.b-interp{background:linear-gradient(120deg,var(--cream),#fdfaf1);}
+.b-clinical{background:linear-gradient(120deg,var(--blush),#fdf1f4);}
+.b-report{background:linear-gradient(120deg,var(--softblue),#f0f4fd);}
+
+/* ===== Cards ===== */
+.card{background:var(--white); border:1px solid var(--line); border-radius:var(--radius); padding:22px 26px; margin:18px 0; box-shadow:var(--shadow-sm);}
+.card.tinted-lav{background:var(--lilac);} .card.tinted-powder{background:#eef5fc;}
+.card.tinted-peach{background:#fef6ef;} .card.tinted-sage{background:#f0f7ef;}
+.card.tinted-mint{background:#eefaf5;} .card.tinted-cream{background:#fdfaf1;}
+.card.tinted-blush{background:#fdf1f4;} .card.tinted-blue{background:#f0f4fd;}
+.grid2{display:grid; grid-template-columns:1fr 1fr; gap:18px;}
+.grid3{display:grid; grid-template-columns:repeat(3,1fr); gap:16px;}
+@media(max-width:860px){.grid2,.grid3{grid-template-columns:1fr;}}
+
+/* domain card */
+.domain-card{border-radius:var(--radius); padding:0; overflow:hidden; box-shadow:var(--shadow); margin:22px 0; border:1px solid var(--line); background:var(--white);}
+.domain-card .head{padding:18px 24px; color:#3a3550;}
+.domain-card .head h3{margin:0; font-size:1.35rem;}
+.domain-card .head .abbr{font-size:.85rem; opacity:.85; font-weight:600;}
+.domain-card .body{padding:8px 24px 22px;}
+.dc-N .head{background:linear-gradient(120deg,var(--blush),var(--blush-d));}
+.dc-E .head{background:linear-gradient(120deg,var(--peach),var(--peach-d));}
+.dc-O .head{background:linear-gradient(120deg,var(--lavender),var(--lavender-d));}
+.dc-A .head{background:linear-gradient(120deg,var(--sage),var(--sage-d));}
+.dc-C .head{background:linear-gradient(120deg,var(--powder),var(--powder-d));}
+.hl-row{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:12px 0;}
+.hl-box{border-radius:12px; padding:12px 14px; font-size:.92rem;}
+.hl-high{background:#eef7ef; border:1px solid var(--sage-d);}
+.hl-low{background:#f6eef1; border:1px solid var(--blush-d);}
+.hl-box b{display:block; margin-bottom:4px;}
+@media(max-width:640px){.hl-row{grid-template-columns:1fr;}}
+
+/* facet card */
+.facet-card{background:var(--white); border:1px solid var(--line); border-left:5px solid var(--mint-d); border-radius:14px; padding:16px 18px; box-shadow:var(--shadow-sm);}
+.facet-card h4{margin:0 0 6px; color:#3a8f74;}
+.facet-card .fdef{font-size:.92rem; color:var(--ink-soft);}
+.facet-card .fline{font-size:.86rem; margin:6px 0;}
+.facet-card .fline b{color:var(--ink);}
+.chip{display:inline-block; font-size:.72rem; padding:2px 9px; border-radius:20px; background:var(--mint); color:#3a8f74; font-weight:700; margin-left:6px;}
+
+/* flow / sequence */
+.flow{display:flex; flex-wrap:wrap; align-items:center; gap:8px; margin:16px 0;}
+.flow .step{background:var(--white); border:1px solid var(--powder-d); border-radius:12px; padding:9px 15px; font-size:.86rem; font-weight:600; color:var(--ink-soft); box-shadow:var(--shadow-sm);}
+.flow .arw{color:var(--powder-d); font-weight:700; font-size:1.1rem;}
+
+/* tables */
+.tbl-scroll{overflow-x:auto; margin:16px 0; border-radius:var(--radius); border:1px solid var(--line); box-shadow:var(--shadow-sm);}
+table{border-collapse:collapse; width:100%; min-width:520px; background:var(--white); font-size:.9rem;}
+th,td{padding:10px 13px; text-align:left; border-bottom:1px solid var(--line); vertical-align:top;}
+thead th{background:var(--lavender); color:#4a3f76; font-size:.82rem; text-transform:uppercase; letter-spacing:.04em;}
+tbody tr:nth-child(even){background:#faf9fd;}
+td small{display:block;}
+
+/* callouts */
+.callout{border-radius:14px; padding:14px 18px; margin:16px 0; font-size:.94rem; border:1px solid;}
+.callout b{display:block; margin-bottom:3px;}
+.co-warn{background:#fdf1f4; border-color:var(--blush-d); color:#8a4258;}
+.co-note{background:#eef5fc; border-color:var(--powder-d); color:#3f5d82;}
+.co-key{background:#fdfaf1; border-color:var(--cream-d); color:#7d6420;}
+.co-verify{background:#f0f7ef; border-color:var(--sage-d); color:#3f6b41;}
+
+.pill{display:inline-block; padding:3px 11px; border-radius:20px; font-size:.78rem; font-weight:700; margin:2px;}
+.p-vh{background:#e3d9f5; color:#5b3fa0;} .p-h{background:#e7f1e6; color:#3f6b41;}
+.p-avg{background:#fbf6ea; color:#7d6420;} .p-l{background:#fdeee2; color:#a35d2a;} .p-vl{background:#fbe9ee; color:#8a4258;}
+
+.report-doc{background:var(--white); border:1px solid var(--line); border-radius:var(--radius); padding:26px 30px; margin:20px 0; box-shadow:var(--shadow); font-size:.94rem;}
+.report-doc h4{color:#4f79b0; border-bottom:1px solid var(--line); padding-bottom:5px;}
+.phrase{background:#f0f4fd; border-radius:10px; padding:8px 12px; margin:7px 0; font-size:.9rem; font-style:italic; color:#3f5d82;}
+
+/* footer */
+footer{background:linear-gradient(120deg,var(--lavender),var(--powder)); border-top:1px solid var(--line); padding:34px 20px; text-align:center; margin-top:60px;}
+footer .made{font-size:1.2rem; font-weight:700; color:#6b56a8;}
+footer p{color:var(--ink-soft); font-size:.86rem; max-width:720px; margin:10px auto;}
+
+.backtop{display:inline-block; margin-top:10px; font-size:.82rem; color:var(--muted);}
+ul.tight{margin:8px 0; padding-left:20px;} ul.tight li{margin:4px 0;}
+
+@media print{
+  body{background:#fff;} #wm{opacity:.5;}
+  .banner,.card,.domain-card,.facet-card,.report-doc,.toc{box-shadow:none;}
+  .cover{min-height:auto;} a{color:var(--ink);}
+  h2,h3,h4{break-after:avoid;} .card,.facet-card,.domain-card,table{break-inside:avoid;}
+  .backtop{display:none;}
+}
+</style>
+</head>
+<body>
+<div id="wm"></div>
+<div class="wrap">
+
+<!-- ===================== COVER ===================== -->
+<header class="cover" id="top">
+  <div class="badge">Clinical Psychology Assessment Guide</div>
+  <h1>NEO Personality Inventory</h1>
+  <div class="sub1">Theory • Administration • Scoring • Domains • Facets • Interpretation • Clinical Application • Report Writing</div>
+  <div class="sub2">Comprehensive Clinical Psychology Assessment Guide</div>
+  <div class="ribbon"><span class="r1"></span><span class="r2"></span><span class="r3"></span><span class="r4"></span><span class="r5"></span></div>
+  <div class="prep">Prepared for Clinical Psychology Training • MPhil Clinical Psychology</div>
+  <div class="manualref">Based on the source manual held in the repository: the <em>NEO Inventories Professional Manual</em> (McCrae &amp; Costa, PAR, 2010), covering the NEO-PI-3, NEO-FFI-3, and NEO PI-R.</div>
+  <div class="made">Made by Tejas Dangodra</div>
+</header>
+
+
+<!-- ===================== TOC ===================== -->
+<nav class="toc" id="toc">
+  <h2>Table of Contents</h2>
+  <div class="toc-grid">
+    <div class="part">Version Control</div>
+    <a href="#version">0 · Which NEO Version Am I Using?</a>
+    <div class="part">Part I — What is the NEO?</div>
+    <a href="#intro">1 · Introduction</a>
+    <a href="#history">2 · History &amp; Development</a>
+    <a href="#ffm">3 · The Five-Factor Model</a>
+    <div class="part">Part II — Instrument Structure</div>
+    <a href="#structure">4 · Structure of the Applicable Instrument</a>
+    <a href="#domains">5 · Domain Structure</a>
+    <div class="part">Part III — Facet Structure</div>
+    <a href="#facets">6 · Facet-Wise Explanation (30 facets)</a>
+    <a href="#facet-diff">7 · Facet Differentiation</a>
+    <div class="part">Part IV — Administration</div>
+    <a href="#who">8 · Who Can Be Assessed?</a>
+    <a href="#pre-admin">9 · Pre-Administration</a>
+    <a href="#admin">10 · Standard Administration</a>
+    <a href="#response">11 · Response Format</a>
+    <div class="part">Part V — Scoring</div>
+    <a href="#scoring-system">12 · Complete Scoring System</a>
+    <a href="#item-scoring">13 · Item Scoring</a>
+    <a href="#reverse">14 · Reverse Scoring</a>
+    <a href="#mapping">15 · Item-to-Facet Mapping</a>
+    <a href="#facet-calc">16 · Facet Score Calculation</a>
+    <a href="#domain-calc">17 · Domain Score Calculation</a>
+    <a href="#standard">18 · Standardized Scores</a>
+    <a href="#norms">19 · Norms</a>
+    <a href="#percentile">20 · Percentile Interpretation</a>
+    <div class="part">Part VI — Profile Interpretation</div>
+    <a href="#domain-profile">21 · Domain Profile</a>
+    <a href="#facet-profile">22 · Facet Profile</a>
+    <a href="#patterns">23 · Profile Patterns</a>
+    <a href="#elev-n">24 · Elevated Neuroticism</a>
+    <a href="#openness">25 · Openness</a>
+    <a href="#extraversion">26 · Extraversion</a>
+    <a href="#agreeableness">27 · Agreeableness</a>
+    <a href="#conscientiousness">28 · Conscientiousness</a>
+    <div class="part">Part VII — Clinical Interpretation</div>
+    <a href="#clinical-use">29 · Clinical Use</a>
+    <a href="#formulation">30 · Personality Formulation</a>
+    <a href="#clinical-examples">31 · Clinical Examples</a>
+    <a href="#conditions">32 · NEO in Clinical Conditions</a>
+    <div class="part">Part VIII — Case Formulation</div>
+    <a href="#master-case">33 · Complete Master Case</a>
+    <a href="#profile-cases">34 · Profile-Based Cases</a>
+    <div class="part">Part IX — Integration</div>
+    <a href="#integration">35 · Integration with Clinical Data</a>
+    <a href="#compare">36 · NEO vs Other Measures</a>
+    <div class="part">Part X — Psychometrics</div>
+    <a href="#reliability">37 · Reliability</a>
+    <a href="#validity">38 · Validity</a>
+    <a href="#culture">39 · Cultural Considerations</a>
+    <div class="part">Part XI — Limitations</div>
+    <a href="#limitations">40 · Limitations</a>
+    <div class="part">Part XII — Report Writing</div>
+    <a href="#report-structure">41 · Report Structure</a>
+    <a href="#results-table">42 · Results Table</a>
+    <a href="#report-domain">43 · Domain Interpretation Prose</a>
+    <a href="#report-facet">44 · Facet Interpretation Prose</a>
+    <a href="#sample-reports">45 · Complete Sample Reports</a>
+    <a href="#phrase-bank">46 · Report-Writing Phrase Bank</a>
+    <div class="part">Part XIII — Common Errors</div>
+    <a href="#err-admin">47 · Administration Errors</a>
+    <a href="#err-scoring">48 · Scoring Errors</a>
+    <a href="#err-interp">49 · Interpretation Errors</a>
+    <div class="part">Part XIV — Worksheets</div>
+    <a href="#ws-item">50 · Item Scoring Worksheet</a>
+    <a href="#ws-facet">51 · Facet Worksheet</a>
+    <a href="#ws-domain">52 · Domain Worksheet</a>
+    <a href="#ws-master">53 · Master Profile Sheet</a>
+    <div class="part">Part XV — Master Algorithm</div>
+    <a href="#algorithm">54 · Complete NEO Workflow</a>
+    <div class="part">Part XVI — Quick Reference</div>
+    <a href="#quick">Quick Reference &amp; Cheat Sheets</a>
+  </div>
+</nav>
+
+<!-- ===================== VERSION CONTROL ===================== -->
+<div class="banner b-theory" id="version">
+  <div class="tag">Version Control · Mandatory</div>
+  <h2>Which NEO Version Am I Using?</h2>
+</div>
+<section>
+  <div class="callout co-verify">
+    <b>Source verified from the repository</b>
+    The manual present in the repository is the <strong>NEO Inventories Professional Manual</strong> by Robert R. McCrae, PhD, and Paul T. Costa, Jr., PhD (Psychological Assessment Resources / PAR, dated September 2010). It is a single professional manual that documents <strong>three</strong> instruments together: the <strong>NEO-PI-3</strong>, the <strong>NEO-FFI-3</strong>, and the <strong>NEO PI-R</strong>. Because this manual is present, it takes priority over any generic source.
+  </div>
+
+  <p>Because the manual documents more than one instrument, you must decide <em>which specific instrument you administered</em> before you score or interpret anything. Scoring keys, item counts, and profile forms are <strong>not interchangeable</strong> across versions. The verified identifying details are below.</p>
+
+  <div class="tbl-scroll">
+    <table>
+      <thead>
+        <tr><th>Feature</th><th>NEO PI (1985, original)</th><th>NEO PI-R</th><th>NEO-PI-3</th><th>NEO-FFI-3</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><b>Full name</b></td><td>NEO Personality Inventory</td><td>Revised NEO Personality Inventory</td><td>NEO Personality Inventory-3</td><td>NEO Five-Factor Inventory-3</td></tr>
+        <tr><td><b>Documented in this manual?</b></td><td>Referenced historically only</td><td>Yes (retained; 1992 norms/forms)</td><td>Yes — primary current full instrument</td><td>Yes — brief current instrument</td></tr>
+        <tr><td><b>Items</b></td><td>Original NEO (not scored from this manual)</td><td>240</td><td>240 (37 items modified from PI-R for readability)</td><td>60 (12 per domain; 15 of 60 replaced vs. NEO-FFI)</td></tr>
+        <tr><td><b>Domains</b></td><td>Originally N, E, O (A &amp; C added later)</td><td>5 (N, E, O, A, C)</td><td>5 (N, E, O, A, C)</td><td>5 (N, E, O, A, C)</td></tr>
+        <tr><td><b>Facets</b></td><td>—</td><td>30 (6 per domain)</td><td>30 (6 per domain)</td><td>None (domains only)</td></tr>
+        <tr><td><b>Response format</b></td><td>—</td><td>5-point agreement scale</td><td>5-point agreement scale (SD–D–N–A–SA)</td><td>5-point agreement scale (SD–D–N–A–SA)</td></tr>
+        <tr><td><b>Age range</b></td><td>Adults</td><td>Adults (originally)</td><td>12 years and older</td><td>Adolescents &amp; adults</td></tr>
+        <tr><td><b>Scoring system</b></td><td>—</td><td>Raw → T-scores (M 50, SD 10)</td><td>Raw → T-scores (M 50, SD 10)</td><td>Raw domain → T-scores (M 50, SD 10)</td></tr>
+        <tr><td><b>Norms used</b></td><td>—</td><td><b>1992 NEO PI-R Profile Forms</b></td><td>NEO-PI-3 norms (Adolescent 12–20; Adult 21+)</td><td>NEO-FFI-3 norms</td></tr>
+        <tr><td><b>Forms</b></td><td>—</td><td>Form S (self), Form R (observer)</td><td>Form S (self), Form R (observer)</td><td>Form S, Form R</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout co-warn">
+    <b>Do not mix versions</b>
+    Never combine items, keys, norms, facet structures, or T-score conversions from different versions. In particular: if you administered the <strong>NEO PI-R</strong>, the manual states you must use the <strong>1992 NEO PI-R Profile Forms</strong> (its data are based on different norms). If you administered the <strong>NEO-PI-3</strong>, use the NEO-PI-3 forms and norms. The NEO-FFI-3 gives <em>domain scores only</em> — it has no facets, so any facet-level interpretation is impossible with it.
+  </div>
+
+  <div class="callout co-note">
+    <b>Practical default for this guide</b>
+    The primary full instrument in this manual is the <strong>NEO-PI-3</strong>, so the detailed scoring and interpretation worked examples in this guide follow the NEO-PI-3 (which shares the NEO PI-R's 5-domain / 30-facet architecture). Where a rule differs for the NEO-FFI-3 or NEO PI-R, it is flagged explicitly.
+  </div>
+
+  <p style="text-align:right;"><a class="backtop" href="#toc">↑ Back to contents</a></p>
+</section>
+
+
+<!-- ===================== PART I ===================== -->
+<div class="banner b-theory" id="intro">
+  <div class="tag">Part I · What is the NEO?</div>
+  <h2>1 · Introduction</h2>
+</div>
+<section>
+  <div class="card tinted-lav">
+    <h4>A. One-sentence explanation</h4>
+    <p>The NEO Inventories are self-report (and observer-report) measures of normal adult and adolescent personality organised around the <strong>Five-Factor Model</strong> — five broad domains and, in the full versions, thirty specific facets.</p>
+  </div>
+  <div class="card">
+    <h4>B. One-paragraph explanation</h4>
+    <p>The NEO Inventories are a family of concise personality questionnaires developed by Paul T. Costa, Jr. and Robert R. McCrae. They measure five major dimensions of personality — <strong>Neuroticism (N), Extraversion (E), Openness to Experience (O), Agreeableness (A), and Conscientiousness (C)</strong>. The full versions (NEO PI-R and NEO-PI-3) additionally break each domain into six specific traits called <em>facets</em>, giving thirty facet scales, while the brief NEO-FFI-3 measures the five domains only. Respondents rate agreement with short statements on a five-point scale; raw scores are converted to standardized T-scores and plotted on a profile so the person can be compared with a normative reference group. The manual is explicit that the NEO describes <em>normal personality</em> and is not, by itself, a diagnostic instrument.</p>
+  </div>
+  <div class="card">
+    <h4>C. Detailed postgraduate explanation</h4>
+    <p>The NEO Inventories operationalise the <strong>Five-Factor Model (FFM)</strong> — a hierarchical, dimensional trait framework that emerged from decades of lexical and factor-analytic research on the structure of personality. In the NEO framework, personality is described at two levels: broad <strong>domains</strong> (the five factors) that summarise an individual's standing at the most general level, and narrower <strong>facets</strong> (six per domain) that measure specific, more fine-grained traits within each domain. Domain scores summarise; facet scores individuate. Two people with identical domain scores can have very different facet profiles, and much of the clinical richness of the instrument lies at the facet level.</p>
+    <p>Traits are conceptualised as <em>continuous dimensions</em> on which people vary, not as categories one "has" or "lacks." Consistent with this, the manual emphasises describing an individual's degree of a trait rather than assigning them to a type. The five factors are highly replicable across ages, cultures, and self- versus observer-report, which is the empirical foundation for the instrument's use. Clinically, the NEO is used to understand coping style, interpersonal tendencies, emotional reactivity, treatment engagement, and vulnerability — always as one component of a comprehensive assessment, and always alongside interview, history, and other data.</p>
+  </div>
+</section>
+
+<div class="banner b-theory" id="history">
+  <div class="tag">Part I · Theory</div>
+  <h2>2 · History &amp; Development</h2>
+</div>
+<section>
+  <div class="flow">
+    <span class="step">Lexical &amp; factor-analytic research on trait structure</span><span class="arw">→</span>
+    <span class="step">Five-Factor Model consolidates</span><span class="arw">→</span>
+    <span class="step">Original NEO Inventory (N, E, O)</span><span class="arw">→</span>
+    <span class="step">NEO PI-R (5 domains × 6 facets = 30 facets)</span><span class="arw">→</span>
+    <span class="step">NEO-PI-3 &amp; NEO-FFI-3 (2010 manual)</span>
+  </div>
+  <ul class="tight">
+    <li><strong>Earlier personality research.</strong> The FFM grew out of the lexical tradition (the idea that important individual differences become encoded in natural language as trait adjectives) and out of factor analyses of trait terms and questionnaires. Repeated studies converged on five broad dimensions.</li>
+    <li><strong>Original NEO Inventory.</strong> Costa and McCrae's early inventory measured Neuroticism, Extraversion, and Openness (hence "NEO"). Agreeableness and Conscientiousness scales were added as the five-factor structure was confirmed.</li>
+    <li><strong>NEO PI-R (Revised).</strong> The Revised NEO PI added full facet-level measurement — six facets within each of the five domains, i.e. 30 facet scales — and became the reference full-length instrument, with its 1992 normative Profile Forms.</li>
+    <li><strong>NEO-PI-3.</strong> A modification of the NEO PI-R in which 37 of the 240 items were replaced or reworded to improve readability, extending appropriate use down to age 12 and to adults with lower educational levels. It retains the NEO PI-R's five-domain / thirty-facet structure and adds new normative data, including adolescent norms.</li>
+    <li><strong>NEO-FFI-3.</strong> A 60-item brief measure of the five domains (no facets), a revision of the earlier NEO-FFI in which 15 of the 60 items were replaced to improve readability. It supersedes the original NEO-FFI.</li>
+  </ul>
+  <div class="callout co-note"><b>Why the distinction matters clinically</b>The NEO-PI-3 and NEO PI-R measure the <em>same traits</em> conceptually, but they are separate instruments with their own item sets and norms. The manual notes that the trait concepts developed with the NEO PI-R transfer directly to the NEO-PI-3.</div>
+</section>
+
+<div class="banner b-theory" id="ffm">
+  <div class="tag">Part I · Theory</div>
+  <h2>3 · The Five-Factor Model</h2>
+</div>
+<section>
+  <p>The five domains are best remembered by <strong>OCEAN</strong> (or <strong>CANOE</strong>). Each is a bipolar, continuous dimension. High and low are simply <em>directions</em> — neither pole is "healthy" or "unhealthy" in itself; meaning depends on context and on the facet configuration.</p>
+  <div class="grid2">
+    <div class="card tinted-blush"><h4>N — Neuroticism</h4>
+      <p><b>Concept:</b> the tendency to experience negative affect and psychological distress; the opposite pole is emotional stability.</p>
+      <p><b>High:</b> prone to anxiety, sadness, anger, self-consciousness; more reactive to stress. <b>Low:</b> calm, even-tempered, relaxed, resilient under stress.</p>
+      <p><small><b>Clinical relevance:</b> the most pervasive dimension linked to distress; high N is a general vulnerability marker but is <em>not</em> a diagnosis of any disorder.</small></p>
+    </div>
+    <div class="card tinted-peach"><h4>E — Extraversion</h4>
+      <p><b>Concept:</b> the quantity and intensity of interpersonal interaction, activity level, and capacity for positive affect.</p>
+      <p><b>High:</b> sociable, assertive, active, talkative, upbeat, energetic. <b>Low (introversion):</b> reserved, independent, even-paced — reserved rather than unfriendly, and not necessarily unhappy.</p>
+      <p><small><b>Everyday example:</b> the high-E person energised by a large gathering; the introvert who prefers depth with a few and finds crowds draining.</small></p>
+    </div>
+    <div class="card tinted-lav"><h4>O — Openness to Experience</h4>
+      <p><b>Concept:</b> active imagination, aesthetic sensitivity, attentiveness to inner feelings, preference for variety, intellectual curiosity, independence of judgment.</p>
+      <p><b>High:</b> curious, imaginative, willing to entertain novel ideas and unconventional values; experiences emotions keenly. <b>Low:</b> conventional, practical, prefers the familiar; narrower interests.</p>
+      <p><small><b>Note:</b> Openness is related to, but not the same as, intelligence; low O is not a deficit.</small></p>
+    </div>
+    <div class="card tinted-sage"><h4>A — Agreeableness</h4>
+      <p><b>Concept:</b> the interpersonal dimension of altruism versus antagonism.</p>
+      <p><b>High:</b> sympathetic, cooperative, trusting, eager to help, forgiving. <b>Low:</b> skeptical, competitive, egocentric, tough-minded — which can be advantageous in contexts requiring critical or hard-headed judgment.</p>
+      <p><small><b>Clinical relevance:</b> very low A is associated (not equated) with narcissistic, antisocial, and paranoid patterns; very high A with dependent patterns.</small></p>
+    </div>
+    <div class="card tinted-powder"><h4>C — Conscientiousness</h4>
+      <p><b>Concept:</b> the control, regulation, and direction of impulses; degree of organisation, persistence, and goal-directed behaviour.</p>
+      <p><b>High:</b> purposeful, organised, reliable, hardworking, self-disciplined, deliberate. <b>Low:</b> more lackadaisical, casual about obligations, less driven — not necessarily lacking in principles.</p>
+      <p><small><b>Clinical relevance:</b> extreme high C can shade toward compulsive/perfectionistic patterns; low C can be seen in impulse-control difficulties. Neither is diagnostic on its own.</small></p>
+    </div>
+    <div class="card tinted-cream"><h4>Manifestations across systems</h4>
+      <p>For each domain, think in four layers when you interpret:</p>
+      <ul class="tight">
+        <li><b>Behavioural</b> — what the person does (e.g. E → seeks company; C → keeps schedules).</li>
+        <li><b>Cognitive</b> — how they think (e.g. O → curious, divergent; low A → skeptical).</li>
+        <li><b>Emotional</b> — what they feel (e.g. N → negative affect; E6 → positive affect).</li>
+        <li><b>Interpersonal</b> — how they relate (e.g. A → cooperative; low E → distant).</li>
+      </ul>
+    </div>
+  </div>
+  <p style="text-align:right;"><a class="backtop" href="#toc">↑ Back to contents</a></p>
+</section>
+
+
+<!-- ===================== PART II ===================== -->
+<div class="banner b-domain" id="structure">
+  <div class="tag">Part II · Instrument Structure</div>
+  <h2>4 · Structure of the Applicable Instrument</h2>
+</div>
+<section>
+  <div class="grid3">
+    <div class="card tinted-sage"><h4>NEO-PI-3 (full)</h4><ul class="tight">
+      <li><b>240 items</b></li><li>5 domains × 6 facets = <b>30 facets</b></li>
+      <li>5-point agreement scale</li><li>Form S (self) &amp; Form R (observer)</li>
+      <li>Age <b>12+</b>; ~30–40 min</li><li>HS or SS answer sheets</li></ul></div>
+    <div class="card tinted-sage"><h4>NEO PI-R (full)</h4><ul class="tight">
+      <li><b>240 items</b></li><li>5 domains × 6 facets = <b>30 facets</b></li>
+      <li>5-point agreement scale</li><li>Form S &amp; Form R</li>
+      <li>Use <b>1992 Profile Forms</b> (own norms)</li></ul></div>
+    <div class="card tinted-sage"><h4>NEO-FFI-3 (brief)</h4><ul class="tight">
+      <li><b>60 items</b> (12 per domain)</li><li>5 domains, <b>no facets</b></li>
+      <li>5-point agreement scale</li><li>Form S &amp; Form R</li>
+      <li>~5–10 min</li></ul></div>
+  </div>
+  <div class="callout co-note"><b>Validity / response checks</b>The NEO does <em>not</em> use MMPI-style validity scales. Instead, three simple check items (labelled A, B, C on the answer sheet) plus procedural screens for missing responses, acquiescence, nay-saying, and random responding safeguard data quality (see §12–§13).</div>
+
+  <h3>Domain summary table</h3>
+  <div class="tbl-scroll">
+    <table>
+      <thead><tr><th>Domain</th><th>Abbr.</th><th>Facets (NEO-PI-3 / PI-R)</th><th>Items per facet (NEO-PI-3)</th><th>Score type</th></tr></thead>
+      <tbody>
+        <tr><td>Neuroticism</td><td>N</td><td>N1–N6 (6 facets)</td><td>8 items each → 48 domain items</td><td>Raw → T (M 50, SD 10)</td></tr>
+        <tr><td>Extraversion</td><td>E</td><td>E1–E6 (6 facets)</td><td>8 items each → 48 domain items</td><td>Raw → T</td></tr>
+        <tr><td>Openness</td><td>O</td><td>O1–O6 (6 facets)</td><td>8 items each → 48 domain items</td><td>Raw → T</td></tr>
+        <tr><td>Agreeableness</td><td>A</td><td>A1–A6 (6 facets)</td><td>8 items each → 48 domain items</td><td>Raw → T</td></tr>
+        <tr><td>Conscientiousness</td><td>C</td><td>C1–C6 (6 facets)</td><td>8 items each → 48 domain items</td><td>Raw → T</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="callout co-key"><b>Arithmetic that always holds</b>5 domains × 6 facets = <b>30 facets</b>. 30 facets × 8 items = <b>240 items</b> (NEO-PI-3 / NEO PI-R). Each 8-item facet has a raw range of <b>0–32</b>; each 48-item domain has a raw range of <b>0–192</b> when summed across its six facets.</div>
+</section>
+
+<!-- ===================== DOMAIN CARDS ===================== -->
+<div class="banner b-domain" id="domains">
+  <div class="tag">Part II · Domains</div>
+  <h2>5 · Domain Structure</h2>
+</div>
+<section>
+
+  <div class="domain-card dc-N">
+    <div class="head"><h3>Neuroticism <span class="abbr">— N · emotional (in)stability</span></h3></div>
+    <div class="body">
+      <p><b>Definition &amp; construct.</b> The general tendency to experience negative affects — fear, sadness, embarrassment, anger, guilt, disgust — and the degree to which distressing emotions interfere with adaptation. It contrasts adjustment/emotional stability with maladjustment.</p>
+      <div class="hl-row">
+        <div class="hl-box hl-high"><b>High score</b>Prone to worry, tension, and negative emotion; more reactive to stress; more likely to have irrational ideas and to cope poorly.</div>
+        <div class="hl-box hl-low"><b>Low score</b>Calm, even-tempered, relaxed; able to face stressful situations without becoming upset or rattled — emotionally stable.</div>
+      </div>
+      <p><b>Behavioural / interpersonal:</b> visible distress, reassurance-seeking, sensitivity to threat. <b>Facets:</b> N1 Anxiety · N2 Angry Hostility · N3 Depression · N4 Self-Consciousness · N5 Impulsiveness · N6 Vulnerability.</p>
+      <p><b>Potential strengths:</b> emotional attunement, vigilance, motivation to address problems. <b>Potential difficulties:</b> chronic distress, rumination, stress vulnerability.</p>
+      <div class="callout co-warn"><b>Not a psychopathology scale</b>A high N score should not be read as a measure of psychopathology; it is possible to score high on N without any diagnosable disorder, and (conversely) not all psychiatric conditions imply high N.</div>
+    </div>
+  </div>
+
+  <div class="domain-card dc-E">
+    <div class="head"><h3>Extraversion <span class="abbr">— E · sociability &amp; positive affect</span></h3></div>
+    <div class="body">
+      <p><b>Definition &amp; construct.</b> Preference for and enjoyment of social interaction, together with assertiveness, activity, stimulation-seeking, and the capacity for joy. Introversion is the <em>absence</em> of extraversion, best described as reserved rather than unfriendly.</p>
+      <div class="hl-row">
+        <div class="hl-box hl-high"><b>High score</b>Sociable, assertive, active, talkative; likes people and gatherings; upbeat, energetic, optimistic.</div>
+        <div class="hl-box hl-low"><b>Low score</b>Reserved, independent, even-paced; prefers to be alone or in small groups; not necessarily unhappy or pessimistic.</div>
+      </div>
+      <p><b>Facets:</b> E1 Warmth · E2 Gregariousness · E3 Assertiveness · E4 Activity · E5 Excitement-Seeking · E6 Positive Emotions.</p>
+      <p><b>Potential strengths (high):</b> leadership, networking, enthusiasm. <b>Potential difficulties (very high):</b> over-stimulation-seeking; <b>(very low):</b> social withdrawal, limited support network.</p>
+    </div>
+  </div>
+
+  <div class="domain-card dc-O">
+    <div class="head"><h3>Openness to Experience <span class="abbr">— O · imagination &amp; intellect</span></h3></div>
+    <div class="body">
+      <p><b>Definition &amp; construct.</b> Active imagination, aesthetic sensitivity, attentiveness to inner feelings, preference for variety, intellectual curiosity, and independence of judgment. Open individuals are curious about inner and outer worlds; closed individuals are conventional and prefer the familiar.</p>
+      <div class="hl-row">
+        <div class="hl-box hl-high"><b>High score</b>Curious, imaginative, willing to entertain novel ideas and unconventional values; experiences both positive and negative emotions keenly.</div>
+        <div class="hl-box hl-low"><b>Low score</b>Conventional in behaviour, conservative in outlook; prefers the familiar; muted emotional responses; narrower scope of interests.</div>
+      </div>
+      <p><b>Facets:</b> O1 Fantasy · O2 Aesthetics · O3 Feelings · O4 Actions · O5 Ideas · O6 Values.</p>
+      <div class="callout co-note"><b>Interpret without value judgment</b>Low O (closedness) is not evidence of defensiveness or rigidity in itself; closed people may simply have narrower interests. High O is not the same as high intelligence or creativity alone.</div>
+    </div>
+  </div>
+
+  <div class="domain-card dc-A">
+    <div class="head"><h3>Agreeableness <span class="abbr">— A · altruism vs. antagonism</span></h3></div>
+    <div class="body">
+      <p><b>Definition &amp; construct.</b> An interpersonal dimension. The agreeable person is fundamentally altruistic — sympathetic, eager to help, trusting that others will reciprocate. Low scorers are egocentric, skeptical of others' intentions, and competitive rather than cooperative.</p>
+      <div class="hl-row">
+        <div class="hl-box hl-high"><b>High score</b>Sympathetic, cooperative, trusting, forgiving, straightforward; contributes to harmony.</div>
+        <div class="hl-box hl-low"><b>Low score</b>Skeptical, competitive, hard-headed; not necessarily hostile — critical/skeptical thinking is a virtue in science and the courtroom.</div>
+      </div>
+      <p><b>Facets:</b> A1 Trust · A2 Straightforwardness · A3 Altruism · A4 Compliance · A5 Modesty · A6 Tender-Mindedness.</p>
+      <div class="callout co-warn"><b>No moral hierarchy</b>Neither pole is intrinsically healthier. Very low A is associated (not equated) with narcissistic, antisocial, and paranoid patterns; very high A with dependent patterns — associations require independent clinical assessment.</div>
+    </div>
+  </div>
+
+  <div class="domain-card dc-C">
+    <div class="head"><h3>Conscientiousness <span class="abbr">— C · self-control &amp; direction</span></h3></div>
+    <div class="body">
+      <p><b>Definition &amp; construct.</b> The active process of planning, organising, and carrying out tasks — the control of impulses in the service of goals. It is associated with academic and occupational achievement; on the negative side, extreme C can shade into fastidiousness, compulsive neatness, or workaholic behaviour.</p>
+      <div class="hl-row">
+        <div class="hl-box hl-high"><b>High score</b>Purposeful, strong-willed, determined, organised, punctual, reliable, self-disciplined.</div>
+        <div class="hl-box hl-low"><b>Low score</b>More casual, lackadaisical about moral obligations and goals; not necessarily lacking in principles, but less exacting and more spontaneous.</div>
+      </div>
+      <p><b>Facets:</b> C1 Competence · C2 Order · C3 Dutifulness · C4 Achievement Striving · C5 Self-Discipline · C6 Deliberation.</p>
+      <div class="callout co-note"><b>Clinical note</b>Very high C can resemble obsessive-compulsive personality features (e.g. very high C2 Order); very low C can accompany impulse-control difficulties. Again, these are trait patterns, not diagnoses.</div>
+    </div>
+  </div>
+  <p style="text-align:right;"><a class="backtop" href="#toc">↑ Back to contents</a></p>
+</section>
+
+
+<!-- ===================== PART III · FACETS ===================== -->
+<div class="banner b-facet" id="facets">
+  <div class="tag">Part III · Facet Structure</div>
+  <h2>6 · Facet-Wise Explanation — all 30 facets</h2>
+</div>
+<section>
+  <div class="callout co-note"><b>Only in the full versions</b>The 30 facets are measured by the <strong>NEO-PI-3</strong> and <strong>NEO PI-R</strong>. The <strong>NEO-FFI-3</strong> yields domain scores only, so facet interpretation below does <em>not</em> apply to it.</div>
+
+  <h3 style="color:#8a4258;">Neuroticism facets (N1–N6)</h3>
+  <div class="grid2">
+    <div class="facet-card"><h4>N1 · Anxiety <span class="chip">N</span></h4><div class="fdef">Level of free-floating anxiety; apprehension, fearfulness, tension, nervousness.</div>
+      <div class="fline"><b>High:</b> apprehensive, fearful, prone to worry, jittery; may have specific fears/phobias. <b>Low:</b> calm, relaxed, does not dwell on what might go wrong.</div>
+      <div class="fline"><b>Differs from:</b> N3 Depression — anxiety is anticipatory threat/worry; depression is dejection and hopelessness.</div></div>
+    <div class="facet-card"><h4>N2 · Angry Hostility <span class="chip">N</span></h4><div class="fdef">Tendency to experience anger, frustration, and bitterness.</div>
+      <div class="fline"><b>High:</b> easily angered and offended, frustrated. <b>Low:</b> easy-going, slow to anger.</div>
+      <div class="fline"><b>Note:</b> measures the <em>readiness</em> to experience anger; whether anger is <em>expressed</em> depends on Agreeableness.</div></div>
+    <div class="facet-card"><h4>N3 · Depression <span class="chip">N</span></h4><div class="fdef">Tendency to experience depressive affect.</div>
+      <div class="fline"><b>High:</b> prone to guilt, sadness, hopelessness, loneliness; easily discouraged, dejected. <b>Low:</b> rarely experiences such emotions (not necessarily cheerful — that is Extraversion).</div>
+      <div class="fline"><b>Differs from:</b> N1 Anxiety (see above).</div></div>
+    <div class="facet-card"><h4>N4 · Self-Consciousness <span class="chip">N</span></h4><div class="fdef">Shame, embarrassment, sensitivity to ridicule, social anxiety.</div>
+      <div class="fline"><b>High:</b> uncomfortable around others, sensitive to ridicule, prone to feelings of inferiority; shy. <b>Low:</b> less disturbed by awkward social situations (not necessarily poised).</div>
+      <div class="fline"><b>Akin to:</b> shyness and social anxiety.</div></div>
+    <div class="facet-card"><h4>N5 · Impulsiveness <span class="chip">N</span></h4><div class="fdef">Inability to control cravings and urges (e.g. for food, cigarettes, possessions).</div>
+      <div class="fline"><b>High:</b> feels urges so strongly they cannot resist, though may later regret. <b>Low:</b> higher tolerance for frustration; easier to resist temptation.</div>
+      <div class="fline"><b>Do not confuse</b> with spontaneity, risk-taking, or rapid decision-making.</div></div>
+    <div class="facet-card"><h4>N6 · Vulnerability <span class="chip">N</span></h4><div class="fdef">Vulnerability to stress.</div>
+      <div class="fline"><b>High:</b> feels unable to cope, becomes dependent, hopeless, or panicked under stress. <b>Low:</b> perceives self as capable of handling difficult situations.</div></div>
+  </div>
+
+  <h3 style="color:#a35d2a;">Extraversion facets (E1–E6)</h3>
+  <div class="grid2">
+    <div class="facet-card"><h4>E1 · Warmth <span class="chip">E</span></h4><div class="fdef">Interpersonal intimacy; affection and friendliness.</div>
+      <div class="fline"><b>High:</b> affectionate, genuinely likes people, forms close attachments. <b>Low:</b> more formal, reserved, distant (not necessarily hostile).</div>
+      <div class="fline"><b>Differs from:</b> A — Warmth is the facet of E closest to Agreeableness but concerns cordiality and heartiness, not deference.</div></div>
+    <div class="facet-card"><h4>E2 · Gregariousness <span class="chip">E</span></h4><div class="fdef">Preference for other people's company.</div>
+      <div class="fline"><b>High:</b> "the more the merrier"; enjoys crowds and gatherings. <b>Low:</b> tends to be a loner, does not seek — or actively avoids — social stimulation.</div></div>
+    <div class="facet-card"><h4>E3 · Assertiveness <span class="chip">E</span></h4><div class="fdef">Social ascendancy, dominance, forcefulness.</div>
+      <div class="fline"><b>High:</b> dominant, forceful, socially ascendant; speaks without hesitation, becomes group leaders. <b>Low:</b> prefers to keep in the background and let others do the talking.</div></div>
+    <div class="facet-card"><h4>E4 · Activity <span class="chip">E</span></h4><div class="fdef">Pace, vigour, and need for busyness.</div>
+      <div class="fline"><b>High:</b> rapid tempo, energetic, need to keep busy; lead fast-paced lives. <b>Low:</b> more leisurely and relaxed in tempo (not necessarily sluggish or lazy).</div></div>
+    <div class="facet-card"><h4>E5 · Excitement-Seeking <span class="chip">E</span></h4><div class="fdef">Craving for excitement and stimulation.</div>
+      <div class="fline"><b>High:</b> likes bright colours, noisy environments, thrills. <b>Low:</b> feels little need for thrills; prefers a lifestyle high scorers might find boring.</div></div>
+    <div class="facet-card"><h4>E6 · Positive Emotions <span class="chip">E</span></h4><div class="fdef">Tendency to experience positive emotions — joy, happiness, love, excitement.</div>
+      <div class="fline"><b>High:</b> laughs easily and often; cheerful, optimistic. <b>Low:</b> merely less exuberant/high-spirited (not necessarily unhappy).</div>
+      <div class="fline"><b>Key fact:</b> the facet of E most relevant to the prediction of happiness.</div></div>
+  </div>
+
+  <h3 style="color:#5b3fa0;">Openness facets (O1–O6)</h3>
+  <div class="grid2">
+    <div class="facet-card"><h4>O1 · Fantasy <span class="chip">O</span></h4><div class="fdef">Openness to a vivid imagination and active fantasy life.</div>
+      <div class="fline"><b>High:</b> vivid imagination; daydreams as a creative outlet, elaborates and develops fantasies. <b>Low:</b> more prosaic, prefers to keep the mind on the task at hand.</div></div>
+    <div class="facet-card"><h4>O2 · Aesthetics <span class="chip">O</span></h4><div class="fdef">Deep appreciation for art and beauty.</div>
+      <div class="fline"><b>High:</b> moved by poetry, absorbed in music, intrigued by art (need not have artistic talent). <b>Low:</b> relatively insensitive to and uninterested in art and beauty.</div></div>
+    <div class="facet-card"><h4>O3 · Feelings <span class="chip">O</span></h4><div class="fdef">Receptivity to one's own inner feelings and emotions; valuing emotion.</div>
+      <div class="fline"><b>High:</b> experiences deeper, more differentiated emotional states; feels happiness and unhappiness keenly. <b>Low:</b> blunted affects; may be characterised by alexithymia.</div></div>
+    <div class="facet-card"><h4>O4 · Actions <span class="chip">O</span></h4><div class="fdef">Willingness to try different activities, go new places, eat unusual foods.</div>
+      <div class="fline"><b>High:</b> prefers novelty and variety to familiarity and routine. <b>Low:</b> finds change difficult, prefers the tried-and-true.</div></div>
+    <div class="facet-card"><h4>O5 · Ideas <span class="chip">O</span></h4><div class="fdef">Intellectual curiosity; active pursuit of intellectual interests, open-mindedness.</div>
+      <div class="fline"><b>High:</b> enjoys philosophical argument and brain-teasers; considers new, unconventional ideas. <b>Low:</b> limited curiosity, focuses narrowly on limited topics.</div>
+      <div class="fline"><b>Note:</b> high Ideas does not necessarily imply high intelligence.</div></div>
+    <div class="facet-card"><h4>O6 · Values <span class="chip">O</span></h4><div class="fdef">Readiness to re-examine social, political, and religious values.</div>
+      <div class="fline"><b>High:</b> open to reappraising traditions. <b>Low (closed):</b> accepts authority and honours tradition; generally conservative — the opposite of dogmatism when high.</div></div>
+  </div>
+
+  <h3 style="color:#3f6b41;">Agreeableness facets (A1–A6)</h3>
+  <div class="grid2">
+    <div class="facet-card"><h4>A1 · Trust <span class="chip">A</span></h4><div class="fdef">Disposition to believe others are honest and well-intentioned.</div>
+      <div class="fline"><b>High:</b> trusting. <b>Low:</b> cynical, skeptical; assumes others may be dishonest or dangerous.</div></div>
+    <div class="facet-card"><h4>A2 · Straightforwardness <span class="chip">A</span></h4><div class="fdef">Frankness, sincerity, ingenuousness in dealing with others.</div>
+      <div class="fline"><b>High:</b> frank, sincere. <b>Low:</b> more willing to manipulate through flattery, craftiness, or deception (viewed as necessary social skills).</div>
+      <div class="fline"><b>Not a lie scale:</b> a low score reflects standing relative to others, not test invalidity.</div></div>
+    <div class="facet-card"><h4>A3 · Altruism <span class="chip">A</span></h4><div class="fdef">Active concern for others' welfare.</div>
+      <div class="fline"><b>High:</b> generous, considerate, willing to help. <b>Low:</b> more self-centred, reluctant to get involved in others' problems.</div></div>
+    <div class="facet-card"><h4>A4 · Compliance <span class="chip">A</span></h4><div class="fdef">Characteristic reactions to interpersonal conflict.</div>
+      <div class="fline"><b>High:</b> defers to others, inhibits aggression, forgives and forgets; meek and mild. <b>Low:</b> aggressive, prefers to compete, no reluctance to express anger.</div></div>
+    <div class="facet-card"><h4>A5 · Modesty <span class="chip">A</span></h4><div class="fdef">Humility and self-effacement (not necessarily low self-esteem).</div>
+      <div class="fline"><b>High:</b> humble, self-effacing. <b>Low:</b> believe they are superior; may be seen as conceited or arrogant.</div>
+      <div class="fline"><b>Clinical note:</b> a pathological lack of modesty is part of the clinical conception of narcissism.</div></div>
+    <div class="facet-card"><h4>A6 · Tender-Mindedness <span class="chip">A</span></h4><div class="fdef">Attitudes of sympathy and concern for others.</div>
+      <div class="fline"><b>High:</b> moved by others' needs, emphasises the human side of policies. <b>Low:</b> hardheaded, less moved by appeals to pity; considers self a realist who makes rational decisions.</div></div>
+  </div>
+
+  <h3 style="color:#3f5d82;">Conscientiousness facets (C1–C6)</h3>
+  <div class="grid2">
+    <div class="facet-card"><h4>C1 · Competence <span class="chip">C</span></h4><div class="fdef">Sense that one is capable, sensible, prudent, effective.</div>
+      <div class="fline"><b>High:</b> feels well-prepared to deal with life. <b>Low:</b> lower opinion of abilities, admits to feeling unprepared and inept.</div>
+      <div class="fline"><b>Most highly associated</b> of the C facets with self-esteem and internal locus of control; negatively related to N6 Vulnerability.</div></div>
+    <div class="facet-card"><h4>C2 · Order <span class="chip">C</span></h4><div class="fdef">Neatness, tidiness, being well-organised.</div>
+      <div class="fline"><b>High:</b> neat, tidy, keeps things in proper places. <b>Low:</b> unable to get organised, describe selves as unmethodical.</div>
+      <div class="fline"><b>Extreme high</b> may contribute to compulsive-personality features.</div></div>
+    <div class="facet-card"><h4>C3 · Dutifulness <span class="chip">C</span></h4><div class="fdef">"Governed by conscience"; adherence to ethical principles and obligations.</div>
+      <div class="fline"><b>High:</b> adheres strictly to moral obligations. <b>Low:</b> more casual about such matters, somewhat unreliable/undependable.</div></div>
+    <div class="facet-card"><h4>C4 · Achievement Striving <span class="chip">C</span></h4><div class="fdef">Aspiration level and the drive to work hard toward goals.</div>
+      <div class="fline"><b>High:</b> diligent, purposeful, sense of direction; very high can become workaholic. <b>Low:</b> lackadaisical, may seem aimless (not necessarily lazy), content with low achievement.</div></div>
+    <div class="facet-card"><h4>C5 · Self-Discipline <span class="chip">C</span></h4><div class="fdef">Ability to begin tasks and carry them through to completion despite boredom or distractions.</div>
+      <div class="fline"><b>High:</b> motivates self to get the job done. <b>Low:</b> procrastinates, easily discouraged, eager to quit.</div>
+      <div class="fline"><b>Differs from:</b> N5 Impulsiveness — low self-discipline is the inability to make oneself do what one wants; N5 is the inability to resist doing what one does not want.</div></div>
+    <div class="facet-card"><h4>C6 · Deliberation <span class="chip">C</span></h4><div class="fdef">Tendency to think carefully before acting.</div>
+      <div class="fline"><b>High:</b> cautious, deliberate. <b>Low:</b> hasty, often speak or act without considering consequences; spontaneous, able to make snap decisions when necessary.</div></div>
+  </div>
+
+  <h3 id="facet-master">Master facet table</h3>
+  <div class="tbl-scroll">
+    <table>
+      <thead><tr><th>Domain</th><th>Facet</th><th>High score</th><th>Low score</th><th>Clinical meaning (trait-level, non-diagnostic)</th></tr></thead>
+      <tbody>
+        <tr><td rowspan="6">N</td><td>N1 Anxiety</td><td>Worried, tense, fearful</td><td>Calm, relaxed</td><td>Anticipatory threat sensitivity</td></tr>
+        <tr><td>N2 Angry Hostility</td><td>Irritable, resentful</td><td>Easy-going</td><td>Readiness to feel anger</td></tr>
+        <tr><td>N3 Depression</td><td>Sad, hopeless, guilty</td><td>Rarely dejected</td><td>Depressive affect proneness</td></tr>
+        <tr><td>N4 Self-Consciousness</td><td>Shy, easily embarrassed</td><td>Socially at ease</td><td>Social-evaluative anxiety</td></tr>
+        <tr><td>N5 Impulsiveness</td><td>Cannot resist urges</td><td>Resists temptation</td><td>Urge/craving control</td></tr>
+        <tr><td>N6 Vulnerability</td><td>Overwhelmed by stress</td><td>Copes well</td><td>Stress coping capacity</td></tr>
+        <tr><td rowspan="6">E</td><td>E1 Warmth</td><td>Affectionate</td><td>Reserved, formal</td><td>Interpersonal closeness</td></tr>
+        <tr><td>E2 Gregariousness</td><td>Enjoys crowds</td><td>Prefers solitude</td><td>Social approach</td></tr>
+        <tr><td>E3 Assertiveness</td><td>Dominant, leads</td><td>Stays in background</td><td>Social ascendancy</td></tr>
+        <tr><td>E4 Activity</td><td>Energetic, busy</td><td>Leisurely pace</td><td>Vigour / tempo</td></tr>
+        <tr><td>E5 Excitement-Seeking</td><td>Craves thrills</td><td>Avoids stimulation</td><td>Sensation-seeking</td></tr>
+        <tr><td>E6 Positive Emotions</td><td>Cheerful, joyful</td><td>Less exuberant</td><td>Capacity for joy (happiness marker)</td></tr>
+        <tr><td rowspan="6">O</td><td>O1 Fantasy</td><td>Vivid imagination</td><td>Prosaic, factual</td><td>Inner imaginative life</td></tr>
+        <tr><td>O2 Aesthetics</td><td>Moved by beauty</td><td>Indifferent to art</td><td>Aesthetic sensitivity</td></tr>
+        <tr><td>O3 Feelings</td><td>Emotionally attuned</td><td>Blunted / alexithymic</td><td>Emotional awareness</td></tr>
+        <tr><td>O4 Actions</td><td>Seeks novelty</td><td>Prefers routine</td><td>Behavioural flexibility</td></tr>
+        <tr><td>O5 Ideas</td><td>Intellectually curious</td><td>Narrow focus</td><td>Openness to concepts</td></tr>
+        <tr><td>O6 Values</td><td>Re-examines values</td><td>Traditional</td><td>Ideological openness</td></tr>
+        <tr><td rowspan="6">A</td><td>A1 Trust</td><td>Believes the best</td><td>Cynical, skeptical</td><td>Interpersonal trust</td></tr>
+        <tr><td>A2 Straightforwardness</td><td>Frank, sincere</td><td>Guarded, manipulative</td><td>Candour (not a lie scale)</td></tr>
+        <tr><td>A3 Altruism</td><td>Generous, helpful</td><td>Self-centred</td><td>Prosocial concern</td></tr>
+        <tr><td>A4 Compliance</td><td>Defers, forgives</td><td>Competes, confronts</td><td>Response to conflict</td></tr>
+        <tr><td>A5 Modesty</td><td>Humble</td><td>Feels superior</td><td>Self-appraisal (narcissism link at low)</td></tr>
+        <tr><td>A6 Tender-Mindedness</td><td>Sympathetic</td><td>Hardheaded</td><td>Empathic policy stance</td></tr>
+        <tr><td rowspan="6">C</td><td>C1 Competence</td><td>Feels capable</td><td>Feels inept</td><td>Self-efficacy (esteem link)</td></tr>
+        <tr><td>C2 Order</td><td>Neat, organised</td><td>Disorganised</td><td>Orderliness (compulsive at extreme)</td></tr>
+        <tr><td>C3 Dutifulness</td><td>Conscientious</td><td>Casual, unreliable</td><td>Moral obligation</td></tr>
+        <tr><td>C4 Achievement Striving</td><td>Ambitious, driven</td><td>Aimless, content</td><td>Goal drive (workaholic at extreme)</td></tr>
+        <tr><td>C5 Self-Discipline</td><td>Persistent</td><td>Procrastinates</td><td>Task completion</td></tr>
+        <tr><td>C6 Deliberation</td><td>Cautious</td><td>Hasty, spontaneous</td><td>Impulse deliberation</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ===================== FACET DIFFERENTIATION ===================== -->
+<div class="banner b-facet" id="facet-diff">
+  <div class="tag">Part III · Facets</div>
+  <h2>7 · Facet Differentiation — commonly confused pairs</h2>
+</div>
+<section>
+  <div class="grid2">
+    <div class="card tinted-mint"><h4>N1 Anxiety vs. N3 Depression</h4><p>Both are Neuroticism facets, but anxiety is <em>anticipatory</em> — worry, tension, dread about what might happen. Depression is <em>retrospective/present</em> dejection — sadness, guilt, hopelessness. A patient can be highly anxious yet not depressed, and vice versa.</p></div>
+    <div class="card tinted-mint"><h4>N2 Angry Hostility vs. E3 Assertiveness</h4><p>N2 is the <em>readiness to feel</em> anger and frustration (an emotional trait). E3 is social <em>dominance</em> — speaking up, leading. An assertive person may be calm; a hostile person may be passive. Whether hostility is <em>expressed</em> depends on Agreeableness (A4).</p></div>
+    <div class="card tinted-mint"><h4>E2 Gregariousness vs. E4 Activity</h4><p>Gregariousness is wanting the <em>company of people</em>; Activity is a fast <em>pace and energy level</em>. A busy person may prefer to work alone (high E4, low E2); a party-lover may be leisurely (high E2, low E4).</p></div>
+    <div class="card tinted-mint"><h4>E1 Warmth vs. E6 Positive Emotions</h4><p>Warmth is <em>interpersonal</em> — affection and closeness toward others. Positive Emotions is <em>intrapersonal</em> — the capacity to feel joy and cheer. One can be warm but not exuberant, or joyful but socially reserved.</p></div>
+    <div class="card tinted-mint"><h4>C1 Competence vs. C4 Achievement Striving</h4><p>Competence is the <em>belief</em> that one is capable and effective (self-efficacy). Achievement Striving is the <em>drive</em> to set high goals and work hard. Someone may feel capable yet unambitious, or ambitious yet insecure.</p></div>
+    <div class="card tinted-mint"><h4>C5 Self-Discipline vs. C3 Dutifulness</h4><p>Self-Discipline is <em>persistence</em> — finishing tasks despite boredom. Dutifulness is <em>conscience</em> — adhering to obligations and ethical principles. A person may be dutiful in intention yet unable to follow through (low C5).</p></div>
+    <div class="card tinted-mint"><h4>O3 Feelings vs. O5 Ideas</h4><p>Openness to Feelings is receptivity to one's own <em>inner emotional life</em>. Openness to Ideas is <em>intellectual curiosity</em>. An emotionally attuned person may be intellectually incurious, and a curious thinker may be emotionally blunted.</p></div>
+    <div class="card tinted-mint"><h4>A1 Trust vs. A4 Compliance</h4><p>Trust is a <em>belief</em> about others' intentions (honest vs. dishonest). Compliance is a <em>behavioural response to conflict</em> (defer/forgive vs. compete/confront). A person can trust others yet still stand their ground.</p></div>
+  </div>
+  <div class="callout co-key"><b>The general rule</b>Facets within a domain are correlated but distinct. Always inspect facet <em>scatter</em>: a domain score can hide clinically important facet elevations or reductions.</div>
+  <p style="text-align:right;"><a class="backtop" href="#toc">↑ Back to contents</a></p>
+</section>
+
+
+<!-- ===================== PART IV · ADMINISTRATION ===================== -->
+<div class="banner b-admin" id="who">
+  <div class="tag">Part IV · Administration</div>
+  <h2>8 · Who Can Be Assessed?</h2>
+</div>
+<section>
+  <div class="grid2">
+    <div class="card tinted-powder"><h4>Appropriate populations</h4><ul class="tight">
+      <li><b>Age:</b> the NEO-PI-3 and NEO-FFI-3 are appropriate for individuals <b>12 years and older</b>.</li>
+      <li><b>Reading/education:</b> the NEO-PI-3 was designed with improved readability, suitable for adolescents and adults, including those with lower educational levels and limited literacy (with accommodations).</li>
+      <li><b>Clinical &amp; non-clinical:</b> research shows individuals with a wide range of psychiatric disorders can give valid data; the instruments are used in clinical, counselling, health, educational, vocational, and research settings.</li>
+      <li><b>Format:</b> essentially self-administered self-report; Form R is an observer/informant version.</li>
+    </ul></div>
+    <div class="card tinted-blush"><h4>Interpret with caution / not appropriate</h4><ul class="tight">
+      <li>Individuals whose disorder impairs the ability to complete self-report <b>reliably and validly</b> — e.g. <b>acute psychosis or dementia</b> — should not be asked to complete the NEO.</li>
+      <li>Respondents who are <b>unwilling or unable</b> to describe themselves accurately: consider obtaining <b>Form R</b> observer ratings instead.</li>
+      <li>Any situation with likely defensiveness, deliberate distortion, or comprehension problems.</li>
+    </ul></div>
+  </div>
+  <div class="callout co-warn"><b>Not a stand-alone assessment</b>The NEO does not provide everything needed for a complete psychological assessment. It is designed to be <em>part</em> of a comprehensive evaluation that may also include interview, mental status examination, history, cognitive testing, and — where relevant — medical information.</div>
+</section>
+
+<div class="banner b-admin" id="pre-admin">
+  <div class="tag">Part IV · Administration</div>
+  <h2>9 · Pre-Administration</h2>
+</div>
+<section>
+  <ul class="tight">
+    <li><b>Setting:</b> comfortable, well-lit, distraction-free; a desk or clipboard to write on; eyeglasses if the respondent uses them.</li>
+    <li><b>Rapport:</b> engage the respondent so they take the task seriously — this reduces the chance of random or careless responding.</li>
+    <li><b>Informed consent &amp; confidentiality:</b> explain the purpose, how results will be used, and who will see them; it is the professional's responsibility to ensure informed consent for feedback (for Form R, of both the rater and the person rated).</li>
+    <li><b>Response expectations:</b> there are no right or wrong answers; ask for honest, candid self-description.</li>
+    <li><b>Questions from the examinee:</b> for individual words that are not understood, the manual permits reading items aloud and providing standardized definitions (a glossary of less-familiar words is supplied). Do not paraphrase items in ways that change meaning.</li>
+    <li><b>Standardization:</b> keep instructions standard; avoid influencing responses.</li>
+  </ul>
+</section>
+
+<div class="banner b-admin" id="admin">
+  <div class="tag">Part IV · Administration</div>
+  <h2>10 · Standard Administration (step by step)</h2>
+</div>
+<section>
+  <div class="tbl-scroll"><table>
+    <thead><tr><th>Step</th><th>Action</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td><b>Prepare materials</b> — correct Item Booklet (Form S or Form R), matching answer sheet (Hand-Scorable [HS] or Scannable [SS]), and a No. 2 pencil for the SS answer sheet.</td></tr>
+      <tr><td>2</td><td><b>Establish rapport</b> and ensure comfortable, private conditions.</td></tr>
+      <tr><td>3</td><td><b>Explain purpose</b> and obtain informed consent.</td></tr>
+      <tr><td>4</td><td><b>Provide instructions</b> — have the respondent read the instructions on the booklet; complete identifying/demographic information (name/initials, ID, and — for Form R — the initials and name of the person being rated, and the rater).</td></tr>
+      <tr><td>5</td><td><b>Explain response options</b> — the five-point agreement scale (see §11).</td></tr>
+      <tr><td>6</td><td><b>Allow independent responding</b> — there is no time limit; most respondents take ~30–40 min (NEO-PI-3) or ~5–10 min (NEO-FFI-3); older respondents and those with limited reading skills may take longer.</td></tr>
+      <tr><td>7</td><td><b>Monitor without influencing</b> — be available for clarification of individual words only, using standardized definitions.</td></tr>
+      <tr><td>8</td><td><b>Handle missing responses</b> — on completion, check the sheet; ask the respondent to complete unanswered items; if genuinely unsure of an item's meaning or how to respond, they may be told to use the <em>neutral</em> response.</td></tr>
+      <tr><td>9</td><td><b>Review answer sheet</b> where permitted — confirm demographic info and that responses are marked in the correct spaces.</td></tr>
+      <tr><td>10</td><td><b>Score according to the manual</b> — using the appropriate answer sheet / software (see Part V).</td></tr>
+    </tbody>
+  </table></div>
+  <div class="callout co-note"><b>Alternative administration / accommodations</b>For respondents with poor reading or visual impairment, the examiner may read items aloud and mark responses. Anonymity and providing demographic information may be modified in some projects. Modify only what is necessary and protect the integrity of the test.</div>
+</section>
+
+<div class="banner b-admin" id="response">
+  <div class="tag">Part IV · Administration</div>
+  <h2>11 · Response Format</h2>
+</div>
+<section>
+  <p>All NEO Inventories use the <strong>same five-point agreement scale</strong>. The respondent reads a statement and marks how much they agree that it describes them (Form S) or the person being rated (Form R):</p>
+  <div class="tbl-scroll"><table>
+    <thead><tr><th>Option</th><th>Meaning</th><th>Value if item is <em>positively</em> keyed</th><th>Value if item is <em>reverse</em> keyed</th></tr></thead>
+    <tbody>
+      <tr><td><b>SD</b> — Strongly Disagree</td><td>The statement is definitely false / strongly disagree</td><td>0</td><td>4</td></tr>
+      <tr><td><b>D</b> — Disagree</td><td>Mostly false / disagree</td><td>1</td><td>3</td></tr>
+      <tr><td><b>N</b> — Neutral</td><td>Equally true and false, uncertain, or cannot decide</td><td>2</td><td>2</td></tr>
+      <tr><td><b>A</b> — Agree</td><td>Mostly true / agree</td><td>3</td><td>1</td></tr>
+      <tr><td><b>SA</b> — Strongly Agree</td><td>Definitely true / strongly agree</td><td>4</td><td>0</td></tr>
+    </tbody>
+  </table></div>
+  <ul class="tight">
+    <li><b>Choosing an option:</b> respond to every item; give the most accurate self-description, not the socially desirable one.</li>
+    <li><b>When uncertain:</b> if genuinely unable to decide or the item does not apply, use <b>Neutral</b> — but the respondent should not overuse Neutral.</li>
+    <li><b>Avoiding social desirability:</b> emphasise honesty and confidentiality; the item set is balanced so that agreement does not automatically raise scores (acquiescence control — see §12).</li>
+  </ul>
+  <div class="callout co-key"><b>Why the 1–5 (0–4) example is valid here</b>The applicable manual <em>does</em> use a five-point agreement scale, so the reverse-scoring transformation shown in §14 (highest ↔ lowest) is appropriate for these instruments. The item values are typically treated as 0–4 (equivalently 1–5); use whichever convention your answer sheet/software specifies, consistently.</div>
+  <p style="text-align:right;"><a class="backtop" href="#toc">↑ Back to contents</a></p>
+</section>
+
+
+<!-- ===================== PART V · SCORING ===================== -->
+<div class="banner b-scoring" id="scoring-system">
+  <div class="tag">Part V · Scoring</div>
+  <h2>12 · Complete Scoring System</h2>
+</div>
+<section>
+  <div class="flow">
+    <span class="step">Raw item response</span><span class="arw">→</span>
+    <span class="step">Item score (0–4)</span><span class="arw">→</span>
+    <span class="step">Reverse scoring where keyed</span><span class="arw">→</span>
+    <span class="step">Facet raw score</span><span class="arw">→</span>
+    <span class="step">Domain raw score</span><span class="arw">→</span>
+    <span class="step">T-score</span><span class="arw">→</span>
+    <span class="step">Percentile</span><span class="arw">→</span>
+    <span class="step">Profile</span><span class="arw">→</span>
+    <span class="step">Interpretation</span>
+  </div>
+
+  <h3>Before you total anything: data-quality screens</h3>
+  <div class="grid2">
+    <div class="card tinted-peach"><h4>Validity check items (A, B, C)</h4><p>Three items on the answer sheet, not scored into the traits:</p>
+      <ul class="tight">
+        <li><b>A</b> — asks whether the respondent answered honestly and accurately. ~99% of volunteers answer <em>agree</em> or <em>strongly agree</em>; those who disagree may not have been candid → interpret with caution.</li>
+        <li><b>B</b> — asks whether responses were entered in the correct spaces. A <em>no</em> normally invalidates formal scoring (responses may be misaligned).</li>
+        <li><b>C</b> — a reverse-worded check; ~99% respond <em>no</em>/disagree. A deviant answer flags careless or misaligned responding.</li>
+      </ul></div>
+    <div class="card tinted-peach"><h4>Missing responses</h4>
+      <p><b>NEO-PI-3 / NEO PI-R:</b> if <b>41 or more</b> responses are missing, the protocol should <b>not</b> be formally scored. Otherwise, treat each missing item as the <b>neutral</b> response.</p>
+      <p><b>NEO-FFI-3:</b> if <b>more than 4</b> items are missing <em>within a domain</em>, interpret that domain with caution; if <b>10 or more</b> items are left blank overall, do not formally score.</p></div>
+  </div>
+  <div class="grid2">
+    <div class="card tinted-peach"><h4>Acquiescence &amp; nay-saying</h4>
+      <p>Count the number of <em>agree</em> + <em>strongly agree</em> responses across all items (NEO-PI-3). Because the scale is balanced, roughly <b>50–150</b> is typical:</p>
+      <ul class="tight">
+        <li><b>&gt; 150</b> → strong acquiescence (yea-saying) → interpret with caution.</li>
+        <li><b>≤ 50</b> → strong nay-saying → interpret with caution.</li>
+      </ul></div>
+    <div class="card tinted-peach"><h4>Random responding</h4>
+      <p>Inspect for long runs of the same response. Formal scoring is normally invalidated by more than:</p>
+      <ul class="tight">
+        <li>6 consecutive <em>strongly disagree</em></li>
+        <li>9 consecutive <em>disagree</em></li>
+        <li>10 consecutive <em>neutral</em></li>
+        <li>14 consecutive <em>agree</em></li>
+        <li>9 consecutive <em>strongly agree</em></li>
+      </ul>
+      <p><small>Discuss any flag with the respondent before deciding validity.</small></p></div>
+  </div>
+</section>
+
+<div class="banner b-scoring" id="item-scoring">
+  <div class="tag">Part V · Scoring</div>
+  <h2>13 · Item Scoring</h2>
+</div>
+<section>
+  <ul class="tight">
+    <li>Each item is scored <b>0 to 4</b> (minimum 0, maximum 4).</li>
+    <li><b>Positively keyed items:</b> Strongly Disagree = 0 … Strongly Agree = 4.</li>
+    <li><b>Reverse (negatively) keyed items:</b> Strongly Disagree = 4 … Strongly Agree = 0.</li>
+    <li>The direction of each item is fixed by the published scoring key (printed on the HS answer sheet / applied automatically by the software). About half of the items in each scale are reverse-keyed to balance acquiescence.</li>
+  </ul>
+  <div class="callout co-warn"><b>Use the actual key</b>The specific item-direction key (which items are reverse-scored, and which items belong to which facet) is defined by the applicable manual and printed on the answer sheet. This guide does <em>not</em> reproduce the proprietary item-by-item key. <strong>Do not invent item keys.</strong> Any worked "which items" list below is illustrative of the <em>method</em>, using only facet-item groupings the manual itself prints (e.g. the N-domain groupings).</div>
+</section>
+
+<div class="banner b-scoring" id="reverse">
+  <div class="tag">Part V · Scoring</div>
+  <h2>14 · Reverse Scoring (step by step)</h2>
+</div>
+<section>
+  <div class="flow">
+    <span class="step">Read the respondent's option</span><span class="arw">→</span>
+    <span class="step">Check the key: is this item reverse-keyed?</span><span class="arw">→</span>
+    <span class="step">Apply transformation</span><span class="arw">→</span>
+    <span class="step">Record corrected 0–4 value</span>
+  </div>
+  <p>Because the applicable manual uses a <strong>five-point scale</strong>, the reverse transformation is a simple flip of the endpoints:</p>
+  <div class="tbl-scroll"><table>
+    <thead><tr><th>Respondent's option</th><th>Positive-keyed value</th><th>Reverse-keyed value</th></tr></thead>
+    <tbody>
+      <tr><td>Strongly Disagree</td><td>0</td><td>4</td></tr>
+      <tr><td>Disagree</td><td>1</td><td>3</td></tr>
+      <tr><td>Neutral</td><td>2</td><td>2</td></tr>
+      <tr><td>Agree</td><td>3</td><td>1</td></tr>
+      <tr><td>Strongly Agree</td><td>4</td><td>0</td></tr>
+    </tbody>
+  </table></div>
+  <p><em>Worked micro-example.</em> A respondent marks <b>Agree</b> on a reverse-keyed item. Positive value would be 3; reverse value = <b>1</b>. Record 1 for that item, then add it into its facet total. (If using a 1–5 convention instead of 0–4, the flip is 1↔5, 2↔4, 3↔3 — the arithmetic below assumes 0–4.)</p>
+  <div class="callout co-key"><b>Neutral is unchanged</b>A Neutral response scores 2 whether or not the item is reversed — the midpoint maps to itself.</div>
+</section>
+
+<div class="banner b-scoring" id="mapping">
+  <div class="tag">Part V · Scoring</div>
+  <h2>15 · Item-to-Facet Mapping</h2>
+</div>
+<section>
+  <p>Every item belongs to exactly one facet (and thus one domain). On the HS answer sheet, items for a facet are grouped so you can sum them directly. The manual prints, for example, that the Neuroticism domain's facets are read down specific item columns; the first facet, <b>N1 Anxiety</b>, is scored from items <b>1, 31, 61, 91, 121, 151, 181, 211</b> (eight items, spaced 30 apart), and the remaining facets follow analogously.</p>
+  <div class="tbl-scroll"><table>
+    <thead><tr><th>Item (illustrative)</th><th>Facet</th><th>Domain</th><th>Reverse scored?</th><th>Recorded value</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>N1 Anxiety</td><td>N</td><td>Per key</td><td>0–4</td></tr>
+      <tr><td>31</td><td>N1 Anxiety</td><td>N</td><td>Per key</td><td>0–4</td></tr>
+      <tr><td>61</td><td>N1 Anxiety</td><td>N</td><td>Per key</td><td>0–4</td></tr>
+      <tr><td>91</td><td>N1 Anxiety</td><td>N</td><td>Per key</td><td>0–4</td></tr>
+      <tr><td>121</td><td>N1 Anxiety</td><td>N</td><td>Per key</td><td>0–4</td></tr>
+      <tr><td>151</td><td>N1 Anxiety</td><td>N</td><td>Per key</td><td>0–4</td></tr>
+      <tr><td>181</td><td>N1 Anxiety</td><td>N</td><td>Per key</td><td>0–4</td></tr>
+      <tr><td>211</td><td>N1 Anxiety</td><td>N</td><td>Per key</td><td>0–4</td></tr>
+    </tbody>
+  </table></div>
+  <div class="callout co-warn"><b>Do not fabricate mappings</b>The full item-to-facet assignment and reverse-key for all 240 items is proprietary and printed on the answer sheet / handled by the software. The N1 grouping above is shown only because the manual prints it as its worked example. For every other facet, read the groupings from your own answer sheet. <strong>Do not guess which items are reversed.</strong></div>
+</section>
+
+<div class="banner b-scoring" id="facet-calc">
+  <div class="tag">Part V · Scoring</div>
+  <h2>16 · Facet Score Calculation</h2>
+</div>
+<section>
+  <ul class="tight">
+    <li>Each facet (NEO-PI-3 / PI-R) has <b>8 items</b>. After applying reverse scoring where keyed, <b>sum the 8 item values</b>.</li>
+    <li><b>Raw facet range:</b> minimum 0 (all items scored 0), maximum 32 (all items scored 4).</li>
+    <li>Convert the raw facet score to a facet <b>T-score</b> and (optionally) percentile using the appropriate Profile Form / norm table.</li>
+  </ul>
+  <div class="card tinted-peach"><h4>Worked example — N1 Anxiety</h4>
+    <p>Item values (after reverse scoring, in item order 1, 31, 61, 91, 121, 151, 181, 211): <b>3, 4, 2, 3, 4, 3, 2, 3</b>.</p>
+    <p>Raw N1 = 3+4+2+3+4+3+2+3 = <b>24</b> (out of 32).</p>
+    <p>Look up 24 on the appropriate NEO-PI-3 Profile Form for the correct age/sex norm group → read off the N1 <b>T-score</b> and percentile. (The exact conversion comes from the norm table — do not compute it by hand.)</p>
+  </div>
+</section>
+
+<div class="banner b-scoring" id="domain-calc">
+  <div class="tag">Part V · Scoring</div>
+  <h2>17 · Domain Score Calculation</h2>
+</div>
+<section>
+  <div class="flow">
+    <span class="step">8 items → facet raw</span><span class="arw">→</span>
+    <span class="step">6 facet raws → domain raw</span><span class="arw">→</span>
+    <span class="step">Domain T-score</span><span class="arw">→</span>
+    <span class="step">Percentile</span><span class="arw">→</span>
+    <span class="step">Interpretation level</span>
+  </div>
+  <p>On the HS answer sheet, add the six facet raw scores of a domain (e.g. N1 + N2 + N3 + N4 + N5 + N6) to obtain the <b>domain raw score</b> (range 0–192 for a 48-item domain). Enter it in the domain box, then convert to a T-score on the Profile Form.</p>
+  <div class="card tinted-peach"><h4>Worked example — Neuroticism domain</h4>
+    <p>Facet raws: N1 = 24, N2 = 18, N3 = 22, N4 = 20, N5 = 16, N6 = 19.</p>
+    <p>Domain raw N = 24+18+22+20+16+19 = <b>119</b> (out of 192).</p>
+    <p>Look up 119 on the appropriate Profile Form → e.g. it might correspond to a domain T of ~60 → falls in the <b>High</b> range (see §21). Then examine the facet scatter — here N1, N3 elevated relative to N5.</p>
+  </div>
+  <div class="callout co-note"><b>Factor scores vs. summed-facet domain scores</b>Summing the six facet raws gives an <em>approximation</em> to the true domain factor score, which is fine for hand-scoring. The NEO Software System computes exact <b>factor scores</b> using weighted formulas; these are more nearly orthogonal and slightly more valid, and are the standard for the NEO-PI-3.</div>
+</section>
+
+<div class="banner b-scoring" id="standard">
+  <div class="tag">Part V · Scoring</div>
+  <h2>18 · Standardized Scores</h2>
+</div>
+<section>
+  <div class="flow">
+    <span class="step">Raw score</span><span class="arw">→</span>
+    <span class="step">Profile Form / norm table</span><span class="arw">→</span>
+    <span class="step">T-score (M 50, SD 10)</span><span class="arw">→</span>
+    <span class="step">Percentile (Appendix table)</span>
+  </div>
+  <ul class="tight">
+    <li><b>Primary metric:</b> the NEO uses <b>T-scores</b> with a mean of <b>50</b> and a standard deviation of <b>10</b>. So T = 60 is 1 SD above the reference mean; T = 40 is 1 SD below.</li>
+    <li><b>Important:</b> NEO T-scores are <b>not normalized</b> — they preserve the actual (approximately normal, bell-shaped) shape of the raw-score distribution rather than forcing normality.</li>
+    <li><b>Percentiles</b> are also available (a T-score → percentile-rank conversion table is provided in the manual's appendix).</li>
+    <li>The Profile Form does the conversion for you: locate the raw score in the correct column and read off the T-score / percentile position.</li>
+  </ul>
+  <div class="callout co-warn"><b>Do not invent conversion tables</b>Never construct your own raw-to-T or T-to-percentile tables. Always use the published Profile Form / appendix for the specific version and norm group.</div>
+</section>
+
+<div class="banner b-scoring" id="norms">
+  <div class="tag">Part V · Scoring</div>
+  <h2>19 · Norms</h2>
+</div>
+<section>
+  <div class="grid2">
+    <div class="card tinted-cream"><h4>Which norm group?</h4><ul class="tight">
+      <li><b>Adolescent Profile Forms:</b> age <b>12–20</b>.</li>
+      <li><b>Adult Profile Forms:</b> age <b>21 and older</b>. Standard instructions recommend adult norms for interpreting individuals aged 21–30.</li>
+      <li>Young adults (and adolescents) tend to score somewhat higher on <b>E5 Excitement-Seeking</b> and to differ on some traits, which is why age-appropriate norms matter.</li>
+    </ul></div>
+    <div class="card tinted-cream"><h4>Combined- vs. separate-sex norms</h4><ul class="tight">
+      <li><b>Combined-sex norms:</b> compare the person to people <em>in general</em> — the usual choice for clinical description.</li>
+      <li><b>Separate-sex norms:</b> compare within the person's own sex — appropriate for some applications (e.g. job selection).</li>
+      <li>For <b>Form R</b>, the manual notes you use the norms for the <b>sex of the rater</b>, not the person being rated.</li>
+    </ul></div>
+  </div>
+  <div class="callout co-warn"><b>Version-specific norms</b>NEO-PI-3 uses its own norms; the <b>NEO PI-R must use its 1992 Profile Forms</b>; the NEO-FFI-3 uses its own. Never apply one version's norms to another. Foreign/translated versions require their own local norms (see §39).</div>
+</section>
+
+<div class="banner b-scoring" id="percentile">
+  <div class="tag">Part V · Scoring</div>
+  <h2>20 · Percentile Interpretation</h2>
+</div>
+<section>
+  <ul class="tight">
+    <li><b>Percentile rank</b> = the percentage of the norm group scoring at or below this person. A percentile of 84 means the person scored higher than ~84% of the reference group (which corresponds to T ≈ 60).</li>
+    <li><b>Percentile ≠ percentage.</b> A percentile is a <em>rank position</em> in a distribution, not a proportion of items endorsed or a "score out of 100."</li>
+    <li><b>Percentile ↔ T-score.</b> Both express the same standing; the T-score is on an equal-interval metric (M 50, SD 10), while the percentile is easier for lay feedback. Because the distribution is roughly normal: T 40 ≈ 16th percentile, T 50 ≈ 50th, T 60 ≈ 84th, T 66 ≈ ~95th.</li>
+  </ul>
+  <div class="card tinted-cream"><h4>Example</h4><p>A domain T of 63 (≈ 90th percentile) is described as <b>High</b>: the individual reports more of that trait than about nine out of ten people in the reference group — a trait <em>description</em>, not a clinical verdict.</p></div>
+  <p style="text-align:right;"><a class="backtop" href="#toc">↑ Back to contents</a></p>
+</section>
+
+
+<!-- ===================== PART VI · PROFILE INTERPRETATION ===================== -->
+<div class="banner b-interp" id="domain-profile">
+  <div class="tag">Part VI · Profile Interpretation</div>
+  <h2>21 · Domain Profile — reading the levels</h2>
+</div>
+<section>
+  <p>The NEO-PI-3 Profile Forms and Interpretive Reports classify each domain and facet T-score into <strong>five ranges</strong>. These cut-offs are the ones supported by the manual (they reflect the actual, bell-shaped distribution):</p>
+  <div class="tbl-scroll"><table>
+    <thead><tr><th>Level</th><th>T-score</th><th>Approx. % of people</th><th>Meaning</th></tr></thead>
+    <tbody>
+      <tr><td><span class="pill p-vl">Very Low</span></td><td>T ≤ 34</td><td>~7%</td><td>Markedly below average</td></tr>
+      <tr><td><span class="pill p-l">Low</span></td><td>T 35–44</td><td>~24%</td><td>Below average</td></tr>
+      <tr><td><span class="pill p-avg">Average</span></td><td>T 45–55</td><td>~38%</td><td>Typical range</td></tr>
+      <tr><td><span class="pill p-h">High</span></td><td>T 56–65</td><td>~24%</td><td>Above average</td></tr>
+      <tr><td><span class="pill p-vh">Very High</span></td><td>T ≥ 66</td><td>~7%</td><td>Markedly above average</td></tr>
+    </tbody>
+  </table></div>
+  <div class="callout co-note"><b>Simpler 3-level feedback</b>The lay "Your NEO Summary" collapses these into three: <b>High</b> (T ≥ 56), <b>Average</b> (T 45–55), and <b>Low</b> (T ≤ 44). Use the five-level system for professional interpretation and the three-level system for client-friendly feedback.</div>
+  <div class="callout co-warn"><b>No single diagnostic cut-off</b>Unlike MMPI-style scales, no single NEO cut-off "diagnoses" anything. A trait is as informative for being low or average as for being high. Use these ranges to <em>describe</em>, never to categorise into a disorder.</div>
+</section>
+
+<div class="banner b-interp" id="facet-profile">
+  <div class="tag">Part VI · Profile Interpretation</div>
+  <h2>22 · Facet Profile — why facets matter</h2>
+</div>
+<section>
+  <p>Two individuals can have <strong>the same domain score but very different facet profiles</strong>, and the difference is often clinically decisive. Domain scores summarise; facet scores individuate.</p>
+  <div class="grid2">
+    <div class="card tinted-cream"><h4>Two "High N" people, different meaning</h4>
+      <p><b>Person 1:</b> High N driven by N1 Anxiety + N3 Depression, with average N2 Angry Hostility → internalising, distress-prone presentation.</p>
+      <p><b>Person 2:</b> High N driven by N2 Angry Hostility + N5 Impulsiveness, with average N1/N3 → irritable, poorly-controlled presentation.</p>
+      <p>Same domain T, very different clinical picture and treatment focus.</p></div>
+    <div class="card tinted-cream"><h4>Two "Average E" people, different meaning</h4>
+      <p><b>Person A:</b> Average E from high E1 Warmth + high E6 Positive Emotions but low E2 Gregariousness → warm and cheerful but prefers small groups.</p>
+      <p><b>Person B:</b> Average E from high E3 Assertiveness + high E5 Excitement-Seeking but low E1 Warmth → dominant, thrill-seeking, but interpersonally cool.</p></div>
+  </div>
+  <div class="callout co-key"><b>Practice rule</b>Always report the domain level <em>and</em> the salient facet elevations/reductions within it. "Average overall, but with markedly elevated X and reduced Y" is far more useful than the domain label alone.</div>
+</section>
+
+<div class="banner b-interp" id="patterns">
+  <div class="tag">Part VI · Profile Interpretation</div>
+  <h2>23 · Profile Patterns (trait combinations)</h2>
+</div>
+<section>
+  <div class="callout co-warn"><b>Read these as trait patterns, not diagnostic categories.</b> The manual describes 10 "NEO Styles" from pairs of factors; the combinations below are interpretive hypotheses to explore, never labels to assign.</div>
+  <div class="tbl-scroll"><table>
+    <thead><tr><th>Combination</th><th>Descriptive hypothesis (to explore, not conclude)</th></tr></thead>
+    <tbody>
+      <tr><td><b>High N + Low C</b></td><td>Distress-prone <em>and</em> poorly self-regulated; may struggle to follow through on coping plans; vulnerability compounded by low self-discipline.</td></tr>
+      <tr><td><b>High E + High O</b></td><td>Energetic, expressive, curious, novelty-seeking; enterprising and creative "style"; may crave stimulation and variety.</td></tr>
+      <tr><td><b>Low E + High A</b></td><td>Reserved but warmly cooperative; a quiet, deferential, supportive interpersonal style; may under-assert own needs.</td></tr>
+      <tr><td><b>High C + Low N</b></td><td>Organised, reliable, emotionally stable; resilient, dependable "style"; a generally favourable adjustment picture.</td></tr>
+      <tr><td><b>High N + High A</b></td><td>Distress-prone and highly accommodating; may over-defer, seek reassurance, and have difficulty setting limits.</td></tr>
+      <tr><td><b>High E + High C</b></td><td>Sociable, assertive, and disciplined; goal-directed and outgoing — often adaptive in achievement/leadership settings.</td></tr>
+      <tr><td><b>High N + Low A</b></td><td>Distress-prone and antagonistic; irritability plus mistrust; potential for conflictual, volatile relationships.</td></tr>
+      <tr><td><b>Low O + High C</b></td><td>Conventional and orderly; prefers structure and the tried-and-true; methodical but may resist novelty/change.</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<div class="banner b-interp" id="elev-n">
+  <div class="tag">Part VI · Profile Interpretation</div>
+  <h2>24 · Elevated Neuroticism — facet configuration changes everything</h2>
+</div>
+<section>
+  <p>An elevated N domain says "more negative affect than average." The <em>facet pattern</em> tells you which kind:</p>
+  <div class="grid3">
+    <div class="card tinted-blush"><b>N1 Anxiety</b><p>Worry, tension, apprehension.</p></div>
+    <div class="card tinted-blush"><b>N2 Angry Hostility</b><p>Irritability, resentment.</p></div>
+    <div class="card tinted-blush"><b>N3 Depression</b><p>Sadness, guilt, hopelessness.</p></div>
+    <div class="card tinted-blush"><b>N4 Self-Consciousness</b><p>Social anxiety, shame.</p></div>
+    <div class="card tinted-blush"><b>N5 Impulsiveness</b><p>Difficulty resisting urges.</p></div>
+    <div class="card tinted-blush"><b>N6 Vulnerability</b><p>Feeling overwhelmed under stress.</p></div>
+  </div>
+  <p>Example: elevated N carried mainly by <b>N3 + N6</b> suggests a depressive-vulnerability picture (low mood plus poor stress coping); elevated N carried by <b>N2 + N5</b> suggests an irritable, impulse-driven picture. Both are "high N," but the formulation and treatment emphasis differ.</p>
+</section>
+
+<div class="banner b-interp" id="openness">
+  <div class="tag">Part VI · Profile Interpretation</div>
+  <h2>25 · Openness — facet-by-facet</h2>
+</div>
+<section>
+  <div class="grid3">
+    <div class="card tinted-lav"><b>O1 Fantasy</b><p>High: vivid inner/imaginative life. Low: prosaic, task-focused.</p></div>
+    <div class="card tinted-lav"><b>O2 Aesthetics</b><p>High: moved by art/beauty. Low: indifferent to the arts.</p></div>
+    <div class="card tinted-lav"><b>O3 Feelings</b><p>High: rich emotional awareness. Low: blunted / alexithymic.</p></div>
+    <div class="card tinted-lav"><b>O4 Actions</b><p>High: seeks novelty/variety. Low: prefers routine.</p></div>
+    <div class="card tinted-lav"><b>O5 Ideas</b><p>High: intellectually curious. Low: narrow interests.</p></div>
+    <div class="card tinted-lav"><b>O6 Values</b><p>High: questions tradition. Low: conventional, traditional.</p></div>
+  </div>
+  <p>High Openness = curious, imaginative, emotionally responsive, unconventional. Low Openness (closedness) = conventional, practical, traditional. <b>Neither pole is a value judgment</b>; closedness is not rigidity or defensiveness in itself.</p>
+</section>
+
+<div class="banner b-interp" id="extraversion">
+  <div class="tag">Part VI · Profile Interpretation</div>
+  <h2>26 · Extraversion — facet-by-facet</h2>
+</div>
+<section>
+  <div class="grid3">
+    <div class="card tinted-peach"><b>E1 Warmth</b><p>Affection, closeness vs. reserve.</p></div>
+    <div class="card tinted-peach"><b>E2 Gregariousness</b><p>Enjoys company vs. prefers solitude.</p></div>
+    <div class="card tinted-peach"><b>E3 Assertiveness</b><p>Dominant/leading vs. background.</p></div>
+    <div class="card tinted-peach"><b>E4 Activity</b><p>Energetic/busy vs. leisurely.</p></div>
+    <div class="card tinted-peach"><b>E5 Excitement-Seeking</b><p>Craves thrills vs. avoids.</p></div>
+    <div class="card tinted-peach"><b>E6 Positive Emotions</b><p>Cheerful/joyful vs. less exuberant.</p></div>
+  </div>
+  <p>Low E describes <b>introversion</b> — reserved, independent, even-paced — not unfriendliness or unhappiness. E6 is the facet most relevant to predicting happiness.</p>
+</section>
+
+<div class="banner b-interp" id="agreeableness">
+  <div class="tag">Part VI · Profile Interpretation</div>
+  <h2>27 · Agreeableness — facet-by-facet</h2>
+</div>
+<section>
+  <div class="grid3">
+    <div class="card tinted-sage"><b>A1 Trust</b><p>Believes the best vs. cynical.</p></div>
+    <div class="card tinted-sage"><b>A2 Straightforwardness</b><p>Frank/sincere vs. guarded.</p></div>
+    <div class="card tinted-sage"><b>A3 Altruism</b><p>Generous/helpful vs. self-centred.</p></div>
+    <div class="card tinted-sage"><b>A4 Compliance</b><p>Defers/forgives vs. competes.</p></div>
+    <div class="card tinted-sage"><b>A5 Modesty</b><p>Humble vs. feels superior.</p></div>
+    <div class="card tinted-sage"><b>A6 Tender-Mindedness</b><p>Sympathetic vs. hardheaded.</p></div>
+  </div>
+  <p>Low A is skeptical, competitive, tough-minded — advantageous where critical judgment is needed. The manual notes low A1/A2/A4 patterns can resemble paranoid features and low A5 can figure in narcissism, but these are associations requiring separate diagnostic assessment.</p>
+</section>
+
+<div class="banner b-interp" id="conscientiousness">
+  <div class="tag">Part VI · Profile Interpretation</div>
+  <h2>28 · Conscientiousness — facet-by-facet</h2>
+</div>
+<section>
+  <div class="grid3">
+    <div class="card tinted-powder"><b>C1 Competence</b><p>Feels capable vs. inept.</p></div>
+    <div class="card tinted-powder"><b>C2 Order</b><p>Neat/organised vs. disorganised.</p></div>
+    <div class="card tinted-powder"><b>C3 Dutifulness</b><p>Conscientious vs. casual.</p></div>
+    <div class="card tinted-powder"><b>C4 Achievement Striving</b><p>Ambitious/driven vs. aimless.</p></div>
+    <div class="card tinted-powder"><b>C5 Self-Discipline</b><p>Persistent vs. procrastinating.</p></div>
+    <div class="card tinted-powder"><b>C6 Deliberation</b><p>Cautious vs. hasty.</p></div>
+  </div>
+  <p>High C is purposeful, organised, dependable. Very high C (especially C2/C4) can shade into perfectionistic/compulsive features; low C can accompany impulse-control difficulty. Trait patterns, not diagnoses.</p>
+  <p style="text-align:right;"><a class="backtop" href="#toc">↑ Back to contents</a></p>
+</section>
+
+
+<!-- ===================== PART VII · CLINICAL ===================== -->
+<div class="banner b-clinical" id="clinical-use">
+  <div class="tag">Part VII · Clinical Interpretation</div>
+  <h2>29 · Clinical Use</h2>
+</div>
+<section>
+  <div class="callout co-warn"><b>Foundational rule</b>The NEO PI is a measure of <strong>normal personality traits</strong> and is <strong>not, by itself, a diagnostic instrument</strong>. Clinical profiles are plotted against <em>normal</em> norms as a reminder that these traits are dimensions everyone has. Never move directly from a score to a diagnosis.</div>
+  <p>Used appropriately and integrated with other data, the NEO can contribute to:</p>
+  <div class="grid2">
+    <div class="card tinted-blush"><ul class="tight">
+      <li><b>Personality formulation</b> — a structured, dimensional description of the person.</li>
+      <li><b>Psychotherapy planning</b> — anticipating engagement, alliance, and likely course.</li>
+      <li><b>Interpersonal formulation</b> — how the person relates (E, A facets).</li>
+      <li><b>Emotion-regulation formulation</b> — reactivity and coping (N facets, C5/C6).</li>
+    </ul></div>
+    <div class="card tinted-blush"><ul class="tight">
+      <li><b>Coping style</b> — vulnerability vs. resilience under stress (N6, C1).</li>
+      <li><b>Treatment engagement</b> — e.g. high C predicts follow-through on homework.</li>
+      <li><b>Behavioural tendencies</b> — activity, impulsivity, deliberation.</li>
+      <li><b>Risk formulation</b> — only where corroborated by other assessment, never from the NEO alone.</li>
+    </ul></div>
+  </div>
+</section>
+
+<div class="banner b-clinical" id="formulation">
+  <div class="tag">Part VII · Clinical Interpretation</div>
+  <h2>30 · Personality Formulation — the correct chain</h2>
+</div>
+<section>
+  <div class="flow">
+    <span class="step">Domain score</span><span class="arw">→</span>
+    <span class="step">Facet profile</span><span class="arw">→</span>
+    <span class="step">Trait pattern</span><span class="arw">→</span>
+    <span class="step">Functional description</span><span class="arw">→</span>
+    <span class="step">Clinical formulation</span>
+  </div>
+  <div class="callout co-warn"><b>Never do this</b>Personality score → automatic diagnosis. High N is <em>not</em> "anxiety disorder"; low E is <em>not</em> "depression"; high C is <em>not</em> "OCD."</div>
+  <p>Instead, translate scores into <em>functional statements</em> ("tends to feel overwhelmed under stress and to seek reassurance"), then link those to the referral question and to other assessment data, then generate hypotheses for further evaluation.</p>
+</section>
+
+<div class="banner b-clinical" id="clinical-examples">
+  <div class="tag">Part VII · Clinical Interpretation</div>
+  <h2>31 · Clinical Examples (fictional profiles)</h2>
+</div>
+<section>
+  <p>For each: <b>domain → facet → profile → clinical meaning → what else to assess.</b> All names/data are fictional and illustrative.</p>
+  <div class="grid2">
+    <div class="card tinted-blush"><h4>Anxiety-prone profile</h4><p><b>N Very High</b> (N1↑↑, N4↑), E Average, C Average.</p><p><b>Meaning:</b> apprehensive, tense, socially self-conscious.</p><p><b>Assess further:</b> anxiety disorders via interview, onset/course, functional impairment.</p></div>
+    <div class="card tinted-blush"><h4>Depressive-vulnerability profile</h4><p><b>N High</b> (N3↑, N6↑), <b>E Low</b> (E6↓), C Low.</p><p><b>Meaning:</b> low mood, poor stress coping, low positive affect, low drive.</p><p><b>Assess further:</b> mood episode criteria, risk, current stressors.</p></div>
+    <div class="card tinted-blush"><h4>Impulsive profile</h4><p><b>N High</b> (N5↑), <b>C Low</b> (C5↓, C6↓), E High (E5↑).</p><p><b>Meaning:</b> difficulty resisting urges, hasty, thrill-seeking, poor follow-through.</p><p><b>Assess further:</b> substance use, impulse-control history, safety.</p></div>
+    <div class="card tinted-blush"><h4>Perfectionistic / highly conscientious profile</h4><p><b>C Very High</b> (C2↑↑, C4↑↑, C6↑), N moderate.</p><p><b>Meaning:</b> orderly, driven, cautious; possible rigidity/workaholism at extreme.</p><p><b>Assess further:</b> functional cost of perfectionism, OCPD features by interview.</p></div>
+    <div class="card tinted-blush"><h4>Socially withdrawn profile</h4><p><b>E Very Low</b> (E1↓, E2↓), N moderate (N4↑), O Average.</p><p><b>Meaning:</b> reserved, prefers solitude, socially self-conscious.</p><p><b>Assess further:</b> distinguish preference vs. avoidance/anhedonia; social support.</p></div>
+    <div class="card tinted-blush"><h4>Highly extraverted profile</h4><p><b>E Very High</b> (E2↑, E3↑, E5↑, E6↑), O High.</p><p><b>Meaning:</b> sociable, assertive, energetic, thrill-seeking, upbeat.</p><p><b>Assess further:</b> if E5/N5 extreme, screen for risk-taking; rule out hypomania by history.</p></div>
+    <div class="card tinted-blush"><h4>Interpersonally distrustful profile</h4><p><b>A Low</b> (A1↓, A2↓, A4↓), N moderate.</p><p><b>Meaning:</b> skeptical, guarded, competitive, quick to confront.</p><p><b>Assess further:</b> context/history; paranoid features require independent evaluation.</p></div>
+    <div class="card tinted-blush"><h4>Emotionally stable profile</h4><p><b>N Low</b>, <b>C High</b>, E/A Average–High.</p><p><b>Meaning:</b> calm, resilient, reliable; generally favourable adjustment.</p><p><b>Assess further:</b> confirm no minimisation/defensiveness (validity items).</p></div>
+    <div class="card tinted-blush"><h4>High-openness / creative profile</h4><p><b>O Very High</b> (O1↑, O2↑, O5↑), E High.</p><p><b>Meaning:</b> imaginative, aesthetically sensitive, curious, unconventional.</p><p><b>Assess further:</b> O is not psychopathology; contextualise with function.</p></div>
+    <div class="card tinted-blush"><h4>Low-openness / conventional profile</h4><p><b>O Very Low</b> (O4↓, O6↓), C High.</p><p><b>Meaning:</b> practical, traditional, prefers routine and structure.</p><p><b>Assess further:</b> not a deficit; note implications for therapy style/flexibility.</p></div>
+  </div>
+</section>
+
+<div class="banner b-clinical" id="conditions">
+  <div class="tag">Part VII · Clinical Interpretation</div>
+  <h2>32 · NEO PI Across Clinical Conditions</h2>
+</div>
+<section>
+  <div class="callout co-warn"><b>Association ≠ diagnosis</b>A given NEO profile does <strong>not</strong> diagnose any disorder. Personality traits may be <em>associated with</em> or clinically relevant to the conditions below, but each requires independent diagnostic assessment. The manual discusses trait–disorder relationships (e.g. DSM personality-disorder prototypes) precisely to caution against over-reading profiles.</div>
+  <div class="tbl-scroll"><table>
+    <thead><tr><th>Condition</th><th>Traits that <em>may</em> be relevant (hypotheses only)</th></tr></thead>
+    <tbody>
+      <tr><td>Depression</td><td>Higher N (esp. N3, N6); lower E (esp. E6 positive emotions). State vs. trait must be separated.</td></tr>
+      <tr><td>Anxiety disorders</td><td>Higher N (esp. N1); N4 for social anxiety.</td></tr>
+      <tr><td>OCD / OCPD features</td><td>Very high C (esp. C2 Order, C6 Deliberation); high N in OCD. High C alone is <em>not</em> OCD.</td></tr>
+      <tr><td>Personality disorders</td><td>Manual maps DSM prototypes to FFM patterns (e.g. Borderline ~ high N; paranoid ~ low A1/A2/A4) — as a caution, not a diagnostic algorithm.</td></tr>
+      <tr><td>Substance use disorders</td><td>Higher N5 Impulsiveness, higher E5 Excitement-Seeking, lower C. Requires substance-specific assessment.</td></tr>
+      <tr><td>Psychotic disorders</td><td>Self-report validity may be impaired in acute psychosis — do not administer; consider Form R only if valid.</td></tr>
+      <tr><td>Bipolar disorder</td><td>Trait profile cannot establish mood-episode history; screen by clinical history.</td></tr>
+      <tr><td>Trauma-related conditions</td><td>Elevated N; possible O3/O changes. State effects of trauma may distort trait estimates.</td></tr>
+      <tr><td>Neurodevelopmental conditions</td><td>Interpret with caution re: self-report validity and comprehension; corroborate with Form R and history.</td></tr>
+    </tbody>
+  </table></div>
+  <p style="text-align:right;"><a class="backtop" href="#toc">↑ Back to contents</a></p>
+</section>
+
+<!-- ===================== PART VIII · CASE FORMULATION ===================== -->
+<div class="banner b-clinical" id="master-case">
+  <div class="tag">Part VIII · Case Formulation</div>
+  <h2>33 · Complete Master Case (fictional)</h2>
+</div>
+<section>
+  <div class="card">
+    <div class="flow">
+      <span class="step">Patient</span><span class="arw">→</span><span class="step">Scores</span><span class="arw">→</span><span class="step">Profile</span><span class="arw">→</span><span class="step">Facets</span><span class="arw">→</span><span class="step">Interpretation</span><span class="arw">→</span><span class="step">Formulation</span>
+    </div>
+    <h4>Identifying information</h4><p>"Ms R," 34-year-old married woman, graduate-educated, employed. <em>(Fictional.)</em></p>
+    <h4>Referral question</h4><p>Referred by treating clinician for personality assessment to inform psychotherapy planning after recurrent low mood and interpersonal strain.</p>
+    <h4>Presenting concerns</h4><p>Persistent worry, self-criticism, and reassurance-seeking; describes difficulty "switching off"; reports she over-commits and then feels overwhelmed.</p>
+    <h4>Background</h4><p>No prior formal assessment; family history of anxiety; stable relationship; high-demand occupation.</p>
+    <h4>Behavioural observations</h4><p>Cooperative, articulate, mildly anxious; completed the NEO-PI-3 (Form S) independently in ~35 minutes; validity items endorsed appropriately; no random-responding flags.</p>
+    <h4>Results table (fictional NEO-PI-3 T-scores, adult combined-sex norms)</h4>
+    <div class="tbl-scroll"><table>
+      <thead><tr><th>Domain</th><th>T-score</th><th>Level</th><th>Salient facets</th></tr></thead>
+      <tbody>
+        <tr><td>Neuroticism</td><td>66</td><td><span class="pill p-vh">Very High</span></td><td>N1 Anxiety (T 70), N3 Depression (T 62), N6 Vulnerability (T 63); N2 average</td></tr>
+        <tr><td>Extraversion</td><td>48</td><td><span class="pill p-avg">Average</span></td><td>E6 Positive Emotions somewhat low (T 44)</td></tr>
+        <tr><td>Openness</td><td>58</td><td><span class="pill p-h">High</span></td><td>O3 Feelings, O5 Ideas elevated</td></tr>
+        <tr><td>Agreeableness</td><td>60</td><td><span class="pill p-h">High</span></td><td>A3 Altruism, A4 Compliance high (defers readily)</td></tr>
+        <tr><td>Conscientiousness</td><td>63</td><td><span class="pill p-h">High</span></td><td>C4 Achievement Striving (T 66), C2 Order high; C5 average</td></tr>
+      </tbody>
+    </table></div>
+    <h4>Interpretation</h4><p>Ms R's profile is dominated by <b>Very High Neuroticism</b>, carried chiefly by anxiety, depressive affect, and stress vulnerability, alongside <b>High Conscientiousness</b> (especially achievement striving) and <b>High Agreeableness</b> (readily deferential). Extraversion is average with somewhat reduced positive emotions.</p>
+    <h4>Clinical formulation (dimensional)</h4><p>The combination of high N + high C + high A + high compliance suggests a driven, conscientious individual who holds high standards, defers to others' needs, and is highly reactive to stress — a pattern consistent with over-commitment followed by overwhelm and self-criticism. High Openness to Feelings/Ideas is a therapeutic asset (psychological-mindedness); high C predicts good follow-through on homework, while high N/N6 predicts distress when tasks feel unmanageable.</p>
+    <h4>Treatment implications</h4><p>Likely to engage and complete between-session work (high C, high A); pace exposure/behavioural tasks to manage N6 vulnerability; address perfectionistic standards and difficulty setting limits (high C4 + high A4).</p>
+    <h4>Limitations</h4><p>Self-report; single administration; traits vs. current state not disentangled by the NEO alone; findings must be integrated with interview, history, and mood/anxiety measures before any diagnostic conclusion.</p>
+  </div>
+</section>
+
+<div class="banner b-clinical" id="profile-cases">
+  <div class="tag">Part VIII · Case Formulation</div>
+  <h2>34 · Profile-Based Cases (8 fictional)</h2>
+</div>
+<section>
+  <div class="grid2">
+    <div class="card tinted-blush"><h4>Case 1 — Reassurance-seeking</h4><p><b>Profile:</b> N High (N1,N4↑), A Very High (A4↑↑), C High.</p><p><b>Interpretation:</b> anxious, deferential, dutiful.</p><p><b>Alt. explanations:</b> state anxiety; cultural deference norms.</p><p><b>Assess:</b> anxiety disorder, assertiveness, current stressors.</p></div>
+    <div class="card tinted-blush"><h4>Case 2 — Irritable/volatile</h4><p><b>Profile:</b> N High (N2,N5↑), A Low (A4↓), C Low (C6↓).</p><p><b>Interpretation:</b> quick to anger, impulsive, confrontational.</p><p><b>Alt.:</b> situational conflict; substance effects.</p><p><b>Assess:</b> impulse-control, substance use, safety.</p></div>
+    <div class="card tinted-blush"><h4>Case 3 — Withdrawn/anhedonic</h4><p><b>Profile:</b> E Very Low (E1,E6↓), N High (N3↑).</p><p><b>Interpretation:</b> reserved, low positive affect, dejected.</p><p><b>Alt.:</b> depressive episode vs. trait introversion.</p><p><b>Assess:</b> mood criteria, anhedonia, risk.</p></div>
+    <div class="card tinted-blush"><h4>Case 4 — Distrustful/guarded</h4><p><b>Profile:</b> A Very Low (A1,A2↓), N moderate.</p><p><b>Interpretation:</b> cynical, guarded, competitive.</p><p><b>Alt.:</b> realistic response to environment; cultural factors.</p><p><b>Assess:</b> reality testing, relational history.</p></div>
+    <div class="card tinted-blush"><h4>Case 5 — Perfectionistic</h4><p><b>Profile:</b> C Very High (C2,C4,C6↑), N moderate (N1↑).</p><p><b>Interpretation:</b> orderly, driven, cautious; possible rigidity.</p><p><b>Alt.:</b> adaptive high standards vs. OCPD features.</p><p><b>Assess:</b> functional cost, flexibility, interview.</p></div>
+    <div class="card tinted-blush"><h4>Case 6 — Sensation-seeking</h4><p><b>Profile:</b> E High (E5↑), N (N5↑), C Low.</p><p><b>Interpretation:</b> thrill-seeking, impulsive, poor follow-through.</p><p><b>Alt.:</b> developmental (adolescent norms); substance use.</p><p><b>Assess:</b> risk behaviour, substances.</p></div>
+    <div class="card tinted-blush"><h4>Case 7 — Resilient/stable</h4><p><b>Profile:</b> N Low, C High, E/A Average.</p><p><b>Interpretation:</b> calm, dependable, resilient.</p><p><b>Alt.:</b> minimisation/defensiveness.</p><p><b>Assess:</b> validity items, corroborate with Form R.</p></div>
+    <div class="card tinted-blush"><h4>Case 8 — Creative/unconventional</h4><p><b>Profile:</b> O Very High (O1,O2,O5↑), E High, C Average.</p><p><b>Interpretation:</b> imaginative, curious, values novelty.</p><p><b>Alt.:</b> high O is normal-range, not pathology.</p><p><b>Assess:</b> context, functioning, goals.</p></div>
+  </div>
+  <p style="text-align:right;"><a class="backtop" href="#toc">↑ Back to contents</a></p>
+</section>
+
+
+<!-- ===================== PART IX · INTEGRATION ===================== -->
+<div class="banner b-report" id="integration">
+  <div class="tag">Part IX · Integration</div>
+  <h2>35 · Integration with Clinical Data</h2>
+</div>
+<section>
+  <p>The NEO is one voice in the assessment. Integrate it with:</p>
+  <div class="grid2">
+    <div class="card tinted-blue"><ul class="tight">
+      <li><b>Clinical interview</b> — the reference frame for every trait statement.</li>
+      <li><b>Mental Status Examination</b> — current state vs. enduring trait.</li>
+      <li><b>History</b> — onset, course, context of any presenting problem.</li>
+      <li><b>Behavioural observation</b> — corroborate self-report.</li>
+      <li><b>MMPI-3</b> — psychopathology / validity scales complement NEO's normal-trait focus.</li>
+    </ul></div>
+    <div class="card tinted-blue"><ul class="tight">
+      <li><b>Rorschach / TAT</b> — performance-based data on implicit processes.</li>
+      <li><b>BDI / BAI</b> — state severity of depression/anxiety vs. trait N.</li>
+      <li><b>Other personality measures</b> — convergent trait evidence.</li>
+      <li><b>Adaptive-behaviour measures</b> — real-world functioning.</li>
+      <li><b>Form R (observer)</b> — self–informant convergence.</li>
+    </ul></div>
+  </div>
+  <div class="grid2">
+    <div class="card tinted-sage"><h4>Convergent findings</h4><p>When the NEO agrees with interview, history, and other tests, confidence in the formulation increases (e.g. high N + elevated BDI + reported low mood + Form R agreement).</p></div>
+    <div class="card tinted-blush"><h4>Discordant findings</h4><p>When sources disagree (e.g. low N self-report but observer/clinician sees marked distress), treat it as data: consider defensiveness, minimisation, limited insight, state effects, or a genuinely resilient trait profile — and say so explicitly.</p></div>
+  </div>
+</section>
+
+<div class="banner b-report" id="compare">
+  <div class="tag">Part IX · Integration</div>
+  <h2>36 · NEO PI vs. Other Personality Measures</h2>
+</div>
+<section>
+  <div class="tbl-scroll"><table>
+    <thead><tr><th>Instrument</th><th>Primary purpose</th><th>Method</th><th>Strength</th><th>Limitation</th></tr></thead>
+    <tbody>
+      <tr><td><b>NEO-PI-3</b></td><td>Normal personality (FFM)</td><td>Self / observer report</td><td>Comprehensive trait coverage (5 domains, 30 facets); strong theory</td><td>Not diagnostic; self-report bias; no MMPI-style validity scales</td></tr>
+      <tr><td>MMPI-3</td><td>Psychopathology &amp; validity</td><td>Self-report</td><td>Rich validity scales; clinical/symptom focus</td><td>Less about normal-range traits/facets</td></tr>
+      <tr><td>MCMI</td><td>Personality disorders &amp; clinical syndromes</td><td>Self-report</td><td>Aligned to PD constructs; clinical base rates</td><td>Clinical populations; not a normal-trait model</td></tr>
+      <tr><td>16PF</td><td>Normal personality (16 factors)</td><td>Self-report</td><td>Fine-grained normal traits</td><td>Different structure; less clinically mapped than NEO</td></tr>
+      <tr><td>EPQ</td><td>Eysenck's dimensions (E, N, P)</td><td>Self-report</td><td>Parsimonious, well-researched</td><td>Fewer dimensions; no facets</td></tr>
+      <tr><td>Rorschach</td><td>Perception / implicit processes</td><td>Performance-based</td><td>Less susceptible to impression management</td><td>Training-intensive; different construct level</td></tr>
+      <tr><td>TAT</td><td>Motives, narratives, object relations</td><td>Performance-based</td><td>Rich idiographic themes</td><td>Interpretive variability; not trait-normed</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- ===================== PART X · PSYCHOMETRICS ===================== -->
+<div class="banner b-theory" id="reliability">
+  <div class="tag">Part X · Psychometrics</div>
+  <h2>37 · Reliability</h2>
+</div>
+<section>
+  <ul class="tight">
+    <li><b>Internal consistency:</b> the manual reports that the domain scales show high internal consistency; facet scales, being shorter (8 items), have somewhat lower but adequate internal consistency than the domains.</li>
+    <li><b>Test–retest reliability:</b> the manual reports substantial stability of both domain and facet scores over time, consistent with the trait conception (personality is relatively stable in adulthood).</li>
+    <li><b>Domain vs. facet:</b> domains (aggregating ~48 items) are more reliable than individual facets; interpret single-facet elevations with appropriate caution.</li>
+  </ul>
+  <div class="callout co-verify"><b>Not fabricating exact coefficients</b>The precise reliability coefficients are tabulated in the validation chapter and appendices of the manual. This guide does <em>not</em> reproduce specific numeric values here; consult the manual's reliability tables for the exact figures. <em>(Not verified to a specific value from the transcribed material.)</em></div>
+</section>
+
+<div class="banner b-theory" id="validity">
+  <div class="tag">Part X · Psychometrics</div>
+  <h2>38 · Validity</h2>
+</div>
+<section>
+  <ul class="tight">
+    <li><b>Factorial validity:</b> the five-factor structure replicates robustly, including via targeted rotation to the normative structure.</li>
+    <li><b>Construct validity:</b> the scales relate as predicted to a wide range of criteria (well-being, coping, needs/motives, interpersonal circumplex, Jungian types, etc.).</li>
+    <li><b>Convergent &amp; discriminant validity:</b> facet scales correlate with matching external measures and diverge from unrelated ones; self-reports converge with observer (Form R) ratings.</li>
+    <li><b>Cross-observer validity:</b> self–peer/spouse agreement supports that the scales measure real, observable characteristics.</li>
+    <li><b>Cross-cultural validity:</b> the FFM/NEO replicates across many languages and cultures (the manual notes translation into 50+ languages).</li>
+  </ul>
+  <div class="callout co-note"><b>Stay proportionate</b>Report validity as supportive, not as proof of anything about an individual. Validity of the <em>instrument</em> does not guarantee validity of a <em>single protocol</em> — that is what the response-quality screens (§12) address.</div>
+</section>
+
+<div class="banner b-theory" id="culture">
+  <div class="tag">Part X · Psychometrics</div>
+  <h2>39 · Cultural Considerations</h2>
+</div>
+<section>
+  <ul class="tight">
+    <li><b>Language &amp; translation:</b> use only properly validated, licensed translations; the publisher discourages ad-hoc translation.</li>
+    <li><b>Norms:</b> compare people to an <em>appropriate</em> reference group. Mean levels of traits differ across cultures and age groups.</li>
+    <li><b>Social desirability &amp; response styles:</b> acquiescence, extreme responding, and modesty norms vary culturally — the balanced item set and the acquiescence/nay-saying checks help, but interpret with cultural awareness.</li>
+    <li><b>Indian clinical context:</b> foreign (e.g. US) normative data should <b>not</b> be treated automatically as Indian norms. Where local norms are unavailable, interpret standardized scores cautiously and lean on within-person facet scatter and clinical corroboration.</li>
+  </ul>
+  <div class="callout co-warn"><b>Why foreign norms ≠ local norms</b>A T-score is only meaningful relative to the reference sample. Applying a foreign norm table to an Indian respondent can distort the apparent elevation/reduction of traits. State the norm group used and its limitation in the report.</div>
+</section>
+
+<!-- ===================== PART XI · LIMITATIONS ===================== -->
+<div class="banner b-clinical" id="limitations">
+  <div class="tag">Part XI · Limitations</div>
+  <h2>40 · Limitations of the NEO PI</h2>
+</div>
+<section>
+  <div class="grid2">
+    <div class="card tinted-blush"><ul class="tight">
+      <li><b>Self-report bias</b> — depends on willingness and ability to describe oneself.</li>
+      <li><b>Social desirability</b> — impression management can distort scores.</li>
+      <li><b>Response style</b> — acquiescence, nay-saying, extreme/random responding.</li>
+      <li><b>Insight</b> — limited self-awareness limits accuracy (consider Form R).</li>
+      <li><b>Literacy / language</b> — comprehension and translation issues.</li>
+    </ul></div>
+    <div class="card tinted-blush"><ul class="tight">
+      <li><b>Cultural effects</b> — norms and response styles vary (see §39).</li>
+      <li><b>Context dependence</b> — situational stress can colour responses.</li>
+      <li><b>Trait vs. state</b> — the NEO estimates enduring traits, not current episodes.</li>
+      <li><b>Normative limitations</b> — appropriate norm group must exist and be used.</li>
+      <li><b>Interpretation limits</b> — describes normal traits; <b>not</b> diagnostic on its own.</li>
+    </ul></div>
+  </div>
+  <p style="text-align:right;"><a class="backtop" href="#toc">↑ Back to contents</a></p>
+</section>
+
+
+<!-- ===================== PART XII · REPORT WRITING ===================== -->
+<div class="banner b-report" id="report-structure">
+  <div class="tag">Part XII · Report Writing</div>
+  <h2>41 · Complete NEO PI Report Structure</h2>
+</div>
+<section>
+  <div class="tbl-scroll"><table>
+    <thead><tr><th>#</th><th>Section</th><th>What it contains</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Identifying Information</td><td>Name/initials, age, sex, education, date, examiner.</td></tr>
+      <tr><td>2</td><td>Referral Source</td><td>Who referred and their role.</td></tr>
+      <tr><td>3</td><td>Reason for Referral</td><td>The specific question the assessment must answer.</td></tr>
+      <tr><td>4</td><td>Background</td><td>Relevant history, presenting concerns, prior assessment.</td></tr>
+      <tr><td>5</td><td>Assessment Tool</td><td>Exact version (e.g. NEO-PI-3, Form S), norm group used.</td></tr>
+      <tr><td>6</td><td>Purpose</td><td>Why the NEO was chosen for this question.</td></tr>
+      <tr><td>7</td><td>Behavioural Observations</td><td>Cooperation, effort, apparent comprehension, time taken.</td></tr>
+      <tr><td>8</td><td>Administration</td><td>Setting, form, accommodations, any deviations.</td></tr>
+      <tr><td>9</td><td>Scoring</td><td>Method (HS/SS/software), validity screens, protocol validity statement.</td></tr>
+      <tr><td>10</td><td>Domain Results</td><td>Domain table (T, percentile, level).</td></tr>
+      <tr><td>11</td><td>Facet Results</td><td>Facet table with salient elevations/reductions.</td></tr>
+      <tr><td>12</td><td>Standardized Scores</td><td>T-scores &amp; percentiles referenced to the norm group.</td></tr>
+      <tr><td>13</td><td>Interpretation</td><td>Domain + facet prose in cautious language.</td></tr>
+      <tr><td>14</td><td>Clinical Formulation</td><td>Integration with interview/history/other tests.</td></tr>
+      <tr><td>15</td><td>Limitations</td><td>Self-report, norms, trait-vs-state, single administration.</td></tr>
+      <tr><td>16</td><td>Recommendations</td><td>Actionable, tied to the referral question.</td></tr>
+      <tr><td>17</td><td>Final Impression</td><td>Concise dimensional summary — not a diagnosis from the NEO alone.</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<div class="banner b-report" id="results-table">
+  <div class="tag">Part XII · Report Writing</div>
+  <h2>42 · Results Tables</h2>
+</div>
+<section>
+  <h4>Domain results (professional format)</h4>
+  <div class="tbl-scroll"><table>
+    <thead><tr><th>Domain</th><th>Raw score</th><th>T-score</th><th>Percentile</th><th>Interpretation</th></tr></thead>
+    <tbody>
+      <tr><td>Neuroticism (N)</td><td>119</td><td>60</td><td>~84</td><td><span class="pill p-h">High</span></td></tr>
+      <tr><td>Extraversion (E)</td><td>98</td><td>48</td><td>~42</td><td><span class="pill p-avg">Average</span></td></tr>
+      <tr><td>Openness (O)</td><td>112</td><td>58</td><td>~79</td><td><span class="pill p-h">High</span></td></tr>
+      <tr><td>Agreeableness (A)</td><td>120</td><td>60</td><td>~84</td><td><span class="pill p-h">High</span></td></tr>
+      <tr><td>Conscientiousness (C)</td><td>128</td><td>63</td><td>~90</td><td><span class="pill p-h">High</span></td></tr>
+    </tbody>
+  </table></div>
+  <p><small>Raw and T values above are fictional and illustrative; always transcribe from the actual Profile Form.</small></p>
+  <h4>Facet results (per domain)</h4>
+  <div class="tbl-scroll"><table>
+    <thead><tr><th>Domain</th><th>Facet</th><th>T-score</th><th>Interpretation</th></tr></thead>
+    <tbody>
+      <tr><td rowspan="3">N</td><td>N1 Anxiety</td><td>66</td><td><span class="pill p-vh">Very High</span></td></tr>
+      <tr><td>N3 Depression</td><td>58</td><td><span class="pill p-h">High</span></td></tr>
+      <tr><td>N5 Impulsiveness</td><td>50</td><td><span class="pill p-avg">Average</span></td></tr>
+      <tr><td>C</td><td>C4 Achievement Striving</td><td>66</td><td><span class="pill p-vh">Very High</span></td></tr>
+      <tr><td>E</td><td>E6 Positive Emotions</td><td>44</td><td><span class="pill p-l">Low</span></td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<div class="banner b-report" id="report-domain">
+  <div class="tag">Part XII · Report Writing</div>
+  <h2>43 · Domain Interpretation Prose</h2>
+</div>
+<section>
+  <p>Template: <em>"The individual's score on ______ was in the ______ range, indicating ______. At the facet level, ______ was relatively elevated while ______ was relatively lower, suggesting ______. These findings should be interpreted in conjunction with the clinical interview and other assessment findings."</em></p>
+  <div class="report-doc">
+    <p><b>Neuroticism:</b> "Ms R's Neuroticism score fell in the High range (T = 60), indicating that she reports experiencing more negative emotion and stress reactivity than most people. At the facet level, Anxiety was very high and Depression high, while Impulsiveness was average, suggesting a predominantly worry- and mood-based presentation rather than an impulse-driven one. This should be interpreted alongside interview and mood measures."</p>
+    <p><b>Extraversion:</b> "Extraversion was in the Average range (T = 48), consistent with a balanced interpersonal style; a somewhat reduced Positive Emotions facet suggests she may currently experience less exuberance than her overall sociability would predict."</p>
+    <p><b>Openness:</b> "Openness was High (T = 58), reflecting an imaginative, curious, and emotionally attuned style that may be an asset for insight-oriented work."</p>
+    <p><b>Agreeableness:</b> "Agreeableness was High (T = 60), indicating a cooperative, trusting, and accommodating interpersonal stance; elevated Compliance suggests she may defer readily and could benefit from support around assertiveness."</p>
+    <p><b>Conscientiousness:</b> "Conscientiousness was High (T = 63), with very high Achievement Striving, indicating a driven, organised, dependable style; this predicts good engagement with structured, task-based interventions."</p>
+  </div>
+</section>
+
+<div class="banner b-report" id="report-facet">
+  <div class="tag">Part XII · Report Writing</div>
+  <h2>44 · Facet Interpretation Prose</h2>
+</div>
+<section>
+  <div class="grid2">
+    <div class="card tinted-blue"><h4>Single facet</h4><p class="phrase">"Her very high Anxiety facet (T = 66) is consistent with prominent worry and tension; this should be corroborated by interview rather than treated as diagnostic."</p></div>
+    <div class="card tinted-blue"><h4>Multiple facets</h4><p class="phrase">"Within Neuroticism, elevations on Anxiety and Depression alongside an average Angry Hostility facet suggest an internalising rather than externalising expression of distress."</p></div>
+    <div class="card tinted-blue"><h4>Domain + facet integration</h4><p class="phrase">"Although her Conscientiousness domain is High, this is driven chiefly by Achievement Striving and Order rather than by Self-Discipline, which was average — she sets ambitious, orderly goals but may find sustained follow-through more effortful under stress."</p></div>
+    <div class="card tinted-blue"><h4>Cross-domain integration</h4><p class="phrase">"The combination of high Conscientiousness and high Agreeableness with very high Neuroticism suggests a conscientious, deferential individual who is highly reactive to stress — a pattern that may underlie over-commitment followed by overwhelm."</p></div>
+  </div>
+  <div class="callout co-warn"><b>Avoid simplistic statements</b>Do not write "High Neuroticism means the patient has anxiety." Instead: "an elevated Neuroticism score suggests a greater tendency to experience negative affect, which is <em>consistent with</em> — but does not establish — a clinical anxiety condition; this requires independent diagnostic evaluation."</div>
+</section>
+
+<div class="banner b-report" id="sample-reports">
+  <div class="tag">Part XII · Report Writing</div>
+  <h2>45 · Complete Sample Reports (fictional)</h2>
+</div>
+<section>
+  <div class="report-doc">
+    <h4>Report 1 — Clinical anxiety / depressive presentation</h4>
+    <p><b>Identifying:</b> "Mr T," 28, male, self-referred via GP. <b>Referral:</b> clarify personality contributors to recurrent anxiety and low mood. <b>Tool:</b> NEO-PI-3, Form S, adult combined-sex norms. <b>Observations:</b> cooperative, mildly anxious, ~38 min, validity items appropriate.</p>
+    <p><b>Results:</b> N Very High (T 68; N1, N3, N6 elevated), E Low (T 42; E6 low), O Average, A Average, C Average.</p>
+    <p><b>Interpretation:</b> A profile dominated by Very High Neuroticism (anxiety, depressive affect, stress vulnerability) with Low Extraversion (reduced positive emotions) — a distress-prone, low-positive-affect pattern. <b>Formulation:</b> consistent with (but not diagnostic of) an anxious-depressive presentation; the low E6 may maintain low mood. <b>Recommendations:</b> integrate with BDI/BAI and interview; behavioural activation and worry-focused CBT; monitor risk. <b>Limitations:</b> self-report; state may inflate N; single administration. <b>Final impression:</b> distress-prone dimensional profile; diagnosis to be established clinically.</p>
+  </div>
+  <div class="report-doc">
+    <h4>Report 2 — Personality / interpersonal difficulty</h4>
+    <p><b>Identifying:</b> "Ms K," 40, female, referred by therapist. <b>Referral:</b> understand recurrent workplace conflict. <b>Tool:</b> NEO-PI-3, Form S (+ Form R from spouse), adult norms.</p>
+    <p><b>Results:</b> A Very Low (T 33; A1 Trust, A2 Straightforwardness, A4 Compliance low), N High (N2 elevated), E High (E3 Assertiveness high), C High.</p>
+    <p><b>Interpretation:</b> skeptical, competitive, confrontational interpersonal style (very low A) combined with assertiveness and readiness for anger. Form R broadly converges. <b>Formulation:</b> trait antagonism plus irritability may drive conflict; not equivalent to any personality-disorder diagnosis. <b>Recommendations:</b> interpersonal-skills and anger-regulation focus; explore self–informant convergence; formal PD assessment by interview if indicated. <b>Limitations:</b> traits ≠ diagnosis; context matters. <b>Final impression:</b> antagonistic–assertive dimensional pattern relevant to the referral question.</p>
+  </div>
+  <div class="report-doc">
+    <h4>Report 3 — Non-clinical personality assessment</h4>
+    <p><b>Identifying:</b> "Mr S," 24, male, career-counselling context. <b>Referral:</b> personality description to inform vocational guidance. <b>Tool:</b> NEO-PI-3, Form S, adult combined-sex norms.</p>
+    <p><b>Results:</b> O Very High (O5 Ideas, O1 Fantasy elevated), E High (E3, E5), C Average, N Low, A Average.</p>
+    <p><b>Interpretation:</b> imaginative, curious, assertive, and emotionally stable — a profile suited to varied, idea-rich, socially engaging work. <b>Formulation (non-clinical):</b> strengths in creativity and initiative; average Conscientiousness suggests structure/deadlines may need external support. <b>Recommendations:</b> roles offering novelty, autonomy, and social contact; scaffolding for organisation. <b>Limitations:</b> self-report; vocational fit depends on many factors. <b>Final impression:</b> open, extraverted, stable normal-range profile.</p>
+  </div>
+</section>
+
+<div class="banner b-report" id="phrase-bank">
+  <div class="tag">Part XII · Report Writing</div>
+  <h2>46 · Report-Writing Phrase Bank</h2>
+</div>
+<section>
+  <div class="grid2">
+    <div class="card tinted-blue"><h4>High scores</h4>
+      <p class="phrase">"…scored in the High range, suggesting a greater-than-average tendency to…"</p>
+      <p class="phrase">"…reports notably more … than most people in the reference group…"</p></div>
+    <div class="card tinted-blue"><h4>Low scores</h4>
+      <p class="phrase">"…fell in the Low range, which may reflect a preference for…"</p>
+      <p class="phrase">"…describes fewer … experiences than average; this is a descriptive difference, not a deficit…"</p></div>
+    <div class="card tinted-blue"><h4>Average scores</h4>
+      <p class="phrase">"…was in the Average range, consistent with a balanced, typical standing on this trait…"</p></div>
+    <div class="card tinted-blue"><h4>Facet elevations / reductions</h4>
+      <p class="phrase">"At the facet level, … was relatively elevated, while … was relatively lower, suggesting…"</p></div>
+    <div class="card tinted-blue"><h4>Trait combinations</h4>
+      <p class="phrase">"The combination of … and … may indicate a … style that…"</p></div>
+    <div class="card tinted-blue"><h4>Clinical implications</h4>
+      <p class="phrase">"…is consistent with, but does not establish, … and should be corroborated clinically."</p>
+      <p class="phrase">"…may be associated with … in the literature; independent assessment is required."</p></div>
+    <div class="card tinted-blue"><h4>Limitations</h4>
+      <p class="phrase">"These results are based on self-report and should be interpreted in conjunction with interview, history, and other findings."</p></div>
+    <div class="card tinted-blue"><h4>Recommendations</h4>
+      <p class="phrase">"Given her high Conscientiousness, structured, task-based interventions are likely to be well tolerated."</p></div>
+  </div>
+  <div class="callout co-key"><b>Cautious verbs to prefer</b> "suggests," "may indicate," "is consistent with," "appears to reflect," "may be associated with," "should be interpreted in conjunction with." <b>Avoid</b> "proves," "diagnoses," "confirms," "is."</div>
+  <p style="text-align:right;"><a class="backtop" href="#toc">↑ Back to contents</a></p>
+</section>
+
+
+<!-- ===================== PART XIII · COMMON ERRORS ===================== -->
+<div class="banner b-scoring" id="err-admin">
+  <div class="tag">Part XIII · Common Errors</div>
+  <h2>47 · Administration Errors</h2>
+</div>
+<section>
+  <div class="grid2">
+    <div class="card tinted-peach"><ul class="tight">
+      <li><b>Leading</b> the respondent toward answers.</li>
+      <li><b>Explaining items beyond standardized instructions</b> (paraphrasing that changes meaning — give only standardized word definitions).</li>
+      <li><b>Influencing responses</b> by tone, comment, or presence.</li>
+    </ul></div>
+    <div class="card tinted-peach"><ul class="tight">
+      <li><b>Poor privacy</b> — undermines candour.</li>
+      <li><b>Inadequate instructions</b> — respondent unsure how to use the scale.</li>
+      <li>Failing to record <b>who</b> is being rated (Form R) or to check the answer sheet on completion.</li>
+    </ul></div>
+  </div>
+</section>
+
+<div class="banner b-scoring" id="err-scoring">
+  <div class="tag">Part XIII · Common Errors</div>
+  <h2>48 · Scoring Errors</h2>
+</div>
+<section>
+  <div class="grid2">
+    <div class="card tinted-peach"><ul class="tight">
+      <li><b>Missing reverse-scored items</b> — forgetting to flip negatively keyed items.</li>
+      <li><b>Using the wrong item key</b> or wrong facet grouping.</li>
+      <li><b>Using the wrong version</b> (e.g. scoring NEO PI-R responses with NEO-PI-3 forms).</li>
+      <li><b>Using the wrong norm table</b> (age/sex/version mismatch).</li>
+    </ul></div>
+    <div class="card tinted-peach"><ul class="tight">
+      <li><b>Incorrect raw totals</b> (arithmetic slips).</li>
+      <li><b>Incorrect raw-to-T conversion</b> — reading the wrong column.</li>
+      <li><b>Misreading percentiles</b> as percentages.</li>
+      <li><b>Mixing domain and facet scores</b> — or scoring despite too many missing/random responses.</li>
+    </ul></div>
+  </div>
+</section>
+
+<div class="banner b-scoring" id="err-interp">
+  <div class="tag">Part XIII · Common Errors</div>
+  <h2>49 · Interpretation Errors</h2>
+</div>
+<section>
+  <div class="tbl-scroll"><table>
+    <thead><tr><th>Error</th><th>Why it's wrong</th></tr></thead>
+    <tbody>
+      <tr><td>Diagnosing from personality traits</td><td>The NEO describes normal traits; diagnosis needs independent clinical assessment.</td></tr>
+      <tr><td>Treating high N as an anxiety disorder</td><td>High N is general negative-affect proneness, not a disorder.</td></tr>
+      <tr><td>Treating low E as depression</td><td>Low E is introversion; depression is a state/disorder (see N3, E6, interview).</td></tr>
+      <tr><td>Treating high C as OCD</td><td>High C is conscientiousness; OCD/OCPD require diagnostic criteria.</td></tr>
+      <tr><td>Treating high A as dependent PD</td><td>High A is cooperativeness; dependency is a separate clinical judgment.</td></tr>
+      <tr><td>Treating low A as antisocial PD</td><td>Low A is antagonism; ASPD requires behavioural/historical criteria.</td></tr>
+      <tr><td>Treating high O as creativity alone</td><td>O is broader (imagination, aesthetics, feelings, ideas, values).</td></tr>
+      <tr><td>Ignoring facet configuration</td><td>Same domain score can mean very different things (see §22).</td></tr>
+      <tr><td>Ignoring context / culture</td><td>Norm group, state effects, and culture change meaning (§39).</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- ===================== PART XIV · WORKSHEETS ===================== -->
+<div class="banner b-scoring" id="ws-item">
+  <div class="tag">Part XIV · Practical Worksheets</div>
+  <h2>50 · Item Scoring Worksheet</h2>
+</div>
+<section>
+  <div class="tbl-scroll"><table>
+    <thead><tr><th>Item</th><th>Response</th><th>Raw (0–4)</th><th>Reverse?</th><th>Facet</th><th>Domain</th><th>Final score</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>____</td><td>____</td><td>Y / N</td><td>____</td><td>____</td><td>____</td></tr>
+      <tr><td>2</td><td>____</td><td>____</td><td>Y / N</td><td>____</td><td>____</td><td>____</td></tr>
+      <tr><td>3</td><td>____</td><td>____</td><td>Y / N</td><td>____</td><td>____</td><td>____</td></tr>
+      <tr><td>…</td><td>____</td><td>____</td><td>Y / N</td><td>____</td><td>____</td><td>____</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<div class="banner b-scoring" id="ws-facet">
+  <div class="tag">Part XIV · Worksheets</div>
+  <h2>51 · Facet Worksheet</h2>
+</div>
+<section>
+  <div class="tbl-scroll"><table>
+    <thead><tr><th>Facet</th><th>Items (8)</th><th>Raw total (0–32)</th><th>T-score</th><th>Percentile</th><th>Interpretation</th></tr></thead>
+    <tbody>
+      <tr><td>N1 Anxiety</td><td>1,31,61,91,121,151,181,211</td><td>____</td><td>____</td><td>____</td><td>____</td></tr>
+      <tr><td>N2 Angry Hostility</td><td>(per answer sheet)</td><td>____</td><td>____</td><td>____</td><td>____</td></tr>
+      <tr><td>…</td><td>…</td><td>____</td><td>____</td><td>____</td><td>____</td></tr>
+    </tbody>
+  </table></div>
+  <p><small>Only the N1 item list is shown because the manual prints it as its worked example; read all other facet item lists from your own answer sheet.</small></p>
+</section>
+
+<div class="banner b-scoring" id="ws-domain">
+  <div class="tag">Part XIV · Worksheets</div>
+  <h2>52 · Domain Worksheet</h2>
+</div>
+<section>
+  <div class="tbl-scroll"><table>
+    <thead><tr><th>Domain</th><th>Facets summed</th><th>Raw score (0–192)</th><th>T-score</th><th>Percentile</th><th>Interpretation</th></tr></thead>
+    <tbody>
+      <tr><td>N</td><td>N1+N2+N3+N4+N5+N6</td><td>____</td><td>____</td><td>____</td><td>____</td></tr>
+      <tr><td>E</td><td>E1+E2+E3+E4+E5+E6</td><td>____</td><td>____</td><td>____</td><td>____</td></tr>
+      <tr><td>O</td><td>O1+O2+O3+O4+O5+O6</td><td>____</td><td>____</td><td>____</td><td>____</td></tr>
+      <tr><td>A</td><td>A1+A2+A3+A4+A5+A6</td><td>____</td><td>____</td><td>____</td><td>____</td></tr>
+      <tr><td>C</td><td>C1+C2+C3+C4+C5+C6</td><td>____</td><td>____</td><td>____</td><td>____</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<div class="banner b-scoring" id="ws-master">
+  <div class="tag">Part XIV · Worksheets</div>
+  <h2>53 · Master Profile Sheet</h2>
+</div>
+<section>
+  <div class="flow">
+    <span class="step">Domain</span><span class="arw">→</span><span class="step">Facets</span><span class="arw">→</span>
+    <span class="step">T-score</span><span class="arw">→</span><span class="step">Percentile</span><span class="arw">→</span>
+    <span class="step">Qualitative level</span><span class="arw">→</span><span class="step">Clinical implication</span>
+  </div>
+  <div class="tbl-scroll"><table>
+    <thead><tr><th>Domain</th><th>Facet</th><th>T</th><th>%ile</th><th>Level</th><th>Clinical implication (hypothesis)</th></tr></thead>
+    <tbody>
+      <tr><td>N</td><td>N1…N6</td><td>__</td><td>__</td><td>__</td><td>____________________</td></tr>
+      <tr><td>E</td><td>E1…E6</td><td>__</td><td>__</td><td>__</td><td>____________________</td></tr>
+      <tr><td>O</td><td>O1…O6</td><td>__</td><td>__</td><td>__</td><td>____________________</td></tr>
+      <tr><td>A</td><td>A1…A6</td><td>__</td><td>__</td><td>__</td><td>____________________</td></tr>
+      <tr><td>C</td><td>C1…C6</td><td>__</td><td>__</td><td>__</td><td>____________________</td></tr>
+    </tbody>
+  </table></div>
+  <p style="text-align:right;"><a class="backtop" href="#toc">↑ Back to contents</a></p>
+</section>
+
+<!-- ===================== PART XV · MASTER ALGORITHM ===================== -->
+<div class="banner b-admin" id="algorithm">
+  <div class="tag">Part XV · Master Algorithm</div>
+  <h2>54 · Complete NEO PI Workflow (18 steps)</h2>
+</div>
+<section>
+  <div class="tbl-scroll"><table>
+    <thead><tr><th>Step</th><th>Do this</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td><b>Identify the exact NEO version</b> (NEO-PI-3 / NEO PI-R / NEO-FFI-3) and form (S or R).</td></tr>
+      <tr><td>2</td><td><b>Select appropriate norms</b> — age (adolescent 12–20 / adult 21+), combined- vs. separate-sex, and version-specific tables (NEO PI-R → 1992 forms).</td></tr>
+      <tr><td>3</td><td><b>Establish rapport</b> and explain the assessment; obtain consent.</td></tr>
+      <tr><td>4</td><td><b>Administer</b> the standardized questionnaire (five-point scale, no time limit).</td></tr>
+      <tr><td>5</td><td><b>Check response completeness.</b></td></tr>
+      <tr><td>6</td><td><b>Identify missing responses</b> — apply the ≥41 (NEO-PI-3/PI-R) / &gt;4-per-domain (NEO-FFI-3) rules; score missing as neutral.</td></tr>
+      <tr><td>7</td><td><b>Apply the scoring key</b> (facet groupings; positive vs. reverse items).</td></tr>
+      <tr><td>8</td><td><b>Apply reverse scoring</b> to negatively keyed items.</td></tr>
+      <tr><td>9</td><td><b>Calculate facet raw scores</b> (sum 8 items each → 0–32).</td></tr>
+      <tr><td>10</td><td><b>Calculate domain raw scores</b> (sum 6 facets → 0–192), or compute factor scores via software.</td></tr>
+      <tr><td>11</td><td><b>Convert to standardized T-scores</b> (M 50, SD 10) on the Profile Form.</td></tr>
+      <tr><td>12</td><td><b>Determine percentiles</b> where useful (appendix table).</td></tr>
+      <tr><td>13</td><td><b>Construct the domain profile</b> (five-level ranges).</td></tr>
+      <tr><td>14</td><td><b>Construct the facet profile.</b></td></tr>
+      <tr><td>15</td><td><b>Identify relative elevations and reductions</b> (facet scatter).</td></tr>
+      <tr><td>16</td><td><b>Interpret the trait configuration</b> (patterns/styles — not diagnoses).</td></tr>
+      <tr><td>17</td><td><b>Integrate with clinical information</b> (interview, MSE, history, other tests; convergent vs. discordant).</td></tr>
+      <tr><td>18</td><td><b>Write the psychological report</b> in cautious, dimensional language.</td></tr>
+    </tbody>
+  </table></div>
+  <div class="callout co-warn"><b>The chain to memorise</b> Raw response → item scoring → reverse scoring → facet score → domain score → standardized score → profile → facet configuration → clinical interpretation → integration → report. <b>Never:</b> personality score → automatic diagnosis.</div>
+  <p style="text-align:right;"><a class="backtop" href="#toc">↑ Back to contents</a></p>
+</section>
+
+
+<!-- ===================== PART XVI · QUICK REFERENCE ===================== -->
+<div class="banner b-interp" id="quick">
+  <div class="tag">Part XVI · Quick Reference</div>
+  <h2>Quick Reference &amp; Cheat Sheets</h2>
+</div>
+<section>
+  <div class="grid2">
+    <div class="card tinted-cream"><h4>NEO PI in 5 minutes</h4><ul class="tight">
+      <li>Measures <b>normal personality</b> via the Five-Factor Model.</li>
+      <li>Repo manual = <b>NEO Inventories Professional Manual</b> (2010): NEO-PI-3, NEO-FFI-3, NEO PI-R.</li>
+      <li><b>NEO-PI-3:</b> 240 items, 5 domains, 30 facets, age 12+.</li>
+      <li><b>NEO-FFI-3:</b> 60 items, 5 domains, no facets.</li>
+      <li>5-point agreement scale; raw → <b>T (M 50, SD 10)</b>.</li>
+      <li><b>Not diagnostic</b> on its own.</li>
+    </ul></div>
+    <div class="card tinted-cream"><h4>Five domains in 5 minutes</h4><ul class="tight">
+      <li><b>N</b> — negative affect vs. stability.</li>
+      <li><b>E</b> — sociability, energy, positive affect.</li>
+      <li><b>O</b> — imagination, curiosity, aesthetics.</li>
+      <li><b>A</b> — altruism vs. antagonism.</li>
+      <li><b>C</b> — self-control, organisation, drive.</li>
+    </ul></div>
+    <div class="card tinted-cream"><h4>30-facet revision</h4><ul class="tight">
+      <li><b>N:</b> Anxiety · Angry Hostility · Depression · Self-Consciousness · Impulsiveness · Vulnerability.</li>
+      <li><b>E:</b> Warmth · Gregariousness · Assertiveness · Activity · Excitement-Seeking · Positive Emotions.</li>
+      <li><b>O:</b> Fantasy · Aesthetics · Feelings · Actions · Ideas · Values.</li>
+      <li><b>A:</b> Trust · Straightforwardness · Altruism · Compliance · Modesty · Tender-Mindedness.</li>
+      <li><b>C:</b> Competence · Order · Dutifulness · Achievement Striving · Self-Discipline · Deliberation.</li>
+    </ul></div>
+    <div class="card tinted-cream"><h4>Scoring in 5 minutes</h4><ul class="tight">
+      <li>Item 0–4; reverse-key flips (0↔4, 1↔3, 2=2).</li>
+      <li>8 items → facet raw (0–32).</li>
+      <li>6 facets → domain raw (0–192).</li>
+      <li>Raw → T on Profile Form → percentile.</li>
+      <li>Screen: validity items A/B/C, missing (≥41), acquiescence, random runs.</li>
+    </ul></div>
+    <div class="card tinted-cream"><h4>Interpretation in 10 minutes</h4><ul class="tight">
+      <li>Five levels: <b>Very Low ≤34 · Low 35–44 · Average 45–55 · High 56–65 · Very High ≥66</b>.</li>
+      <li>Read domain <em>and</em> facet scatter.</li>
+      <li>Translate scores → functional description → hypotheses.</li>
+      <li>Integrate with interview/history/other tests.</li>
+      <li>Never diagnose from the NEO alone.</li>
+    </ul></div>
+    <div class="card tinted-cream"><h4>Profile interpretation cheat sheet</h4><ul class="tight">
+      <li>T 50 = 50th %ile (average); T 60 ≈ 84th; T 66 ≈ 95th; T 40 ≈ 16th.</li>
+      <li>Same domain, different facets = different meaning.</li>
+      <li>Combinations = styles/hypotheses, not categories.</li>
+      <li>Use combined-sex norms for clinical description.</li>
+    </ul></div>
+    <div class="card tinted-cream"><h4>Report writing cheat sheet</h4><ul class="tight">
+      <li>State exact version, form, and norm group.</li>
+      <li>Domain table → facet table → prose → formulation.</li>
+      <li>Cautious verbs: suggests / may indicate / is consistent with.</li>
+      <li>Always add limitations + "interpret alongside other findings."</li>
+    </ul></div>
+    <div class="card tinted-cream"><h4>Key differences between versions</h4><ul class="tight">
+      <li><b>NEO-PI-3 vs NEO PI-R:</b> same 5×6 structure; PI-3 reworded 37 items, age 12+, new norms; PI-R uses 1992 forms.</li>
+      <li><b>NEO-FFI-3:</b> 60 items, domains only, no facets.</li>
+      <li>Do not mix items, keys, norms, or T-conversions across versions.</li>
+    </ul></div>
+  </div>
+  <div class="callout co-verify"><b>Source note</b>All version, structure, administration, scoring, norm, and interpretation-level details in this guide are drawn from the <em>NEO Inventories Professional Manual</em> (McCrae &amp; Costa, PAR, 2010) held in the repository. Where a specific value (e.g. exact reliability coefficient or the full proprietary item key) is not reproduced here, this guide says so rather than inventing it — consult the manual's tables and answer sheets directly.</div>
+  <p style="text-align:right;"><a class="backtop" href="#toc">↑ Back to contents</a></p>
+</section>
+
+</div><!-- /.wrap -->
+
+<footer>
+  <div class="made">Made by Tejas Dangodra</div>
+  <p>NEO Personality Inventory — Comprehensive Clinical Psychology Assessment Guide · Prepared for Clinical Psychology Training.</p>
+  <p>Based on the <em>NEO Inventories Professional Manual</em> (McCrae &amp; Costa, PAR, 2010). This is an educational study guide, not the test manual itself, and is not a substitute for the published materials, scoring keys, or norm tables. The NEO describes normal personality traits and is not diagnostic on its own.</p>
+  <p style="margin-top:14px;font-weight:600;color:#6b56a8;">Made by Tejas Dangodra — All Rights Reserved. © Tejas Dangodra.</p>
+</footer>
+
+<script>
+/* ===== Copy / content protection (deterrent) ===== */
+(function(){
+  var NOTICE = "Made by Tejas Dangodra — All Rights Reserved. © Tejas Dangodra. This content is protected. Unauthorised copying is not permitted.";
+  function killEvt(e){ e.preventDefault(); return false; }
+  document.addEventListener('contextmenu', killEvt);
+  document.addEventListener('dragstart', killEvt);
+  function clip(e){
+    try{
+      e.clipboardData.setData('text/plain', NOTICE);
+      e.clipboardData.setData('text/html', '<p>'+NOTICE+'</p>');
+    }catch(err){}
+    e.preventDefault();
+  }
+  document.addEventListener('copy', clip);
+  document.addEventListener('cut', clip);
+  document.addEventListener('keydown', function(e){
+    var k = (e.key || '').toLowerCase();
+    if(e.key === 'F12'){ return killEvt(e); }
+    if((e.ctrlKey || e.metaKey) && ['c','x','s','u','p','a'].indexOf(k) !== -1){ return killEvt(e); }
+    if((e.ctrlKey || e.metaKey) && e.shiftKey && ['i','j','c'].indexOf(k) !== -1){ return killEvt(e); }
+  });
+})();
+</script>
+</body>
+</html>
