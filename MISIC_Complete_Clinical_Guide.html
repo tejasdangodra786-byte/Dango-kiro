@@ -1,0 +1,1659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MISIC — Malin's Intelligence Scale for Indian Children · Complete Clinical Guide</title>
+<style>
+:root{
+  --lavender:#ece8f7; --lavender-d:#c9bde8; --lilac:#f3edfb;
+  --powder:#e4eef7; --powder-d:#bcd6ec;
+  --sage:#e7f1e6; --sage-d:#bcd9b8;
+  --mint:#e3f4ee; --mint-d:#b4e0d0;
+  --peach:#fdeee2; --peach-d:#f6cdaa;
+  --blush:#fbe9ee; --blush-d:#f2c1cf;
+  --cream:#fbf6ea; --cream-d:#eddfbf;
+  --softblue:#e8eefb; --softblue-d:#c3d2f2;
+  --grey:#f5f6f8; --grey-d:#e2e5ea;
+  --ink:#33323d; --ink-soft:#565463; --muted:#7d7b89;
+  --line:#e4e2ec; --white:#ffffff;
+  --radius:18px; --shadow:0 6px 22px rgba(90,80,140,0.09);
+  --shadow-sm:0 2px 10px rgba(90,80,140,0.07);
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0; font-family:"Segoe UI",Roboto,-apple-system,"Helvetica Neue",Arial,sans-serif;
+  color:var(--ink); background:linear-gradient(135deg,#faf9fd 0%,#f4f6fb 100%);
+  line-height:1.68; font-size:16px;
+  -webkit-user-select:none; -moz-user-select:none; -ms-user-select:none; user-select:none;
+}
+#wm{
+  position:fixed; inset:0; z-index:9999; pointer-events:none;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='420' height='300'><text x='20' y='160' transform='rotate(-24 20 160)' fill='rgba(120,100,175,0.10)' font-family='Segoe UI, Arial, sans-serif' font-size='15' font-weight='600'>Made by Tejas Dangodra</text></svg>");
+  background-repeat:repeat; background-size:34vw 30vh;
+  -webkit-print-color-adjust:exact; print-color-adjust:exact;
+}
+.wrap{max-width:1080px; margin:0 auto; padding:0 20px 80px;}
+section{scroll-margin-top:20px;}
+h1,h2,h3,h4{line-height:1.28; color:var(--ink); font-weight:700;}
+h2{font-size:1.72rem; margin:0 0 4px;}
+h3{font-size:1.24rem; margin:26px 0 10px;}
+h4{font-size:1.04rem; margin:18px 0 8px; color:var(--ink-soft);}
+p{margin:10px 0;}
+a{color:#7b5fc0; text-decoration:none;}
+a:hover{text-decoration:underline;}
+small{color:var(--muted);}
+
+.cover{
+  min-height:96vh; display:flex; flex-direction:column; justify-content:center; align-items:center;
+  text-align:center; padding:60px 24px; position:relative;
+  background:
+    radial-gradient(circle at 18% 22%,rgba(201,189,232,0.5),transparent 42%),
+    radial-gradient(circle at 82% 30%,rgba(188,214,236,0.5),transparent 42%),
+    radial-gradient(circle at 30% 82%,rgba(180,224,208,0.45),transparent 42%),
+    radial-gradient(circle at 78% 80%,rgba(246,205,170,0.4),transparent 42%),
+    linear-gradient(135deg,#faf8fe,#eef3fb);
+}
+.cover .badge{display:inline-block; padding:7px 18px; border-radius:40px; background:rgba(255,255,255,0.7);
+  border:1px solid var(--lavender-d); color:#6b56a8; font-size:.82rem; letter-spacing:.14em; text-transform:uppercase; margin-bottom:26px;}
+.cover h1{font-size:3.4rem; margin:0; letter-spacing:2px;
+  background:linear-gradient(120deg,#6b56a8,#4f79b0 55%,#4a9c86); -webkit-background-clip:text; background-clip:text; color:transparent;}
+.cover .name{font-size:1.3rem; color:var(--ink-soft); margin:12px auto 0; font-weight:700;}
+.cover .sub1{font-size:1.06rem; color:var(--ink-soft); max-width:760px; margin:20px auto 4px; font-weight:600;}
+.cover .sub2{font-size:1.0rem; color:var(--muted); max-width:680px; margin:4px auto;}
+.cover .prep{margin-top:30px; font-size:.95rem; color:var(--ink-soft); background:rgba(255,255,255,0.6);
+  border:1px solid var(--line); border-radius:14px; padding:12px 24px;}
+.cover .made{margin-top:38px; font-size:1.05rem; font-weight:700; color:#6b56a8; letter-spacing:.04em;}
+.cover .note{margin-top:14px; font-size:.8rem; color:var(--muted); max-width:660px;}
+.ribbon{display:flex; gap:10px; margin-top:38px; flex-wrap:wrap; justify-content:center;}
+.ribbon span{width:64px; height:26px; border-radius:6px; transform:skewX(-18deg); box-shadow:var(--shadow-sm);}
+.ribbon .r1{background:var(--lavender-d);} .ribbon .r2{background:var(--powder-d);}
+.ribbon .r3{background:var(--sage-d);} .ribbon .r4{background:var(--peach-d);} .ribbon .r5{background:var(--blush-d);}
+
+.toc{background:var(--white); border:1px solid var(--line); border-radius:var(--radius); padding:26px 30px; box-shadow:var(--shadow); margin:44px 0;}
+.toc h2{color:#6b56a8;}
+.toc-grid{columns:2; column-gap:36px;}
+.toc-grid a{display:block; padding:5px 0; font-size:.95rem; color:var(--ink-soft); break-inside:avoid;}
+.toc-grid a:hover{color:#6b56a8;}
+.toc .part{font-weight:700; color:#4f79b0; margin-top:12px; font-size:.86rem; text-transform:uppercase; letter-spacing:.06em;}
+@media(max-width:640px){.toc-grid{columns:1;}}
+
+.banner{border-radius:var(--radius); padding:22px 28px; margin:52px 0 8px; box-shadow:var(--shadow-sm); border:1px solid rgba(0,0,0,0.03);}
+.banner .tag{font-size:.74rem; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-soft); font-weight:700; opacity:.8;}
+.banner h2{margin-top:4px;}
+.b-theory{background:linear-gradient(120deg,var(--lavender),var(--lilac));}
+.b-admin{background:linear-gradient(120deg,var(--powder),#eef5fc);}
+.b-scoring{background:linear-gradient(120deg,var(--peach),#fef6ef);}
+.b-subtest{background:linear-gradient(120deg,var(--sage),#f0f7ef);}
+.b-iq{background:linear-gradient(120deg,var(--mint),#eefaf5);}
+.b-interp{background:linear-gradient(120deg,var(--cream),#fdfaf1);}
+.b-case{background:linear-gradient(120deg,var(--blush),#fdf1f4);}
+.b-report{background:linear-gradient(120deg,var(--softblue),#f0f4fd);}
+
+.card{background:var(--white); border:1px solid var(--line); border-radius:var(--radius); padding:22px 26px; margin:18px 0; box-shadow:var(--shadow-sm);}
+.card.tinted-lav{background:var(--lilac);} .card.tinted-powder{background:#eef5fc;}
+.card.tinted-peach{background:#fef6ef;} .card.tinted-sage{background:#f0f7ef;}
+.card.tinted-mint{background:#eefaf5;} .card.tinted-cream{background:#fdfaf1;}
+.card.tinted-blush{background:#fdf1f4;} .card.tinted-blue{background:#f0f4fd;}
+.grid2{display:grid; grid-template-columns:1fr 1fr; gap:18px;}
+.grid3{display:grid; grid-template-columns:repeat(3,1fr); gap:16px;}
+@media(max-width:860px){.grid2,.grid3{grid-template-columns:1fr;}}
+
+.subtest-card{background:var(--white); border:1px solid var(--line); border-left:5px solid var(--sage-d); border-radius:14px; padding:16px 18px; box-shadow:var(--shadow-sm);}
+.subtest-card.perf{border-left-color:var(--powder-d);}
+.subtest-card h4{margin:0 0 6px; color:#3f6b41;}
+.subtest-card.perf h4{color:#3f5d82;}
+.subtest-card .sline{font-size:.86rem; margin:5px 0;}
+.subtest-card .sline b{color:var(--ink);}
+.chip{display:inline-block; font-size:.7rem; padding:2px 9px; border-radius:20px; font-weight:700; margin-left:6px;}
+.chip-v{background:var(--sage); color:#3f6b41;} .chip-p{background:var(--powder); color:#3f5d82;}
+
+.flow{display:flex; flex-wrap:wrap; align-items:center; gap:8px; margin:16px 0;}
+.flow .step{background:var(--white); border:1px solid var(--powder-d); border-radius:12px; padding:9px 15px; font-size:.86rem; font-weight:600; color:var(--ink-soft); box-shadow:var(--shadow-sm);}
+.flow .arw{color:var(--powder-d); font-weight:700; font-size:1.1rem;}
+.flow.vert{flex-direction:column; align-items:stretch; max-width:420px;}
+.flow.vert .arw{text-align:center;}
+
+.tbl-scroll{overflow-x:auto; margin:16px 0; border-radius:var(--radius); border:1px solid var(--line); box-shadow:var(--shadow-sm);}
+table{border-collapse:collapse; width:100%; min-width:560px; background:var(--white); font-size:.9rem;}
+th,td{padding:10px 13px; text-align:left; border-bottom:1px solid var(--line); vertical-align:top;}
+thead th{background:var(--lavender); color:#4a3f76; font-size:.82rem; text-transform:uppercase; letter-spacing:.04em;}
+tbody tr:nth-child(even){background:#faf9fd;}
+
+.callout{border-radius:14px; padding:14px 18px; margin:16px 0; font-size:.94rem; border:1px solid;}
+.callout b{display:block; margin-bottom:3px;}
+.co-warn{background:#fdf1f4; border-color:var(--blush-d); color:#8a4258;}
+.co-note{background:#eef5fc; border-color:var(--powder-d); color:#3f5d82;}
+.co-key{background:#fdfaf1; border-color:var(--cream-d); color:#7d6420;}
+.co-verify{background:#f0f7ef; border-color:var(--sage-d); color:#3f6b41;}
+.co-src{background:#f3edfb; border-color:var(--lavender-d); color:#5b3fa0;}
+
+.pill{display:inline-block; padding:3px 11px; border-radius:20px; font-size:.78rem; font-weight:700; margin:2px;}
+.p-high{background:#e7f1e6; color:#3f6b41;} .p-avg{background:#fbf6ea; color:#7d6420;}
+.p-low{background:#fdeee2; color:#a35d2a;} .p-vlow{background:#fbe9ee; color:#8a4258;}
+.p-nv{background:#eef0f3; color:#565463; font-style:italic;}
+
+.report-doc{background:var(--white); border:1px solid var(--line); border-radius:var(--radius); padding:26px 30px; margin:20px 0; box-shadow:var(--shadow); font-size:.94rem;}
+.report-doc h4{color:#4f79b0; border-bottom:1px solid var(--line); padding-bottom:5px;}
+.phrase{background:#f0f4fd; border-radius:10px; padding:8px 12px; margin:7px 0; font-size:.9rem; font-style:italic; color:#3f5d82;}
+.good{background:#eef7ef;border:1px solid var(--sage-d);border-radius:10px;padding:8px 12px;margin:6px 0;font-size:.9rem;}
+.bad{background:#fbeef2;border:1px solid var(--blush-d);border-radius:10px;padding:8px 12px;margin:6px 0;font-size:.9rem;text-decoration:line-through;text-decoration-color:#d98aa0;}
+
+footer{background:linear-gradient(120deg,var(--lavender),var(--powder)); border-top:1px solid var(--line); padding:34px 20px; text-align:center; margin-top:60px;}
+footer .made{font-size:1.2rem; font-weight:700; color:#6b56a8;}
+footer p{color:var(--ink-soft); font-size:.86rem; max-width:740px; margin:10px auto;}
+.backtop{display:inline-block; margin-top:10px; font-size:.82rem; color:var(--muted);}
+ul.tight{margin:8px 0; padding-left:20px;} ul.tight li{margin:4px 0;}
+
+@media print{
+  body{background:#fff;} #wm{opacity:.5;}
+  .banner,.card,.subtest-card,.report-doc,.toc{box-shadow:none;}
+  .cover{min-height:auto;} a{color:var(--ink);}
+  h2,h3,h4{break-after:avoid;} .card,.subtest-card,table,.report-doc{break-inside:avoid;}
+  .backtop{display:none;}
+}
+</style>
+</head>
+<body>
+<div id="wm"></div>
+<div class="wrap">
+
+<!-- ===================== COVER ===================== -->
+<header class="cover" id="top">
+  <div class="badge">Comprehensive Clinical Psychology Assessment Guide</div>
+  <h1>MISIC</h1>
+  <div class="name">Malin's Intelligence Scale for Indian Children</div>
+  <div class="sub1">Administration • Scoring • IQ Calculation • Profile Analysis • Clinical Interpretation • Report Writing</div>
+  <div class="sub2">A study handbook for MPhil Clinical Psychology training</div>
+  <div class="ribbon"><span class="r1"></span><span class="r2"></span><span class="r3"></span><span class="r4"></span><span class="r5"></span></div>
+  <div class="prep">Prepared for Clinical Psychology Training • Intelligence Assessment</div>
+  <div class="note">Based on the official <em>Manual — Malin's Intelligence Scale for Indian Children</em> (Dr. Arthur J. Malin; Indian Psychological Corporation, Lucknow). In keeping with the manual's copyright notice, no secure test items, stimuli, answer keys, or raw-score→Test-Quotient norm tables are reproduced; worked examples use fictional numbers.</div>
+  <div class="made">Made by Tejas Dangodra</div>
+</header>
+
+
+<!-- ===================== TOC ===================== -->
+<nav class="toc" id="toc">
+  <h2>Table of Contents</h2>
+  <div class="toc-grid">
+    <div class="part">Source &amp; Version</div>
+    <a href="#source">0 · About the Test &amp; Version</a>
+    <div class="part">Part I — Introduction</div>
+    <a href="#what">1 · What is MISIC?</a>
+    <a href="#purpose">2 · Purpose of MISIC</a>
+    <a href="#intelligence">3 · MISIC &amp; Intelligence</a>
+    <div class="part">Part II — Test Structure</div>
+    <a href="#structure">4 · Complete Test Structure</a>
+    <a href="#verbal-scale">5 · Verbal Scale</a>
+    <a href="#perf-scale">6 · Performance Scale</a>
+    <a href="#master-table">7 · Subtest Master Table</a>
+    <div class="part">Part III — Administration</div>
+    <a href="#pre">8 · Pre-Assessment</a>
+    <a href="#environment">9 · Testing Environment</a>
+    <a href="#rapport">10 · Rapport</a>
+    <a href="#std-admin">11 · Standardized Administration</a>
+    <div class="part">Part IV — Subtest Administration</div>
+    <a href="#subtest-admin">12 · Subtest-by-Subtest</a>
+    <div class="part">Part V — Basal &amp; Ceiling</div>
+    <a href="#basal">13 · Basal</a>
+    <a href="#ceiling">14 · Ceiling</a>
+    <a href="#basal-ceiling-eg">15 · Worked Example</a>
+    <div class="part">Part VI — Scoring</div>
+    <a href="#raw">16 · Raw Score</a>
+    <a href="#item-scoring">17 · Item Scoring</a>
+    <a href="#scaled">18 · Test Quotients (scaled score)</a>
+    <a href="#scaled-eg">19 · Test Quotient Example</a>
+    <div class="part">Part VII — IQ Calculation</div>
+    <a href="#viq">20 · Verbal IQ</a>
+    <a href="#piq">21 · Performance IQ</a>
+    <a href="#fsiq">22 · Full-Scale IQ</a>
+    <a href="#iq-algo">23 · IQ Algorithm</a>
+    <a href="#iq-eg">24 · Fictional IQ Examples</a>
+    <div class="part">Part VIII — IQ Interpretation</div>
+    <a href="#iq-class">25 · IQ Classification</a>
+    <a href="#iq-not-all">26 · IQ Is Not the Whole Assessment</a>
+    <div class="part">Part IX — Profile Analysis</div>
+    <a href="#subtest-profile">27 · Subtest Profile</a>
+    <a href="#vp-profile">28 · Verbal vs Performance</a>
+    <a href="#discrepancies">29 · Subtest Discrepancies</a>
+    <a href="#profile-rule">30 · Profile Analysis Rule</a>
+    <div class="part">Part X — Intellectual Disability</div>
+    <a href="#id-assess">31 · MISIC in ID Assessment</a>
+    <a href="#adaptive">32 · MISIC + Adaptive Behaviour</a>
+    <a href="#gazette">32a · Gazette of India / RPwD Act</a>
+    <div class="part">Part XI — Clinical Application</div>
+    <a href="#populations">33 · Different Populations</a>
+    <a href="#lang-culture">34 · Language &amp; Culture</a>
+    <a href="#research">34a · Research &amp; Evidence</a>
+    <div class="part">Part XII — Behavioural Observation</div>
+    <a href="#observe">35 · What to Observe</a>
+    <a href="#observe-integrate">36 · Integrating Observations</a>
+    <div class="part">Part XIII — Case Studies</div>
+    <a href="#master-case">37 · Complete Case Study</a>
+    <a href="#more-cases">38 · Additional Cases</a>
+    <div class="part">Part XIV — Report Writing</div>
+    <a href="#report-structure">39 · Report Structure</a>
+    <a href="#results-table">40 · Results Table</a>
+    <a href="#sample-reports">41 · Sample Reports</a>
+    <a href="#report-language">42 · Professional Language</a>
+    <div class="part">Part XV — Limitations</div>
+    <a href="#limitations">43 · Limitations</a>
+    <div class="part">Part XVI — Common Errors</div>
+    <a href="#err-admin">44 · Administration Errors</a>
+    <a href="#err-scoring">45 · Scoring Errors</a>
+    <a href="#err-interp">46 · Interpretation Errors</a>
+    <div class="part">Part XVII — Workbook</div>
+    <a href="#ws-item">47 · Item Recording Sheet</a>
+    <a href="#ws-subtest">48 · Subtest Score Sheet</a>
+    <a href="#ws-iq">49 · IQ Calculation Sheet</a>
+    <a href="#ws-master">50 · Master Profile</a>
+    <div class="part">Part XVIII — Master Algorithm</div>
+    <a href="#algorithm">51 · MISIC Workflow (20 steps)</a>
+    <div class="part">Part XIX — Quick Revision</div>
+    <a href="#quick">Quick Revision &amp; Cheat Sheets</a>
+  </div>
+</nav>
+
+<!-- ===================== SOURCE & VERSION ===================== -->
+<div class="banner b-theory" id="source">
+  <div class="tag">About the Test · Version</div>
+  <h2>0 · The Test &amp; "Which MISIC Version Am I Using?"</h2>
+</div>
+<section>
+  <div class="callout co-verify">
+    <b>The instrument</b>
+    This guide covers the <em>Malin's Intelligence Scale for Indian Children (Indian Adaptation of W.I.S.C.)</em> by <strong>Dr. Arthur J. Malin</strong>, published by the <strong>Indian Psychological Corporation, Lucknow</strong> (with its Record Form). The structural, scoring, normative, and psychometric facts here follow the official MISIC manual. In keeping with the manual's copyright, <em>no secure test items, stimulus material, answer keys, or the raw-score→Test-Quotient norm tables are reproduced</em> — only names, structure, and scoring <em>principles</em>, with fictional numbers in worked examples.
+  </div>
+
+  <h3>Identifying details</h3>
+  <div class="tbl-scroll"><table>
+    <thead><tr><th>Feature</th><th>Detail</th></tr></thead>
+    <tbody>
+      <tr><td><b>Full name</b></td><td>Malin's Intelligence Scale for Indian Children (also written I.S.I.C. / MISIC)</td></tr>
+      <tr><td><b>Abbreviation</b></td><td>MISIC</td></tr>
+      <tr><td><b>Author &amp; publisher</b></td><td>Dr. Arthur J. Malin (of Nagpur); Indian Psychological Corporation, Lucknow</td></tr>
+      <tr><td><b>Adaptation</b></td><td>Indian adaptation of the <b>Wechsler Intelligence Scale for Children (WISC)</b>, built on the "Point Scale" model; the WISC's <b>Picture Arrangement</b> subtest was <b>dropped</b> as too culturally biased</td></tr>
+      <tr><td><b>Applicable age range</b></td><td><b>6 years 0 months to 15 years 11 months</b> (ten years; the original WISC covered 5–15.11)</td></tr>
+      <tr><td><b>Administration</b></td><td>Individually administered; subtests may be given in any order convenient for rapport</td></tr>
+      <tr><td><b>Number of subtests</b></td><td><b>11 subtests</b> — <b>6 Verbal + 5 Performance</b> (only <b>10</b>, i.e. 5 from each group, are required for complete scoring)</td></tr>
+      <tr><td><b>Scores yielded</b></td><td><b>Verbal IQ, Performance IQ, Full-Scale IQ</b> (deviation IQ; the manual's norms are built on an <b>SD of 15 IQ</b>, mean 100)</td></tr>
+      <tr><td><b>Scoring pathway</b></td><td>Raw scores → <b>Test Quotients (TQs, which are themselves IQs)</b> via per-age tables → <b>group-averaged</b> for Verbal &amp; Performance → Full-Scale = average of both group totals (no separate "scaled score" step — see §18, §20–23)</td></tr>
+      <tr><td><b>Norms</b></td><td>Indian standardization: &gt;1,200 children given full individual tests (over 6 years), &gt;3,000 in subtest trial runs; ~90 samples per age level; boys:girls ≈ 20:30; age interval of 12 months (4 months before to 7 months after a birthday); English, Marathi &amp; Hindi versions</td></tr>
+      <tr><td><b>Reliability</b></td><td>Test–retest (Pearson product-moment) r ≈ <b>.91</b> for the Full-Scale IQ</td></tr>
+      <tr><td><b>Validity</b></td><td><b>Concurrent</b> (from school ranking) and <b>congruent</b> (adapted California Short-Form Test of Mental Maturity for upper ages; Goodenough Draw-a-Man for lower ages) — both ≈ <b>.63</b></td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="callout co-note">
+    <b>Test-security note (still applies)</b>
+    Although the manual is now the source, its copyright notice states that no part of the scale may be printed or duplicated. Therefore this guide still <strong>does not reproduce</strong> the secure items, the maze/design stimuli, the answer keys, or the raw-score→TQ norm tables. Those must be read from the physical manual and Record Form. The few remaining points that could not be transcribed from the (dark) scanned pages are the exact <em>IQ-classification band labels/cut-offs</em>; where used below they are shown as the conventional Wechsler-style bands and flagged accordingly.
+  </div>
+
+  <p style="text-align:right;"><a class="backtop" href="#toc">↑ Back to contents</a></p>
+</section>
+
+
+<!-- ===================== PART I ===================== -->
+<div class="banner b-theory" id="what">
+  <div class="tag">Part I · Introduction</div>
+  <h2>1 · What is MISIC?</h2>
+</div>
+<section>
+  <div class="card tinted-lav">
+    <p>MISIC — Malin's Intelligence Scale for Indian Children — is an individually administered test of general intellectual ability for children, developed by Dr. Arthur J. Malin as an Indian adaptation of the Wechsler Intelligence Scale for Children (WISC). Malin set out to make Wechsler-type assessment culturally appropriate for Indian children (roughly 6 to 16 years of age): the WISC's Verbal items were extensively revised (largely kept in English rather than simply translated), and its Picture Arrangement subtest was dropped as too culturally biased. What remains is a battery of Verbal and Performance subtests administered one-to-one by a trained examiner over about two to two-and-a-half hours.</p>
+    <p>The test follows the Wechsler logic that intelligence is a broad, general capacity expressed through several more specific abilities. These are sampled by two groups of subtests: a <strong>Verbal</strong> scale (language-mediated reasoning, acquired knowledge, verbal concept formation, and attention/working memory) and a <strong>Performance</strong> scale (visual-perceptual organisation, non-verbal reasoning, visuomotor coordination, and speed). A child's responses are scored into raw scores, converted through age-based tables into standardized scores, and combined to yield a <strong>Verbal IQ</strong>, a <strong>Performance IQ</strong>, and an overall <strong>Full-Scale IQ</strong>. Like all modern IQ tests, MISIC uses a deviation-IQ scale rather than the old mental-age ratio, so a child's performance is expressed relative to same-age peers, with an IQ near 100 being average for age.</p>
+    <p>In practice, MISIC is one of the most widely used child intelligence tests in India and is a routine part of assessments for intellectual disability, developmental delay, and learning difficulties. It is important to keep in mind, however, that MISIC estimates <em>current tested intellectual performance under standardized conditions</em>. That is valuable but partial information: it must always be read alongside developmental history, behavioural observation, adaptive functioning, and the child's language, schooling, and cultural background.</p>
+    <div class="callout co-warn"><b>The golden rule</b>A low IQ score, by itself, never diagnoses intellectual disability. Diagnosis requires deficits in <em>both</em> intellectual and adaptive functioning with onset in the developmental period, established through a comprehensive assessment.</div>
+  </div>
+</section>
+
+<div class="banner b-theory" id="purpose">
+  <div class="tag">Part I · Introduction</div>
+  <h2>2 · Purpose of MISIC</h2>
+</div>
+<section>
+  <div class="grid2">
+    <div class="card tinted-lav"><h4>What MISIC is used for</h4><ul class="tight">
+      <li>Intellectual / cognitive assessment of children.</li>
+      <li>Estimating general intellectual ability (Verbal, Performance, Full-Scale IQ).</li>
+      <li>Contributing to developmental and educational assessment.</li>
+      <li>Part of the work-up for <b>intellectual disability</b> (alongside adaptive-behaviour measures).</li>
+      <li>Contributing to clinical formulation of academic and learning difficulties.</li>
+      <li>Screening cognitive strengths/weaknesses to guide further assessment.</li>
+    </ul></div>
+    <div class="card tinted-blush"><h4>What MISIC does <em>not</em> do</h4><ul class="tight">
+      <li>It does not, by itself, <b>diagnose</b> intellectual disability, a learning disorder, ADHD, or autism.</li>
+      <li>It does not measure adaptive functioning (use VSMS / Vineland for that).</li>
+      <li>It is not a personality or psychopathology measure.</li>
+      <li>It is not a neuropsychological battery, though low subtests can flag areas for such testing.</li>
+      <li>It does not measure creativity, motivation, or real-world competence directly.</li>
+    </ul></div>
+  </div>
+</section>
+
+<div class="banner b-theory" id="intelligence">
+  <div class="tag">Part I · Introduction</div>
+  <h2>3 · MISIC &amp; Intelligence</h2>
+</div>
+<section>
+  <p>Wechsler-type scales assume a hierarchy: a broad general intellectual ability expressed through more specific verbal and non-verbal abilities, each sampled by particular subtests.</p>
+  <div class="flow vert">
+    <span class="step"><b>General intellectual ability</b> (approximated by Full-Scale IQ)</span>
+    <span class="arw">↓ expressed through ↓</span>
+    <span class="step"><b>Verbal ability</b> (Verbal IQ) &nbsp;+&nbsp; <b>Performance / non-verbal ability</b> (Performance IQ)</span>
+    <span class="arw">↓ sampled by ↓</span>
+    <span class="step"><b>Individual subtests</b> (specific skills within each scale)</span>
+  </div>
+  <div class="grid2">
+    <div class="card tinted-sage"><h4>Verbal abilities tap</h4><ul class="tight">
+      <li>Acquired knowledge / crystallised ability.</li>
+      <li>Verbal reasoning &amp; concept formation.</li>
+      <li>Language comprehension &amp; expression.</li>
+      <li>Attention, mental control, and (for span tasks) working memory.</li>
+    </ul></div>
+    <div class="card tinted-powder"><h4>Performance abilities tap</h4><ul class="tight">
+      <li>Visual-perceptual analysis &amp; organisation.</li>
+      <li>Non-verbal / fluid reasoning.</li>
+      <li>Visuomotor coordination.</li>
+      <li>Processing speed &amp; planning (on timed / maze tasks).</li>
+    </ul></div>
+  </div>
+  <div class="callout co-note"><b>Why the split matters</b>The Verbal/Performance distinction lets you compare a child's language-loaded reasoning against their non-verbal reasoning — useful when language, schooling, hearing, or motor factors may selectively depress one scale. But a discrepancy is a <em>starting hypothesis</em>, not a diagnosis (see §28).</div>
+  <p style="text-align:right;"><a class="backtop" href="#toc">↑ Back to contents</a></p>
+</section>
+
+
+<!-- ===================== PART II · STRUCTURE ===================== -->
+<div class="banner b-subtest" id="structure">
+  <div class="tag">Part II · Test Structure</div>
+  <h2>4 · Complete Test Structure</h2>
+</div>
+<section>
+  <p>Per the manual, MISIC comprises <strong>11 subtests</strong> arranged as a <strong>Verbal scale (6)</strong> and a <strong>Performance scale (5)</strong>. It is built on the WISC's twelve-subtest template but <strong>drops the WISC's Picture Arrangement</strong> subtest (judged too culturally biased in content and form). The manual notes that only <strong>10 subtests (5 from each group)</strong> are required for complete scoring; <strong>Digit Span serves as the Verbal alternate</strong> (used when a subtest is spoiled, or when a regional-vernacular version drops Vocabulary at the upper ages). Pro-rating is applied if more or fewer than 10 are taken, and not fewer than 4 per group should be given for safe validity.</p>
+  <div class="tbl-scroll"><table>
+    <thead><tr><th>Subtest</th><th>Scale</th><th>Verbal / Performance</th><th>Main cognitive function (broad)</th></tr></thead>
+    <tbody>
+      <tr><td>Information</td><td>Verbal</td><td>V</td><td>Acquired general knowledge / long-term memory</td></tr>
+      <tr><td>Comprehension</td><td>Verbal</td><td>V</td><td>Practical reasoning, social judgment, understanding of norms</td></tr>
+      <tr><td>Arithmetic</td><td>Verbal</td><td>V</td><td>Numerical reasoning, attention, mental control</td></tr>
+      <tr><td>Similarities</td><td>Verbal</td><td>V</td><td>Verbal abstract reasoning / concept formation</td></tr>
+      <tr><td>Vocabulary</td><td>Verbal</td><td>V</td><td>Word knowledge, verbal expression, crystallised ability</td></tr>
+      <tr><td>Digit Span</td><td>Verbal</td><td>V</td><td>Auditory attention &amp; short-term / working memory</td></tr>
+      <tr><td>Picture Completion</td><td>Performance</td><td>P</td><td>Visual attention to essential detail</td></tr>
+      <tr><td>Block Design</td><td>Performance</td><td>P</td><td>Visuospatial analysis &amp; construction, non-verbal reasoning</td></tr>
+      <tr><td>Object Assembly</td><td>Performance</td><td>P</td><td>Part–whole synthesis, visuomotor organisation</td></tr>
+      <tr><td>Coding</td><td>Performance</td><td>P</td><td>Processing speed, visuomotor coordination, associative learning</td></tr>
+      <tr><td>Mazes</td><td>Performance</td><td>P</td><td>Planning, foresight, visuomotor control</td></tr>
+    </tbody>
+  </table></div>
+  <div class="callout co-verify"><b>Verified from the manual</b>The 11-subtest structure above, the dropping of Picture Arrangement, the 5+5 requirement with pro-rating, and Digit Span as the Verbal alternate are stated in the manual. Subtests may be administered in <em>any order</em> convenient for rapport. The Record Form confirms item counts such as Vocabulary (40 items), Picture Completion (20), Similarities (16), Arithmetic (16, individually timed), Digit Span (Forwards 3–7, Backward 2–6), Object Assembly (Manikin, Horse, Face, Auto) and Mazes (A–C, 1–5).</div>
+</section>
+
+<!-- ===================== VERBAL SCALE ===================== -->
+<div class="banner b-subtest" id="verbal-scale">
+  <div class="tag">Part II · Structure</div>
+  <h2>5 · Verbal Scale</h2>
+</div>
+<section>
+  <div class="grid2">
+    <div class="subtest-card"><h4>Information <span class="chip chip-v">Verbal</span></h4>
+      <div class="sline"><b>Assesses:</b> range of acquired factual knowledge from environment and schooling.</div>
+      <div class="sline"><b>Cognitive function:</b> long-term memory, crystallised knowledge, alertness to the world.</div>
+      <div class="sline"><b>Administration principle:</b> oral general-knowledge questions of increasing difficulty.</div>
+      <div class="sline"><b>Scoring principle:</b> pass/fail per item (typically 1/0).</div>
+      <div class="sline"><b>High:</b> broad knowledge base, good schooling/curiosity. <b>Low:</b> limited exposure, poor schooling, retrieval or language issues.</div>
+      <div class="sline"><b>Caution:</b> heavily influenced by educational and cultural opportunity — a key equity concern.</div></div>
+
+    <div class="subtest-card"><h4>Comprehension <span class="chip chip-v">Verbal</span></h4>
+      <div class="sline"><b>Assesses:</b> practical understanding, social judgment, and reasoning about everyday situations and rules.</div>
+      <div class="sline"><b>Cognitive function:</b> common-sense reasoning, use of past experience, verbal expression.</div>
+      <div class="sline"><b>Administration principle:</b> "why/what should you do" questions; may probe for a fuller answer.</div>
+      <div class="sline"><b>Scoring principle:</b> graded credit (e.g. 2/1/0) by quality of response.</div>
+      <div class="sline"><b>High:</b> good social reasoning. <b>Low:</b> concrete thinking, limited social exposure, expressive difficulty.</div>
+      <div class="sline"><b>Caution:</b> culturally shaped "correct" answers; score the reasoning, not conformity.</div></div>
+
+    <div class="subtest-card"><h4>Arithmetic <span class="chip chip-v">Verbal</span></h4>
+      <div class="sline"><b>Assesses:</b> mental numerical reasoning.</div>
+      <div class="sline"><b>Cognitive function:</b> attention/concentration, working memory, quantitative reasoning.</div>
+      <div class="sline"><b>Administration principle:</b> orally presented problems, often timed, solved mentally.</div>
+      <div class="sline"><b>Scoring principle:</b> pass/fail (sometimes with time considerations).</div>
+      <div class="sline"><b>High:</b> strong mental arithmetic &amp; concentration. <b>Low:</b> anxiety, weak attention/working memory, poor schooling in maths.</div>
+      <div class="sline"><b>Caution:</b> a "verbal" score that is really an attention/anxiety-sensitive task.</div></div>
+
+    <div class="subtest-card"><h4>Similarities <span class="chip chip-v">Verbal</span></h4>
+      <div class="sline"><b>Assesses:</b> verbal abstract reasoning / concept formation ("how are X and Y alike?").</div>
+      <div class="sline"><b>Cognitive function:</b> categorical/abstract thinking, verbal reasoning.</div>
+      <div class="sline"><b>Administration principle:</b> pairs of words; child states the shared category.</div>
+      <div class="sline"><b>Scoring principle:</b> graded credit (abstract = higher, concrete = lower, wrong = 0).</div>
+      <div class="sline"><b>High:</b> abstract, flexible thinking. <b>Low:</b> concrete responding, limited vocabulary.</div>
+      <div class="sline"><b>Caution:</b> distinguish concreteness from simple word-knowledge gaps.</div></div>
+
+    <div class="subtest-card"><h4>Vocabulary <span class="chip chip-v">Verbal</span></h4>
+      <div class="sline"><b>Assesses:</b> word knowledge and verbal expression; a robust index of general ability.</div>
+      <div class="sline"><b>Cognitive function:</b> crystallised verbal ability, language development.</div>
+      <div class="sline"><b>Administration principle:</b> child defines words of increasing difficulty.</div>
+      <div class="sline"><b>Scoring principle:</b> graded credit by precision of the definition.</div>
+      <div class="sline"><b>High:</b> rich language/verbal environment. <b>Low:</b> limited language exposure, expressive difficulty.</div>
+      <div class="sline"><b>Caution:</b> strongly tied to language of testing and home language.</div></div>
+
+    <div class="subtest-card"><h4>Digit Span <span class="chip chip-v">Verbal (often supplementary)</span></h4>
+      <div class="sline"><b>Assesses:</b> immediate auditory attention and short-term/working memory (digits forward &amp; backward).</div>
+      <div class="sline"><b>Cognitive function:</b> attention span, mental manipulation (backward).</div>
+      <div class="sline"><b>Administration principle:</b> examiner reads digit sequences; child repeats forward, then reverses.</div>
+      <div class="sline"><b>Scoring principle:</b> credit by longest span passed.</div>
+      <div class="sline"><b>High:</b> good attention/working memory. <b>Low:</b> inattention, anxiety, working-memory weakness.</div>
+      <div class="sline"><b>Caution:</b> highly state-sensitive (anxiety, fatigue); interpret cautiously in isolation.</div></div>
+  </div>
+  <div class="callout co-note"><b>Not reproduced here (copyright)</b>Exact item wording, graded-credit point values, and age-based starting points are in the manual/Record Form but are <em>secure content</em> and are not reproduced here. Read them from the physical manual. (Verified item counts such as Vocabulary 40, Similarities 16, Arithmetic 16, Picture Completion 20 are given above.)</div>
+</section>
+
+<!-- ===================== PERFORMANCE SCALE ===================== -->
+<div class="banner b-subtest" id="perf-scale">
+  <div class="tag">Part II · Structure</div>
+  <h2>6 · Performance Scale</h2>
+</div>
+<section>
+  <div class="grid2">
+    <div class="subtest-card perf"><h4>Picture Completion <span class="chip chip-p">Performance</span></h4>
+      <div class="sline"><b>Assesses:</b> visual attention to essential detail; recognising what is missing from a picture.</div>
+      <div class="sline"><b>Cognitive function:</b> visual perception, attention, reasoning about the familiar.</div>
+      <div class="sline"><b>Administration principle:</b> child names/points to the missing part, often within a time limit.</div>
+      <div class="sline"><b>Scoring principle:</b> pass/fail per item.</div>
+      <div class="sline"><b>High:</b> keen visual attention. <b>Low:</b> inattention, impulsivity, unfamiliarity with depicted objects.</div>
+      <div class="sline"><b>Caution:</b> depicted objects may be culturally unfamiliar to some children.</div></div>
+
+    <div class="subtest-card perf"><h4>Block Design <span class="chip chip-p">Performance</span></h4>
+      <div class="sline"><b>Assesses:</b> visuospatial analysis and construction from a model/picture using blocks.</div>
+      <div class="sline"><b>Cognitive function:</b> non-verbal reasoning, visual-motor integration, part–whole analysis.</div>
+      <div class="sline"><b>Administration principle:</b> child reproduces designs; usually timed with bonus for speed.</div>
+      <div class="sline"><b>Scoring principle:</b> credit for correct construction (± time bonuses).</div>
+      <div class="sline"><b>High:</b> strong spatial reasoning. <b>Low:</b> visuospatial/constructional difficulty, slow, poor planning.</div>
+      <div class="sline"><b>Caution:</b> a strong non-verbal reasoning index; sensitive to motor and speed factors.</div></div>
+
+    <div class="subtest-card perf"><h4>Object Assembly <span class="chip chip-p">Performance</span></h4>
+      <div class="sline"><b>Assesses:</b> assembling cut-up pieces into a meaningful whole (like a puzzle).</div>
+      <div class="sline"><b>Cognitive function:</b> part–whole synthesis, visuomotor organisation, anticipation.</div>
+      <div class="sline"><b>Administration principle:</b> child assembles pieces, usually timed with bonuses.</div>
+      <div class="sline"><b>Scoring principle:</b> credit by correct junctions/completion (± time).</div>
+      <div class="sline"><b>High:</b> good synthetic/spatial ability. <b>Low:</b> trial-and-error without a plan, motor slowness.</div>
+      <div class="sline"><b>Caution:</b> highly time-sensitive; watch strategy vs. random manipulation.</div></div>
+
+    <div class="subtest-card perf"><h4>Coding <span class="chip chip-p">Performance</span></h4>
+      <div class="sline"><b>Assesses:</b> speed of copying symbols paired with numbers/shapes against a key.</div>
+      <div class="sline"><b>Cognitive function:</b> processing speed, visuomotor coordination, incidental learning, sustained attention.</div>
+      <div class="sline"><b>Administration principle:</b> child fills in symbols as fast as possible within a fixed time.</div>
+      <div class="sline"><b>Scoring principle:</b> number of correct items completed in the time limit.</div>
+      <div class="sline"><b>High:</b> fast, accurate, focused. <b>Low:</b> slow processing, inattention, fine-motor difficulty.</div>
+      <div class="sline"><b>Caution:</b> a "pure" speed task — strongly affected by motivation, motor skill, anxiety.</div></div>
+
+    <div class="subtest-card perf"><h4>Mazes <span class="chip chip-p">Performance (often supplementary)</span></h4>
+      <div class="sline"><b>Assesses:</b> planning and foresight via paper-and-pencil mazes.</div>
+      <div class="sline"><b>Cognitive function:</b> planning, impulse control, visuomotor control.</div>
+      <div class="sline"><b>Administration principle:</b> child traces a path without entering blind alleys, often timed.</div>
+      <div class="sline"><b>Scoring principle:</b> credit by errors/blind alleys (± time).</div>
+      <div class="sline"><b>High:</b> plans ahead, controlled. <b>Low:</b> impulsive, poor planning, motor difficulty.</div>
+      <div class="sline"><b>Caution:</b> sensitive to impulsivity — informative behaviourally, not diagnostic.</div></div>
+  </div>
+  <div class="callout co-note"><b>Not reproduced here (copyright)</b>Exact time limits, bonus-point rules, and discontinuation criteria are in the manual/Record Form (secure content) and are not reproduced here. The Record Form confirms, e.g., Object Assembly items (Manikin, Horse, Face, Auto) and Mazes (A–C, 1–5); read the exact limits from the physical manual.</div>
+</section>
+
+<!-- ===================== MASTER TABLE ===================== -->
+<div class="banner b-subtest" id="master-table">
+  <div class="tag">Part II · Structure</div>
+  <h2>7 · Subtest Master Table</h2>
+</div>
+<section>
+  <div class="tbl-scroll"><table>
+    <thead><tr><th>Subtest</th><th>Scale</th><th>Construct (broad)</th><th>Raw score</th><th>Test Quotient</th><th>Clinical meaning of a low score (hypothesis)</th></tr></thead>
+    <tbody>
+      <tr><td>Information</td><td>Verbal</td><td>Acquired knowledge</td><td>Sum of passed items</td><td>Age-based conversion</td><td>Limited exposure/schooling; retrieval or language issue</td></tr>
+      <tr><td>Comprehension</td><td>Verbal</td><td>Social/practical reasoning</td><td>Sum of graded credits</td><td>Age-based conversion</td><td>Concrete reasoning; limited social exposure</td></tr>
+      <tr><td>Arithmetic</td><td>Verbal</td><td>Numerical reasoning</td><td>Sum (± time)</td><td>Age-based conversion</td><td>Attention/working-memory weakness; maths anxiety</td></tr>
+      <tr><td>Similarities</td><td>Verbal</td><td>Abstract reasoning</td><td>Sum of graded credits</td><td>Age-based conversion</td><td>Concrete thinking; vocabulary limits</td></tr>
+      <tr><td>Vocabulary</td><td>Verbal</td><td>Word knowledge</td><td>Sum of graded credits</td><td>Age-based conversion</td><td>Limited language environment; expressive difficulty</td></tr>
+      <tr><td>Digit Span</td><td>Verbal</td><td>Attention/short-term memory</td><td>Longest span</td><td>Age-based conversion</td><td>Inattention, anxiety, working-memory weakness</td></tr>
+      <tr><td>Picture Completion</td><td>Performance</td><td>Visual attention</td><td>Sum of passed items</td><td>Age-based conversion</td><td>Inattention/impulsivity; unfamiliar stimuli</td></tr>
+      <tr><td>Block Design</td><td>Performance</td><td>Visuospatial reasoning</td><td>Sum (± time)</td><td>Age-based conversion</td><td>Constructional/visuospatial difficulty; slow/poor planning</td></tr>
+      <tr><td>Object Assembly</td><td>Performance</td><td>Part–whole synthesis</td><td>Sum (± time)</td><td>Age-based conversion</td><td>No plan; visuomotor slowness</td></tr>
+      <tr><td>Coding</td><td>Performance</td><td>Processing speed</td><td>Correct in time limit</td><td>Age-based conversion</td><td>Slow processing; inattention; fine-motor difficulty</td></tr>
+      <tr><td>Mazes</td><td>Performance</td><td>Planning</td><td>Errors (± time)</td><td>Age-based conversion</td><td>Impulsivity; poor planning; motor difficulty</td></tr>
+    </tbody>
+  </table></div>
+  <div class="callout co-key"><b>Reading this table</b>The "raw score" and "scaled score" columns describe the <em>type</em> of transformation; on MISIC the subtest standardized score is the <b>Test Quotient</b>, read from the manual's per-age tables (not reproduced here — copyright). Low-score meanings are <em>hypotheses to test</em>, never conclusions.</div>
+  <p style="text-align:right;"><a class="backtop" href="#toc">↑ Back to contents</a></p>
+</section>
+
+
+<!-- ===================== PART III · ADMINISTRATION ===================== -->
+<div class="banner b-admin" id="pre">
+  <div class="tag">Part III · Administration</div>
+  <h2>8 · Pre-Assessment Procedure</h2>
+</div>
+<section>
+  <p>Before touching the kit, gather the information that will let you interpret the scores in context:</p>
+  <div class="grid2">
+    <div class="card tinted-powder"><ul class="tight">
+      <li><b>Referral question</b> — what decision must this assessment inform?</li>
+      <li><b>Developmental history</b> — milestones, delays, birth/perinatal factors.</li>
+      <li><b>Educational history</b> — schooling type, medium of instruction, attendance, attainment.</li>
+      <li><b>Medical/neurological history</b> — seizures, head injury, sensory (vision/hearing) status, medication.</li>
+    </ul></div>
+    <div class="card tinted-powder"><ul class="tight">
+      <li><b>Language</b> — home language(s), language of schooling, fluency in the test language.</li>
+      <li><b>Cultural background</b> — exposure relevant to test content.</li>
+      <li><b>Previous testing</b> — prior IQ/psychological testing (practice effects, comparison).</li>
+      <li><b>Current functioning</b> — behaviour, attention, mood, cooperation, adaptive skills.</li>
+    </ul></div>
+  </div>
+</section>
+
+<div class="banner b-admin" id="environment">
+  <div class="tag">Part III · Administration</div>
+  <h2>9 · Testing Environment</h2>
+</div>
+<section>
+  <ul class="tight">
+    <li><b>Room:</b> quiet, private, free from interruptions and noise.</li>
+    <li><b>Seating:</b> child comfortably at a table; examiner usually seated across or at a right angle, able to present materials and shield the record form/manual.</li>
+    <li><b>Lighting:</b> good, even illumination for the visual/performance materials.</li>
+    <li><b>Materials:</b> complete kit, stopwatch, sharpened pencils, record form; keep secure materials out of the child's view until needed.</li>
+    <li><b>Distractions:</b> remove toys/phones; parent usually not in the child's line of sight (per manual policy).</li>
+    <li><b>Behavioural observation:</b> position yourself to observe effort, attention, and response style throughout (see Part XII).</li>
+  </ul>
+</section>
+
+<div class="banner b-admin" id="rapport">
+  <div class="tag">Part III · Administration</div>
+  <h2>10 · Rapport</h2>
+</div>
+<section>
+  <div class="grid2">
+    <div class="card tinted-powder"><h4>General</h4><ul class="tight">
+      <li>Warm, unhurried greeting; child-friendly language.</li>
+      <li>Explain in simple terms that there will be some questions and puzzles, some easy and some hard, and that no one gets them all.</li>
+      <li>Encourage effort without giving answers; praise <em>effort</em>, not correctness.</li>
+    </ul></div>
+    <div class="card tinted-powder"><h4>Specific situations</h4><ul class="tight">
+      <li><b>Younger children:</b> shorter warm-up, more encouragement, watch for fatigue.</li>
+      <li><b>Adolescents:</b> respect autonomy; explain purpose clearly.</li>
+      <li><b>Anxious child:</b> normalise difficulty; start with easy successes; steady pace.</li>
+      <li><b>Reluctant child:</b> build alliance first; avoid power struggles; allow brief breaks.</li>
+      <li><b>Developmental difficulties:</b> simplify language within standardized limits; more breaks; monitor comprehension.</li>
+    </ul></div>
+  </div>
+  <div class="callout co-warn"><b>Standardization vs. rapport</b>You may be warm and encouraging, but you may <em>not</em> change the standardized questions, teach the task beyond permitted demonstrations, or cue correct answers. Departing from standard administration invalidates the norms.</div>
+</section>
+
+<div class="banner b-admin" id="std-admin">
+  <div class="tag">Part III · Administration</div>
+  <h2>11 · Standardized Administration (12 steps)</h2>
+</div>
+<section>
+  <div class="tbl-scroll"><table>
+    <thead><tr><th>Step</th><th>Action</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td><b>Establish rapport</b> and comfortable conditions.</td></tr>
+      <tr><td>2</td><td><b>Explain the process</b> in child-friendly terms (questions + puzzles; effort matters).</td></tr>
+      <tr><td>3</td><td><b>Begin at the appropriate start point</b> for the child's age (per manual).</td></tr>
+      <tr><td>4</td><td><b>Follow standardized instructions</b> verbatim; use only permitted demonstrations/queries.</td></tr>
+      <tr><td>5</td><td><b>Establish the basal</b> where the subtest requires it (see §13).</td></tr>
+      <tr><td>6</td><td><b>Continue administration</b> through the items, recording responses (and times where required).</td></tr>
+      <tr><td>7</td><td><b>Establish the ceiling / discontinue</b> after the specified number of consecutive failures (see §14).</td></tr>
+      <tr><td>8</td><td><b>Record responses accurately</b> — verbatim where the subtest is graded.</td></tr>
+      <tr><td>9</td><td><b>Score</b> each subtest per the manual's rules.</td></tr>
+      <tr><td>10</td><td><b>Convert</b> raw scores to scaled/age-based scores using the correct age table.</td></tr>
+      <tr><td>11</td><td><b>Calculate IQ</b> (Verbal, Performance, Full-Scale) via the manual's conversion tables.</td></tr>
+      <tr><td>12</td><td><b>Interpret the profile</b> and integrate with history, observation, and adaptive data.</td></tr>
+    </tbody>
+  </table></div>
+  <div class="callout co-note"><b>From the manual</b>Subtests may be administered in <em>any order</em> convenient for rapport (verified). Exact age-based start points and permitted queries/prompts are specified in the manual (secure detail) — read them from the physical manual.</div>
+</section>
+
+<!-- ===================== PART IV · SUBTEST ADMIN ===================== -->
+<div class="banner b-admin" id="subtest-admin">
+  <div class="tag">Part IV · Subtest Administration</div>
+  <h2>12 · Subtest-by-Subtest Administration (principles)</h2>
+</div>
+<section>
+  <p>Below are the <em>administration principles</em> for each subtest. Secure item content is deliberately <strong>not</strong> reproduced (per the manual's copyright notice); the skill assessed is described instead. Exact start points, basal/ceiling counts, timing, and scoring values are in the manual and Record Form — read them there.</p>
+  <div class="tbl-scroll"><table>
+    <thead><tr><th>Subtest</th><th>Start / general procedure</th><th>Basal (typical logic)</th><th>Ceiling / discontinue (typical logic)</th><th>Scoring principle</th><th>Common admin errors</th></tr></thead>
+    <tbody>
+      <tr><td><b>Information</b></td><td>Age-based start; oral questions, harder as you go</td><td>Consecutive correct at/after start; go back if early fails</td><td>Several consecutive failures</td><td>1/0 per item</td><td>Cueing; accepting vague answers</td></tr>
+      <tr><td><b>Comprehension</b></td><td>Oral "why/what would you do"; may query once</td><td>As above</td><td>Several consecutive failures</td><td>Graded 2/1/0</td><td>Over-querying; scoring conformity not reasoning</td></tr>
+      <tr><td><b>Arithmetic</b></td><td>Oral problems; often timed; mental solution</td><td>As above</td><td>Several consecutive failures</td><td>Pass/fail (± time)</td><td>Allowing paper/pencil when not permitted; mistiming</td></tr>
+      <tr><td><b>Similarities</b></td><td>Word pairs; "how alike?"</td><td>As above</td><td>Several consecutive failures</td><td>Graded 2/1/0</td><td>Prompting the category; misgrading abstraction level</td></tr>
+      <tr><td><b>Vocabulary</b></td><td>Define words of rising difficulty; record verbatim</td><td>As above</td><td>Several consecutive failures</td><td>Graded 2/1/0</td><td>Not recording verbatim; leading</td></tr>
+      <tr><td><b>Digit Span</b></td><td>Read digits at 1/sec; forward then backward</td><td>Usually no basal; start shortest</td><td>Fail both trials at a span length</td><td>Longest span passed</td><td>Wrong pacing; grouping digits by rhythm</td></tr>
+      <tr><td><b>Picture Completion</b></td><td>Show picture; name/point to missing part; time limit</td><td>Age-based start; back up on early fails</td><td>Several consecutive failures</td><td>Pass/fail</td><td>Exceeding time; accepting non-essential "missing" parts</td></tr>
+      <tr><td><b>Block Design</b></td><td>Demonstrate; child copies model; timed with bonuses</td><td>Age-based start</td><td>Several consecutive failures</td><td>Correct (± time bonus)</td><td>Mistiming; not noting rotations/errors</td></tr>
+      <tr><td><b>Object Assembly</b></td><td>Lay out pieces in set arrangement; timed</td><td>Usually all items given</td><td>Per manual</td><td>Junctions/completion (± time)</td><td>Wrong layout; mistiming</td></tr>
+      <tr><td><b>Coding</b></td><td>Teach key with samples; child works fast for fixed time</td><td>N/A (all in time limit)</td><td>Stop at time limit</td><td>Correct items in time</td><td>Not stopping on time; not scoring the sample rows correctly</td></tr>
+      <tr><td><b>Mazes</b></td><td>Demonstrate; child traces without blind alleys; timed</td><td>Age-based start</td><td>Fail criterion per manual</td><td>Errors/blind alleys (± time)</td><td>Allowing lifting the pencil freely; mistiming</td></tr>
+    </tbody>
+  </table></div>
+  <div class="callout co-warn"><b>Copyright &amp; test security</b>Do not photograph, copy, or transcribe secure items, stimulus pictures, block designs, or the coding key. Describe the <em>skill</em> assessed, never the protected content.</div>
+  <p style="text-align:right;"><a class="backtop" href="#toc">↑ Back to contents</a></p>
+</section>
+
+
+<!-- ===================== PART V · BASAL & CEILING ===================== -->
+<div class="banner b-scoring" id="basal">
+  <div class="tag">Part V · Basal &amp; Ceiling</div>
+  <h2>13 · Basal</h2>
+</div>
+<section>
+  <div class="card tinted-peach">
+    <ul class="tight">
+      <li><b>Definition:</b> the point below which the examinee is assumed to pass <em>all</em> easier items — established by a required run of consecutive correct responses.</li>
+      <li><b>Purpose:</b> avoids administering very easy items, saving time while still crediting them.</li>
+      <li><b>How established:</b> begin at the age-appropriate start item; if the child passes the required number of consecutive items, the basal is set and all earlier items are credited.</li>
+      <li><b>If the child fails near the start:</b> administer <em>earlier</em> items in reverse (backward administration) until the required consecutive passes are obtained, then proceed forward.</li>
+      <li><b>Recording:</b> note the basal item; credit all items below it as passed.</li>
+      <li><b>Effect on raw score:</b> credited "below-basal" items are added to the items actually passed above the basal.</li>
+    </ul>
+  </div>
+  <div class="callout co-note"><b>Read the exact rule from the manual</b>The <em>exact number</em> of consecutive correct responses that defines a basal (and which subtests use one) is specified per subtest in the manual/Record Form. Follow that rule precisely.</div>
+</section>
+
+<div class="banner b-scoring" id="ceiling">
+  <div class="tag">Part V · Basal &amp; Ceiling</div>
+  <h2>14 · Ceiling</h2>
+</div>
+<section>
+  <div class="card tinted-peach">
+    <ul class="tight">
+      <li><b>Definition:</b> the point above which the examinee is assumed to fail all harder items — established by a required run of consecutive failures.</li>
+      <li><b>Purpose:</b> avoids frustration and wasted time on items that are clearly too hard.</li>
+      <li><b>How established:</b> continue administering items until the child fails the specified number of consecutive items.</li>
+      <li><b>Discontinuation:</b> stop that subtest once the ceiling is reached; items above the ceiling are scored as failed.</li>
+      <li><b>Recording:</b> note the ceiling item and stop.</li>
+    </ul>
+  </div>
+  <div class="callout co-note"><b>Read the exact rule from the manual</b>The <em>exact number</em> of consecutive failures that defines the ceiling (and any subtest-specific discontinuation rule, e.g. Digit Span ends after failing both trials at a span length) is specified per subtest in the manual/Record Form. Follow that rule precisely.</div>
+</section>
+
+<div class="banner b-scoring" id="basal-ceiling-eg">
+  <div class="tag">Part V · Basal &amp; Ceiling</div>
+  <h2>15 · Basal–Ceiling Worked Example (fictional)</h2>
+</div>
+<section>
+  <p>Assume (fictionally) a subtest whose rule is: <b>basal = 3 consecutive passes</b>, <b>ceiling = 4 consecutive failures</b>, age-based start at item 7. <em>(Numbers illustrative only — use your manual's actual basal/ceiling rule for each subtest.)</em></p>
+  <div class="tbl-scroll"><table>
+    <thead><tr><th>Item</th><th>Direction</th><th>Result</th><th>What happens</th></tr></thead>
+    <tbody>
+      <tr><td>7</td><td>Start</td><td>Fail</td><td>No basal yet → must go backward</td></tr>
+      <tr><td>6, 5, 4</td><td>Backward</td><td>Pass, Pass, Pass</td><td><b>Basal established</b> at items 4–6; items 1–3 credited as passed</td></tr>
+      <tr><td>8, 9</td><td>Forward</td><td>Pass, Pass</td><td>Continue upward</td></tr>
+      <tr><td>10</td><td>Forward</td><td>Fail</td><td>1 consecutive fail</td></tr>
+      <tr><td>11</td><td>Forward</td><td>Pass</td><td>Fail count resets</td></tr>
+      <tr><td>12,13,14,15</td><td>Forward</td><td>Fail ×4</td><td><b>Ceiling reached</b> → discontinue</td></tr>
+    </tbody>
+  </table></div>
+  <div class="card tinted-peach"><h4>Raw score in this example</h4>
+    <p>Credited below basal (items 1–3) = 3. Passed above basal: items 4,5,6,7? (7 failed), 8,9,11 → count the actual passes recorded (4,5,6,8,9,11 = 6). Items 10, 12–15 = failed (0).</p>
+    <p><b>Raw score = 3 (below-basal credit) + 6 (passes above) = 9.</b> This raw 9 is then converted to a <b>Test Quotient</b> via the correct age table.</p>
+  </div>
+  <div class="flow">
+    <span class="step">Item sequence</span><span class="arw">→</span><span class="step">Pass/Fail</span><span class="arw">→</span><span class="step">Backward testing</span><span class="arw">→</span><span class="step">Basal</span><span class="arw">→</span><span class="step">Forward admin</span><span class="arw">→</span><span class="step">Ceiling</span><span class="arw">→</span><span class="step">Raw score</span>
+  </div>
+  <p style="text-align:right;"><a class="backtop" href="#toc">↑ Back to contents</a></p>
+</section>
+
+<!-- ===================== PART VI · SCORING ===================== -->
+<div class="banner b-scoring" id="raw">
+  <div class="tag">Part VI · Scoring</div>
+  <h2>16 · Raw Score</h2>
+</div>
+<section>
+  <ul class="tight">
+    <li><b>Meaning:</b> the raw score is the total credit earned on a subtest — it has no meaning until converted, because a raw of "20" means different things at age 6 vs. age 14.</li>
+    <li><b>How obtained:</b> sum the credited responses (pass/fail or graded), applying time bonuses where the subtest uses them.</li>
+    <li><b>Basal credit:</b> add the items credited below the basal to the items passed above it.</li>
+    <li><b>Ceiling:</b> items beyond the ceiling are counted as failed (0) and do not need to be administered.</li>
+  </ul>
+  <div class="callout co-note"><b>Check your arithmetic twice</b>Most MISIC scoring errors are simple addition mistakes or forgetting to add below-basal credit / time bonuses.</div>
+</section>
+
+<div class="banner b-scoring" id="item-scoring">
+  <div class="tag">Part VI · Scoring</div>
+  <h2>17 · Item Scoring (principles per subtest)</h2>
+</div>
+<section>
+  <div class="tbl-scroll"><table>
+    <thead><tr><th>Subtest</th><th>Correct</th><th>Partial credit?</th><th>Time-based?</th><th>Typical max logic</th><th>Common scoring errors</th></tr></thead>
+    <tbody>
+      <tr><td>Information</td><td>1</td><td>No</td><td>No</td><td>Sum of 1/0</td><td>Accepting vague/partial answers</td></tr>
+      <tr><td>Comprehension</td><td>2</td><td>Yes (2/1/0)</td><td>No</td><td>Sum of graded credits</td><td>Misgrading response quality</td></tr>
+      <tr><td>Arithmetic</td><td>1</td><td>Rare</td><td>Often</td><td>Sum (± time)</td><td>Crediting late answers</td></tr>
+      <tr><td>Similarities</td><td>2</td><td>Yes (2/1/0)</td><td>No</td><td>Sum of graded credits</td><td>Over-crediting concrete answers</td></tr>
+      <tr><td>Vocabulary</td><td>2</td><td>Yes (2/1/0)</td><td>No</td><td>Sum of graded credits</td><td>Not applying the graded criteria</td></tr>
+      <tr><td>Digit Span</td><td>Span pass</td><td>By length</td><td>No</td><td>Longest span</td><td>Crediting a length after failing both trials</td></tr>
+      <tr><td>Picture Completion</td><td>1</td><td>No</td><td>Yes (limit)</td><td>Sum of 1/0</td><td>Accepting a non-essential missing detail</td></tr>
+      <tr><td>Block Design</td><td>Correct</td><td>Sometimes</td><td>Yes (+bonus)</td><td>Sum (± time)</td><td>Missing rotations; wrong time bonus</td></tr>
+      <tr><td>Object Assembly</td><td>Junctions</td><td>Yes</td><td>Yes (+bonus)</td><td>Sum (± time)</td><td>Miscounting junctions; wrong bonus</td></tr>
+      <tr><td>Coding</td><td>Each correct</td><td>N/A</td><td>Yes (fixed time)</td><td>Correct in limit</td><td>Counting beyond time; scoring practice items</td></tr>
+      <tr><td>Mazes</td><td>Few errors</td><td>Yes</td><td>Yes</td><td>By errors (± time)</td><td>Misjudging blind alleys</td></tr>
+    </tbody>
+  </table></div>
+  <div class="callout co-note"><b>Read exact figures from the manual</b>The point values, graded-response criteria, time limits, and bonus rules above illustrate the <em>type</em> of scoring; the exact figures are given in the manual/Record Form (e.g. the manual specifies Vocabulary lower-age credit: functional/"terms of use" = 1 point, concrete/descriptive "superior to use" = 2 points). Follow the manual.</div>
+</section>
+
+<div class="banner b-scoring" id="scaled">
+  <div class="tag">Part VI · Scoring</div>
+  <h2>18 · Test Quotients (the MISIC scaled score)</h2>
+</div>
+<section>
+  <div class="callout co-key"><b>MISIC does this differently from the WISC</b>The original WISC converts raw scores into intermediate <em>Scaled Scores</em>, which are then turned into IQ via separate tables. The manual states that MISIC <strong>deliberately avoids the "Scaled Score."</strong> Instead, by means of its per-age Tables, MISIC converts each subtest's raw score <strong>directly into a "Test Quotient" (TQ), which is itself an IQ.</strong> So on MISIC the subtest-level standardized score <em>is</em> the Test Quotient.</div>
+  <div class="flow">
+    <span class="step">Subtest raw score</span><span class="arw">→</span>
+    <span class="step">Locate child's age table</span><span class="arw">→</span>
+    <span class="step">Read the Test Quotient (TQ = IQ)</span>
+  </div>
+  <ul class="tight">
+    <li><b>Why raw scores can't be interpreted directly:</b> the same raw score reflects different ability at different ages; only an age-referenced value is meaningful.</li>
+    <li><b>Age-based conversion:</b> using the child's <em>chronological age</em>, look up each subtest raw score in the correct age table to read off its <b>Test Quotient</b>. The manual provides a separate conversion table for each age (6 years, 7 years, 8 years, … 15 years).</li>
+    <li><b>Metric:</b> the TQ is expressed on the deviation-IQ scale (mean 100, <b>SD 15</b>), so a subtest TQ of 100 is average-for-age and each TQ is directly comparable across subtests.</li>
+    <li><b>Next step:</b> the subtest TQs are then <em>group-averaged</em> to give the Verbal and Performance IQs, and those are averaged for the Full-Scale IQ (see §20–23) — no separate table is needed after the TQs are read.</li>
+  </ul>
+  <div class="callout co-note"><b>Copyright</b>The per-age raw-score→TQ tables are part of the copyrighted manual and are <strong>not</strong> reproduced here; read them from the physical manual for the child's exact age.</div>
+</section>
+
+<div class="banner b-scoring" id="scaled-eg">
+  <div class="tag">Part VI · Scoring</div>
+  <h2>19 · Test Quotient Worked Example (fictional)</h2>
+</div>
+<section>
+  <div class="card tinted-peach">
+    <p><b>Chronological age (CA):</b> 9 years 4 months. <b>Vocabulary raw score:</b> 22.</p>
+    <div class="flow vert">
+      <span class="step">CA = 9 y 4 m → select the "9 YEARS" conversion table</span>
+      <span class="arw">↓</span>
+      <span class="step">Find raw 22 in that table's Vocabulary column</span>
+      <span class="arw">↓</span>
+      <span class="step">Read across → Vocabulary <b>Test Quotient = TQ</b> (value read from the manual)</span>
+    </div>
+    <p>The <em>process</em> is what matters and is fully defined by the manual: correct CA → correct age table → correct subtest column → Test Quotient. (The numeric TQ is not printed here because the tables are copyrighted.)</p>
+  </div>
+  <div class="callout co-key"><b>Compute CA carefully</b>Chronological age is date-of-test minus date-of-birth in years and months. The manual's age norms use a 12-month interval running from <b>4 months before to 7 months after a birthday</b>, so read the age band exactly as the manual specifies. A wrong CA sends you to the wrong table and corrupts every downstream score.</div>
+  <p style="text-align:right;"><a class="backtop" href="#toc">↑ Back to contents</a></p>
+</section>
+
+
+<!-- ===================== PART VII · IQ CALCULATION ===================== -->
+<div class="banner b-iq" id="viq">
+  <div class="tag">Part VII · IQ Calculation</div>
+  <h2>20 · Verbal IQ</h2>
+</div>
+<section>
+  <ul class="tight">
+    <li><b>Contributing subtests:</b> the five scored Verbal subtests — Information, Comprehension, Arithmetic, Similarities, and Vocabulary (with <b>Digit Span as the alternate</b>, used to complete the five if Vocabulary is dropped or a subtest is spoiled).</li>
+    <li><b>Combine scores:</b> having converted each subtest raw score to its <b>Test Quotient (TQ)</b>, <b>add the Verbal TQs and take their average</b>.</li>
+    <li><b>Result:</b> that average <em>is</em> the <b>Verbal IQ</b> — no further table look-up is needed.</li>
+    <li><b>Interpret:</b> Verbal IQ reflects language-mediated reasoning and acquired verbal knowledge relative to age peers.</li>
+  </ul>
+  <div class="callout co-verify"><b>Verified from the manual</b>MISIC obtains the Verbal IQ by <em>group-averaging the Verbal subtest Test Quotients</em>, not by looking a summed total up in a table. Digit Span is the designated Verbal alternate and should not be added merely to raise a score.</div>
+</section>
+
+<div class="banner b-iq" id="piq">
+  <div class="tag">Part VII · IQ Calculation</div>
+  <h2>21 · Performance IQ</h2>
+</div>
+<section>
+  <ul class="tight">
+    <li><b>Contributing subtests:</b> the five Performance subtests — Picture Completion, Block Design, Object Assembly, Coding, and Mazes.</li>
+    <li><b>Combine scores:</b> convert each raw score to its <b>Test Quotient</b>, then <b>add the Performance TQs and take their average</b>.</li>
+    <li><b>Result:</b> that average <em>is</em> the <b>Performance IQ</b>.</li>
+    <li><b>Interpret:</b> Performance IQ reflects visual-perceptual organisation, non-verbal reasoning, and visuomotor speed relative to age peers.</li>
+  </ul>
+  <div class="callout co-verify"><b>Verified from the manual</b>As with the Verbal scale, the Performance IQ is the <em>average of the Performance subtest Test Quotients</em>. (Recall the WISC's Picture Arrangement was dropped, leaving five Performance subtests.)</div>
+</section>
+
+<div class="banner b-iq" id="fsiq">
+  <div class="tag">Part VII · IQ Calculation</div>
+  <h2>22 · Full-Scale IQ</h2>
+</div>
+<section>
+  <ul class="tight">
+    <li><b>Method (per manual):</b> to obtain the Full-Scale IQ, <b>add both the Verbal and Performance test totals and take the average</b> — i.e. the Full-Scale IQ is the mean of all the administered subtest Test Quotients across the two scales.</li>
+    <li><b>Result:</b> the <b>Full-Scale IQ</b>, the best single estimate of general intellectual ability.</li>
+  </ul>
+  <div class="tbl-scroll"><table>
+    <thead><tr><th>Component</th><th>Contributing subtests</th><th>How the IQ is obtained</th></tr></thead>
+    <tbody>
+      <tr><td>Verbal</td><td>Information, Comprehension, Arithmetic, Similarities, Vocabulary (Digit Span = alternate)</td><td>Average of the Verbal TQs</td></tr>
+      <tr><td>Performance</td><td>Picture Completion, Block Design, Object Assembly, Coding, Mazes</td><td>Average of the Performance TQs</td></tr>
+      <tr><td>Full Scale</td><td>All administered Verbal + Performance subtests</td><td>Average of both group totals</td></tr>
+    </tbody>
+  </table></div>
+  <div class="callout co-verify"><b>Verified proration rule (Verbal-only)</b>The manual states: <em>"If only the Verbal group of TQs are obtained they can be balanced for a Full-Scale IQ by adding about 6% to supply for the missing Performance scores."</em> This built-in ~6% adjustment reflects the MISIC finding that Indian children tend to score higher on Verbal than Performance tasks. Use it only as the manual directs (when Performance cannot be administered); a full Verbal+Performance assessment is always preferable. Note: independent commentary has questioned the psychometric soundness of a flat 6% adjustment, so interpret a Verbal-only prorated Full-Scale IQ cautiously.</div>
+</section>
+
+<div class="banner b-iq" id="iq-algo">
+  <div class="tag">Part VII · IQ Calculation</div>
+  <h2>23 · IQ Calculation Algorithm</h2>
+</div>
+<section>
+  <div class="flow vert">
+    <span class="step">Raw subtest scores (with basal credit &amp; time bonuses)</span>
+    <span class="arw">↓ per-age tables ↓</span>
+    <span class="step">Subtest Test Quotients (TQs = IQs)</span>
+    <span class="arw">↓ average within each group ↓</span>
+    <span class="step">Verbal IQ (avg of Verbal TQs) &nbsp;·&nbsp; Performance IQ (avg of Performance TQs)</span>
+    <span class="arw">↓ average both group totals ↓</span>
+    <span class="step">Full-Scale IQ</span>
+    <span class="arw">↓ interpret ↓</span>
+    <span class="step">Classification + profile + clinical integration</span>
+  </div>
+  <div class="callout co-note"><b>Verbal-only shortcut</b>If only Verbal subtests could be given, add ~6% to the Verbal IQ to estimate the Full-Scale IQ (see §22).</div>
+</section>
+
+<div class="banner b-iq" id="iq-eg">
+  <div class="tag">Part VII · IQ Calculation</div>
+  <h2>24 · Fictional IQ Calculation Examples</h2>
+</div>
+<section>
+  <div class="callout co-warn"><b>All Test Quotients below are fictional</b>The TQ and IQ values here are illustrative placeholders to teach the <em>method</em> (raw→TQ→group-average). They are not read from the copyrighted norm tables.</div>
+
+  <div class="card tinted-mint"><h4>Case 1 — Average profile</h4>
+    <p>Verbal TQs (Info, Comp, Arith, Simil, Vocab): 102, 98, 104, 100, 96 → <b>Verbal IQ = average = 100</b>. Performance TQs (Pic Comp, Block, Object, Coding, Mazes): 101, 99, 100, 98, 102 → <b>Performance IQ = 100</b>.</p>
+    <p><b>Full-Scale IQ = average of all ten TQs ≈ 100</b> → <b>Average</b> range. Even Verbal/Performance profile; no notable scatter.</p>
+  </div>
+
+  <div class="card tinted-mint"><h4>Case 2 — Low overall profile</h4>
+    <p>Verbal TQs: 66, 64, 68, 65, 63 → <b>Verbal IQ ≈ 65</b>. Performance TQs: 68, 66, 67, 69, 65 → <b>Performance IQ ≈ 67</b>.</p>
+    <p><b>Full-Scale IQ ≈ 66</b> → below-average range. <b>Uniformly</b> low across scales — consider a global picture, then <em>always</em> assess adaptive functioning and developmental history before any intellectual-disability formulation.</p>
+  </div>
+
+  <div class="card tinted-mint"><h4>Case 3 — Uneven Verbal–Performance profile</h4>
+    <p>Verbal TQs: 80, 82, 78, 81, 79 → <b>Verbal IQ ≈ 80</b>. Performance TQs: 104, 106, 103, 105, 107 → <b>Performance IQ ≈ 105</b>.</p>
+    <p><b>Full-Scale IQ ≈ 92</b> (average of all ten TQs). A large <b>Performance &gt; Verbal</b> gap — the Full-Scale IQ (≈92) <em>masks</em> the discrepancy. Hypotheses: language/schooling factors, hearing, or a language-based difficulty depressing the Verbal scale. Interpret the two scales separately and investigate (see §28). <em>(Note: the MISIC standardization itself found a general Verbal &gt; Performance tendency in Indian children, so a modest gap in this direction may be partly normative — weigh its size against the norms.)</em></p>
+  </div>
+  <p style="text-align:right;"><a class="backtop" href="#toc">↑ Back to contents</a></p>
+</section>
+
+
+<!-- ===================== PART VIII · IQ INTERPRETATION ===================== -->
+<div class="banner b-interp" id="iq-class">
+  <div class="tag">Part VIII · IQ Interpretation</div>
+  <h2>25 · IQ Classification</h2>
+</div>
+<section>
+  <div class="callout co-verify"><b>Verified metric</b>The manual builds its norms on a <b>deviation IQ with mean 100 and SD 15</b>, anchoring percentiles to IQs as follows: <b>5th percentile ≈ IQ 75, 16th ≈ 85, 50th ≈ 100, 84th ≈ 115, 95th ≈ 125</b> (percentiles converted to IQ via a modified Thomson formula, as used in Bhatia's Performance scale, with adjustments for the platykurtic/right-skewed Indian growth curve).</div>
+  <div class="callout co-note"><b>Classification band labels</b>The exact descriptive-label wording and boundaries were not legible on the scanned classification page, so the band <em>labels</em> below are shown as the <em>conventional Wechsler-style</em> descriptors for orientation; the IQ ranges are consistent with the SD-15 metric above. Confirm the precise label wording from the physical manual before quoting it in a report.</div>
+  <div class="tbl-scroll"><table>
+    <thead><tr><th>Approx. IQ range</th><th>Conventional descriptive label (orientation only)</th><th>Broad interpretation</th></tr></thead>
+    <tbody>
+      <tr><td>130 and above</td><td><span class="pill p-high">Very Superior</span></td><td>Markedly above average intellectual performance</td></tr>
+      <tr><td>120–129</td><td><span class="pill p-high">Superior</span></td><td>Well above average</td></tr>
+      <tr><td>110–119</td><td><span class="pill p-avg">High Average</span></td><td>Above average</td></tr>
+      <tr><td>90–109</td><td><span class="pill p-avg">Average</span></td><td>Typical range for age</td></tr>
+      <tr><td>80–89</td><td><span class="pill p-low">Low Average</span></td><td>Below average</td></tr>
+      <tr><td>70–79</td><td><span class="pill p-low">Borderline</span></td><td>Well below average; warrants comprehensive assessment</td></tr>
+      <tr><td>Below 70</td><td><span class="pill p-vlow">Extremely Low</span></td><td>Consistent with (but not proof of) intellectual disability — requires adaptive-behaviour &amp; developmental data</td></tr>
+    </tbody>
+  </table></div>
+  <div class="callout co-key"><b>Report the confidence band, not just a point</b>Every IQ has measurement error. Best practice is to describe the range and classification rather than over-precise single numbers, and to note the standardized error if the manual provides it.</div>
+</section>
+
+<div class="banner b-interp" id="iq-not-all">
+  <div class="tag">Part VIII · IQ Interpretation</div>
+  <h2>26 · IQ Is Not the Entire Assessment</h2>
+</div>
+<section>
+  <p>A Full-Scale IQ is a summary of tested performance under standardized conditions on one day. Sound interpretation always weighs it against:</p>
+  <div class="grid2">
+    <div class="card tinted-cream"><ul class="tight">
+      <li>The <b>subtest profile</b> (strengths/weaknesses, scatter).</li>
+      <li><b>Behavioural observations</b> (attention, effort, anxiety, fatigue).</li>
+      <li><b>Developmental history</b> and milestones.</li>
+      <li><b>Academic functioning</b> and school reports.</li>
+    </ul></div>
+    <div class="card tinted-cream"><ul class="tight">
+      <li><b>Adaptive functioning</b> (VSMS / Vineland).</li>
+      <li><b>Language</b> and medium of instruction.</li>
+      <li><b>Cultural context</b> and <b>educational opportunity</b>.</li>
+      <li><b>Clinical history</b> (medical, neurological, psychiatric).</li>
+    </ul></div>
+  </div>
+  <div class="callout co-warn"><b>Never</b>Low IQ → automatic diagnosis of intellectual disability. Diagnosis requires deficits in intellectual <em>and</em> adaptive functioning with developmental onset, established through comprehensive assessment.</div>
+</section>
+
+<!-- ===================== PART IX · PROFILE ANALYSIS ===================== -->
+<div class="banner b-interp" id="subtest-profile">
+  <div class="tag">Part IX · Profile Analysis</div>
+  <h2>27 · Subtest Profile</h2>
+</div>
+<section>
+  <p>After the IQs, examine the pattern of subtest Test Quotients to identify:</p>
+  <ul class="tight">
+    <li><b>Strengths / weaknesses:</b> subtests clearly above or below the child's own average.</li>
+    <li><b>Relative strengths / weaknesses:</b> high/low <em>for this child</em> even if within normal limits.</li>
+    <li><b>Consistent deficits:</b> several related subtests low together (more interpretable than one outlier).</li>
+    <li><b>Uneven performance (scatter):</b> wide spread across subtests — note it and seek explanations.</li>
+  </ul>
+  <div class="callout co-warn"><b>One low subtest ≠ a disorder</b>A single low subtest can reflect momentary inattention, anxiety, unfamiliarity, or measurement error. Do not build a diagnosis on one score; look for converging patterns and corroboration.</div>
+</section>
+
+<div class="banner b-interp" id="vp-profile">
+  <div class="tag">Part IX · Profile Analysis</div>
+  <h2>28 · Verbal vs Performance Profile</h2>
+</div>
+<section>
+  <p>The Verbal–Performance comparison is one of the most clinically useful features — but a discrepancy is a <em>hypothesis generator</em>, not a diagnosis.</p>
+  <div class="tbl-scroll"><table>
+    <thead><tr><th>Pattern</th><th>Possible contributing factors to consider</th></tr></thead>
+    <tbody>
+      <tr><td><b>Performance &gt; Verbal</b></td><td>Home language ≠ test language; limited schooling; hearing difficulty; language/expressive difficulty; shyness affecting verbal output.</td></tr>
+      <tr><td><b>Verbal &gt; Performance</b></td><td>Visuospatial/constructional difficulty; motor difficulty; slow processing speed; anxiety on timed tasks; unfamiliarity with manipulatives.</td></tr>
+      <tr><td><b>Low across both</b></td><td>Global intellectual limitation (assess adaptive functioning); pervasive attention problem; poor effort/rapport; fatigue.</td></tr>
+    </tbody>
+  </table></div>
+  <div class="callout co-note"><b>Always ask "what else could explain this?"</b>Language, education, cultural exposure, attention, anxiety, processing speed, visual-perceptual and motor factors, and simple unfamiliarity with test demands can all move a scale. A discrepancy does not, by itself, indicate pathology.</div>
+</section>
+
+<div class="banner b-interp" id="discrepancies">
+  <div class="tag">Part IX · Profile Analysis</div>
+  <h2>29 · Subtest Discrepancies (fictional examples)</h2>
+</div>
+<section>
+  <div class="grid2">
+    <div class="card tinted-cream"><h4>High verbal reasoning + low performance</h4><p>Strong Similarities/Vocabulary but low Block Design/Coding → consider visuospatial, motor, speed, or anxiety factors on timed tasks; check vision.</p></div>
+    <div class="card tinted-cream"><h4>Low verbal + relatively preserved performance</h4><p>Low Information/Vocabulary but adequate Block Design/Object Assembly → consider language of testing, schooling, hearing; non-verbal ability may better estimate potential.</p></div>
+    <div class="card tinted-cream"><h4>Low across both scales</h4><p>Uniformly low → global picture; prioritise adaptive-behaviour assessment and developmental history before any formulation.</p></div>
+    <div class="card tinted-cream"><h4>High knowledge + low attention span</h4><p>Good Information/Vocabulary but low Arithmetic/Digit Span/Coding → an <em>attention/working-memory/speed</em> pattern; consider ADHD-type difficulties, anxiety, or fatigue — to be assessed separately.</p></div>
+    <div class="card tinted-cream"><h4>Strong reasoning + weak speed</h4><p>Good reasoning subtests but low Coding → a processing-speed weakness; consider motor, effort, and anxiety contributions.</p></div>
+  </div>
+</section>
+
+<div class="banner b-interp" id="profile-rule">
+  <div class="tag">Part IX · Profile Analysis</div>
+  <h2>30 · Profile Analysis Rule</h2>
+</div>
+<section>
+  <div class="callout co-warn"><b>Never</b>Low subtest → automatic diagnosis.</div>
+  <div class="flow vert">
+    <span class="step">Low subtest</span>
+    <span class="arw">↓</span>
+    <span class="step">Identify the cognitive demand of that subtest</span>
+    <span class="arw">↓</span>
+    <span class="step">Consider alternative explanations (language, attention, anxiety, motor, speed, culture, effort)</span>
+    <span class="arw">↓</span>
+    <span class="step">Cross-check history &amp; behavioural observations</span>
+    <span class="arw">↓</span>
+    <span class="step">Cross-check other tests / adaptive data</span>
+    <span class="arw">↓</span>
+    <span class="step">Clinical interpretation (hypothesis, not verdict)</span>
+  </div>
+  <p style="text-align:right;"><a class="backtop" href="#toc">↑ Back to contents</a></p>
+</section>
+
+
+<!-- ===================== PART X · INTELLECTUAL DISABILITY ===================== -->
+<div class="banner b-case" id="id-assess">
+  <div class="tag">Part X · Intellectual Disability</div>
+  <h2>31 · MISIC in Intellectual Disability Assessment</h2>
+</div>
+<section>
+  <p>Intellectual disability (ID) is defined by three criteria that <strong>all</strong> must be met — MISIC informs only the first:</p>
+  <div class="grid3">
+    <div class="card tinted-blush"><h4>1 · Intellectual functioning</h4><p>Significantly sub-average general intelligence — MISIC contributes the standardized IQ estimate here.</p></div>
+    <div class="card tinted-blush"><h4>2 · Adaptive functioning</h4><p>Deficits in conceptual, social, and practical adaptive skills — measured by VSMS / Vineland, <em>not</em> MISIC.</p></div>
+    <div class="card tinted-blush"><h4>3 · Developmental onset</h4><p>Onset during the developmental period — established from history.</p></div>
+  </div>
+  <div class="callout co-warn"><b>Why IQ alone is insufficient</b>A low IQ without adaptive-functioning deficits and developmental onset does <em>not</em> establish ID. Equally, functional impairment must be documented. Diagnosis is a clinical judgment integrating all three criteria — never an automatic read-off from the Full-Scale IQ.</div>
+  <div class="callout co-note"><b>Severity levels</b>Contemporary classification (DSM-5 / ICD-11) emphasises <b>adaptive functioning</b> for severity grading rather than IQ bands alone. Use the current, locally endorsed diagnostic framework; MISIC provides one input.</div>
+</section>
+
+<div class="banner b-case" id="adaptive">
+  <div class="tag">Part X · Intellectual Disability</div>
+  <h2>32 · MISIC + Adaptive Behaviour</h2>
+</div>
+<section>
+  <div class="tbl-scroll"><table>
+    <thead><tr><th>Assessment</th><th>Measures</th><th>Clinical role</th></tr></thead>
+    <tbody>
+      <tr><td><b>MISIC</b></td><td>Intellectual functioning (Verbal, Performance, Full-Scale IQ)</td><td>Estimates the <em>intellectual</em> criterion for ID; maps cognitive strengths/weaknesses</td></tr>
+      <tr><td><b>VSMS</b> (Vineland Social Maturity Scale, Indian adaptation)</td><td>Social/adaptive maturity → Social Age &amp; Social Quotient</td><td>Estimates <em>adaptive</em> functioning; widely used in India alongside MISIC</td></tr>
+      <tr><td><b>Vineland Adaptive Behavior Scales</b></td><td>Communication, daily living, socialisation, motor</td><td>Comprehensive adaptive-behaviour data for ID work-up</td></tr>
+      <tr><td>Other adaptive measures</td><td>Conceptual/social/practical skills</td><td>Corroborate adaptive-functioning criterion</td></tr>
+    </tbody>
+  </table></div>
+  <div class="callout co-key"><b>The pairing to remember</b>MISIC (intellectual) <b>+</b> VSMS/Vineland (adaptive) <b>+</b> developmental history = the minimum data set for an ID formulation.</div>
+</section>
+
+<div class="banner b-case" id="gazette">
+  <div class="tag">Part X · Intellectual Disability</div>
+  <h2>32a · MISIC &amp; the Gazette of India (RPwD Act, 2016) — legal/certification context</h2>
+</div>
+<section>
+  <p>In India, an intellectual-assessment report using MISIC is often the first step toward a <strong>disability certificate</strong>. It is essential to know how the intellectual-functioning finding fits the statutory framework notified in the <em>Gazette of India</em>.</p>
+  <div class="grid2">
+    <div class="card tinted-blush"><h4>The governing law</h4><ul class="tight">
+      <li><b>The Rights of Persons with Disabilities (RPwD) Act, 2016</b> (No. 49 of 2016) — notified in <em>The Gazette of India</em> on 28 December 2016; came into force 19 April 2017. It replaced the PwD Act, 1995.</li>
+      <li>It expanded the recognised disabilities from 7 to <b>21</b>, and lists <b>"intellectual disability"</b> (with specific learning disabilities and autism spectrum disorder) as a specified disability.</li>
+      <li>The <b>Rights of Persons with Disabilities Rules, 2017</b> operationalise certification and reservations.</li>
+    </ul></div>
+    <div class="card tinted-blush"><h4>The assessment guidelines</h4><ul class="tight">
+      <li>The Ministry of Social Justice &amp; Empowerment (Dept. of Empowerment of Persons with Disabilities) notified <b>Guidelines for assessing the extent of specified disabilities</b> via Gazette notification <b>S.O. 76(E), dated 4 January 2018</b> (with later amendments; latest notified guidelines dated <b>14 March 2024</b>).</li>
+      <li>These guidelines specify, for each disability, <em>how</em> the percentage of disability is quantified and by <em>which</em> authority.</li>
+    </ul></div>
+  </div>
+
+  <div class="callout co-key"><b>How MISIC fits (the key point)</b>
+    For intellectual disability, the Gazette guidelines direct that quantification rests on <strong>two pillars — measured intellectual functioning (IQ) <em>and</em> adaptive behaviour</strong>, assessed with a recognised, standardized, Indian test administered by a qualified clinical psychologist / competent professional. <strong>MISIC is one of the recognised IQ instruments</strong> used to establish the intellectual-functioning component (alongside tools such as the Binet–Kamat Test); adaptive functioning is documented with a scale such as the <b>VSMS</b>. The percentage of disability is then read off the notified guideline framework — not invented by the clinician.
+  </div>
+
+  <div class="card tinted-cream"><h4>Practical implications for a MISIC report used for certification</h4><ul class="tight">
+    <li><b>Benchmark disability:</b> many statutory benefits/reservations require a certificate of <b>≥ 40%</b> ("person with benchmark disability"). The MISIC IQ contributes to, but does not by itself decide, the certified percentage.</li>
+    <li><b>Both criteria required:</b> reflect <em>both</em> IQ and adaptive functioning, plus developmental onset — never certify from IQ alone.</li>
+    <li><b>Authorised authority:</b> the certificate is issued by the notified medical authority/board; the psychologist supplies the standardized IQ and adaptive-behaviour findings.</li>
+    <li><b>Use current guidelines &amp; norms:</b> apply the <em>latest notified</em> Gazette guidelines (2018, as amended 2024) and the correct MISIC norms; state the version used.</li>
+    <li><b>Cross-framework note:</b> the Gazette guidelines operate alongside clinical classification (ICD-11 / DSM-5), which grade ID severity primarily on <em>adaptive</em> functioning rather than IQ bands alone.</li>
+  </ul></div>
+
+  <div class="callout co-warn"><b>Verify exact figures against the notified Gazette</b>The precise IQ ranges and corresponding disability-percentage slabs are defined in the notified guidelines (S.O. 76(E)/2018 and the 14 March 2024 revision). Always read the <em>current</em> Gazette text for the exact numbers before completing a certification report — do not rely on any secondary summary (including this one) for the statutory percentages.</div>
+
+  <div class="card tinted-cream"><h4>Sources</h4><ul class="tight" style="font-size:.85rem;">
+    <li>The Rights of Persons with Disabilities Act, 2016 — <a href="https://depwd.gov.in/en/acts/">Dept. of Empowerment of Persons with Disabilities (DEPwD)</a> (RPwD Act &amp; Rules; 2024 assessment guidelines listed).</li>
+    <li>Gazette notification S.O. 76(E), 4 Jan 2018 — Guidelines for assessing the extent of specified disabilities (Ministry of Social Justice &amp; Empowerment).</li>
+    <li>Indian Psychiatric Society — <a href="https://journals.lww.com/indianjpsychiatry/fulltext/2019/61002/clinical_practice_guidelines_for_assessment_and.8.aspx">Clinical Practice Guidelines for Assessment and Management of Intellectual Disability</a> (Indian J. Psychiatry, 2019).</li>
+  </ul>
+  <p style="font-size:.8rem;color:var(--muted);">Statutory details summarised and rephrased for compliance; consult the official Gazette text for authoritative provisions.</p></div>
+  <p style="text-align:right;"><a class="backtop" href="#toc">↑ Back to contents</a></p>
+</section>
+
+<!-- ===================== PART XI · CLINICAL APPLICATION ===================== -->
+<div class="banner b-case" id="populations">
+  <div class="tag">Part XI · Clinical Application</div>
+  <h2>33 · MISIC in Different Populations</h2>
+</div>
+<section>
+  <div class="tbl-scroll"><table>
+    <thead><tr><th>Population</th><th>Role of MISIC</th><th>Key limitation / caution</th></tr></thead>
+    <tbody>
+      <tr><td>Intellectual disability</td><td>Intellectual criterion + profile</td><td>Must pair with adaptive &amp; developmental data; floor effects at low ability</td></tr>
+      <tr><td>Developmental delay</td><td>Baseline cognitive estimate</td><td>Young/very-delayed children may fall below the age range or floor</td></tr>
+      <tr><td>Autism spectrum disorder</td><td>Cognitive profile to guide support</td><td>Social/communication demands &amp; rapport may depress scores; interpret cautiously</td></tr>
+      <tr><td>ADHD</td><td>Cognitive strengths/weaknesses</td><td>Attention/speed subtests may be depressed by inattention, not low ability</td></tr>
+      <tr><td>Specific learning difficulties</td><td>Rule out global limitation; flag processing patterns</td><td>MISIC does not diagnose SLD; needs achievement testing</td></tr>
+      <tr><td>Neurological conditions</td><td>Cognitive impact screen</td><td>Not a neuropsychological battery; consider focused testing</td></tr>
+      <tr><td>Psychiatric conditions</td><td>Cognitive context</td><td>State (anxiety, depression, psychosis) can depress performance</td></tr>
+      <tr><td>Educational difficulties</td><td>Ability vs. attainment context</td><td>Heavily influenced by schooling/opportunity</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<div class="banner b-case" id="lang-culture">
+  <div class="tag">Part XI · Clinical Application</div>
+  <h2>34 · Language &amp; Cultural Considerations</h2>
+</div>
+<section>
+  <ul class="tight">
+    <li><b>Indian context:</b> MISIC was adapted to reduce cultural loading, but content and norms still reflect particular contexts and eras — interpret with awareness of the child's background.</li>
+    <li><b>Regional language &amp; medium of instruction:</b> a mismatch between the child's home/school language and the test language can depress Verbal scores in particular.</li>
+    <li><b>Language proficiency:</b> a bilingual/multilingual child may under-perform on verbal tasks in a non-dominant language.</li>
+    <li><b>School exposure:</b> Information, Vocabulary, and Arithmetic are strongly schooling-dependent.</li>
+    <li><b>Socioeconomic &amp; urban/rural factors:</b> differing exposure to test-like materials, pictures, and manipulatives.</li>
+    <li><b>Cultural familiarity:</b> some depicted objects or "correct" social answers may vary by community.</li>
+    <li><b>Educational opportunity:</b> limited or interrupted schooling can lower scores independent of ability.</li>
+  </ul>
+  <div class="callout co-warn"><b>Norms &amp; era</b>MISIC's standardization dates from the late 1960s (English, Marathi, and Hindi versions; Hindi samples scored lower and, per the manual, are interpreted against the combined English–Marathi norms). Because the norms are decades old and were drawn from a then-selective school-going population, an obtained IQ may not perfectly reflect a present-day child's standing. State the norms/version used and this limitation in the report.</div>
+</section>
+
+<div class="banner b-theory" id="research">
+  <div class="tag">Part XI · Clinical Application</div>
+  <h2>34a · MISIC — Research &amp; Evidence (brief)</h2>
+</div>
+<section>
+  <p>MISIC remains one of India's most widely used child intelligence tests. A concise, source-cited view of what the research says:</p>
+  <div class="grid2">
+    <div class="card tinted-lav"><h4>Strengths in the evidence base</h4><ul class="tight">
+      <li><b>Established reliability/validity.</b> The manual reports high test–retest reliability (Full-Scale r ≈ .91) and concurrent/congruent validity (≈ .63); MISIC continues to be used as a reference IQ measure in Indian clinical and research settings.<sup>[manual]</sup></li>
+      <li><b>Convergence with other tools.</b> Recent work reports significant correlations between MISIC subtests and the non-verbal <b>UNIT</b>, supporting its concurrent validity across domains.<sup>[1]</sup></li>
+      <li><b>Clinical sensitivity.</b> MISIC has detected group differences in at-risk children — e.g. lower Performance-scale scores among children of fathers with alcohol dependence — illustrating its use in neurodevelopmental research.<sup>[2]</sup></li>
+      <li><b>Adaptive-measure link.</b> Social-maturity (VSMS) scores correlate strongly with intelligence (Malin reported ≈ .80), underpinning the routine MISIC + VSMS pairing for ID work-up.<sup>[3]</sup></li>
+    </ul></div>
+    <div class="card tinted-blush"><h4>Cautions &amp; critiques</h4><ul class="tight">
+      <li><b>The 6% proration is disputed.</b> A published analysis argues that adding a flat 6% to the Verbal IQ to obtain a Full-Scale IQ rests on an incorrect assumption (an attempt to match Indian to American norms) and should not be continued; prefer administering the Performance scale.<sup>[4]</sup></li>
+      <li><b>Dated norms.</b> Standardized in the late 1960s on a selective school population; scores may not reflect present-day, more diverse cohorts (possible cohort/Flynn effects) — interpret cautiously and consider re-normed or alternative tools where available.</li>
+      <li><b>Language/education loading.</b> Verbal subtests are sensitive to medium of instruction and schooling; the manual itself notes an Indian Verbal &gt; Performance tendency, so weigh discrepancies against the norms.</li>
+      <li><b>Choice of instrument.</b> For some referral questions, comparable Indian tools (e.g. the Binet–Kamat Test) or non-verbal measures may be more appropriate; select on the basis of the child's language, age, and the question asked.</li>
+    </ul></div>
+  </div>
+  <div class="callout co-key"><b>Practical take-away</b>Treat MISIC as a well-established but <em>ageing</em> instrument: use it with its own norms, avoid the disputed Verbal-only 6% proration where the Performance scale can be given, pair it with adaptive-behaviour data, and interpret Verbal–Performance gaps against the Indian norms and the child's language/schooling background.</div>
+  <div class="card tinted-cream"><h4>Selected sources</h4><ul class="tight" style="font-size:.85rem;">
+    <li>[manual] Malin, A. J. — <em>Manual: Malin's Intelligence Scale for Indian Children</em> (Indian Psychological Corporation) — reliability/validity data.</li>
+    <li>[1] Lavania S. et al. — <a href="https://www.rcpsych.ac.uk/docs/default-source/events/2023/faculties/intellectual-disability/posters/calc---sagar-lavania-poster---faculty-of-psychiatry-of-intellectual-disability-conference-2023.pdf">MISIC–UNIT subtest correlations</a> (RCPsych ID conference poster, 2023).</li>
+    <li>[2] <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3025164/">Children of men with alcohol dependence: neurodevelopment</a> (PMC) — MISIC Performance-scale differences.</li>
+    <li>[3] <a href="https://www.researchgate.net/publication/338853793_Vineland_Social_Maturity_Scale_An_Update_on_Administration_and_Scoring/">VSMS: an update on administration &amp; scoring</a> — VSMS–IQ correlation ≈ .80 (Malin).</li>
+    <li>[4] <a href="https://www.researchgate.net/publication/352054977_Malin's_Intelligence_Scale_for_Indian_Children_MISIC_The_erroneous_practice_of_6_proration">MISIC: the erroneous practice of 6% proration</a> (2021).</li>
+  </ul>
+  <p style="font-size:.8rem;color:var(--muted);">Findings summarised and rephrased for compliance with licensing restrictions; the official MISIC manual remains the primary authority for scoring and norms.</p></div>
+  <p style="text-align:right;"><a class="backtop" href="#toc">↑ Back to contents</a></p>
+</section>
+
+<!-- ===================== PART XII · BEHAVIOURAL OBSERVATION ===================== -->
+<div class="banner b-admin" id="observe">
+  <div class="tag">Part XII · Behavioural Observation</div>
+  <h2>35 · What to Observe</h2>
+</div>
+<section>
+  <div class="grid3">
+    <div class="card tinted-powder"><ul class="tight"><li>Rapport &amp; cooperation</li><li>Attention &amp; distractibility</li><li>Persistence</li><li>Frustration tolerance</li></ul></div>
+    <div class="card tinted-powder"><ul class="tight"><li>Motivation &amp; effort</li><li>Impulsivity</li><li>Response style (fast/slow, careful/careless)</li><li>Anxiety</li></ul></div>
+    <div class="card tinted-powder"><ul class="tight"><li>Fatigue</li><li>Comprehension of instructions</li><li>Help-seeking</li><li>Strategy use &amp; self-correction</li></ul></div>
+  </div>
+</section>
+
+<div class="banner b-admin" id="observe-integrate">
+  <div class="tag">Part XII · Behavioural Observation</div>
+  <h2>36 · Integrating Observations</h2>
+</div>
+<section>
+  <div class="grid2">
+    <div class="card tinted-blush"><h4>Low score + poor attention/effort</h4><p>The score may <b>underestimate</b> true ability. Interpret cautiously, note the observation prominently, and consider re-assessment or attention-focused evaluation.</p></div>
+    <div class="card tinted-sage"><h4>Low score + adequate attention &amp; persistence</h4><p>The score is a <b>more valid</b> reflection of current ability. It carries more interpretive weight — though context still applies.</p></div>
+  </div>
+  <div class="callout co-key"><b>Observations change the meaning of the same number</b>Two children with an identical Full-Scale IQ can warrant very different conclusions depending on effort, anxiety, comprehension, and rapport. Document behaviour and let it qualify the scores.</div>
+  <p style="text-align:right;"><a class="backtop" href="#toc">↑ Back to contents</a></p>
+</section>
+
+
+<!-- ===================== PART XIII · CASE STUDIES ===================== -->
+<div class="banner b-case" id="master-case">
+  <div class="tag">Part XIII · Case Studies</div>
+  <h2>37 · Complete Case Study (fictional)</h2>
+</div>
+<section>
+  <div class="report-doc">
+    <div class="flow"><span class="step">Patient</span><span class="arw">→</span><span class="step">Background</span><span class="arw">→</span><span class="step">Observation</span><span class="arw">→</span><span class="step">Subtest scores</span><span class="arw">→</span><span class="step">IQ</span><span class="arw">→</span><span class="step">Profile</span><span class="arw">→</span><span class="step">Interpretation</span><span class="arw">→</span><span class="step">Recommendations</span></div>
+    <h4>Identifying information</h4><p>"R," 9-year-old boy, Class 3, Hindi-medium school. <em>(Fictional.)</em></p>
+    <h4>Referral question</h4><p>Referred by school counsellor for cognitive assessment due to persistent academic difficulty and slow work pace.</p>
+    <h4>Developmental history</h4><p>Mildly delayed early speech; motor milestones broadly on time; no seizures or head injury; vision/hearing reportedly normal (formal screening recommended).</p>
+    <h4>Educational history</h4><p>Irregular attendance in early years; struggles with reading fluency and written work; teachers note he "knows answers orally but is slow to write."</p>
+    <h4>Behavioural observations</h4><p>Cooperative, mildly anxious initially, settled with encouragement; attention adequate on shorter tasks but flagged on timed tasks; effort good; no impulsivity; became fatigued in the final subtests.</p>
+    <h4>Administration</h4><p>Standard MISIC administration completed over one session with a short break; rapport maintained.</p>
+    <h4>Subtest results (fictional Test Quotients)</h4>
+    <div class="tbl-scroll"><table>
+      <thead><tr><th>Verbal</th><th>TQ</th><th>Performance</th><th>TQ</th></tr></thead>
+      <tbody>
+        <tr><td>Information</td><td>95</td><td>Picture Completion</td><td>100</td></tr>
+        <tr><td>Comprehension</td><td>100</td><td>Block Design</td><td>96</td></tr>
+        <tr><td>Arithmetic</td><td>84</td><td>Object Assembly</td><td>100</td></tr>
+        <tr><td>Similarities</td><td>100</td><td>Coding</td><td>82</td></tr>
+        <tr><td>Vocabulary</td><td>98</td><td>Mazes</td><td>96</td></tr>
+        <tr><td>Digit Span (alternate)</td><td>85</td><td>—</td><td>—</td></tr>
+      </tbody>
+    </table></div>
+    <h4>Scores (fictional Test Quotients averaged)</h4><p>Verbal IQ ≈ 95 (average of the five scored Verbal TQs) · Performance IQ ≈ 95 · <b>Full-Scale IQ ≈ 95 (Average range)</b>. <small>Digit Span, the Verbal alternate, is shown for information but not counted since all five core Verbal subtests were given.</small></p>
+    <h4>Profile analysis</h4><p>General ability is in the Average range with an <b>even Verbal–Performance profile</b>. Relative weaknesses cluster on <b>Arithmetic, Digit Span, and Coding</b> — an <em>attention / working-memory / processing-speed</em> pattern — against otherwise average reasoning and knowledge.</p>
+    <h4>Clinical formulation (dimensional)</h4><p>R's overall intellectual ability is average; his academic difficulty is <em>not</em> explained by low general ability. The profile and observations (slowing and fatigue on timed tasks, good oral but slow written output) suggest a working-memory/processing-speed and possibly attention contribution, plus the impact of irregular early schooling. This is a hypothesis, not a diagnosis.</p>
+    <h4>Recommendations</h4><ul class="tight">
+      <li>Formal vision and hearing screening.</li>
+      <li>Targeted assessment of attention (behaviour rating scales, teacher/parent report) and of reading/writing achievement to evaluate a specific learning difficulty.</li>
+      <li>Classroom accommodations for processing speed (extra time, reduced copying).</li>
+      <li>Review schooling gaps; consider remedial support.</li>
+    </ul>
+    <h4>Limitations</h4><p>Single administration; fictional norms; scores qualified by end-of-session fatigue; diagnosis of any specific condition requires the further assessments recommended.</p>
+  </div>
+</section>
+
+<div class="banner b-case" id="more-cases">
+  <div class="tag">Part XIII · Case Studies</div>
+  <h2>38 · Additional Cases (6, fictional)</h2>
+</div>
+<section>
+  <p>Format: <b>Presentation → test performance → profile → interpretation → clinical implication → what else to assess.</b></p>
+  <div class="grid2">
+    <div class="card tinted-blush"><h4>Case A — Globally low functioning</h4>
+      <p><b>Presentation:</b> 8-y girl, marked delays, dependent in daily tasks.</p>
+      <p><b>Performance/profile:</b> uniformly low across all subtests; FSIQ well below average (fictional ≈ 60).</p>
+      <p><b>Interpretation:</b> consistent with globally low intellectual functioning.</p>
+      <p><b>Implication:</b> possible ID — <em>only if</em> adaptive deficits + developmental onset confirmed.</p>
+      <p><b>Assess:</b> VSMS/Vineland, developmental history, medical work-up, sensory screening.</p></div>
+
+    <div class="card tinted-blush"><h4>Case B — Uneven V–P profile</h4>
+      <p><b>Presentation:</b> 11-y boy, good talker, poor at drawing/construction.</p>
+      <p><b>Performance/profile:</b> Verbal &gt; Performance (fictional VIQ ≈ 108, PIQ ≈ 85).</p>
+      <p><b>Interpretation:</b> possible visuospatial/motor or speed weakness.</p>
+      <p><b>Implication:</b> non-verbal difficulty; verbal ability likely underestimates nothing, but PIQ needs explaining.</p>
+      <p><b>Assess:</b> vision, fine-motor, visual-perceptual testing; timed-task anxiety.</p></div>
+
+    <div class="card tinted-blush"><h4>Case C — Language-related difficulty</h4>
+      <p><b>Presentation:</b> 9-y child, home language differs from school/test language.</p>
+      <p><b>Performance/profile:</b> Performance &gt; Verbal (fictional PIQ ≈ 100, VIQ ≈ 82).</p>
+      <p><b>Interpretation:</b> Verbal scale likely depressed by language mismatch.</p>
+      <p><b>Implication:</b> Full-Scale IQ may underestimate ability; weight non-verbal ability.</p>
+      <p><b>Assess:</b> language history, consider testing in dominant language / non-verbal measures.</p></div>
+
+    <div class="card tinted-blush"><h4>Case D — Attention-related difficulty</h4>
+      <p><b>Presentation:</b> 10-y boy, restless, "careless mistakes," disruptive at school.</p>
+      <p><b>Performance/profile:</b> lower Arithmetic/Digit Span/Coding; reasoning subtests average.</p>
+      <p><b>Interpretation:</b> attention/working-memory/speed pattern.</p>
+      <p><b>Implication:</b> scores may underestimate ability; consider ADHD-type difficulty.</p>
+      <p><b>Assess:</b> standardized ADHD rating scales, multi-informant history, rule out anxiety.</p></div>
+
+    <div class="card tinted-blush"><h4>Case E — Learning difficulty</h4>
+      <p><b>Presentation:</b> 12-y girl, average IQ but reading/spelling far behind class.</p>
+      <p><b>Performance/profile:</b> average FSIQ; scatter with some language/processing subtests lower.</p>
+      <p><b>Interpretation:</b> ability–attainment gap raises possible specific learning disorder.</p>
+      <p><b>Implication:</b> MISIC helps <em>rule out</em> global limitation; does not diagnose SLD.</p>
+      <p><b>Assess:</b> standardized reading/writing/maths achievement tests; educational history.</p></div>
+
+    <div class="card tinted-blush"><h4>Case F — Developmental disorder (ASD)</h4>
+      <p><b>Presentation:</b> 7-y child, social-communication difficulties, restricted interests.</p>
+      <p><b>Performance/profile:</b> uneven; rapport/task-engagement affected some subtests.</p>
+      <p><b>Interpretation:</b> profile shaped by social/communication demands, not only ability.</p>
+      <p><b>Implication:</b> interpret cautiously; scores may not reflect true potential.</p>
+      <p><b>Assess:</b> ASD-specific assessment (history, ADOS-type tools), adaptive behaviour, language.</p></div>
+  </div>
+  <p style="text-align:right;"><a class="backtop" href="#toc">↑ Back to contents</a></p>
+</section>
+
+
+<!-- ===================== PART XIV · REPORT WRITING ===================== -->
+<div class="banner b-report" id="report-structure">
+  <div class="tag">Part XIV · Report Writing</div>
+  <h2>39 · Complete MISIC Report Structure</h2>
+</div>
+<section>
+  <div class="tbl-scroll"><table>
+    <thead><tr><th>#</th><th>Section</th><th>Contents</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Identifying Information</td><td>Initials, age, sex, class, school medium, date, examiner.</td></tr>
+      <tr><td>2</td><td>Referral Source</td><td>Who referred and their role.</td></tr>
+      <tr><td>3</td><td>Reason for Referral</td><td>The specific question to answer.</td></tr>
+      <tr><td>4</td><td>Background History</td><td>Developmental, educational, medical/neurological, language, family.</td></tr>
+      <tr><td>5</td><td>Behavioural Observation</td><td>Rapport, attention, effort, anxiety, response style, validity of effort.</td></tr>
+      <tr><td>6</td><td>Test Administered</td><td>MISIC (state edition/norms if known); note any other tests.</td></tr>
+      <tr><td>7</td><td>Purpose</td><td>Why MISIC was chosen for this question.</td></tr>
+      <tr><td>8</td><td>Administration</td><td>Setting, breaks, deviations/accommodations.</td></tr>
+      <tr><td>9</td><td>Test Results</td><td>Subtest and scale results (tables).</td></tr>
+      <tr><td>10</td><td>Subtest Profile</td><td>Strengths, weaknesses, scatter.</td></tr>
+      <tr><td>11–13</td><td>Verbal / Performance / Full-Scale IQ</td><td>Each IQ with classification and range.</td></tr>
+      <tr><td>14</td><td>Interpretation</td><td>Cautious prose linking scores to the referral question.</td></tr>
+      <tr><td>15</td><td>Clinical Integration</td><td>History, observation, adaptive data, other tests.</td></tr>
+      <tr><td>16</td><td>Limitations</td><td>Language, culture, state factors, norms, single administration.</td></tr>
+      <tr><td>17</td><td>Recommendations</td><td>Actionable, tied to the referral question.</td></tr>
+      <tr><td>18</td><td>Final Impression</td><td>Concise summary — never a diagnosis from IQ alone.</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<div class="banner b-report" id="results-table">
+  <div class="tag">Part XIV · Report Writing</div>
+  <h2>40 · Results Tables</h2>
+</div>
+<section>
+  <h4>Subtest results (report-ready)</h4>
+  <div class="tbl-scroll"><table>
+    <thead><tr><th>Subtest</th><th>Raw score</th><th>Test Quotient</th><th>Qualitative interpretation</th></tr></thead>
+    <tbody>
+      <tr><td>Information</td><td>—</td><td>—</td><td>Average / relative strength / relative weakness</td></tr>
+      <tr><td>Comprehension</td><td>—</td><td>—</td><td>—</td></tr>
+      <tr><td>… (all administered subtests)</td><td>—</td><td>—</td><td>—</td></tr>
+    </tbody>
+  </table></div>
+  <h4>Scale results</h4>
+  <div class="tbl-scroll"><table>
+    <thead><tr><th>Scale</th><th>Scaled total</th><th>IQ</th><th>Classification</th></tr></thead>
+    <tbody>
+      <tr><td>Verbal</td><td>—</td><td>—</td><td>—</td></tr>
+      <tr><td>Performance</td><td>—</td><td>—</td><td>—</td></tr>
+      <tr><td>Full Scale</td><td>—</td><td>—</td><td>—</td></tr>
+    </tbody>
+  </table></div>
+  <div class="callout co-note"><b>Report all three scales</b>Report the Verbal IQ, Performance IQ, and Full-Scale IQ (each the average of the relevant Test Quotients). Use the manual's own classification-band wording (read it from the physical manual — the scanned label page was not fully legible here).</div>
+</section>
+
+<div class="banner b-report" id="sample-reports">
+  <div class="tag">Part XIV · Report Writing</div>
+  <h2>41 · Sample Reports (3, fictional)</h2>
+</div>
+<section>
+  <div class="report-doc">
+    <h4>Report 1 — Globally low intellectual functioning</h4>
+    <p><b>Identifying:</b> "S," 8-y girl, Class 2. <b>Referral:</b> school — pervasive learning &amp; self-care difficulty. <b>History:</b> global developmental delay; dependent in daily activities. <b>Observation:</b> cooperative, effort adequate, comprehension limited.</p>
+    <p><b>Results (fictional):</b> uniformly low subtests; VIQ ≈ 58, PIQ ≈ 62, <b>FSIQ ≈ 59</b> (Extremely Low range, orientation label).</p>
+    <p><b>Interpretation:</b> Current intellectual performance is significantly below the average range across both verbal and non-verbal domains. <b>Integration:</b> consistent with global developmental delay reported in history. <b>Formulation:</b> "Findings are consistent with significantly sub-average intellectual functioning; a diagnosis of intellectual disability requires corroborating adaptive-functioning assessment and developmental history." <b>Recommendations:</b> VSMS/Vineland, medical &amp; sensory evaluation, individualised educational support. <b>Limitations:</b> single session; floor effects; fictional norms. <b>Final impression:</b> significantly below-average intellectual performance; comprehensive ID assessment indicated.</p>
+  </div>
+  <div class="report-doc">
+    <h4>Report 2 — Uneven cognitive profile</h4>
+    <p><b>Identifying:</b> "A," 11-y boy. <b>Referral:</b> strong orally, poor written/constructional work. <b>Observation:</b> engaged, slower and anxious on timed tasks.</p>
+    <p><b>Results (fictional):</b> VIQ ≈ 106, PIQ ≈ 84, <b>FSIQ ≈ 95</b>. Verbal &gt; Performance.</p>
+    <p><b>Interpretation:</b> "Verbal reasoning is in the average range and clearly exceeds performance-based abilities; the lower Performance IQ appears to reflect visuospatial/visuomotor and processing-speed demands, possibly compounded by anxiety on timed tasks." <b>Integration:</b> matches teacher reports. <b>Recommendations:</b> vision &amp; fine-motor screening, visual-perceptual assessment, timed-task accommodations. <b>Limitations:</b> single session; the Full-Scale IQ obscures the discrepancy and should not be over-interpreted. <b>Final impression:</b> average verbal ability with a relative non-verbal/speed weakness to be further assessed.</p>
+  </div>
+  <div class="report-doc">
+    <h4>Report 3 — Academic difficulties</h4>
+    <p><b>Identifying:</b> "M," 12-y girl. <b>Referral:</b> reading/spelling far behind class despite apparent ability. <b>Observation:</b> motivated, attentive, no behavioural concerns.</p>
+    <p><b>Results (fictional):</b> VIQ ≈ 98, PIQ ≈ 101, <b>FSIQ ≈ 99</b> (Average). Some scatter on language/processing subtests.</p>
+    <p><b>Interpretation:</b> "General intellectual ability is within the average range; her academic difficulties are not accounted for by low overall ability." <b>Integration:</b> ability–attainment gap. <b>Recommendations:</b> standardized reading/writing/maths achievement testing to evaluate a specific learning disorder; educational history review; remedial support. <b>Limitations:</b> MISIC does not diagnose learning disorders; fictional norms. <b>Final impression:</b> average intellectual ability with a possible specific learning difficulty requiring achievement testing.</p>
+  </div>
+</section>
+
+<div class="banner b-report" id="report-language">
+  <div class="tag">Part XIV · Report Writing</div>
+  <h2>42 · Professional Report Language</h2>
+</div>
+<section>
+  <div class="grid2">
+    <div><div class="bad">"Child is dumb / backward."</div>
+      <div class="good">"The obtained cognitive profile indicates intellectual functioning within the ______ range for the child's age."</div></div>
+    <div><div class="bad">"Child has mental retardation because IQ is low."</div>
+      <div class="good">"The obtained intellectual performance is below the expected range; however, a determination of intellectual disability requires assessment of adaptive functioning and developmental history."</div></div>
+  </div>
+  <div class="card tinted-blue"><h4>Cautious phrasing bank</h4>
+    <p class="phrase">"…performed in the ______ range, suggesting…"</p>
+    <p class="phrase">"…a relative strength/weakness was noted on ______, which may reflect…"</p>
+    <p class="phrase">"…the Verbal–Performance difference may be associated with ______ and should be interpreted in light of ______."</p>
+    <p class="phrase">"…these results should be interpreted in conjunction with history, behavioural observation, and adaptive-functioning data."</p>
+    <p class="phrase">"…scores may underestimate the child's ability given ______ (e.g. anxiety, fatigue, language)."</p>
+  </div>
+  <div class="callout co-key"><b>Prefer</b> "suggests," "may indicate," "is consistent with," "appears to reflect," "should be interpreted alongside." <b>Avoid</b> labels, absolutes, and diagnosis-from-IQ-alone.</div>
+  <p style="text-align:right;"><a class="backtop" href="#toc">↑ Back to contents</a></p>
+</section>
+
+
+<!-- ===================== PART XV · LIMITATIONS ===================== -->
+<div class="banner b-case" id="limitations">
+  <div class="tag">Part XV · Limitations</div>
+  <h2>43 · Limitations of MISIC</h2>
+</div>
+<section>
+  <div class="grid2">
+    <div class="card tinted-blush"><ul class="tight">
+      <li><b>Language effects</b> — test/home-language mismatch depresses (esp.) Verbal scores.</li>
+      <li><b>Cultural effects</b> — content and "correct" answers are culturally shaped.</li>
+      <li><b>Educational exposure</b> — schooling strongly affects knowledge-based subtests.</li>
+      <li><b>Motivation &amp; effort</b> — low effort underestimates ability.</li>
+      <li><b>Attention</b> — inattention lowers speed/working-memory subtests.</li>
+      <li><b>Fatigue</b> — a long (~2 hr) test; late subtests may suffer.</li>
+    </ul></div>
+    <div class="card tinted-blush"><ul class="tight">
+      <li><b>Anxiety</b> — depresses timed and span tasks.</li>
+      <li><b>Examiner effects</b> — administration/scoring inconsistency.</li>
+      <li><b>Practice effects</b> — prior recent testing can inflate scores.</li>
+      <li><b>Normative limitations</b> — the standardization dates from the late 1960s on a then-selective school population; norms may be dated.</li>
+      <li><b>Version limitations</b> — do not mix editions/norms.</li>
+      <li><b>IQ interpretation limits</b> — a single-day estimate; not a diagnosis on its own.</li>
+    </ul></div>
+  </div>
+</section>
+
+<!-- ===================== PART XVI · COMMON ERRORS ===================== -->
+<div class="banner b-scoring" id="err-admin">
+  <div class="tag">Part XVI · Common Errors</div>
+  <h2>44 · Administration Errors</h2>
+</div>
+<section>
+  <div class="grid2">
+    <div class="card tinted-peach"><ul class="tight">
+      <li>Incorrect (non-age-appropriate) starting point.</li>
+      <li>Failure to establish the basal / omitting backward administration.</li>
+      <li>Incorrect ceiling / continuing past discontinuation.</li>
+      <li>Leading or cueing responses.</li>
+    </ul></div>
+    <div class="card tinted-peach"><ul class="tight">
+      <li>Inconsistent or paraphrased instructions.</li>
+      <li>Inadequate/verbatim-less recording of responses.</li>
+      <li>Excessive prompting.</li>
+      <li>Incorrect timing on timed subtests.</li>
+    </ul></div>
+  </div>
+</section>
+
+<div class="banner b-scoring" id="err-scoring">
+  <div class="tag">Part XVI · Common Errors</div>
+  <h2>45 · Scoring Errors</h2>
+</div>
+<section>
+  <div class="grid2">
+    <div class="card tinted-peach"><ul class="tight">
+      <li>Incorrect raw score (addition mistakes).</li>
+      <li>Forgetting below-basal credit.</li>
+      <li>Incorrect ceiling handling.</li>
+      <li>Misapplying partial (graded) credit.</li>
+      <li>Wrong chronological-age computation.</li>
+    </ul></div>
+    <div class="card tinted-peach"><ul class="tight">
+      <li>Using the wrong age conversion table.</li>
+      <li>Using the wrong norm table / edition.</li>
+      <li>Wrong Test-Quotient look-up (wrong age table).</li>
+      <li>Wrong IQ-conversion / arithmetic.</li>
+      <li>Mixing manual editions.</li>
+    </ul></div>
+  </div>
+</section>
+
+<div class="banner b-scoring" id="err-interp">
+  <div class="tag">Part XVI · Common Errors</div>
+  <h2>46 · Interpretation Errors</h2>
+</div>
+<section>
+  <div class="tbl-scroll"><table>
+    <thead><tr><th>Error</th><th>Why it's wrong</th></tr></thead>
+    <tbody>
+      <tr><td>Interpreting IQ without adaptive functioning</td><td>ID needs adaptive + developmental criteria too.</td></tr>
+      <tr><td>Diagnosing from IQ alone</td><td>IQ is one datum; diagnosis is a clinical integration.</td></tr>
+      <tr><td>Ignoring language</td><td>Language mismatch can depress Verbal scores independent of ability.</td></tr>
+      <tr><td>Ignoring culture / educational opportunity</td><td>Content and schooling shape scores.</td></tr>
+      <tr><td>Over-interpreting one subtest</td><td>Single scores are unreliable; look for patterns.</td></tr>
+      <tr><td>Treating V–P discrepancy as diagnostic</td><td>A discrepancy is a hypothesis, not a diagnosis.</td></tr>
+      <tr><td>Ignoring behavioural observations</td><td>Effort/anxiety/fatigue change the meaning of scores.</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- ===================== PART XVII · WORKBOOK ===================== -->
+<div class="banner b-scoring" id="ws-item">
+  <div class="tag">Part XVII · Practical Scoring Workbook</div>
+  <h2>47 · Item Recording Sheet</h2>
+</div>
+<section>
+  <div class="tbl-scroll"><table>
+    <thead><tr><th>Subtest</th><th>Item</th><th>Response (verbatim where graded)</th><th>Score</th><th>Notes (behaviour, timing)</th></tr></thead>
+    <tbody>
+      <tr><td>______</td><td>__</td><td>____________________</td><td>__</td><td>____________</td></tr>
+      <tr><td>______</td><td>__</td><td>____________________</td><td>__</td><td>____________</td></tr>
+      <tr><td>…</td><td>…</td><td>…</td><td>…</td><td>…</td></tr>
+    </tbody>
+  </table></div>
+  <p><small>Do not reproduce secure test items on shareable sheets; record responses only on the official protected record form.</small></p>
+</section>
+
+<div class="banner b-scoring" id="ws-subtest">
+  <div class="tag">Part XVII · Workbook</div>
+  <h2>48 · Subtest Score Sheet</h2>
+</div>
+<section>
+  <div class="tbl-scroll"><table>
+    <thead><tr><th>Subtest</th><th>Raw score</th><th>Test Quotient</th><th>Interpretation</th></tr></thead>
+    <tbody>
+      <tr><td>Information</td><td>__</td><td>__</td><td>__</td></tr>
+      <tr><td>Comprehension</td><td>__</td><td>__</td><td>__</td></tr>
+      <tr><td>Arithmetic</td><td>__</td><td>__</td><td>__</td></tr>
+      <tr><td>Similarities</td><td>__</td><td>__</td><td>__</td></tr>
+      <tr><td>Vocabulary</td><td>__</td><td>__</td><td>__</td></tr>
+      <tr><td>Digit Span</td><td>__</td><td>__</td><td>__</td></tr>
+      <tr><td>Picture Completion</td><td>__</td><td>__</td><td>__</td></tr>
+      <tr><td>Block Design</td><td>__</td><td>__</td><td>__</td></tr>
+      <tr><td>Object Assembly</td><td>__</td><td>__</td><td>__</td></tr>
+      <tr><td>Coding</td><td>__</td><td>__</td><td>__</td></tr>
+      <tr><td>Mazes</td><td>__</td><td>__</td><td>__</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<div class="banner b-scoring" id="ws-iq">
+  <div class="tag">Part XVII · Workbook</div>
+  <h2>49 · IQ Calculation Sheet</h2>
+</div>
+<section>
+  <div class="tbl-scroll"><table>
+    <thead><tr><th>Scale</th><th>Contributing subtests</th><th>Scaled total</th><th>IQ</th><th>Classification</th></tr></thead>
+    <tbody>
+      <tr><td>Verbal</td><td>Info, Comp, Arith, Sim, Vocab (± Digit Span)</td><td>__</td><td>__</td><td>__</td></tr>
+      <tr><td>Performance</td><td>Pic Comp, Block, Obj Assy, Coding (± Mazes)</td><td>__</td><td>__</td><td>__</td></tr>
+      <tr><td>Full Scale</td><td>Verbal + Performance</td><td>__</td><td>__</td><td>__</td></tr>
+    </tbody>
+  </table></div>
+  <p><small>Chronological age: ____ y ____ m (date of test − date of birth). Use the matching age table.</small></p>
+</section>
+
+<div class="banner b-scoring" id="ws-master">
+  <div class="tag">Part XVII · Workbook</div>
+  <h2>50 · Master Profile</h2>
+</div>
+<section>
+  <div class="flow vert">
+    <span class="step">Subtests</span><span class="arw">↓</span>
+    <span class="step">Test Quotients (per subtest)</span><span class="arw">↓</span>
+    <span class="step">Verbal / Performance profile</span><span class="arw">↓</span>
+    <span class="step">Full-Scale IQ</span><span class="arw">↓</span>
+    <span class="step">Profile analysis (strengths, weaknesses, scatter, V–P)</span><span class="arw">↓</span>
+    <span class="step">Clinical interpretation (with history, observation, adaptive data)</span>
+  </div>
+  <p style="text-align:right;"><a class="backtop" href="#toc">↑ Back to contents</a></p>
+</section>
+
+<!-- ===================== PART XVIII · MASTER ALGORITHM ===================== -->
+<div class="banner b-admin" id="algorithm">
+  <div class="tag">Part XVIII · Master Algorithm</div>
+  <h2>51 · MISIC Assessment Workflow (20 steps)</h2>
+</div>
+<section>
+  <div class="tbl-scroll"><table>
+    <thead><tr><th>Step</th><th>Do this</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td><b>Clarify the referral question.</b></td></tr>
+      <tr><td>2</td><td><b>Review developmental / clinical / educational history.</b></td></tr>
+      <tr><td>3</td><td><b>Confirm MISIC is suitable</b> (age 6–16; adequate sensory/comprehension; language fit).</td></tr>
+      <tr><td>4</td><td><b>Establish rapport.</b></td></tr>
+      <tr><td>5</td><td><b>Administer standardized instructions</b> from the correct start point.</td></tr>
+      <tr><td>6</td><td><b>Establish basal</b> where required (backward if needed).</td></tr>
+      <tr><td>7</td><td><b>Administer items</b>, recording responses and times.</td></tr>
+      <tr><td>8</td><td><b>Establish ceiling / discontinue.</b></td></tr>
+      <tr><td>9</td><td><b>Calculate raw scores</b> (add basal credit &amp; time bonuses).</td></tr>
+      <tr><td>10</td><td><b>Convert each raw score → Test Quotient (TQ)</b> using the correct per-age table.</td></tr>
+      <tr><td>11</td><td><b>Average the Verbal TQs → Verbal IQ.</b></td></tr>
+      <tr><td>12</td><td><b>Average the Performance TQs → Performance IQ.</b></td></tr>
+      <tr><td>13</td><td><b>Average both group totals → Full-Scale IQ</b> (or, if Verbal-only, add ~6% to the Verbal IQ).</td></tr>
+      <tr><td>14</td><td><b>Read off classification</b> on the deviation-IQ scale (mean 100, SD 15).</td></tr>
+      <tr><td>15</td><td><b>Interpret the IQ</b> (range + classification, with error band).</td></tr>
+      <tr><td>16</td><td><b>Analyse the subtest profile</b> (strengths, weaknesses, scatter).</td></tr>
+      <tr><td>17</td><td><b>Analyse the Verbal–Performance pattern.</b></td></tr>
+      <tr><td>18</td><td><b>Integrate behavioural observations.</b></td></tr>
+      <tr><td>19</td><td><b>Integrate adaptive functioning</b> (VSMS/Vineland) &amp; history.</td></tr>
+      <tr><td>20</td><td><b>Write the report.</b></td></tr>
+    </tbody>
+  </table></div>
+  <div class="callout co-warn"><b>The chain to memorise</b>Administration → raw score → <b>Test Quotient</b> (per-age table) → average within group → Verbal IQ &amp; Performance IQ → average both → Full-Scale IQ → subtest profile → clinical interpretation → integration with adaptive functioning → report. <b>Never:</b> low IQ → automatic diagnosis of intellectual disability.</div>
+  <p style="text-align:right;"><a class="backtop" href="#toc">↑ Back to contents</a></p>
+</section>
+
+<!-- ===================== PART XIX · QUICK REVISION ===================== -->
+<div class="banner b-interp" id="quick">
+  <div class="tag">Part XIX · Quick Revision</div>
+  <h2>Quick Revision &amp; Cheat Sheets</h2>
+</div>
+<section>
+  <div class="grid2">
+    <div class="card tinted-cream"><h4>MISIC in 5 minutes</h4><ul class="tight">
+      <li>Indian adaptation of the WISC (Malin).</li>
+      <li>Ages ~6–0 to 15–11; individual; ~2–2.5 hr.</li>
+      <li>11 subtests → Verbal, Performance, Full-Scale IQ.</li>
+      <li>Deviation IQ: mean 100, <b>SD 15</b>.</li>
+      <li>Not diagnostic alone; pair with adaptive data.</li>
+    </ul></div>
+    <div class="card tinted-cream"><h4>Structure in 5 minutes</h4><ul class="tight">
+      <li><b>Verbal (6):</b> Information, Comprehension, Arithmetic, Similarities, Vocabulary, Digit Span.</li>
+      <li><b>Performance (5):</b> Picture Completion, Block Design, Object Assembly, Coding, Mazes.</li>
+      <li>Digit Span &amp; Mazes often supplementary (confirm from manual).</li>
+    </ul></div>
+    <div class="card tinted-cream"><h4>Subtests quick reference</h4><ul class="tight">
+      <li>Knowledge → Information, Vocabulary.</li>
+      <li>Reasoning → Similarities, Comprehension, Block Design.</li>
+      <li>Attention/WM → Arithmetic, Digit Span.</li>
+      <li>Speed/visuomotor → Coding, Object Assembly, Mazes.</li>
+      <li>Visual attention → Picture Completion.</li>
+    </ul></div>
+    <div class="card tinted-cream"><h4>Scoring in 5 minutes</h4><ul class="tight">
+      <li>Score items → raw (add basal credit &amp; time bonuses).</li>
+      <li>Compute CA → pick the age table.</li>
+      <li>Raw → <b>Test Quotient (TQ)</b> via that age table.</li>
+      <li>Never reproduce/estimate the copyrighted tables.</li>
+    </ul></div>
+    <div class="card tinted-cream"><h4>IQ calculation in 5 minutes</h4><ul class="tight">
+      <li><b>Average</b> the Verbal TQs → Verbal IQ.</li>
+      <li><b>Average</b> the Performance TQs → Performance IQ.</li>
+      <li><b>Average both group totals</b> → Full-Scale IQ (Verbal-only? add ~6%).</li>
+      <li>Report range + classification (mean 100, SD 15), not a bare number.</li>
+    </ul></div>
+    <div class="card tinted-cream"><h4>Verbal vs Performance quick guide</h4><ul class="tight">
+      <li>P &gt; V → language/schooling/hearing?</li>
+      <li>V &gt; P → visuospatial/motor/speed/anxiety?</li>
+      <li>Both low → global; assess adaptive + history.</li>
+    </ul></div>
+    <div class="card tinted-cream"><h4>Profile interpretation quick guide</h4><ul class="tight">
+      <li>Look for consistent patterns, not single lows.</li>
+      <li>Generate hypotheses, then corroborate.</li>
+      <li>Behaviour qualifies the numbers.</li>
+    </ul></div>
+    <div class="card tinted-cream"><h4>Report writing quick guide</h4><ul class="tight">
+      <li>State version/norms; use manual's classification labels.</li>
+      <li>Cautious verbs; no labels; no diagnosis from IQ alone.</li>
+      <li>Always add limitations + integration + recommendations.</li>
+    </ul></div>
+    <div class="card tinted-cream"><h4>Common scoring errors</h4><ul class="tight">
+      <li>Wrong CA → wrong age table.</li>
+      <li>Forgotten below-basal credit / time bonus.</li>
+      <li>Mixed editions/norms.</li>
+      <li>Arithmetic slips in totals.</li>
+    </ul></div>
+    <div class="card tinted-cream"><h4>The non-negotiables</h4><ul class="tight">
+      <li>Use one edition's tables consistently.</li>
+      <li>Don't reproduce secure items.</li>
+      <li>Read exact items, tables &amp; norms from the physical manual.</li>
+      <li>Low IQ ≠ automatic ID diagnosis.</li>
+    </ul></div>
+  </div>
+  <div class="callout co-verify"><b>Reminder</b>This guide follows the official <em>Manual — Malin's Intelligence Scale for Indian Children</em> (Dr. Arthur J. Malin; Indian Psychological Corporation, Lucknow). Per the manual's copyright notice, secure items, stimuli, answer keys, and the raw-score→Test-Quotient norm tables are <strong>not</strong> reproduced here — read those from the physical manual and Record Form for the child's exact age.</div>
+  <p style="text-align:right;"><a class="backtop" href="#toc">↑ Back to contents</a></p>
+</section>
+
+</div><!-- /.wrap -->
+
+<footer>
+  <div class="made">Made by Tejas Dangodra</div>
+  <p>MISIC — Malin's Intelligence Scale for Indian Children · Comprehensive Clinical Psychology Assessment Guide · Prepared for Clinical Psychology Training.</p>
+  <p>This is an educational study guide, not the test manual. It follows the official <em>Manual — Malin's Intelligence Scale for Indian Children</em> (Dr. Arthur J. Malin; Indian Psychological Corporation, Lucknow), but — per that manual's copyright notice — it does <strong>not</strong> reproduce secure or copyrighted test content (items, stimuli, answer keys, or the raw-score→Test-Quotient norm tables). It is not a substitute for the official manual and Record Form, which must be used for actual administration, scoring, and norms. An IQ score alone never diagnoses intellectual disability.</p>
+  <p style="margin-top:14px;font-weight:600;color:#6b56a8;">Made by Tejas Dangodra — All Rights Reserved. © Tejas Dangodra.</p>
+</footer>
+
+<script>
+(function(){
+  var NOTICE = "Made by Tejas Dangodra — All Rights Reserved. © Tejas Dangodra. This content is protected. Unauthorised copying is not permitted.";
+  function killEvt(e){ e.preventDefault(); return false; }
+  document.addEventListener('contextmenu', killEvt);
+  document.addEventListener('dragstart', killEvt);
+  function clip(e){
+    try{
+      e.clipboardData.setData('text/plain', NOTICE);
+      e.clipboardData.setData('text/html', '<p>'+NOTICE+'</p>');
+    }catch(err){}
+    e.preventDefault();
+  }
+  document.addEventListener('copy', clip);
+  document.addEventListener('cut', clip);
+  document.addEventListener('keydown', function(e){
+    var k = (e.key || '').toLowerCase();
+    if(e.key === 'F12'){ return killEvt(e); }
+    if((e.ctrlKey || e.metaKey) && ['c','x','s','u','p','a'].indexOf(k) !== -1){ return killEvt(e); }
+    if((e.ctrlKey || e.metaKey) && e.shiftKey && ['i','j','c'].indexOf(k) !== -1){ return killEvt(e); }
+  });
+})();
+</script>
+</body>
+</html>
