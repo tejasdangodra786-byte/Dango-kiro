@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shrishti Mishra — Clinical Psychologist CV</title>
+<style>
+  :root{
+    --plum:#6d1a3a;
+    --plum-dark:#4e0f28;
+    --plum-soft:#8a2350;
+    --rose:#f6e8ee;
+    --rose-line:#e7c9d6;
+    --ink:#2b2b2f;
+    --ink-soft:#54545c;
+    --gold:#b98a3e;
+    --page:#ffffff;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html,body{background:#e9e3e6;font-family:'Segoe UI',Calibri,Helvetica,Arial,sans-serif;color:var(--ink);-webkit-font-smoothing:antialiased;}
+  .page{
+    width:210mm;min-height:297mm;margin:22px auto;background:var(--page);
+    display:grid;grid-template-columns:70mm 1fr;
+    box-shadow:0 18px 60px rgba(70,15,40,.22);overflow:hidden;position:relative;
+  }
+
+  /* ---------- SIDEBAR ---------- */
+  .side{
+    background:linear-gradient(160deg,var(--plum) 0%,var(--plum-dark) 100%);
+    color:#f7eef2;padding:26px 20px 30px;
+  }
+  .side .photo{
+    width:96px;height:96px;border-radius:50%;margin:2px auto 14px;
+    background:rgba(255,255,255,.12);border:3px solid rgba(255,255,255,.55);
+    display:flex;align-items:center;justify-content:center;font-size:34px;font-weight:700;color:#fff;
+    letter-spacing:1px;
+  }
+  .side h2{
+    font-size:12px;letter-spacing:2.4px;text-transform:uppercase;font-weight:700;
+    margin:22px 0 10px;padding-bottom:6px;color:#fff;
+    border-bottom:1.5px solid rgba(255,255,255,.30);
+  }
+  .side h2:first-of-type{margin-top:6px;}
+  .contact-item{display:flex;gap:9px;align-items:flex-start;font-size:11.5px;margin:8px 0;line-height:1.45;color:#f3e4ec;}
+  .contact-item .ic{flex:0 0 15px;opacity:.9;}
+  a{color:inherit;text-decoration:none;}
+
+  .skill{margin:9px 0;}
+  .skill .lab{font-size:11px;display:flex;justify-content:space-between;margin-bottom:3px;color:#fbeef4;}
+  .bar{height:5px;border-radius:4px;background:rgba(255,255,255,.16);overflow:hidden;}
+  .bar > span{display:block;height:100%;background:linear-gradient(90deg,#f2c6d8,#e79ab7);border-radius:4px;}
+
+  .tag-wrap{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px;}
+  .tag{font-size:10.5px;background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.22);
+    padding:3px 8px;border-radius:20px;color:#fbeef4;}
+
+  .side ul{list-style:none;}
+  .side li{font-size:11.5px;margin:6px 0;padding-left:14px;position:relative;color:#f3e4ec;line-height:1.4;}
+  .side li:before{content:"";position:absolute;left:0;top:6px;width:5px;height:5px;border-radius:50%;background:#e79ab7;}
+
+  /* ---------- MAIN ---------- */
+  .main{padding:30px 30px 26px;position:relative;}
+  .name{font-size:33px;font-weight:800;letter-spacing:1px;color:var(--plum);line-height:1.02;text-transform:uppercase;}
+  .role{font-size:14px;font-weight:600;color:var(--plum-soft);letter-spacing:2px;margin-top:5px;text-transform:uppercase;}
+  .cred{
+    display:inline-block;margin-top:10px;font-size:11px;font-weight:600;letter-spacing:.4px;
+    background:var(--plum);color:#fff;padding:5px 14px;border-radius:20px;
+  }
+  .tagline{margin-top:12px;font-style:italic;font-size:12px;color:var(--ink-soft);border-left:3px solid var(--rose-line);padding-left:11px;line-height:1.5;}
+
+  .sec{margin-top:20px;}
+  .sec-h{display:flex;align-items:center;gap:10px;margin-bottom:9px;}
+  .sec-h .dot{width:24px;height:24px;border-radius:50%;background:var(--rose);color:var(--plum);
+    display:flex;align-items:center;justify-content:center;font-size:12px;flex:0 0 24px;}
+  .sec-h h3{font-size:13px;font-weight:800;letter-spacing:1.6px;text-transform:uppercase;color:var(--plum);}
+  .sec-h .rule{flex:1;height:1.5px;background:linear-gradient(90deg,var(--rose-line),transparent);}
+
+  p.summary{font-size:11.7px;line-height:1.6;color:var(--ink-soft);text-align:justify;}
+
+  .job{margin-bottom:12px;}
+  .job .top{display:flex;justify-content:space-between;align-items:baseline;gap:8px;}
+  .job .t{font-size:12.5px;font-weight:700;color:var(--ink);}
+  .job .org{font-size:11.5px;font-weight:600;color:var(--plum-soft);}
+  .job .when{font-size:10.5px;color:var(--ink-soft);white-space:nowrap;font-weight:500;}
+  .job ul{list-style:none;margin-top:5px;}
+  .job li{font-size:11.3px;line-height:1.5;color:var(--ink-soft);padding-left:14px;position:relative;margin:3px 0;}
+  .job li:before{content:"";position:absolute;left:2px;top:6px;width:5px;height:5px;border-radius:50%;background:var(--plum-soft);}
+
+  .cols2{display:grid;grid-template-columns:1fr 1fr;gap:6px 20px;}
+  .kv{font-size:11.3px;color:var(--ink-soft);padding-left:14px;position:relative;line-height:1.45;margin:2px 0;}
+  .kv:before{content:"";position:absolute;left:2px;top:6px;width:5px;height:5px;border-radius:50%;background:var(--gold);}
+
+  .approach{display:flex;flex-wrap:wrap;gap:6px;}
+  .chip{font-size:10.8px;font-weight:600;color:var(--plum);background:var(--rose);
+    border:1px solid var(--rose-line);padding:5px 11px;border-radius:6px;}
+
+  .extra{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  .extra .t{font-size:11.8px;font-weight:700;color:var(--ink);}
+  .extra .s{font-size:10.6px;color:var(--plum-soft);font-weight:600;margin-bottom:2px;}
+  .extra li{font-size:10.8px;line-height:1.45;color:var(--ink-soft);padding-left:13px;position:relative;margin:2px 0;}
+  .extra li:before{content:"";position:absolute;left:2px;top:6px;width:4px;height:4px;border-radius:50%;background:var(--plum-soft);}
+  .extra ul{list-style:none;margin-top:3px;}
+
+  .footer{grid-column:1 / -1;background:var(--plum-dark);color:#f3dbe6;text-align:center;
+    font-size:10.5px;letter-spacing:.5px;padding:9px;}
+
+  @media print{
+    @page{size:A4;margin:0;}
+    html,body{background:#fff;}
+    .page{margin:0;box-shadow:none;width:210mm;min-height:297mm;}
+    *{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- SIDEBAR -->
+  <aside class="side">
+    <div class="photo">SM</div>
+
+    <h2>Contact</h2>
+    <div class="contact-item"><span class="ic">📞</span><span>+91 99816 75474</span></div>
+    <div class="contact-item"><span class="ic">✉️</span><span>shrishtim2002@gmail.com</span></div>
+    <div class="contact-item"><span class="ic">📍</span><span>Bhopal, Madhya Pradesh, India</span></div>
+
+    <h2>Core Skills</h2>
+    <div class="skill"><div class="lab"><span>Psychological Assessment</span></div><div class="bar"><span style="width:92%"></span></div></div>
+    <div class="skill"><div class="lab"><span>Clinical Interviewing &amp; MSE</span></div><div class="bar"><span style="width:90%"></span></div></div>
+    <div class="skill"><div class="lab"><span>Case Formulation</span></div><div class="bar"><span style="width:85%"></span></div></div>
+    <div class="skill"><div class="lab"><span>Therapeutic Support</span></div><div class="bar"><span style="width:83%"></span></div></div>
+    <div class="skill"><div class="lab"><span>Psychoeducation</span></div><div class="bar"><span style="width:88%"></span></div></div>
+
+    <h2>Assessment Tools</h2>
+    <div class="tag-wrap">
+      <span class="tag">BKT</span>
+      <span class="tag">Bhatia's Battery</span>
+      <span class="tag">VSMS</span>
+      <span class="tag">MISIC</span>
+      <span class="tag">SSCT</span>
+      <span class="tag">TAT</span>
+      <span class="tag">Rorschach</span>
+      <span class="tag">MMSE</span>
+      <span class="tag">MSE</span>
+    </div>
+
+    <h2>Technical</h2>
+    <ul>
+      <li>MS Office &amp; Google Workspace</li>
+      <li>Canva &amp; Presentation Design</li>
+      <li>Clinical Documentation</li>
+    </ul>
+
+    <h2>Languages</h2>
+    <div class="tag-wrap">
+      <span class="tag">English</span>
+      <span class="tag">Hindi</span>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+    <div class="name">Shrishti Mishra</div>
+    <div class="role">Associate Clinical Psychologist</div>
+    <div class="cred">Professional Diploma in Clinical Psychology · RCI-Registered (In Progress)</div>
+    <div class="tagline">Empathetic in approach. Evidence-based in practice. Committed to client-centred, culturally sensitive, and trauma-informed care.</div>
+
+    <!-- SUMMARY -->
+    <div class="sec">
+      <div class="sec-h"><span class="dot">❖</span><h3>Professional Summary</h3><span class="rule"></span></div>
+      <p class="summary">
+        Compassionate and ethically grounded Associate Clinical Psychologist with hands-on, supervised experience in hospital-based mental health settings. Skilled in psychological assessment, clinical interviewing, Mental Status Examination (MSE), and case formulation across the lifespan. Adept at delivering client-centred, culturally sensitive, and trauma-informed care while upholding the highest standards of confidentiality and professional ethics. Committed to promoting mental well-being, resilience, and meaningful change through scientifically supported practice.
+      </p>
+    </div>
+
+    <!-- EDUCATION -->
+    <div class="sec">
+      <div class="sec-h"><span class="dot">🎓</span><h3>Education</h3><span class="rule"></span></div>
+      <div class="job">
+        <div class="top"><span class="t">Professional Diploma in Clinical Psychology <span style="font-weight:500;color:var(--ink-soft)">(RCI-Recognized)</span></span><span class="when">Oct 2025 – Present</span></div>
+        <div class="org">Man College of Psychological Studies, Guna, Madhya Pradesh</div>
+      </div>
+      <div class="job">
+        <div class="top"><span class="t">Master of Arts — Clinical Psychology</span><span class="when">2023 – 2025</span></div>
+        <div class="org">Jagran Lakecity University, Bhopal</div>
+      </div>
+      <div class="job">
+        <div class="top"><span class="t">Bachelor of Arts (Hons.) — Psychology &amp; Sociology</span><span class="when">2020 – 2023</span></div>
+        <div class="org">Institute for Excellence in Higher Education (IEHE), Bhopal</div>
+      </div>
+    </div>
+
+    <!-- CLINICAL EXPERIENCE -->
+    <div class="sec">
+      <div class="sec-h"><span class="dot">🩺</span><h3>Clinical Experience</h3><span class="rule"></span></div>
+      <div class="job">
+        <div class="top"><span class="t">Psychology Intern</span><span class="when">2024</span></div>
+        <div class="org">Jai Prakash District Hospital, Bhopal</div>
+        <ul>
+          <li>Conducted supervised clinical interviews, detailed case histories, and psychological assessments for diverse OPD and IPD populations.</li>
+          <li>Administered and scored psychometric tools including MSE, and supported diagnostic case formulation under senior supervision.</li>
+          <li>Provided supportive counselling and observed evidence-based therapeutic interventions while maintaining accurate clinical records.</li>
+        </ul>
+      </div>
+      <div class="job">
+        <div class="top"><span class="t">Psychology Intern</span><span class="when">2024</span></div>
+        <div class="org">Bhopal Memorial Hospital &amp; Research Centre (BMHRC), Bhopal</div>
+        <ul>
+          <li>Gained exposure to multidisciplinary mental-health service delivery within a tertiary-care research setting.</li>
+          <li>Assisted in psychological testing procedures and patient engagement activities in an inpatient clinical environment.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- THERAPEUTIC APPROACHES -->
+    <div class="sec">
+      <div class="sec-h"><span class="dot">🧠</span><h3>Therapeutic Approaches</h3><span class="rule"></span></div>
+      <div class="approach">
+        <span class="chip">CBT</span>
+        <span class="chip">DBT</span>
+        <span class="chip">Motivational Enhancement</span>
+        <span class="chip">Interpersonal &amp; Social Rhythm</span>
+        <span class="chip">Supportive Therapy</span>
+        <span class="chip">Relaxation Techniques</span>
+        <span class="chip">Behaviour Therapy</span>
+        <span class="chip">Crisis Intervention</span>
+      </div>
+    </div>
+
+    <!-- LEADERSHIP -->
+    <div class="sec">
+      <div class="sec-h"><span class="dot">⭐</span><h3>Leadership &amp; Additional Experience</h3><span class="rule"></span></div>
+      <div class="extra">
+        <div>
+          <div class="t">District President</div>
+          <div class="s">Leo Club, District 3233 G2</div>
+          <ul>
+            <li>Led community mental-health &amp; youth-development initiatives, managing teams and organising awareness campaigns.</li>
+          </ul>
+        </div>
+        <div>
+          <div class="t">Academic Tutor — Children</div>
+          <div class="s">Volunteer / Freelance</div>
+          <ul>
+            <li>Provided individualised academic and emotional guidance, supporting holistic development of young learners.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div class="footer">Committed to creating a safe, non-judgmental space for individuals to heal, grow, and thrive.</div>
+</div>
+</body>
+</html>
