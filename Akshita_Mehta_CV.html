@@ -6,102 +6,65 @@
 <title>Akshita Mehta — Clinical Psychologist CV</title>
 <style>
   :root{
-    --teal:#1f5f6b;
-    --teal-dark:#123c45;
-    --teal-soft:#2c7d8c;
-    --mist:#e6f0f1;
-    --mist-line:#c6dde0;
-    --ink:#2b2b2f;
-    --ink-soft:#54545c;
-    --gold:#c08a3e;
+    --teal:#1f6b74;          /* classic professional teal (matches original) */
+    --teal-line:#2f7d86;
+    --ink:#1f2328;
+    --ink-soft:#3f454c;
+    --grey-line:#c9d4d6;
     --page:#ffffff;
   }
   *{box-sizing:border-box;margin:0;padding:0;}
-  html,body{background:#e4e9ea;font-family:'Segoe UI',Calibri,Helvetica,Arial,sans-serif;color:var(--ink);-webkit-font-smoothing:antialiased;}
+  html,body{background:#e6ebec;font-family:Georgia,'Times New Roman',Cambria,serif;color:var(--ink);-webkit-font-smoothing:antialiased;}
   .page{
-    width:210mm;min-height:297mm;margin:22px auto;background:var(--page);
-    display:grid;grid-template-columns:70mm 1fr;
-    box-shadow:0 18px 60px rgba(15,55,60,.22);overflow:hidden;position:relative;
+    width:210mm;min-height:296mm;margin:22px auto;background:var(--page);
+    padding:11mm 16mm 10mm;position:relative;box-shadow:0 14px 46px rgba(20,55,60,.18);
   }
 
-  /* ---------- SIDEBAR ---------- */
-  .side{
-    background:linear-gradient(160deg,var(--teal) 0%,var(--teal-dark) 100%);
-    color:#eef7f8;padding:26px 20px 30px;
+  /* ---------- HEADER ---------- */
+  .name{font-size:30px;font-weight:700;letter-spacing:.5px;color:var(--ink);line-height:1.05;}
+  .title{font-size:12.5px;color:var(--teal);font-weight:600;margin-top:4px;letter-spacing:.3px;}
+  .contact{font-size:11px;color:var(--ink-soft);margin-top:6px;letter-spacing:.2px;}
+  .contact a{color:var(--teal);text-decoration:none;}
+  .header{border-bottom:0;padding-bottom:2px;}
+
+  /* ---------- SECTION HEADS ---------- */
+  h2{
+    font-size:12.5px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:var(--teal);
+    margin:10px 0 4px;padding-bottom:3px;border-bottom:1.5px solid var(--teal);
   }
-  .side .photo{
-    width:96px;height:96px;border-radius:50%;margin:2px auto 14px;
-    background:rgba(255,255,255,.12);border:3px solid rgba(255,255,255,.55);
-    display:flex;align-items:center;justify-content:center;font-size:34px;font-weight:700;color:#fff;
-    letter-spacing:1px;
+  p, li{font-size:11.3px;line-height:1.5;color:var(--ink-soft);}
+  p.summary{text-align:justify;}
+
+  /* ---------- CORE COMPETENCIES TABLE ---------- */
+  table.comp{width:100%;border-collapse:collapse;margin-top:6px;}
+  table.comp td{
+    width:33.33%;border:1px solid var(--grey-line);padding:5px 8px;vertical-align:top;
+    font-size:10.6px;line-height:1.3;color:var(--ink-soft);
   }
-  .side h2{
-    font-size:12px;letter-spacing:2.4px;text-transform:uppercase;font-weight:700;
-    margin:22px 0 10px;padding-bottom:6px;color:#fff;
-    border-bottom:1.5px solid rgba(255,255,255,.30);
-  }
-  .side h2:first-of-type{margin-top:6px;}
-  .contact-item{display:flex;gap:9px;align-items:flex-start;font-size:11.5px;margin:8px 0;line-height:1.45;color:#e6f2f3;}
-  .contact-item .ic{flex:0 0 15px;opacity:.9;}
-  a{color:inherit;text-decoration:none;}
 
-  .skill{margin:9px 0;}
-  .skill .lab{font-size:11px;display:flex;justify-content:space-between;margin-bottom:3px;color:#f0f8f9;}
-  .bar{height:5px;border-radius:4px;background:rgba(255,255,255,.16);overflow:hidden;}
-  .bar > span{display:block;height:100%;background:linear-gradient(90deg,#bfe6ea,#7ec7d0);border-radius:4px;}
+  /* ---------- EXPERIENCE ---------- */
+  .role-t{font-size:12px;font-weight:700;color:var(--ink);margin-top:8px;}
+  .role-meta{font-size:10.6px;font-style:italic;color:var(--teal-line);margin:1px 0 3px;font-family:Georgia,serif;}
+  ul{list-style:none;margin:2px 0 0;}
+  ul li{padding-left:14px;position:relative;margin:2px 0;font-size:10.9px;line-height:1.36;}
+  ul li:before{content:"•";position:absolute;left:2px;top:0;color:var(--teal);font-weight:700;}
 
-  .tag-wrap{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px;}
-  .tag{font-size:10.5px;background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.22);
-    padding:3px 8px;border-radius:20px;color:#f0f8f9;}
+  /* ---------- EDUCATION / CERTS ---------- */
+  .edu-item{margin:3px 0;}
+  .edu-item .d{font-size:11.4px;font-weight:700;color:var(--ink);}
+  .edu-item .m{font-size:10.6px;font-style:italic;color:var(--ink-soft);}
+  .cert-item{margin:3.5px 0;}
+  .cert-item .d{font-size:11.3px;font-weight:700;color:var(--ink);}
+  .cert-item .m{font-size:10.7px;color:var(--ink-soft);}
+  .cert-item .m i{color:var(--teal-line);}
 
-  .side ul{list-style:none;}
-  .side li{font-size:11.5px;margin:6px 0;padding-left:14px;position:relative;color:#e6f2f3;line-height:1.4;}
-  .side li:before{content:"";position:absolute;left:0;top:6px;width:5px;height:5px;border-radius:50%;background:#7ec7d0;}
-
-  /* ---------- MAIN ---------- */
-  .main{padding:30px 30px 26px;position:relative;}
-  .name{font-size:33px;font-weight:800;letter-spacing:1px;color:var(--teal);line-height:1.02;text-transform:uppercase;}
-  .role{font-size:13px;font-weight:600;color:var(--teal-soft);letter-spacing:1.4px;margin-top:5px;text-transform:uppercase;}
-  .cred{
-    display:inline-block;margin-top:10px;font-size:11px;font-weight:600;letter-spacing:.4px;
-    background:var(--teal);color:#fff;padding:5px 14px;border-radius:20px;
-  }
-  .tagline{margin-top:12px;font-style:italic;font-size:12px;color:var(--ink-soft);border-left:3px solid var(--mist-line);padding-left:11px;line-height:1.5;}
-
-  .sec{margin-top:18px;}
-  .sec-h{display:flex;align-items:center;gap:10px;margin-bottom:9px;}
-  .sec-h .dot{width:24px;height:24px;border-radius:50%;background:var(--mist);color:var(--teal);
-    display:flex;align-items:center;justify-content:center;font-size:12px;flex:0 0 24px;}
-  .sec-h h3{font-size:13px;font-weight:800;letter-spacing:1.6px;text-transform:uppercase;color:var(--teal);}
-  .sec-h .rule{flex:1;height:1.5px;background:linear-gradient(90deg,var(--mist-line),transparent);}
-
-  p.summary{font-size:11.5px;line-height:1.55;color:var(--ink-soft);text-align:justify;}
-
-  .job{margin-bottom:11px;}
-  .job .top{display:flex;justify-content:space-between;align-items:baseline;gap:8px;}
-  .job .t{font-size:12.5px;font-weight:700;color:var(--ink);}
-  .job .org{font-size:11.5px;font-weight:600;color:var(--teal-soft);}
-  .job .when{font-size:10.5px;color:var(--ink-soft);white-space:nowrap;font-weight:500;}
-  .job ul{list-style:none;margin-top:5px;}
-  .job li{font-size:11.2px;line-height:1.45;color:var(--ink-soft);padding-left:14px;position:relative;margin:3px 0;}
-  .job li:before{content:"";position:absolute;left:2px;top:6px;width:5px;height:5px;border-radius:50%;background:var(--teal-soft);}
-
-  .chips{display:flex;flex-wrap:wrap;gap:6px;}
-  .chip{font-size:10.6px;font-weight:600;color:var(--teal);background:var(--mist);
-    border:1px solid var(--mist-line);padding:5px 10px;border-radius:6px;}
-
-  .cert{margin-bottom:8px;}
-  .cert .t{font-size:11.8px;font-weight:700;color:var(--ink);}
-  .cert .m{font-size:10.6px;color:var(--teal-soft);font-weight:600;}
-  .cert .d{font-size:10.8px;color:var(--ink-soft);line-height:1.4;margin-top:1px;}
-
-  .footer{grid-column:1 / -1;background:var(--teal-dark);color:#dbeef0;text-align:center;
-    font-size:10.5px;letter-spacing:.5px;padding:9px;}
+  .addl{font-size:11.2px;color:var(--ink-soft);margin-top:4px;}
+  .addl b{color:var(--ink);}
 
   @media print{
     @page{size:A4;margin:0;}
     html,body{background:#fff;}
-    .page{margin:0;box-shadow:none;width:210mm;min-height:297mm;}
+    .page{margin:0;box-shadow:none;width:210mm;min-height:0;}
     *{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
   }
 </style>
@@ -109,130 +72,98 @@
 <body>
 <div class="page">
 
-  <!-- SIDEBAR -->
-  <aside class="side">
-    <div class="photo">AM</div>
-
-    <h2>Contact</h2>
-    <div class="contact-item"><span class="ic">📞</span><span>+91 99819 93351</span></div>
-    <div class="contact-item"><span class="ic">✉️</span><span>mehtaakshita.2002@gmail.com</span></div>
-    <div class="contact-item"><span class="ic">📍</span><span>Indore, Madhya Pradesh, India</span></div>
-
-    <h2>Core Skills</h2>
-    <div class="skill"><div class="lab"><span>Psychometric Assessment</span></div><div class="bar"><span style="width:92%"></span></div></div>
-    <div class="skill"><div class="lab"><span>Clinical Interviewing &amp; MSE</span></div><div class="bar"><span style="width:90%"></span></div></div>
-    <div class="skill"><div class="lab"><span>Case Documentation</span></div><div class="bar"><span style="width:88%"></span></div></div>
-    <div class="skill"><div class="lab"><span>Psychoeducation &amp; Rehab</span></div><div class="bar"><span style="width:85%"></span></div></div>
-    <div class="skill"><div class="lab"><span>Crisis &amp; Stress Management</span></div><div class="bar"><span style="width:82%"></span></div></div>
-
-    <h2>Assessment Tools</h2>
-    <div class="tag-wrap">
-      <span class="tag">BKT</span>
-      <span class="tag">Bhatia's Battery</span>
-      <span class="tag">VSMS</span>
-      <span class="tag">MCMI</span>
-      <span class="tag">BPRS</span>
-      <span class="tag">SSCT</span>
-      <span class="tag">RIT</span>
-      <span class="tag">TAT</span>
-      <span class="tag">MSE</span>
-    </div>
-
-    <h2>Clinical Exposure</h2>
-    <ul>
-      <li>Schizophrenia &amp; Psychosis</li>
-      <li>Mood Disorders</li>
-      <li>Anxiety Disorders</li>
-      <li>Neurodevelopmental Disorders</li>
-      <li>Sexual Disorders</li>
-      <li>IQ / Cognitive Assessment</li>
-    </ul>
-
-    <h2>Languages</h2>
-    <div class="tag-wrap">
-      <span class="tag">English</span>
-      <span class="tag">Hindi</span>
-    </div>
-  </aside>
-
-  <!-- MAIN -->
-  <main class="main">
+  <!-- HEADER -->
+  <div class="header">
     <div class="name">Akshita Mehta</div>
-    <div class="role">Associate Clinical Psychologist · Assessment · Rehabilitation · Counselling</div>
-    <div class="cred">Professional Diploma in Clinical Psychology · RCI Licensed</div>
-    <div class="tagline">Evidence-based, empathetic, and ethically grounded — dedicated to accessible, client-centred mental health care.</div>
+    <div class="title">Associate Clinical Psychologist &nbsp;|&nbsp; Psychological Assessment &nbsp;|&nbsp; Rehabilitation &nbsp;|&nbsp; Counselling</div>
+    <div class="contact">+91 99819 93351 &nbsp;•&nbsp; <a href="mailto:mehtaakshita.2002@gmail.com">mehtaakshita.2002@gmail.com</a> &nbsp;•&nbsp; Indore, Madhya Pradesh, India</div>
+  </div>
 
-    <!-- SUMMARY -->
-    <div class="sec">
-      <div class="sec-h"><span class="dot">❖</span><h3>Professional Summary</h3><span class="rule"></span></div>
-      <p class="summary">
-        RCI-licensed Associate Clinical Psychologist with hands-on, supervised experience having conducted <strong>100+ psychological assessments</strong> — spanning case history taking, Mental Status Examination (MSE), IQ/cognitive testing, personality and projective assessment, psychoeducation, and rehabilitation across child, adolescent, adult, psychiatric, and neurological populations. Clinical exposure includes schizophrenia, mood and anxiety disorders, neurodevelopmental disorders, and sexual disorders. Skilled in clinical documentation, rapport building, and multidisciplinary teamwork.
-      </p>
-    </div>
+  <!-- SUMMARY -->
+  <h2>Professional Summary</h2>
+  <p class="summary">
+    RCI-licensed Associate Clinical Psychologist with hands-on, supervised experience across inpatient and outpatient mental-health settings, having conducted <b>100+ psychological assessments</b>. Skilled in case history taking, Mental Status Examination (MSE), IQ and personality testing, psychoeducation, rehabilitation, and supervised psychotherapy across child, adolescent, adult, psychiatric, and neurological populations. Clinical exposure spans psychotic disorders, mood and anxiety disorders, neurodevelopmental disorders, and sexual disorders. Recognised for accurate clinical documentation, strong rapport building, and effective multidisciplinary teamwork.
+  </p>
 
-    <!-- EDUCATION -->
-    <div class="sec">
-      <div class="sec-h"><span class="dot">🎓</span><h3>Education</h3><span class="rule"></span></div>
-      <div class="job">
-        <div class="top"><span class="t">Professional Diploma in Clinical Psychology (PDCP) <span style="font-weight:500;color:var(--ink-soft)">(RCI-Recognized)</span></span><span class="when">2025 – 2026</span></div>
-        <div class="org">MAN College of Special Education &amp; Psychological Studies, Guna</div>
-      </div>
-      <div class="job">
-        <div class="top"><span class="t">M.Sc. — Clinical Psychology</span><span class="when">2023 – 2025</span></div>
-        <div class="org">MIT Art, Design &amp; Technology University, Pune</div>
-      </div>
-      <div class="job">
-        <div class="top"><span class="t">B.A. (Hons.) — Psychology</span><span class="when">2020 – 2023</span></div>
-        <div class="org">Shri Vaishnav Vidyapeeth Vishwavidyalaya (SVVV), Indore</div>
-      </div>
-    </div>
+  <!-- CORE COMPETENCIES -->
+  <h2>Core Competencies</h2>
+  <table class="comp">
+    <tr>
+      <td>Psychometric Assessment (BKT, Bhatia's Battery, VSMS, MCMI, BPRS, SSCT, RIT, TAT)</td>
+      <td>Clinical Interviewing &amp; Mental Status Examination (MSE)</td>
+      <td>IQ, Cognitive &amp; Personality Testing</td>
+    </tr>
+    <tr>
+      <td>Multi-Setting Exposure (IPD, OPD, District Hospitals, Schools)</td>
+      <td>Cognitive &amp; Behavioural Interventions (Supervised CBT &amp; Behaviour Modification)</td>
+      <td>Case Formulation &amp; Clinical Diagnostics</td>
+    </tr>
+    <tr>
+      <td>Psychoeducation &amp; Rehabilitation Delivery</td>
+      <td>Clinical Documentation &amp; Case-File Management</td>
+      <td>Crisis Intervention, Stress Management &amp; Active Listening</td>
+    </tr>
+  </table>
 
-    <!-- EXPERIENCE -->
-    <div class="sec">
-      <div class="sec-h"><span class="dot">🩺</span><h3>Professional Experience</h3><span class="rule"></span></div>
-      <div class="job">
-        <div class="top"><span class="t">Intern — Clinical Psychology &amp; Rehabilitation</span><span class="when">Jan – Mar 2025</span></div>
-        <div class="org">Jagruti Rehabilitation Centre, Pune · On-site</div>
-        <ul>
-          <li>Conducted <strong>100+ assessments</strong> — structured case histories, detailed MSEs, and IQ/personality testing — with inpatient psychiatric and neurological populations presenting with schizophrenia, mood disorders, anxiety disorders, neurodevelopmental disorders, and sexual disorders.</li>
-          <li>Observed and meticulously documented active psychotherapy and counselling sessions; contributed to multidisciplinary case discussions and treatment planning.</li>
-          <li>Facilitated psychoeducational modules and daily rehabilitation activities to support community re-entry, maintaining case files under senior supervision.</li>
-        </ul>
-      </div>
-      <div class="job">
-        <div class="top"><span class="t">Intern — Clinical Observation &amp; Therapy</span><span class="when">Apr – May 2025</span></div>
-        <div class="org">Vidula Psychological Consultancy, Pune · On-site</div>
-        <ul>
-          <li>Gained direct exposure to child, adolescent, and adult populations presenting with varied clinical syndromes.</li>
-          <li>Observed individual therapy and behavioural interventions; engaged in supervision blocks on diagnostic classification, psychotherapeutic technique, and ethics.</li>
-          <li>Documented clinical findings and participated in case-conceptualization seminars.</li>
-        </ul>
-      </div>
-    </div>
+  <!-- EXPERIENCE -->
+  <h2>Professional Experience</h2>
 
-    <!-- CERTIFICATIONS -->
-    <div class="sec">
-      <div class="sec-h"><span class="dot">📜</span><h3>Certifications &amp; Training</h3><span class="rule"></span></div>
-      <div class="cert">
-        <div class="t">Abnormal Behaviour &amp; Clinical Psychology <span class="m">· Udemy (2025)</span></div>
-        <div class="d">Clinical intake, objective assessment, and theoretical foundations of therapeutic change.</div>
-      </div>
-      <div class="cert">
-        <div class="t">Introduction to Cognitive Psychology <span class="m">· NPTEL (2024)</span></div>
-        <div class="d">Brain–behavior relationships, experimental methodology, and cognitive modeling.</div>
-      </div>
-      <div class="cert">
-        <div class="t">Clinical Psychology Internship <span class="m">· Cognizavest (2022)</span></div>
-        <div class="d">DSM-5 diagnostic criteria, classification of mental disorders, and introductory psychotherapeutic approaches.</div>
-      </div>
-      <div class="cert">
-        <div class="t">6-Month Professional Diploma <span class="m">· Emo Matrix (2025)</span></div>
-        <div class="d">Guidance &amp; counselling, psychotherapy, and clinical psychology.</div>
-      </div>
-    </div>
-  </main>
+  <div class="role-t">Intern — Clinical Psychology &amp; Rehabilitation &nbsp;|&nbsp; Jagruti Rehabilitation Centre, Pune</div>
+  <div class="role-meta">Jan 2025 – Mar 2025 &nbsp;•&nbsp; On-site</div>
+  <ul>
+    <li>Conducted <b>100+ assessments</b> — structured case histories, detailed MSEs, and IQ/personality testing — with inpatient psychiatric and neurological populations presenting with psychotic disorders, mood disorders, anxiety disorders, neurodevelopmental disorders, and sexual disorders.</li>
+    <li>Observed and meticulously documented active psychotherapy and counselling sessions, contributing to multidisciplinary case discussions and structured treatment planning.</li>
+    <li>Facilitated psychoeducational modules and daily rehabilitation activities to support patients' community re-entry.</li>
+    <li>Maintained accurate clinical documentation, progress logs, and client case files under senior supervision.</li>
+  </ul>
 
-  <div class="footer">Committed to compassionate, evidence-based, and ethically grounded psychological care.</div>
+  <div class="role-t">Intern — Clinical Observation &amp; Therapy &nbsp;|&nbsp; Vidula Psychological Consultancy, Pune</div>
+  <div class="role-meta">Apr 2025 – May 2025 &nbsp;•&nbsp; On-site</div>
+  <ul>
+    <li>Gained direct clinical exposure to child, adolescent, and adult populations presenting with varied clinical syndromes.</li>
+    <li>Observed individual therapy, behavioural interventions, and counselling sessions led by senior consultants.</li>
+    <li>Participated in clinical-supervision blocks focused on diagnostic classification, psychotherapeutic technique, and professional ethics.</li>
+    <li>Documented clinical findings and contributed to active case-conceptualization seminars.</li>
+  </ul>
+
+  <!-- EDUCATION -->
+  <h2>Education</h2>
+  <div class="edu-item">
+    <div class="d">Professional Diploma in Clinical Psychology (PDCP) — RCI-Recognised</div>
+    <div class="m">MAN College of Special Education &amp; Psychological Studies, Guna &nbsp;•&nbsp; 2025 – 2026</div>
+  </div>
+  <div class="edu-item">
+    <div class="d">M.Sc. — Clinical Psychology</div>
+    <div class="m">MIT Art, Design &amp; Technology University, Pune &nbsp;•&nbsp; 2023 – 2025</div>
+  </div>
+  <div class="edu-item">
+    <div class="d">6-Month Professional Diploma — Guidance, Counselling &amp; Psychotherapy</div>
+    <div class="m">Emo Matrix (Emotions &amp; Behavioural Science Company) &nbsp;•&nbsp; Jul 2025 – Dec 2025</div>
+  </div>
+  <div class="edu-item">
+    <div class="d">B.A. (Honours) — Psychology</div>
+    <div class="m">Shri Vaishnav Vidyapeeth Vishwavidyalaya (SVVV), Indore &nbsp;•&nbsp; 2020 – 2023</div>
+  </div>
+
+  <!-- CERTIFICATIONS -->
+  <h2>Certifications &amp; Training</h2>
+  <div class="cert-item">
+    <div class="d">Abnormal Behaviour &amp; Clinical Psychology &nbsp;|&nbsp; Udemy <span class="m">(Remote, 2025)</span></div>
+    <div class="m"><i>Focus:</i> Clinical intake, objective assessment, and theoretical foundations of therapeutic change.</div>
+  </div>
+  <div class="cert-item">
+    <div class="d">Introduction to Cognitive Psychology &nbsp;|&nbsp; NPTEL <span class="m">(Remote, 2024)</span></div>
+    <div class="m"><i>Focus:</i> Brain–behaviour relationships, experimental methodology, and cognitive modeling of memory, attention, and decision-making.</div>
+  </div>
+  <div class="cert-item">
+    <div class="d">Clinical Psychology Internship &nbsp;|&nbsp; Cognizavest <span class="m">(Remote, 2022)</span></div>
+    <div class="m"><i>Focus:</i> DSM-5 diagnostic criteria, classification of mental disorders, and introductory psychotherapeutic approaches.</div>
+  </div>
+
+  <!-- ADDITIONAL -->
+  <h2>Additional Information</h2>
+  <div class="addl"><b>Languages:</b> English, Hindi</div>
+
 </div>
 </body>
 </html>
