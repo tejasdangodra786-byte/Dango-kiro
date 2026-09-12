@@ -1,0 +1,2313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exposure &amp; Response Prevention (ERP) — A Comprehensive Clinical Guide to OCD Treatment</title>
+<meta name="description" content="A comprehensive, PPT-style clinical training resource on Exposure and Response (Ritual) Prevention (EX/RP) for OCD. Session-by-session therapist guide, case studies, worksheets. Made by Tejas Dangodra.">
+<style>
+/* ============================================================
+   ERP COMPLETE CLINICAL GUIDE — Design System
+   Premium pastel clinical-psychology PPT-style theme
+   Made by Tejas Dangodra
+   ============================================================ */
+:root{
+  --lavender:#e9e4f5;
+  --lavender-deep:#c9bced;
+  --lilac:#d9cff0;
+  --powder:#d5e6f2;
+  --powder-deep:#a9cbe6;
+  --sage:#d7e8da;
+  --sage-deep:#a9cdb0;
+  --mint:#dff0ea;
+  --peach:#fbe6d8;
+  --peach-deep:#f3c9ad;
+  --blush:#f6dde6;
+  --cream:#fcf9f3;
+  --grey:#f2f1f4;
+  --ink:#3a3552;
+  --ink-soft:#5d5772;
+  --muted:#847e9c;
+  --line:#e4e0ee;
+  --accent:#8a76c4;
+  --accent-2:#6f93b8;
+  --white:#ffffff;
+  --shadow:0 10px 30px rgba(80,70,120,.10);
+  --shadow-sm:0 4px 14px rgba(80,70,120,.08);
+  --radius:20px;
+  --radius-sm:12px;
+  --maxw:1080px;
+  --sidebar-w:280px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:"Segoe UI",-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;
+  color:var(--ink);
+  background:linear-gradient(135deg,#f4f1fa 0%,#eef4f8 50%,#f3f6f1 100%);
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,h4{line-height:1.25;color:var(--ink);margin:0 0 .5em}
+p{margin:0 0 .9em}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+strong{color:var(--ink)}
+code{background:var(--grey);padding:2px 6px;border-radius:6px;font-size:.9em}
+
+/* ---------- Layout ---------- */
+.layout{display:flex;min-height:100vh}
+.sidebar{
+  width:var(--sidebar-w);
+  flex:0 0 var(--sidebar-w);
+  background:rgba(255,255,255,.82);
+  backdrop-filter:blur(8px);
+  border-right:1px solid var(--line);
+  position:sticky;top:0;height:100vh;overflow-y:auto;
+  padding:22px 16px 60px;
+}
+.sidebar h2{font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:22px 8px 8px}
+.sidebar .brand{font-size:1.05rem;font-weight:700;color:var(--accent);padding:6px 8px 2px}
+.sidebar .brand small{display:block;font-size:.68rem;font-weight:500;color:var(--muted);letter-spacing:.04em;text-transform:none}
+.nav-link{display:block;padding:7px 10px;border-radius:9px;color:var(--ink-soft);font-size:.86rem;transition:.15s}
+.nav-link:hover{background:var(--lavender);text-decoration:none;color:var(--ink)}
+.nav-link.session{font-size:.82rem;padding:5px 10px 5px 18px;color:var(--muted)}
+.content{flex:1;min-width:0;padding:0 clamp(16px,4vw,48px) 120px;max-width:calc(var(--maxw) + 96px);margin:0 auto}
+
+/* ---------- Slides ---------- */
+.slide{
+  background:var(--white);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:clamp(22px,3.4vw,46px);
+  margin:26px 0;
+  border:1px solid var(--line);
+  scroll-margin-top:16px;
+  position:relative;
+  overflow:hidden;
+}
+.slide::before{content:"";position:absolute;left:0;top:0;bottom:0;width:6px;background:linear-gradient(var(--accent),var(--accent-2))}
+.slide-num{
+  display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.1em;
+  color:var(--accent);background:var(--lavender);padding:4px 12px;border-radius:20px;margin-bottom:14px;text-transform:uppercase;
+}
+.slide h2.slide-title{font-size:clamp(1.4rem,2.6vw,2rem);margin-bottom:.35em}
+.slide h3{font-size:1.15rem;color:var(--accent);margin-top:1.3em}
+.keyconcept{font-size:1.05rem;color:var(--ink-soft);font-style:italic;border-left:3px solid var(--lavender-deep);padding-left:14px;margin:0 0 1.2em}
+
+/* ---------- Module divider ---------- */
+.module-divider{
+  background:linear-gradient(135deg,var(--lavender) 0%,var(--powder) 55%,var(--mint) 100%);
+  border-radius:var(--radius);
+  padding:clamp(40px,7vw,84px) clamp(24px,5vw,60px);
+  margin:40px 0 26px;
+  text-align:center;
+  box-shadow:var(--shadow);
+  border:1px solid var(--line);
+}
+.module-divider .mod-kicker{font-size:.8rem;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--accent)}
+.module-divider h2{font-size:clamp(1.8rem,4.5vw,3rem);margin:.25em 0 .3em}
+.module-divider p{font-size:1.05rem;color:var(--ink-soft);max-width:620px;margin:0 auto}
+.module-divider .mod-emoji{font-size:2.6rem;display:block;margin-bottom:.3em}
+
+/* ---------- Cover ---------- */
+.cover{
+  min-height:88vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;
+  background:linear-gradient(150deg,var(--lavender) 0%,var(--lilac) 30%,var(--powder) 65%,var(--mint) 100%);
+  border-radius:var(--radius);padding:clamp(40px,8vw,90px) 24px;margin:26px 0;box-shadow:var(--shadow);border:1px solid var(--line);
+}
+.cover .cov-badge{font-size:.8rem;letter-spacing:.28em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:18px}
+.cover h1{font-size:clamp(2rem,6vw,3.7rem);margin-bottom:.15em;letter-spacing:-.01em}
+.cover .subtitle{font-size:clamp(1.05rem,2.4vw,1.5rem);color:var(--ink-soft);font-weight:500;margin-bottom:1.4em}
+.cover .tagchips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;max-width:760px;margin:0 auto 2em}
+.cover .tagchips span{background:rgba(255,255,255,.7);border:1px solid var(--line);padding:6px 14px;border-radius:20px;font-size:.82rem;color:var(--ink-soft)}
+.cover .credit{margin-top:2em;font-size:1.05rem;font-weight:600;color:var(--accent)}
+.cover .credit small{display:block;font-weight:400;color:var(--muted);font-size:.82rem;margin-top:4px}
+
+/* ---------- Callout boxes ---------- */
+.box{border-radius:var(--radius-sm);padding:16px 18px;margin:16px 0;border:1px solid var(--line);position:relative}
+.box .box-label{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:6px}
+.box p:last-child{margin-bottom:0}
+.pearl{background:var(--sage);}
+.pearl .box-label{color:#4c7d57}
+.therapist{background:var(--powder);}
+.therapist .box-label{color:#3f6f97}
+.patient{background:var(--blush);}
+.patient .box-label{color:#a85578}
+.caution{background:var(--peach);}
+.caution .box-label{color:#b5713e}
+.clinical-ex{background:var(--grey);border-left:4px solid var(--lavender-deep)}
+.clinical-ex .box-label{color:var(--accent)}
+.script{background:#f7f5fc;border:1px dashed var(--lavender-deep);font-style:italic;color:var(--ink-soft)}
+.script .box-label{color:var(--accent);font-style:normal}
+.script .who{font-style:normal;font-weight:700;color:var(--ink)}
+
+/* ---------- Cards / grids ---------- */
+.grid{display:grid;gap:16px;margin:16px 0}
+.grid.cols-2{grid-template-columns:repeat(2,1fr)}
+.grid.cols-3{grid-template-columns:repeat(3,1fr)}
+.card{background:var(--cream);border:1px solid var(--line);border-radius:var(--radius-sm);padding:16px 18px}
+.card h4{margin:0 0 .4em;color:var(--accent)}
+.card.tinted{background:var(--lavender)}
+
+/* ---------- Comparison ---------- */
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0}
+.compare .col{border-radius:var(--radius-sm);padding:16px 18px;border:1px solid var(--line)}
+.compare .col.neg{background:var(--blush)}
+.compare .col.pos{background:var(--sage)}
+.compare .col h4{margin-top:0}
+
+/* ---------- Flow diagrams ---------- */
+.flow{display:flex;flex-direction:column;align-items:center;gap:0;margin:20px 0}
+.flow .node{
+  background:var(--white);border:2px solid var(--lavender-deep);border-radius:14px;padding:11px 20px;
+  font-weight:600;text-align:center;max-width:520px;width:100%;box-shadow:var(--shadow-sm);color:var(--ink)
+}
+.flow .node.trigger{border-color:var(--powder-deep);background:var(--powder)}
+.flow .node.bad{border-color:var(--peach-deep);background:var(--peach)}
+.flow .node.good{border-color:var(--sage-deep);background:var(--sage)}
+.flow .arrow{color:var(--accent);font-size:1.35rem;line-height:1;margin:5px 0}
+.flow .node small{display:block;font-weight:400;font-size:.78rem;color:var(--muted);margin-top:2px}
+.flow-2col{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+@media(max-width:720px){.flow-2col{grid-template-columns:1fr}}
+
+/* ---------- Timeline ---------- */
+.timeline{position:relative;margin:20px 0 20px 6px;padding-left:26px;border-left:3px solid var(--lavender-deep)}
+.timeline .tl-item{position:relative;margin-bottom:18px}
+.timeline .tl-item::before{content:"";position:absolute;left:-33px;top:4px;width:14px;height:14px;border-radius:50%;background:var(--accent);border:3px solid var(--white);box-shadow:0 0 0 2px var(--lavender-deep)}
+.timeline .tl-item h4{margin:0 0 .2em}
+
+/* ---------- Tables ---------- */
+.table-wrap{overflow-x:auto;margin:16px 0;border-radius:var(--radius-sm);border:1px solid var(--line)}
+table{border-collapse:collapse;width:100%;min-width:560px;background:var(--white)}
+th,td{text-align:left;padding:10px 13px;border-bottom:1px solid var(--line);font-size:.9rem;vertical-align:top}
+th{background:var(--lavender);color:var(--ink);font-weight:700;font-size:.82rem;letter-spacing:.02em}
+tr:last-child td{border-bottom:none}
+tbody tr:nth-child(even){background:var(--cream)}
+
+/* ---------- Session header ---------- */
+.session-head{
+  background:linear-gradient(120deg,var(--lilac),var(--powder));
+  border-radius:var(--radius);padding:26px 30px;margin:30px 0 6px;border:1px solid var(--line);box-shadow:var(--shadow-sm)
+}
+.session-head .s-tag{font-size:.74rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.session-head h2{font-size:clamp(1.5rem,3vw,2.1rem);margin:.2em 0 .1em}
+.session-head .s-meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.session-head .s-meta span{background:rgba(255,255,255,.72);border:1px solid var(--line);border-radius:16px;padding:4px 12px;font-size:.78rem;color:var(--ink-soft)}
+
+.pill-list{list-style:none;padding:0;margin:10px 0;display:flex;flex-wrap:wrap;gap:8px}
+.pill-list li{background:var(--grey);border:1px solid var(--line);border-radius:16px;padding:5px 13px;font-size:.85rem}
+
+ul.tick{list-style:none;padding-left:0}
+ul.tick li{padding-left:28px;position:relative;margin-bottom:7px}
+ul.tick li::before{content:"✓";position:absolute;left:4px;top:0;color:var(--sage-deep);font-weight:700}
+
+ul.checkbox{list-style:none;padding-left:0}
+ul.checkbox li{padding-left:32px;position:relative;margin-bottom:9px}
+ul.checkbox li::before{content:"";position:absolute;left:2px;top:3px;width:16px;height:16px;border:2px solid var(--accent);border-radius:4px}
+
+/* ---------- Worksheet ---------- */
+.worksheet{background:var(--white);border:2px solid var(--lavender-deep);border-radius:var(--radius);padding:clamp(20px,3vw,36px);margin:26px 0;box-shadow:var(--shadow-sm)}
+.worksheet .ws-num{font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);background:var(--lavender);padding:4px 12px;border-radius:16px;display:inline-block}
+.worksheet h3{font-size:1.35rem;margin:.5em 0 .2em;color:var(--ink)}
+.worksheet .ws-purpose{color:var(--ink-soft);font-style:italic}
+.ws-fields{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:14px 0}
+.ws-field{border-bottom:2px solid var(--line);padding-bottom:4px;font-size:.85rem;color:var(--muted)}
+.ws-line{border-bottom:1.5px solid var(--line);height:30px;margin:8px 0}
+.ws-lines .ws-line{height:34px}
+.ws-scale{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0}
+.ws-scale span{border:1.5px solid var(--line);border-radius:8px;width:38px;height:34px;display:flex;align-items:center;justify-content:center;font-size:.78rem;color:var(--muted)}
+.ws-check{display:inline-flex;align-items:center;gap:7px;margin-right:18px;font-size:.9rem}
+.ws-check::before{content:"";width:16px;height:16px;border:2px solid var(--accent);border-radius:4px;display:inline-block}
+
+/* ---------- Buttons / nav controls ---------- */
+.topbar{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.9);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);
+  display:flex;align-items:center;justify-content:space-between;padding:10px clamp(12px,3vw,24px);gap:12px}
+.topbar .tb-title{font-weight:700;color:var(--accent);font-size:.95rem}
+.topbar .tb-controls{display:flex;gap:8px}
+.btn{background:var(--accent);color:#fff;border:none;border-radius:20px;padding:8px 16px;font-size:.82rem;font-weight:600;cursor:pointer;transition:.15s}
+.btn:hover{background:#7663b3}
+.btn.ghost{background:var(--lavender);color:var(--accent)}
+.menu-toggle{display:none}
+#backTop{position:fixed;right:20px;bottom:20px;z-index:50;background:var(--accent);color:#fff;border:none;border-radius:50%;width:48px;height:48px;font-size:1.2rem;cursor:pointer;box-shadow:var(--shadow);opacity:0;pointer-events:none;transition:.25s}
+#backTop.show{opacity:1;pointer-events:auto}
+
+/* ---------- TOC ---------- */
+.toc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:14px}
+.toc-grid a{display:flex;gap:10px;align-items:flex-start;background:var(--cream);border:1px solid var(--line);border-radius:var(--radius-sm);padding:12px 14px;color:var(--ink)}
+.toc-grid a:hover{background:var(--lavender);text-decoration:none}
+.toc-grid a .n{font-weight:700;color:var(--accent);flex:0 0 auto}
+
+.footer-credit{text-align:center;padding:30px 16px;color:var(--muted);font-size:.9rem}
+.footer-credit strong{color:var(--accent)}
+
+.section-note{font-size:.82rem;color:var(--muted);background:var(--grey);border-radius:10px;padding:10px 14px;margin:14px 0}
+
+/* ---------- Responsive ---------- */
+@media(max-width:900px){
+  .sidebar{position:fixed;left:0;top:0;z-index:60;transform:translateX(-100%);transition:.25s;box-shadow:var(--shadow)}
+  .sidebar.open{transform:translateX(0)}
+  .menu-toggle{display:inline-flex}
+  .content{max-width:100%}
+}
+@media(max-width:680px){
+  .grid.cols-2,.grid.cols-3,.compare,.toc-grid,.ws-fields{grid-template-columns:1fr}
+  .cover{min-height:auto}
+}
+
+/* ---------- Print ---------- */
+@media print{
+  body{background:#fff;color:#000}
+  .sidebar,.topbar,#backTop,.tb-controls{display:none!important}
+  .content{max-width:100%;padding:0}
+  .slide,.worksheet,.module-divider,.cover,.session-head{box-shadow:none;border:1px solid #ccc;break-inside:avoid;page-break-inside:avoid}
+  .slide::before{display:none}
+  .module-divider,.worksheet,.session-head{page-break-before:always}
+  .box,.card,.flow .node,table{break-inside:avoid}
+  h2,h3,h4{break-after:avoid}
+  a{color:#000;text-decoration:none}
+  .ws-line{border-bottom:1.5px solid #000}
+}
+</style>
+</head>
+<body>
+<div class="layout">
+<!-- ===================== SIDEBAR NAV ===================== -->
+<aside class="sidebar" id="sidebar">
+  <div class="brand">ERP Clinical Guide<small>EX/RP for OCD · Made by Tejas Dangodra</small></div>
+  <a class="nav-link" href="#cover">Cover</a>
+  <a class="nav-link" href="#toc">Table of Contents</a>
+  <a class="nav-link" href="#source-map">Source Map</a>
+  <h2>Modules</h2>
+  <a class="nav-link" href="#m1">1 · OCD &amp; ERP Foundations</a>
+  <a class="nav-link" href="#m2">2 · OCD Maintenance Model</a>
+  <a class="nav-link" href="#m3">3 · Assessment</a>
+  <a class="nav-link" href="#m4">4 · Case Formulation</a>
+  <a class="nav-link" href="#m5">5 · ERP Theory</a>
+  <a class="nav-link" href="#m6">6 · Psychoeducation</a>
+  <a class="nav-link" href="#m7">7 · Exposure Hierarchy</a>
+  <a class="nav-link" href="#m8">8 · Response Prevention</a>
+  <a class="nav-link" href="#m9">9 · Exposure Implementation</a>
+  <h2>Session-by-Session</h2>
+  <a class="nav-link session" href="#s1">Session 1 · Planning I</a>
+  <a class="nav-link session" href="#s2">Session 2 · Planning II</a>
+  <a class="nav-link session" href="#s3">Session 3 · In Vivo</a>
+  <a class="nav-link session" href="#s4">Session 4 · Imaginal</a>
+  <a class="nav-link session" href="#s5">Sessions 5–7</a>
+  <a class="nav-link session" href="#s8">Session 8 · Peak</a>
+  <a class="nav-link session" href="#s9">Sessions 9–15</a>
+  <a class="nav-link session" href="#s16">Sessions 16–17 · Final</a>
+  <a class="nav-link session" href="#followup">Follow-up Calls</a>
+  <a class="nav-link session" href="#session-table">Master Session Table</a>
+  <h2>Applied &amp; Reference</h2>
+  <a class="nav-link" href="#m10">10 · Case Studies</a>
+  <a class="nav-link" href="#m11">11 · Troubleshooting</a>
+  <a class="nav-link" href="#m12">12 · Special Presentations</a>
+  <a class="nav-link" href="#m13">13 · Family Accommodation</a>
+  <a class="nav-link" href="#dialogues">Therapist–Patient Dialogues</a>
+  <a class="nav-link" href="#obstype">ERP by Obsession Type</a>
+  <a class="nav-link" href="#m14">14 · Outcome Monitoring</a>
+  <a class="nav-link" href="#m15">15 · Relapse Prevention</a>
+  <a class="nav-link" href="#m17">Clinical Documentation</a>
+  <a class="nav-link" href="#quickref">Quick Reference</a>
+  <a class="nav-link" href="#checklist">Therapist Checklist</a>
+  <a class="nav-link" href="#algorithm">ERP Master Algorithm</a>
+  <h2>Workbook</h2>
+  <a class="nav-link" href="#m16">Patient ERP Workbook</a>
+  <a class="nav-link" href="#therapist-forms">Therapist Worksheets</a>
+</aside>
+
+<!-- ===================== MAIN CONTENT ===================== -->
+<div class="content" style="flex:1">
+<div class="topbar">
+  <button class="btn ghost menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')">☰ Menu</button>
+  <span class="tb-title">Exposure &amp; Response Prevention — Clinical Guide</span>
+  <div class="tb-controls">
+    <button class="btn ghost" onclick="window.print()">🖨 Print</button>
+  </div>
+</div>
+
+
+<!-- ===================== COVER ===================== -->
+<section class="cover" id="cover">
+  <div class="cov-badge">MPhil Clinical Psychology · Seminar &amp; Training Resource</div>
+  <h1>Exposure &amp; Response Prevention (ERP)</h1>
+  <div class="subtitle">A Comprehensive Clinical Guide to OCD Treatment</div>
+  <div class="tagchips">
+    <span>Theory</span><span>Assessment</span><span>Formulation</span><span>Treatment Planning</span>
+    <span>Session-by-Session ERP</span><span>Case Studies</span><span>Worksheets</span><span>Relapse Prevention</span>
+  </div>
+  <p style="max-width:640px;color:var(--ink-soft)">Grounded in <em>Exposure and Response (Ritual) Prevention for Obsessive-Compulsive Disorder: Therapist Guide</em> (2nd ed.) by Foa, Yadin &amp; Lichner — reworked into original educational notes, diagrams, cases, and printable worksheets.</p>
+  <div class="credit">Made by Tejas Dangodra<small>For educational and clinical-training use under appropriate supervision</small></div>
+</section>
+
+<!-- ===================== TABLE OF CONTENTS ===================== -->
+<section class="slide" id="toc">
+  <span class="slide-num">Navigation</span>
+  <h2 class="slide-title">Table of Contents</h2>
+  <p class="keyconcept">The session-by-session program (Module 9 sessions) and the Patient ERP Workbook are the largest, most practical parts of this guide. Use the sidebar for direct jumps; on phones, tap ☰ Menu.</p>
+  <div class="toc-grid">
+    <a href="#source-map"><span class="n">§</span><span>Source Map &amp; How This Guide Was Built</span></a>
+    <a href="#m1"><span class="n">1</span><span>Introduction to OCD &amp; ERP</span></a>
+    <a href="#m2"><span class="n">2</span><span>The OCD Maintenance Model</span></a>
+    <a href="#m3"><span class="n">3</span><span>Assessment Before ERP</span></a>
+    <a href="#m4"><span class="n">4</span><span>Case Formulation</span></a>
+    <a href="#m5"><span class="n">5</span><span>ERP Theory</span></a>
+    <a href="#m6"><span class="n">6</span><span>Psychoeducation</span></a>
+    <a href="#m7"><span class="n">7</span><span>Building the Exposure Hierarchy</span></a>
+    <a href="#m8"><span class="n">8</span><span>Response (Ritual) Prevention</span></a>
+    <a href="#m9"><span class="n">9</span><span>Exposure Implementation &amp; Session-by-Session ERP</span></a>
+    <a href="#m10"><span class="n">10</span><span>Clinical Case Studies (×9)</span></a>
+    <a href="#m11"><span class="n">11</span><span>Troubleshooting</span></a>
+    <a href="#m12"><span class="n">12</span><span>Special Clinical Considerations</span></a>
+    <a href="#m13"><span class="n">13</span><span>Family Accommodation</span></a>
+    <a href="#dialogues"><span class="n">§</span><span>Therapist–Patient Dialogues (×17)</span></a>
+    <a href="#obstype"><span class="n">§</span><span>ERP by Obsession Type</span></a>
+    <a href="#m14"><span class="n">14</span><span>Outcome Monitoring</span></a>
+    <a href="#m15"><span class="n">15</span><span>Relapse Prevention</span></a>
+    <a href="#m17"><span class="n">§</span><span>Clinical Documentation (SOAP)</span></a>
+    <a href="#quickref"><span class="n">§</span><span>Quick Reference</span></a>
+    <a href="#checklist"><span class="n">§</span><span>ERP Therapist Checklist</span></a>
+    <a href="#algorithm"><span class="n">§</span><span>ERP Master Algorithm</span></a>
+    <a href="#m16"><span class="n">16</span><span>Patient ERP Workbook (Worksheets 1–20)</span></a>
+    <a href="#therapist-forms"><span class="n">§</span><span>Therapist Worksheets</span></a>
+  </div>
+</section>
+
+<!-- ===================== SOURCE MAP ===================== -->
+<section class="slide" id="source-map">
+  <span class="slide-num">Source Identification</span>
+  <h2 class="slide-title">Source Map</h2>
+  <p class="keyconcept">This resource is built <strong>primarily</strong> from one book found in the repository. All extended text has been paraphrased into original educational notes; all worksheets, cases, and dialogues below are original.</p>
+
+  <h3>Primary source</h3>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Field</th><th>Detail</th></tr></thead>
+    <tbody>
+      <tr><td>Title</td><td>Exposure and Response (Ritual) Prevention for Obsessive-Compulsive Disorder: <em>Therapist Guide</em></td></tr>
+      <tr><td>Authors</td><td>Edna B. Foa, Elna Yadin, Tracey K. Lichner</td></tr>
+      <tr><td>Edition / Year</td><td>2nd edition, 2012</td></tr>
+      <tr><td>Publisher / Series</td><td>Oxford University Press — <em>Treatments That Work</em></td></tr>
+      <tr><td>Relevant chapters</td><td>Ch 1 (Intro), Ch 2 (Assessment), Ch 3 (Treatment Components), Ch 4–9 (Sessions 1, 2, 3, 4, Intermediate, Final), Ch 10 (Common Problems), Appendix (forms &amp; handouts)</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3>Source contribution table</h3>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Source</th><th>Author(s)</th><th>Edition</th><th>Main contribution to this guide</th></tr></thead>
+    <tbody>
+      <tr><td><strong>EX/RP Therapist Guide</strong> (PRIMARY)</td><td>Foa, Yadin &amp; Lichner</td><td>2nd, 2012</td><td>The entire treatment protocol: assessment approach, five components, SUDS &amp; hierarchy method, ritual-prevention rules, the full session structure (Sessions 1–17), processing, home visits, common problems, and appendix forms.</td></tr>
+      <tr><td><em>Cognitive-Behavioral Therapy for OCD</em> (supplementary, in repo)</td><td>David A. Clark</td><td>—</td><td>Referenced only as background for the cognitive/appraisal perspective and broader OCD subtypes. Where the cognitive model and the Foa behavioral model differ, this is flagged explicitly (see Module 5).</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="box caution">
+    <span class="box-label">⚠ Important note on terminology &amp; approach</span>
+    <p>The primary book uses the abbreviation <strong>EX/RP</strong> (Exposure and Ritual Prevention). "ERP" (Exposure and Response Prevention) is the same treatment; both terms are used in the field. This guide uses <strong>ERP / EX/RP interchangeably</strong>.</p>
+    <p>The Foa 2012 protocol is a <strong>behavioural, emotional-processing model</strong> that emphasises within- and between-session anxiety reduction (habituation) plus disconfirmation of feared consequences. It deliberately does <strong>not</strong> use formal cognitive restructuring. The more recent <strong>inhibitory-learning / expectancy-violation</strong> framework is presented in Module 5 and clearly labelled as a later development that reframes—rather than contradicts—the same exposure practice.</p>
+  </div>
+
+  <div class="box pearl">
+    <span class="box-label">✦ Clinical pearl</span>
+    <p>Wherever a session plan or hierarchy here is a <em>synthesis</em> rather than the exact book text, it is labelled as such. The overall program length (a nominal <strong>17-session, twice-weekly</strong> course, expandable to 17–20) follows the book's own worked structure.</p>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     MODULE 1 — OCD & ERP FOUNDATIONS
+     ============================================================ -->
+<section class="module-divider" id="m1">
+  <span class="mod-emoji">🧭</span>
+  <div class="mod-kicker">Module 1</div>
+  <h2>Introduction to OCD &amp; ERP</h2>
+  <p>What ERP is, why it works for OCD, and the single diagram that captures the whole treatment.</p>
+</section>
+
+<section class="slide">
+  <span class="slide-num">Slide 2 · Module 1</span>
+  <h2 class="slide-title">What is ERP?</h2>
+  <p class="keyconcept">ERP = deliberately confronting what OCD fears (Exposure) while <em>not</em> doing the compulsion or avoidance that normally follows (Response/Ritual Prevention).</p>
+
+  <div class="grid cols-3">
+    <div class="card"><h4>One sentence</h4><p>ERP is facing your fear on purpose and choosing not to do the ritual, so your brain learns the feared disaster doesn't happen and the anxiety fades on its own.</p></div>
+    <div class="card"><h4>Simple explanation</h4><p>OCD is a trap: the ritual gives relief, so you do it again and again, and the fear grows. ERP breaks the trap by staying with the discomfort until it settles <em>without</em> the ritual — teaching you that you're safe and can cope.</p></div>
+    <div class="card"><h4>Postgraduate-level</h4><p>ERP is a manualised CBT intervention in which the patient makes systematic, graded, prolonged contact with fear-eliciting stimuli (external cues, intrusive thoughts, images, sensations, and feared consequences) while abstaining from overt and covert neutralising responses, avoidance, and reassurance — enabling emotional processing, extinction of the conditioned distress, and disconfirmation of catastrophic appraisals.</p></div>
+  </div>
+
+  <h3>Core mechanism</h3>
+  <ul class="tick">
+    <li><strong>Exposure</strong> re-engages the fear structure so it can be modified by new, corrective information.</li>
+    <li><strong>Response prevention</strong> blocks the compulsion/avoidance that would otherwise abort learning and maintain the disorder.</li>
+    <li>Together they let the patient discover: (1) anxiety declines without ritualising, (2) it declines further with repetition, (3) distress is tolerable, and (4) feared consequences do not occur or are far less likely than OCD claims.</li>
+  </ul>
+
+  <div class="box therapist">
+    <span class="box-label">Therapist note · Relationship with CBT</span>
+    <p>ERP is the behavioural engine of CBT for OCD. In the Foa model, belief change happens <em>through</em> exposure used as hypothesis-testing rather than through separate cognitive-restructuring sessions. Cognitive therapy for OCD (e.g., appraisal-focused work) is a related but distinct approach — see Module 5.</p>
+  </div>
+  <div class="box caution">
+    <span class="box-label">Why ERP for OCD specifically</span>
+    <p>In simple phobia, avoidance reduces distress and the fear stays "contained." In OCD, escape and avoidance <em>fail</em> to reliably reduce distress (the checker still worries once away from the door; the washer still feels contamination spreading), so the person escalates into rituals. ERP directly targets that failed-relief cycle.</p>
+  </div>
+</section>
+
+<section class="slide">
+  <span class="slide-num">Slide 3 · Module 1</span>
+  <h2 class="slide-title">ERP in One Diagram</h2>
+  <p class="keyconcept">Top: how OCD keeps itself alive. Bottom: how ERP re-routes the same trigger toward recovery.</p>
+
+  <div class="flow-2col">
+    <div>
+      <h3 style="text-align:center">The OCD Trap</h3>
+      <div class="flow">
+        <div class="node trigger">Trigger<small>object, situation, thought</small></div>
+        <div class="arrow">↓</div>
+        <div class="node">Obsession / intrusive thought</div>
+        <div class="arrow">↓</div>
+        <div class="node">Anxiety · distress · urge</div>
+        <div class="arrow">↓</div>
+        <div class="node bad">Compulsion / avoidance</div>
+        <div class="arrow">↓</div>
+        <div class="node bad">Short-term relief</div>
+        <div class="arrow">↓</div>
+        <div class="node bad">Negative reinforcement</div>
+        <div class="arrow">↓</div>
+        <div class="node bad">More OCD</div>
+      </div>
+    </div>
+    <div>
+      <h3 style="text-align:center">The ERP Route</h3>
+      <div class="flow">
+        <div class="node trigger">Trigger<small>same cue</small></div>
+        <div class="arrow">↓</div>
+        <div class="node good">Exposure (approach, stay)</div>
+        <div class="arrow">↓</div>
+        <div class="node">Distress / uncertainty</div>
+        <div class="arrow">↓</div>
+        <div class="node good">Response prevention</div>
+        <div class="arrow">↓</div>
+        <div class="node good">No compulsion</div>
+        <div class="arrow">↓</div>
+        <div class="node good">New learning</div>
+        <div class="arrow">↓</div>
+        <div class="node good">Reduced dependence on compulsions</div>
+      </div>
+    </div>
+  </div>
+
+  <h3>Every component, explained</h3>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Component</th><th>What happens</th><th>Why it matters</th></tr></thead>
+    <tbody>
+      <tr><td>Trigger</td><td>An external cue (public doorknob) or internal cue (a violent image) activates the fear.</td><td>Identifying triggers builds the hierarchy.</td></tr>
+      <tr><td>Obsession</td><td>An unwanted, intrusive thought/image/urge experienced as distressing and ego-dystonic.</td><td>It is the "alarm," not a true intention.</td></tr>
+      <tr><td>Anxiety / urge</td><td>Distress plus a strong pull to neutralise it.</td><td>The urge — not the thought — is what we resist.</td></tr>
+      <tr><td>Compulsion / avoidance</td><td>Overt or mental act, or steering clear of the cue, to reduce distress.</td><td>This is the maintaining behaviour ERP blocks.</td></tr>
+      <tr><td>Short-term relief</td><td>Distress drops briefly.</td><td>Feels helpful — this is the seduction of OCD.</td></tr>
+      <tr><td>Negative reinforcement</td><td>Relief rewards the ritual, making it more automatic and frequent.</td><td>Explains why OCD worsens over time.</td></tr>
+      <tr><td>Exposure</td><td>Planned, prolonged approach to the feared cue.</td><td>Re-activates the fear so it can change.</td></tr>
+      <tr><td>Response prevention</td><td>Refraining from all rituals, avoidance, reassurance.</td><td>Allows new learning to "stick."</td></tr>
+      <tr><td>New learning</td><td>"Anxiety falls; nothing catastrophic happens; I can cope with uncertainty."</td><td>The therapeutic payoff.</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="box patient">
+    <span class="box-label">Patient perspective</span>
+    <p>"The ritual is like scratching a mosquito bite — it feels good for a second and then it itches worse. ERP is learning to <em>not scratch</em> so the bite can actually heal."</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     MODULE 2 — OCD MAINTENANCE MODEL
+     ============================================================ -->
+<section class="module-divider" id="m2">
+  <span class="mod-emoji">🔁</span>
+  <div class="mod-kicker">Module 2</div>
+  <h2>Understanding OCD &amp; the Maintenance Cycle</h2>
+  <p>The clinical anatomy of OCD and the self-perpetuating loop ERP is designed to break.</p>
+</section>
+
+<section class="slide">
+  <span class="slide-num">Slide 4 · Module 2</span>
+  <h2 class="slide-title">The Building Blocks of OCD</h2>
+  <p class="keyconcept">OCD is made of obsessions (the alarm) and compulsions (the failed off-switch), plus a wider ecosystem of avoidance, reassurance, and covert rituals.</p>
+  <div class="grid cols-2">
+    <div class="card"><h4>Obsessions</h4><p>Recurrent, intrusive, unwanted <strong>thoughts, images, urges, or doubts</strong> that cause marked distress. Experienced as ego-dystonic ("not like me"). Content is often the opposite of the person's values.</p></div>
+    <div class="card"><h4>Compulsions</h4><p>Repetitive <strong>behaviours or mental acts</strong> the person feels driven to perform to reduce distress or prevent a feared outcome. Not realistically connected to what they aim to prevent, or clearly excessive.</p></div>
+    <div class="card"><h4>The emotions</h4><p>Not only <strong>anxiety</strong> — also <strong>disgust</strong> (contamination), <strong>guilt</strong> and <strong>shame</strong> (harm, sexual, religious), and an inflated sense of <strong>responsibility</strong> and <strong>threat</strong>.</p></div>
+    <div class="card"><h4>The engine: uncertainty</h4><p>Much of OCD is intolerance of <strong>doubt</strong> — "I can't be <em>sure</em> nothing bad will happen." Rituals chase a certainty that never fully arrives.</p></div>
+  </div>
+  <h3>The wider ecosystem clinicians must map</h3>
+  <ul class="pill-list">
+    <li>Passive avoidance</li><li>Reassurance seeking</li><li>Mental compulsions</li><li>Covert rituals</li><li>Neutralising / undoing</li><li>Safety behaviours</li><li>Checking (overt &amp; mental)</li><li>Thought suppression</li>
+  </ul>
+  <div class="box pearl">
+    <span class="box-label">✦ Clinical pearl</span>
+    <p>The single most useful question for classifying any behaviour: <strong>"What is its function?"</strong> If a behaviour or thought <em>reduces anxiety or aims to prevent a feared outcome</em>, it is a compulsion/safety behaviour — even if it looks reasonable (e.g., silently reassuring oneself "I'm a good person"). Function, not form, defines the target.</p>
+  </div>
+</section>
+
+<section class="slide">
+  <span class="slide-num">Slide 5 · Module 2</span>
+  <h2 class="slide-title">The Complete OCD Cycle</h2>
+  <p class="keyconcept">Trigger → Interpretation → Obsession → Distress → Compulsion → Temporary relief → Reinforcement → Increased salience → the next obsession comes faster and stronger.</p>
+  <div class="flow">
+    <div class="node trigger">Trigger</div><div class="arrow">↓</div>
+    <div class="node">Catastrophic interpretation / appraisal</div><div class="arrow">↓</div>
+    <div class="node">Obsession intensifies</div><div class="arrow">↓</div>
+    <div class="node">Distress (anxiety, guilt, disgust)</div><div class="arrow">↓</div>
+    <div class="node bad">Compulsion / avoidance / reassurance</div><div class="arrow">↓</div>
+    <div class="node bad">Temporary relief</div><div class="arrow">↓</div>
+    <div class="node bad">Reinforcement of the ritual</div><div class="arrow">↓</div>
+    <div class="node bad">Trigger becomes more salient</div>
+    <div class="arrow">↺ loops back — stronger, faster next time</div>
+  </div>
+
+  <h3>The same cycle, three patients</h3>
+  <div class="grid cols-3">
+    <div class="box clinical-ex"><span class="box-label">Contamination</span><p>Touches a rail → "germs, I'll get sick" → disgust/anxiety → washes 15 min → relief → washing strengthens → rails feel dirtier next time.</p></div>
+    <div class="box clinical-ex"><span class="box-label">Checking</span><p>Leaves home → "did I lock it? burglary" → anxiety → returns to check ×5 → relief → doubt returns within minutes → checks again.</p></div>
+    <div class="box clinical-ex"><span class="box-label">Harm (mental)</span><p>Holds a knife → image of stabbing a loved one → guilt/horror → mentally reviews "I'd never do that" → brief relief → images return more often.</p></div>
+  </div>
+  <div class="box therapist">
+    <span class="box-label">Therapist note</span>
+    <p>Draw this loop <em>with</em> the patient using their own material. Making the maintenance cycle explicit is itself therapeutic — it externalises OCD ("this is a pattern, not you") and sets up the rationale for dropping the compulsion.</p>
+  </div>
+</section>
+
+<section class="slide" id="ocd-types">
+  <span class="slide-num">Slide 6 · Module 2</span>
+  <h2 class="slide-title">Types of OCD Presentations</h2>
+  <p class="keyconcept">The obsession content varies enormously, but the <strong>structure</strong> (obsession → distress → compulsion → relief → maintenance) is identical. The Y-BOCS checklist groups symptoms into contamination, harm, sexual, hoarding/saving, religious, symmetry/exactness, somatic, and miscellaneous.</p>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Presentation</th><th>Typical obsession</th><th>Distress</th><th>Typical compulsion</th><th>Short-term / Long-term consequence</th><th>ERP target</th></tr></thead>
+    <tbody>
+      <tr><td>Contamination / washing</td><td>"I'm contaminated; I'll get ill / spread it"</td><td>Anxiety, disgust</td><td>Washing, cleaning, avoidance</td><td>Relief / spreading avoidance, skin damage, time lost</td><td>Touch contaminant, spread it, no washing</td></tr>
+      <tr><td>Checking</td><td>"Did I lock/turn off/hit someone?"</td><td>Doubt, anxiety</td><td>Checking, retracing, reassurance</td><td>Relief / doubt returns, hours lost</td><td>Act once, leave, tolerate doubt</td></tr>
+      <tr><td>Harm OCD</td><td>"I might snap and hurt someone"</td><td>Guilt, horror</td><td>Avoid knives, mental review, confess</td><td>Relief / social/occupational shrinkage</td><td>Hold knife near others, imaginal script, no reviewing</td></tr>
+      <tr><td>Sexual intrusive thoughts</td><td>Unwanted taboo sexual images/doubts</td><td>Shame, anxiety</td><td>Avoidance, checking arousal, reassurance</td><td>Relief / isolation, self-hatred</td><td>Approach triggers, script the thought, no checking</td></tr>
+      <tr><td>Religious / moral scrupulosity</td><td>"I sinned / offended God / I'm immoral"</td><td>Guilt, fear</td><td>Excessive prayer, confession, reassurance</td><td>Relief / faith becomes torment</td><td>Trigger the doubt, imaginal (e.g., uncertainty about salvation), no ritual prayer</td></tr>
+      <tr><td>Relationship OCD</td><td>"Do I really love them? Is this right?"</td><td>Anxiety, doubt</td><td>Checking feelings, comparing, reassurance</td><td>Relief / relationship strain</td><td>Sit with uncertainty, no feeling-checks</td></tr>
+      <tr><td>Responsibility</td><td>"If I don't prevent it, it's my fault"</td><td>Guilt, anxiety</td><td>Over-checking, warning others</td><td>Relief / hyper-vigilance</td><td>Deliberately "not prevent," tolerate responsibility</td></tr>
+      <tr><td>Symmetry / "just right"</td><td>"It's not even / not right"</td><td>Discomfort, tension</td><td>Ordering, arranging, repeating until right</td><td>Relief / endless redoing</td><td>Leave things crooked/uneven, resist "just right"</td></tr>
+      <tr><td>Somatic / health</td><td>"This sensation means serious illness"</td><td>Anxiety</td><td>Body-checking, googling, doctor visits</td><td>Relief / health anxiety spiral</td><td>Provoke sensation, no checking/googling</td></tr>
+      <tr><td>Magical thinking</td><td>"A number/word will cause harm"</td><td>Dread</td><td>Counting, repeating "good" words</td><td>Relief / superstition rules life</td><td>Use "bad" numbers, no neutralising</td></tr>
+      <tr><td>Existential</td><td>Unanswerable doubts (reality, meaning)</td><td>Dread</td><td>Rumination as compulsion, reassurance</td><td>Relief / rumination loops</td><td>Allow the question unanswered, no mental review</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="box caution">
+    <span class="box-label">⚠ On "Pure-O"</span>
+    <p>"Pure obsessional" is a <strong>misleading label</strong>. These patients almost always have compulsions — they are just <em>covert</em>: mental review, neutralising, silent reassurance, mental checking, rumination. Treating "Pure-O" means hunting for the hidden ritual, then applying response prevention to it. Nobody is truly "pure obsession only."</p>
+  </div>
+  <div class="box caution">
+    <span class="box-label">⚠ Distressing intrusive content (harm / sexual / paedophilic / aggressive)</span>
+    <p>Intrusive thoughts about harming others, taboo sexual themes (including harm to children), and aggressive images are common OCD contents and are <strong>ego-dystonic</strong> — the person is horrified by them and does <em>not</em> want to act. They are <strong>not</strong> desires, plans, or indicators of risk of offending. Distinguishing OCD intrusions from genuine risk is a core assessment skill (Module 3); when in doubt, seek supervision. These themes respond well to ERP (largely imaginal) once correctly identified.</p>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     MODULE 3 — ASSESSMENT
+     ============================================================ -->
+<section class="module-divider" id="m3">
+  <span class="mod-emoji">🔍</span>
+  <div class="mod-kicker">Module 3</div>
+  <h2>Assessment Before ERP</h2>
+  <p>What to assess, which tools to use, and how functional analysis turns symptoms into ERP targets.</p>
+</section>
+
+<section class="slide">
+  <span class="slide-num">Slide 7 · Module 3</span>
+  <h2 class="slide-title">What to Assess Before ERP</h2>
+  <p class="keyconcept">Assessment is not a formality — it <em>is</em> the treatment plan. Every item you elicit becomes a hierarchy step, a ritual-prevention rule, or a safety consideration.</p>
+  <div class="grid cols-2">
+    <div class="card"><h4>OCD symptom map</h4><ul class="tick"><li>Obsessions: external cues, internal cues (thoughts, images, impulses, doubts), and feared bodily sensations</li><li>Feared consequences (external, internal, and "harm from long-term anxiety")</li><li>Compulsions: overt <em>and</em> mental/covert</li><li>Avoidance: passive &amp; active</li><li>Reassurance seeking (self &amp; others)</li><li>Triggers, frequency, duration, distress (SUDS)</li></ul></div>
+    <div class="card"><h4>Person &amp; context</h4><ul class="tick"><li>Functional impairment (home, work, social)</li><li>Insight &amp; overvalued ideation</li><li>Motivation &amp; readiness</li><li>Previous treatment &amp; response</li><li>Current medication</li><li>Family accommodation</li><li>Comorbidities (depression, other anxiety, tics)</li><li>Risk assessment</li></ul></div>
+  </div>
+  <div class="box therapist">
+    <span class="box-label">Therapist note · the Information-Gathering interview</span>
+    <p>The primary protocol structures this as a general history (~25 min) followed by detailed OCD information-gathering (~40 min) across fixed categories: external cues, internal cues, bodily sensations, feared consequences, passive avoidance, active avoidance, rituals (overt + mental), the avoidance–fear relationship, and onset/course. Record a summary for each; it feeds directly into Sessions 1–2.</p>
+  </div>
+  <div class="box caution">
+    <span class="box-label">⚠ Risk &amp; insight</span>
+    <p>Assess suicidality and, for harm/sexual themes, differentiate ego-dystonic OCD intrusions from genuine intent (OCD = unwanted, resisted, out-of-character, no urge to enact; risk = congruent, planned, or desired). Note insight: poor insight/overvalued ideation predicts a harder course and may need extra motivational work before ERP.</p>
+  </div>
+</section>
+
+<section class="slide">
+  <span class="slide-num">Slide 8 · Module 3</span>
+  <h2 class="slide-title">OCD Assessment Tools</h2>
+  <p class="keyconcept">The workhorse measure in the primary protocol is the Y-BOCS. Choose measures to (a) map symptoms and (b) track severity over time — never to "diagnose by score."</p>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Measure</th><th>Type</th><th>What it does</th><th>When / how it informs ERP</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Y-BOCS</strong> (Yale-Brown Obsessive Compulsive Scale; Goodman et al., 1989)</td><td>Clinician, semi-structured interview</td><td>A <em>symptom checklist</em> (harm, contamination, sexual, hoarding/saving, religious, symmetry/exactness, somatic, miscellaneous) <em>plus</em> a severity scale rating time, interference, distress, resistance, and control for obsessions and compulsions.</td><td>Checklist → builds the individualised hierarchy and detects symptoms the patient wouldn't volunteer. Severity scale → baseline and repeated measure of progress. Administer checklist first.</td></tr>
+      <tr><td>Y-BOCS-II</td><td>Clinician interview</td><td>Revised version with an updated severity scale and checklist.</td><td>Use where available; interpret per its own manual.</td></tr>
+      <tr><td>OCI-R (Obsessive-Compulsive Inventory–Revised)</td><td>Brief self-report</td><td>Quick self-rated symptom burden across subscales.</td><td>Useful screen / session-by-session tracking between full Y-BOCS administrations.</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="box caution">
+    <span class="box-label">⚠ Do not fabricate scoring</span>
+    <p>Always use each instrument's <strong>published scoring and cut-offs from its own manual</strong>. This guide intentionally does not print numeric cut-offs; verify them against the current source before clinical use.</p>
+  </div>
+  <div class="box pearl">
+    <span class="box-label">✦ Clinical pearl</span>
+    <p>Have the patient complete self-reports <em>before</em> the diagnostic interview so their answers inform your questioning. Walking the patient through the full Y-BOCS checklist also builds rapport — it signals "this therapist really understands OCD," which fuels hope and engagement.</p>
+  </div>
+</section>
+
+<section class="slide">
+  <span class="slide-num">Slide 9 · Module 3</span>
+  <h2 class="slide-title">Functional Analysis (ABC)</h2>
+  <p class="keyconcept">Functional analysis converts a messy symptom picture into a clear ERP target by exposing the maintaining contingency.</p>
+  <div class="grid cols-3">
+    <div class="card tinted"><h4>A · Antecedent</h4><p>The trigger/cue that sets off the obsession.<br><em>e.g., Touching a public surface.</em></p></div>
+    <div class="card tinted"><h4>B · Behaviour</h4><p>Obsession + the response it drives.<br><em>e.g., "I'm contaminated" → hand-washing.</em></p></div>
+    <div class="card tinted"><h4>C · Consequence</h4><p>What the behaviour achieves.<br><em>e.g., Temporary relief (negative reinforcement).</em></p></div>
+  </div>
+  <div class="flow">
+    <div class="node trigger">A: Touch public surface</div><div class="arrow">↓</div>
+    <div class="node">B: "Contaminated!" → wash hands</div><div class="arrow">↓</div>
+    <div class="node bad">C: Relief now, stronger fear later</div>
+    <div class="arrow">⇒</div>
+    <div class="node good">ERP TARGET: touch surface, <strong>prevent washing</strong>, stay until distress falls</div>
+  </div>
+  <div class="box therapist">
+    <span class="box-label">Therapist note</span>
+    <p>The "C" that maintains OCD is almost always <em>short-term relief</em>. Naming the relief-as-reinforcer out loud helps the patient see why "just this once" checking is not harmless — it feeds the loop.</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     MODULE 4 — CASE FORMULATION
+     ============================================================ -->
+<section class="module-divider" id="m4">
+  <span class="mod-emoji">🧩</span>
+  <div class="mod-kicker">Module 4</div>
+  <h2>OCD Case Formulation</h2>
+  <p>Weaving assessment into an explanatory model that points straight at treatment targets.</p>
+</section>
+
+<section class="slide">
+  <span class="slide-num">Slide 10 · Module 4</span>
+  <h2 class="slide-title">The 5-P Formulation Frame</h2>
+  <p class="keyconcept">Predisposing → Precipitating → Perpetuating → Protective factors → the maintenance cycle → treatment targets.</p>
+  <div class="timeline">
+    <div class="tl-item"><h4>Predisposing</h4><p>Genetic/temperamental vulnerability, inflated responsibility beliefs, early modelling of anxiety/checking, perfectionism.</p></div>
+    <div class="tl-item"><h4>Precipitating</h4><p>The stressor or life event around onset (a first intrusive thought that "stuck," a loss, becoming a parent, illness scare).</p></div>
+    <div class="tl-item"><h4>Perpetuating</h4><p><strong>The heart of the formulation.</strong> Compulsions, avoidance, reassurance, thought suppression, family accommodation, "not-just-right" experiences — each producing short-term relief that maintains the disorder.</p></div>
+    <div class="tl-item"><h4>Protective</h4><p>Good insight, motivation, supportive relationships, prior treatment gains, values worth recovering for.</p></div>
+    <div class="tl-item"><h4>Maintenance cycle → targets</h4><p>Feed the perpetuating factors into the OCD loop (Module 2), then read off the ERP targets: which cues to expose, which rituals to prevent.</p></div>
+  </div>
+</section>
+
+<section class="slide">
+  <span class="slide-num">Slide 11 · Module 4</span>
+  <h2 class="slide-title">Worked Formulation — "Priya" (original fictional case)</h2>
+  <div class="box clinical-ex">
+    <span class="box-label">Case snapshot</span>
+    <p><strong>Priya, 27, teacher.</strong> Contamination OCD focused on illness after her father's hospitalisation. Washes 2–3 hrs/day; avoids public transport and shared kitchens; asks her partner "are my hands clean?" repeatedly.</p>
+  </div>
+  <div class="grid cols-2">
+    <div class="card"><h4>Predisposing</h4><p>Anxious temperament; mother modelled cleaning rituals; high conscientiousness/perfectionism.</p></div>
+    <div class="card"><h4>Precipitating</h4><p>Father's serious infection 8 months ago; a news story about "superbugs."</p></div>
+    <div class="card"><h4>Perpetuating</h4><p>Washing → relief; avoidance of transport/kitchens; reassurance from partner; googling symptoms; wearing gloves (safety behaviour).</p></div>
+    <div class="card"><h4>Protective</h4><p>Wants to travel again; strong relationship; good insight ("I know it's excessive").</p></div>
+  </div>
+  <h3>Treatment targets read off the formulation</h3>
+  <ul class="tick">
+    <li><strong>Expose:</strong> public transport rails, shared kitchen surfaces, "dirty" hands before eating.</li>
+    <li><strong>Prevent:</strong> washing beyond one normal wash, glove use, googling, reassurance from partner.</li>
+    <li><strong>Family:</strong> coach partner to stop answering "are my hands clean?" (see Module 13).</li>
+  </ul>
+  <div class="box patient">
+    <span class="box-label">Patient perspective</span>
+    <p>"Seeing it drawn out, I realised the washing wasn't keeping me safe — it was keeping the fear <em>fed</em>."</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     MODULE 5 — ERP THEORY
+     ============================================================ -->
+<section class="module-divider" id="m5">
+  <span class="mod-emoji">🧠</span>
+  <div class="mod-kicker">Module 5</div>
+  <h2>ERP Theory</h2>
+  <p>The behavioural model, emotional processing, and the modern inhibitory-learning reframe.</p>
+</section>
+
+<section class="slide">
+  <span class="slide-num">Slide 12 · Module 5</span>
+  <h2 class="slide-title">The Behavioural Foundations</h2>
+  <p class="keyconcept">OCD is maintained by negative reinforcement; ERP dismantles it by re-activating the fear and blocking the reinforcing response.</p>
+  <ul class="tick">
+    <li><strong>Two-factor learning:</strong> fear is acquired (classical conditioning) and maintained by avoidance/rituals that are rewarded by relief (operant conditioning).</li>
+    <li><strong>Exposure</strong> reverses avoidance and re-engages the fear so it can change.</li>
+    <li><strong>Response prevention</strong> removes the relief that reinforces the ritual.</li>
+    <li><strong>Safety behaviours</strong> (partial rituals, gloves, "clean hand/dirty hand") are subtle avoidance and must be dropped, or they keep the feared belief alive.</li>
+    <li><strong>Uncertainty tolerance</strong> is the deeper skill — OCD demands certainty; recovery is learning to live with doubt.</li>
+  </ul>
+</section>
+
+<section class="slide">
+  <span class="slide-num">Slide 13 · Module 5</span>
+  <h2 class="slide-title">Emotional Processing Theory (the primary model)</h2>
+  <p class="keyconcept">Foa's protocol is built on emotional processing theory, combining conditioning and information-processing ideas. Exposure activates the "fear structure," and corrective information modifies it.</p>
+  <div class="grid cols-2">
+    <div class="card"><h4>What must happen</h4><ul class="tick"><li>The fear must be <strong>activated</strong> (emotional engagement — a good match to real fears).</li><li>New information must be available that is <strong>incompatible</strong> with the fear ("anxiety fell; nothing bad happened").</li><li>Rituals/avoidance must be <strong>blocked</strong> so that new information is not explained away.</li></ul></div>
+    <div class="card"><h4>Processing (the 4 lessons)</h4><ul class="tick"><li>Anxiety declines <em>within</em> an exposure, even without ritualising.</li><li>Anxiety declines <em>across</em> repeated exposures and stays lower.</li><li>Distress is <em>manageable</em> without rituals.</li><li>Feared consequences are <em>disconfirmed</em> or shown to be low-probability.</li></ul></div>
+  </div>
+  <div class="box therapist">
+    <span class="box-label">Therapist note · exposure as hypothesis-testing</span>
+    <p>The primary program uses <strong>no formal cognitive restructuring</strong>. Instead, each exposure is framed as a test of a specific prediction ("If I touch the rail and don't wash, I'll be 100% sure to get sick by tomorrow"). Track SUDS and check the prediction afterwards. Belief change happens through experience, not debate.</p>
+  </div>
+</section>
+
+<section class="slide">
+  <span class="slide-num">Slide 14 · Module 5</span>
+  <h2 class="slide-title">Habituation vs Inhibitory Learning</h2>
+  <p class="keyconcept">Two lenses on the same practice. The primary book (2012) leans on habituation; contemporary practice adds inhibitory-learning ideas. They are complementary — not contradictory.</p>
+  <div class="compare">
+    <div class="col neg">
+      <h4>Habituation model (traditional)</h4>
+      <ul class="tick" style="margin-top:6px">
+        <li>Goal: stay in the exposure until anxiety <em>drops</em> (within- and between-session).</li>
+        <li>Falling SUDS is the sign of success.</li>
+        <li>Emphasis on long, repeated exposures until distress subsides.</li>
+        <li>Strongly represented in the Foa 2012 protocol's language.</li>
+      </ul>
+    </div>
+    <div class="col pos">
+      <h4>Inhibitory-learning model (modern)</h4>
+      <ul class="tick" style="margin-top:6px">
+        <li>Goal: <em>expectancy violation</em> — make the gap between "what I feared" and "what happened" as large and surprising as possible.</li>
+        <li>Anxiety reduction is welcome but <strong>not required</strong>; new learning can occur while still anxious.</li>
+        <li>Techniques: varied contexts, combining fears, removing safety behaviours, occasional reinforced/deepened exposures.</li>
+        <li>A later development that reframes the same ERP toolkit.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="box caution">
+    <span class="box-label">⚠ "ERP is NOT simply waiting until anxiety disappears"</span>
+    <p>This is the crucial correction. Even in the habituation tradition, the primary protocol explicitly tells therapists what to say when <em>anxiety does not decrease</em>: continue the item, the point is the <em>learning</em>. From the inhibitory-learning view:</p>
+    <ul class="tick">
+      <li><strong>Why distress may remain</strong> — anxiety and learning are separable; you can learn "I coped and nothing happened" while still feeling anxious.</li>
+      <li><strong>Why exposure can still succeed</strong> — the memory of "I did it, I survived, my prediction was wrong" is retained regardless of the SUDS curve.</li>
+      <li><strong>Why learning &gt; immediate anxiety reduction</strong> — durable, generalisable recovery comes from disconfirmed expectancies, not a single calm session.</li>
+      <li><strong>Why compulsions interfere with learning</strong> — any ritual/safety behaviour lets OCD credit the ritual ("I only survived because I washed"), blocking the new learning.</li>
+    </ul>
+  </div>
+  <div class="section-note">Where the models differ, this guide follows the primary Foa protocol for <em>procedure</em> and flags inhibitory-learning language as an optional, evidence-based reframe. The cognitive model (Clark; Salkovskis) — which targets appraisals directly — is a separate tradition; core ERP does not require it.</div>
+</section>
+
+
+<!-- ============================================================
+     MODULE 6 — PSYCHOEDUCATION
+     ============================================================ -->
+<section class="module-divider" id="m6">
+  <span class="mod-emoji">💬</span>
+  <div class="mod-kicker">Module 6</div>
+  <h2>Psychoeducation &amp; Motivational Preparation</h2>
+  <p>How to explain OCD and ERP — in therapist language and in warm, plain patient language — and how to build the motivation ERP demands.</p>
+</section>
+
+<section class="slide">
+  <span class="slide-num">Slide 15 · Module 6</span>
+  <h2 class="slide-title">Explaining OCD &amp; ERP — Paired Scripts</h2>
+  <p class="keyconcept">For each concept: a precise therapist framing and a plain-language patient version. Deliver the patient version conversationally, using the patient's own symptoms as examples.</p>
+
+  <div class="grid cols-2">
+    <div class="box therapist"><span class="box-label">Therapist · What OCD is</span><p>A disorder of intrusive obsessions plus compulsive neutralising, maintained by negatively-reinforced escape/avoidance.</p></div>
+    <div class="box patient"><span class="box-label">Patient · What OCD is</span><p>"OCD sends you unwanted thoughts that feel urgent and scary, and then pushes you to do something to feel safe. The 'doing something' is what keeps it going."</p></div>
+
+    <div class="box therapist"><span class="box-label">Therapist · Why intrusions occur</span><p>Intrusive thoughts are universal; OCD is the <em>meaning</em> and <em>response</em>, not the presence of the thought.</p></div>
+    <div class="box patient"><span class="box-label">Patient · Why intrusions occur</span><p>"Everyone has weird, unwanted thoughts. In OCD your alarm system treats them as important warnings — so you notice them more and fear them more."</p></div>
+
+    <div class="box therapist"><span class="box-label">Therapist · Thought ≠ action</span><p>Thought–action fusion is a core appraisal error; having a thought neither causes nor equals the act.</p></div>
+    <div class="box patient"><span class="box-label">Patient · Thought ≠ action</span><p>"Thinking about something does not make it happen and does not mean you want it. A thought is just a thought."</p></div>
+
+    <div class="box therapist"><span class="box-label">Therapist · Suppression backfires</span><p>Deliberate suppression increases intrusion frequency (rebound); we do not fight the obsession.</p></div>
+    <div class="box patient"><span class="box-label">Patient · Suppression backfires</span><p>"Try <em>not</em> to think of a pink elephant… The more you push a thought away, the more it pushes back."</p></div>
+
+    <div class="box therapist"><span class="box-label">Therapist · Compulsions maintain OCD</span><p>Rituals produce short-term relief that negatively reinforces them and prevents disconfirmation.</p></div>
+    <div class="box patient"><span class="box-label">Patient · Compulsions maintain OCD</span><p>"Rituals work for a minute, then the fear comes back stronger — like paying a blackmailer. ERP stops paying."</p></div>
+
+    <div class="box therapist"><span class="box-label">Therapist · Avoidance &amp; reassurance</span><p>Avoidance prevents new learning; reassurance is an interpersonal compulsion that maintains doubt.</p></div>
+    <div class="box patient"><span class="box-label">Patient · Avoidance &amp; reassurance</span><p>"Avoiding keeps the fear alive because you never find out you'd be okay. Reassurance feels kind but it feeds the doubt."</p></div>
+
+    <div class="box therapist"><span class="box-label">Therapist · What ERP involves / expectations</span><p>Graded, prolonged exposure + strict ritual prevention + between-session practice; effortful, collaborative, time-limited.</p></div>
+    <div class="box patient"><span class="box-label">Patient · What ERP involves / expectations</span><p>"We'll face fears step by step, starting manageable, and practise <em>not</em> doing the ritual. It's hard at first and gets easier fast. Practice between sessions is where most change happens."</p></div>
+  </div>
+
+  <div class="box caution">
+    <span class="box-label">⚠ The 4 "thinking mistakes" to name gently</span>
+    <p>(1) "Anxiety will last forever / I'll have a breakdown if I don't ritualise." (2) "Thinking it is the same as doing/wanting it." (3) "If I don't prevent harm, I've caused it." (4) "If I don't ritualise, the feared thing will happen." ERP tests each one against reality.</p>
+  </div>
+</section>
+
+<section class="slide">
+  <span class="slide-num">Slide 16 · Module 6</span>
+  <h2 class="slide-title">Motivational Preparation</h2>
+  <p class="keyconcept">ERP asks people to walk toward what terrifies them. Motivation, ambivalence, and a clear "why" must be worked <em>before</em> and revisited <em>throughout</em> treatment.</p>
+  <div class="grid cols-2">
+    <div class="card"><h4>Address directly</h4><ul class="tick"><li>Ambivalence &amp; fear of exposure ("I can't do that")</li><li>Realistic expectations (discomfort is the treatment working)</li><li>Cost–benefit of OCD vs recovery</li><li>Values: what OCD is stealing</li><li>Concrete treatment goals</li><li>Commitment to full ritual prevention (no "lines in the sand")</li></ul></div>
+    <div class="card tinted"><h4>Motivation strategies (from the protocol)</h4><ul class="tick"><li>Frame therapy as "you &amp; me vs OCD — a shared battle."</li><li>Discourage drawing "lines in the sand" (partial commitment predicts relapse).</li><li>Use analogies: leaving weeds in the garden / leaving cancer cells behind → it grows back.</li><li>The "hip-pocket patient": a de-identified example of someone whose partial effort led to relapse.</li><li>Reconnect to a life without OCD (work, relationships, hobbies, faith).</li></ul></div>
+  </div>
+  <div class="box pearl">
+    <span class="box-label">✦ Clinical pearl</span>
+    <p>"I will encourage you, but I will never force you — you do the exposures of your own free will." Volitional participation reduces arguing and increases follow-through. The therapist is a <strong>coach</strong>, not an enforcer.</p>
+  </div>
+  <p style="margin-top:12px">Five original motivational worksheets — <em>Why I Want to Recover, What OCD Is Costing Me, What Recovery Would Give Me, My Treatment Goals, My Reasons for Doing ERP</em> — are provided in the <a href="#m16">Patient ERP Workbook</a> (Worksheets 1 &amp; 20 and the motivational set).</p>
+</section>
+
+<!-- ============================================================
+     MODULE 7 — EXPOSURE HIERARCHY
+     ============================================================ -->
+<section class="module-divider" id="m7">
+  <span class="mod-emoji">🪜</span>
+  <div class="mod-kicker">Module 7</div>
+  <h2>Building the Exposure Hierarchy</h2>
+  <p>The central planning tool of ERP — generating, rating, and sequencing exposures with SUDS.</p>
+</section>
+
+<section class="slide">
+  <span class="slide-num">Slide 17 · Module 7</span>
+  <h2 class="slide-title">What a Hierarchy Is &amp; How to Build One</h2>
+  <p class="keyconcept">A hierarchy is a personalised, SUDS-ranked ladder of feared situations, thoughts, and cues — the map for the whole exposure phase.</p>
+  <div class="timeline">
+    <div class="tl-item"><h4>1 · Generate triggers</h4><p>From the info-gathering interview and self-monitoring: external cues, internal cues (thoughts/images), feared consequences, bodily sensations.</p></div>
+    <div class="tl-item"><h4>2 · Identify avoided situations</h4><p>Everything the person steers clear of — including subtle avoidance (touching the "least-used" side of a door).</p></div>
+    <div class="tl-item"><h4>3 · Identify rituals &amp; safety behaviours</h4><p>Overt and mental rituals, plus partial "mini-rituals" (hand cream instead of washing, using a sleeve).</p></div>
+    <div class="tl-item"><h4>4 · Estimate distress with SUDS</h4><p>Rate each item 0–100 (see below). Get the patient's own examples for the anchors.</p></div>
+    <div class="tl-item"><h4>5 · Rank &amp; select achievable steps</h4><p>Order ascending by SUDS. Ensure each step is a meaningful but tolerable increment.</p></div>
+    <div class="tl-item"><h4>6 · Revise as you go</h4><p>SUDS estimates are predictions; update them from real exposure data. Add newly discovered cues; drop items that no longer evoke distress for several days.</p></div>
+  </div>
+
+  <h3>The SUDS scale (0–100) — per the primary protocol</h3>
+  <div class="ws-scale" style="margin:6px 0">
+    <span>0</span><span>10</span><span>20</span><span>30</span><span>40</span><span style="background:var(--lavender)">50</span><span>60</span><span>70</span><span>80</span><span>90</span><span style="background:var(--blush)">100</span>
+  </div>
+  <ul class="tick">
+    <li><strong>0</strong> = no discomfort at all (anchor to a real calm situation the patient names).</li>
+    <li><strong>50</strong> = distressed but still manageable (patient's own example).</li>
+    <li><strong>100</strong> = the most distressed they have ever been (patient's own example).</li>
+  </ul>
+  <div class="section-note">The primary source uses a <strong>0–100</strong> SUDS scale with 0 / 50 / 100 anchors. Some clinicians use 0–10; this guide follows the source's 0–100 throughout.</div>
+
+  <div class="box therapist">
+    <span class="box-label">Therapist note · sequencing rules</span>
+    <p>Present items <strong>ascending</strong>, beginning near the <strong>midpoint</strong> of the patient's range (if the top is 100, start around 50 — big, meaningful increments, not tiny desensitisation steps). Aim to reach the <strong>most disturbing item around the mid-point of treatment (~Session 8)</strong>. Do the item first in-session, then assign it as homework. Keep the plan flexible — rigid adherence contradicts the very lesson of tolerating uncertainty.</p>
+  </div>
+</section>
+
+<section class="slide">
+  <span class="slide-num">Slide 18 · Module 7</span>
+  <h2 class="slide-title">Worked Hierarchies (original, ×9 presentations)</h2>
+  <p class="keyconcept">Each row: trigger · SUDS · the compulsion/avoidance to drop · the exposure · the response prevention · the expected learning. All fictional and illustrative.</p>
+
+  <h3>1 · Contamination OCD</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Trigger</th><th>SUDS</th><th>Compulsion / Avoidance</th><th>Exposure</th><th>Response prevention</th><th>Expected learning</th></tr></thead>
+    <tbody>
+      <tr><td>Public doorknob</td><td>50</td><td>Wash / use sleeve</td><td>Touch with whole hand, then face/hair</td><td>No washing after</td><td>"I can be 'dirty' and be fine"</td></tr>
+      <tr><td>Money / handrails</td><td>65</td><td>Sanitiser</td><td>Handle cash, hold rail, eat a snack</td><td>No sanitiser, no wipe</td><td>Anxiety falls without cleaning</td></tr>
+      <tr><td>Public toilet seat</td><td>85</td><td>Avoid; cover seat</td><td>Touch seat, touch hands to face</td><td>No washing, no barrier</td><td>Illness prediction disconfirmed</td></tr>
+      <tr><td>"Contaminate" whole home</td><td>100</td><td>Keep "clean zones"</td><td>Spread feared contaminant across home</td><td>No safe havens</td><td>No area needs to be "safe"</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>2 · Checking OCD</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Trigger</th><th>SUDS</th><th>Compulsion / Avoidance</th><th>Exposure</th><th>Response prevention</th><th>Expected learning</th></tr></thead>
+    <tbody>
+      <tr><td>Light/stove switch</td><td>50</td><td>Re-check, look back</td><td>Switch once, leave room</td><td>No looking back</td><td>Doubt is tolerable</td></tr>
+      <tr><td>Locking door</td><td>65</td><td>Check ×5</td><td>Lock once, walk away</td><td>No return, no photo</td><td>House not burgled</td></tr>
+      <tr><td>Sending emails/bills</td><td>75</td><td>Re-read for errors</td><td>Send without re-reading</td><td>No checking sent items</td><td>Mistakes rare/survivable</td></tr>
+      <tr><td>Driving (hit-and-run fear)</td><td>100</td><td>Retrace route</td><td>Drive, don't go back</td><td>No retracing, no news-checking</td><td>"I didn't hit anyone"</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>3 · Harm OCD (largely imaginal)</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Trigger</th><th>SUDS</th><th>Compulsion / Avoidance</th><th>Exposure</th><th>Response prevention</th><th>Expected learning</th></tr></thead>
+    <tbody>
+      <tr><td>Word "stab"</td><td>50</td><td>Neutralise, distract</td><td>Say/write the word repeatedly</td><td>No neutralising</td><td>Words don't cause acts</td></tr>
+      <tr><td>Holding a knife</td><td>75</td><td>Hide knives; avoid kitchen</td><td>Hold knife near a loved one</td><td>No mental review, no confession</td><td>Thought ≠ intent</td></tr>
+      <tr><td>Imaginal worst-case script</td><td>90</td><td>Suppress image</td><td>Listen to recorded harm script 2×/day</td><td>No reassurance</td><td>Distress falls; no action taken</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>4 · Religious / moral scrupulosity (in vivo + imaginal)</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Trigger</th><th>SUDS</th><th>Compulsion / Avoidance</th><th>Exposure</th><th>Response prevention</th><th>Expected learning</th></tr></thead>
+    <tbody>
+      <tr><td>Attending worship</td><td>55</td><td>Avoid; repeat prayers</td><td>Attend; pray once, normally</td><td>No repeating "until right"</td><td>Imperfect prayer is okay</td></tr>
+      <tr><td>A "blasphemous" thought</td><td>75</td><td>Cancel with a prayer</td><td>Allow/evoke the thought</td><td>No neutralising prayer</td><td>Thoughts aren't sins/acts</td></tr>
+      <tr><td>Imaginal uncertainty about salvation</td><td>95</td><td>Confession/reassurance</td><td>Script: "I may never be sure"</td><td>No confession loop</td><td>Can live with doubt</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>5 · Relationship OCD · 6 · Sexual intrusive thoughts · 7 · Mental compulsions</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Type · Trigger</th><th>SUDS</th><th>Compulsion / Avoidance</th><th>Exposure</th><th>Response prevention</th><th>Expected learning</th></tr></thead>
+    <tbody>
+      <tr><td>ROCD · "Do I truly love them?"</td><td>70</td><td>Check feelings, compare</td><td>Sit with the doubt during a date</td><td>No feeling-checks/comparisons</td><td>Certainty isn't required to commit</td></tr>
+      <tr><td>Sexual · unwanted taboo image</td><td>80</td><td>Check arousal, avoid people</td><td>Approach trigger; script the thought</td><td>No arousal-checking/reassurance</td><td>Image ≠ desire or identity</td></tr>
+      <tr><td>Mental · rumination "solving" a doubt</td><td>75</td><td>Mental review until "resolved"</td><td>Write the doubt, leave unresolved</td><td>No mental review; get busy</td><td>Not every question needs an answer</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>8 · Health / somatic OCD · 9 · Symmetry / ordering OCD</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Type · Trigger</th><th>SUDS</th><th>Compulsion / Avoidance</th><th>Exposure</th><th>Response prevention</th><th>Expected learning</th></tr></thead>
+    <tbody>
+      <tr><td>Health · a body sensation</td><td>70</td><td>Body-scan, google, reassurance</td><td>Provoke/attend to the sensation</td><td>No googling/checking/GP calls</td><td>Sensations aren't emergencies</td></tr>
+      <tr><td>Health · read an illness article</td><td>85</td><td>Symptom-search</td><td>Read it, sit with uncertainty</td><td>No searching, no reassurance</td><td>Doubt is survivable</td></tr>
+      <tr><td>Symmetry · crooked picture</td><td>50</td><td>Straighten it</td><td>Leave it crooked; walk away</td><td>No fixing, no "just-right"</td><td>"Not right" feeling passes</td></tr>
+      <tr><td>Symmetry · uneven action</td><td>75</td><td>Repeat until balanced</td><td>Do it once, unevenly</td><td>No repeating/counting</td><td>Nothing bad follows imbalance</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- ============================================================
+     MODULE 8 — RESPONSE PREVENTION
+     ============================================================ -->
+<section class="module-divider" id="m8">
+  <span class="mod-emoji">🛑</span>
+  <div class="mod-kicker">Module 8</div>
+  <h2>Response (Ritual) Prevention</h2>
+  <p>The other half of ERP — blocking every overt and covert ritual so new learning can occur.</p>
+</section>
+
+<section class="slide">
+  <span class="slide-num">Slide 19 · Module 8</span>
+  <h2 class="slide-title">Response Prevention in Depth</h2>
+  <p class="keyconcept">Ritual prevention means refraining from <em>all</em> compulsive behaviour — overt <strong>and</strong> covert — and from the subtle substitutes OCD invents when the obvious ritual is blocked.</p>
+  <div class="grid cols-2">
+    <div class="card"><h4>Overt rituals to prevent</h4><ul class="pill-list"><li>Washing / cleaning</li><li>Checking / retracing</li><li>Repeating actions</li><li>Ordering / arranging</li><li>Counting</li><li>Confessing</li></ul></div>
+    <div class="card"><h4>Covert / mental rituals to prevent</h4><ul class="pill-list"><li>Mental checking</li><li>Mental reviewing</li><li>Neutralising thoughts</li><li>Self-reassurance</li><li>Silent "good" words/images</li><li>Ritual prayer</li><li>Rumination-as-solving</li></ul></div>
+    <div class="card"><h4>Interpersonal / info-seeking</h4><ul class="pill-list"><li>Asking others for reassurance</li><li>Internet searching / googling symptoms</li><li>Confessing to obtain absolution</li></ul></div>
+    <div class="card"><h4>Subtle substitutes ("mini-rituals")</h4><ul class="pill-list"><li>Hand cream / wipes instead of washing</li><li>Blowing/brushing "germs" off</li><li>Using a sleeve or "clean hand"</li><li>Brief avoidance detours</li></ul></div>
+  </div>
+  <div class="box caution">
+    <span class="box-label">⚠ Detecting subtle rituals — the therapist's job</span>
+    <p>Ask directly and repeatedly: <em>"Now that you've stopped the big ritual, are you doing any little thing to relieve the anxiety instead?"</em> If a behaviour or thought <strong>functions</strong> to reduce distress or prevent the feared outcome, it is a ritual — regardless of how sensible it looks. Add it to the ritual-prevention rules.</p>
+  </div>
+  <div class="box therapist">
+    <span class="box-label">Therapist note · mental rituals &amp; the obsession</span>
+    <p>Two rules the patient must hold together: (1) <strong>Do not fight or suppress the obsession</strong> — that strengthens it; if anything, deliberately bring it on as exposure. (2) <strong>Do not perform the mental ritual</strong> that follows it. Guide: <em>obsessive thought → notice, let it be; mental ritual → don't do it, get busy with something else</em>. "Getting busy" is not distraction-to-avoid; it is passing time while <em>allowing</em> the thought to be present.</p>
+  </div>
+  <div class="box pearl">
+    <span class="box-label">✦ Clinical pearl · undoing a slip</span>
+    <p>If a patient rituals (often automatically, out of habit), have them <strong>"undo / spoil"</strong> it and re-expose immediately — e.g., re-contaminate after washing; walk through the door once more after an even-numbered ritual. Each undo is a step <em>toward</em> beating OCD.</p>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     MODULE 9 — EXPOSURE IMPLEMENTATION + SESSION-BY-SESSION
+     ============================================================ -->
+<section class="module-divider" id="m9">
+  <span class="mod-emoji">🎯</span>
+  <div class="mod-kicker">Module 9 · The Core of the Guide</div>
+  <h2>Exposure Implementation &amp; Session-by-Session ERP</h2>
+  <p>Exposure types, the therapist's moment-to-moment conduct, and then the complete 17-session program — the largest and most practical part of this resource.</p>
+</section>
+
+<section class="slide">
+  <span class="slide-num">Slide 20 · Module 9</span>
+  <h2 class="slide-title">Exposure Design — the Toolkit</h2>
+  <p class="keyconcept">Match the exposure type to the fear. Emotional engagement (a good match to the real-life fear) is essential; a mismatched exposure teaches nothing.</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Type</th><th>What it is</th><th>When it's appropriate</th></tr></thead>
+    <tbody>
+      <tr><td><strong>In vivo</strong></td><td>Real-life contact with the feared cue (touch the rail, lock once, leave crooked).</td><td>The default whenever the fear can be triggered in reality — contamination, checking, symmetry, many responsibility fears.</td></tr>
+      <tr><td><strong>Imaginal</strong></td><td>Vivid, present-tense mental rehearsal of the feared worst-case scenario, often audio-recorded.</td><td>When the feared consequence is immoral/illegal/impossible to create, far in the future, or not verifiable — harm, sexual, religious-afterlife, "cancer in 30 years." A near-must for mental ritualisers/"pure obsessionals."</td></tr>
+      <tr><td>Interoceptive</td><td>Deliberately provoking feared bodily sensations.</td><td>When bodily sensations are the trigger (somatic OCD, panic-linked fears). Use judiciously.</td></tr>
+      <tr><td>Narrative / script</td><td>Written first-person account of the disaster used for repeated imaginal exposure.</td><td>To structure imaginal work; built collaboratively on the Imaginal Exposure Script Worksheet.</td></tr>
+      <tr><td>Trigger &amp; uncertainty exposure</td><td>Directly evoking the cue and, crucially, the <em>doubt</em> itself.</td><td>Across all types — recovery is learning to sit with "I can't be certain."</td></tr>
+      <tr><td>Between-session (homework)</td><td>Self-directed repetition of the in-session exposure in the patient's own environment.</td><td>Every session — this is where most change happens (~2 hrs/day guidance).</td></tr>
+    </tbody>
+  </table></div>
+  <div class="box caution">
+    <span class="box-label">⚠ Emotional engagement</span>
+    <p>The exposure must evoke the <em>same</em> distress as the real fear. If the patient reframes a cancer ward as "just a hospital" to feel calmer, the exercise fails. Ask them to <strong>lean into</strong> the feared meaning during exposure, not away from it.</p>
+  </div>
+</section>
+
+<section class="slide">
+  <span class="slide-num">Slide 21 · Module 9</span>
+  <h2 class="slide-title">Therapist Conduct — Before, During, After</h2>
+  <p class="keyconcept">The therapist is a calm, warm coach who models approach, protects the exposure from subtle sabotage, and helps the patient process the learning.</p>
+  <div class="grid cols-3">
+    <div class="card"><h4>Before</h4><ul class="tick"><li>Restate the rationale &amp; the specific prediction being tested</li><li>Describe exactly what will happen</li><li>Confirm the ritual-prevention rules for this exposure</li><li>Get the pre-SUDS</li></ul></div>
+    <div class="card"><h4>During</h4><ul class="tick"><li>Model it first (sit on the floor, touch it yourself)</li><li>Ask SUDS every 5 min ("What's your level?")</li><li>Keep contact continuous; re-contaminate/re-engage every few minutes</li><li>Coach toward the feared meaning; block covert rituals &amp; safety behaviours</li><li>Warm encouragement, never reassurance</li></ul></div>
+    <div class="card"><h4>After (processing)</h4><ul class="tick"><li>Review the SUDS curve together</li><li>Check the prediction: did the feared thing happen?</li><li>Note ritual-prevention achieved &amp; the lesson learned</li><li>Set matching homework</li></ul></div>
+  </div>
+  <div class="box therapist">
+    <span class="box-label">Therapist note · language that helps vs harms</span>
+    <p><strong>Helpful:</strong> "You're finding out anxiety doesn't last forever." "As predicted, the urge is dropping." "Notice you're less anxious than at the start." <strong>Avoid:</strong> anything that functions as reassurance ("You're definitely safe," "It's definitely clean") — that becomes a ritual and undoes the work. If anxiety <em>doesn't</em> fall: "This happens sometimes; we'll keep working this item — the point is what you're learning, not today's number."</p>
+  </div>
+  <div class="box caution">
+    <span class="box-label">⚠ Handling requests to stop &amp; emotional overload</span>
+    <p>If the patient balks: empathise, explore the hesitation, and encourage proceeding with the agreed plan (offer a smaller interim step if genuinely too much). <strong>Exception — emotional overload:</strong> if the patient is overwhelmed by feelings <em>unrelated</em> to the exposure (crying, shaking, a life crisis), pause the exposure, address the distress, and resume later or next session — an overwhelmed patient cannot process the exposure.</p>
+  </div>
+</section>
+
+<!-- ===================== SESSION-BY-SESSION ===================== -->
+<section class="slide">
+  <span class="slide-num">The Program</span>
+  <h2 class="slide-title">The 17-Session EX/RP Program — Overview</h2>
+  <p class="keyconcept">The primary protocol lays out a twice-weekly course (nominally 17 sessions, 90–120 min each; expandable to 17–20), with weekly between-session phone contacts and 4–6 follow-up calls. Below, every session is expanded into a full slide.</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Phase</th><th>Sessions</th><th>Focus</th></tr></thead>
+    <tbody>
+      <tr><td>Planning</td><td>1–2</td><td>Assessment, psychoeducation, rationale, SUDS, hierarchy, treatment contract</td></tr>
+      <tr><td>Introducing exposure</td><td>3–4</td><td>First in vivo exposure (3); introduce imaginal exposure (4); ritual-prevention rules</td></tr>
+      <tr><td>Intermediate</td><td>5–15</td><td>Ascending exposures; peak item ~Session 8; then repeat/vary; home visits as needed</td></tr>
+      <tr><td>Consolidation / Final</td><td>16–17</td><td>Relapse prevention, return to normal behaviour, home visits, termination</td></tr>
+      <tr><td>Follow-up</td><td>—</td><td>4–6 weekly phone check-ins</td></tr>
+    </tbody>
+  </table></div>
+  <div class="section-note">The per-session slides below <strong>closely follow the primary book's own worked structure</strong> for Sessions 1–4, the Intermediate chapter, and the Final session. Where sessions are grouped (5–7, 9–15) or an individual mid-session is detailed, that expansion is a <em>clinically organised synthesis</em> consistent with the book's "repeat &amp; vary, peak ~Session 8" instructions — labelled as such and <strong>not</strong> presented as verbatim book protocol.</div>
+</section>
+
+<!-- ---------- SESSION 1 ---------- -->
+<div class="session-head" id="s1">
+  <span class="s-tag">Session 1 · Chapter 4</span>
+  <h2>Treatment Planning, Part I</h2>
+  <div class="s-meta"><span>⏱ 120 min</span><span>Goal: engage, assess, explain, motivate</span><span>Exposure: none yet</span></div>
+</div>
+<section class="slide">
+  <div class="grid cols-2">
+    <div class="card"><h4>Primary goal</h4><p>Build rapport, gather a full history and OCD symptom picture, deliver psychoeducation and the treatment rationale, and start self-monitoring.</p></div>
+    <div class="card"><h4>Objectives</h4><ul class="tick"><li>General history (~25 min)</li><li>OCD information-gathering (~40 min)</li><li>Explain OCD (~10 min)</li><li>Rationale for in vivo &amp; imaginal exposure (~20 min)</li><li>Describe the program (~5 min)</li><li>Introduce self-monitoring (~10 min)</li><li>Schedule phone contact; assign homework</li></ul></div>
+  </div>
+  <h3>Therapist agenda</h3>
+  <ol>
+    <li><strong>General history</strong> — age, relationships, living situation, work, medical/educational/employment/financial history, key relationships (Information-Gathering Form).</li>
+    <li><strong>OCD information-gathering</strong> — external cues; internal cues (thoughts/images/impulses/doubts); feared bodily sensations; feared consequences (external, internal, harm-from-long-term-anxiety); passive &amp; active avoidance; rituals (overt <em>and</em> mental); the avoidance–fear relationship; onset &amp; course. Have the Y-BOCS checklist available.</li>
+    <li><strong>Explain OCD</strong> — using the patient's own examples, show the obsession→distress→ritual→short-relief→maintenance link.</li>
+    <li><strong>Rationale</strong> — how in vivo exposure + ritual prevention works; introduce imaginal exposure for consequences that can't be tested in reality.</li>
+    <li><strong>Describe treatment</strong> — twice-weekly, exposure begins Session 3, weekly phone calls, effortful but time-limited.</li>
+    <li><strong>Self-monitoring</strong> — teach the daily form; practise filling it with an imagined day.</li>
+  </ol>
+  <div class="box script">
+    <span class="box-label">Therapist script · explaining OCD (original paraphrase)</span>
+    <p><span class="who">Therapist:</span> "You have a set of symptoms we call obsessions — thoughts, images, or urges that arrive against your will and bring intense distress. To ease that distress you avoid things, or you do certain actions or thoughts we call rituals. The trouble is, the relief is temporary; the distress returns, so you ritualise more, and more of your life gets swallowed up. This treatment doesn't depend on knowing <em>why</em> you got OCD — it works by changing how you respond to the obsessions now."</p>
+  </div>
+  <div class="box therapist"><span class="box-label">Assessment of current OCD</span><p>This whole session <em>is</em> the baseline assessment. Summarise every category on the Information-Gathering Form; you'll convert it into SUDS-rated hierarchy items in Session 2.</p></div>
+  <div class="box caution"><span class="box-label">Expected difficulties &amp; troubleshooting</span><p>Shame about symptom content (esp. harm/sexual) — normalise: "these are common OCD themes, not your wishes." Low insight — spend more time on the rationale before pushing toward exposure. Overwhelm — reassure that exposure is gradual and volitional.</p></div>
+  <div class="box patient"><span class="box-label">Homework</span><p>Complete a Self-Monitoring Form daily (time, trigger, SUDS 0–100, ritual, minutes on ritual); read the "OCD: Some Facts" handout; note the phone-call time. <strong>Worksheet: "Understanding My OCD" (Worksheet 1).</strong></p></div>
+  <div class="box clinical-ex"><span class="box-label">Therapist documentation</span><p>Record history, symptom map, provisional diagnosis, Y-BOCS baseline, insight, motivation, risk, and the plan to build the hierarchy next session.</p></div>
+  <p><strong>Phone Contact 1:</strong> troubleshoot self-monitoring; confirm reading. <strong>Next session:</strong> build SUDS hierarchy &amp; treatment plan.</p>
+</section>
+
+<!-- ---------- SESSION 2 ---------- -->
+<div class="session-head" id="s2">
+  <span class="s-tag">Session 2 · Chapter 5</span>
+  <h2>Treatment Planning, Part II</h2>
+  <div class="s-meta"><span>⏱ 120 min</span><span>Goal: SUDS, hierarchy, treatment contract</span><span>Exposure: none (planning)</span></div>
+</div>
+<section class="slide">
+  <div class="grid cols-2">
+    <div class="card"><h4>Primary goal</h4><p>Turn the symptom map into a SUDS-rated hierarchy and an agreed treatment plan, sealed with a treatment contract.</p></div>
+    <div class="card"><h4>Objectives</h4><ul class="tick"><li>Review self-monitoring (~5 min)</li><li>Review rationale (~10 min)</li><li>Collect detailed symptom info (~50 min)</li><li>Introduce SUDS &amp; set anchors</li><li>Build the hierarchy</li><li>Generate the treatment plan (~30 min)</li><li>Treatment contract (~15 min)</li></ul></div>
+  </div>
+  <h3>In-session interventions</h3>
+  <ul class="tick">
+    <li><strong>Introduce SUDS (0–100)</strong> and establish the patient's own 0 / 50 / 100 anchors.</li>
+    <li><strong>Elicit &amp; rate items</strong> across categories: external feared situations, fear-evoking thoughts, feared bodily sensations, feared consequences, harm-from-long-term-anxiety, passive avoidance, and detailed ritual descriptions.</li>
+    <li><strong>Build the hierarchy</strong> (Hierarchy Form): rank ascending; plan to start near the midpoint and reach the top item ~Session 8; map items to sessions (flexibly).</li>
+  </ul>
+  <div class="box script">
+    <span class="box-label">Therapist script · introducing SUDS (original paraphrase)</span>
+    <p><span class="who">Therapist:</span> "We'll rate distress from 0 to 100. Describe a moment that was totally calm — that's your 0. Now the most distressed you've ever been — that's 100. And something distressing but still manageable — that's 50. Using that scale, where are you right now?"</p>
+  </div>
+  <div class="box therapist">
+    <span class="box-label">Treatment contract</span>
+    <p>Agree explicitly: patient does planned exposures (in-session &amp; homework), refrains from rituals, contacts therapist/support person <em>before</em> giving in to an urge, and undoes any accidental ritual by re-exposing. Therapist coaches, never forces, and starts with the easiest items. <strong>Do not proceed to exposure until the patient agrees to the plan.</strong></p>
+  </div>
+  <div class="box caution"><span class="box-label">Troubleshooting</span><p>Vague or "everything is 100" ratings — anchor to concrete moments and re-rate. "Lines in the sand" ("I'll do X but never Y") — address now with motivation strategies (Module 6).</p></div>
+  <div class="box patient"><span class="box-label">Homework</span><p>Continue self-monitoring; read the "Understanding EX/RP" handout. <strong>Worksheet: "My OCD Cycle + Exposure Plan" (Worksheet 2), plus Triggers/Compulsions/Avoidance/Reassurance sheets (Worksheets 3–6).</strong></p></div>
+  <p><strong>Phone Contact 2:</strong> troubleshoot monitoring; confirm reading; preview that exposure begins next session (bring any needed materials). <strong>Next session:</strong> first in vivo exposure.</p>
+</section>
+
+<!-- ---------- SESSION 3 ---------- -->
+<div class="session-head" id="s3">
+  <span class="s-tag">Session 3 · Chapter 6</span>
+  <h2>Exposure &amp; Ritual Prevention — Introducing In Vivo Exposure</h2>
+  <div class="s-meta"><span>⏱ 120 min</span><span>Goal: first structured in vivo exposure</span><span>Exposure: 45–60 min in vivo</span></div>
+</div>
+<section class="slide">
+  <div class="grid cols-2">
+    <div class="card"><h4>Primary goal</h4><p>Conduct the first supervised in vivo exposure to a low/mid hierarchy item, establish ritual-prevention rules, and set self-exposure homework.</p></div>
+    <div class="card"><h4>Objectives</h4><ul class="tick"><li>Review self-monitoring (~5 min)</li><li>Conduct in vivo exposure (~80 min)</li><li>Instruct on self-exposure (~15 min)</li><li>Give ritual-prevention rules (~5 min)</li><li>Assign homework; schedule call</li></ul></div>
+  </div>
+  <h3>Conducting the exposure</h3>
+  <ul class="tick">
+    <li>Re-summarise the rationale; state exactly what the patient will do.</li>
+    <li>Model it — participate (e.g., sit on the floor, touch it yourself) to build trust.</li>
+    <li>Maintain <strong>continuous contact</strong>; for contamination, touch face/hair/clothes every few minutes so "no part stays uncontaminated."</li>
+    <li>Ask SUDS <strong>every 5 minutes</strong>; record on the Therapist Exposure Recording Form.</li>
+    <li>Coach toward the feared meaning; block covert rituals.</li>
+    <li><strong>Process</strong>: review the SUDS trend and what it means; note ritual-prevention achieved, lesson learned, difficulties.</li>
+  </ul>
+  <div class="box script">
+    <span class="box-label">Therapist script · washing-type exposure (original paraphrase)</span>
+    <p><span class="who">Therapist:</span> "Today you'll touch this with your whole hand, then bring it to your face, hair, and clothes so no part of you stays 'clean,' and we'll sit with it for the session, re-touching every few minutes. Your distress will rise — and then it will fall, without washing. Let yourself think about the illness you're afraid of. I'm sure you can do this, and it gets easier each time. Here it is — go ahead and touch it."</p>
+  </div>
+  <div class="box therapist">
+    <span class="box-label">Ritual-prevention rules &amp; mental rituals</span>
+    <p>Give the Patient Rules for Ritual Prevention handout (see Workbook). Explain mental rituals: self-reassurance that reduces anxiety <em>is</em> a ritual and must stop; but don't suppress the obsession — if anything, bring it on. "Get busy" with something else while <em>allowing</em> the thought to be present.</p>
+  </div>
+  <div class="box caution"><span class="box-label">Troubleshooting</span><p>Anxiety not dropping — normalise, continue the item, extend duration at home. Balking — empathise, offer an interim step, refer to the contract. Covert ritual spotted — name it, add to rules, re-expose.</p></div>
+  <div class="box patient"><span class="box-label">Homework</span><p>Repeat the same exposure daily (~2 hrs), recording SUDS every 10 min on the Exposure Homework Recording Form; follow ritual-prevention rules; continue self-monitoring. <strong>Worksheets: Exposure Hierarchy (7), Exposure Planning (8), ERP Practice Record (9), SUDS Monitoring (10), Response Prevention Record (11).</strong></p></div>
+  <p><strong>Phone Contact 3:</strong> did they expose long enough? did distress drop? any rituals (if so, re-expose)? <strong>Next session:</strong> introduce imaginal exposure.</p>
+</section>
+
+<!-- ---------- SESSION 4 ---------- -->
+<div class="session-head" id="s4">
+  <span class="s-tag">Session 4 · Chapter 7</span>
+  <h2>Exposure &amp; Ritual Prevention — Introducing Imaginal Exposure</h2>
+  <div class="s-meta"><span>⏱ 90–120 min</span><span>Goal: add imaginal exposure</span><span>Exposure: imaginal (~45) + in vivo (~45)</span></div>
+</div>
+<section class="slide">
+  <div class="grid cols-2">
+    <div class="card"><h4>Primary goal</h4><p>Introduce imaginal exposure for feared consequences that can't/shouldn't be created in reality, then continue in vivo work.</p></div>
+    <div class="card"><h4>Objectives</h4><ul class="tick"><li>Review monitoring &amp; homework (~5 min)</li><li>Introduce &amp; conduct imaginal exposure (~45 min)</li><li>Continue in vivo exposure (~45 min)</li><li>Self-exposure instructions (~5 min)</li><li>Homework; schedule call</li></ul></div>
+  </div>
+  <h3>Imaginal exposure — how</h3>
+  <ul class="tick">
+    <li>Re-state the imaginal rationale: repeatedly imagining the feared scenario reduces its power, proves "thinking ≠ doing/causing," and builds acceptance of distress.</li>
+    <li>Build the script <strong>collaboratively</strong> (Imaginal Exposure Script Worksheet): vivid, present-tense, first-person, including the full feared consequence.</li>
+    <li>Patient closes eyes and imagines it "as if happening now"; rate SUDS every 5 min.</li>
+    <li><strong>Audio-record</strong> the script; homework = listen twice daily, eyes closed, recording Pre / Peak / Post SUDS.</li>
+  </ul>
+  <div class="box therapist"><span class="box-label">When imaginal is indicated</span><p>Immoral/illegal/impossible-to-create consequences; future or unverifiable harm ("cancer in 30 years"); harm, sexual, and religious-afterlife themes; and a near-must for mental ritualisers / "pure obsessionals." Not needed when in vivo already taps the fear fully.</p></div>
+  <div class="box caution"><span class="box-label">Troubleshooting</span><p>Patient "waters down" the script to feel calmer — coach them to include the worst feared meaning. Difficulty visualising — add sensory detail, use the recording. Guilt at "wishing harm" — clarify: imagining is exposure, not intent.</p></div>
+  <div class="box patient"><span class="box-label">Homework</span><p>Listen to the imaginal recording 2×/day (Pre/Peak/Post SUDS); continue the assigned in vivo self-exposure; keep monitoring. <strong>Worksheets: Learning From Exposure (15), Between-Session Practice (16).</strong></p></div>
+  <p><strong>Phone Contact:</strong> confirm imaginal listening + in vivo practice; ritual prevention; encourage. <strong>Next:</strong> intermediate sessions — ascend the hierarchy.</p>
+</section>
+
+
+<!-- ---------- SESSIONS 5–7 ---------- -->
+<div class="session-head" id="s5">
+  <span class="s-tag">Sessions 5–7 · Chapter 8 (Intermediate)</span>
+  <h2>Ascending the Hierarchy</h2>
+  <div class="s-meta"><span>⏱ 90–120 min each</span><span>Goal: climb toward harder items</span><span>Format follows Sessions 3–4</span></div>
+</div>
+<section class="slide">
+  <div class="section-note">Sessions 5–7 are a <strong>clinically organised synthesis</strong> of the book's Intermediate Sessions chapter (which covers ~10–12 sessions in one chapter, instructing "same format as Sessions 3–4, increasingly difficult, peak ~Session 8"). Individual session content will vary by patient.</div>
+  <div class="grid cols-2">
+    <div class="card"><h4>Primary goal</h4><p>Move steadily up the hierarchy — each session repeats the format of Sessions 3–4 with a somewhat harder item, consolidating gains and widening ritual prevention.</p></div>
+    <div class="card"><h4>Every intermediate session</h4><ul class="tick"><li>Review self-monitoring &amp; homework at the start</li><li>Conduct in vivo (+ imaginal as needed) with processing</li><li>Assign matching homework at the end; schedule the call</li></ul></div>
+  </div>
+  <h3>What builds across 5–7</h3>
+  <ul class="tick">
+    <li><strong>Increasing exposure difficulty</strong> — introduce the next item(s) once the current one drops.</li>
+    <li><strong>Reducing safety behaviours</strong> — hunt for and drop mini-rituals and subtle avoidance.</li>
+    <li><strong>Tightening response prevention</strong> — including covert rituals &amp; reassurance.</li>
+    <li><strong>Independent practice</strong> — patient begins designing/leading exposures.</li>
+    <li><strong>Multiple contexts</strong> — vary place, time, and object to promote generalisation.</li>
+  </ul>
+  <div class="box script">
+    <span class="box-label">Therapist script · processing a good exposure (original)</span>
+    <p><span class="who">Therapist:</span> "Your SUDS went 80 → 55 → 40 without any washing. What does that tell you about your prediction that it would 'never ease'?" <span class="who">Patient:</span> "That it did ease… and nothing happened." <span class="who">Therapist:</span> "Exactly — and it'll ease faster next time."</p>
+  </div>
+  <div class="box patient"><span class="box-label">Homework &amp; worksheets</span><p>Daily self-exposure to the session item(s); Mental Compulsion Tracker (12) and Safety Behaviour Tracker (13) where relevant; Uncertainty Practice (14).</p></div>
+</section>
+
+<!-- ---------- SESSION 8 PEAK ---------- -->
+<div class="session-head" id="s8">
+  <span class="s-tag">Session 8 · Chapter 8 (peak)</span>
+  <h2>Confronting the Top of the Hierarchy</h2>
+  <div class="s-meta"><span>⏱ 90–120 min</span><span>Goal: the most-feared item</span><span>Milestone session</span></div>
+</div>
+<section class="slide">
+  <div class="grid cols-2">
+    <div class="card"><h4>Primary goal</h4><p>Around the mid-point of treatment, confront the <strong>highest (≈100 SUDS) item</strong> — the exposure the whole hierarchy has been preparing for.</p></div>
+    <div class="card"><h4>Why now</h4><p>By Session 8 the patient has repeatedly learned "anxiety falls, feared things don't happen." Those disconfirmations weaken the top item's power <em>before</em> they even face it.</p></div>
+  </div>
+  <div class="box therapist"><span class="box-label">Therapist note</span><p>Prepare thoroughly, keep the ritual-prevention rules strict, and process intensively afterwards. This is often the turning point — patients frequently discover the "worst" item is more manageable than they feared, precisely because of the earlier steps.</p></div>
+  <div class="box caution"><span class="box-label">Troubleshooting</span><p>If the top item is genuinely too much today, use an interim step toward it (flexibility + persistence), then return. Watch for emotional overload vs ordinary exposure distress.</p></div>
+  <div class="box patient"><span class="box-label">Homework</span><p>Practise the peak item independently; continue imaginal if used. Learning From Exposure (15).</p></div>
+</section>
+
+<!-- ---------- SESSIONS 9–15 ---------- -->
+<div class="session-head" id="s9">
+  <span class="s-tag">Sessions 9–15 · Chapter 8 (Intermediate)</span>
+  <h2>Repeat, Vary, Generalise</h2>
+  <div class="s-meta"><span>⏱ 90–120 min each</span><span>Goal: consolidate &amp; generalise</span><span>Home visits as needed</span></div>
+</div>
+<section class="slide">
+  <div class="section-note">Per the primary protocol: "Sessions 9 through 15 are repetitions of Session 8 with variations, focusing on the items that provoke the most discomfort." The breakdown below is a <strong>clinically organised synthesis</strong>.</div>
+  <div class="grid cols-2">
+    <div class="card"><h4>Primary goal</h4><p>Repeat the hardest exposures under varied conditions, introduce cues not on the original hierarchy, and generalise to real life.</p></div>
+    <div class="card"><h4>Focus areas</h4><ul class="tick"><li>Multiple contexts (home, work, shops, public buildings, hospital)</li><li>Residual avoidance &amp; remaining covert compulsions</li><li>Reassurance-seeking (self, others, internet)</li><li>Uncertainty tolerance as the explicit goal</li><li>Independent ERP practice (patient designs exposures)</li></ul></div>
+  </div>
+  <h3>Home visits</h3>
+  <p>Any time from Session 3 on. The therapist observes functioning at home, finds hidden "safe zones" and subtle avoidance, and coaches exposures where "the OCD actually lives." Especially useful when office gains don't transfer home.</p>
+  <div class="box therapist"><span class="box-label">Progress review (do periodically)</span><p>Ask what's changed in behaviour, tolerance of thoughts, and functioning. If progress stalls, check homework completion and ritual-prevention adherence, and problem-solve obstacles — don't just keep pushing.</p></div>
+  <div class="box pearl"><span class="box-label">✦ Clinical pearl · relapse prevention starts early</span><p>From the intermediate phase onward, tell patients intrusive thoughts will still occur even after successful treatment — that's normal, not relapse. Teach them to set up their own exposures so they can be "their own therapist." Progress Review (18) worksheet supports this.</p></div>
+  <div class="box patient"><span class="box-label">Homework</span><p>Patient-designed exposures in real-world contexts; keep dropping safety behaviours; Between-Session Practice (16), Difficult Exposure Troubleshooting (17).</p></div>
+</section>
+
+<!-- ---------- SESSIONS 16–17 FINAL ---------- -->
+<div class="session-head" id="s16">
+  <span class="s-tag">Sessions 16–17 · Chapter 9 (Final)</span>
+  <h2>Consolidation, Return to Normal, &amp; Termination</h2>
+  <div class="s-meta"><span>⏱ 90–120 min</span><span>Goal: relapse prevention &amp; ending</span><span>Home visit(s) as needed</span></div>
+</div>
+<section class="slide">
+  <div class="grid cols-2">
+    <div class="card"><h4>Primary goal</h4><p>Consolidate gains, guide the return to <em>normal</em> (non-ritualistic) routines, cement relapse prevention, and end therapy well.</p></div>
+    <div class="card"><h4>Objectives</h4><ul class="tick"><li>Progress review (~45 min): re-rate the hierarchy</li><li>Return to routine behaviour (~15 min): Guidelines for Normal Behavior</li><li>Relapse prevention detail (~10 min)</li><li>Follow-up phone calls scheduled</li><li>Conclude therapy</li></ul></div>
+  </div>
+  <h3>Return to routine behaviour</h3>
+  <p>Ritual-prevention rules were deliberately strict during treatment. Now relax them to <em>normal</em> levels — e.g., ordinary hand-washing, a single lock-check — using the Guidelines for Normal Behavior (individualise if the patient's symptoms aren't covered).</p>
+  <h3>Relapse prevention — the toolkit</h3>
+  <ul class="tick">
+    <li><strong>Re-rate the hierarchy</strong> so the patient sees how far items have dropped.</li>
+    <li><strong>List the strategies that worked</strong>: don't avoid; exposure is always easier than feared; give up the need for 100% certainty.</li>
+    <li><strong>Plan for leftover issues</strong> and future triggers.</li>
+    <li><strong>OCD "quiz" / role-reversal:</strong> patient plays therapist and coaches you on what to do if a symptom returns.</li>
+    <li><strong>Have a plan</strong> for a lapse — including calling for a booster if needed.</li>
+  </ul>
+  <div class="box script">
+    <span class="box-label">Therapist script · role-reversal (original)</span>
+    <p><span class="who">Therapist:</span> "Let's switch — I'm the patient. I just had a scary intrusive thought and I want to check. What should I do?" <span class="who">Patient(-as-therapist):</span> "Don't check. Notice the thought, let it be there, and don't run away — set up an exposure instead."</p>
+  </div>
+  <div class="box patient"><span class="box-label">Homework &amp; worksheets</span><p>Keep practising in vivo + imaginal ERP independently. <strong>Worksheets: Relapse Prevention (19) and "My Long-Term ERP Plan / My ERP Maintenance Plan" (20).</strong></p></div>
+  <div class="box therapist"><span class="box-label">Termination</span><p>Bid farewell warmly, frame the patient as their own therapist now, and schedule a check-up as needed.</p></div>
+</section>
+
+<!-- ---------- FOLLOW-UP ---------- -->
+<div class="session-head" id="followup">
+  <span class="s-tag">After treatment</span>
+  <h2>Follow-up Phone Contacts</h2>
+  <div class="s-meta"><span>4–6 weekly calls</span><span>Goal: ease transition, maintain gains</span></div>
+</div>
+<section class="slide">
+  <p>Schedule <strong>4–6 weekly follow-up calls</strong> to smooth the transition out of active treatment: brief check-ins to troubleshoot, reinforce independent ERP, and support maintenance. Document each call. Offer a booster session if the patient can't manage a returning symptom alone.</p>
+  <div class="box pearl"><span class="box-label">✦ Clinical pearl</span><p>"Leaning into anxiety rather than running from it" is the single best predictor of a good long-term outcome. The follow-up calls exist to keep that habit alive.</p></div>
+</section>
+
+<!-- ---------- MASTER SESSION TABLE ---------- -->
+<section class="slide" id="session-table">
+  <span class="slide-num">Part XXIX</span>
+  <h2 class="slide-title">Complete Session Table</h2>
+  <p class="keyconcept">Every session from beginning to termination at a glance.</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Session</th><th>Main goal</th><th>ERP task</th><th>Response prevention</th><th>Homework</th><th>Worksheet</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Engage, assess, psychoeducate</td><td>None (info-gathering)</td><td>Introduce self-monitoring</td><td>Self-monitoring; read "OCD Facts"</td><td>1 · Understanding My OCD</td></tr>
+      <tr><td>2</td><td>SUDS &amp; hierarchy; contract</td><td>None (planning)</td><td>Agree ritual-prevention plan</td><td>Self-monitoring; read EX/RP handout</td><td>2–6 · Cycle, Triggers, Compulsions, Avoidance, Reassurance</td></tr>
+      <tr><td>3</td><td>First in vivo exposure</td><td>Low/mid item, 45–60 min, SUDS q5min</td><td>Give &amp; apply Ritual-Prevention Rules</td><td>Repeat exposure ~2 hrs/day</td><td>7–11 · Hierarchy, Planning, Practice, SUDS, RP Record</td></tr>
+      <tr><td>4</td><td>Introduce imaginal exposure</td><td>Imaginal script + in vivo</td><td>Prevent covert rituals; no suppression</td><td>Listen 2×/day (Pre/Peak/Post); in vivo</td><td>15–16 · Learning, Between-Session</td></tr>
+      <tr><td>5–7</td><td>Ascend the hierarchy</td><td>Progressively harder items</td><td>Drop safety behaviours; widen RP</td><td>Daily self-exposure; independent practice begins</td><td>12–14 · Mental Compulsion, Safety Behaviour, Uncertainty</td></tr>
+      <tr><td>8</td><td>Confront the top item (~100 SUDS)</td><td>Peak exposure + intensive processing</td><td>Strict RP</td><td>Practise peak item independently</td><td>15 · Learning From Exposure</td></tr>
+      <tr><td>9–15</td><td>Repeat, vary, generalise</td><td>Hardest items in varied contexts; new cues; home visits</td><td>Target residual avoidance, reassurance, covert rituals</td><td>Patient-designed real-world exposures</td><td>17–18 · Troubleshooting, Progress Review</td></tr>
+      <tr><td>16–17</td><td>Consolidate; relapse prevention; end</td><td>Re-rate hierarchy; home visit; return to normal behaviour</td><td>Relax to <em>normal</em> levels</td><td>Independent ERP maintenance</td><td>19–20 · Relapse Prevention, Long-Term Plan</td></tr>
+      <tr><td>Follow-up</td><td>Ease transition; maintain gains</td><td>Review independent ERP</td><td>Maintain no-ritual habit</td><td>Continue self-directed ERP</td><td>20 · Maintenance Plan</td></tr>
+    </tbody>
+  </table></div>
+  <div class="section-note">Sessions 1–4, the Intermediate chapter, and the Final session follow the primary book's structure; the 5–7 / 8 / 9–15 breakdown is a clinically organised synthesis of the book's "repeat &amp; vary, peak ~Session 8" instruction.</div>
+</section>
+
+
+<!-- ============================================================
+     MODULE 10 — CASE STUDIES
+     ============================================================ -->
+<section class="module-divider" id="m10">
+  <span class="mod-emoji">📁</span>
+  <div class="mod-kicker">Module 10</div>
+  <h2>Clinical Case Studies</h2>
+  <p>Nine original, fictional cases — each traced from presentation to outcome. Illustrative only; not real patients.</p>
+</section>
+
+<section class="slide">
+  <span class="slide-num">Case 1 · Module 10</span>
+  <h2 class="slide-title">Contamination OCD — "Nisha"</h2>
+  <div class="box clinical-ex"><span class="box-label">Presentation</span><p><strong>Nisha, 24, student.</strong> Fear of "germs" causing serious illness. Washes hands until raw; avoids public transport, cafeterias, and shared bathrooms; Y-BOCS in the moderate–severe range.</p></div>
+  <div class="grid cols-2">
+    <div class="card"><h4>Assessment &amp; functional analysis</h4><p>A: touch public surface → B: "I'm infected" → wash/sanitise → C: relief. Feared consequence: contracting a disease and infecting family.</p></div>
+    <div class="card"><h4>Formulation</h4><p>Perfectionistic temperament; onset after a flatmate's illness; maintained by washing, avoidance, sanitiser, and reassurance from her mother.</p></div>
+  </div>
+  <p><strong>Compulsions:</strong> washing, sanitiser, "clean/dirty hand." <strong>Avoidance:</strong> transport, shared spaces. <strong>Hierarchy:</strong> doorknob (50) → handrail + eat snack (65) → toilet seat (85) → contaminate whole flat (100).</p>
+  <p><strong>ERP plan &amp; progression:</strong> in vivo from Session 3; peak (flat contamination) ~Session 8; homework ~2 hrs/day. <strong>Difficulties:</strong> secret hand-cream substitute discovered in Session 6 → added to RP rules. <strong>Troubleshooting:</strong> re-contaminate after any slip. <strong>Outcome:</strong> washing to normal levels; travelling again; residual mild doubt she now tolerates.</p>
+</section>
+
+<section class="slide">
+  <span class="slide-num">Case 2 · Module 10</span>
+  <h2 class="slide-title">Checking OCD — "Arjun"</h2>
+  <div class="box clinical-ex"><span class="box-label">Presentation</span><p><strong>Arjun, 38, accountant.</strong> Repeatedly checks locks, stove, and emails; retraces his commute fearing he caused an accident; late to work daily.</p></div>
+  <p><strong>Functional analysis:</strong> leaves home → "did I lock it? burglary/my fault" → check ×5 → relief. <strong>Formulation:</strong> inflated responsibility; onset after a neighbour's break-in. <strong>Compulsions:</strong> checking, retracing, re-reading, phone photos of the lock. <strong>Avoidance:</strong> being last to leave.</p>
+  <p><strong>Hierarchy:</strong> switch once + leave (50) → lock once, walk away (65) → send emails unchecked (75) → drive without retracing (100). <strong>ERP:</strong> mostly in vivo; imaginal for the hit-and-run fear. <strong>Difficulty:</strong> mental checking replaced overt checking → targeted as covert ritual. <strong>Outcome:</strong> single normal check; commute time halved.</p>
+</section>
+
+<section class="slide">
+  <span class="slide-num">Case 3 · Module 10</span>
+  <h2 class="slide-title">Harm OCD — "Meera"</h2>
+  <div class="box clinical-ex"><span class="box-label">Presentation</span><p><strong>Meera, 31, new mother.</strong> Intrusive images of harming her baby; horrified and ashamed; hides knives; avoids bathing the baby alone.</p></div>
+  <div class="box caution"><span class="box-label">⚠ Risk clarification</span><p>Ego-dystonic, resisted, out-of-character images with <em>no</em> desire or urge to act = OCD, not intent. Documented careful risk assessment; supervision sought given the theme.</p></div>
+  <p><strong>Compulsions:</strong> avoidance of knives &amp; solo caregiving, mental reviewing "I'd never," reassurance from husband, confessing thoughts. <strong>Hierarchy (largely imaginal):</strong> word "harm" (50) → hold knife near baby (75) → imaginal worst-case script (90). <strong>ERP:</strong> imaginal script listened to 2×/day + in vivo knife exposure; RP on mental review, reassurance, confession. <strong>Outcome:</strong> images became "background noise"; resumed full parenting.</p>
+</section>
+
+<section class="slide">
+  <span class="slide-num">Case 4 · Module 10</span>
+  <h2 class="slide-title">Religious / Moral Scrupulosity — "Yusuf"</h2>
+  <div class="box clinical-ex"><span class="box-label">Presentation</span><p><strong>Yusuf, 29.</strong> Fears he prays "incorrectly" and will be punished; repeats prayers for hours; avoids worship for fear of blasphemous thoughts.</p></div>
+  <p><strong>Compulsions:</strong> repeating prayers "until right," seeking reassurance from a religious leader, mental cancelling of thoughts. <strong>Hierarchy:</strong> attend worship, pray once (55) → allow a "blasphemous" thought (75) → imaginal uncertainty about salvation (95). <strong>ERP:</strong> in vivo (pray once, normally) + imaginal (tolerating doubt about the afterlife); collaborated with a supportive faith figure to define "normal" practice. <strong>Outcome:</strong> worship restored as meaningful, not compulsive.</p>
+  <div class="box therapist"><span class="box-label">Therapist note</span><p>For scrupulosity, distinguish <em>devout practice</em> from <em>compulsion by function</em>. Where the patient won't/can't push doctrinal boundaries, imaginal exposure to uncertainty (esp. after-death consequences) is the key tool.</p></div>
+</section>
+
+<section class="slide">
+  <span class="slide-num">Case 5 · Module 10</span>
+  <h2 class="slide-title">Relationship OCD — "Kavya"</h2>
+  <div class="box clinical-ex"><span class="box-label">Presentation</span><p><strong>Kavya, 27.</strong> Relentless doubt "Do I really love my partner? Is this the right relationship?" Checks her feelings, compares to others, seeks reassurance.</p></div>
+  <p><strong>Compulsions:</strong> feeling-checking, mental comparison, googling "signs of true love," reassurance from friends. <strong>Hierarchy:</strong> notice a doubt without checking (55) → go on a date and sit with uncertainty (70) → write "I may never be 100% sure" and leave it (85). <strong>ERP:</strong> uncertainty exposure + RP on feeling-checks/comparisons. <strong>Outcome:</strong> commitment despite doubt; doubts lost their grip.</p>
+</section>
+
+<section class="slide">
+  <span class="slide-num">Case 6 · Module 10</span>
+  <h2 class="slide-title">Sexual Intrusive Thoughts — "Rohit"</h2>
+  <div class="box clinical-ex"><span class="box-label">Presentation</span><p><strong>Rohit, 22.</strong> Unwanted taboo sexual images; checks his body for arousal to "prove" his identity; avoids certain people and places; deep shame.</p></div>
+  <div class="box caution"><span class="box-label">⚠ Clarify</span><p>Ego-dystonic intrusions ≠ desire or identity. "Groinal checking" is a compulsion. Careful, non-judgemental assessment; supervision for taboo themes.</p></div>
+  <p><strong>Compulsions:</strong> arousal-checking, avoidance, mental reassurance, thought suppression. <strong>Hierarchy:</strong> approach a trigger (60) → script the intrusive thought (80) → sit in a feared context without checking (90). <strong>ERP:</strong> imaginal scripting + in vivo approach; RP on checking &amp; reassurance. <strong>Outcome:</strong> shame reduced; thoughts defused.</p>
+</section>
+
+<section class="slide">
+  <span class="slide-num">Case 7 · Module 10</span>
+  <h2 class="slide-title">Mental Compulsions / "Pure-O" — "Dev"</h2>
+  <div class="box clinical-ex"><span class="box-label">Presentation</span><p><strong>Dev, 34.</strong> Endless rumination trying to "solve" unanswerable doubts; mentally reviews conversations for hours; few visible rituals — a "Pure-O" presentation.</p></div>
+  <p><strong>Hidden compulsions:</strong> mental review, rumination-as-solving, silent reassurance, mental checking. <strong>Hierarchy:</strong> notice a doubt, don't review (60) → write the doubt, leave unresolved (75) → deliberately evoke the worst uncertainty (90). <strong>ERP:</strong> heavily imaginal + strict covert RP ("get busy" while allowing the thought). <strong>Outcome:</strong> rumination time collapsed once the hidden ritual was blocked.</p>
+  <div class="box pearl"><span class="box-label">✦ Clinical pearl</span><p>"Pure-O" is never pure — find the mental ritual, then prevent it. That is the whole treatment.</p></div>
+</section>
+
+<section class="slide">
+  <span class="slide-num">Case 8 · Module 10</span>
+  <h2 class="slide-title">Health / Somatic OCD — "Sana"</h2>
+  <div class="box clinical-ex"><span class="box-label">Presentation</span><p><strong>Sana, 41.</strong> Interprets ordinary bodily sensations as signs of serious illness; body-scans, googles symptoms, seeks GP reassurance repeatedly.</p></div>
+  <p><strong>Compulsions:</strong> body-checking, googling, reassurance from doctors/family. <strong>Hierarchy:</strong> attend to a sensation without checking (70) → read an illness article and sit with doubt (85) → provoke the sensation deliberately (interoceptive) (90). <strong>ERP:</strong> interoceptive + uncertainty exposure; RP on googling/checking/reassurance. <strong>Outcome:</strong> sensations no longer trigger emergencies; doctor visits normalised.</p>
+</section>
+
+<section class="slide">
+  <span class="slide-num">Case 9 · Module 10</span>
+  <h2 class="slide-title">Symmetry / Ordering OCD — "Ishaan"</h2>
+  <div class="box clinical-ex"><span class="box-label">Presentation</span><p><strong>Ishaan, 19.</strong> Intense "not-just-right" discomfort; arranges and repeats actions until "balanced"; hours lost to ordering; magical fear that imbalance harms family.</p></div>
+  <p><strong>Compulsions:</strong> arranging, repeating until "right," counting. <strong>Hierarchy:</strong> leave a picture crooked (50) → do an action once, unevenly (75) → deliberately create disorder + imaginal "harm to family" script (90). <strong>ERP:</strong> in vivo "leave it wrong" + imaginal for the magical-harm belief; RP on repeating/counting. <strong>Outcome:</strong> "not-right" feeling now passes on its own; time reclaimed.</p>
+  <div class="box therapist"><span class="box-label">Therapist note</span><p>For "just-right" OCD, the target sensation is discomfort, not classic anxiety — the learning is "this uncomfortable feeling fades without fixing anything."</p></div>
+</section>
+
+<!-- ============================================================
+     THERAPIST–PATIENT DIALOGUES
+     ============================================================ -->
+<section class="module-divider" id="dialogues">
+  <span class="mod-emoji">🗣️</span>
+  <div class="mod-kicker">Applied Skills</div>
+  <h2>Therapist–Patient Dialogues</h2>
+  <p>Seventeen original micro-dialogues modelling ERP-consistent responses to common in-session moments.</p>
+</section>
+
+<section class="slide">
+  <span class="slide-num">Dialogues 1–9</span>
+  <h2 class="slide-title">Introducing &amp; Protecting the Work</h2>
+
+  <div class="box script"><span class="box-label">1 · Introducing ERP</span><p><span class="who">T:</span> "We're going to face the fears on purpose, in steps you agree to, and practise not doing the ritual — so your brain gets to learn the truth OCD keeps hiding from you." <span class="who">P:</span> "That sounds terrifying." <span class="who">T:</span> "It's uncomfortable, not dangerous — and I'll coach you the whole way, starting easy."</p></div>
+
+  <div class="box script"><span class="box-label">2 · Explaining compulsions</span><p><span class="who">T:</span> "A compulsion is anything you do — out loud or in your head — to feel less anxious or to stop a feared outcome. It works for a moment, then makes OCD stronger."</p></div>
+
+  <div class="box script"><span class="box-label">3 · Explaining response prevention</span><p><span class="who">T:</span> "Response prevention means we don't do the ritual — even the small, sneaky versions — so the anxiety can settle by itself and you find out you didn't need the ritual at all."</p></div>
+
+  <div class="box script"><span class="box-label">4 · Patient asks for reassurance</span><p><span class="who">P:</span> "Are you sure this is clean?" <span class="who">T:</span> "That sounds like OCD asking. If I answer, you'll feel better for a minute and the doubt will come back stronger. I care about you too much to feed it — let's stay with the uncertainty together."</p></div>
+
+  <div class="box script"><span class="box-label">5 · Patient wants to stop the exposure</span><p><span class="who">P:</span> "I can't, I need to stop." <span class="who">T:</span> "I hear how hard this is. This is exactly the step we agreed on, and I'm right here. Can you give it two more minutes and tell me your number?"</p></div>
+
+  <div class="box script"><span class="box-label">6 · Very high distress</span><p><span class="who">T:</span> "Your SUDS is 95 — that's OCD at full volume. Nothing has gone wrong; this is the fear showing up so we can teach it. Breathe, keep contact, stay with me. What's your number now?"</p></div>
+
+  <div class="box script"><span class="box-label">7 · Patient performs a covert ritual</span><p><span class="who">T:</span> "I noticed you went quiet and looked away — were you reassuring yourself in your head? That's a mental ritual. Let's let the thought sit there without answering it."</p></div>
+
+  <div class="box script"><span class="box-label">8 · Patient says "What if…?"</span><p><span class="who">P:</span> "But what if it really happens?" <span class="who">T:</span> "Great — that's the doubt. The ERP answer isn't to solve it, it's to say 'maybe, I can't be sure,' and carry on. Want to say that out loud with me?"</p></div>
+
+  <div class="box script"><span class="box-label">9 · "Do you think I'm safe?"</span><p><span class="who">P:</span> "Just tell me I'm safe." <span class="who">T:</span> "If I promise certainty, I become part of the ritual. What I can promise is that I'll stand with you while you practise living without that guarantee."</p></div>
+</section>
+
+<section class="slide">
+  <span class="slide-num">Dialogues 10–17</span>
+  <h2 class="slide-title">Obstacles &amp; Difficult Content</h2>
+
+  <div class="box script"><span class="box-label">10 · Homework not done</span><p><span class="who">T:</span> "No judgement — let's understand what got in the way. Was it too big a step, or the fear itself? We'll shrink it to something you'll actually do, because between-session practice is where most change happens."</p></div>
+
+  <div class="box script"><span class="box-label">11 · Family provides reassurance</span><p><span class="who">T (to family):</span> "When she asks 'are my hands clean?', that's OCD, not her. The kind thing is to say, 'We agreed with your therapist I won't answer that,' then redirect — 'shall we take a walk?'"</p></div>
+
+  <div class="box script"><span class="box-label">12 · Patient wants certainty</span><p><span class="who">T:</span> "OCD promises certainty and never delivers — it just keeps sending the bill. Recovery is trading the search for certainty for a life you can actually live."</p></div>
+
+  <div class="box script"><span class="box-label">13 · Believes the exposure is dangerous</span><p><span class="who">T:</span> "Let's separate real danger from OCD danger. Would most people do this without harm? If yes, it's therapeutic discomfort. If it were truly dangerous, I'd never ask you to do it."</p></div>
+
+  <div class="box script"><span class="box-label">14 · Disgust rather than anxiety</span><p><span class="who">T:</span> "Disgust behaves like anxiety here — it fades if we don't wash it away. Stay in contact and let's watch the disgust drop, same as fear does."</p></div>
+
+  <div class="box script"><span class="box-label">15 · Guilt</span><p><span class="who">P:</span> "I feel so guilty even doing this." <span class="who">T:</span> "OCD weaponises your conscience. Feeling guilty isn't evidence you did wrong — let's let the guilt be present without confessing or undoing it."</p></div>
+
+  <div class="box script"><span class="box-label">16 · Intrusive sexual thoughts</span><p><span class="who">T:</span> "These thoughts horrify you precisely because they clash with who you are — that's OCD, not desire. We'll practise letting the thought be there and not checking or reassuring."</p></div>
+
+  <div class="box script"><span class="box-label">17 · Aggressive intrusive thoughts</span><p><span class="who">T:</span> "An image of harm is not an intention. The more you fight it, the louder it gets. Let's deliberately invite the thought in an imaginal script and prove that thinking it changes nothing about what you'd ever do."</p></div>
+</section>
+
+
+<!-- ============================================================
+     MODULE 11 — TROUBLESHOOTING
+     ============================================================ -->
+<section class="module-divider" id="m11">
+  <span class="mod-emoji">🔧</span>
+  <div class="mod-kicker">Module 11</div>
+  <h2>Troubleshooting</h2>
+  <p>Fourteen common sticking points and how to work through them — anchored in the primary book's "Problems Commonly Encountered" chapter.</p>
+</section>
+
+<section class="slide">
+  <span class="slide-num">Slide · Module 11</span>
+  <h2 class="slide-title">When ERP Gets Stuck</h2>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Situation</th><th>What's likely happening</th><th>What to do</th></tr></thead>
+    <tbody>
+      <tr><td>Anxiety doesn't decrease</td><td>Not enough time, hidden ritual, or low engagement — <em>or</em> it's simply a day it stays up</td><td>Normalise; extend duration; check for covert rituals/safety behaviours; reframe via inhibitory learning — the <em>learning</em>, not the number, is the goal</td></tr>
+      <tr><td>Anxiety increases</td><td>Fear structure fully activated — often a good sign</td><td>Stay with it, keep RP, coach toward the feared meaning; process afterwards</td></tr>
+      <tr><td>Patient refuses exposure / balks</td><td>Fear, mistrust, or step too big</td><td>Don't argue; empathise, explore, offer an interim step; refer to the treatment contract; never force</td></tr>
+      <tr><td>Covert compulsions persist</td><td>Overt ritual replaced by a mental one</td><td>Name it, add to RP rules, teach "notice thought, don't answer it, get busy"</td></tr>
+      <tr><td>Asks for reassurance</td><td>Interpersonal ritual</td><td>Label it as a ritual; decline warmly; put "the blame" on the treatment agreement</td></tr>
+      <tr><td>Family accommodates</td><td>Reassurance / ritual participation maintaining OCD</td><td>Educate family; prescribe alternative responses; pace changes gradually (Module 13)</td></tr>
+      <tr><td>Completes exposure but still anxious</td><td>Learning ≠ instant calm</td><td>Emphasise disconfirmation &amp; coping; repeat &amp; vary; it's normal</td></tr>
+      <tr><td>Repeatedly checks whether it "worked"</td><td>Checking has become the new ritual</td><td>Frame checking-the-outcome as a compulsion; prevent it; tolerate not knowing</td></tr>
+      <tr><td>Turns ERP itself into a ritual</td><td>Rigid, "perfect," reassurance-seeking exposure</td><td>Loosen rules; add variability &amp; uncertainty; drop the "right way" to do it</td></tr>
+      <tr><td>Seeks certainty about the exposure</td><td>Certainty-seeking</td><td>Make uncertainty the explicit target; "maybe, and I'll live my life anyway"</td></tr>
+      <tr><td>Does excessive ERP</td><td>Exposure as a compulsive quest for a "cure"</td><td>Set proportionate dosing; ERP serves life, not the reverse</td></tr>
+      <tr><td>Becomes demoralised</td><td>Depression, slow progress</td><td>Review gains concretely (re-rate hierarchy); problem-solve; consider comorbidity/meds referral</td></tr>
+      <tr><td>Misses homework</td><td>Step too big, avoidance, logistics</td><td>Shrink the step; problem-solve obstacles; recommit; use phone contacts</td></tr>
+      <tr><td>Highly avoidant</td><td>Passive avoidance impeding learning</td><td>Target avoidance directly ("seek the anxiety"); re-check rationale &amp; commitment</td></tr>
+    </tbody>
+  </table></div>
+  <div class="box therapist"><span class="box-label">Therapist note · when ritual prevention repeatedly fails</span><p>If a patient <em>cannot</em> commit to ritual prevention despite smaller steps and support, address readiness directly and consider <strong>suspending</strong> treatment rather than continuing under conditions that predict failure — framed compassionately as "better to pause than to have a discouraging experience." Persistent passive avoidance and secret ritualising are strong predictors of poor outcome and must be surfaced, not ignored.</p></div>
+</section>
+
+<!-- ============================================================
+     MODULE 12 — SPECIAL PRESENTATIONS
+     ============================================================ -->
+<section class="module-divider" id="m12">
+  <span class="mod-emoji">🧬</span>
+  <div class="mod-kicker">Module 12</div>
+  <h2>Special Clinical Considerations</h2>
+  <p>Delivering ERP when OCD travels with other conditions — when to adapt, and when to refer.</p>
+</section>
+
+<section class="slide">
+  <span class="slide-num">Slide · Module 12</span>
+  <h2 class="slide-title">ERP with Comorbidity</h2>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Comorbidity</th><th>Can ERP be used?</th><th>Modifications / cautions</th></tr></thead>
+    <tbody>
+      <tr><td>Depression</td><td>Yes, often</td><td>Severe depression can blunt engagement/response; consider sequencing/meds; watch motivation &amp; risk</td></tr>
+      <tr><td>Generalized anxiety</td><td>Yes</td><td>Separate GAD worry from OCD; target OCD rituals specifically</td></tr>
+      <tr><td>Panic symptoms</td><td>Yes</td><td>Interoceptive exposure may help; don't misread panic as danger</td></tr>
+      <tr><td>ADHD</td><td>Yes</td><td>Shorter, structured tasks; external reminders; concrete homework</td></tr>
+      <tr><td>Autism spectrum</td><td>Yes, adapted</td><td>Concrete language, visual hierarchies, distinguish OCD from routines/special interests</td></tr>
+      <tr><td>Tics / Tourette</td><td>Yes</td><td>Differentiate tics (premonitory urge, not fear-driven) from compulsions; may add habit-reversal</td></tr>
+      <tr><td>Poor insight / overvalued ideation</td><td>Yes, harder</td><td>More motivational &amp; psychoeducation work first; predicts slower course</td></tr>
+      <tr><td>Severe avoidance</td><td>Yes</td><td>Home visits; smaller increments; target avoidance explicitly</td></tr>
+      <tr><td>Hoarding</td><td>Adapted</td><td>Early home visit to assess; more visits for sorting/discarding; often needs specialised approach</td></tr>
+      <tr><td>Trauma history / PTSD</td><td>With care</td><td>Stabilise; distinguish trauma reminders from OCD cues; consider sequencing; supervision</td></tr>
+      <tr><td>Substance use</td><td>Address first if severe</td><td>Substances can be avoidance; may need concurrent/ prior treatment</td></tr>
+      <tr><td>Personality difficulties</td><td>Yes, with structure</td><td>Strong contracting, consistent boundaries, attend to alliance</td></tr>
+    </tbody>
+  </table></div>
+  <div class="box caution"><span class="box-label">⚠ When to consult or refer</span><p>Active suicidality; unclear risk in harm/sexual presentations; psychosis or non-OCD overvalued ideation; severe untreated depression or substance dependence; complex comorbidity beyond your competence. ERP requires therapist competence — seek supervision when out of scope.</p></div>
+</section>
+
+<!-- ============================================================
+     MODULE 13 — FAMILY ACCOMMODATION
+     ============================================================ -->
+<section class="module-divider" id="m13">
+  <span class="mod-emoji">👪</span>
+  <div class="mod-kicker">Module 13</div>
+  <h2>Family Accommodation</h2>
+  <p>How loved ones become entangled in OCD — and how to make them allies of ERP instead.</p>
+</section>
+
+<section class="slide">
+  <span class="slide-num">Slide · Module 13</span>
+  <h2 class="slide-title">Recognising &amp; Reversing Accommodation</h2>
+  <p class="keyconcept">Family accommodation = anything relatives do to reduce the patient's distress that ends up maintaining OCD.</p>
+  <div class="flow-2col">
+    <div>
+      <h3 style="text-align:center">Accommodation cycle</h3>
+      <div class="flow">
+        <div class="node trigger">Patient distressed / asks</div><div class="arrow">↓</div>
+        <div class="node bad">Family reassures / does the ritual / avoids the trigger</div><div class="arrow">↓</div>
+        <div class="node bad">Patient's distress drops briefly</div><div class="arrow">↓</div>
+        <div class="node bad">OCD (and the demand) strengthens</div>
+      </div>
+    </div>
+    <div>
+      <h3 style="text-align:center">Common accommodations</h3>
+      <ul class="tick" style="margin-top:6px">
+        <li>Giving reassurance</li>
+        <li>Participating in rituals (checking on the patient's behalf)</li>
+        <li>Providing items or excessive cleaning/checking</li>
+        <li>Changing family routines around the OCD</li>
+        <li>Avoiding triggers <em>for</em> the patient</li>
+      </ul>
+    </div>
+  </div>
+  <h3>How family can support ERP without becoming part of OCD</h3>
+  <ul class="tick">
+    <li>Learn the model (invite to an early session): "OCD, not the person, is the enemy."</li>
+    <li>Reduce accommodation <strong>gradually and collaboratively</strong> — an abrupt withdrawal can backfire.</li>
+    <li>Respond to reassurance requests with a pre-agreed line + redirection ("we agreed I won't answer that — shall we go for a walk?").</li>
+    <li>Encourage, don't force; praise the patient's efforts; expect a gradual pace.</li>
+    <li>Frame it as "we're fighting OCD together, not each other."</li>
+  </ul>
+  <p>A printable <strong>Family Accommodation Worksheet</strong> is in the <a href="#therapist-forms">Therapist Worksheets</a> section.</p>
+</section>
+
+<!-- ============================================================
+     ERP BY OBSESSION TYPE
+     ============================================================ -->
+<section class="module-divider" id="obstype">
+  <span class="mod-emoji">🎛️</span>
+  <div class="mod-kicker">Practical Guides</div>
+  <h2>ERP for Different Obsession Types</h2>
+  <p>Quick practical guides — obsession, compulsion, avoidance, safety behaviour, exposure ideas, response prevention, common mistakes, and the learning goal.</p>
+</section>
+
+<section class="slide">
+  <span class="slide-num">Guides 1–5</span>
+  <h2 class="slide-title">Contamination · Checking · Harm · Religious · Sexual</h2>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Type</th><th>Obsession</th><th>Compulsion</th><th>Exposure ideas</th><th>Response prevention</th><th>Common mistakes (therapist / patient)</th><th>Learning goal</th></tr></thead>
+    <tbody>
+      <tr><td>Contamination</td><td>"I'm dirty / I'll get ill"</td><td>Washing, sanitiser</td><td>Touch cues, spread, eat without washing</td><td>No washing/wiping/cream</td><td>T: over-reassuring · P: mini-washing</td><td>"I can be uncertain about germs and be okay"</td></tr>
+      <tr><td>Checking</td><td>"Did I cause harm?"</td><td>Checking, retracing</td><td>Act once, leave, don't return</td><td>No re-checks/photos/mental checks</td><td>T: allowing "one last check" · P: mental checking</td><td>"Doubt is bearable; disaster didn't happen"</td></tr>
+      <tr><td>Harm</td><td>"I might snap"</td><td>Avoid objects, mental review</td><td>Hold knife near others, imaginal script</td><td>No review/confession/avoidance</td><td>T: providing reassurance · P: suppressing thought</td><td>"Thoughts aren't intentions or actions"</td></tr>
+      <tr><td>Religious</td><td>"I sinned / prayed wrong"</td><td>Repeating prayers, confession</td><td>Pray once normally; imaginal uncertainty</td><td>No repeating/confessing</td><td>T: debating theology · P: seeking cleric reassurance</td><td>"Imperfect practice &amp; doubt are tolerable"</td></tr>
+      <tr><td>Sexual</td><td>Taboo image/doubt</td><td>Arousal-checking, avoidance</td><td>Approach triggers, script the thought</td><td>No checking/reassurance</td><td>T: analysing content · P: groinal checking</td><td>"Image ≠ desire or identity"</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section class="slide">
+  <span class="slide-num">Guides 6–10</span>
+  <h2 class="slide-title">Relationship · Health · Symmetry · Magical Thinking · Mental Rituals</h2>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Type</th><th>Obsession</th><th>Compulsion</th><th>Exposure ideas</th><th>Response prevention</th><th>Common mistakes (therapist / patient)</th><th>Learning goal</th></tr></thead>
+    <tbody>
+      <tr><td>Relationship</td><td>"Is this right / do I love them?"</td><td>Feeling-checks, comparing</td><td>Sit with doubt during dates</td><td>No checking/comparing/reassurance</td><td>T: helping "figure it out" · P: googling</td><td>"Commit without certainty"</td></tr>
+      <tr><td>Health / somatic</td><td>"This sensation = illness"</td><td>Body-checking, googling</td><td>Provoke/attend to sensation</td><td>No googling/checks/reassurance</td><td>T: repeated exams · P: symptom-searching</td><td>"Sensations aren't emergencies"</td></tr>
+      <tr><td>Symmetry / "just right"</td><td>"It's not right"</td><td>Ordering, repeating</td><td>Leave crooked/uneven</td><td>No fixing/repeating/counting</td><td>T: allowing "one fix" · P: subtle re-arranging</td><td>"The 'not-right' feeling fades on its own"</td></tr>
+      <tr><td>Magical thinking</td><td>"A number/word causes harm"</td><td>Counting, "good" words</td><td>Use "bad" numbers/words</td><td>No neutralising</td><td>T: treating belief literally · P: silent counting</td><td>"Thoughts/numbers don't control events"</td></tr>
+      <tr><td>Mental rituals</td><td>Doubts to be "solved"</td><td>Review, rumination, self-reassurance</td><td>Write doubt, leave unresolved; imaginal</td><td>No review; "get busy" while allowing thought</td><td>T: missing the covert ritual · P: reassuring self</td><td>"Not every question needs an answer"</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+
+<!-- ============================================================
+     MEDICATION · ERP vs OTHER CBT · WHAT ERP IS NOT · ETHICS
+     ============================================================ -->
+<section class="slide" id="medication">
+  <span class="slide-num">Part XX</span>
+  <h2 class="slide-title">Medication &amp; ERP</h2>
+  <p class="keyconcept">A clinically responsible overview only. Medication decisions belong to the treating psychiatrist / qualified prescriber.</p>
+  <div class="grid cols-2">
+    <div class="card"><h4>First-line pharmacotherapy</h4><ul class="tick"><li><strong>SSRIs</strong> — the standard medication class for OCD (often higher doses / longer trials than for depression).</li><li><strong>Clomipramine</strong> — a tricyclic with strong OCD evidence; more side-effects, so usually not first choice.</li></ul></div>
+    <div class="card"><h4>Combined &amp; adherence</h4><ul class="tick"><li>ERP can be delivered alone, or added to medication — adding ERP can further reduce symptoms in partial medication responders.</li><li>Discuss adherence; coordinate with the prescriber; note meds in your formulation.</li></ul></div>
+  </div>
+  <div class="box caution"><span class="box-label">⚠ Scope</span><p>This guide gives <strong>no individualised prescribing advice, doses, or titration</strong>. Refer medication questions to the treating psychiatrist or medical professional.</p></div>
+</section>
+
+<section class="slide" id="erp-vs-cbt">
+  <span class="slide-num">Part XXI</span>
+  <h2 class="slide-title">ERP &amp; Other CBT Techniques</h2>
+  <p class="keyconcept">Core ERP is exposure + ritual prevention + processing. Everything else is optional/adjunctive — useful in some cases, never a substitute for exposure.</p>
+  <div class="compare">
+    <div class="col pos"><h4>Core ERP (the engine)</h4><ul class="tick" style="margin-top:6px"><li>In vivo exposure</li><li>Imaginal exposure</li><li>Ritual prevention</li><li>Processing (exposure as hypothesis-testing)</li><li>Home visits</li></ul></div>
+    <div class="col neg"><h4>Optional / adjunctive</h4><ul class="tick" style="margin-top:6px"><li><strong>Cognitive restructuring</strong> — a distinct tradition (Salkovskis, Clark) targeting appraisals; the primary protocol omits it</li><li><strong>Behavioural experiments</strong> — overlap heavily with exposure-as-hypothesis-testing</li><li><strong>Mindfulness / acceptance / defusion</strong> — can support "allowing" thoughts, but must not become avoidance</li><li><strong>Metacognitive strategies</strong></li><li><strong>Motivational interviewing</strong> — for ambivalence/readiness</li><li><strong>Values work</strong> — fuels motivation</li></ul></div>
+  </div>
+  <div class="box caution"><span class="box-label">⚠ Watch for</span><p>Mindfulness/acceptance/relaxation can be quietly recruited <em>as</em> compulsions ("I'll breathe until the anxiety goes"). Keep the function honest: adjuncts support exposure; they don't replace it or neutralise it.</p></div>
+</section>
+
+<section class="slide" id="erp-is-not">
+  <span class="slide-num">Part XXIII</span>
+  <h2 class="slide-title">What ERP Is NOT</h2>
+  <p class="keyconcept">Correcting misconceptions protects patients and improves adherence.</p>
+  <div class="grid cols-2">
+    <div class="box caution"><span class="box-label">ERP is NOT…</span><ul class="tick"><li>Forced exposure — it's collaborative &amp; volitional</li><li>Flooding by default — it's graded, with big meaningful steps</li><li>Making the patient suffer for its own sake</li><li>Eliminating every intrusive thought</li><li>Proving thoughts are false</li></ul></div>
+    <div class="box caution"><span class="box-label">…and it is NOT</span><ul class="tick"><li>Giving reassurance</li><li>Waiting for anxiety to reach zero</li><li>Guaranteeing certainty</li><li>A punishment</li><li>A rigid, one-size-fits-all protocol</li></ul></div>
+  </div>
+  <div class="box pearl"><span class="box-label">✦ Clinical pearl</span><p>ERP is <strong>therapeutic discomfort in the service of the patient's own goals</strong> — chosen, coached, and time-limited.</p></div>
+</section>
+
+<section class="slide" id="ethics">
+  <span class="slide-num">Part XXIV</span>
+  <h2 class="slide-title">Ethics &amp; Safety</h2>
+  <div class="grid cols-2">
+    <div class="card"><h4>Core principles</h4><ul class="tick"><li>Informed consent to the rationale, demands, and discomfort of ERP</li><li>Patient autonomy — encourage, never force</li><li>Collaborative, agreed exposure planning</li><li>Ongoing risk assessment</li><li>Clinical judgement &amp; therapist competence (supervision when out of scope)</li><li>Boundaries, confidentiality, documentation</li></ul></div>
+    <div class="card"><h4>Discomfort vs danger</h4><p>The defining safety question: <em>would ordinary people do this without real harm?</em></p><div class="compare" style="margin-top:8px"><div class="col pos"><h4>Therapeutic discomfort</h4><p>Touching a public rail, leaving a light on, holding a knife normally in the kitchen.</p></div><div class="col neg"><h4>Actual danger</h4><p>Anything genuinely unsafe, illegal, or unhealthy. <strong>Never design exposures that create real risk.</strong></p></div></div></div>
+  </div>
+  <div class="box caution"><span class="box-label">⚠ Contraindications / cautions</span><p>Do not use ERP as sole treatment amid acute suicidality, unmanaged psychosis, or where a "feared" act is genuinely intended. Reassess and refer.</p></div>
+</section>
+
+<!-- ============================================================
+     MODULE 17 — CLINICAL DOCUMENTATION
+     ============================================================ -->
+<section class="module-divider" id="m17">
+  <span class="mod-emoji">📝</span>
+  <div class="mod-kicker">Documentation</div>
+  <h2>Clinical Documentation</h2>
+  <p>How to record an ERP session defensibly and usefully — including an original SOAP example.</p>
+</section>
+<section class="slide">
+  <span class="slide-num">Part XXV</span>
+  <h2 class="slide-title">Documenting an ERP Session</h2>
+  <p class="keyconcept">Record enough to justify clinical decisions, track progress, and hand over safely.</p>
+  <ul class="pill-list"><li>Presenting symptoms</li><li>Session objective</li><li>ERP performed</li><li>Exposure item(s)</li><li>SUDS (pre/peak/post)</li><li>Response prevention</li><li>Patient response</li><li>Learning</li><li>Homework</li><li>Clinical observations</li><li>Risk</li><li>Plan</li></ul>
+  <h3>Original SOAP example (fictional)</h3>
+  <div class="box clinical-ex">
+    <p><strong>S (Subjective):</strong> "Nisha" reports completing daily handrail exposures; managed without sanitiser 5/7 days; anxious but "not as bad as I expected."</p>
+    <p><strong>O (Objective):</strong> In-session in vivo exposure to public toilet seat, 50 min. SUDS 85 (pre) → 90 (peak) → 45 (post). Full ritual prevention (no washing, no cream). Brief covert self-reassurance noted at min 20, redirected. Affect anxious then settling; engaged.</p>
+    <p><strong>A (Assessment):</strong> OCD, contamination subtype, responding to EX/RP; within- and between-session SUDS reduction; prediction ("I'll definitely get sick") disconfirmed. One covert ritual identified and added to RP rules. No risk concerns.</p>
+    <p><strong>P (Plan):</strong> Homework — repeat toilet-seat exposure ~2 hrs/day, no washing/cream; add "clean-hand" abolition. Phone contact Thurs. Next session: begin whole-home contamination (peak item). Continue self-monitoring.</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     MODULE 14 — OUTCOME MONITORING
+     ============================================================ -->
+<section class="module-divider" id="m14">
+  <span class="mod-emoji">📈</span>
+  <div class="mod-kicker">Module 14</div>
+  <h2>Outcome Monitoring</h2>
+  <p>Measuring change so treatment stays data-driven.</p>
+</section>
+<section class="slide">
+  <span class="slide-num">Part XXVI</span>
+  <h2 class="slide-title">What to Track &amp; How</h2>
+  <div class="grid cols-2">
+    <div class="card"><h4>Track</h4><ul class="tick"><li>OCD severity (Y-BOCS repeated)</li><li>Functional impairment (work, home, social)</li><li>Compulsion frequency/time (self-monitoring)</li><li>Avoidance breadth</li><li>Exposure completion &amp; RP adherence</li><li>Patient confidence &amp; quality of life</li><li>Treatment adherence (homework, calls)</li></ul></div>
+    <div class="card"><h4>How</h4><ul class="tick"><li><strong>Repeated measurement</strong>: baseline → periodic → end → follow-up</li><li>Y-BOCS severity as the primary outcome; OCI-R for quick tracking</li><li>Self-monitoring forms as continuous data</li><li>Re-rate the hierarchy periodically (and at the final session)</li><li>Review SUDS curves across exposures</li></ul></div>
+  </div>
+  <div class="box pearl"><span class="box-label">✦ Clinical pearl</span><p>Re-rating the original hierarchy near the end is both a measure <em>and</em> an intervention — patients are often astonished how far once-"100" items have dropped, which cements relapse prevention.</p></div>
+</section>
+
+<!-- ============================================================
+     MODULE 15 — RELAPSE PREVENTION
+     ============================================================ -->
+<section class="module-divider" id="m15">
+  <span class="mod-emoji">🛡️</span>
+  <div class="mod-kicker">Module 15</div>
+  <h2>Relapse Prevention</h2>
+  <p>Turning the patient into their own therapist for the long run.</p>
+</section>
+<section class="slide">
+  <span class="slide-num">Part XXVII</span>
+  <h2 class="slide-title">Staying Well</h2>
+  <div class="grid cols-2">
+    <div class="card"><h4>Key ideas</h4><ul class="tick"><li><strong>Lapse ≠ relapse.</strong> Everyone has intrusive thoughts; a symptom returning is not failure.</li><li>Symptoms naturally <strong>fluctuate</strong>, often around stress.</li><li>The skill is knowing <strong>what to do</strong>: notice the thought, don't neutralise, don't avoid, set up an exposure.</li></ul></div>
+    <div class="card"><h4>Early warning signs</h4><ul class="tick"><li>Rituals creeping back (overt or mental)</li><li>New avoidance</li><li>Reassurance-seeking returning</li><li>Time lost to obsessions rising</li></ul></div>
+  </div>
+  <h3>Maintenance plan</h3>
+  <ul class="tick">
+    <li>Keep leaning into anxiety; refuse all rituals &amp; avoidance.</li>
+    <li>Run booster self-exposures when a theme flares.</li>
+    <li>Remember the top strategies: don't avoid; exposure is easier than feared; give up the need for 100% certainty.</li>
+    <li>Have a written action plan and a booster/therapist-contact option.</li>
+  </ul>
+  <p>Full printable worksheets: <strong>"My OCD Relapse Prevention Plan" (Worksheet 19)</strong> and <strong>"My Long-Term ERP Plan" (Worksheet 20)</strong> in the Workbook.</p>
+</section>
+
+<!-- ============================================================
+     QUICK REFERENCE
+     ============================================================ -->
+<section class="module-divider" id="quickref">
+  <span class="mod-emoji">⚡</span>
+  <div class="mod-kicker">Part XXX</div>
+  <h2>Quick Reference</h2>
+  <p>Fast summaries for revision and in-session recall.</p>
+</section>
+<section class="slide">
+  <span class="slide-num">Quick Reference</span>
+  <h2 class="slide-title">The Cheat Sheets</h2>
+  <div class="grid cols-2">
+    <div class="card"><h4>ERP in 5 minutes</h4><p>Face the fear on purpose (exposure), don't do the ritual (response prevention), stay long enough to learn (processing). Result: anxiety falls, feared things don't happen, you can live with doubt.</p></div>
+    <div class="card"><h4>OCD cycle in 5 minutes</h4><p>Trigger → obsession → distress → compulsion/avoidance → short relief → reinforcement → stronger OCD. ERP re-routes the same trigger toward new learning.</p></div>
+    <div class="card"><h4>ERP in 10 steps</h4><ol><li>Assess</li><li>Formulate</li><li>Psychoeducate</li><li>Build hierarchy (SUDS 0–100)</li><li>Set ritual-prevention rules</li><li>Predict the feared outcome</li><li>Expose (mid-item first)</li><li>Prevent response (incl. covert)</li><li>Process the learning</li><li>Homework + generalise</li></ol></div>
+    <div class="card"><h4>How to build a hierarchy</h4><p>List triggers/avoidance/rituals → rate SUDS 0–100 → rank ascending → start near midpoint → reach top ~Session 8 → revise from real data.</p></div>
+    <div class="card"><h4>How to identify a compulsion</h4><p>Ask: does it <strong>reduce anxiety or aim to prevent a feared outcome</strong>? If yes → compulsion (target it), however sensible it looks.</p></div>
+    <div class="card"><h4>How to identify a mental compulsion</h4><p>Look for silent review, neutralising, counting, "good" words, self-reassurance, rumination-as-solving. Same test: function = anxiety reduction.</p></div>
+    <div class="card"><h4>How to respond to reassurance-seeking</h4><p>Name it as a ritual; decline warmly ("if I answer, I feed OCD"); put the "blame" on the treatment agreement; redirect.</p></div>
+    <div class="card"><h4>How to conduct an exposure</h4><p>Rationale + prediction → describe it → model it → continuous contact → SUDS q5min → block rituals → process the result → matching homework.</p></div>
+    <div class="card"><h4>How to conduct response prevention</h4><p>Prevent overt + covert + subtle substitutes. If a slip happens, undo/spoil it and re-expose immediately.</p></div>
+    <div class="card"><h4>How to handle difficult exposures</h4><p>Empathise; interim step if truly too big; never force; distinguish emotional overload (pause) from ordinary distress (continue).</p></div>
+    <div class="card"><h4>How to plan homework</h4><p>Mirror the in-session exposure; ~2 hrs/day; record SUDS every 10 min; same ritual-prevention rules; troubleshoot on the phone.</p></div>
+    <div class="card"><h4>How to plan relapse prevention</h4><p>Lapse ≠ relapse; know the warning signs; keep leaning in; run boosters; written action plan; therapist-contact option.</p></div>
+  </div>
+</section>
+
+<!-- ============================================================
+     THERAPIST CHECKLIST
+     ============================================================ -->
+<section class="slide" id="checklist">
+  <span class="slide-num">Master Checklist</span>
+  <h2 class="slide-title">ERP Therapist Checklist</h2>
+  <div class="grid cols-3">
+    <div class="card"><h4>Before treatment</h4><ul class="checkbox"><li>Assessment completed</li><li>OCD formulation completed</li><li>Compulsions identified</li><li>Avoidance identified</li><li>Safety behaviours identified</li><li>Motivation assessed</li><li>Treatment goals established</li></ul></div>
+    <div class="card"><h4>During treatment</h4><ul class="checkbox"><li>Hierarchy developed</li><li>Exposure conducted</li><li>Response prevention implemented</li><li>Mental rituals monitored</li><li>Reassurance addressed</li><li>Homework assigned</li><li>Progress monitored</li></ul></div>
+    <div class="card"><h4>Ending treatment</h4><ul class="checkbox"><li>Major exposures completed</li><li>Generalization achieved</li><li>Relapse plan created</li><li>Independent ERP established</li><li>Warning signs identified</li><li>Follow-up plan established</li></ul></div>
+  </div>
+</section>
+
+<!-- ============================================================
+     MASTER ALGORITHM
+     ============================================================ -->
+<section class="module-divider" id="algorithm">
+  <span class="mod-emoji">🧭</span>
+  <div class="mod-kicker">Part XXVIII</div>
+  <h2>The ERP Master Algorithm</h2>
+  <p>The whole treatment as one memorable sequence.</p>
+</section>
+<section class="slide">
+  <span class="slide-num">Algorithm</span>
+  <h2 class="slide-title">Assess → … → Termination</h2>
+  <div class="flow">
+    <div class="node">ASSESS<small>symptoms, severity (Y-BOCS), risk</small></div><div class="arrow">↓</div>
+    <div class="node">FORMULATE<small>5-P + maintenance cycle</small></div><div class="arrow">↓</div>
+    <div class="node">PSYCHOEDUCATE<small>OCD model + ERP rationale</small></div><div class="arrow">↓</div>
+    <div class="node">IDENTIFY COMPULSIONS<small>overt + covert</small></div><div class="arrow">↓</div>
+    <div class="node">IDENTIFY AVOIDANCE &amp; SAFETY BEHAVIOURS</div><div class="arrow">↓</div>
+    <div class="node good">BUILD HIERARCHY<small>SUDS 0–100</small></div><div class="arrow">↓</div>
+    <div class="node good">SELECT EXPOSURE<small>mid-item first</small></div><div class="arrow">↓</div>
+    <div class="node good">PREDICT FEAR / OUTCOME</div><div class="arrow">↓</div>
+    <div class="node good">CONDUCT EXPOSURE</div><div class="arrow">↓</div>
+    <div class="node good">PREVENT RESPONSE<small>incl. covert</small></div><div class="arrow">↓</div>
+    <div class="node good">ALLOW UNCERTAINTY</div><div class="arrow">↓</div>
+    <div class="node good">REVIEW LEARNING<small>processing</small></div><div class="arrow">↓</div>
+    <div class="node">HOMEWORK</div><div class="arrow">↓</div>
+    <div class="node">GENERALIZE<small>contexts, home visits</small></div><div class="arrow">↓</div>
+    <div class="node">RELAPSE PREVENTION</div><div class="arrow">↓</div>
+    <div class="node">TERMINATION<small>+ follow-up calls</small></div>
+  </div>
+  <div class="box therapist"><span class="box-label">Every step in one line</span><p><strong>Assess</strong> what OCD looks like → <strong>formulate</strong> how it's maintained → <strong>teach</strong> the model → <strong>map</strong> compulsions/avoidance/safety behaviours → <strong>rank</strong> them by SUDS → <strong>choose</strong> a mid-level target → <strong>predict</strong> the feared outcome → <strong>expose</strong> and <strong>prevent</strong> the response while <strong>allowing doubt</strong> → <strong>process</strong> the learning → <strong>practise</strong> and <strong>generalise</strong> → <strong>protect</strong> the gains → <strong>end</strong> with a maintenance plan.</p></div>
+</section>
+
+
+<!-- ============================================================
+     MODULE 16 — PATIENT ERP WORKBOOK
+     ============================================================ -->
+<section class="module-divider" id="m16">
+  <span class="mod-emoji">📒</span>
+  <div class="mod-kicker">Module 16 · Printable</div>
+  <h2>Patient ERP Workbook</h2>
+  <p>Twenty original, print-friendly worksheets in plain, compassionate language. Print any sheet on its own (use the 🖨 Print button). All worksheets are original and free to copy for your clients.</p>
+</section>
+
+<section class="slide" style="padding-top:18px">
+  <div class="section-note">Each worksheet has Name / Date / Session fields and writing space. Rate distress 0–100 (0 = totally calm, 50 = distressed but manageable, 100 = the worst you've ever felt).</div>
+</section>
+
+<div class="worksheet" id="ws1">
+  <span class="ws-num">Worksheet 1</span>
+  <h3>Understanding My OCD</h3>
+  <p class="ws-purpose">Purpose: to map how my OCD works so I can start to loosen its grip. Instructions: fill this in honestly — there are no wrong answers.</p>
+  <div class="ws-fields"><div class="ws-field">Name:</div><div class="ws-field">Date:</div><div class="ws-field">Session:</div></div>
+  <p><strong>The unwanted thoughts, images, or urges I get (my obsessions):</strong></p>
+  <div class="ws-lines"><div class="ws-line"></div><div class="ws-line"></div></div>
+  <p><strong>What I'm afraid will happen (my feared consequence):</strong></p>
+  <div class="ws-lines"><div class="ws-line"></div></div>
+  <p><strong>What I do to feel safer (rituals — including things I do in my head):</strong></p>
+  <div class="ws-lines"><div class="ws-line"></div><div class="ws-line"></div></div>
+  <p><strong>Things I avoid because of OCD:</strong></p>
+  <div class="ws-lines"><div class="ws-line"></div></div>
+  <p><strong>Who I ask for reassurance, and what I ask:</strong></p>
+  <div class="ws-lines"><div class="ws-line"></div></div>
+  <p><strong>How OCD is affecting my life:</strong></p>
+  <div class="ws-lines"><div class="ws-line"></div><div class="ws-line"></div></div>
+</div>
+
+<div class="worksheet" id="ws2">
+  <span class="ws-num">Worksheet 2</span>
+  <h3>My OCD Cycle + Exposure Plan</h3>
+  <p class="ws-purpose">Purpose: to see the loop that keeps OCD going, and plan my first step out of it.</p>
+  <div class="ws-fields"><div class="ws-field">Name:</div><div class="ws-field">Date:</div><div class="ws-field">Session:</div></div>
+  <p><strong>My cycle:</strong> Trigger → thought → distress (SUDS ___) → what I usually do → short relief → what happens next</p>
+  <div class="ws-lines"><div class="ws-line"></div><div class="ws-line"></div></div>
+  <p><strong>My first exposure I'd like to try:</strong></p>
+  <div class="ws-lines"><div class="ws-line"></div></div>
+  <p><strong>The ritual/avoidance I'll hold back from:</strong></p>
+  <div class="ws-lines"><div class="ws-line"></div></div>
+  <p><strong>What I predict will happen · What I hope to learn:</strong></p>
+  <div class="ws-lines"><div class="ws-line"></div></div>
+</div>
+
+<div class="worksheet" id="ws3">
+  <span class="ws-num">Worksheet 3</span>
+  <h3>My Triggers</h3>
+  <p class="ws-purpose">Purpose: to list the situations, objects, thoughts, and sensations that set off my OCD.</p>
+  <div class="ws-fields"><div class="ws-field">Name:</div><div class="ws-field">Date:</div><div class="ws-field">Session:</div></div>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Trigger (what sets it off)</th><th>Type (situation / thought / image / sensation)</th><th>SUDS 0–100</th></tr></thead>
+    <tbody>
+      <tr><td><div class="ws-line" style="margin:2px 0"></div></td><td><div class="ws-line" style="margin:2px 0"></div></td><td><div class="ws-line" style="margin:2px 0"></div></td></tr>
+      <tr><td><div class="ws-line" style="margin:2px 0"></div></td><td><div class="ws-line" style="margin:2px 0"></div></td><td><div class="ws-line" style="margin:2px 0"></div></td></tr>
+      <tr><td><div class="ws-line" style="margin:2px 0"></div></td><td><div class="ws-line" style="margin:2px 0"></div></td><td><div class="ws-line" style="margin:2px 0"></div></td></tr>
+      <tr><td><div class="ws-line" style="margin:2px 0"></div></td><td><div class="ws-line" style="margin:2px 0"></div></td><td><div class="ws-line" style="margin:2px 0"></div></td></tr>
+      <tr><td><div class="ws-line" style="margin:2px 0"></div></td><td><div class="ws-line" style="margin:2px 0"></div></td><td><div class="ws-line" style="margin:2px 0"></div></td></tr>
+    </tbody>
+  </table></div>
+</div>
+
+<div class="worksheet" id="ws4">
+  <span class="ws-num">Worksheet 4</span>
+  <h3>My Compulsions</h3>
+  <p class="ws-purpose">Purpose: to notice everything I do to feel safer — including the quiet, in-my-head ones.</p>
+  <div class="ws-fields"><div class="ws-field">Name:</div><div class="ws-field">Date:</div><div class="ws-field">Session:</div></div>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Compulsion</th><th>Overt or mental?</th><th>How often / how long</th><th>What it's trying to prevent</th></tr></thead>
+    <tbody>
+      <tr><td><div class="ws-line" style="margin:2px 0"></div></td><td><div class="ws-line" style="margin:2px 0"></div></td><td><div class="ws-line" style="margin:2px 0"></div></td><td><div class="ws-line" style="margin:2px 0"></div></td></tr>
+      <tr><td><div class="ws-line" style="margin:2px 0"></div></td><td><div class="ws-line" style="margin:2px 0"></div></td><td><div class="ws-line" style="margin:2px 0"></div></td><td><div class="ws-line" style="margin:2px 0"></div></td></tr>
+      <tr><td><div class="ws-line" style="margin:2px 0"></div></td><td><div class="ws-line" style="margin:2px 0"></div></td><td><div class="ws-line" style="margin:2px 0"></div></td><td><div class="ws-line" style="margin:2px 0"></div></td></tr>
+      <tr><td><div class="ws-line" style="margin:2px 0"></div></td><td><div class="ws-line" style="margin:2px 0"></div></td><td><div class="ws-line" style="margin:2px 0"></div></td><td><div class="ws-line" style="margin:2px 0"></div></td></tr>
+    </tbody>
+  </table></div>
+</div>
+
+<div class="worksheet" id="ws5">
+  <span class="ws-num">Worksheet 5</span>
+  <h3>My Avoidance</h3>
+  <p class="ws-purpose">Purpose: to spot the things I stay away from — big and small — so I can face them step by step.</p>
+  <div class="ws-fields"><div class="ws-field">Name:</div><div class="ws-field">Date:</div><div class="ws-field">Session:</div></div>
+  <p><strong>Big things I avoid:</strong></p><div class="ws-lines"><div class="ws-line"></div><div class="ws-line"></div></div>
+  <p><strong>Sneaky/subtle avoidance (using a sleeve, a "clean hand", going the long way, waiting for someone else):</strong></p>
+  <div class="ws-lines"><div class="ws-line"></div><div class="ws-line"></div></div>
+</div>
+
+<div class="worksheet" id="ws6">
+  <span class="ws-num">Worksheet 6</span>
+  <h3>My Reassurance-Seeking</h3>
+  <p class="ws-purpose">Purpose: to catch the questions and searches that quietly feed my doubt.</p>
+  <div class="ws-fields"><div class="ws-field">Name:</div><div class="ws-field">Date:</div><div class="ws-field">Session:</div></div>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Who I ask / where I search</th><th>What I ask or look up</th><th>What I'll do instead</th></tr></thead>
+    <tbody>
+      <tr><td><div class="ws-line" style="margin:2px 0"></div></td><td><div class="ws-line" style="margin:2px 0"></div></td><td><div class="ws-line" style="margin:2px 0"></div></td></tr>
+      <tr><td><div class="ws-line" style="margin:2px 0"></div></td><td><div class="ws-line" style="margin:2px 0"></div></td><td><div class="ws-line" style="margin:2px 0"></div></td></tr>
+      <tr><td><div class="ws-line" style="margin:2px 0"></div></td><td><div class="ws-line" style="margin:2px 0"></div></td><td><div class="ws-line" style="margin:2px 0"></div></td></tr>
+    </tbody>
+  </table></div>
+</div>
+
+<div class="worksheet" id="ws7">
+  <span class="ws-num">Worksheet 7</span>
+  <h3>My Exposure Hierarchy</h3>
+  <p class="ws-purpose">Purpose: my personal ladder of fears, from most manageable to hardest. We'll climb it together.</p>
+  <div class="ws-fields"><div class="ws-field">Name:</div><div class="ws-field">Date:</div><div class="ws-field">Session:</div></div>
+  <div class="table-wrap"><table>
+    <thead><tr><th>#</th><th>Exposure (what I'll face)</th><th>SUDS 0–100</th><th>Done?</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td><div class="ws-line" style="margin:2px 0"></div></td><td></td><td>☐</td></tr>
+      <tr><td>2</td><td><div class="ws-line" style="margin:2px 0"></div></td><td></td><td>☐</td></tr>
+      <tr><td>3</td><td><div class="ws-line" style="margin:2px 0"></div></td><td></td><td>☐</td></tr>
+      <tr><td>4</td><td><div class="ws-line" style="margin:2px 0"></div></td><td></td><td>☐</td></tr>
+      <tr><td>5</td><td><div class="ws-line" style="margin:2px 0"></div></td><td></td><td>☐</td></tr>
+      <tr><td>6</td><td><div class="ws-line" style="margin:2px 0"></div></td><td></td><td>☐</td></tr>
+      <tr><td>7</td><td><div class="ws-line" style="margin:2px 0"></div></td><td></td><td>☐</td></tr>
+      <tr><td>8</td><td><div class="ws-line" style="margin:2px 0"></div></td><td></td><td>☐</td></tr>
+    </tbody>
+  </table></div>
+</div>
+
+<div class="worksheet" id="ws8">
+  <span class="ws-num">Worksheet 8</span>
+  <h3>Exposure Planning Sheet</h3>
+  <p class="ws-purpose">Purpose: to plan a single exposure before I do it.</p>
+  <div class="ws-fields"><div class="ws-field">Name:</div><div class="ws-field">Date:</div><div class="ws-field">Session:</div></div>
+  <p><strong>The exposure I'm planning:</strong></p><div class="ws-line"></div>
+  <p><strong>Rituals/avoidance I will NOT do:</strong></p><div class="ws-line"></div>
+  <p><strong>My prediction (what OCD says will happen):</strong></p><div class="ws-line"></div>
+  <p><strong>How sure am I? (0–100%): _______ · Starting SUDS: _______</strong></p>
+  <p><strong>Where / when / how long:</strong></p><div class="ws-line"></div>
+</div>
+
+<div class="worksheet" id="ws9">
+  <span class="ws-num">Worksheet 9</span>
+  <h3>ERP Practice Record</h3>
+  <p class="ws-purpose">Purpose: to record each practice — the core homework of ERP.</p>
+  <div class="ws-fields"><div class="ws-field">Name:</div><div class="ws-field">Date:</div><div class="ws-field">Session:</div></div>
+  <p><strong>Situation / Trigger:</strong></p><div class="ws-line"></div>
+  <p><strong>OCD thought or urge:</strong></p><div class="ws-line"></div>
+  <p><strong>Distress rating (SUDS 0–100):</strong></p>
+  <div class="ws-scale"><span>0</span><span>10</span><span>20</span><span>30</span><span>40</span><span>50</span><span>60</span><span>70</span><span>80</span><span>90</span><span>100</span></div>
+  <p><strong>Urge to do the compulsion (0–100): _______ · Did I do the compulsion?</strong> <span class="ws-check">Yes</span> <span class="ws-check">No</span></p>
+  <p><strong>Did I hold back the ritual (response prevention)?</strong> <span class="ws-check">Fully</span> <span class="ws-check">Partly</span> <span class="ws-check">No</span></p>
+  <p><strong>What actually happened:</strong></p><div class="ws-line"></div>
+  <p><strong>What I learned:</strong></p><div class="ws-line"></div>
+  <p><strong>What I'll practise next:</strong></p><div class="ws-line"></div>
+</div>
+
+<div class="worksheet" id="ws10">
+  <span class="ws-num">Worksheet 10</span>
+  <h3>SUDS Monitoring</h3>
+  <p class="ws-purpose">Purpose: to track how distress changes <em>during</em> an exposure — watch it rise, then fall, without any ritual.</p>
+  <div class="ws-fields"><div class="ws-field">Name:</div><div class="ws-field">Date:</div><div class="ws-field">Session:</div></div>
+  <p><strong>Exposure:</strong></p><div class="ws-line"></div>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Time</th><th>Start</th><th>10 min</th><th>20 min</th><th>30 min</th><th>40 min</th><th>50 min</th><th>60 min</th></tr></thead>
+    <tbody><tr><td>SUDS</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr></tbody>
+  </table></div>
+  <p><strong>Highest SUDS reached: _______ · Lowest by the end: _______</strong></p>
+  <p><strong>What the numbers tell me:</strong></p><div class="ws-line"></div>
+</div>
+
+
+<div class="worksheet" id="ws11">
+  <span class="ws-num">Worksheet 11</span>
+  <h3>Response Prevention Record</h3>
+  <p class="ws-purpose">Purpose: to keep track of the rituals I'm holding back — and any I slipped into.</p>
+  <div class="ws-fields"><div class="ws-field">Name:</div><div class="ws-field">Date:</div><div class="ws-field">Session:</div></div>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Urge to ritualise</th><th>Held back?</th><th>If I slipped, how I "undid" it &amp; re-exposed</th></tr></thead>
+    <tbody>
+      <tr><td><div class="ws-line" style="margin:2px 0"></div></td><td>☐ Yes ☐ No</td><td><div class="ws-line" style="margin:2px 0"></div></td></tr>
+      <tr><td><div class="ws-line" style="margin:2px 0"></div></td><td>☐ Yes ☐ No</td><td><div class="ws-line" style="margin:2px 0"></div></td></tr>
+      <tr><td><div class="ws-line" style="margin:2px 0"></div></td><td>☐ Yes ☐ No</td><td><div class="ws-line" style="margin:2px 0"></div></td></tr>
+    </tbody>
+  </table></div>
+  <p class="ws-purpose">Reminder: a slip is normal. Undo/spoil the ritual and re-expose straight away — that's a step forward.</p>
+</div>
+
+<div class="worksheet" id="ws12">
+  <span class="ws-num">Worksheet 12</span>
+  <h3>Mental Compulsion Tracker</h3>
+  <p class="ws-purpose">Purpose: to catch the rituals that happen in my head (reviewing, neutralising, counting, silent reassurance).</p>
+  <div class="ws-fields"><div class="ws-field">Name:</div><div class="ws-field">Date:</div><div class="ws-field">Session:</div></div>
+  <div class="table-wrap"><table>
+    <thead><tr><th>The thought that triggered it</th><th>My mental ritual</th><th>Did I let the thought be, instead?</th></tr></thead>
+    <tbody>
+      <tr><td><div class="ws-line" style="margin:2px 0"></div></td><td><div class="ws-line" style="margin:2px 0"></div></td><td>☐ Yes ☐ No</td></tr>
+      <tr><td><div class="ws-line" style="margin:2px 0"></div></td><td><div class="ws-line" style="margin:2px 0"></div></td><td>☐ Yes ☐ No</td></tr>
+      <tr><td><div class="ws-line" style="margin:2px 0"></div></td><td><div class="ws-line" style="margin:2px 0"></div></td><td>☐ Yes ☐ No</td></tr>
+    </tbody>
+  </table></div>
+  <p class="ws-purpose">Remember: don't fight the obsessive thought — just don't answer it with a mental ritual. Get busy and let the thought be there.</p>
+</div>
+
+<div class="worksheet" id="ws13">
+  <span class="ws-num">Worksheet 13</span>
+  <h3>Safety Behaviour Tracker</h3>
+  <p class="ws-purpose">Purpose: to notice the small "just-in-case" habits that keep the fear alive.</p>
+  <div class="ws-fields"><div class="ws-field">Name:</div><div class="ws-field">Date:</div><div class="ws-field">Session:</div></div>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Safety behaviour</th><th>What I think it protects me from</th><th>Dropped it?</th></tr></thead>
+    <tbody>
+      <tr><td><div class="ws-line" style="margin:2px 0"></div></td><td><div class="ws-line" style="margin:2px 0"></div></td><td>☐ Yes ☐ No</td></tr>
+      <tr><td><div class="ws-line" style="margin:2px 0"></div></td><td><div class="ws-line" style="margin:2px 0"></div></td><td>☐ Yes ☐ No</td></tr>
+      <tr><td><div class="ws-line" style="margin:2px 0"></div></td><td><div class="ws-line" style="margin:2px 0"></div></td><td>☐ Yes ☐ No</td></tr>
+    </tbody>
+  </table></div>
+</div>
+
+<div class="worksheet" id="ws14">
+  <span class="ws-num">Worksheet 14</span>
+  <h3>Uncertainty Practice</h3>
+  <p class="ws-purpose">Purpose: to practise living with "I can't be sure" — the real goal of recovery.</p>
+  <div class="ws-fields"><div class="ws-field">Name:</div><div class="ws-field">Date:</div><div class="ws-field">Session:</div></div>
+  <p><strong>The certainty OCD is demanding today:</strong></p><div class="ws-line"></div>
+  <p><strong>My "maybe" statement (e.g., "Maybe, maybe not — and I'll live my life anyway"):</strong></p><div class="ws-line"></div>
+  <p><strong>How did it feel to sit with the doubt? (SUDS before / after): ______ / ______</strong></p>
+  <p><strong>What I noticed:</strong></p><div class="ws-line"></div>
+</div>
+
+<div class="worksheet" id="ws15">
+  <span class="ws-num">Worksheet 15</span>
+  <h3>Learning From Exposure</h3>
+  <p class="ws-purpose">Purpose: to lock in what each exposure taught me (the "processing" step).</p>
+  <div class="ws-fields"><div class="ws-field">Name:</div><div class="ws-field">Date:</div><div class="ws-field">Session:</div></div>
+  <p><strong>What OCD predicted:</strong></p><div class="ws-line"></div>
+  <p><strong>What actually happened:</strong></p><div class="ws-line"></div>
+  <p><strong>Did my anxiety go down without a ritual?</strong> <span class="ws-check">Yes</span> <span class="ws-check">A bit</span> <span class="ws-check">Not this time (that's okay)</span></p>
+  <p><strong>What this tells me about OCD's threats:</strong></p><div class="ws-line"></div>
+</div>
+
+<div class="worksheet" id="ws16">
+  <span class="ws-num">Worksheet 16</span>
+  <h3>Between-Session Practice</h3>
+  <p class="ws-purpose">Purpose: my homework plan for the days between sessions — where most change happens.</p>
+  <div class="ws-fields"><div class="ws-field">Name:</div><div class="ws-field">Date:</div><div class="ws-field">Session:</div></div>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Day</th><th>Exposure I'll do</th><th>Done?</th><th>SUDS start → end</th></tr></thead>
+    <tbody>
+      <tr><td>Mon</td><td><div class="ws-line" style="margin:2px 0"></div></td><td>☐</td><td></td></tr>
+      <tr><td>Tue</td><td><div class="ws-line" style="margin:2px 0"></div></td><td>☐</td><td></td></tr>
+      <tr><td>Wed</td><td><div class="ws-line" style="margin:2px 0"></div></td><td>☐</td><td></td></tr>
+      <tr><td>Thu</td><td><div class="ws-line" style="margin:2px 0"></div></td><td>☐</td><td></td></tr>
+      <tr><td>Fri</td><td><div class="ws-line" style="margin:2px 0"></div></td><td>☐</td><td></td></tr>
+      <tr><td>Sat/Sun</td><td><div class="ws-line" style="margin:2px 0"></div></td><td>☐</td><td></td></tr>
+    </tbody>
+  </table></div>
+</div>
+
+<div class="worksheet" id="ws17">
+  <span class="ws-num">Worksheet 17</span>
+  <h3>Difficult Exposure Troubleshooting</h3>
+  <p class="ws-purpose">Purpose: to problem-solve when an exposure feels stuck or too hard.</p>
+  <div class="ws-fields"><div class="ws-field">Name:</div><div class="ws-field">Date:</div><div class="ws-field">Session:</div></div>
+  <p><strong>What made it hard?</strong> <span class="ws-check">Too big a step</span> <span class="ws-check">Hidden ritual</span> <span class="ws-check">Reassurance</span> <span class="ws-check">Avoidance</span> <span class="ws-check">Overwhelmed by other feelings</span></p>
+  <p><strong>A smaller step I could do first:</strong></p><div class="ws-line"></div>
+  <p><strong>Any sneaky ritual/safety behaviour I need to drop:</strong></p><div class="ws-line"></div>
+  <p><strong>My plan to try again:</strong></p><div class="ws-line"></div>
+</div>
+
+<div class="worksheet" id="ws18">
+  <span class="ws-num">Worksheet 18</span>
+  <h3>Progress Review</h3>
+  <p class="ws-purpose">Purpose: to notice how far I've come (we forget quickly!).</p>
+  <div class="ws-fields"><div class="ws-field">Name:</div><div class="ws-field">Date:</div><div class="ws-field">Session:</div></div>
+  <p><strong>Things I can do now that OCD used to block:</strong></p><div class="ws-lines"><div class="ws-line"></div><div class="ws-line"></div></div>
+  <p><strong>Old hierarchy item &amp; its SUDS then → now:</strong></p><div class="ws-line"></div>
+  <p><strong>Strategies that helped most:</strong></p><div class="ws-line"></div>
+  <p><strong>What I still want to work on:</strong></p><div class="ws-line"></div>
+</div>
+
+<div class="worksheet" id="ws19">
+  <span class="ws-num">Worksheet 19</span>
+  <h3>My OCD Relapse Prevention Plan</h3>
+  <p class="ws-purpose">Purpose: to be ready if OCD tries to creep back — lapse is not relapse.</p>
+  <div class="ws-fields"><div class="ws-field">Name:</div><div class="ws-field">Date:</div><div class="ws-field">Session:</div></div>
+  <p><strong>My early warning signs (rituals creeping back, new avoidance, reassurance, more time lost):</strong></p><div class="ws-lines"><div class="ws-line"></div></div>
+  <p><strong>What I'll do the moment I notice them:</strong></p><div class="ws-lines"><div class="ws-line"></div></div>
+  <p><strong>My go-to reminders:</strong> ☐ Don't avoid ☐ Exposure is easier than I fear ☐ Give up needing 100% certainty ☐ Notice the thought, don't answer it</p>
+  <p><strong>A booster exposure I can run if a theme flares:</strong></p><div class="ws-line"></div>
+  <p><strong>Who I can contact for support / a booster session:</strong></p><div class="ws-line"></div>
+</div>
+
+<div class="worksheet" id="ws20">
+  <span class="ws-num">Worksheet 20</span>
+  <h3>My Long-Term ERP Plan (My ERP Maintenance Plan)</h3>
+  <p class="ws-purpose">Purpose: to stay my own therapist and keep the life I've reclaimed.</p>
+  <div class="ws-fields"><div class="ws-field">Name:</div><div class="ws-field">Date:</div><div class="ws-field">Session:</div></div>
+  <p><strong>Why I did this work — what recovery gives me (values &amp; goals):</strong></p><div class="ws-lines"><div class="ws-line"></div></div>
+  <p><strong>My weekly "lean into anxiety" habits:</strong></p><div class="ws-line"></div>
+  <p><strong>Situations I'll deliberately keep facing:</strong></p><div class="ws-line"></div>
+  <p><strong>If a brand-new OCD symptom appears, my plan is:</strong></p><div class="ws-line"></div>
+  <p><strong>My promise to myself:</strong></p><div class="ws-line"></div>
+</div>
+
+<!-- ============================================================
+     THERAPIST WORKSHEETS
+     ============================================================ -->
+<section class="module-divider" id="therapist-forms">
+  <span class="mod-emoji">🗂️</span>
+  <div class="mod-kicker">Printable · Clinician-facing</div>
+  <h2>Therapist Worksheets</h2>
+  <p>Original clinician forms mirroring the treatment workflow — assessment, formulation, hierarchy, session planning, monitoring, and review.</p>
+</section>
+
+<div class="worksheet">
+  <span class="ws-num">Therapist Form A</span>
+  <h3>Initial Assessment Summary</h3>
+  <div class="ws-fields"><div class="ws-field">Therapist:</div><div class="ws-field">Patient:</div><div class="ws-field">Date:</div></div>
+  <p><strong>Presenting problem &amp; onset/course:</strong></p><div class="ws-line"></div>
+  <p><strong>Obsessions (external cues / internal cues / bodily sensations):</strong></p><div class="ws-line"></div><div class="ws-line"></div>
+  <p><strong>Feared consequences:</strong></p><div class="ws-line"></div>
+  <p><strong>Compulsions (overt &amp; mental) · Avoidance · Reassurance:</strong></p><div class="ws-line"></div><div class="ws-line"></div>
+  <p><strong>Insight · Motivation · Comorbidity · Medication · Family accommodation:</strong></p><div class="ws-line"></div>
+  <p><strong>Y-BOCS baseline (severity) · Risk assessment:</strong></p><div class="ws-line"></div>
+</div>
+
+<div class="worksheet">
+  <span class="ws-num">Therapist Form B</span>
+  <h3>Functional Analysis (ABC)</h3>
+  <div class="ws-fields"><div class="ws-field">Therapist:</div><div class="ws-field">Patient:</div><div class="ws-field">Date:</div></div>
+  <div class="table-wrap"><table>
+    <thead><tr><th>A — Antecedent (trigger)</th><th>B — Behaviour (obsession → response)</th><th>C — Consequence (relief/reinforcement)</th><th>ERP target</th></tr></thead>
+    <tbody>
+      <tr><td><div class="ws-line" style="margin:2px 0"></div></td><td><div class="ws-line" style="margin:2px 0"></div></td><td><div class="ws-line" style="margin:2px 0"></div></td><td><div class="ws-line" style="margin:2px 0"></div></td></tr>
+      <tr><td><div class="ws-line" style="margin:2px 0"></div></td><td><div class="ws-line" style="margin:2px 0"></div></td><td><div class="ws-line" style="margin:2px 0"></div></td><td><div class="ws-line" style="margin:2px 0"></div></td></tr>
+    </tbody>
+  </table></div>
+</div>
+
+<div class="worksheet">
+  <span class="ws-num">Therapist Form C</span>
+  <h3>OCD Case Formulation (5-P)</h3>
+  <div class="ws-fields"><div class="ws-field">Therapist:</div><div class="ws-field">Patient:</div><div class="ws-field">Date:</div></div>
+  <p><strong>Predisposing:</strong></p><div class="ws-line"></div>
+  <p><strong>Precipitating:</strong></p><div class="ws-line"></div>
+  <p><strong>Perpetuating (maintenance cycle):</strong></p><div class="ws-line"></div><div class="ws-line"></div>
+  <p><strong>Protective:</strong></p><div class="ws-line"></div>
+  <p><strong>Treatment targets:</strong></p><div class="ws-line"></div>
+</div>
+
+<div class="worksheet">
+  <span class="ws-num">Therapist Form D</span>
+  <h3>Exposure Hierarchy (Treatment Planning)</h3>
+  <div class="ws-fields"><div class="ws-field">Therapist:</div><div class="ws-field">Patient:</div><div class="ws-field">Date:</div></div>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Item</th><th>SUDS</th><th>In vivo / imaginal</th><th>Planned session</th></tr></thead>
+    <tbody>
+      <tr><td><div class="ws-line" style="margin:2px 0"></div></td><td></td><td></td><td></td></tr>
+      <tr><td><div class="ws-line" style="margin:2px 0"></div></td><td></td><td></td><td></td></tr>
+      <tr><td><div class="ws-line" style="margin:2px 0"></div></td><td></td><td></td><td></td></tr>
+      <tr><td><div class="ws-line" style="margin:2px 0"></div></td><td></td><td></td><td></td></tr>
+      <tr><td><div class="ws-line" style="margin:2px 0"></div></td><td></td><td></td><td></td></tr>
+    </tbody>
+  </table></div>
+  <p class="ws-purpose">Sequence ascending; start near midpoint; aim to reach the top item ~Session 8; keep flexible.</p>
+</div>
+
+<div class="worksheet">
+  <span class="ws-num">Therapist Form E</span>
+  <h3>Session Planning &amp; Exposure/RP Monitoring</h3>
+  <div class="ws-fields"><div class="ws-field">Session #:</div><div class="ws-field">Patient:</div><div class="ws-field">Date:</div></div>
+  <p><strong>Objective · Homework review:</strong></p><div class="ws-line"></div>
+  <p><strong>Exposure conducted:</strong></p><div class="ws-line"></div>
+  <div class="table-wrap"><table>
+    <thead><tr><th>SUDS</th><th>Start</th><th>5</th><th>10</th><th>15</th><th>20</th><th>25</th><th>30</th><th>End</th></tr></thead>
+    <tbody><tr><td>—</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr></tbody>
+  </table></div>
+  <p><strong>Ritual prevention achieved · Covert rituals noted:</strong></p><div class="ws-line"></div>
+  <p><strong>Prediction tested / lesson learned (processing):</strong></p><div class="ws-line"></div>
+  <p><strong>Homework assigned · Phone contact scheduled:</strong></p><div class="ws-line"></div>
+</div>
+
+<div class="worksheet">
+  <span class="ws-num">Therapist Form F</span>
+  <h3>Homework Review &amp; Treatment Progress</h3>
+  <div class="ws-fields"><div class="ws-field">Therapist:</div><div class="ws-field">Patient:</div><div class="ws-field">Date:</div></div>
+  <p><strong>Homework completed? Duration? RP adherence?</strong></p><div class="ws-line"></div>
+  <p><strong>Obstacles &amp; problem-solving:</strong></p><div class="ws-line"></div>
+  <p><strong>Y-BOCS / OCI-R this review · hierarchy re-rating:</strong></p><div class="ws-line"></div>
+  <p><strong>Functional gains (home/work/social):</strong></p><div class="ws-line"></div>
+</div>
+
+<div class="worksheet">
+  <span class="ws-num">Therapist Form G</span>
+  <h3>Family Accommodation Worksheet</h3>
+  <div class="ws-fields"><div class="ws-field">Therapist:</div><div class="ws-field">Family member:</div><div class="ws-field">Date:</div></div>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Accommodation (reassurance / ritual participation / avoidance for patient / changed routine)</th><th>How often</th><th>Agreed alternative response</th></tr></thead>
+    <tbody>
+      <tr><td><div class="ws-line" style="margin:2px 0"></div></td><td></td><td><div class="ws-line" style="margin:2px 0"></div></td></tr>
+      <tr><td><div class="ws-line" style="margin:2px 0"></div></td><td></td><td><div class="ws-line" style="margin:2px 0"></div></td></tr>
+      <tr><td><div class="ws-line" style="margin:2px 0"></div></td><td></td><td><div class="ws-line" style="margin:2px 0"></div></td></tr>
+    </tbody>
+  </table></div>
+  <p class="ws-purpose">Reduce gradually &amp; collaboratively. Pre-agree a warm decline + redirection for reassurance requests.</p>
+</div>
+
+<div class="worksheet">
+  <span class="ws-num">Therapist Form H</span>
+  <h3>Treatment Completion &amp; Relapse-Prevention Plan</h3>
+  <div class="ws-fields"><div class="ws-field">Therapist:</div><div class="ws-field">Patient:</div><div class="ws-field">Date:</div></div>
+  <p><strong>Major exposures completed · Generalisation achieved:</strong></p><div class="ws-line"></div>
+  <p><strong>Return-to-normal-behaviour guidelines given:</strong></p><div class="ws-line"></div>
+  <p><strong>Early warning signs &amp; agreed action plan:</strong></p><div class="ws-line"></div>
+  <p><strong>Follow-up phone calls scheduled (4–6):</strong></p><div class="ws-line"></div>
+  <p><strong>Booster/checkup plan:</strong></p><div class="ws-line"></div>
+</div>
+
+
+<!-- ============================================================
+     REFERENCES & CLOSING
+     ============================================================ -->
+<section class="slide" id="references">
+  <span class="slide-num">Attribution</span>
+  <h2 class="slide-title">Source &amp; Attribution</h2>
+  <p>This resource is an <strong>original educational rework</strong> — paraphrased notes, original diagrams, original fictional cases, dialogues, and worksheets — based primarily on:</p>
+  <div class="box clinical-ex">
+    <p>Foa, E. B., Yadin, E., &amp; Lichner, T. K. (2012). <em>Exposure and Response (Ritual) Prevention for Obsessive-Compulsive Disorder: Therapist Guide</em> (2nd ed.). Oxford University Press (Treatments That Work series).</p>
+    <p>Supplementary background: Clark, D. A. <em>Cognitive-Behavioral Therapy for OCD</em>. Assessment measure referenced: Yale-Brown Obsessive Compulsive Scale (Y-BOCS; Goodman et al., 1989).</p>
+  </div>
+  <div class="box caution"><span class="box-label">⚠ Use responsibly</span><p>For education and clinical training only. ERP should be delivered by, or under the supervision of, an appropriately trained clinician. Verify all measures, scoring, and medication information against current primary sources before clinical use. Fictional cases are illustrative and not real patients.</p></div>
+</section>
+
+<section class="cover" id="end" style="min-height:auto">
+  <div class="cov-badge">The End</div>
+  <h1 style="font-size:clamp(1.6rem,5vw,2.8rem)">Thank You</h1>
+  <p class="subtitle">Exposure &amp; Response Prevention — A Comprehensive Clinical Guide to OCD Treatment</p>
+  <div class="credit">Made by Tejas Dangodra<small>MPhil Clinical Psychology · ERP Seminar &amp; Training Resource</small></div>
+</section>
+
+<div class="footer-credit">
+  <p><strong>Made by Tejas Dangodra</strong></p>
+  <p>Exposure &amp; Response Prevention (EX/RP) for OCD · Comprehensive Clinical Training Resource</p>
+</div>
+
+</div><!-- /.content -->
+</div><!-- /.layout -->
+
+<button id="backTop" aria-label="Back to top" title="Back to top">↑</button>
+
+<script>
+/* Back-to-top visibility + action */
+(function(){
+  var bt=document.getElementById('backTop');
+  window.addEventListener('scroll',function(){
+    if(window.scrollY>500){bt.classList.add('show');}else{bt.classList.remove('show');}
+  });
+  bt.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+
+  /* Close mobile sidebar when a link is clicked */
+  var sb=document.getElementById('sidebar');
+  sb.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click',function(){ if(window.innerWidth<=900){ sb.classList.remove('open'); } });
+  });
+
+  /* Keyboard navigation: ← previous section, → next, Home, End */
+  function sections(){ return Array.prototype.slice.call(document.querySelectorAll('.content > section, .content > .session-head, .content > .worksheet')); }
+  function current(){
+    var secs=sections(), y=window.scrollY+90, idx=0;
+    for(var i=0;i<secs.length;i++){ if(secs[i].offsetTop<=y){ idx=i; } }
+    return {secs:secs, idx:idx};
+  }
+  document.addEventListener('keydown',function(e){
+    var tag=(e.target.tagName||'').toLowerCase();
+    if(tag==='input'||tag==='textarea') return;
+    var c=current();
+    if(e.key==='ArrowRight'){ e.preventDefault(); if(c.idx<c.secs.length-1){ c.secs[c.idx+1].scrollIntoView({behavior:'smooth'}); } }
+    else if(e.key==='ArrowLeft'){ e.preventDefault(); if(c.idx>0){ c.secs[c.idx-1].scrollIntoView({behavior:'smooth'}); } }
+    else if(e.key==='Home'){ e.preventDefault(); window.scrollTo({top:0,behavior:'smooth'}); }
+    else if(e.key==='End'){ e.preventDefault(); window.scrollTo({top:document.body.scrollHeight,behavior:'smooth'}); }
+  });
+
+  /* Active nav highlight via IntersectionObserver */
+  var links=Array.prototype.slice.call(document.querySelectorAll('.nav-link'));
+  var map={};
+  links.forEach(function(l){ var id=l.getAttribute('href').slice(1); map[id]=l; });
+  var targets=[]; Object.keys(map).forEach(function(id){ var el=document.getElementById(id); if(el) targets.push(el); });
+  if('IntersectionObserver' in window){
+    var obs=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){
+          links.forEach(function(l){ l.style.background=''; l.style.color=''; });
+          var l=map[en.target.id];
+          if(l){ l.style.background='var(--lavender)'; l.style.color='var(--ink)'; }
+        }
+      });
+    },{rootMargin:'-10% 0px -80% 0px'});
+    targets.forEach(function(t){ obs.observe(t); });
+  }
+})();
+</script>
+</body>
+</html>
