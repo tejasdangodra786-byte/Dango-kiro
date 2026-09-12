@@ -1,0 +1,1861 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rorschach Comprehensive System — Structural Summary Calculation Handbook | Made by Tejas Dangodra</title>
+<style>
+:root{
+  --lavender:#e7e3f7;
+  --lilac:#d9cef0;
+  --lilac-deep:#b9a7e0;
+  --powder:#d6e8f5;
+  --powder-deep:#a9cfe8;
+  --sage:#d7e8d4;
+  --sage-deep:#a9cba0;
+  --mint:#d4efe6;
+  --peach:#f8e3d1;
+  --peach-deep:#f0c9a8;
+  --blush:#f6dde4;
+  --blush-deep:#eabcc8;
+  --cream:#fbf7ef;
+  --grey:#eef0f3;
+  --ink:#3a3550;
+  --ink-soft:#5c5670;
+  --line:#e2ddef;
+  --warn:#c98a2b;
+  --warn-bg:#fdf1dc;
+  --err:#c0607a;
+  --err-bg:#fbe6ec;
+  --ok:#5a9a7a;
+  --ok-bg:#e2f2ea;
+  --whatif:#7a6bb0;
+  --whatif-bg:#efeaf9;
+  --radius:16px;
+  --shadow:0 6px 22px rgba(90,80,140,0.10);
+  --shadow-sm:0 3px 10px rgba(90,80,140,0.08);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif;
+  color:var(--ink);
+  background:linear-gradient(160deg,#f4f1fb 0%,#eef4fa 45%,#f2f8f2 100%);
+  line-height:1.65;
+  font-size:16px;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1080px;margin:0 auto;padding:24px 20px 80px;}
+
+/* ---------- COVER ---------- */
+.cover{
+  background:linear-gradient(140deg,var(--lavender) 0%,var(--powder) 50%,var(--mint) 100%);
+  border-radius:28px;
+  padding:64px 40px 52px;
+  text-align:center;
+  box-shadow:var(--shadow);
+  position:relative;
+  overflow:hidden;
+  margin-bottom:36px;
+  border:1px solid rgba(255,255,255,0.6);
+}
+.cover::before{
+  content:"";position:absolute;top:-80px;right:-60px;width:260px;height:260px;
+  background:radial-gradient(circle,rgba(255,255,255,0.55),transparent 70%);border-radius:50%;
+}
+.cover::after{
+  content:"";position:absolute;bottom:-90px;left:-70px;width:300px;height:300px;
+  background:radial-gradient(circle,rgba(255,255,255,0.4),transparent 70%);border-radius:50%;
+}
+.cover .kicker{position:relative;display:inline-block;background:rgba(255,255,255,0.7);
+  color:var(--ink-soft);padding:7px 20px;border-radius:30px;font-size:.82rem;letter-spacing:.14em;
+  text-transform:uppercase;font-weight:700;margin-bottom:22px;}
+.cover h1{position:relative;font-size:2.55rem;line-height:1.15;letter-spacing:.01em;margin-bottom:14px;color:#4a4270;}
+.cover .sub{position:relative;font-size:1.18rem;color:var(--ink-soft);font-weight:600;margin-bottom:8px;}
+.cover .subline{position:relative;font-size:1rem;color:var(--ink-soft);margin-bottom:26px;}
+.cover .system{position:relative;display:inline-block;background:rgba(255,255,255,0.85);
+  padding:10px 26px;border-radius:14px;font-weight:700;color:#5b4f8a;letter-spacing:.05em;
+  box-shadow:var(--shadow-sm);margin-bottom:30px;}
+.cover .author{position:relative;font-size:1.05rem;color:#4a4270;font-weight:700;margin-top:8px;}
+.cover .author small{display:block;font-weight:500;color:var(--ink-soft);font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:4px;}
+
+/* ---------- TYPOGRAPHY ---------- */
+h2.part{
+  font-size:1.6rem;color:#4a4270;margin:52px 0 6px;padding:16px 22px;
+  background:linear-gradient(100deg,var(--lilac),var(--powder));
+  border-radius:14px 14px 0 0;box-shadow:var(--shadow-sm);scroll-margin-top:70px;
+  border-bottom:3px solid rgba(255,255,255,0.7);
+}
+h2.part .pill{display:inline-block;background:rgba(255,255,255,0.7);border-radius:8px;padding:2px 12px;
+  font-size:.85rem;font-weight:700;margin-right:12px;color:#5b4f8a;vertical-align:middle;}
+h3{font-size:1.24rem;color:#544a7a;margin:30px 0 12px;}
+h4{font-size:1.05rem;color:#5c5670;margin:20px 0 8px;}
+p{margin:10px 0;}
+ul,ol{margin:10px 0 10px 26px;}
+li{margin:5px 0;}
+strong{color:#4a4270;}
+code{background:var(--grey);padding:2px 7px;border-radius:6px;font-family:"SF Mono",Consolas,monospace;
+  font-size:.9em;color:#6a4a8a;}
+a{color:#7259ad;text-decoration:none;}
+a:hover{text-decoration:underline;}
+.section-body{background:#fff;border-radius:0 0 16px 16px;padding:24px 26px;box-shadow:var(--shadow-sm);
+  border:1px solid var(--line);border-top:none;margin-bottom:14px;}
+
+/* ---------- TABLES ---------- */
+.table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:16px 0;border-radius:12px;}
+table{border-collapse:collapse;width:100%;min-width:460px;background:#fff;border-radius:12px;overflow:hidden;
+  box-shadow:var(--shadow-sm);font-size:.94rem;}
+th{background:var(--lilac);color:#4a4270;text-align:left;padding:11px 13px;font-weight:700;font-size:.9rem;}
+td{padding:10px 13px;border-top:1px solid var(--line);vertical-align:top;}
+tr:nth-child(even) td{background:#faf9fd;}
+
+/* ---------- BOXES ---------- */
+.box{border-radius:var(--radius);padding:18px 20px;margin:18px 0;box-shadow:var(--shadow-sm);}
+.formula{background:var(--powder);border-left:6px solid var(--powder-deep);}
+.formula .fname{font-weight:700;color:#3f6a86;letter-spacing:.02em;text-transform:uppercase;font-size:.82rem;margin-bottom:8px;}
+.formula .feq{font-size:1.35rem;font-family:"SF Mono",Consolas,monospace;color:#2f5a76;background:#fff;
+  padding:12px 16px;border-radius:10px;display:block;margin:6px 0;overflow-x:auto;}
+.calc{background:#fff;border:1px dashed var(--powder-deep);border-radius:12px;padding:14px 16px;margin:12px 0;
+  font-family:"SF Mono",Consolas,monospace;font-size:.95rem;color:#4a4270;white-space:pre-wrap;line-height:1.9;}
+.result{background:var(--sage);border-left:6px solid var(--sage-deep);font-weight:600;color:#3c5f42;}
+.example{background:var(--mint);border-left:6px solid #8fcdb5;}
+.example .etitle{font-weight:700;color:#357a5f;text-transform:uppercase;font-size:.8rem;letter-spacing:.06em;margin-bottom:6px;}
+.warn{background:var(--warn-bg);border-left:6px solid var(--warn);}
+.warn::before{content:"⚠  ";font-weight:700;}
+.warn strong{color:#9a6a1e;}
+.err{background:var(--err-bg);border-left:6px solid var(--err);}
+.err .etitle{font-weight:700;color:#a24a63;text-transform:uppercase;font-size:.8rem;letter-spacing:.06em;margin-bottom:6px;}
+.whatif{background:var(--whatif-bg);border-left:6px solid var(--whatif);}
+.whatif .wtitle{font-weight:800;color:#5f4f9a;text-transform:uppercase;font-size:.85rem;letter-spacing:.08em;margin-bottom:8px;}
+.whatif .wtitle::before{content:"❓ ";}
+.tip{background:var(--ok-bg);border-left:6px solid var(--ok);}
+.tip strong{color:#3d7a5c;}
+.note{background:var(--blush);border-left:6px solid var(--blush-deep);}
+.note strong{color:#a24a63;}
+
+/* ---------- FLOWCHART ---------- */
+.flow{display:flex;flex-direction:column;align-items:center;gap:0;margin:20px 0;}
+.flow .node{background:#fff;border:2px solid var(--lilac-deep);border-radius:12px;padding:9px 18px;
+  font-weight:600;color:#4a4270;text-align:center;box-shadow:var(--shadow-sm);max-width:520px;font-size:.95rem;}
+.flow .node.accent{background:var(--lilac);}
+.flow .node.terminal{background:var(--sage);border-color:var(--sage-deep);}
+.flow .arrow{color:var(--lilac-deep);font-size:1.3rem;line-height:1.1;}
+
+/* ---------- STEP INDICATOR ---------- */
+.step{display:flex;gap:14px;align-items:flex-start;margin:14px 0;background:#fff;border-radius:12px;
+  padding:14px 16px;box-shadow:var(--shadow-sm);border:1px solid var(--line);}
+.step .num{flex:none;width:38px;height:38px;border-radius:50%;background:var(--lilac);color:#4a4270;
+  display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1.05rem;}
+.step .body{flex:1;}
+.step .body h4{margin-top:0;}
+
+/* ---------- CARDS GRID ---------- */
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;margin:16px 0;}
+.fcard{background:#fff;border-radius:14px;padding:16px;box-shadow:var(--shadow-sm);border:1px solid var(--line);
+  border-top:4px solid var(--lilac-deep);}
+.fcard h4{margin:0 0 6px;color:#4a4270;}
+.fcard .eq{font-family:"SF Mono",Consolas,monospace;background:var(--grey);padding:6px 8px;border-radius:8px;
+  font-size:.86rem;color:#6a4a8a;display:block;margin:6px 0;}
+.fcard .lbl{font-size:.74rem;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-soft);font-weight:700;margin-top:8px;}
+
+/* ---------- TOC ---------- */
+.toc{background:#fff;border-radius:18px;padding:26px 28px;box-shadow:var(--shadow);border:1px solid var(--line);margin-bottom:30px;}
+.toc h2{color:#4a4270;font-size:1.4rem;margin-bottom:14px;}
+.toc-grid{columns:2;column-gap:34px;}
+.toc-grid a{display:block;padding:4px 0;font-size:.93rem;break-inside:avoid;border-bottom:1px dotted var(--line);}
+.toc .quick{margin-top:16px;display:flex;flex-wrap:wrap;gap:8px;}
+.toc .quick a{background:var(--lavender);padding:6px 14px;border-radius:20px;font-size:.82rem;font-weight:600;border:none;}
+
+/* ---------- CHECKLIST ---------- */
+.checklist{columns:2;column-gap:30px;list-style:none;margin-left:0;}
+.checklist li{break-inside:avoid;padding:3px 0;}
+.checklist li::before{content:"☐  ";color:var(--lilac-deep);font-weight:700;}
+
+/* ---------- NAV BUTTONS ---------- */
+.pagenav{display:flex;justify-content:space-between;gap:10px;margin:24px 0 8px;flex-wrap:wrap;}
+.pagenav a{background:var(--lilac);color:#4a4270;padding:9px 18px;border-radius:24px;font-weight:600;font-size:.9rem;
+  box-shadow:var(--shadow-sm);}
+.pagenav a:hover{background:var(--lilac-deep);color:#fff;text-decoration:none;}
+
+/* ---------- FLOATING HOME ---------- */
+.homebtn{position:fixed;bottom:20px;right:20px;background:var(--lilac-deep);color:#fff;width:52px;height:52px;
+  border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.3rem;box-shadow:var(--shadow);
+  z-index:50;text-decoration:none;}
+.homebtn:hover{background:#9d88d0;text-decoration:none;}
+
+/* ---------- FOOTER ---------- */
+.footer{margin-top:50px;padding:30px;text-align:center;background:linear-gradient(120deg,var(--lavender),var(--mint));
+  border-radius:20px;box-shadow:var(--shadow-sm);color:var(--ink-soft);}
+.footer .credit{font-size:1.15rem;font-weight:700;color:#4a4270;margin-bottom:6px;}
+.watermark{text-align:center;color:var(--ink-soft);font-size:.85rem;margin:26px 0 0;letter-spacing:.05em;}
+
+.big-eq{font-size:1.6rem;text-align:center;}
+.muted{color:var(--ink-soft);font-size:.9rem;}
+hr{border:none;border-top:1px solid var(--line);margin:26px 0;}
+
+/* ---------- RESPONSIVE ---------- */
+@media(max-width:720px){
+  body{font-size:15px;}
+  .cover{padding:44px 22px 40px;}
+  .cover h1{font-size:1.85rem;}
+  .toc-grid,.checklist{columns:1;}
+  .flow .node{max-width:100%;}
+  h2.part{font-size:1.3rem;}
+}
+
+/* ---------- PRINT ---------- */
+@media print{
+  body{background:#fff;color:#000;font-size:11pt;}
+  .wrap{max-width:100%;padding:0;}
+  .homebtn,.pagenav,.toc .quick{display:none !important;}
+  .cover,.toc,.section-body,.box,.step,.fcard,table{box-shadow:none;}
+  .cover{background:#fff !important;border:1px solid #999;}
+  .cover::before,.cover::after{display:none;}
+  h2.part{background:#eee !important;color:#000;-webkit-print-color-adjust:exact;print-color-adjust:exact;page-break-after:avoid;}
+  .box,.step,table,.flow{page-break-inside:avoid;}
+  .table-scroll{overflow:visible;}
+  table{min-width:0;font-size:9.5pt;}
+  a{color:#000;text-decoration:none;}
+  th{background:#e5e0f2 !important;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .formula,.result,.example,.warn,.err,.whatif,.tip,.note{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .part-break{page-break-before:always;}
+}
+</style>
+</head>
+<body>
+<a href="#top" class="homebtn" title="Back to contents">⌂</a>
+<div class="wrap" id="top">
+
+<!-- ============ COVER ============ -->
+<div class="cover">
+  <span class="kicker">MPhil Clinical Psychology · Assessment Handbook</span>
+  <h1>Rorschach Comprehensive System</h1>
+  <div class="sub">Structural Summary</div>
+  <div class="subline">Complete Scoring • Formulas • Calculations • Edge Cases</div>
+  <div class="subline"><em>From Response Coding to Final Structural Summary</em></div>
+  <div class="system">EXNER COMPREHENSIVE SYSTEM</div>
+  <div class="author"><small>Made by</small>Tejas Dangodra</div>
+</div>
+
+<div class="note">
+<strong>How to use this handbook.</strong> This is a simple, step-by-step guide. Its job is to show you exactly how to take a
+<em>fully coded</em> Rorschach protocol and turn it into a complete Structural Summary — every tally, every formula, every
+substitution, and every calculation, one small step at a time. You do not need to know interpretation to use it; you only
+need a protocol that has already been coded.
+</div>
+
+<div class="box tip">
+<strong>What "look it up in the table" means.</strong> A few numbers in the Rorschach are not calculated — they are read off a
+fixed reference table. These are: the <strong>Form Quality</strong> of a response, the <strong>Z value</strong> for each organised response,
+the <strong>Zest</strong> figure, the <strong>D-score conversion</strong>, and whether a response is <strong>Popular</strong>. Whenever this guide reaches
+one of these, it tells you clearly to <em>read the value from the table</em> rather than guess it. Everything else you compute yourself,
+and this handbook shows you how.
+</div>
+
+<div class="box warn">
+<strong>One version, start to finish.</strong> This handbook uses a single, consistent version of the Exner Comprehensive System —
+the modern one that uses the <strong>PTI (Perceptual-Thinking Index)</strong> and reports <strong>XA%, WDA%, GHR:PHR, and EBPer</strong>.
+Keep to one version: do not mix formulas, weights, or cut-off rules from different editions, or your numbers will not agree.
+</div>
+
+<!-- ============ TOC ============ -->
+<div class="toc" id="contents">
+  <h2>Table of Contents</h2>
+  <div class="toc-grid">
+    <a href="#p1">I. What is the Structural Summary?</a>
+    <a href="#p2">II. Starting from the Response Record</a>
+    <a href="#p3">III. Step Zero — Verify the Protocol</a>
+    <a href="#p4">IV. Response Frequency (R)</a>
+    <a href="#p5">V. Location (W, D, Dd, S)</a>
+    <a href="#p6">VI. Developmental Quality (DQ)</a>
+    <a href="#p7">VII. Determinants</a>
+    <a href="#p8">VIII. Form Quality (FQ)</a>
+    <a href="#p9">IX. Content</a>
+    <a href="#p10">X. Populars (P)</a>
+    <a href="#p11">XI. Z Scores (Zf, Zsum, Zest, Zd)</a>
+    <a href="#p12">XII. Special Scores</a>
+    <a href="#p13">XIII. Formula Master Sheet</a>
+    <a href="#p14">XIV. Lambda (L)</a>
+    <a href="#p15">XV. Experience Balance (EB)</a>
+    <a href="#p16">XVI. EA</a>
+    <a href="#p17">XVII. eb</a>
+    <a href="#p18">XVIII. es</a>
+    <a href="#p19">XIX. D Score</a>
+    <a href="#p20">XX. Adjusted D (AdjD)</a>
+    <a href="#p21">XXI. Affective Variables</a>
+    <a href="#p22">XXII. Information Processing</a>
+    <a href="#p23">XXIII. Mediation</a>
+    <a href="#p24">XXIV. Ideation (WSum6)</a>
+    <a href="#p25">XXV. Self-Perception</a>
+    <a href="#p26">XXVI. Interpersonal Variables</a>
+    <a href="#p27">XXVII. Constellations</a>
+    <a href="#p28">XXVIII. Validity</a>
+    <a href="#p29">XXIX. A–Z Structural Summary Workflow</a>
+    <a href="#p30">XXX. Complete Worked Example</a>
+    <a href="#p31">XXXI. Unique Edge-Case "What If?" Index</a>
+    <a href="#p32">XXXII. When Scoring is Difficult</a>
+    <a href="#p33">XXXIII. Common Calculation Errors</a>
+    <a href="#p34">XXXIV. By-Hand Calculation Worksheet</a>
+    <a href="#p35">XXXV. Calculation Table</a>
+    <a href="#p36">XXXVI. From Response to Structural Summary</a>
+    <a href="#p37">XXXVII. Complete Final Structural Summary</a>
+    <a href="#p38">XXXVIII. Reverse Checking (Audit)</a>
+    <a href="#p39">XXXIX. Exam / Practical Quick Reference</a>
+    <a href="#p40">XL. Formula Flashcards</a>
+    <a href="#p41">XLI. Final Master Algorithm</a>
+  </div>
+  <div class="quick">
+    <a href="#p13">★ Formula Index</a>
+    <a href="#p31">★ Edge-Case Index</a>
+    <a href="#p34">★ Worksheet</a>
+    <a href="#p30">★ Worked Example</a>
+    <a href="#p41">★ A–Z Algorithm</a>
+  </div>
+</div>
+
+
+<!-- ============ PART I ============ -->
+<h2 class="part part-break" id="p1"><span class="pill">Part I</span>What is the Structural Summary?</h2>
+<div class="section-body">
+<p>The <strong>Structural Summary</strong> is the single page (front, plus a "Sequence of Scores" and constellation section) on which every coded
+variable of a protocol is <strong>tallied, combined into ratios and percentages, and converted into derived scores and indices</strong>. It is the
+statistical skeleton of the record.</p>
+
+<h3>1. What it is</h3>
+<p>A structured worksheet with three regions: (a) the <strong>upper section</strong> of frequency tallies (Location, DQ, Determinants, Contents, FQ,
+Z, Special Scores, Approach); (b) the <strong>lower section</strong> of computed variables grouped into seven clusters — Controls, Affect, Processing,
+Mediation, Ideation, Self-Perception, Interpersonal; and (c) the <strong>constellations</strong> (PTI, DEPI, CDI, S-CON, HVI, OBS).</p>
+
+<h3>2. Why it is created</h3>
+<p>Because interpretation is <em>data-driven</em>, not impressionistic. Ratios such as EB, EA:es, and Afr only become meaningful once every
+contributing frequency is counted exactly. The Summary makes the whole record computable and auditable.</p>
+
+<h3>3. How it differs from the response record</h3>
+<p>The <strong>response record</strong> is the verbatim answers plus inquiry. It contains words; the Structural Summary contains <em>numbers</em> derived from
+the coding of those words.</p>
+
+<h3>4. How it differs from the coding (sequence-of-scores) sheet</h3>
+<p>The <strong>Sequence of Scores</strong> lists each response in order with its full code string (Location, DQ, Determinants, FQ, (2), Content, P, Z, Special).
+The Structural Summary <em>aggregates</em> those code strings into totals — it loses the per-response order but gains the frequencies needed for formulas.</p>
+
+<h3>5. How it differs from interpretation</h3>
+<p>Interpretation is the clinical narrative built <em>after</em> the Summary is computed and validated. The Summary is arithmetic; interpretation is meaning.</p>
+
+<h3>6. Why raw coding must be accurate first</h3>
+<div class="box warn"><strong>One coding error cascades.</strong> Missing a single <code>FT</code> on the Card VI Popular can make <code>SumT = 0</code>, which changes <code>es</code>, then <code>D</code>, then <code>AdjD</code>, then the HVI prerequisite, then S-CON. Garbage in, garbage out.</div>
+
+<div class="flow">
+  <div class="node">RAW RESPONSE (verbatim + inquiry)</div><div class="arrow">↓</div>
+  <div class="node">CODED RESPONSE (7 categories)</div><div class="arrow">↓</div>
+  <div class="node">CODED PROTOCOL (Sequence of Scores)</div><div class="arrow">↓</div>
+  <div class="node accent">STRUCTURAL SUMMARY (tallies + ratios)</div><div class="arrow">↓</div>
+  <div class="node accent">DERIVED VARIABLES (EB, EA, es, D, AdjD…)</div><div class="arrow">↓</div>
+  <div class="node terminal">INTERPRETATION</div>
+</div>
+<div class="pagenav"><a href="#contents">⌂ Contents</a><a href="#p2">Part II →</a></div>
+</div>
+
+<!-- ============ PART II ============ -->
+<h2 class="part" id="p2"><span class="pill">Part II</span>Starting from the Response Record</h2>
+<div class="section-body">
+<p>Before any calculation begins, <strong>each response must already carry its complete code string</strong>. If any category is missing, stop and complete the coding first.</p>
+
+<h3>Pre-calculation coding checklist (per response)</h3>
+<ul class="checklist">
+<li>R (counted correctly)</li>
+<li>Location (W / D / Dd)</li>
+<li>Space (S) modifier where used</li>
+<li>DQ (+, o, v/+, v)</li>
+<li>Determinant(s) — all of a blend</li>
+<li>FQ (+, o, u, −, none)</li>
+<li>Movement a/p superscripts</li>
+<li>Chromatic color (FC/CF/C)</li>
+<li>Achromatic color (FC'/C'F/C')</li>
+<li>Shading (T, V, Y families)</li>
+<li>Pair (2) &amp; Reflection (Fr/rF)</li>
+<li>Form Dimension (FD)</li>
+<li>Human content (H,(H),Hd,(Hd),Hx)</li>
+<li>Animal content (A,(A),Ad,(Ad))</li>
+<li>Anatomy / X-ray (An, Xy)</li>
+<li>Other content codes</li>
+<li>Popular (P)</li>
+<li>Z score (where applicable)</li>
+<li>Special cognitive scores (DV…CON)</li>
+<li>Human-representation (GHR/PHR)</li>
+</ul>
+<div class="box err"><div class="etitle">Non-negotiable</div>You <strong>cannot</strong> calculate a Structural Summary reliably if the underlying response coding is wrong or incomplete. Verify coding <em>before</em> tallying.</div>
+<div class="pagenav"><a href="#p1">← Part I</a><a href="#contents">⌂ Contents</a><a href="#p3">Part III →</a></div>
+</div>
+
+<!-- ============ PART III ============ -->
+<h2 class="part" id="p3"><span class="pill">Part III</span>Step Zero — Verify the Protocol</h2>
+<div class="section-body">
+<h3>Structural Summary pre-calculation checklist</h3>
+<div class="table-scroll"><table>
+<tr><th>#</th><th>Verify</th><th>What to confirm</th></tr>
+<tr><td>1</td><td>Number of responses</td><td>Count matches your running total; no response merged or split by accident</td></tr>
+<tr><td>2</td><td>Card sequence</td><td>Ten cards in order I–X; note rejections and additional responses</td></tr>
+<tr><td>3</td><td>Response numbering</td><td>Continuous numbering 1…R; card boundaries marked</td></tr>
+<tr><td>4</td><td>Location coding</td><td>Every response has W/D/Dd; S added only as modifier</td></tr>
+<tr><td>5</td><td>Determinant coding</td><td>Blends complete; a/p superscripts present on all movement</td></tr>
+<tr><td>6</td><td>Form Quality</td><td>Each response has +, o, u, −, or none (per FQ table)</td></tr>
+<tr><td>7</td><td>Content</td><td>Primary + secondary contents all listed</td></tr>
+<tr><td>8</td><td>Popular</td><td>Checked against the Popular list for that card</td></tr>
+<tr><td>9</td><td>Z scores</td><td>Assigned to every response that qualifies; value from the Z table</td></tr>
+<tr><td>10</td><td>Special Scores</td><td>DV/INC/DR/FAB/ALOG/CON + Level 1/2; MOR, AG, COP, PER, AB, GHR/PHR</td></tr>
+</table></div>
+<div class="box tip"><strong>Simple rule:</strong> if any item above is uncertain, settle it <em>now</em>, before you start the arithmetic. Never carry a coding doubt into the numbers.</div>
+<div class="pagenav"><a href="#p2">← Part II</a><a href="#contents">⌂ Contents</a><a href="#p4">Part IV →</a></div>
+</div>
+
+<!-- ============ PART IV ============ -->
+<h2 class="part" id="p4"><span class="pill">Part IV</span>Response Frequency (R)</h2>
+<div class="section-body">
+<div class="box formula"><div class="fname">R — Total Responses</div><span class="feq">R = total number of scorable responses in the record</span></div>
+<p>Count each scored response once. Extra responses that appear only during the Inquiry (not in the first, free-response phase) are generally <em>not</em> added to R.</p>
+
+<div class="box example"><div class="etitle">Example</div>
+<div class="calc">Card I: 2 responses
+Card II: 1
+Card III: 2
+Card IV: 1
+Card V: 2
+Card VI: 1
+Card VII: 2
+Card VIII: 3
+Card IX: 1
+Card X: 3
+--------------------
+R = 2+1+2+1+2+1+2+3+1+3
+R = 18</div></div>
+
+<h3>Special cases for R</h3>
+<div class="table-scroll"><table>
+<tr><th>Situation</th><th>What to do</th></tr>
+<tr><td>R is very low</td><td>Be careful — a very short record may not support full interpretation (see Part XXVIII). Use the set minimum; do not make up a cut-off.</td></tr>
+<tr><td>R is very high</td><td>High productivity inflates several frequencies; watch percentages that use R as denominator.</td></tr>
+<tr><td>Borderline R</td><td>Proceed but flag; re-check whether the administration prompted enough responses.</td></tr>
+<tr><td>Fewer responses than expected</td><td>Confirm none were lost in recording; verify card-by-card.</td></tr>
+<tr><td>Multiple responses to one blot</td><td>All are counted; each is coded independently.</td></tr>
+<tr><td>Omitted / rejected card</td><td>Record the rejection; it does not add to R but is clinically noted.</td></tr>
+<tr><td>Testing terminated early</td><td>Note incompleteness; validity may be compromised.</td></tr>
+</table></div>
+<div class="box warn"><strong>Do not make up cut-offs.</strong> The smallest R that still allows interpretation is a fixed, published figure — use that exact number as it is written.</div>
+<div class="pagenav"><a href="#p3">← Part III</a><a href="#contents">⌂ Contents</a><a href="#p5">Part V →</a></div>
+</div>
+
+
+<!-- ============ PART V ============ -->
+<h2 class="part part-break" id="p5"><span class="pill">Part V</span>Location — W, D, Dd, S</h2>
+<div class="section-body">
+<div class="table-scroll"><table>
+<tr><th>Code</th><th>Meaning</th><th>How to tally</th></tr>
+<tr><td><code>W</code></td><td>Whole blot used (nothing meaningful omitted)</td><td>Count every response coded W (including WS)</td></tr>
+<tr><td><code>D</code></td><td>Common detail (a listed, frequently-used area)</td><td>Count every D and DS</td></tr>
+<tr><td><code>Dd</code></td><td>Unusual detail (any area not W or D)</td><td>Count every Dd and DdS</td></tr>
+<tr><td><code>S</code></td><td>White space used as a meaningful feature</td><td>Count S as a <strong>separate</strong> tally; it is always attached to W/D/Dd, never standing alone</td></tr>
+</table></div>
+<div class="box note"><strong>Avoid double-counting.</strong> Each response contributes <strong>one</strong> location (W or D or Dd). The <code>S</code> tally is <em>additional</em> — <code>WS</code> adds 1 to W and 1 to S. So W + D + Dd = R, while S is counted on top.</div>
+
+<div class="box example"><div class="etitle">Fictional protocol — location tally (R = 10)</div>
+<div class="calc">1 → W        6 → WS
+2 → D        7 → D
+3 → Dd       8 → Dd
+4 → D        9 → DS
+5 → W       10 → D
+
+W  = responses 1,5,6      → W  = 3
+D  = responses 2,4,7,9,10 → D  = 5
+Dd = responses 3,8        → Dd = 2
+S  = responses 6,9        → S  = 2   (added on top)
+
+Check: W + D + Dd = 3 + 5 + 2 = 10 = R  ✓</div></div>
+
+<h3>Location cautions</h3>
+<ul>
+<li><code>WS</code>, <code>DS</code>, <code>DdS</code> — the S is a modifier; tally the base location <em>and</em> the S.</li>
+<li>Multiple location claims ("the whole thing" but only part described in inquiry) → code what was <em>actually</em> used.</li>
+<li>S is never a stand-alone location code.</li>
+<li>When ambiguous, the exact coding rule (verified in inquiry against the location table) decides the Summary entry.</li>
+</ul>
+<div class="box warn"><strong>W + D + Dd must equal R.</strong> If it does not, a location code was missed or duplicated — fix it before continuing.</div>
+<div class="pagenav"><a href="#p4">← Part IV</a><a href="#contents">⌂ Contents</a><a href="#p6">Part VI →</a></div>
+</div>
+
+<!-- ============ PART VI ============ -->
+<h2 class="part" id="p6"><span class="pill">Part VI</span>Developmental Quality (DQ)</h2>
+<div class="section-body">
+<div class="table-scroll"><table>
+<tr><th>Symbol</th><th>Name</th><th>Meaning</th></tr>
+<tr><td><code>+</code></td><td>Synthesised</td><td>Two or more discrete areas/parts meaningfully integrated; all with form demand</td></tr>
+<tr><td><code>o</code></td><td>Ordinary</td><td>A discrete object with specific form demand; no integration</td></tr>
+<tr><td><code>v/+</code></td><td>Vague/Synthesised</td><td>Integration present, but ≥1 component is formless</td></tr>
+<tr><td><code>v</code></td><td>Vague</td><td>No form demand (cloud, smoke, blood-without-shape) and no integration</td></tr>
+</table></div>
+<h3>How DQ enters the Summary</h3>
+<p>Tally the count of each: DQ+, DQo, DQv/+, DQv. Their sum equals R. DQ+ feeds processing interpretation; DQv is watched for developmental immaturity.</p>
+<div class="box example"><div class="etitle">Example (R = 6)</div>
+<div class="calc">1 "two people lifting a basket"  → +
+2 "a bat"                        → o
+3 "clouds around a peak"         → v/+
+4 "smoke"                        → v
+5 "a butterfly"                  → o
+6 "a woman wearing a hat"        → +
+
+DQ+   = 2      DQo  = 2
+DQv/+ = 1      DQv  = 1
+Check: 2+2+1+1 = 6 = R  ✓</div></div>
+<h3>Handling uncertainty</h3>
+<p>Use the decision tree: <em>Are ≥2 parts meaningfully related?</em> If yes → do all parts have form? Yes = <code>+</code>, No = <code>v/+</code>. If not related → does the single object have definite shape? Yes = <code>o</code>, No = <code>v</code>.</p>
+<div class="pagenav"><a href="#p5">← Part V</a><a href="#contents">⌂ Contents</a><a href="#p7">Part VII →</a></div>
+</div>
+
+<!-- ============ PART VII ============ -->
+<h2 class="part" id="p7"><span class="pill">Part VII</span>Determinants</h2>
+<div class="section-body">
+<p>Determinants are the blot features that formed the response. A response has one determinant (single) or several (a <strong>blend</strong>, joined by periods, e.g. <code>ma.FY</code>).</p>
+
+<div class="table-scroll"><table>
+<tr><th>Family</th><th>Codes</th><th>Notes for tallying</th></tr>
+<tr><td>Movement</td><td><code>M</code>, <code>FM</code>, <code>m</code> (each a/p)</td><td>Human / animal-natural / inanimate. Tally a:p and Ma:Mp separately.</td></tr>
+<tr><td>Chromatic color</td><td><code>FC</code>, <code>CF</code>, <code>C</code></td><td>Step-down when in doubt (FC→CF→C). Feed WSumC.</td></tr>
+<tr><td>Achromatic color</td><td><code>FC'</code>, <code>C'F</code>, <code>C'</code></td><td>Feed SumC' (right side of eb, es).</td></tr>
+<tr><td>Shading — Vista</td><td><code>FV</code>, <code>VF</code>, <code>V</code></td><td>Depth from shading. Feed SumV.</td></tr>
+<tr><td>Shading — Texture</td><td><code>FT</code>, <code>TF</code>, <code>T</code></td><td>Tactile. Feed SumT.</td></tr>
+<tr><td>Shading — Diffuse</td><td><code>FY</code>, <code>YF</code>, <code>Y</code></td><td>Light/dark, no texture/depth. Feed SumY.</td></tr>
+<tr><td>Form</td><td><code>F</code></td><td>Pure form only. Feeds Lambda.</td></tr>
+<tr><td>Form Dimension</td><td><code>FD</code></td><td>Depth from size/shape (not shading). Self-perception.</td></tr>
+<tr><td>Reflection</td><td><code>Fr</code>, <code>rF</code></td><td>Feed Fr+rF and 3r+(2)/R.</td></tr>
+<tr><td>Pair</td><td><code>(2)</code></td><td>Symmetry-based pair; feeds 3r+(2)/R.</td></tr>
+</table></div>
+
+<h3>Determinant tally method</h3>
+<div class="step"><div class="num">1</div><div class="body">Locate <em>every</em> occurrence of the determinant in the Sequence of Scores — including inside blends.</div></div>
+<div class="step"><div class="num">2</div><div class="body">Count it (each blend contributes to <em>each</em> of its determinants).</div></div>
+<div class="step"><div class="num">3</div><div class="body">Enter the frequency in the Summary column.</div></div>
+<div class="step"><div class="num">4</div><div class="body">Verify the total against the response record.</div></div>
+<div class="step"><div class="num">5</div><div class="body">Compute weighted values where required (WSumC uses weights below).</div></div>
+<div class="step"><div class="num">6</div><div class="body">Transfer to the derived-variable section (EB, eb, es…).</div></div>
+
+<div class="box formula"><div class="fname">Weighted Sum of Color (WSumC)</div>
+<span class="feq">WSumC = (0.5 × FC) + (1.0 × CF) + (1.5 × C)</span></div>
+<p class="muted">These chromatic-color weights (FC = 0.5, CF = 1.0, C = 1.5) are the standard Comprehensive System weights; they are the right side of the EB and the whole of the affect side of EA. <code>Cn</code> (color naming), where present, is weighted with C.</p>
+
+<h3>Multiple determinants (blends)</h3>
+<ul>
+<li>A <strong>blend</strong> is counted <em>once</em> as a response but each determinant it contains is tallied in its own column.</li>
+<li>A response is a blend only if two or more <em>different</em> determinants genuinely contributed (evidenced in the record).</li>
+<li>The <strong>Blends:R</strong> tally counts responses containing ≥2 determinants.</li>
+<li>A <strong>Color-Shading blend</strong> (chromatic color + any shading or C') is flagged separately (affect ambivalence; S-CON variable).</li>
+</ul>
+<div class="box example"><div class="etitle">Blend tally example</div>
+<div class="calc">R3: ma.FY   → m(+1, active), FY(+1)  → 1 blend
+R7: CF.FC'  → CF(+1), FC'(+1)        → 1 blend  (color-shading blend)
+R9: M.FC    → M(+1), FC(+1)          → 1 blend
+
+FM count, m count, FC/CF, FC', FY each get +1 where they appear.
+Blends:R numerator = 3 (three responses were blends)</div></div>
+<div class="box warn"><strong>Do not double-code a family.</strong> Coding both FC and CF for one determinant, or logging a blend twice, corrupts WSumC, eb, and es. When color vs shading intent is unclear, apply the step-down / "code Y when in doubt" rules from the coding guide.</div>
+<div class="pagenav"><a href="#p6">← Part VI</a><a href="#contents">⌂ Contents</a><a href="#p8">Part VIII →</a></div>
+</div>
+
+<!-- ============ PART VIII ============ -->
+<h2 class="part" id="p8"><span class="pill">Part VIII</span>Form Quality (FQ)</h2>
+<div class="section-body">
+<div class="table-scroll"><table>
+<tr><th>Symbol</th><th>Name</th><th>Basis</th></tr>
+<tr><td><code>+</code></td><td>Superior-Overelaborated</td><td>Unusually precise, enriched use of form (still fits)</td></tr>
+<tr><td><code>o</code></td><td>Ordinary</td><td>Common, easily-seen form matching the area (in FQ table)</td></tr>
+<tr><td><code>u</code></td><td>Unusual</td><td>Low-frequency but the contour is not violated; a defensible fit</td></tr>
+<tr><td><code>−</code></td><td>Minus</td><td>Form is distorted / arbitrary; contours violated</td></tr>
+<tr><td><code>none</code></td><td>No form</td><td>Response has no form basis (e.g., pure C, pure Y, pure C')</td></tr>
+</table></div>
+<div class="box warn"><strong>Form Quality is looked up, not guessed.</strong> Whether a given object in a given area is <code>o</code>, <code>u</code>, or <code>−</code> is read from the Form Quality reference table — never decided from memory. This guide shows you the procedure; you read the actual grade from the table.</div>
+<h3>How FQ enters the Summary</h3>
+<p>Tally FQ+, FQo, FQu, FQ−, FQnone. These feed the mediation percentages (XA%, WDA%, X+%, X−%, Xu%) — see Part XXIII. The "form appropriate" set for XA% is <code>+, o, u</code>; the "distorted" set is <code>−</code>.</p>
+<h3>Difficult cases</h3>
+<ul>
+<li>Form clearly accurate → look up; usually <code>o</code>.</li>
+<li>Form vague → the response may be DQv with FQ derived from the table for that vague class.</li>
+<li>Form distorted → <code>−</code>.</li>
+<li>Form not used (response rests on color/shading only) → <code>none</code>.</li>
+<li>Multiple determinants → FQ reflects the <em>form</em> component; a formless blend member does not create form.</li>
+<li>Uncertain between <code>u</code> and <code>−</code> → decide by whether the contour is <em>violated</em> (−) or merely uncommon (u), consulting the table.</li>
+</ul>
+<div class="pagenav"><a href="#p7">← Part VII</a><a href="#contents">⌂ Contents</a><a href="#p9">Part IX →</a></div>
+</div>
+
+
+<!-- ============ PART IX ============ -->
+<h2 class="part part-break" id="p9"><span class="pill">Part IX</span>Content</h2>
+<div class="section-body">
+<div class="table-scroll"><table>
+<tr><th>Code</th><th>Content</th><th>Code</th><th>Content</th></tr>
+<tr><td><code>H</code></td><td>Whole human (real)</td><td><code>Bt</code></td><td>Botany</td></tr>
+<tr><td><code>(H)</code></td><td>Whole fictional/mythic human</td><td><code>Cg</code></td><td>Clothing</td></tr>
+<tr><td><code>Hd</code></td><td>Human detail</td><td><code>Cl</code></td><td>Cloud</td></tr>
+<tr><td><code>(Hd)</code></td><td>Fictional human detail</td><td><code>Ex</code></td><td>Explosion</td></tr>
+<tr><td><code>Hx</code></td><td>Human experience (abstract)</td><td><code>Fd</code></td><td>Food</td></tr>
+<tr><td><code>A</code></td><td>Whole animal</td><td><code>Fi</code></td><td>Fire</td></tr>
+<tr><td><code>(A)</code></td><td>Fictional/mythic animal</td><td><code>Ge</code></td><td>Geography</td></tr>
+<tr><td><code>Ad</code></td><td>Animal detail</td><td><code>Hh</code></td><td>Household</td></tr>
+<tr><td><code>(Ad)</code></td><td>Fictional animal detail</td><td><code>Ls</code></td><td>Landscape</td></tr>
+<tr><td><code>An</code></td><td>Anatomy</td><td><code>Na</code></td><td>Nature</td></tr>
+<tr><td><code>Art</code></td><td>Art</td><td><code>Sc</code></td><td>Science</td></tr>
+<tr><td><code>Ay</code></td><td>Anthropology</td><td><code>Sx</code></td><td>Sex</td></tr>
+<tr><td><code>Bl</code></td><td>Blood</td><td><code>Xy</code></td><td>X-ray</td></tr>
+<tr><td colspan="2"><code>Id</code> — Idiographic (unlisted)</td><td colspan="2">Plus any card-specific codes present in your record</td></tr>
+</table></div>
+<div class="box warn"><strong>Use one consistent content list.</strong> Stick to a single set of content codes; do not mix in codes from a different edition.</div>
+<h3>Tally method</h3>
+<p>Each response may have a <strong>primary</strong> content and one or more <strong>secondary</strong> contents; tally every content code. Count all occurrences across the record.</p>
+<div class="box example"><div class="etitle">Content tally (excerpt, R = 8)</div>
+<div class="calc">R1 H            R5 A, Bt
+R2 A            R6 Hd
+R3 (H)          R7 An
+R4 A, Ad        R8 A
+
+H total   = R1                → 1
+(H) total = R3                → 1
+Hd total  = R6                → 1
+A total   = R2,R4,R5,R8       → 4
+Ad total  = R4                → 1
+An total  = R7                → 1
+Bt total  = R5                → 1
+Human content = H+(H)+Hd+(Hd) = 1+1+1+0 = 3
+Pure H = 1</div></div>
+<div class="pagenav"><a href="#p8">← Part VIII</a><a href="#contents">⌂ Contents</a><a href="#p10">Part X →</a></div>
+</div>
+
+<!-- ============ PART X ============ -->
+<h2 class="part" id="p10"><span class="pill">Part X</span>Populars (P)</h2>
+<div class="section-body">
+<p>A <strong>Popular</strong> is a response that occurs with high frequency across records for a specific card and location. Each card has a defined set of Popular contents.</p>
+<div class="box warn"><strong>Look up the Popular list.</strong> Which answer counts as Popular on which card is fixed and must be checked against the Popular reference list — do not guess it from memory. This guide only shows you how to <em>count</em> the P responses once you have marked them.</div>
+<h3>Procedure</h3>
+<div class="step"><div class="num">1</div><div class="body">For each response, check the card + location + content against the Popular list.</div></div>
+<div class="step"><div class="num">2</div><div class="body">If it matches, mark <code>P</code> in the code string.</div></div>
+<div class="step"><div class="num">3</div><div class="body">Count the number of responses marked P → that count is <strong>P</strong>.</div></div>
+<div class="step"><div class="num">4</div><div class="body">A single response earns at most one P even if it contains several contents.</div></div>
+<div class="box example"><div class="etitle">Example</div>
+<div class="calc">Responses marked P (after list check): R2, R5, R9, R14
+P = 4</div></div>
+<div class="pagenav"><a href="#p9">← Part IX</a><a href="#contents">⌂ Contents</a><a href="#p11">Part XI →</a></div>
+</div>
+
+<!-- ============ PART XI ============ -->
+<h2 class="part" id="p11"><span class="pill">Part XI</span>Z Scores — Zf, Zsum, Zest, Zd</h2>
+<div class="section-body">
+<p>The <strong>Z score</strong> rewards <em>organising the blot</em>: a response earns a Z value when the person pulls parts together in a meaningful way. A response qualifies for Z if it does any of these: a form-based DQ+; relates two or more <em>touching</em> areas; relates two or more <em>separated</em> areas; or uses the white space together with the blot.</p>
+<div class="table-scroll"><table>
+<tr><th>Term</th><th>Meaning</th></tr>
+<tr><td><code>Zf</code></td><td><strong>Z frequency</strong> — number of responses that received a Z value</td></tr>
+<tr><td><code>Zsum</code></td><td>Sum of the actual Z <em>values</em> assigned</td></tr>
+<tr><td><code>Zest</code></td><td><strong>Estimated</strong> Zsum expected for that Zf, read from the Zest reference table</td></tr>
+<tr><td><code>Zd</code></td><td>Zsum − Zest (efficiency of organisation)</td></tr>
+</table></div>
+<div class="box warn"><strong>Two reference tables are needed here.</strong> (1) The <em>Z value table</em> gives the exact Z number for each type of organising on each card — look it up, never invent it. (2) The <em>Zest table</em> gives the expected Zsum for each Zf — also looked up. Any Z numbers shown in this guide are examples only, marked "example."</div>
+<h3>Calculation procedure</h3>
+<div class="step"><div class="num">1</div><div class="body">Identify every response that qualifies for Z.</div></div>
+<div class="step"><div class="num">2</div><div class="body">For each one, read its Z value from the Z value table.</div></div>
+<div class="step"><div class="num">3</div><div class="body">Record each Z value.</div></div>
+<div class="step"><div class="num">4</div><div class="body"><strong>Zf</strong> = count of Z-scored responses.</div></div>
+<div class="step"><div class="num">5</div><div class="body"><strong>Zsum</strong> = add all the Z values.</div></div>
+<div class="step"><div class="num">6</div><div class="body"><strong>Zest</strong> = read it from the Zest table for your Zf.</div></div>
+<div class="step"><div class="num">7</div><div class="body"><strong>Zd</strong> = Zsum − Zest.</div></div>
+<div class="box formula"><div class="fname">Zd</div><span class="feq">Zd = Zsum − Zest</span></div>
+<div class="box example"><div class="etitle">Example (Z values &amp; Zest shown as examples)</div>
+<div class="calc">Z-scored responses &amp; their table values (example):
+ R1 = 1.0   R3 = 2.5   R6 = 3.0   R8 = 1.0
+ R11 = 2.5  R14 = 4.0  R17 = 2.0
+
+Zf   = 7                       (seven responses scored Z)
+Zsum = 1.0+2.5+3.0+1.0+2.5+4.0+2.0
+     = 16.0
+Zest = 20.0                    (example table value for Zf = 7)
+Zd   = Zsum − Zest = 16.0 − 20.0 = −4.0</div>
+<div class="box result">Zd = −4.0 → underincorporation (hasty scanning). Positive Zd → overincorporation (overly careful).</div></div>
+<h3>Z-score difficult cases</h3>
+<ul>
+<li><strong>No Z responses / Zf = 0</strong> → Zsum = 0; Zd cannot be meaningfully computed (Zest is undefined for Zf = 0). Report Zf = 0 and withhold Zd.</li>
+<li><strong>Zsum very low / high</strong> → still valid; the value flows into Zd.</li>
+<li><strong>Zest cannot be read</strong> (Zf is below the smallest value on the table) → do not stretch or guess a figure.</li>
+<li><strong>Not sure a response earns Z</strong> → re-check the four ways to earn Z; if it qualifies in more than one way, use the single highest value that applies — do not add them together.</li>
+</ul>
+<div class="pagenav"><a href="#p10">← Part X</a><a href="#contents">⌂ Contents</a><a href="#p12">Part XII →</a></div>
+</div>
+
+<!-- ============ PART XII ============ -->
+<h2 class="part" id="p12"><span class="pill">Part XII</span>Special Scores</h2>
+<div class="section-body">
+<div class="table-scroll"><table>
+<tr><th>Code</th><th>Name</th><th>Core idea</th></tr>
+<tr><td><code>DV</code></td><td>Deviant Verbalisation</td><td>Neologism or redundancy</td></tr>
+<tr><td><code>DR</code></td><td>Deviant Response</td><td>Inappropriate phrase / circumstantial rambling</td></tr>
+<tr><td><code>INCOM</code></td><td>Incongruous Combination</td><td>Implausible single-object merge (e.g., a four-legged bird)</td></tr>
+<tr><td><code>FABCOM</code></td><td>Fabulised Combination</td><td>Implausible relationship between objects</td></tr>
+<tr><td><code>ALOG</code></td><td>Inappropriate Logic</td><td>Strained cause-effect reasoning</td></tr>
+<tr><td><code>CONTAM</code></td><td>Contamination</td><td>Two impressions fused into one impossible percept (most serious)</td></tr>
+</table></div>
+<p>Each of the six above (the "Sum6" scores) is scored at <strong>Level 1</strong> (mild) or <strong>Level 2</strong> (severe) except ALOG and CONTAM. Other special scores that are tallied but not part of Sum6: <code>AB</code> (abstraction), <code>AG</code> (aggressive movement), <code>COP</code> (cooperative movement), <code>MOR</code> (morbid), <code>PER</code> (personal), <code>PSV</code> (perseveration), <code>CP</code> (color projection), and the human-representation scores <code>GHR/PHR</code>.</p>
+
+<h3>For each special score</h3>
+<div class="step"><div class="num">1</div><div class="body">Confirm what it is and its exact scoring criterion.</div></div>
+<div class="step"><div class="num">2</div><div class="body">Confirm when it is scored (Level 1 vs Level 2 for the Sum6 set).</div></div>
+<div class="step"><div class="num">3</div><div class="body">Tally its frequency.</div></div>
+<div class="step"><div class="num">4</div><div class="body">Guard against false positives (colloquialisms are not DV; a plausible relationship is not FABCOM).</div></div>
+<div class="step"><div class="num">5</div><div class="body">Enter frequencies in the Summary.</div></div>
+<div class="step"><div class="num">6</div><div class="body">Compute Sum6 and WSum6 (weighted).</div></div>
+
+<h3 id="sum6">Sum6 and WSum6</h3>
+<div class="box formula"><div class="fname">Sum6 (raw)</div>
+<span class="feq">Sum6 = DV + INCOM + DR + FABCOM + ALOG + CONTAM  (all levels)</span></div>
+<div class="box formula"><div class="fname">WSum6 (weighted)</div>
+<span class="feq">WSum6 = Σ (each critical special score × its weight)</span></div>
+<div class="box warn"><strong>Each of the six scores has a fixed weight.</strong> The Comprehensive System gives DV, INCOM, DR, FABCOM, ALOG, and CONTAM a set weight (a Level 2 score weighs more than the same score at Level 1, and CONTAM weighs the most). These weights are read from the reference table, not invented. To get WSum6 you multiply each score by its weight and add the results.</div>
+<div class="box example"><div class="etitle">WSum6 — worked example</div>
+<div class="calc">Say the record contains:
+  1 × DV     (Level 1)
+  1 × INCOM  (Level 1)
+  1 × FABCOM (Level 1)
+
+Step 1 — raw Sum6 = 1 + 1 + 1 = 3        (Lv2 = 0)
+
+Step 2 — multiply each by its table weight, then add:
+  WSum6 = (1 × weight of DV)
+        + (1 × weight of INCOM)
+        + (1 × weight of FABCOM)
+
+The key idea: WSum6 grows FASTER than the raw Sum6, because the
+more serious scores carry heavier weights. So a record with the
+same NUMBER of scores can still have very different WSum6 values
+depending on which scores they are and whether they are Level 1 or 2.</div></div>
+
+<h3>Special-score difficult cases</h3>
+<ul>
+<li><strong>One DV</strong> → Sum6 += 1; WSum6 += w(DV, level).</li>
+<li><strong>Multiple DV</strong> → each counts; sum the weights.</li>
+<li><strong>DV + DR in one response</strong> → both are scored (a response may carry more than one special score).</li>
+<li><strong>Level 2</strong> → uses the heavier weight; also tally <code>Lv2</code>.</li>
+<li><strong>CONTAM</strong> → highest weight; rare and serious.</li>
+<li><strong>Ambiguous</strong> → do not guess; re-read the verbalisation against the criterion (Part XXXII).</li>
+</ul>
+<div class="pagenav"><a href="#p11">← Part XI</a><a href="#contents">⌂ Contents</a><a href="#p13">Part XIII →</a></div>
+</div>
+
+
+<!-- ============ PART XIII ============ -->
+<h2 class="part part-break" id="p13"><span class="pill">Part XIII</span>Formula Master Sheet <span style="font-size:.7em">★ Formula Index</span></h2>
+<div class="section-body">
+<p>Every core formula, with its components. Detailed worked calculations and edge cases follow in the dedicated parts (linked). Chromatic-color weights: <code>FC = 0.5, CF = 1.0, C = 1.5</code>.</p>
+<div class="table-scroll"><table>
+<tr><th>Variable</th><th>Formula</th><th>Components</th><th>See</th></tr>
+<tr><td><strong>R</strong></td><td>count of responses</td><td>—</td><td><a href="#p4">IV</a></td></tr>
+<tr><td><strong>Lambda (L)</strong></td><td>F ÷ (R − F)</td><td>F = pure-F count</td><td><a href="#p14">XIV</a></td></tr>
+<tr><td><strong>WSumC</strong></td><td>0.5·FC + 1.0·CF + 1.5·C</td><td>chromatic color</td><td><a href="#p7">VII</a></td></tr>
+<tr><td><strong>EB</strong></td><td>M : WSumC</td><td>human movement : weighted color</td><td><a href="#p15">XV</a></td></tr>
+<tr><td><strong>EA</strong></td><td>M + WSumC</td><td>same components, summed</td><td><a href="#p16">XVI</a></td></tr>
+<tr><td><strong>eb</strong></td><td>(FM + m) : (SumC' + SumT + SumV + SumY)</td><td>left = FM+m; right = all non-chromatic shading + achromatic color</td><td><a href="#p17">XVII</a></td></tr>
+<tr><td><strong>es</strong></td><td>FM + m + SumC' + SumT + SumV + SumY</td><td>both sides of eb, summed</td><td><a href="#p18">XVIII</a></td></tr>
+<tr><td><strong>D</strong></td><td>from (EA − es) via the D conversion table</td><td>difference standardised</td><td><a href="#p19">XIX</a></td></tr>
+<tr><td><strong>Adj es</strong></td><td>es − (the extra, passing amount of m and Y)</td><td>removes situational load</td><td><a href="#p20">XX</a></td></tr>
+<tr><td><strong>AdjD</strong></td><td>from (EA − Adj es) via the D table</td><td>trait control</td><td><a href="#p20">XX</a></td></tr>
+<tr><td><strong>Afr</strong></td><td>(responses to VIII+IX+X) ÷ (responses to I–VII)</td><td>last 3 chromatic cards vs first 7</td><td><a href="#p21">XXI</a></td></tr>
+<tr><td><strong>3r+(2)/R</strong></td><td>[3·(Fr+rF) + Sum(2)] ÷ R</td><td>egocentricity</td><td><a href="#p25">XXV</a></td></tr>
+<tr><td><strong>XA%</strong></td><td>(FQ+ + FQo + FQu) ÷ R</td><td>form-appropriate over R</td><td><a href="#p23">XXIII</a></td></tr>
+<tr><td><strong>WDA%</strong></td><td>(form-appropriate in W+D) ÷ (W + D)</td><td>denominator = W+D responses</td><td><a href="#p23">XXIII</a></td></tr>
+<tr><td><strong>X+%</strong></td><td>(FQ+ + FQo) ÷ R</td><td>conventional form</td><td><a href="#p23">XXIII</a></td></tr>
+<tr><td><strong>X−%</strong></td><td>FQ− ÷ R</td><td>distorted form</td><td><a href="#p23">XXIII</a></td></tr>
+<tr><td><strong>Xu%</strong></td><td>FQu ÷ R</td><td>unusual form</td><td><a href="#p23">XXIII</a></td></tr>
+<tr><td><strong>Sum6 / WSum6</strong></td><td>see Part XII</td><td>critical special scores</td><td><a href="#p12">XII</a> / <a href="#p24">XXIV</a></td></tr>
+<tr><td><strong>Zd</strong></td><td>Zsum − Zest</td><td>organisation efficiency</td><td><a href="#p11">XI</a></td></tr>
+<tr><td><strong>EBPer</strong></td><td>larger EB side ÷ smaller EB side</td><td>only when EB style is valid</td><td><a href="#p15">XV</a></td></tr>
+</table></div>
+<div class="box warn"><strong>D, AdjD, Zest and Form Quality are read from tables.</strong> The D-score table turns the (EA − es) difference into a whole-number D. Read that number from the table rather than inventing it.</div>
+<div class="pagenav"><a href="#p12">← Part XII</a><a href="#contents">⌂ Contents</a><a href="#p14">Part XIV →</a></div>
+</div>
+
+<!-- ============ PART XIV ============ -->
+<h2 class="part" id="p14"><span class="pill">Part XIV</span>Lambda (L)</h2>
+<div class="section-body">
+<div class="box formula"><div class="fname">Lambda</div>
+<span class="feq big-eq">L = F ÷ (R − F)</span>
+<p style="margin:8px 0 0"><strong>F</strong> = number of <em>pure Form</em> responses &nbsp;·&nbsp; <strong>R</strong> = total responses &nbsp;·&nbsp; <strong>R − F</strong> = responses that used any determinant other than pure F.</p></div>
+<p>Lambda indexes the tendency to simplify — to deal with the blot economically using shape alone. High Lambda (&gt; 0.99) marks an <em>avoidant</em> style.</p>
+
+<div class="box example"><div class="etitle">Example 1 — ordinary</div>
+<div class="calc">R = 20
+F = 5
+R − F = 20 − 5 = 15
+L = F ÷ (R − F) = 5 ÷ 15 = 0.33</div>
+<div class="box result">Lambda = 0.33</div></div>
+
+<div class="box example"><div class="etitle">Example 2 — no pure F</div>
+<div class="calc">R = 20
+F = 0
+R − F = 20 − 0 = 20
+L = 0 ÷ 20 = 0</div>
+<div class="box result">Lambda = 0. Every response carried a non-form determinant; no simplifying/avoidant tendency by this index. Interpret with the rest of the record.</div></div>
+
+<div class="box whatif"><div class="wtitle">What if — Example 3: ALL responses are pure F (mandatory case)</div>
+<div class="calc">R = 17
+F = 17
+R − F = 17 − 17 = 0
+L = 17 ÷ 0  →  DIVISION BY ZERO → mathematically UNDEFINED</div>
+<p><strong>Mathematical result:</strong> undefined (denominator is zero).</p>
+<p><strong>What to actually do:</strong> do <strong>not</strong> quietly turn this into an ordinary finite Lambda. A record made only of pure-F responses is an extreme, very constricted one. Report it as an extreme high-Lambda case and treat the record as avoidant and barely interpretable (see validity, Part XXVIII). State the boundary honestly instead of writing a made-up number.</p>
+<div class="box err"><div class="etitle">Distinguish</div>MATHEMATICAL RESULT (undefined) ≠ CLINICAL/REPORTING CONVENTION (extreme high-Lambda flag + validity caution).</div></div>
+
+<div class="box example"><div class="etitle">Example 4 — near-all pure F</div>
+<div class="calc">R = 10
+F = 9
+R − F = 10 − 9 = 1
+L = 9 ÷ 1 = 9.0</div>
+<div class="box result">Lambda = 9.0 — an extremely high value. Caution: only one response used anything beyond form; the record is markedly constricted/avoidant and its interpretability is limited.</div></div>
+
+<h3>Lambda error scenarios</h3>
+<div class="table-scroll"><table>
+<tr><th>Error</th><th>Effect on L</th></tr>
+<tr><td>Counting an FQ-only decision as F (confusing Form Quality with the F determinant)</td><td>Wrong F → wrong L. FQ (+/o/u/−) is not the determinant F.</td></tr>
+<tr><td>Counting FC as F</td><td>F overstated → L too high.</td></tr>
+<tr><td>Counting CF as F</td><td>F overstated → L too high.</td></tr>
+<tr><td>Counting C as F</td><td>F overstated → L too high.</td></tr>
+<tr><td>Missing one pure F</td><td>F understated → L too low.</td></tr>
+<tr><td>Wrong R entered</td><td>Denominator (R − F) wrong → L wrong in either direction.</td></tr>
+</table></div>
+<div class="box warn"><strong>Only genuinely <em>pure</em> F responses count in F.</strong> The instant any color, shading, movement, reflection, or FD contributed, the response is not pure F.</div>
+<div class="pagenav"><a href="#p13">← Part XIII</a><a href="#contents">⌂ Contents</a><a href="#p15">Part XV →</a></div>
+</div>
+
+
+<!-- ============ PART XV ============ -->
+<h2 class="part part-break" id="p15"><span class="pill">Part XV</span>Experience Balance (EB)</h2>
+<div class="section-body">
+<div class="box formula"><div class="fname">EB</div><span class="feq big-eq">EB = M : WSumC</span>
+<p style="margin:8px 0 0"><strong>M</strong> = number of human-movement responses. <strong>WSumC</strong> = 0.5·FC + 1.0·CF + 1.5·C.</p></div>
+<p>EB contrasts ideational (M) with affective (weighted color) coping. Style is read from which side dominates — but only when the record is rich enough (see edge cases).</p>
+<div class="box example"><div class="etitle">EB worked example</div>
+<div class="calc">Given: M = 4,  FC = 2, CF = 3, C = 1
+WSumC = 0.5·2 + 1.0·3 + 1.5·1
+      = 1.0 + 3.0 + 1.5
+      = 5.5
+EB = M : WSumC = 4 : 5.5</div>
+<div class="box result">EB = 4 : 5.5 → color side slightly dominant → tends extratensive (confirm validity + EBPer before labelling).</div></div>
+<h3>EBPer (pervasiveness)</h3>
+<div class="box formula"><div class="fname">EBPer</div><span class="feq">EBPer = (larger EB side) ÷ (smaller EB side)</span></div>
+<p>Computed <strong>only</strong> when a valid, clearly one-sided EB exists. For example, an EB of 2 : 10 gives EBPer = 10 ÷ 2 = 5.0 — a strong, pervasive lean toward the affect side.</p>
+<h3>EB edge cases</h3>
+<div class="table-scroll"><table>
+<tr><th>Scenario</th><th>Handling</th></tr>
+<tr><td>M = 0</td><td>EB = 0 : WSumC; all coping weighted to affect side (if EA valid).</td></tr>
+<tr><td>WSumC = 0 (no color)</td><td>EB = M : 0; only the thinking side has any value (e.g., EB = 2 : 0).</td></tr>
+<tr><td>Both = 0</td><td>EB = 0:0; no style computable; treat as avoidant/constricted with validity caution.</td></tr>
+<tr><td>M ≫ color</td><td>Introversive tendency.</td></tr>
+<tr><td>Color ≫ M</td><td>Extratensive tendency.</td></tr>
+<tr><td>Exact tie (M = WSumC)</td><td>Ambitent — no consistent style.</td></tr>
+<tr><td>Mixed color present</td><td>Weights still apply term-by-term.</td></tr>
+</table></div>
+<div class="box warn"><strong>Do not label an EB style when EA is below 4.0.</strong> When EA is under 4.0 there are simply too few responses on each side to trust the balance. In that case you do <em>not</em> call the person introversive or extratensive. If Lambda is also high (≥ 1.0), the better description is an <em>avoidant</em> style. Example: an EB of 2 : 0 with EA of only 2.0 is <strong>not</strong> read as introversive — EA is too low for the style to mean anything.</div>
+<div class="pagenav"><a href="#p14">← Part XIV</a><a href="#contents">⌂ Contents</a><a href="#p16">Part XVI →</a></div>
+</div>
+
+<!-- ============ PART XVI ============ -->
+<h2 class="part" id="p16"><span class="pill">Part XVI</span>EA — Experience Actual</h2>
+<div class="section-body">
+<div class="box formula"><div class="fname">EA</div><span class="feq big-eq">EA = M + WSumC</span></div>
+<p>EA sums the two EB sides — the total of accessible, organised resources.</p>
+<div class="box example"><div class="etitle">Five examples</div>
+<div class="calc">1)  M=4, WSumC=5.5 → EA = 4 + 5.5 = 9.5
+2)  M=2, WSumC=10  → EA = 2 + 10  = 12.0   (relatively high resources)
+3)  M=2, WSumC=0   → EA = 2 + 0   = 2.0    (very low — too low to label an EB style)
+4)  M=0, WSumC=0   → EA = 0 + 0   = 0      (no organised resources computable)
+5)  M=6, WSumC=1.5 → EA = 6 + 1.5 = 7.5    (relatively high)</div></div>
+<div class="box note"><strong>EA = 0</strong> and <strong>EA &lt; 4.0</strong> both trigger the EB-style validity exception and the CDI/coping logic. Report EA; withhold style attribution.</div>
+<div class="pagenav"><a href="#p15">← Part XV</a><a href="#contents">⌂ Contents</a><a href="#p17">Part XVII →</a></div>
+</div>
+
+<!-- ============ PART XVII ============ -->
+<h2 class="part" id="p17"><span class="pill">Part XVII</span>eb — Experience Base</h2>
+<div class="section-body">
+<div class="box formula"><div class="fname">eb</div><span class="feq big-eq">eb = (FM + m) : (SumC' + SumT + SumV + SumY)</span>
+<p style="margin:8px 0 0">Left = non-human movement demand. Right = all shading + achromatic color (the "grief/distress" side).</p></div>
+<div class="table-scroll"><table>
+<tr><th>Component</th><th>Belongs to</th></tr>
+<tr><td>FM (animal movement)</td><td>left</td></tr>
+<tr><td>m (inanimate movement)</td><td>left</td></tr>
+<tr><td>SumC' (FC'+C'F+C')</td><td>right</td></tr>
+<tr><td>SumT (FT+TF+T)</td><td>right</td></tr>
+<tr><td>SumV (FV+VF+V)</td><td>right</td></tr>
+<tr><td>SumY (FY+YF+Y)</td><td>right</td></tr>
+</table></div>
+<div class="box example"><div class="etitle">Example</div>
+<div class="calc">FM = 2, m = 2 → left = 2 + 2 = 4
+SumC' = 4, SumT = 0, SumV = 1, SumY = 0 → right = 4+0+1+0 = 5
+eb = 4 : 5</div>
+<div class="box result">eb = 4 : 5 (right side slightly exceeds left → distress-weighted internal economy).</div></div>
+<div class="pagenav"><a href="#p16">← Part XVI</a><a href="#contents">⌂ Contents</a><a href="#p18">Part XVIII →</a></div>
+</div>
+
+<!-- ============ PART XVIII ============ -->
+<h2 class="part" id="p18"><span class="pill">Part XVIII</span>es — Experienced Stimulation</h2>
+<div class="section-body">
+<div class="box formula"><div class="fname">es</div><span class="feq big-eq">es = FM + m + SumC' + SumT + SumV + SumY</span>
+<p style="margin:8px 0 0">es is simply the sum of <em>both</em> eb sides.</p></div>
+<div class="box example"><div class="etitle">Component table → substitution → value</div>
+<div class="calc">Component   Value
+FM          2
+m           2
+SumC'       4
+SumT        0
+SumV        1
+SumY        0
+---------------
+es = 2 + 2 + 4 + 0 + 1 + 0 = 9</div>
+<div class="box result">es = 9</div></div>
+<p>es is the "demand" side that pairs against EA to yield the D score.</p>
+<div class="pagenav"><a href="#p17">← Part XVII</a><a href="#contents">⌂ Contents</a><a href="#p19">Part XIX →</a></div>
+</div>
+
+<!-- ============ PART XIX ============ -->
+<h2 class="part" id="p19"><span class="pill">Part XIX</span>D Score</h2>
+<div class="section-body">
+<p>The <strong>D score</strong> tells you whether the person's resources (EA) are keeping up with the demands on them (es) right now. You start from the difference <code>EA − es</code> and then read the D value from the D-score table.</p>
+<div class="box formula"><div class="fname">D (procedure)</div>
+<span class="feq">Difference = EA − es → standardise → read integer D from the D table</span></div>
+<div class="box warn"><strong>Do not make up the conversion.</strong> The (EA − es) difference is turned into a D value using fixed bands: a difference near zero gives D = 0, larger positive differences give a positive D, and larger negative differences give a negative D. Read the exact band from the table.</div>
+<h3>D-score situations (how the difference points)</h3>
+<div class="table-scroll"><table>
+<tr><th>Situation</th><th>EA − es</th><th>Which way D goes</th><th>Example</th></tr>
+<tr><td>EA greater than es</td><td>positive</td><td>D is 0 or positive</td><td>EA 12, es 10 → 12 − 10 = +2 → D = 0 (small difference stays in the zero band)</td></tr>
+<tr><td>EA equals es</td><td>0</td><td>D = 0</td><td>EA 8, es 8 → 0 → D = 0</td></tr>
+<tr><td>EA a little below es</td><td>slightly negative</td><td>D = 0 (still within the band)</td><td>EA 9, es 10 → −1 → D = 0</td></tr>
+<tr><td>EA well below es</td><td>strongly negative</td><td>D is negative (−1, −2, −3…)</td><td>EA 2, es 9 → −7 → D = −2</td></tr>
+</table></div>
+<p class="muted">The bigger the gap between demands (es) and resources (EA), the more negative the D score. Read the exact whole number from the D-conversion table.</p>
+<div class="pagenav"><a href="#p18">← Part XVIII</a><a href="#contents">⌂ Contents</a><a href="#p20">Part XX →</a></div>
+</div>
+
+<!-- ============ PART XX ============ -->
+<h2 class="part" id="p20"><span class="pill">Part XX</span>Adjusted D (AdjD)</h2>
+<div class="section-body">
+<p><strong>AdjD</strong> asks: what is control like once <em>situational</em> stress is removed? It re-runs the D calculation using <strong>Adjusted es (Adj es)</strong> instead of es.</p>
+<div class="box formula"><div class="fname">AdjD (procedure)</div>
+<span class="feq">Adj es = es − (the extra, passing amount of m and Y)</span>
+<span class="feq">AdjD = D-table conversion of (EA − Adj es)</span></div>
+<p>The adjustment takes out the <em>passing</em> load carried by inanimate movement (m) and diffuse shading (Y) above a set baseline, leaving the steady, trait-level picture.</p>
+<div class="box example"><div class="etitle">Example — situational strain present</div>
+<div class="calc">es = 10,  Adj es = 7   (the extra m and Y are taken out)
+EA = 12
+EA − Adj es = 12 − 7 = +5   → positive band
+AdjD = +1     (while D = 0)
+
+What this means: the baseline (trait) control is above average
+(AdjD = +1), but right now it is pulled down to average (D = 0)
+by some passing, situational pressure.</div></div>
+<div class="box example"><div class="etitle">Example — no situational component</div>
+<div class="calc">es = 9,  Adj es = 8,  EA = 2.0
+D = −2 and AdjD = −2
+
+What this means: because D and AdjD are the SAME, the overload
+is long-standing, not just a passing stress. Removing the small
+situational part does not change the picture.</div></div>
+<div class="box warn"><strong>Only remove the <em>extra</em> m and Y, not all of them.</strong> The adjustment takes out the small, passing amount of inanimate movement (m) and diffuse shading (Y) above a set baseline — never every m and Y. Use the stated rule for how much to remove.</div>
+<div class="pagenav"><a href="#p19">← Part XIX</a><a href="#contents">⌂ Contents</a><a href="#p21">Part XXI →</a></div>
+</div>
+
+
+<!-- ============ PART XXI ============ -->
+<h2 class="part part-break" id="p21"><span class="pill">Part XXI</span>Affective Variables</h2>
+<div class="section-body">
+<div class="cards">
+  <div class="fcard"><h4>Afr</h4><span class="eq">(VIII+IX+X) ÷ (I–VII)</span><div class="lbl">Emotional responsiveness</div></div>
+  <div class="fcard"><h4>FC:CF+C</h4><span class="eq">FC : (CF + C)</span><div class="lbl">Affect modulation</div></div>
+  <div class="fcard"><h4>SumC':WSumC</h4><span class="eq">SumC' : WSumC</span><div class="lbl">Constriction</div></div>
+  <div class="fcard"><h4>Pure C</h4><span class="eq">count of C</span><div class="lbl">Unmodulated discharge</div></div>
+  <div class="fcard"><h4>S (space)</h4><span class="eq">count of S</span><div class="lbl">Negativism</div></div>
+  <div class="fcard"><h4>Blends:R</h4><span class="eq">blend responses ÷ R</span><div class="lbl">Complexity</div></div>
+</div>
+<h3>Affective Ratio (Afr)</h3>
+<div class="box formula"><div class="fname">Afr</div>
+<span class="feq big-eq">Afr = (responses to Cards VIII + IX + X) ÷ (responses to Cards I–VII)</span></div>
+<div class="box example"><div class="etitle">Worked</div>
+<div class="calc">Responses to VIII, IX, X = 3 + 1 + 3 = 7  (numerator)
+Responses to I–VII       = 11             (denominator)
+Afr = 7 ÷ 11 = 0.636</div>
+<div class="box result">Afr ≈ 0.64</div></div>
+<div class="box warn"><strong>Afr denominator is NOT R.</strong> It is the count of responses to the first seven cards. Numerator is the last three (chromatic-heavy) cards.</div>
+<h3>Color formula edge cases</h3>
+<div class="table-scroll"><table>
+<tr><th>Scenario</th><th>Computable?</th><th>Entry</th></tr>
+<tr><td>No color at all</td><td>FC:CF+C = 0:0; WSumC = 0</td><td>Report 0:0; affect side of EB empty.</td></tr>
+<tr><td>No VIII–X responses</td><td>Afr numerator = 0 → Afr = 0</td><td>Report 0; flag extreme affect avoidance.</td></tr>
+<tr><td>FC = 0</td><td>Yes</td><td>Ratio 0 : (CF+C).</td></tr>
+<tr><td>CF+C = 0</td><td>Yes</td><td>Ratio FC : 0.</td></tr>
+<tr><td>Both numerator &amp; denominator 0 (FC:CF+C = 0:0)</td><td>Ratio defined as 0:0</td><td>No modulation data; withhold modulation interpretation.</td></tr>
+<tr><td>Afr denominator = 0 (no I–VII responses)</td><td>UNDEFINED (division by zero)</td><td>Cannot compute Afr; note the invalid/degenerate record.</td></tr>
+</table></div>
+<div class="pagenav"><a href="#p20">← Part XX</a><a href="#contents">⌂ Contents</a><a href="#p22">Part XXII →</a></div>
+</div>
+
+<!-- ============ PART XXII ============ -->
+<h2 class="part" id="p22"><span class="pill">Part XXII</span>Information Processing</h2>
+<div class="section-body">
+<div class="table-scroll"><table>
+<tr><th>Variable</th><th>How obtained</th></tr>
+<tr><td>W, D, Dd, S</td><td>Location tallies (Part V)</td></tr>
+<tr><td>Zf, Zsum, Zd</td><td>Z section (Part XI)</td></tr>
+<tr><td>W:D:Dd</td><td>The three location totals as a ratio</td></tr>
+<tr><td>W:M</td><td>Whole responses : human movement (aspiration vs delivery)</td></tr>
+<tr><td>DQ+ / DQv</td><td>Developmental quality tallies (Part VI)</td></tr>
+<tr><td>PSV</td><td>Perseveration special score</td></tr>
+</table></div>
+<div class="box formula"><div class="fname">W:D:Dd</div><span class="feq">W : D : Dd  (the three location totals, written as a ratio)</span></div>
+<div class="box example"><div class="etitle">Example</div>
+<div class="calc">W = 10, D = 11, Dd = 7
+W:D:Dd = 10 : 11 : 7
+W:M = 10 : 2  → aims to organise more than the 2 M responses can comfortably support.</div></div>
+<p class="muted">Read W:D:Dd gently: a high Dd count points to a habit of noticing small, out-of-the-way, or unusual bits of the blot rather than the obvious areas.</p>
+<div class="pagenav"><a href="#p21">← Part XXI</a><a href="#contents">⌂ Contents</a><a href="#p23">Part XXIII →</a></div>
+</div>
+
+<!-- ============ PART XXIII ============ -->
+<h2 class="part" id="p23"><span class="pill">Part XXIII</span>Mediation</h2>
+<div class="section-body">
+<p>Mediation = accuracy of perception. Its variables are <strong>form-quality percentages</strong>. Watch the denominator: some use <strong>R</strong>, one uses <strong>W+D</strong>.</p>
+<div class="cards">
+  <div class="fcard"><h4>XA%</h4><span class="eq">(FQ+ +o +u) ÷ R</span><div class="lbl">Overall form appropriateness</div></div>
+  <div class="fcard"><h4>WDA%</h4><span class="eq">(appropriate in W+D) ÷ (W+D)</span><div class="lbl">Accuracy in common areas</div></div>
+  <div class="fcard"><h4>X+%</h4><span class="eq">(FQ+ +o) ÷ R</span><div class="lbl">Conventional perception</div></div>
+  <div class="fcard"><h4>X−%</h4><span class="eq">FQ− ÷ R</span><div class="lbl">Perceptual distortion</div></div>
+  <div class="fcard"><h4>Xu%</h4><span class="eq">FQu ÷ R</span><div class="lbl">Unconventional but not distorted</div></div>
+</div>
+<div class="box warn"><strong>Denominators differ.</strong> XA%, X+%, X−%, Xu% use <strong>R</strong>. WDA% uses <strong>(W + D)</strong> — only the whole/common-detail responses, not R. Using R for WDA% is a classic error.</div>
+<div class="box example"><div class="etitle">Worked example (R = 14)</div>
+<div class="calc">FQ tallies: FQ+ = 0, FQo = 4, FQu = 4, FQ− = 6   (0+4+4+6 = 14 = R ✓)
+
+XA% = (FQ+ + FQo + FQu) ÷ R = (0 + 4 + 4) ÷ 14 = 8 ÷ 14 = 0.571
+X+%  = (FQ+ + FQo) ÷ R      = (0 + 4)     ÷ 14 = 4 ÷ 14 = 0.286
+Xu%  = FQu ÷ R              = 4 ÷ 14           = 0.286
+X−%  = FQ− ÷ R              = 6 ÷ 14           = 0.428
+
+WDA%: use only the W and D responses.
+Say W + D = 10, of which 6 have appropriate form (+, o, or u):
+WDA% = 6 ÷ 10 = 0.60
+
+Notice XA% and WDA% use DIFFERENT bottom numbers (14 vs 10).</div></div>
+<h3>Form-quality percentage edge cases</h3>
+<ul>
+<li><strong>R = 0</strong> — impossible for a real record; all R-denominated percentages undefined.</li>
+<li><strong>W + D = 0</strong> (only Dd used) — WDA% undefined (zero denominator); note it.</li>
+<li><strong>FQ− = 0</strong> — X−% = 0 (good perceptual accuracy on this index).</li>
+<li><strong>All FQo</strong> — X+% high; Xu% and X−% = 0.</li>
+</ul>
+<div class="pagenav"><a href="#p22">← Part XXII</a><a href="#contents">⌂ Contents</a><a href="#p24">Part XXIV →</a></div>
+</div>
+
+<!-- ============ PART XXIV ============ -->
+<h2 class="part" id="p24"><span class="pill">Part XXIV</span>Ideation (WSum6 &amp; others)</h2>
+<div class="section-body">
+<div class="table-scroll"><table>
+<tr><th>Variable</th><th>Source</th></tr>
+<tr><td>WSum6</td><td>Weighted critical special scores (Part XII)</td></tr>
+<tr><td>Sum6 / Lv2</td><td>Raw critical special scores; Level-2 count</td></tr>
+<tr><td>MOR</td><td>Morbid special-score count</td></tr>
+<tr><td>M−</td><td>Human-movement responses with FQ−</td></tr>
+<tr><td>Ma:Mp</td><td>Active vs passive human movement</td></tr>
+<tr><td>a:p</td><td>Active vs passive across all movement</td></tr>
+<tr><td>2AB+Art+Ay</td><td>Intellectualisation index = 2·AB + Art + Ay</td></tr>
+</table></div>
+<h3>WSum6 procedure (recap + example)</h3>
+<div class="step"><div class="num">1</div><div class="body">Identify the six critical special scores (DV, INCOM, DR, FABCOM, ALOG, CONTAM) with their levels.</div></div>
+<div class="step"><div class="num">2</div><div class="body">Multiply each one by its set weight.</div></div>
+<div class="step"><div class="num">3</div><div class="body">Add the weighted values.</div></div>
+<div class="step"><div class="num">4</div><div class="body">The total is WSum6.</div></div>
+<div class="box example"><div class="etitle">Intellectualisation index worked</div>
+<div class="calc">AB = 1, Art = 2, Ay = 0
+2AB + Art + Ay = 2·1 + 2 + 0 = 4</div></div>
+<div class="box example"><div class="etitle">M− example</div>
+<div class="calc">Of the human-movement responses, one has FQ−:
+M− = 1  → one of the human-movement responses has poor form, meaning some
+          thinking about people rests on a distorted perception.</div></div>
+<div class="pagenav"><a href="#p23">← Part XXIII</a><a href="#contents">⌂ Contents</a><a href="#p25">Part XXV →</a></div>
+</div>
+
+<!-- ============ PART XXV ============ -->
+<h2 class="part" id="p25"><span class="pill">Part XXV</span>Self-Perception</h2>
+<div class="section-body">
+<div class="cards">
+  <div class="fcard"><h4>Egocentricity 3r+(2)/R</h4><span class="eq">[3·(Fr+rF) + Σ(2)] ÷ R</span><div class="lbl">Self-focus</div></div>
+  <div class="fcard"><h4>Fr+rF</h4><span class="eq">count of reflections</span><div class="lbl">Narcissistic marker</div></div>
+  <div class="fcard"><h4>FD</h4><span class="eq">count of form-dimension</span><div class="lbl">Self-inspection</div></div>
+  <div class="fcard"><h4>An+Xy</h4><span class="eq">Anatomy + X-ray</span><div class="lbl">Body concern</div></div>
+  <div class="fcard"><h4>MOR</h4><span class="eq">morbid count</span><div class="lbl">Damaged self-view</div></div>
+  <div class="fcard"><h4>SumV</h4><span class="eq">FV+VF+V</span><div class="lbl">Painful self-scrutiny</div></div>
+</div>
+<div class="box formula"><div class="fname">Egocentricity Index</div>
+<span class="feq big-eq">3r+(2)/R = [ 3 × (Fr + rF) + Σ(2) ] ÷ R</span></div>
+<div class="box example"><div class="etitle">Five examples</div>
+<div class="calc">1) Fr+rF=0, Σ(2)=4,  R=20 → [3·0 + 4]  ÷ 20 = 4 ÷ 20  = 0.20
+2) Fr+rF=0, Σ(2)=4,  R=14 → [0 + 4]     ÷ 14 = 4 ÷ 14  = 0.286
+3) Fr+rF=0, Σ(2)=8,  R=28 → [0 + 8]     ÷ 28 = 8 ÷ 28  = 0.286
+4) Fr+rF=2, Σ(2)=6,  R=24 → [3·2 + 6]   ÷ 24 = 12 ÷ 24 = 0.50
+5) Fr+rF=1, Σ(2)=3,  R=15 → [3·1 + 3]   ÷ 15 = 6 ÷ 15  = 0.40</div></div>
+<h3>Self-perception edge cases</h3>
+<div class="table-scroll"><table>
+<tr><th>Case</th><th>Handling</th></tr>
+<tr><td>Fr+rF = 0</td><td>Numerator = Σ(2) only; no reflection contribution.</td></tr>
+<tr><td>Σ(2) = 0 and Fr+rF = 0</td><td>Numerator = 0 → 3r+(2)/R = 0.</td></tr>
+<tr><td>R very low / very high</td><td>Denominator shifts the index; interpret with validity in mind.</td></tr>
+<tr><td>FD = 0, An+Xy = 0, MOR = 0</td><td>Simply report 0; each is a valid count, not undefined.</td></tr>
+<tr><td>Denominator R = 0</td><td>Impossible in a real record; index undefined.</td></tr>
+</table></div>
+<div class="pagenav"><a href="#p24">← Part XXIV</a><a href="#contents">⌂ Contents</a><a href="#p26">Part XXVI →</a></div>
+</div>
+
+<!-- ============ PART XXVI ============ -->
+<h2 class="part" id="p26"><span class="pill">Part XXVI</span>Interpersonal Variables</h2>
+<div class="section-body">
+<div class="table-scroll"><table>
+<tr><th>Variable</th><th>Formula / tally</th></tr>
+<tr><td>H : (H)+Hd+(Hd)</td><td>real whole humans vs all other human contents</td></tr>
+<tr><td>Pure H</td><td>count of H</td></tr>
+<tr><td>Human content</td><td>H + (H) + Hd + (Hd)</td></tr>
+<tr><td>COP / AG</td><td>cooperative / aggressive movement counts</td></tr>
+<tr><td>GHR : PHR</td><td>good vs poor human-representation scores</td></tr>
+<tr><td>PER</td><td>personal special-score count</td></tr>
+<tr><td>Isolation Index</td><td>(Bt+Cl+Ge+Ls+Na) ÷ R (some contents are weighted)</td></tr>
+<tr><td>a:p</td><td>active vs passive movement</td></tr>
+<tr><td>Sum T / Fd</td><td>texture (attachment need) / food (dependency)</td></tr>
+</table></div>
+<div class="box formula"><div class="fname">Human interest ratio</div>
+<span class="feq big-eq">H : (H) + Hd + (Hd)</span></div>
+<div class="box example"><div class="etitle">Examples</div>
+<div class="calc">A) H=1, (H)=0, Hd=1, (Hd)=0
+   H : (H)+Hd+(Hd) = 1 : (0+1+0) = 1 : 1
+
+B) H=1, (H)=1, Hd=2, (Hd)=0
+   H : (H)+Hd+(Hd) = 1 : (1+2+0) = 1 : 3
+
+C) H=0, (H)=0, Hd=1, (Hd)=0
+   H : (H)+Hd+(Hd) = 0 : (0+1+0) = 0 : 1</div>
+<div class="box result">Written as H on the left, the summed other human contents on the right (e.g., 1:3). A left side of 0 (no Pure H) flags reliance on partial/imaginary human conceptions.</div></div>
+<h3>Interpersonal cautions</h3>
+<ul>
+<li><strong>COP = 0, AG = 0</strong> — no anticipated collaborative or hostile interaction; report both zeros.</li>
+<li><strong>Sum T = 0</strong> — points to guardedness or a damped-down need for closeness.</li>
+<li><strong>GHR:PHR</strong> — for example 0 : 2 (all poor) versus 3 : 2 (mixed) show the range from unhealthy to fairly healthy human images.</li>
+</ul>
+<div class="pagenav"><a href="#p25">← Part XXV</a><a href="#contents">⌂ Contents</a><a href="#p27">Part XXVII →</a></div>
+</div>
+
+
+<!-- ============ PART XXVII ============ -->
+<h2 class="part part-break" id="p27"><span class="pill">Part XXVII</span>Constellations</h2>
+<div class="section-body">
+<div class="box warn"><strong>Use the current set of constellations.</strong> This handbook uses the modern Comprehensive System, in which the <strong>PTI (Perceptual-Thinking Index)</strong> takes the place of the older <strong>SCZI</strong>. Use PTI, and do not mix the two — they are scored differently.</div>
+<div class="table-scroll"><table>
+<tr><th>Constellation</th><th>Range</th><th>Positive rule</th><th>Reads for</th></tr>
+<tr><td><strong>PTI</strong></td><td>0–5</td><td>Continuous (higher = more concern); interpreted dimensionally, not a single cutoff</td><td>Perceptual-thinking disturbance</td></tr>
+<tr><td><strong>DEPI</strong></td><td>0–7</td><td>≥ 5 positive</td><td>Depressive organisation</td></tr>
+<tr><td><strong>CDI</strong></td><td>0–5</td><td>≥ 4 positive</td><td>Coping deficit</td></tr>
+<tr><td><strong>S-CON</strong></td><td>0–12</td><td>≥ 8 positive (red flag)</td><td>Suicide constellation</td></tr>
+<tr><td><strong>HVI</strong></td><td>—</td><td>T = 0 <em>prerequisite</em> + ≥ 4 of the remaining conditions</td><td>Hypervigilance</td></tr>
+<tr><td><strong>OBS</strong></td><td>—</td><td>Any one of its set positive combinations</td><td>Obsessive style</td></tr>
+</table></div>
+<div class="box warn"><strong>Read the exact cut-offs from the reference list.</strong> Each constellation has its own set of conditions with fixed threshold numbers. Below is the <em>method</em> that works for every constellation; use it with the exact thresholds and check them against your Summary. Do not invent thresholds.</div>
+
+<h3>How to score any constellation (same seven steps every time)</h3>
+<div class="step"><div class="num">1</div><div class="body">Write out each condition in the constellation.</div></div>
+<div class="step"><div class="num">2</div><div class="body">Say, in plain words, what that condition is testing.</div></div>
+<div class="step"><div class="num">3</div><div class="body">Look up the person's value for the variable it uses.</div></div>
+<div class="step"><div class="num">4</div><div class="body">Mark the condition YES or NO.</div></div>
+<div class="step"><div class="num">5</div><div class="body">Count how many are YES.</div></div>
+<div class="step"><div class="num">6</div><div class="body">Apply the final rule (for example, DEPI is positive at 5 or more).</div></div>
+<div class="step"><div class="num">7</div><div class="body">State the result: positive or negative.</div></div>
+
+<h3>Worked example — S-CON</h3>
+<p>S-CON is a checklist of 12 conditions; you count how many are true. If the count reaches <strong>8</strong>, it is positive. The table below shows the <em>shape</em> of the check (the values are examples). Use the exact 12 conditions and their thresholds when you score a real record.</p>
+<div class="table-scroll"><table>
+<tr><th>Condition (example)</th><th>Value in this record</th><th>True?</th></tr>
+<tr><td>A color-shading blend is present</td><td>CF.FC' present</td><td>YES</td></tr>
+<tr><td>Egocentricity below the set value</td><td>0.29</td><td>YES</td></tr>
+<tr><td>MOR above the set value</td><td>MOR = 5</td><td>YES</td></tr>
+<tr><td>|Zd| above the set value</td><td>Zd = −14</td><td>YES</td></tr>
+<tr><td>CF+C greater than FC</td><td>7 &gt; 3</td><td>YES</td></tr>
+<tr><td>X+% below the set value</td><td>0.36</td><td>YES</td></tr>
+<tr><td>Pure H below the set value</td><td>Pure H = 1</td><td>YES</td></tr>
+<tr><td>…the remaining conditions…</td><td>checked one by one</td><td>NO (in this record)</td></tr>
+</table></div>
+<div class="flow">
+  <div class="node accent">CONDITIONS TRUE = 7</div><div class="arrow">↓</div>
+  <div class="node">Rule: 8 or more = positive</div><div class="arrow">↓</div>
+  <div class="node terminal">RESULT: not positive (7 is one short) — but 7 is still high enough to take seriously and check safety directly</div>
+</div>
+
+<h3>Constellation edge cases</h3>
+<ul>
+<li><strong>Exactly one condition short</strong> (for example, S-CON = 7) → not formally positive, but treat it as a real concern rather than dismissing it.</li>
+<li><strong>Exactly at the cut-off</strong> (DEPI = 5, CDI = 4) → positive.</li>
+<li><strong>A value sitting right on the edge</strong> → apply the exact operator ("greater than" vs "greater than or equal to"); never round a number just to make a condition true.</li>
+<li><strong>A condition uses a ratio</strong> → work out the ratio first, then test it.</li>
+<li><strong>Too few responses or missing data</strong> → if you cannot compute a needed variable, you cannot score the constellation reliably; note this and leave it out.</li>
+<li><strong>HVI</strong> → if T is not 0, the entry condition fails and HVI is negative no matter what the other conditions do.</li>
+</ul>
+<div class="pagenav"><a href="#p26">← Part XXVI</a><a href="#contents">⌂ Contents</a><a href="#p28">Part XXVIII →</a></div>
+</div>
+
+<!-- ============ PART XXVIII ============ -->
+<h2 class="part" id="p28"><span class="pill">Part XXVIII</span>Validity</h2>
+<div class="section-body">
+<p>Check validity <strong>before</strong> interpreting. A Structural Summary can be computed yet not be interpretable.</p>
+<div class="table-scroll"><table>
+<tr><th>Signal</th><th>Concern</th></tr>
+<tr><td>R below the set minimum</td><td>Too few responses to trust the derived variables.</td></tr>
+<tr><td>Lambda &gt; 0.99 (or undefined, all-F)</td><td>Very avoidant/constricted; several clusters may not be interpretable.</td></tr>
+<tr><td>EA &lt; 4.0</td><td>Too few responses on each EB side — do not label an EB style.</td></tr>
+<tr><td>Very high R</td><td>Over-productivity can distort frequencies and percentages.</td></tr>
+<tr><td>Incomplete record / rejected cards</td><td>Missing data; some variables cannot be computed.</td></tr>
+</table></div>
+<div class="box err"><div class="etitle">If the Summary is not interpretable</div>Say so plainly. Report the numbers you computed, point out the validity problem, and hold back on cluster interpretation rather than over-reading a fragile record. For example, when EA is below 4.0 you still report EB as a pair of numbers, but you do not call the person introversive or extratensive.</div>
+<div class="pagenav"><a href="#p27">← Part XXVII</a><a href="#contents">⌂ Contents</a><a href="#p29">Part XXIX →</a></div>
+</div>
+
+<!-- ============ PART XXIX ============ -->
+<h2 class="part" id="p29"><span class="pill">Part XXIX</span>A–Z Structural Summary Workflow</h2>
+<div class="section-body">
+<div class="flow">
+  <div class="node accent">A · Protocol verification</div><div class="arrow">↓</div>
+  <div class="node">B · R</div><div class="arrow">↓</div>
+  <div class="node">C · Location (W,D,Dd,S)</div><div class="arrow">↓</div>
+  <div class="node">D · Developmental Quality</div><div class="arrow">↓</div>
+  <div class="node">E · Determinants</div><div class="arrow">↓</div>
+  <div class="node">F · Form Quality</div><div class="arrow">↓</div>
+  <div class="node">G · Content</div><div class="arrow">↓</div>
+  <div class="node">H · Popular</div><div class="arrow">↓</div>
+  <div class="node">I · Z scores (Zf, Zsum, Zest, Zd)</div><div class="arrow">↓</div>
+  <div class="node">J · Special Scores</div><div class="arrow">↓</div>
+  <div class="node">K · Raw tallies</div><div class="arrow">↓</div>
+  <div class="node">L · Weighted scores (WSumC, WSum6)</div><div class="arrow">↓</div>
+  <div class="node">M · Ratios &nbsp;·&nbsp; N · Percentages</div><div class="arrow">↓</div>
+  <div class="node">O–R · EA · EB · eb · es</div><div class="arrow">↓</div>
+  <div class="node">S–T · D · AdjD</div><div class="arrow">↓</div>
+  <div class="node">U–Z · Affect · Processing · Mediation · Ideation · Self · Interpersonal</div><div class="arrow">↓</div>
+  <div class="node accent">CONSTELLATIONS (PTI, DEPI, CDI, S-CON, HVI, OBS)</div><div class="arrow">↓</div>
+  <div class="node">VALIDITY CHECK</div><div class="arrow">↓</div>
+  <div class="node terminal">FINAL STRUCTURAL SUMMARY</div>
+</div>
+<div class="pagenav"><a href="#p28">← Part XXVIII</a><a href="#contents">⌂ Contents</a><a href="#p30">Part XXX →</a></div>
+</div>
+
+
+<!-- ============ PART XXX ============ -->
+<h2 class="part part-break" id="p30"><span class="pill">Part XXX</span>Complete Worked Example <span style="font-size:.7em">★ Most important</span></h2>
+<div class="section-body">
+<div class="box note"><strong>This is a made-up practice protocol.</strong> The responses, codes, and Z values below are invented purely for teaching. When you work a real record, read the true Z, Zest, D, and Form Quality figures from their reference tables.</div>
+
+<h3>Step 0 — The coded protocol (R = 20)</h3>
+<div class="table-scroll"><table>
+<tr><th>#</th><th>Card</th><th>Loc</th><th>DQ</th><th>Determinant(s)</th><th>FQ</th><th>(2)</th><th>Content</th><th>P</th><th>Z (fict.)</th><th>Special</th></tr>
+<tr><td>1</td><td>I</td><td>W</td><td>o</td><td>Fo? → <code>F</code></td><td>o</td><td>—</td><td>A</td><td>P</td><td>1.0</td><td>—</td></tr>
+<tr><td>2</td><td>I</td><td>D</td><td>o</td><td><code>Ma</code></td><td>o</td><td>—</td><td>H</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td>3</td><td>II</td><td>D</td><td>+</td><td><code>FMa</code></td><td>o</td><td>(2)</td><td>A</td><td>—</td><td>3.0</td><td>—</td></tr>
+<tr><td>4</td><td>II</td><td>DS</td><td>o</td><td><code>CF</code></td><td>u</td><td>—</td><td>Bl</td><td>—</td><td>4.5</td><td>MOR</td></tr>
+<tr><td>5</td><td>III</td><td>D</td><td>+</td><td><code>Ma</code></td><td>o</td><td>(2)</td><td>H</td><td>P</td><td>3.0</td><td>COP,GHR</td></tr>
+<tr><td>6</td><td>III</td><td>D</td><td>o</td><td><code>FC</code></td><td>o</td><td>—</td><td>Cg</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td>7</td><td>IV</td><td>W</td><td>o</td><td><code>FT</code></td><td>o</td><td>—</td><td>(H)</td><td>P</td><td>2.0</td><td>—</td></tr>
+<tr><td>8</td><td>IV</td><td>Dd</td><td>v</td><td><code>F</code></td><td>−</td><td>—</td><td>Bt</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td>9</td><td>V</td><td>W</td><td>o</td><td><code>F</code></td><td>o</td><td>—</td><td>A</td><td>P</td><td>1.0</td><td>—</td></tr>
+<tr><td>10</td><td>V</td><td>W</td><td>o</td><td><code>FMp</code></td><td>o</td><td>—</td><td>A</td><td>—</td><td>1.0</td><td>—</td></tr>
+<tr><td>11</td><td>VI</td><td>W</td><td>o</td><td><code>FT</code></td><td>o</td><td>—</td><td>Ad</td><td>P</td><td>2.5</td><td>—</td></tr>
+<tr><td>12</td><td>VI</td><td>D</td><td>o</td><td><code>ma</code></td><td>u</td><td>—</td><td>Sc</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td>13</td><td>VII</td><td>D</td><td>+</td><td><code>Mp</code></td><td>o</td><td>(2)</td><td>Hd</td><td>P</td><td>3.0</td><td>—</td></tr>
+<tr><td>14</td><td>VII</td><td>Dd</td><td>v</td><td><code>F</code></td><td>u</td><td>—</td><td>Ls</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td>15</td><td>VIII</td><td>D</td><td>o</td><td><code>FC</code></td><td>o</td><td>(2)</td><td>A</td><td>P</td><td>3.0</td><td>—</td></tr>
+<tr><td>16</td><td>VIII</td><td>W</td><td>+</td><td><code>CF.FY</code></td><td>u</td><td>—</td><td>Art</td><td>—</td><td>4.5</td><td>DV</td></tr>
+<tr><td>17</td><td>IX</td><td>Dd</td><td>v</td><td><code>C</code></td><td>none</td><td>—</td><td>Bl</td><td>—</td><td>—</td><td>MOR</td></tr>
+<tr><td>18</td><td>X</td><td>D</td><td>o</td><td><code>FMa</code></td><td>o</td><td>(2)</td><td>A</td><td>P</td><td>4.0</td><td>—</td></tr>
+<tr><td>19</td><td>X</td><td>D</td><td>o</td><td><code>FC'</code></td><td>o</td><td>—</td><td>Bt</td><td>—</td><td>—</td><td>FABCOM</td></tr>
+<tr><td>20</td><td>X</td><td>D</td><td>+</td><td><code>Ma.FC</code></td><td>o</td><td>(2)</td><td>H</td><td>—</td><td>4.0</td><td>COP,GHR</td></tr>
+</table></div>
+<p class="muted">Blends: R16 (CF.FY), R20 (Ma.FC) → Blends:R = 2:20. R16 is a color-shading blend (CF + FY).</p>
+
+<h3>Step 1 — R</h3>
+<div class="calc">Count of responses = 20  →  R = 20</div>
+
+<h3>Step 2 — Location totals</h3>
+<div class="calc">W  = #1,7,9,10,11,16 → W = 6
+D  = #2,3,4,5,6,12,13,15,18,19,20 → D = 11
+Dd = #8,14,17 → Dd = 3
+S  = #4 (DS) → S = 1
+Check: W+D+Dd = 6+11+3 = 20 = R ✓
+W:D:Dd = 6:11:3</div>
+
+<h3>Step 3 — DQ totals</h3>
+<div class="calc">DQ+   = #3,5,13,16,20 → 5
+DQo   = #1,2,4,6,7,9,10,11,12,15,18,19 → 12
+DQv/+ = 0
+DQv   = #8,14,17 → 3
+Check: 5+12+0+3 = 20 ✓</div>
+
+<h3>Step 4 — Determinants</h3>
+<div class="calc">M  : #2(Ma),5(Ma),13(Mp),20(Ma) → M = 4   (Ma=3, Mp=1)
+FM : #3(FMa),10(FMp),18(FMa)    → FM = 3   (FMa=2, FMp=1)
+m  : #12(ma)                     → m = 1
+FC : #6,15, and #20(in blend)    → FC = 3
+CF : #4, #16(in blend)           → CF = 2
+C  : #17                         → C = 1
+FC': #19                         → SumC' = 1
+FT : #7,11                       → SumT = 2
+FV/VF/V: none                    → SumV = 0
+FY : #16(in blend)               → SumY = 1
+F (pure): #1,8,9,14              → F = 4
+Pairs (2): #3,5,13,15,18,20      → Σ(2) = 6
+Fr+rF = 0
+Active/passive movement:
+  a = Ma(3)+FMa(2)+ma(1) = 6 ;  p = Mp(1)+FMp(1) = 2  → a:p = 6:2
+  Ma:Mp = 3:1</div>
+
+<h3>Step 5 — Form Quality</h3>
+<div class="calc">FQ+   : (none coded '+') → 0
+FQo   : #1,2,3,5,6,7,9,10,11,13,15,18,19,20 → 14
+FQu   : #4,12,14,16 → 4
+FQ−   : #8 → 1
+FQnone: #17 → 1
+Check: 0+14+4+1+1 = 20 ✓</div>
+
+<h3>Step 6 — Content</h3>
+<div class="calc">H   : #2,5,20            → 3      (Pure H = 3)
+(H) : #7                 → 1
+Hd  : #13                → 1
+Human content = H+(H)+Hd+(Hd) = 3+1+1+0 = 5
+A   : #1,3,9,10,15,18    → 6
+Ad  : #11                → 1
+Bl  : #4,17              → 2
+Cg  : #6                 → 1
+Bt  : #8,19              → 2
+Sc  : #12                → 1
+Ls  : #14                → 1
+Art : #16                → 1
+An+Xy = 0</div>
+
+<h3>Step 7 — Popular</h3>
+<div class="calc">P marked: #1,5,7,9,11,13,15,18 → P = 8</div>
+
+<h3>Step 8–11 — Z scores</h3>
+<div class="calc">Z-scored: #1(1.0),3(3.0),4(4.5),5(3.0),7(2.0),9(1.0),10(1.0),
+          11(2.5),13(3.0),15(3.0),16(4.5),18(4.0),20(4.0)
+Zf   = 13
+Zsum = 1.0+3.0+4.5+3.0+2.0+1.0+1.0+2.5+3.0+3.0+4.5+4.0+4.0
+     = 36.5
+Zest = 41.5   (example value for Zf = 13 — read the real one from the Zest table)
+Zd   = Zsum − Zest = 36.5 − 41.5 = −5.0  → underincorporation</div>
+
+<h3>Step 12–14 — Special scores, Sum6, WSum6</h3>
+<div class="calc">Critical special scores: DV(#16), FABCOM(#19)
+Sum6 = DV + FABCOM = 1 + 1 = 2   (Lv2 = 0)
+WSum6 = (1 × weight of DV) + (1 × weight of FABCOM)   ← multiply by each weight, then add
+Other special scores: MOR = 2 (#4,17); COP = 2 (#5,20); GHR = 2; PHR = 0; AG = 0
+2AB+Art+Ay = 2·0 + 1 + 0 = 1</div>
+
+<h3>Step 15 — Lambda</h3>
+<div class="calc">F = 4,  R = 20
+R − F = 20 − 4 = 16
+L = F ÷ (R − F) = 4 ÷ 16 = 0.25</div>
+<div class="box result">Lambda = 0.25</div>
+
+<h3>Step 16–17 — WSumC, EB, EA</h3>
+<div class="calc">WSumC = 0.5·FC + 1.0·CF + 1.5·C
+      = 0.5·3 + 1.0·2 + 1.5·1
+      = 1.5 + 2.0 + 1.5
+      = 5.0
+EB = M : WSumC = 4 : 5.0
+EA = M + WSumC = 4 + 5.0 = 9.0
+EBPer = larger/smaller = 5.0 / 4 = 1.25  (weakly directional → treat as ambitent-leaning; EA ≥ 4 so style is valid but not pervasive)</div>
+
+<h3>Step 18–19 — eb, es</h3>
+<div class="calc">Left  = FM + m = 3 + 1 = 4
+Right = SumC' + SumT + SumV + SumY = 1 + 2 + 0 + 1 = 4
+eb = 4 : 4
+es = 4 + 4 = 8</div>
+
+<h3>Step 20–21 — D and AdjD</h3>
+<div class="calc">EA − es = 9.0 − 8 = +1.0  → small positive difference
+→ within the D-table band around zero → D = 0   (read exact band from D table)
+
+Adjusted es: take out the extra, passing amount of m and Y.
+Here m = 1 and SumY = 1; after removing the excess above baseline,
+suppose Adj es = 7  (illustrative).
+EA − Adj es = 9.0 − 7 = +2.0 → AdjD = +1   (read from D table)</div>
+<div class="box result">D = 0, AdjD = +1 → adequate baseline control, mild situational load.</div>
+
+<h3>Step 22 — Affect ratios</h3>
+<div class="calc">Responses to VIII+IX+X = #15,16 (VIII) + #17 (IX) + #18,19,20 (X) = 2+1+3 = 6
+Responses to I–VII      = 20 − 6 = 14
+Afr = 6 ÷ 14 = 0.43
+FC:CF+C = 3 : (2+1) = 3 : 3
+SumC':WSumC = 1 : 5.0
+Pure C = 1 ;  S = 1 ;  Blends:R = 2:20</div>
+
+<h3>Step 23 — Processing</h3>
+<div class="calc">Zf = 13 ; Zsum = 36.5 ; Zd = −5.0
+W:D:Dd = 6:11:3 ; W:M = 6:4
+DQ+ = 5 ; DQv = 3</div>
+
+<h3>Step 24 — Mediation</h3>
+<div class="calc">XA% = (FQ+ + FQo + FQu) ÷ R = (0+14+4) ÷ 20 = 18 ÷ 20 = 0.90
+X+% = (FQ+ + FQo) ÷ R        = (0+14)   ÷ 20 = 14 ÷ 20 = 0.70
+Xu% = FQu ÷ R                = 4 ÷ 20         = 0.20
+X−% = FQ− ÷ R                = 1 ÷ 20         = 0.05
+WDA%: W+D responses = 6+11 = 17; of these, form-appropriate (+/o/u):
+   W+D minus the FQ− (#8 is Dd, #17 none is Dd) → all 17 W/D are +/o/u
+   WDA% = 17 ÷ 17 = 1.00</div>
+
+<h3>Step 25 — Ideation</h3>
+<div class="calc">Sum6 = 2 ; Lv2 = 0 ; WSum6 = (apply weights)
+MOR = 2 ; M− = 0 ; Ma:Mp = 3:1 ; a:p = 6:2 ; 2AB+Art+Ay = 1</div>
+
+<h3>Step 26 — Self-perception</h3>
+<div class="calc">3r+(2)/R = [3·(Fr+rF) + Σ(2)] ÷ R = [3·0 + 6] ÷ 20 = 6 ÷ 20 = 0.30
+Fr+rF = 0 ; FD = 0 ; An+Xy = 0 ; MOR = 2 ; SumV = 0</div>
+
+<h3>Step 27 — Interpersonal</h3>
+<div class="calc">H:(H)+Hd+(Hd) = 3 : (1+1+0) = 3 : 2
+Pure H = 3 ; Human content = 5
+COP = 2 ; AG = 0 ; GHR:PHR = 2:0 ; PER = 0
+Sum T = 2 ; Fd = 0
+Isolation Index = (Bt+Cl+Ge+Ls+Na) ÷ R = (2+0+0+1+0) ÷ 20 = 3 ÷ 20 = 0.15</div>
+
+<h3>Step 28 — Constellations (procedure)</h3>
+<div class="calc">Score each constellation by testing its conditions against the
+values above (PTI, DEPI, CDI, S-CON, HVI, OBS).
+Count the true conditions; apply the cut-offs (DEPI ≥ 5, CDI ≥ 4, S-CON ≥ 8).
+HVI = NEGATIVE here, because its entry condition is T = 0, but SumT = 2.</div>
+
+<h3>Step 29 — Validity</h3>
+<div class="calc">R = 20 (adequate) ; Lambda = 0.25 (not avoidant) ; EA = 9.0 (≥4, EB style valid).
+→ Protocol is interpretable.</div>
+
+<h3>Step 30 — Final Structural Summary (this example)</h3>
+<div class="table-scroll"><table>
+<tr><th>Field</th><th>Value</th><th>Field</th><th>Value</th></tr>
+<tr><td>R</td><td>20</td><td>Afr</td><td>0.43</td></tr>
+<tr><td>L</td><td>0.25</td><td>FC:CF+C</td><td>3:3</td></tr>
+<tr><td>EB</td><td>4:5.0</td><td>SumC':WSumC</td><td>1:5.0</td></tr>
+<tr><td>EA</td><td>9.0</td><td>Pure C</td><td>1</td></tr>
+<tr><td>EBPer</td><td>1.25</td><td>XA%</td><td>0.90</td></tr>
+<tr><td>eb</td><td>4:4</td><td>WDA%</td><td>1.00</td></tr>
+<tr><td>es</td><td>8</td><td>X+%</td><td>0.70</td></tr>
+<tr><td>Adj es</td><td>7</td><td>Xu%</td><td>0.20</td></tr>
+<tr><td>D</td><td>0</td><td>X−%</td><td>0.05</td></tr>
+<tr><td>AdjD</td><td>+1</td><td>Sum6 / WSum6</td><td>2 / (weighted)</td></tr>
+<tr><td>FM / m</td><td>3 / 1</td><td>Lv2</td><td>0</td></tr>
+<tr><td>SumC' / SumT</td><td>1 / 2</td><td>MOR</td><td>2</td></tr>
+<tr><td>SumV / SumY</td><td>0 / 1</td><td>a:p / Ma:Mp</td><td>6:2 / 3:1</td></tr>
+<tr><td>Zf / Zsum</td><td>13 / 36.5</td><td>3r+(2)/R</td><td>0.30</td></tr>
+<tr><td>Zest / Zd</td><td>41.5 / −5.0</td><td>Fr+rF / FD</td><td>0 / 0</td></tr>
+<tr><td>W:D:Dd</td><td>6:11:3</td><td>An+Xy</td><td>0</td></tr>
+<tr><td>DQ+ / DQv</td><td>5 / 3</td><td>H:(H)+Hd+(Hd)</td><td>3:2</td></tr>
+<tr><td>P</td><td>8</td><td>Pure H</td><td>3</td></tr>
+<tr><td>Blends:R</td><td>2:20</td><td>COP / AG</td><td>2 / 0</td></tr>
+<tr><td>S</td><td>1</td><td>GHR:PHR</td><td>2:0</td></tr>
+<tr><td>W:M</td><td>6:4</td><td>Isolation Index</td><td>0.15</td></tr>
+<tr><td>HVI</td><td>No (T≠0)</td><td>Sum T / Fd</td><td>2 / 0</td></tr>
+</table></div>
+<div class="pagenav"><a href="#p29">← Part XXIX</a><a href="#contents">⌂ Contents</a><a href="#p31">Part XXXI →</a></div>
+</div>
+
+
+<!-- ============ PART XXXI ============ -->
+<h2 class="part part-break" id="p31"><span class="pill">Part XXXI</span>Edge-Case "What If?" Index <span style="font-size:.7em">★ Second most important</span></h2>
+<div class="section-body">
+<p>For each case we cover: <strong>(1)</strong> the maths, <strong>(2)</strong> whether it is defined, <strong>(3)</strong> what to write down, <strong>(4)</strong> whether to report a value at all, <strong>(5)</strong> any special rule for that boundary, <strong>(6)</strong> whether to hold back interpretation, <strong>(7)</strong> what to double-check.</p>
+
+<div class="box whatif"><div class="wtitle">What if the NUMERATOR is zero?</div>
+Maths: 0 ÷ d = 0 (for d ≠ 0). Defined. Enter <strong>0</strong>. Report it. No special convention. Interpret normally (a genuine zero, e.g., X−% = 0 means no minus responses). Re-check the tally that produced the zero.</div>
+
+<div class="box whatif"><div class="wtitle">What if the DENOMINATOR is zero?</div>
+Maths: n ÷ 0 = <strong>undefined</strong>. Not defined. Do <strong>not</strong> enter a number. Report the boundary ("undefined / not computable"). Some ratios are written as "n:0" (a ratio, not a division — that is fine, e.g., FC:CF+C = 3:0). Withhold any interpretation that needs the quotient. Re-check whether the record is degenerate (e.g., no I–VII responses for Afr).</div>
+
+<div class="box whatif"><div class="wtitle">What if BOTH are zero?</div>
+Maths: 0 ÷ 0 = undefined; as a ratio, 0:0. Enter the ratio as 0:0 where a ratio is expected (e.g., FC:CF+C = 0:0). No quotient. Withhold modulation/quotient interpretation. Re-check that both underlying counts really are zero.</div>
+
+<div class="box whatif"><div class="wtitle">What if R is VERY LOW?</div>
+All percentages that divide by R become shaky, and some constellations cannot be scored. Compute what you can, but check R against the set minimum (Part XXVIII) and most likely hold back on cluster interpretation.</div>
+
+<div class="box whatif"><div class="wtitle">What if R is VERY HIGH?</div>
+Frequencies inflate; percentages may compress. Values are defined; interpret cautiously with the over-productivity caveat.</div>
+
+<div class="box whatif"><div class="wtitle">What if there are NO COLOR responses?</div>
+WSumC = 0; FC:CF+C = 0:0; EB affect side = 0; Afr may still compute from card counts. Report; the affect side of EB is empty and EB style may be invalid if EA &lt; 4.</div>
+
+<div class="box whatif"><div class="wtitle">What if there are NO MOVEMENT responses?</div>
+M = 0, FM = 0, m = 0 → EB left side 0, eb left side 0. Defined (zeros). Report; note absence of ideational/kinesthetic activity.</div>
+
+<div class="box whatif"><div class="wtitle">What if M = 0?</div>
+EB = 0:WSumC; Ma:Mp = 0:0; M− = 0. All defined as zeros. Report; EB weighted entirely to affect side (if valid).</div>
+
+<div class="box whatif"><div class="wtitle">What if FM = 0 / m = 0?</div>
+eb left side loses that component. Defined. Report zeros; recompute es accordingly.</div>
+
+<div class="box whatif"><div class="wtitle">What if F = 0?</div>
+Lambda = 0 ÷ R = 0. Defined. Enter 0. No avoidant signal from Lambda. Re-check that truly no response was pure F.</div>
+
+<div class="box whatif"><div class="wtitle">What if ALL responses are pure F?</div>
+R − F = 0 → Lambda = R ÷ 0 = <strong>undefined</strong>. Do not fabricate a finite value; report the extreme high-Lambda boundary and treat as a constricted/avoidant, minimally interpretable record (Part XIV, Example 3). Re-check FQ-vs-F confusion.</div>
+
+<div class="box whatif"><div class="wtitle">What if the LAMBDA denominator = 0?</div>
+Same as the all-pure-F case above. It is undefined; report it as the extreme high-Lambda boundary, not a made-up number.</div>
+
+<div class="box whatif"><div class="wtitle">What if Zf = 0?</div>
+No organisational activity. Zsum = 0; Zest is undefined for Zf = 0; Zd cannot be computed. Report Zf = 0, withhold Zd.</div>
+
+<div class="box whatif"><div class="wtitle">What if Zsum = 0 (but Zf &gt; 0)?</div>
+Unusual — check for a tallying error, since a Z-scored response carries a positive value. Re-verify the Z values.</div>
+
+<div class="box whatif"><div class="wtitle">What if there are NO special scores / Sum6 = 0 / WSum6 = 0?</div>
+Enter 0 for both Sum6 and WSum6. This is a real, defined value. Report it; it means no formal thought-disorder markers are present.</div>
+
+<div class="box whatif"><div class="wtitle">What if FC = 0 / CF+C = 0 / both = 0?</div>
+FC:CF+C becomes 0:(CF+C), FC:0, or 0:0. Ratios (not divisions) are fine to report; when both are 0 withhold modulation interpretation.</div>
+
+<div class="box whatif"><div class="wtitle">What if H = 0 / (H) = 0?</div>
+H:(H)+Hd+(Hd) = 0:(sum) or (H)=0 contributes nothing to the right side. Defined. Report; no Pure H flags reliance on partial/imaginary human conceptions.</div>
+
+<div class="box whatif"><div class="wtitle">What if MOR = 0 / FD = 0 / An+Xy = 0 / 3r+(2) = 0?</div>
+Each is a genuine count of zero — enter 0, report, interpret as absence. Not undefined.</div>
+
+<div class="box whatif"><div class="wtitle">What if a required variable CANNOT be calculated / data are MISSING?</div>
+Document the gap. Any ratio or constellation depending on the missing variable is withheld (not guessed). Re-check the coding sheet and inquiry notes; if truly missing, flag it in the report.</div>
+
+<div class="box err"><div class="etitle">Golden rule for all edge cases</div>Always distinguish the <strong>mathematical result</strong> (defined / zero / undefined) from the <strong>reporting convention</strong> (what number, ratio, or flag actually goes on the Summary). When in doubt, report the boundary honestly and withhold interpretation rather than inventing a value.</div>
+<div class="pagenav"><a href="#p30">← Part XXX</a><a href="#contents">⌂ Contents</a><a href="#p32">Part XXXII →</a></div>
+</div>
+
+<!-- ============ PART XXXII ============ -->
+<h2 class="part" id="p32"><span class="pill">Part XXXII</span>When Scoring is Difficult</h2>
+<div class="section-body">
+<div class="table-scroll"><table>
+<tr><th>Ambiguity</th><th>First thing to re-check</th></tr>
+<tr><td>Location</td><td>The location sheet + D/Dd tables — code what was actually used.</td></tr>
+<tr><td>DQ</td><td>The DQ decision tree (integration? form demand?).</td></tr>
+<tr><td>Determinant</td><td>The verbatim + inquiry; apply step-down and "code Y when in doubt."</td></tr>
+<tr><td>FQ</td><td>The FQ table for that content in that area.</td></tr>
+<tr><td>Content</td><td>Primary vs secondary; edition-specific code list.</td></tr>
+<tr><td>Popular</td><td>The Popular list for that card.</td></tr>
+<tr><td>Z score</td><td>The organisational criteria + per-card Z table.</td></tr>
+<tr><td>Special score</td><td>The exact criterion + Level 1 vs 2.</td></tr>
+<tr><td>Multiple possible codes</td><td>Whether a blend is warranted; do not force one code.</td></tr>
+<tr><td>Incomplete inquiry / poor notes</td><td>Whether the determinant was truly articulated; if not, don't assume it.</td></tr>
+</table></div>
+<div class="flow">
+  <div class="node">REVIEW RESPONSE</div><div class="arrow">↓</div>
+  <div class="node">REVIEW INQUIRY</div><div class="arrow">↓</div>
+  <div class="node">REVIEW CODING CRITERIA</div><div class="arrow">↓</div>
+  <div class="node">CHECK DECISION TREE</div><div class="arrow">↓</div>
+  <div class="node">CHECK THE REFERENCE TABLE</div><div class="arrow">↓</div>
+  <div class="node terminal">DOCUMENT THE DECISION</div>
+</div>
+<div class="box err"><div class="etitle">Do not guess</div>An unresolved coding ambiguity is a coding task, not a calculation task. Resolve it against the source before it enters the arithmetic.</div>
+<div class="pagenav"><a href="#p31">← Part XXXI</a><a href="#contents">⌂ Contents</a><a href="#p33">Part XXXIII →</a></div>
+</div>
+
+<!-- ============ PART XXXIII ============ -->
+<h2 class="part" id="p33"><span class="pill">Part XXXIII</span>Common Calculation Errors</h2>
+<div class="section-body">
+<div class="table-scroll"><table>
+<tr><th>#</th><th>Error</th><th>Consequence</th></tr>
+<tr><td>1</td><td>Incorrect R</td><td>Every R-denominated percentage and Lambda wrong.</td></tr>
+<tr><td>2</td><td>Double-counting responses</td><td>Inflated frequencies.</td></tr>
+<tr><td>3</td><td>Forgetting a blend determinant</td><td>WSumC / eb / es understated.</td></tr>
+<tr><td>4</td><td>Treating FC as F</td><td>F and Lambda overstated; WSumC understated.</td></tr>
+<tr><td>5</td><td>Treating CF as F</td><td>Same as above.</td></tr>
+<tr><td>6</td><td>Treating C as F</td><td>Same; also loses affect load.</td></tr>
+<tr><td>7</td><td>Incorrect Lambda</td><td>Misclassifies avoidant style + validity.</td></tr>
+<tr><td>8</td><td>Wrong denominator (e.g., R for WDA%)</td><td>Mediation percentages wrong.</td></tr>
+<tr><td>9</td><td>Wrong weighted color</td><td>EB, EA, D, AdjD all shift.</td></tr>
+<tr><td>10</td><td>Wrong Sum6</td><td>Cascades to WSum6 and ideation.</td></tr>
+<tr><td>11</td><td>Wrong WSum6 weights</td><td>Ideation/PTI misread.</td></tr>
+<tr><td>12</td><td>Wrong EB</td><td>Style misattributed.</td></tr>
+<tr><td>13</td><td>Wrong EA</td><td>D / AdjD / CDI wrong.</td></tr>
+<tr><td>14</td><td>Wrong es</td><td>D / AdjD wrong.</td></tr>
+<tr><td>15</td><td>Wrong D</td><td>Control cluster wrong.</td></tr>
+<tr><td>16</td><td>Wrong AdjD</td><td>Trait vs state control confused.</td></tr>
+<tr><td>17</td><td>Wrong percentage denominator</td><td>Mediation cluster wrong.</td></tr>
+<tr><td>18</td><td>Mixing editions</td><td>SCZI vs PTI, incompatible norms.</td></tr>
+<tr><td>19</td><td>Wrong norm table</td><td>Invalid comparisons.</td></tr>
+<tr><td>20</td><td>Wrong constellation threshold</td><td>False positive/negative index.</td></tr>
+<tr><td>21</td><td>Interpreting an invalid protocol</td><td>Conclusions unsupported.</td></tr>
+</table></div>
+<div class="pagenav"><a href="#p32">← Part XXXII</a><a href="#contents">⌂ Contents</a><a href="#p34">Part XXXIV →</a></div>
+</div>
+
+
+<!-- ============ PART XXXIV ============ -->
+<h2 class="part part-break" id="p34"><span class="pill">Part XXXIV</span>By-Hand Calculation Worksheet <span style="font-size:.7em">★ Printable</span></h2>
+<div class="section-body">
+<p class="muted">Print this section (browser → Print). Fill by hand from a coded protocol.</p>
+
+<h3>Section 1 — R</h3>
+<div class="calc">R = __________</div>
+
+<h3>Section 2 — Location</h3>
+<div class="calc">W = ______   D = ______   Dd = ______   S = ______
+Check: W + D + Dd = ______ (= R?)   W:D:Dd = ____ : ____ : ____</div>
+
+<h3>Section 3 — Developmental Quality</h3>
+<div class="calc">DQ+ = ______   DQo = ______   DQv/+ = ______   DQv = ______   (sum = R?)</div>
+
+<h3>Section 4 — Determinants</h3>
+<div class="calc">M = ____ (Ma __ / Mp __)   FM = ____   m = ____
+FC = ____  CF = ____  C = ____  Cn = ____
+FC' __ C'F __ C' __ → SumC' = ____
+FT __ TF __ T __ → SumT = ____
+FV __ VF __ V __ → SumV = ____
+FY __ YF __ Y __ → SumY = ____
+F (pure) = ____   FD = ____   Fr+rF = ____   Σ(2) = ____
+a:p = ____ : ____    active/passive check</div>
+
+<h3>Section 5 — Form Quality</h3>
+<div class="calc">FQ+ = ____  FQo = ____  FQu = ____  FQ− = ____  FQnone = ____  (sum = R?)</div>
+
+<h3>Section 6 — Content</h3>
+<div class="calc">H __ (H) __ Hd __ (Hd) __ Hx __   A __ (A) __ Ad __ (Ad) __
+An __ Art __ Ay __ Bl __ Bt __ Cg __ Cl __ Ex __ Fd __ Fi __
+Ge __ Hh __ Ls __ Na __ Sc __ Sx __ Xy __ Id __
+Human content = ____   Pure H = ____</div>
+
+<h3>Section 7 — Popular</h3>
+<div class="calc">P = ______</div>
+
+<h3>Section 8 — Z</h3>
+<div class="calc">Zf = ____   Zsum = ____   Zest = ____ (table)   Zd = Zsum − Zest = ____</div>
+
+<h3>Section 9 — Special Scores</h3>
+<div class="calc">DV __ / __(L2)   INCOM __ / __   DR __ / __   FABCOM __ / __
+ALOG __   CONTAM __   Sum6 = ____   Lv2 = ____   WSum6 = ____
+MOR __  AG __  COP __  PER __  AB __  GHR __  PHR __</div>
+
+<h3>Section 10 — Formula calculations</h3>
+<div class="calc">Lambda = F/(R−F) = ____ / ____ = ______
+WSumC = 0.5·FC + 1·CF + 1.5·C = ______
+EB = M : WSumC = ____ : ____      EA = M + WSumC = ______
+EBPer = ______ (only if valid)
+eb = (FM+m) : (SumC'+SumT+SumV+SumY) = ____ : ____
+es = ______      Adj es = ______
+D = ______ (table)     AdjD = ______ (table)
+Afr = (VIII+IX+X)/(I–VII) = ____ / ____ = ______
+FC:CF+C = ____ : ____     SumC':WSumC = ____ : ____
+XA% = ______  WDA% = ______  X+% = ______  Xu% = ______  X−% = ______
+3r+(2)/R = ______   Fr+rF = ____  FD = ____  An+Xy = ____
+H:(H)+Hd+(Hd) = ____ : ____   COP __ AG __  GHR:PHR = __ : __
+Isolation Index = ______   W:M = ____ : ____   Blends:R = ____ : ____</div>
+
+<h3>Section 11 — Constellations</h3>
+<div class="calc">PTI = ____   DEPI = ____ (≥5?)   CDI = ____ (≥4?)
+S-CON = ____ (≥8?)   HVI = ____ (T=0 + ≥4?)   OBS = ____</div>
+
+<h3>Section 12 — Validity</h3>
+<div class="calc">R adequate? ____   Lambda &gt; 0.99? ____   EA &lt; 4.0? ____
+Interpretable? ____________________</div>
+<div class="pagenav"><a href="#p33">← Part XXXIII</a><a href="#contents">⌂ Contents</a><a href="#p35">Part XXXV →</a></div>
+</div>
+
+<!-- ============ PART XXXV ============ -->
+<h2 class="part" id="p35"><span class="pill">Part XXXV</span>Calculation Table</h2>
+<div class="section-body">
+<div class="table-scroll"><table>
+<tr><th>Variable</th><th>Formula</th><th>Components</th><th>Example calc</th><th>Result</th></tr>
+<tr><td>Lambda</td><td>F/(R−F)</td><td>F, R</td><td>4/(20−4)=4/16</td><td>0.25</td></tr>
+<tr><td>WSumC</td><td>0.5FC+1CF+1.5C</td><td>FC,CF,C</td><td>0.5·3+1·2+1.5·1</td><td>5.0</td></tr>
+<tr><td>EA</td><td>M+WSumC</td><td>M,WSumC</td><td>4+5.0</td><td>9.0</td></tr>
+<tr><td>EB</td><td>M:WSumC</td><td>M,WSumC</td><td>4:5.0</td><td>4:5.0</td></tr>
+<tr><td>eb</td><td>(FM+m):(C'+T+V+Y)</td><td>shading/FM/m</td><td>(3+1):(1+2+0+1)</td><td>4:4</td></tr>
+<tr><td>es</td><td>FM+m+C'+T+V+Y</td><td>—</td><td>3+1+1+2+0+1</td><td>8</td></tr>
+<tr><td>D</td><td>table(EA−es)</td><td>EA,es</td><td>9−8=+1 → band</td><td>0</td></tr>
+<tr><td>AdjD</td><td>table(EA−Adjes)</td><td>EA,Adj es</td><td>9−7=+2 → band</td><td>+1</td></tr>
+<tr><td>Afr</td><td>(VIII-X)/(I-VII)</td><td>card counts</td><td>6/14</td><td>0.43</td></tr>
+<tr><td>XA%</td><td>(+&nbsp;+o+u)/R</td><td>FQ tallies,R</td><td>18/20</td><td>0.90</td></tr>
+<tr><td>WDA%</td><td>(approp in W+D)/(W+D)</td><td>FQ,W,D</td><td>17/17</td><td>1.00</td></tr>
+<tr><td>X+%</td><td>(+&nbsp;+o)/R</td><td>FQ,R</td><td>14/20</td><td>0.70</td></tr>
+<tr><td>Xu%</td><td>u/R</td><td>FQu,R</td><td>4/20</td><td>0.20</td></tr>
+<tr><td>X−%</td><td>−/R</td><td>FQ−,R</td><td>1/20</td><td>0.05</td></tr>
+<tr><td>3r+(2)/R</td><td>[3(Fr+rF)+Σ(2)]/R</td><td>Fr,rF,(2),R</td><td>[0+6]/20</td><td>0.30</td></tr>
+<tr><td>Zd</td><td>Zsum−Zest</td><td>Zsum,Zest</td><td>36.5−41.5</td><td>−5.0</td></tr>
+<tr><td>Isolation</td><td>(Bt+Cl+Ge+Ls+Na)/R</td><td>contents,R</td><td>3/20</td><td>0.15</td></tr>
+</table></div>
+<div class="pagenav"><a href="#p34">← Part XXXIV</a><a href="#contents">⌂ Contents</a><a href="#p36">Part XXXVI →</a></div>
+</div>
+
+<!-- ============ PART XXXVI ============ -->
+<h2 class="part" id="p36"><span class="pill">Part XXXVI</span>From Response to Structural Summary</h2>
+<div class="section-body">
+<div class="box example"><div class="etitle">Trace a single response</div>
+<em>Card III, response #5: "Two people lifting a basket together, facing each other."</em></div>
+<div class="flow">
+  <div class="node accent">RESPONSE (verbatim + inquiry)</div><div class="arrow">↓</div>
+  <div class="node">LOCATION → D (common lateral figures)</div><div class="arrow">↓</div>
+  <div class="node">DQ → + (two areas meaningfully integrated)</div><div class="arrow">↓</div>
+  <div class="node">DETERMINANTS → Ma (active human movement)</div><div class="arrow">↓</div>
+  <div class="node">FQ → o (looked up in FQ table)</div><div class="arrow">↓</div>
+  <div class="node">PAIR → (2)</div><div class="arrow">↓</div>
+  <div class="node">CONTENT → H</div><div class="arrow">↓</div>
+  <div class="node">POPULAR → P (matches list)</div><div class="arrow">↓</div>
+  <div class="node">Z → 3.0 (adjacent-detail organisation, per Z table)</div><div class="arrow">↓</div>
+  <div class="node">SPECIAL → COP, GHR</div>
+</div>
+<p style="text-align:center;font-weight:700;color:var(--lilac-deep)">This one response then feeds ↓</p>
+<div class="flow">
+  <div class="node">RAW TALLY: D+1, DQ++1, M+1(Ma), FQo+1, (2)+1, H+1, P+1, Zf+1, Zsum+3.0, COP+1, GHR+1</div><div class="arrow">↓</div>
+  <div class="node">DERIVED: contributes to EB (M side), EA, a:p, Ma:Mp, Zsum→Zd</div><div class="arrow">↓</div>
+  <div class="node">RATIO: H:(H)+Hd+(Hd), GHR:PHR, W:M</div><div class="arrow">↓</div>
+  <div class="node">PERCENTAGE: X+% / XA% (FQo), 3r+(2)/R (the pair)</div><div class="arrow">↓</div>
+  <div class="node terminal">CONSTELLATION: feeds S-CON, CDI, PTI variables</div>
+</div>
+<div class="pagenav"><a href="#p35">← Part XXXV</a><a href="#contents">⌂ Contents</a><a href="#p37">Part XXXVII →</a></div>
+</div>
+
+<!-- ============ PART XXXVII ============ -->
+<h2 class="part" id="p37"><span class="pill">Part XXXVII</span>Complete Final Structural Summary — Where Each Number Came From</h2>
+<div class="section-body">
+<p>Using the Part XXX worked example, each field is traced back to its source responses, calculation, and formula.</p>
+<div class="table-scroll"><table>
+<tr><th>Summary value</th><th>Source responses</th><th>Calculation</th><th>Formula</th><th>Final</th></tr>
+<tr><td>R = 20</td><td>all responses</td><td>count</td><td>R</td><td>20</td></tr>
+<tr><td>W:D:Dd = 6:11:3</td><td>loc tallies</td><td>6 / 11 / 3</td><td>location counts</td><td>6:11:3</td></tr>
+<tr><td>L = 0.25</td><td>F: #1,8,9,14</td><td>4/(20−4)</td><td>F/(R−F)</td><td>0.25</td></tr>
+<tr><td>WSumC = 5.0</td><td>FC:#6,15,20; CF:#4,16; C:#17</td><td>0.5·3+1·2+1.5·1</td><td>weighted color</td><td>5.0</td></tr>
+<tr><td>EB = 4:5.0</td><td>M:#2,5,13,20</td><td>4 : 5.0</td><td>M:WSumC</td><td>4:5.0</td></tr>
+<tr><td>EA = 9.0</td><td>same</td><td>4+5.0</td><td>M+WSumC</td><td>9.0</td></tr>
+<tr><td>eb = 4:4</td><td>FM:#3,10,18; m:#12; C':#19; T:#7,11; Y:#16</td><td>(3+1):(1+2+0+1)</td><td>(FM+m):(C'+T+V+Y)</td><td>4:4</td></tr>
+<tr><td>es = 8</td><td>same</td><td>3+1+1+2+0+1</td><td>Σ eb</td><td>8</td></tr>
+<tr><td>D = 0</td><td>EA,es</td><td>9−8=+1 → band</td><td>D table</td><td>0</td></tr>
+<tr><td>AdjD = +1</td><td>EA,Adj es</td><td>9−7=+2 → band</td><td>D table</td><td>+1</td></tr>
+<tr><td>Afr = 0.43</td><td>VIII-X:#15-20; I-VII:rest</td><td>6/14</td><td>(VIII-X)/(I-VII)</td><td>0.43</td></tr>
+<tr><td>XA% = 0.90</td><td>FQ+/o/u = 0+14+4</td><td>18/20</td><td>(+&nbsp;+o+u)/R</td><td>0.90</td></tr>
+<tr><td>X−% = 0.05</td><td>FQ−:#8</td><td>1/20</td><td>−/R</td><td>0.05</td></tr>
+<tr><td>3r+(2)/R = 0.30</td><td>(2):#3,5,13,15,18,20</td><td>[0+6]/20</td><td>[3(Fr+rF)+Σ(2)]/R</td><td>0.30</td></tr>
+<tr><td>Zf/Zsum = 13/36.5</td><td>13 Z-scored responses</td><td>count / sum</td><td>Zf, Zsum</td><td>13 / 36.5</td></tr>
+<tr><td>Zd = −5.0</td><td>Zsum, Zest</td><td>36.5−41.5</td><td>Zsum−Zest</td><td>−5.0</td></tr>
+<tr><td>P = 8</td><td>#1,5,7,9,11,13,15,18</td><td>count</td><td>P</td><td>8</td></tr>
+<tr><td>Sum6 = 2</td><td>DV:#16; FAB:#19</td><td>1+1</td><td>Σ critical SS</td><td>2</td></tr>
+<tr><td>H:(H)+Hd+(Hd) = 3:2</td><td>H:#2,5,20;(H):#7;Hd:#13</td><td>3 : (1+1)</td><td>human ratio</td><td>3:2</td></tr>
+<tr><td>HVI = No</td><td>SumT = 2 (#7,11)</td><td>T≠0 → prereq fails</td><td>HVI rule</td><td>Negative</td></tr>
+</table></div>
+<div class="pagenav"><a href="#p36">← Part XXXVI</a><a href="#contents">⌂ Contents</a><a href="#p38">Part XXXVIII →</a></div>
+</div>
+
+<!-- ============ PART XXXVIII ============ -->
+<h2 class="part" id="p38"><span class="pill">Part XXXVIII</span>Reverse Checking (Audit)</h2>
+<div class="section-body">
+<div class="table-scroll"><table>
+<tr><th>Check</th><th>Question</th></tr>
+<tr><td>1</td><td>Does R match the number of responses? (and W+D+Dd = R, DQ sum = R, FQ sum = R)</td></tr>
+<tr><td>2</td><td>Do determinant frequencies match the Sequence of Scores (including inside blends)?</td></tr>
+<tr><td>3</td><td>Do content frequencies match?</td></tr>
+<tr><td>4</td><td>Do the pure-F responses match the Lambda calculation?</td></tr>
+<tr><td>5</td><td>Do Z values match the coded responses and the Z table?</td></tr>
+<tr><td>6</td><td>Do Sum6 and WSum6 match the special scores and their set weights?</td></tr>
+<tr><td>7</td><td>Do EA / EB / eb / es components all reconcile?</td></tr>
+<tr><td>8</td><td>Does D follow from EA and es via the table?</td></tr>
+<tr><td>9</td><td>Does AdjD follow the correct adjustment procedure?</td></tr>
+<tr><td>10</td><td>Do all percentages use the correct denominator (R vs W+D vs card counts)?</td></tr>
+<tr><td>11</td><td>Do the constellation criteria match their underlying variables?</td></tr>
+<tr><td>12</td><td>Are any mathematically undefined variables being reported as if finite?</td></tr>
+</table></div>
+<div class="box tip"><strong>Fast integrity test:</strong> W+D+Dd, the DQ sum, and the FQ sum must each equal R. If any fails, stop and fix before interpreting.</div>
+<div class="pagenav"><a href="#p37">← Part XXXVII</a><a href="#contents">⌂ Contents</a><a href="#p39">Part XXXIX →</a></div>
+</div>
+
+
+<!-- ============ PART XXXIX ============ -->
+<h2 class="part part-break" id="p39"><span class="pill">Part XXXIX</span>Exam / Practical Quick Reference</h2>
+<div class="section-body">
+<div class="cards">
+  <div class="fcard"><h4>R</h4><span class="eq">count of responses</span></div>
+  <div class="fcard"><h4>Lambda</h4><span class="eq">F/(R−F)</span><div class="lbl">&gt;0.99 = avoidant</div></div>
+  <div class="fcard"><h4>WSumC</h4><span class="eq">.5FC+1CF+1.5C</span></div>
+  <div class="fcard"><h4>EB</h4><span class="eq">M : WSumC</span></div>
+  <div class="fcard"><h4>EA</h4><span class="eq">M + WSumC</span></div>
+  <div class="fcard"><h4>eb</h4><span class="eq">(FM+m):(C'+T+V+Y)</span></div>
+  <div class="fcard"><h4>es</h4><span class="eq">FM+m+C'+T+V+Y</span></div>
+  <div class="fcard"><h4>D</h4><span class="eq">table(EA−es)</span></div>
+  <div class="fcard"><h4>AdjD</h4><span class="eq">table(EA−Adj es)</span></div>
+  <div class="fcard"><h4>Afr</h4><span class="eq">(VIII-X)/(I-VII)</span></div>
+  <div class="fcard"><h4>X+%</h4><span class="eq">(+&nbsp;+o)/R</span></div>
+  <div class="fcard"><h4>Xu%</h4><span class="eq">u/R</span></div>
+  <div class="fcard"><h4>X−%</h4><span class="eq">−/R</span></div>
+  <div class="fcard"><h4>XA%</h4><span class="eq">(+&nbsp;+o+u)/R</span></div>
+  <div class="fcard"><h4>WDA%</h4><span class="eq">(approp)/(W+D)</span></div>
+  <div class="fcard"><h4>3r+(2)/R</h4><span class="eq">[3(Fr+rF)+Σ(2)]/R</span></div>
+  <div class="fcard"><h4>Fr+rF</h4><span class="eq">reflection count</span></div>
+  <div class="fcard"><h4>H ratio</h4><span class="eq">H:(H)+Hd+(Hd)</span></div>
+  <div class="fcard"><h4>Sum6</h4><span class="eq">Σ 6 critical SS</span></div>
+  <div class="fcard"><h4>WSum6</h4><span class="eq">Σ (SS × weight)</span></div>
+  <div class="fcard"><h4>Zf</h4><span class="eq">count Z-scored</span></div>
+  <div class="fcard"><h4>Zsum</h4><span class="eq">Σ Z values</span></div>
+  <div class="fcard"><h4>Zest</h4><span class="eq">table(Zf)</span></div>
+  <div class="fcard"><h4>Zd</h4><span class="eq">Zsum − Zest</span></div>
+  <div class="fcard"><h4>DEPI</h4><span class="eq">≥5 positive (/7)</span></div>
+  <div class="fcard"><h4>CDI</h4><span class="eq">≥4 positive (/5)</span></div>
+  <div class="fcard"><h4>S-CON</h4><span class="eq">≥8 positive (/12)</span></div>
+  <div class="fcard"><h4>HVI</h4><span class="eq">T=0 + ≥4 others</span></div>
+  <div class="fcard"><h4>PTI</h4><span class="eq">0–5 continuous (replaces SCZI)</span></div>
+</div>
+<div class="pagenav"><a href="#p38">← Part XXXVIII</a><a href="#contents">⌂ Contents</a><a href="#p40">Part XL →</a></div>
+</div>
+
+<!-- ============ PART XL ============ -->
+<h2 class="part" id="p40"><span class="pill">Part XL</span>Formula Flashcards</h2>
+<div class="section-body">
+<div class="cards">
+  <div class="fcard"><h4>Lambda</h4><span class="eq">L = F/(R−F)</span><div class="lbl">Uses</div>pure F, R<div class="lbl">Means</div>economising / avoidant style<div class="lbl">Example</div>4/16 = 0.25<div class="lbl">Common error</div>counting FC/CF/C as F</div>
+  <div class="fcard"><h4>EB</h4><span class="eq">M : WSumC</span><div class="lbl">Uses</div>M, weighted color<div class="lbl">Means</div>ideational vs affective coping<div class="lbl">Example</div>4:5.0<div class="lbl">Common error</div>labelling style when EA&lt;4</div>
+  <div class="fcard"><h4>EA</h4><span class="eq">M + WSumC</span><div class="lbl">Uses</div>M, WSumC<div class="lbl">Means</div>accessible resources<div class="lbl">Example</div>4+5.0 = 9.0<div class="lbl">Common error</div>wrong color weights</div>
+  <div class="fcard"><h4>es</h4><span class="eq">FM+m+C'+T+V+Y</span><div class="lbl">Uses</div>FM,m,shading,C'<div class="lbl">Means</div>experienced demand<div class="lbl">Example</div>3+1+1+2+0+1 = 8<div class="lbl">Common error</div>omitting a shading type</div>
+  <div class="fcard"><h4>D</h4><span class="eq">table(EA−es)</span><div class="lbl">Uses</div>EA, es<div class="lbl">Means</div>current control<div class="lbl">Example</div>9−8=+1 → 0<div class="lbl">Common error</div>inventing conversion values</div>
+  <div class="fcard"><h4>AdjD</h4><span class="eq">table(EA−Adj es)</span><div class="lbl">Uses</div>EA, Adj es<div class="lbl">Means</div>trait control<div class="lbl">Example</div>9−7=+2 → +1<div class="lbl">Common error</div>removing all m/Y</div>
+  <div class="fcard"><h4>Afr</h4><span class="eq">(VIII-X)/(I-VII)</span><div class="lbl">Uses</div>card response counts<div class="lbl">Means</div>emotional responsiveness<div class="lbl">Example</div>6/14 = 0.43<div class="lbl">Common error</div>using R as denominator</div>
+  <div class="fcard"><h4>WDA%</h4><span class="eq">(approp in W+D)/(W+D)</span><div class="lbl">Uses</div>FQ within W,D<div class="lbl">Means</div>accuracy in common areas<div class="lbl">Example</div>17/17 = 1.00<div class="lbl">Common error</div>dividing by R</div>
+  <div class="fcard"><h4>3r+(2)/R</h4><span class="eq">[3(Fr+rF)+Σ(2)]/R</span><div class="lbl">Uses</div>reflections, pairs, R<div class="lbl">Means</div>self-focus<div class="lbl">Example</div>[0+6]/20 = 0.30<div class="lbl">Common error</div>forgetting the ×3 on reflections</div>
+  <div class="fcard"><h4>WSum6</h4><span class="eq">Σ(SS×weight)</span><div class="lbl">Uses</div>DV,INC,DR,FAB,ALOG,CON<div class="lbl">Means</div>thinking disturbance<div class="lbl">Example</div>weighted &gt; raw Sum6<div class="lbl">Common error</div>using raw counts, wrong weights</div>
+  <div class="fcard"><h4>Zd</h4><span class="eq">Zsum − Zest</span><div class="lbl">Uses</div>Zsum, Zest table<div class="lbl">Means</div>scanning efficiency<div class="lbl">Example</div>36.5−41.5 = −5.0<div class="lbl">Common error</div>computing Zd when Zf=0</div>
+  <div class="fcard"><h4>H ratio</h4><span class="eq">H:(H)+Hd+(Hd)</span><div class="lbl">Uses</div>human contents<div class="lbl">Means</div>realistic vs partial others<div class="lbl">Example</div>3:2<div class="lbl">Common error</div>counting Hx in wrong side</div>
+</div>
+<div class="pagenav"><a href="#p39">← Part XXXIX</a><a href="#contents">⌂ Contents</a><a href="#p41">Part XLI →</a></div>
+</div>
+
+<!-- ============ PART XLI ============ -->
+<h2 class="part" id="p41"><span class="pill">Part XLI</span>Final Master Algorithm — A–Z</h2>
+<div class="section-body">
+<div class="flow">
+  <div class="node accent">START</div><div class="arrow">↓</div>
+  <div class="node">VERIFY VERSION (PTI-era CS)</div><div class="arrow">↓</div>
+  <div class="node">VERIFY RESPONSE CODING</div><div class="arrow">↓</div>
+  <div class="node">COUNT R</div><div class="arrow">↓</div>
+  <div class="node">TALLY LOCATION → DQ → DETERMINANTS → FQ → CONTENT → POPULARS</div><div class="arrow">↓</div>
+  <div class="node">CALCULATE Z (Zf, Zsum, Zest, Zd)</div><div class="arrow">↓</div>
+  <div class="node">TALLY SPECIAL SCORES → SUM6 / WSUM6</div><div class="arrow">↓</div>
+  <div class="node">LAMBDA</div><div class="arrow">↓</div>
+  <div class="node">EB → EA → eb → es</div><div class="arrow">↓</div>
+  <div class="node">D → AdjD</div><div class="arrow">↓</div>
+  <div class="node">AFFECT → PROCESSING → MEDIATION → IDEATION → SELF → INTERPERSONAL</div><div class="arrow">↓</div>
+  <div class="node">CONSTELLATIONS (PTI, DEPI, CDI, S-CON, HVI, OBS)</div><div class="arrow">↓</div>
+  <div class="node">CHECK VALIDITY</div><div class="arrow">↓</div>
+  <div class="node">AUDIT CALCULATIONS (reverse-check)</div><div class="arrow">↓</div>
+  <div class="node terminal">FINAL STRUCTURAL SUMMARY</div>
+</div>
+<div class="box tip"><strong>Central teaching chain:</strong> Response → Coding → Tally → Formula → Substitution → Calculation → Result → Structural Summary → Validity Check → Clinical Interpretation. Never skip an intermediate step.</div>
+<div class="pagenav"><a href="#p40">← Part XL</a><a href="#contents">⌂ Contents</a><a href="#top">⌂ Home</a></div>
+</div>
+
+<!-- ============ FOOTER ============ -->
+<div class="footer">
+  <div class="credit">Made by Tejas Dangodra</div>
+  <p>Rorschach Comprehensive System — Structural Summary Calculation Handbook</p>
+  <p class="muted">A simple, step-by-step study guide for the Exner Comprehensive System. Read the exact Form Quality, Z, Zest, D-conversion, and Popular values from their reference tables. This guide is for learning the method only.</p>
+</div>
+<div class="watermark">Made by Tejas Dangodra</div>
+
+</div><!-- /.wrap -->
+</body>
+</html>
