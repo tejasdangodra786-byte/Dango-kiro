@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ICD-10 &amp; ICD-11 Comparative Handbook — F10–F19 Mental and Behavioural Disorders due to Psychoactive Substance Use</title>
+<style>
+:root{
+  --deep:#0a2540;--accent:#0e6655;--icd10:#1a5276;--icd11:#1e8449;
+  --ks:#7d3c98;--other:#b9770e;--bg:#f4f6f9;--card:#ffffff;
+  --ink:#1c2833;--muted:#5d6d7e;--line:#d5dbdb;--soft:#eaf2f8;
+  --warn:#922b21;--uniq:#6c3483;--surface:#fdfefe;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.72;font-size:16px}
+.cover{background:linear-gradient(160deg,#0a2540 0%,#154360 40%,#0e6655 100%);color:#fff;padding:60px 30px 50px;text-align:center}
+.cover .subtitle{text-transform:uppercase;letter-spacing:.3em;font-size:.72rem;opacity:.7;margin-bottom:16px}
+.cover h1{font-size:2.1rem;font-weight:800;line-height:1.22;margin-bottom:12px;max-width:940px;display:inline-block}
+.cover .tagline{font-size:1.05rem;font-weight:400;opacity:.9;max-width:820px;margin:0 auto 22px}
+.cover .chips{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-bottom:18px}
+.cover .chip{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);border-radius:6px;padding:5px 14px;font-size:.82rem}
+.cover .srcline{font-size:.8rem;opacity:.65;max-width:760px;margin:0 auto}
+.wrap{max-width:1160px;margin:0 auto;padding:0 22px}
+.layout{display:flex;gap:28px;align-items:flex-start}
+nav.toc{position:sticky;top:0;max-height:100vh;overflow-y:auto;flex:0 0 272px;padding:20px 12px 60px;font-size:.83rem;border-right:1px solid var(--line);background:var(--surface)}
+nav.toc h4{margin:18px 0 6px;color:var(--accent);text-transform:uppercase;font-size:.68rem;letter-spacing:.08em;font-weight:700}
+nav.toc a{display:block;color:var(--muted);text-decoration:none;padding:4px 10px;border-radius:6px;border-left:3px solid transparent;transition:all .15s}
+nav.toc a:hover{background:var(--soft);color:var(--icd10);border-left-color:var(--icd10)}
+main{flex:1 1 auto;min-width:0;padding:28px 0 100px}
+section{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:28px 30px;margin:0 0 26px;scroll-margin-top:16px;box-shadow:0 1px 3px rgba(10,37,64,.04)}
+h2{font-size:1.45rem;color:var(--deep);border-bottom:3px solid var(--accent);padding-bottom:10px;margin-bottom:14px;font-weight:800}
+h3{font-size:1.1rem;color:var(--accent);margin:26px 0 8px;font-weight:700;padding-left:14px;border-left:4px solid var(--accent)}
+h4{font-size:.98rem;margin:16px 0 6px;font-weight:700;color:var(--deep)}
+p{margin:.55em 0}
+.tag{display:inline-block;font-size:.64rem;font-weight:700;padding:2px 9px;border-radius:4px;color:#fff;vertical-align:middle;letter-spacing:.02em}
+.t10{background:var(--icd10)}.t11{background:var(--icd11)}.tks{background:var(--ks)}.tother{background:var(--other)}
+b.cl{color:var(--deep);font-weight:700}
+i.si{color:var(--uniq);font-style:normal;font-weight:500}
+table{border-collapse:collapse;width:100%;margin:16px 0;font-size:.89rem;border-radius:10px;overflow:hidden;box-shadow:0 0 0 1px var(--line)}
+th,td{border:1px solid var(--line);padding:10px 12px;text-align:left;vertical-align:top}
+th{background:var(--deep);color:#fff;font-weight:600;font-size:.79rem;text-transform:uppercase;letter-spacing:.03em}
+tr:nth-child(even) td{background:#f8fafb}
+.c10{background:#eaf2f8!important}.c11{background:#eafaf1!important}
+.panel10{border-left:5px solid var(--icd10);background:#edf2f8;border-radius:0 10px 10px 0;padding:16px 20px;margin:14px 0}
+.panel11{border-left:5px solid var(--icd11);background:#edfaf1;border-radius:0 10px 10px 0;padding:16px 20px;margin:14px 0}
+.panel10 h4,.panel11 h4{margin:0 0 8px;padding-left:0;border-left:none}
+.note{border-left:5px solid var(--accent);background:var(--soft);padding:14px 18px;border-radius:0 10px 10px 0;margin:14px 0}
+.warn{border-left:5px solid var(--warn);background:#fdedec;padding:14px 18px;border-radius:0 10px 10px 0;margin:14px 0}
+.unique{border:2px solid var(--uniq);background:#f5eef8;border-radius:12px;padding:16px 20px;margin:16px 0}
+.unique h4{color:var(--uniq);margin:0 0 10px;border-left:none;padding-left:0}
+.assoc{border:2px solid var(--warn);background:#fdf0ee;border-radius:12px;padding:16px 20px;margin:16px 0}
+.assoc h4{color:var(--warn);margin:0 0 10px;border-left:none;padding-left:0}
+.sig{background:var(--deep);color:#fff;padding:14px 20px;border-radius:10px;margin:14px 0;font-size:.96rem}
+.sig b{color:#f9e79f}
+.remember{border:2px dashed #d4ac0d;background:#fef9e7;border-radius:12px;padding:16px 20px;margin:14px 0}
+.remember h4{color:#7d6608;margin:0 0 8px;border-left:none;padding-left:0}
+.idcard{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin:14px 0}
+.idcard div{background:#f2f6fa;border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:.85rem}
+.idcard b{display:block;font-size:.62rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:3px}
+ul.t,ol.t{margin:.5em 0;padding-left:1.3em}
+ul.t li,ol.t li{margin:.3em 0}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.top{text-align:right;font-size:.78rem;margin-top:10px}.top a{color:var(--muted);text-decoration:none}
+footer{background:var(--deep);color:#aeb6bf;padding:30px 22px;font-size:.86rem;text-align:center}
+footer strong{color:#fff}
+@media(max-width:920px){.layout{display:block}nav.toc{position:static;border-right:none;border-bottom:1px solid var(--line);max-height:none;flex:none}.g2{grid-template-columns:1fr}.cover h1{font-size:1.5rem}}
+@media print{nav.toc{display:none}body{background:#fff}section{box-shadow:none;break-inside:avoid}footer{background:#fff;color:#333}}
+</style>
+</head>
+<body>
+<a id="top"></a>
+
+<div class="cover">
+  <p class="subtitle">M.Phil. Clinical Psychology &mdash; Complete Diagnostic, Clinical &amp; Treatment Reference</p>
+  <h1>ICD-10 &amp; ICD-11 Comparative Clinical Handbook<br>F10&ndash;F19: Mental and Behavioural Disorders due to Psychoactive Substance Use</h1>
+  <p class="tagline">A comprehensive examination reference covering introduction, epidemiology, mechanism, identifying symptoms, associated conditions and complications (including what happens on intoxication and on withdrawal), diagnostic criteria strictly from ICD-10 and ICD-11, and treatment for every substance class in this block.</p>
+  <div class="chips">
+    <span class="chip">Criteria strictly from ICD-10 &amp; ICD-11</span>
+    <span class="chip">Difficult terms explained in each line</span>
+    <span class="chip">Identifying symptoms per substance</span>
+    <span class="chip">Withdrawal syndromes &amp; complications</span>
+    <span class="chip">Associated conditions highlighted</span>
+  </div>
+  <p class="srcline">Primary authorities: WHO ICD-10 Clinical Descriptions &amp; Diagnostic Guidelines and WHO ICD-11 Clinical Descriptions &amp; Diagnostic Requirements. Secondary: Kaplan &amp; Sadock's Synopsis/Comprehensive Textbook of Psychiatry; peer-reviewed literature.</p>
+</div>
+
+<div class="wrap layout">
+<nav class="toc">
+  <h4>Foundations</h4>
+  <a href="#what-icd">What is ICD (this block)</a>
+  <a href="#structure">Structure of F10&ndash;F19</a>
+  <a href="#compare">ICD-10 vs ICD-11 comparison</a>
+  <a href="#substancemap">Substance class map (F10&ndash;F19)</a>
+  <h4>Shared clinical syndromes</h4>
+  <a href="#s-intox">Acute intoxication</a>
+  <a href="#s-harmful">Harmful use</a>
+  <a href="#s-dependence">Dependence syndrome</a>
+  <a href="#s-withdrawal">Withdrawal state</a>
+  <a href="#s-wd-delirium">Withdrawal with delirium</a>
+  <a href="#s-psychotic">Psychotic disorder</a>
+  <a href="#s-amnesic">Amnesic syndrome</a>
+  <a href="#s-residual">Residual / late-onset</a>
+  <h4>Substance classes</h4>
+  <a href="#f10">F10 &middot; Alcohol</a>
+  <a href="#f11">F11 &middot; Opioids</a>
+  <a href="#f12">F12 &middot; Cannabinoids</a>
+  <a href="#f13">F13 &middot; Sedatives / hypnotics</a>
+  <a href="#f14">F14 &middot; Cocaine</a>
+  <a href="#f15">F15 &middot; Other stimulants / caffeine</a>
+  <a href="#f16">F16 &middot; Hallucinogens</a>
+  <a href="#f17">F17 &middot; Tobacco / nicotine</a>
+  <a href="#f18">F18 &middot; Volatile solvents / inhalants</a>
+  <a href="#f19">F19 &middot; Multiple / other</a>
+  <h4>Exam reference</h4>
+  <a href="#compare-table">Substance comparison table</a>
+  <a href="#glossary">Terminology glossary</a>
+  <a href="#references">References</a>
+</nav>
+
+<main>
+
+<!-- ═══════════ WHAT IS ICD (block) ═══════════ -->
+<section id="what-icd">
+  <h2>The F10&ndash;F19 Block &mdash; Overview</h2>
+  <p>The block <b class="cl">F10&ndash;F19</b> in ICD-10 is titled <b>"Mental and behavioural disorders due to psychoactive substance use"</b>. It contains a wide variety of disorders that differ in severity and clinical form but that are all attributable to the use of one or more <b class="cl">psychoactive substances</b> <i class="si">(chemicals that act on the brain to change mood, thinking, perception, or behaviour)</i>, whether or not medically prescribed. <span class="tag t10">ICD-10</span></p>
+  <p>The corresponding ICD-11 grouping is <b>"Disorders due to substance use"</b> (part of "Disorders due to substance use or addictive behaviours"), coded in the <b>6C4</b> range. Both systems separate this block from the organic/neurocognitive block (F00&ndash;F09) purely for practical convenience &mdash; substance-caused brain disorders would logically belong with the organic disorders but are kept together here so that all substance-related conditions sit in one place. <span class="tag t11">ICD-11</span></p>
+  <div class="note"><b>Why substances get their own block:</b> keeping every substance-related disorder (from a single episode of intoxication through to dependence, withdrawal, substance-induced psychosis, and substance-related dementia) in one block makes the classification easier to use and allows the same set of clinical syndromes to be applied consistently across all substances.</div>
+</section>
+
+<!-- ═══════════ STRUCTURE ═══════════ -->
+<section id="structure">
+  <h2>How the Block is Coded &mdash; Two-Axis Structure</h2>
+  <p>The genius of this block is a <b>two-part ("two-axis") code</b>. The <b>third character</b> identifies the <b>substance</b>; the <b>fourth (and fifth) characters</b> identify the <b>clinical syndrome</b>. This lets you describe, for example, "alcohol dependence" or "opioid withdrawal" or "cannabis-induced psychotic disorder" using the same syndrome menu for every drug. <span class="tag t10">ICD-10</span></p>
+  <div class="g2">
+    <div class="panel10">
+      <h4>Axis 1 &mdash; the substance (3rd character)</h4>
+      <p>F10 alcohol; F11 opioids; F12 cannabinoids; F13 sedatives/hypnotics; F14 cocaine; F15 other stimulants (incl. caffeine); F16 hallucinogens; F17 tobacco; F18 volatile solvents; F19 multiple drug use / other.</p>
+    </div>
+    <div class="panel10">
+      <h4>Axis 2 &mdash; the clinical syndrome (4th/5th character, "F1x.x")</h4>
+      <p>.0 acute intoxication; .1 harmful use; .2 dependence syndrome; .3 withdrawal state; .4 withdrawal state with delirium; .5 psychotic disorder; .6 amnesic syndrome; .7 residual and late-onset psychotic disorder; .8 other mental and behavioural disorders; .9 unspecified.</p>
+    </div>
+  </div>
+  <p>Thus <code>F10.2</code> = alcohol dependence syndrome; <code>F11.3</code> = opioid withdrawal state; <code>F12.5</code> = cannabinoid-induced psychotic disorder. The syndrome definitions below are written once and apply, with substance-specific detail, across the whole block.</p>
+  <p><span class="tag t11">ICD-11</span> ICD-11 uses the same idea but with alphanumeric stems: each substance has a code (e.g. 6C40 alcohol, 6C43 opioids), and each carries sub-codes for <b>episode of harmful use</b>, <b>harmful pattern of use</b>, <b>dependence</b>, <b>intoxication</b>, and <b>withdrawal</b>, plus separate codes for substance-induced disorders (delirium, psychotic disorder, mood disorder, and so on) in the 6C4x.x and 6E6x ranges.</p>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+<!-- ═══════════ COMPARE ═══════════ -->
+<section id="compare">
+  <h2>ICD-10 vs ICD-11 &mdash; General Comparison for this Block</h2>
+  <table>
+    <tr><th>Dimension</th><th class="c10">ICD-10</th><th class="c11">ICD-11</th></tr>
+    <tr><td>Block title</td><td class="c10">Mental and behavioural disorders due to psychoactive substance use (F10&ndash;F19)</td><td class="c11">Disorders due to substance use (within "Disorders due to substance use or addictive behaviours"), 6C40&ndash;6C4G</td></tr>
+    <tr><td>Coding logic</td><td class="c10">Substance = 3rd character; syndrome = 4th/5th character (F1x.x)</td><td class="c11">Each substance has its own stem code; syndromes are sub-codes; severity added by post-coordination (mild XS5W, moderate XS0T, severe XS25)</td></tr>
+    <tr><td>Non-dependent harmful use</td><td class="c10">Single category "harmful use" (F1x.1) &mdash; requires actual harm to health</td><td class="c11">Split into "single episode of harmful use" and "harmful pattern of use" (episodic or continuous), and harm to others' health is included</td></tr>
+    <tr><td>Dependence model</td><td class="c10">Six-feature list; three or more within the past year</td><td class="c11">Streamlined three-feature model (impaired control; substance use taking increasing precedence; physiological features such as tolerance/withdrawal)</td></tr>
+    <tr><td>Number of substance classes</td><td class="c10">Ten classes (F10&ndash;F19)</td><td class="c11">Expanded list including synthetic cannabinoids, synthetic cathinones, MDMA and related drugs, dissociative drugs (e.g. ketamine, PCP), separately coded</td></tr>
+    <tr><td>Substance-induced mental disorders</td><td class="c10">Grouped within F1x (psychotic .5, amnesic .6, residual .7)</td><td class="c11">Explicit substance-induced disorders: intoxication delirium, psychotic disorder, mood disorder, anxiety disorder, etc., cross-linked with the secondary-syndromes grouping</td></tr>
+    <tr><td>Caffeine</td><td class="c10">Within F15 (other stimulants including caffeine)</td><td class="c11">Caffeine has its own stem (6C48) with caffeine intoxication and withdrawal</td></tr>
+    <tr><td>New concept</td><td class="c10">&mdash;</td><td class="c11">Adds "hazardous substance use" as a risk category outside the disorders themselves; recognises episodic vs continuous patterns</td></tr>
+  </table>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+<!-- ═══════════ SUBSTANCE MAP ═══════════ -->
+<section id="substancemap">
+  <h2>Substance Class Map &mdash; F10&ndash;F19 to ICD-11</h2>
+  <table>
+    <tr><th>ICD-10</th><th>Substance class</th><th>ICD-11 stem</th><th>Notes</th></tr>
+    <tr><td>F10</td><td>Alcohol</td><td>6C40</td><td>Directly equivalent</td></tr>
+    <tr><td>F11</td><td>Opioids <i class="si">(heroin, morphine, codeine, methadone, prescription painkillers)</i></td><td>6C43</td><td>Directly equivalent</td></tr>
+    <tr><td>F12</td><td>Cannabinoids <i class="si">(cannabis / marijuana)</i></td><td>6C41 (cannabis); 6C42 synthetic cannabinoids</td><td>ICD-11 separates natural and synthetic cannabinoids</td></tr>
+    <tr><td>F13</td><td>Sedatives or hypnotics <i class="si">(benzodiazepines, barbiturates, sleeping pills)</i></td><td>6C44</td><td>Directly equivalent</td></tr>
+    <tr><td>F14</td><td>Cocaine</td><td>6C45</td><td>Directly equivalent</td></tr>
+    <tr><td>F15</td><td>Other stimulants, including caffeine</td><td>6C46 stimulants (amfetamines, methamfetamine); 6C47 synthetic cathinones; 6C48 caffeine</td><td>ICD-11 splits stimulants, synthetic cathinones and caffeine</td></tr>
+    <tr><td>F16</td><td>Hallucinogens <i class="si">(LSD, psilocybin / "magic mushrooms", mescaline)</i></td><td>6C49</td><td>Directly equivalent</td></tr>
+    <tr><td>F17</td><td>Tobacco</td><td>6C4A (nicotine)</td><td>Renamed to nicotine</td></tr>
+    <tr><td>F18</td><td>Volatile solvents <i class="si">(inhalants &mdash; glue, petrol, aerosols)</i></td><td>6C4B (volatile inhalants)</td><td>Directly equivalent</td></tr>
+    <tr><td>F19</td><td>Multiple drug use and use of other psychoactive substances</td><td>6C4C MDMA and related; 6C4D dissociative drugs (ketamine, PCP); 6C4E other; 6C4F multiple; 6C4G unknown</td><td>ICD-11 provides several distinct new stems</td></tr>
+  </table>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+<!-- ═══════════ SHARED SYNDROMES INTRO ═══════════ -->
+<section id="shared-intro">
+  <h2>The Shared Clinical Syndromes (apply to every substance)</h2>
+  <p>Because the fourth/fifth character carries the syndrome, the same clinical concepts recur for every drug. The modules below define each syndrome once, giving the identifying features, the ICD-10 diagnostic guidelines, and the ICD-11 essential features. Substance-specific detail (what each syndrome looks like for alcohol, opioids, and so on) is then given in the substance sections that follow.</p>
+</section>
+
+<!-- ═══════════ ACUTE INTOXICATION ═══════════ -->
+<section id="s-intox">
+  <h2>Acute Intoxication (F1x.0)</h2>
+  <h3>Definition and identifying features</h3>
+  <p><b class="cl">Acute intoxication</b> <i class="si">(the transient set of effects that appear soon after taking a substance and wear off as it is cleared from the body)</i> is a <b>transient condition</b> following the administration of a psychoactive substance, resulting in disturbances of consciousness, cognition, perception, affect (mood), behaviour, or other psychophysiological functions and responses. It is closely related to dose and is time-limited, resolving as the substance is eliminated (unless tissue damage or another complication has occurred). <span class="tag t10">ICD-10</span></p>
+  <div class="unique">
+    <h4>Identifying points</h4>
+    <ul class="t">
+      <li>The picture is <b>substance-specific</b> (e.g. disinhibition and slurred speech with alcohol; euphoria and pinpoint pupils with opioids; overactivity and dilated pupils with stimulants).</li>
+      <li>Intensity is <b>dose-related</b> and effects <b>lessen with time</b>.</li>
+      <li><b class="cl">Pathological intoxication</b> <i class="si">(a sudden, marked, aggressive or violent reaction to an amount of alcohol that would not intoxicate most people)</i> is a specific qualifier for alcohol.</li>
+    </ul>
+  </div>
+  <div class="panel10">
+    <h4><span class="tag t10">ICD-10</span> Diagnostic guidelines</h4>
+    <p>Acute intoxication should be diagnosed only when intoxication is not associated with more persistent substance-related problems. There must be <b>clear evidence of recent use of a psychoactive substance at a dose sufficient to produce intoxication</b>; symptoms and signs of intoxication compatible with the known actions of that substance; and findings <b>not accounted for</b> by a medical disorder unrelated to substance use, or better explained by another mental/behavioural disorder. Sub-codes: .00 uncomplicated; .01 with trauma/bodily injury; .02 with other medical complications; .03 with delirium; .04 with perceptual distortions; .05 with coma; .06 with convulsions; .07 pathological intoxication (alcohol).</p>
+  </div>
+  <div class="panel11">
+    <h4><span class="tag t11">ICD-11</span> Essential features</h4>
+    <p>A clinically significant, <b>transient condition</b> that develops during or shortly after the consumption of the substance, characterised by disturbances in consciousness, cognition, perception, affect, behaviour, or coordination that are caused by the known pharmacological effects of the substance and their intensity is closely related to the amount consumed. The features resolve as the substance is cleared. Severity is specified (mild, moderate, severe), and complications (e.g. with delirium, with perceptual disturbances) are noted. Intoxication is not diagnosed if the symptoms are better accounted for by another condition.</p>
+  </div>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+<!-- ═══════════ HARMFUL USE ═══════════ -->
+<section id="s-harmful">
+  <h2>Harmful Use (F1x.1)</h2>
+  <h3>Definition and identifying features</h3>
+  <p><b class="cl">Harmful use</b> <i class="si">(a pattern of substance use that is actually damaging health, but without meeting the criteria for dependence)</i> is a pattern of psychoactive substance use that is causing damage to health. The damage may be <b>physical</b> (e.g. hepatitis from injecting) or <b>mental</b> (e.g. depressive episodes secondary to heavy drinking). <span class="tag t10">ICD-10</span></p>
+  <div class="panel10">
+    <h4><span class="tag t10">ICD-10</span> Diagnostic guidelines</h4>
+    <ul class="t">
+      <li>There must be <b>clear evidence that the substance use was responsible for (or substantially contributed to) actual physical or psychological harm</b> to the user.</li>
+      <li>The nature of the harm should be clearly identifiable.</li>
+      <li>The pattern of use has persisted for at least one month or has occurred repeatedly within a 12-month period.</li>
+      <li>The diagnosis is <b>not</b> made if dependence syndrome, a psychotic disorder, or another specific form of substance-related disorder is present.</li>
+    </ul>
+    <p>Note: socially disapproved use, or mere intoxication, is not in itself "harmful use"; actual demonstrable harm is required.</p>
+  </div>
+  <div class="panel11">
+    <h4><span class="tag t11">ICD-11</span> Essential features (single episode / harmful pattern)</h4>
+    <p>ICD-11 divides this into a <b>single episode of harmful use</b> and a <b>harmful pattern of use</b> (specified as episodic or continuous). Harmful use is diagnosed when substance use has caused <b>clinically significant harm to the person's physical or mental health, OR to the health of others</b> (e.g. injury caused while intoxicated) &mdash; the explicit inclusion of harm to others is a change from ICD-10. It is diagnosed only in the absence of dependence, and the harmful pattern requires a period of use (generally at least one month if episodic, or continuous over at least one month).</p>
+  </div>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+<!-- ═══════════ DEPENDENCE ═══════════ -->
+<section id="s-dependence">
+  <h2>Dependence Syndrome (F1x.2) &mdash; the core concept</h2>
+  <h3>Definition and identifying features</h3>
+  <p>The <b class="cl">dependence syndrome</b> <i class="si">(a cluster of behavioural, cognitive and physiological features that develop after repeated use, in which the substance takes on a much higher priority than other behaviours that once had greater value)</i> is the central concept of the block. A defining characteristic is a <b>strong desire to take the substance</b>, and it is typically accompanied by tolerance and a physical withdrawal state. <span class="tag t10">ICD-10</span></p>
+  <div class="unique">
+    <h4>Two hallmark physiological features to identify</h4>
+    <ul class="t">
+      <li><b class="cl">Tolerance</b> <i class="si">(needing progressively larger doses to get the same effect that a smaller dose once produced)</i>.</li>
+      <li><b class="cl">Withdrawal</b> <i class="si">(a characteristic set of unpleasant symptoms that appear when the substance is stopped or reduced, relieved by taking the substance again)</i>.</li>
+      <li>Plus behavioural markers: <b class="cl">craving</b> <i class="si">(a strong desire or compulsion to use)</i>, loss of control over use, neglect of other interests, and continued use despite clear harm.</li>
+    </ul>
+  </div>
+  <div class="panel10">
+    <h4><span class="tag t10">ICD-10</span> Diagnostic guidelines (three or more in the past year)</h4>
+    <p>A definite diagnosis of dependence should usually be made only if <b>three or more of the following</b> have been present together at some time during the previous year:</p>
+    <ol class="t">
+      <li>A <b>strong desire or sense of compulsion</b> to take the substance;</li>
+      <li><b>Difficulties in controlling</b> substance-taking behaviour in terms of its onset, termination, or levels of use;</li>
+      <li>A <b>physiological withdrawal state</b> when substance use has ceased or been reduced, evidenced by the characteristic withdrawal syndrome, or use of the same (or a closely related) substance to relieve or avoid withdrawal symptoms;</li>
+      <li>Evidence of <b>tolerance</b>, such that increased doses are required to achieve effects originally produced by lower doses;</li>
+      <li><b>Progressive neglect of alternative pleasures or interests</b> because of substance use, and increased time spent obtaining, using, or recovering from the substance;</li>
+      <li><b>Persisting with substance use despite clear evidence of harmful consequences.</b></li>
+    </ol>
+  </div>
+  <div class="panel11">
+    <h4><span class="tag t11">ICD-11</span> Essential features (streamlined three-feature model)</h4>
+    <p>Dependence is a disorder of regulation of substance use arising from repeated or continuous use. The central feature is a <b>strong internal drive to use the substance</b>, manifested by <b>two or more</b> of the following, usually evident over at least 12 months (or over at least one month if use is continuous/daily):</p>
+    <ol class="t">
+      <li><b>Impaired control</b> over substance use (onset, frequency, intensity, duration, termination, context);</li>
+      <li><b>Increasing precedence</b> of substance use over other aspects of life (health, daily activities, responsibilities), such that use continues or escalates despite harm or negative consequences;</li>
+      <li><b>Physiological features</b> indicating <b>neuroadaptation</b> <i class="si">(the brain's adjustment to repeated substance exposure)</i>: <b>tolerance</b>; <b>withdrawal symptoms</b> after stopping or reducing; or repeated use to prevent or relieve withdrawal.</li>
+    </ol>
+    <p>Remission is specified (early full, sustained partial, sustained full) and pattern of use (continuous, episodic).</p>
+  </div>
+  <div class="remember">
+    <h4>Easy way to remember dependence &mdash; "3 C's + tolerance + withdrawal + neglect"</h4>
+    <p><b>C</b>ompulsion/craving, loss of <b>C</b>ontrol, <b>C</b>ontinued use despite harm, plus <b>tolerance</b>, <b>withdrawal</b>, and <b>neglect</b> of other activities. ICD-10 = 3 of 6 in a year; ICD-11 = 2 of 3 broad features.</p>
+  </div>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+<!-- ═══════════ WITHDRAWAL ═══════════ -->
+<section id="s-withdrawal">
+  <h2>Withdrawal State (F1x.3)</h2>
+  <h3>Definition and identifying features</h3>
+  <p>The <b class="cl">withdrawal state</b> <i class="si">(the group of symptoms that appears when a substance is stopped or reduced after prolonged and/or heavy use)</i> is a group of symptoms of variable clustering and severity occurring on absolute or relative withdrawal of a substance after persistent use. Onset and course are time-limited and related to the type of substance and the dose being used immediately before cessation. A key rule: the <b>withdrawal syndrome is typically the opposite of the intoxication effects</b> of the same drug (e.g. alcohol is a depressant, so its withdrawal causes over-excitation &mdash; tremor, anxiety, seizures). <span class="tag t10">ICD-10</span></p>
+  <div class="panel10">
+    <h4><span class="tag t10">ICD-10</span> Diagnostic guidelines</h4>
+    <ul class="t">
+      <li>Clear evidence of <b>recent cessation or reduction of substance use</b> after repeated, usually prolonged and/or high-dose, use.</li>
+      <li>Symptoms and signs are compatible with the <b>known features of a withdrawal state</b> from the particular substance.</li>
+      <li>Symptoms are not accounted for by a medical disorder unrelated to substance use, and not better explained by another mental/behavioural disorder.</li>
+    </ul>
+    <p>Sub-codes: .30 uncomplicated; .31 with convulsions.</p>
+  </div>
+  <div class="panel11">
+    <h4><span class="tag t11">ICD-11</span> Essential features</h4>
+    <p>A clinically significant cluster of symptoms, behaviours, and/or physiological features, varying in degree of severity and duration, that occurs on <b>cessation or reduction of use</b> in individuals who have developed dependence or have used the substance for a prolonged period or in large amounts. The presentation is consistent with the <b>known withdrawal features of the specific substance</b> and is not better accounted for by another disorder. Severity and complications (e.g. with perceptual disturbances, with seizures) are specified.</p>
+  </div>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+<!-- ═══════════ WITHDRAWAL WITH DELIRIUM ═══════════ -->
+<section id="s-wd-delirium">
+  <h2>Withdrawal State with Delirium (F1x.4)</h2>
+  <p>A withdrawal state (as above) <b>complicated by delirium</b> <i class="si">(an acute, fluctuating confusional state with clouded consciousness, disorientation, and hallucinations)</i>. The prototype is <b class="cl">delirium tremens</b> <i class="si">(the severe, potentially fatal alcohol-withdrawal delirium)</i>, discussed in the alcohol section. Sub-codes: .40 without convulsions; .41 with convulsions. <span class="tag t10">ICD-10</span> In ICD-11 this is captured as substance-induced (withdrawal) delirium.</p>
+  <div class="warn"><b>Clinical alert:</b> withdrawal delirium (especially from alcohol or sedatives) is a <b>medical emergency</b> with significant mortality if untreated.</div>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+<!-- ═══════════ PSYCHOTIC ═══════════ -->
+<section id="s-psychotic">
+  <h2>Psychotic Disorder (F1x.5)</h2>
+  <p>A <b class="cl">substance-induced psychotic disorder</b> <i class="si">(hallucinations and/or delusions caused by the substance, occurring during or shortly after use)</i> is a cluster of psychotic phenomena that occur during or immediately after substance use (typically within 2 weeks), characterised by hallucinations (often auditory but perceptions of any modality), delusions/ideas of reference, psychomotor disturbances, and abnormal affect. Consciousness is essentially clear, though some clouding may occur. The symptoms typically <b>resolve at least partially within a month and fully within about six months</b> &mdash; this time-limited course helps distinguish it from a primary psychotic disorder such as schizophrenia. <span class="tag t10">ICD-10</span></p>
+  <div class="panel10">
+    <h4><span class="tag t10">ICD-10</span> Sub-codes</h4>
+    <p>.50 schizophrenia-like; .51 predominantly delusional; .52 predominantly hallucinatory; .53 predominantly polymorphic; .54 predominantly depressive symptoms; .55 predominantly manic symptoms; .56 mixed.</p>
+  </div>
+  <div class="unique"><h4>Identifying clue</h4><p>Psychotic symptoms in <b>clear consciousness</b>, arising in close relation to heavy substance use (classically alcoholic hallucinosis, or cannabis/stimulant/hallucinogen psychosis), that <b>resolve as the drug clears</b> &mdash; a temporal link that primary schizophrenia does not show.</p></div>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+<!-- ═══════════ AMNESIC ═══════════ -->
+<section id="s-amnesic">
+  <h2>Amnesic Syndrome (F1x.6)</h2>
+  <p>A <b class="cl">substance-induced amnesic syndrome</b> <i class="si">(a chronic, prominent impairment of memory caused by the substance, with other cognition relatively spared)</i> is characterised by chronic prominent impairment of recent and remote memory, with preserved immediate recall, and impaired ability to learn new material. <b class="cl">Confabulation</b> <i class="si">(unintentionally filling memory gaps with false recollections, without intent to deceive)</i> may be marked. The classic example is the <b>alcohol-related amnesic (Korsakoff) syndrome</b> due to thiamine deficiency, described in the alcohol section. The general criteria correspond to the organic amnesic syndrome (see F04 in the F00&ndash;F09 handbook). <span class="tag t10">ICD-10</span></p>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+<!-- ═══════════ RESIDUAL ═══════════ -->
+<section id="s-residual">
+  <h2>Residual and Late-Onset Psychotic Disorder (F1x.7)</h2>
+  <p>Disorders in which substance-induced changes in cognition, affect, personality, or behaviour <b>persist beyond the period during which a direct substance-related effect might reasonably be expected</b>. <span class="tag t10">ICD-10</span> Sub-codes:</p>
+  <ul class="t">
+    <li><b>.70 Flashbacks</b> <i class="si">(brief, spontaneous re-experiencing of drug effects &mdash; e.g. visual disturbances &mdash; long after the drug was taken, classically with hallucinogens)</i>.</li>
+    <li><b>.71 Personality or behaviour disorder.</b></li>
+    <li><b>.72 Residual affective disorder</b> <i class="si">(persisting mood change)</i>.</li>
+    <li><b>.73 Dementia</b> <i class="si">(persisting global cognitive decline, e.g. alcohol-related dementia)</i>.</li>
+    <li><b>.74 Other persisting cognitive impairment.</b></li>
+    <li><b>.75 Late-onset psychotic disorder.</b></li>
+  </ul>
+  <div class="note"><b>Exam point:</b> this category answers the question "what conditions can <b>persist</b> or appear <b>after</b> the acute drug effect and withdrawal are over?" &mdash; flashbacks, persisting personality/mood change, substance-related dementia, and late psychosis.</div>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+<!-- ═══════════════════════ F10 ALCOHOL ═══════════════════════ -->
+<section id="f10">
+  <h2>F10 &middot; Disorders due to Alcohol Use &rarr; ICD-11 6C40</h2>
+  <div class="idcard">
+    <div><b>ICD-10</b> F10 (with .0&ndash;.9 syndromes)</div>
+    <div><b>ICD-11</b> 6C40 (episode of harmful use, harmful pattern, dependence, intoxication, withdrawal)</div>
+    <div><b>Drug type</b> Central nervous system depressant</div>
+    <div><b>Exam weight</b> Highest &mdash; most-tested substance</div>
+  </div>
+
+  <h3>1. Introduction and mechanism</h3>
+  <p>Alcohol (ethanol) is a <b class="cl">central nervous system depressant</b> <i class="si">(a substance that slows down brain activity)</i>. It enhances the inhibitory neurotransmitter <b class="cl">GABA</b> <i class="si">(gamma-aminobutyric acid &mdash; the brain's main "calming" chemical)</i> and blocks the excitatory neurotransmitter <b class="cl">glutamate</b> at NMDA receptors <i class="si">(the brain's main "stimulating" chemical)</i>. With chronic use the brain adapts by reducing GABA activity and increasing glutamate activity; when alcohol is suddenly stopped, this leaves the brain in a state of <b>over-excitation</b> &mdash; which explains why alcohol withdrawal produces tremor, agitation, and seizures (the opposite of alcohol's depressant effect).</p>
+
+  <h3>2. Epidemiology</h3>
+  <ul class="t">
+    <li>Alcohol is among the most widely used psychoactive substances worldwide and a leading contributor to the global burden of disease, injury, and premature death. <span class="tag tother">Other evidence</span></li>
+    <li>Alcohol use disorders are considerably more common in men than women, though the gap is narrowing.</li>
+    <li>Strong associations with accidents, violence, liver disease, and numerous cancers; alcohol dependence frequently coexists with depression and anxiety disorders. <span class="tag tks">Kaplan &amp; Sadock</span></li>
+  </ul>
+
+  <h3>3. Identifying symptoms by clinical syndrome</h3>
+  <h4>Acute intoxication (F10.0)</h4>
+  <p>Disinhibition, euphoria then sedation, <b class="cl">slurred speech</b> <i class="si">(unclear, drawn-out speech)</i>, unsteady gait (<b class="cl">ataxia</b> &mdash; <i class="si">loss of coordination</i>), <b class="cl">nystagmus</b> <i class="si">(jerking eye movements)</i>, impaired attention and judgement; in severe cases stupor and coma. <b>Pathological intoxication</b> = extreme aggression after a small amount.</p>
+  <h4>Withdrawal state (F10.3) &mdash; identify the timeline</h4>
+  <table>
+    <tr><th>Time after last drink</th><th>Features</th></tr>
+    <tr><td>6&ndash;12 hours</td><td>Tremor ("the shakes"), sweating, anxiety, nausea, insomnia, tachycardia <i class="si">(fast heart rate)</i>, hypertension</td></tr>
+    <tr><td>12&ndash;24 hours</td><td><b class="cl">Alcoholic hallucinosis</b> <i class="si">(hallucinations &mdash; often visual or tactile &mdash; with an otherwise clear mind)</i></td></tr>
+    <tr><td>24&ndash;48 hours</td><td><b class="cl">Withdrawal seizures</b> <i class="si">(generalised "rum fits")</i></td></tr>
+    <tr><td>48&ndash;72 hours (up to 96)</td><td><b class="cl">Delirium tremens</b> (see below) &mdash; the most dangerous stage</td></tr>
+  </table>
+
+  <h3>4. Associated conditions and complications (what happens with heavy use and on withdrawal)</h3>
+  <div class="assoc">
+    <h4>Key associated conditions &mdash; high-yield for exams</h4>
+    <ul class="t">
+      <li><b class="cl">Delirium tremens (DTs)</b> <i class="si">(severe alcohol-withdrawal delirium, typically 48&ndash;72 hours after stopping)</i>: clouding of consciousness, disorientation, vivid visual and tactile hallucinations (classically <b>formication</b> &mdash; <i class="si">the sensation of insects crawling on the skin</i>), marked tremor, agitation, fever, sweating, and autonomic overactivity (fast heart rate, high blood pressure). It is a <b>medical emergency</b> with appreciable mortality if untreated.</li>
+      <li><b class="cl">Wernicke encephalopathy</b> <i class="si">(an acute, reversible brain disorder from thiamine / vitamin B1 deficiency)</i>: the triad of <b>confusion + ataxia + ophthalmoplegia/nystagmus</b> (abnormal eye movements). A medical emergency requiring urgent thiamine.</li>
+      <li><b class="cl">Korsakoff syndrome</b> <i class="si">(the chronic, often irreversible amnesic state that follows untreated Wernicke)</i>: profound inability to form new memories (anterograde amnesia) with <b>confabulation</b> (unintentional filling of memory gaps). Together these form <b>Wernicke&ndash;Korsakoff syndrome</b>.</li>
+      <li><b class="cl">Alcoholic hallucinosis</b>: persistent hallucinations (often auditory) in clear consciousness during or after heavy drinking &mdash; distinct from DTs (no clouding of consciousness).</li>
+      <li><b>Alcohol-related dementia</b> and other persisting cognitive impairment (F10.73/.74).</li>
+      <li><b>Morbid jealousy</b> (Othello syndrome) &mdash; delusional belief of a partner's infidelity, associated with chronic alcohol dependence.</li>
+      <li><b>Physical:</b> liver disease (fatty liver, hepatitis, cirrhosis), pancreatitis, gastritis, peripheral neuropathy, cardiomyopathy, and <b>fetal alcohol syndrome</b> <i class="si">(birth defects and developmental problems in a baby exposed to alcohol in the womb)</i>.</li>
+      <li><b>Psychiatric:</b> depression, anxiety, and elevated suicide risk.</li>
+    </ul>
+  </div>
+
+  <h3>5. Diagnostic criteria (from ICD-10 and ICD-11)</h3>
+  <div class="panel10"><h4><span class="tag t10">ICD-10</span></h4><p>Diagnosed using the shared syndrome guidelines applied to alcohol: F10.0 acute intoxication, F10.1 harmful use, F10.2 dependence syndrome (three or more dependence features in the past year), F10.3 withdrawal state, F10.4 withdrawal state with delirium (delirium tremens), F10.5 psychotic disorder (alcoholic hallucinosis), F10.6 amnesic syndrome (Korsakoff).</p></div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11</span></h4><p>6C40 with sub-codes: 6C40.0 episode of harmful use; 6C40.1 harmful pattern (episodic/continuous); 6C40.2 alcohol dependence (two or more of impaired control, precedence, physiological features); 6C40.3 alcohol intoxication (severity specified); 6C40.4 alcohol withdrawal (with sub-specifiers including uncomplicated, with perceptual disturbances, with seizures, with delirium). Alcohol-induced psychotic, mood, and other disorders are separately coded.</p></div>
+
+  <h3>6. Easy way to remember</h3>
+  <div class="remember">
+    <h4>Memory aids</h4>
+    <p>Withdrawal timeline &mdash; <b>"6 shakes, 12 see things, 24&ndash;48 fits, 48&ndash;72 DTs."</b> Wernicke triad &mdash; <b>"CAN"</b> (Confusion, Ataxia, Nystagmus). Reflex: in any suspected alcohol emergency, <b>give thiamine before glucose</b> (glucose alone can precipitate Wernicke).</p>
+  </div>
+
+  <h3>7. Treatment</h3>
+  <h4>Pharmacological <span class="tag tks">Kaplan &amp; Sadock</span></h4>
+  <ul class="t">
+    <li><b>Withdrawal / detoxification:</b> <b class="cl">benzodiazepines</b> <i class="si">(sedative drugs that are the first-line treatment for alcohol withdrawal and delirium tremens)</i>, e.g. chlordiazepoxide or diazepam, on a reducing schedule; <b>parenteral thiamine</b> to prevent Wernicke.</li>
+    <li><b>Relapse prevention:</b> <b>disulfiram</b> <i class="si">(a drug that causes an unpleasant reaction if alcohol is taken, acting as a deterrent)</i>; <b>acamprosate</b> and <b>naltrexone</b> <i class="si">(anti-craving medications that reduce the urge to drink)</i>.</li>
+  </ul>
+  <h4>Psychological</h4>
+  <ul class="t">
+    <li><b class="cl">Motivational interviewing</b> <i class="si">(a collaborative counselling style that strengthens the person's own motivation to change)</i>; <b class="cl">cognitive behavioural therapy (CBT)</b> <i class="si">(therapy that identifies and changes the thoughts and situations that trigger drinking)</i>; relapse-prevention training.</li>
+    <li>Brief interventions; <b>Alcoholics Anonymous</b> and other mutual-support groups; family and social interventions.</li>
+  </ul>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+<!-- ═══════════════════════ F11 OPIOIDS ═══════════════════════ -->
+<section id="f11">
+  <h2>F11 &middot; Disorders due to Opioid Use &rarr; ICD-11 6C43</h2>
+  <div class="idcard">
+    <div><b>ICD-10</b> F11</div><div><b>ICD-11</b> 6C43</div>
+    <div><b>Drug type</b> CNS depressant (analgesic)</div>
+    <div><b>Examples</b> Heroin, morphine, codeine, methadone, tramadol, prescription painkillers</div>
+  </div>
+  <h3>1. Introduction and mechanism</h3>
+  <p><b class="cl">Opioids</b> <i class="si">(drugs derived from or acting like opium, used medically as strong painkillers)</i> act on <b class="cl">opioid receptors</b> <i class="si">(the brain and body's natural pain- and pleasure-signalling docking sites)</i>, producing pain relief, euphoria, and sedation, and slowing breathing. Tolerance and physical dependence develop rapidly.</p>
+  <h3>2. Epidemiology</h3>
+  <p>A major cause of drug-related death because of overdose; high rates of injecting-related infection; strong link with dependence and criminal-justice involvement. <span class="tag tks">Kaplan &amp; Sadock</span></p>
+  <h3>3. Identifying symptoms</h3>
+  <div class="unique">
+    <h4>Identifying clues</h4>
+    <ul class="t">
+      <li><b>Intoxication:</b> euphoria then drowsiness ("nodding"), <b class="cl">pinpoint pupils (miosis)</b> <i class="si">(abnormally small pupils &mdash; a classic opioid sign)</i>, slurred speech, reduced consciousness; in overdose, the lethal triad of <b>coma + pinpoint pupils + respiratory depression</b> <i class="si">(dangerously slow, shallow breathing)</i>.</li>
+      <li><b>Withdrawal:</b> not usually life-threatening but very distressing &mdash; "flu-like" picture: dilated pupils, yawning, runny nose and eyes (lacrimation/rhinorrhoea), sweating, gooseflesh (<b class="cl">piloerection</b> &mdash; hence "cold turkey"), muscle and bone aches, abdominal cramps, diarrhoea, vomiting, and intense craving.</li>
+    </ul>
+  </div>
+  <div class="assoc">
+    <h4>Associated conditions and complications</h4>
+    <ul class="t">
+      <li><b>Overdose</b> from respiratory depression &mdash; the leading cause of death; reversed by <b class="cl">naloxone</b> <i class="si">(an emergency antidote that blocks opioid receptors)</i>.</li>
+      <li><b>Injecting complications:</b> HIV, hepatitis B and C, infective endocarditis <i class="si">(heart-valve infection)</i>, abscesses, deep-vein thrombosis.</li>
+      <li>Neonatal abstinence syndrome in babies of dependent mothers.</li>
+    </ul>
+  </div>
+  <h3>4&ndash;5. Diagnostic criteria</h3>
+  <div class="panel10"><h4><span class="tag t10">ICD-10</span></h4><p>Shared syndromes applied to opioids (F11.0&ndash;.9): intoxication, harmful use, dependence, withdrawal (F11.3), withdrawal with delirium, etc.</p></div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11</span></h4><p>6C43 with episode of harmful use, harmful pattern, dependence, intoxication, and withdrawal sub-codes.</p></div>
+  <h3>6. Easy way to remember</h3>
+  <div class="remember"><h4>Memory aid</h4><p><b>Intoxication = pinpoint pupils + drowsy + slow breathing</b> (overdose triad). <b>Withdrawal = dilated pupils + flu-like + diarrhoea + gooseflesh</b> ("cold turkey"). Intoxication and withdrawal are mirror images.</p></div>
+  <h3>7. Treatment</h3>
+  <ul class="t">
+    <li><b>Overdose:</b> <b>naloxone</b> (opioid antagonist) &mdash; life-saving.</li>
+    <li><b>Withdrawal / maintenance:</b> <b class="cl">opioid substitution therapy</b> <i class="si">(replacing an illicit opioid with a prescribed, longer-acting one under supervision)</i> with <b>methadone</b> or <b>buprenorphine</b>; symptomatic relief with lofexidine/clonidine.</li>
+    <li><b>Relapse prevention:</b> naltrexone (opioid blocker); psychosocial support, CBT, contingency management, needle-exchange and harm-reduction services. <span class="tag tks">Kaplan &amp; Sadock</span></li>
+  </ul>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+<!-- ═══════════════════════ F12 CANNABIS ═══════════════════════ -->
+<section id="f12">
+  <h2>F12 &middot; Disorders due to Cannabinoid Use &rarr; ICD-11 6C41 (cannabis) / 6C42 (synthetic)</h2>
+  <div class="idcard">
+    <div><b>ICD-10</b> F12</div><div><b>ICD-11</b> 6C41 cannabis; 6C42 synthetic cannabinoids</div>
+    <div><b>Drug type</b> Cannabinoid (mixed effects)</div>
+    <div><b>Examples</b> Marijuana, hashish; synthetic "spice"</div>
+  </div>
+  <h3>1&ndash;2. Introduction, mechanism, epidemiology</h3>
+  <p>Cannabis acts on <b class="cl">cannabinoid (CB1) receptors</b> <i class="si">(brain docking sites that regulate mood, perception and appetite)</i>; the main active compound is <b class="cl">THC</b> <i class="si">(tetrahydrocannabinol)</i>. One of the most widely used illicit substances, especially among young people.</p>
+  <h3>3. Identifying symptoms</h3>
+  <div class="unique"><h4>Identifying clues</h4><ul class="t">
+    <li><b>Intoxication:</b> euphoria and relaxation, altered time perception, increased appetite ("the munchies"), <b class="cl">conjunctival injection</b> <i class="si">(red eyes)</i>, dry mouth, tachycardia, impaired coordination and short-term memory; anxiety or paranoia at high doses.</li>
+    <li><b>Withdrawal</b> (recognised in ICD-11 and increasingly in practice): irritability, anxiety, sleep disturbance and vivid dreams, reduced appetite, restlessness, low mood &mdash; milder than alcohol/opioid withdrawal.</li>
+  </ul></div>
+  <div class="assoc"><h4>Associated conditions</h4><ul class="t">
+    <li><b>Cannabis-induced psychosis</b> (F12.5) and a recognised association with later <b>schizophrenia</b>, particularly with heavy use in adolescence and with high-potency products.</li>
+    <li><b>Amotivational syndrome</b> <i class="si">(a state of apathy, reduced drive and poor goal-directed activity linked to chronic heavy use)</i>.</li>
+    <li>Synthetic cannabinoids ("spice") can cause severe agitation, psychosis, and medical emergencies.</li>
+  </ul></div>
+  <h3>4&ndash;5. Diagnostic criteria</h3>
+  <div class="panel10"><h4><span class="tag t10">ICD-10</span></h4><p>Shared syndromes applied to cannabinoids (F12.0&ndash;.9).</p></div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11</span></h4><p>6C41 (cannabis) and separately 6C42 (synthetic cannabinoids), each with harmful use, dependence, intoxication and withdrawal.</p></div>
+  <h3>6&ndash;7. Remember and treatment</h3>
+  <div class="remember"><h4>Memory aid</h4><p><b>Red eyes + increased appetite + altered time sense + tachycardia = cannabis intoxication.</b></p></div>
+  <p><b>Treatment:</b> largely psychological &mdash; motivational interviewing, CBT, and contingency management; treat associated anxiety or psychosis; no established specific pharmacotherapy for dependence. <span class="tag tks">Kaplan &amp; Sadock</span></p>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+<!-- ═══════════════════════ F13 SEDATIVES ═══════════════════════ -->
+<section id="f13">
+  <h2>F13 &middot; Disorders due to Sedative or Hypnotic Use &rarr; ICD-11 6C44</h2>
+  <div class="idcard">
+    <div><b>ICD-10</b> F13</div><div><b>ICD-11</b> 6C44</div>
+    <div><b>Drug type</b> CNS depressant</div>
+    <div><b>Examples</b> Benzodiazepines, "Z-drugs", barbiturates</div>
+  </div>
+  <h3>1&ndash;2. Introduction and mechanism</h3>
+  <p><b class="cl">Sedatives and hypnotics</b> <i class="si">(drugs that calm and induce sleep)</i>, especially <b class="cl">benzodiazepines</b> <i class="si">(e.g. diazepam, lorazepam &mdash; anti-anxiety/sleep drugs)</i>, enhance GABA activity. Like alcohol, they are CNS depressants, so their withdrawal is dangerously over-excitatory. Dependence often develops iatrogenically <i class="si">(as a result of medical prescribing)</i>.</p>
+  <h3>3. Identifying symptoms</h3>
+  <div class="unique"><h4>Identifying clues</h4><ul class="t">
+    <li><b>Intoxication:</b> resembles alcohol without the smell &mdash; sedation, slurred speech, ataxia, poor coordination, impaired memory, disinhibition.</li>
+    <li><b>Withdrawal:</b> anxiety, insomnia, tremor, sweating, perceptual disturbances, and &mdash; importantly &mdash; <b>seizures and delirium</b>, as with alcohol.</li>
+  </ul></div>
+  <div class="assoc"><h4>Associated conditions</h4><ul class="t">
+    <li><b>Withdrawal seizures and delirium</b> (potentially fatal) &mdash; sedative withdrawal must be tapered slowly.</li>
+    <li>Dangerous <b>synergy with alcohol and opioids</b> (combined respiratory depression and overdose risk).</li>
+    <li>Anterograde amnesia and falls (especially in the elderly).</li>
+  </ul></div>
+  <h3>4&ndash;5. Diagnostic criteria</h3>
+  <div class="panel10"><h4><span class="tag t10">ICD-10</span></h4><p>Shared syndromes applied to sedatives/hypnotics (F13.0&ndash;.9).</p></div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11</span></h4><p>6C44 with harmful use, dependence, intoxication and withdrawal sub-codes.</p></div>
+  <h3>6&ndash;7. Remember and treatment</h3>
+  <div class="remember"><h4>Memory aid</h4><p><b>"Alcohol in pill form"</b> &mdash; same depressant intoxication and same dangerous (seizure/delirium) withdrawal.</p></div>
+  <p><b>Treatment:</b> <b>gradual dose reduction</b> (slow taper, often switching to a long-acting benzodiazepine); overdose antidote is <b>flumazenil</b> (used cautiously); psychological support and treatment of underlying anxiety/insomnia. <span class="tag tks">Kaplan &amp; Sadock</span></p>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+<!-- ═══════════════════════ F14 COCAINE ═══════════════════════ -->
+<section id="f14">
+  <h2>F14 &middot; Disorders due to Cocaine Use &rarr; ICD-11 6C45</h2>
+  <div class="idcard">
+    <div><b>ICD-10</b> F14</div><div><b>ICD-11</b> 6C45</div>
+    <div><b>Drug type</b> CNS stimulant</div>
+    <div><b>Examples</b> Cocaine powder, crack cocaine</div>
+  </div>
+  <h3>1&ndash;2. Introduction and mechanism</h3>
+  <p>Cocaine is a powerful <b class="cl">CNS stimulant</b> <i class="si">(a substance that speeds up brain activity)</i> that blocks reuptake of <b class="cl">dopamine</b> <i class="si">(the brain's reward/pleasure chemical)</i>, noradrenaline and serotonin, causing intense but short-lived euphoria. Strong psychological dependence develops quickly.</p>
+  <h3>3. Identifying symptoms</h3>
+  <div class="unique"><h4>Identifying clues</h4><ul class="t">
+    <li><b>Intoxication:</b> euphoria, increased energy and alertness, grandiosity, <b class="cl">dilated pupils (mydriasis)</b>, tachycardia, hypertension, reduced appetite; at high doses agitation, paranoia, and <b class="cl">formication</b> <i class="si">("cocaine bugs" &mdash; the sensation of insects crawling under the skin)</i>.</li>
+    <li><b>Withdrawal ("the crash"):</b> the opposite of intoxication &mdash; intense low mood, fatigue, hypersomnia, increased appetite, vivid unpleasant dreams, and strong craving; high suicide risk during the crash.</li>
+  </ul></div>
+  <div class="assoc"><h4>Associated conditions</h4><ul class="t">
+    <li><b>Cardiovascular emergencies:</b> myocardial infarction (heart attack), arrhythmias, stroke, and hypertensive crisis &mdash; even in young users.</li>
+    <li><b>Cocaine-induced psychosis</b> with persecutory delusions and formication.</li>
+    <li>Nasal septum perforation (snorting); seizures; sudden death.</li>
+  </ul></div>
+  <h3>4&ndash;5. Diagnostic criteria</h3>
+  <div class="panel10"><h4><span class="tag t10">ICD-10</span></h4><p>Shared syndromes applied to cocaine (F14.0&ndash;.9).</p></div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11</span></h4><p>6C45 with harmful use, dependence, intoxication and withdrawal sub-codes.</p></div>
+  <h3>6&ndash;7. Remember and treatment</h3>
+  <div class="remember"><h4>Memory aid</h4><p><b>Intoxication = "up" (euphoric, dilated pupils, fast heart); withdrawal = "crash" (down, tired, hungry, depressed).</b></p></div>
+  <p><b>Treatment:</b> no established specific pharmacotherapy; mainstay is psychological &mdash; CBT, contingency management, and relapse prevention; treat cardiovascular complications and cocaine-induced psychosis medically. <span class="tag tks">Kaplan &amp; Sadock</span></p>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+<!-- ═══════════════════════ F15 STIMULANTS ═══════════════════════ -->
+<section id="f15">
+  <h2>F15 &middot; Disorders due to Other Stimulants, including Caffeine &rarr; ICD-11 6C46 / 6C47 / 6C48</h2>
+  <div class="idcard">
+    <div><b>ICD-10</b> F15</div><div><b>ICD-11</b> 6C46 stimulants (amfetamines/methamfetamine); 6C47 synthetic cathinones; 6C48 caffeine</div>
+    <div><b>Drug type</b> CNS stimulant</div>
+    <div><b>Examples</b> Amfetamine, methamfetamine, methylphenidate, "bath salts", caffeine</div>
+  </div>
+  <h3>1&ndash;2. Introduction and mechanism</h3>
+  <p><b class="cl">Amfetamine-type stimulants</b> increase release and block reuptake of dopamine and noradrenaline, producing effects similar to cocaine but longer-lasting. ICD-11 gives synthetic cathinones ("bath salts", 6C47) and caffeine (6C48) their own stems.</p>
+  <h3>3. Identifying symptoms</h3>
+  <div class="unique"><h4>Identifying clues</h4><ul class="t">
+    <li><b>Intoxication:</b> euphoria, hyperalertness, grandiosity, reduced need for sleep, dilated pupils, tachycardia, hypertension, hyperthermia; prolonged binges cause paranoia and <b>stimulant psychosis</b> that closely mimics paranoid schizophrenia.</li>
+    <li><b>Withdrawal:</b> like the cocaine crash &mdash; fatigue, hypersomnia, increased appetite, dysphoria, and craving.</li>
+    <li><b>Caffeine:</b> intoxication = restlessness, insomnia, palpitations, diuresis; withdrawal = headache, fatigue, low mood, poor concentration.</li>
+  </ul></div>
+  <div class="assoc"><h4>Associated conditions</h4><ul class="t">
+    <li><b>Amfetamine/methamfetamine psychosis</b> (paranoid, with hallucinations and formication) &mdash; a classic model of drug-induced schizophrenia-like psychosis.</li>
+    <li>Cardiovascular events, hyperthermia, seizures; dental decay ("meth mouth"); weight loss; aggression.</li>
+  </ul></div>
+  <h3>4&ndash;5. Diagnostic criteria</h3>
+  <div class="panel10"><h4><span class="tag t10">ICD-10</span></h4><p>Shared syndromes applied to other stimulants including caffeine (F15.0&ndash;.9).</p></div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11</span></h4><p>6C46 (stimulants), 6C47 (synthetic cathinones), and 6C48 (caffeine &mdash; including caffeine intoxication and caffeine withdrawal), each with the standard syndrome sub-codes.</p></div>
+  <h3>6&ndash;7. Remember and treatment</h3>
+  <div class="remember"><h4>Memory aid</h4><p><b>Stimulant psychosis looks like paranoid schizophrenia but follows a binge and resolves as the drug clears.</b></p></div>
+  <p><b>Treatment:</b> supportive management of intoxication and psychosis (benzodiazepines for agitation, short-term antipsychotics for psychosis); psychological treatments (CBT, contingency management) for dependence; treat cardiovascular and hyperthermic complications. <span class="tag tks">Kaplan &amp; Sadock</span></p>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+<!-- ═══════════════════════ F16 HALLUCINOGENS ═══════════════════════ -->
+<section id="f16">
+  <h2>F16 &middot; Disorders due to Hallucinogen Use &rarr; ICD-11 6C49</h2>
+  <div class="idcard">
+    <div><b>ICD-10</b> F16</div><div><b>ICD-11</b> 6C49</div>
+    <div><b>Drug type</b> Hallucinogen (perception-altering)</div>
+    <div><b>Examples</b> LSD, psilocybin ("magic mushrooms"), mescaline</div>
+  </div>
+  <h3>1&ndash;2. Introduction and mechanism</h3>
+  <p><b class="cl">Hallucinogens</b> <i class="si">(drugs that profoundly alter perception, thought and mood, often producing hallucinations)</i> act largely on <b class="cl">serotonin</b> receptors <i class="si">(a brain chemical involved in mood and perception)</i>. They produce marked perceptual changes with relatively little physical dependence.</p>
+  <h3>3. Identifying symptoms</h3>
+  <div class="unique"><h4>Identifying clues</h4><ul class="t">
+    <li><b>Intoxication ("a trip"):</b> vivid visual illusions and hallucinations, <b class="cl">synaesthesia</b> <i class="si">(a blending of the senses &mdash; e.g. "seeing" sounds)</i>, altered sense of time and self, intensified emotions, dilated pupils; a frightening experience is a <b>"bad trip"</b> with panic and paranoia.</li>
+    <li><b>No characteristic physical withdrawal syndrome</b> &mdash; a key distinguishing feature; tolerance develops rapidly but physical dependence is minimal.</li>
+  </ul></div>
+  <div class="assoc"><h4>Associated conditions</h4><ul class="t">
+    <li><b class="cl">Flashbacks</b> / <b>hallucinogen persisting perception disorder</b> <i class="si">(spontaneous, brief re-experiencing of drug-like perceptual disturbances long after the drug was taken)</i> &mdash; coded under residual disorders (F16.70).</li>
+    <li>Accidents and injuries from impaired judgement during intoxication; precipitation or worsening of psychosis in vulnerable people.</li>
+  </ul></div>
+  <h3>4&ndash;5. Diagnostic criteria</h3>
+  <div class="panel10"><h4><span class="tag t10">ICD-10</span></h4><p>Shared syndromes applied to hallucinogens (F16.0&ndash;.9), including flashbacks under F16.70.</p></div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11</span></h4><p>6C49 with harmful use, dependence and intoxication; note the characteristic absence of a physical withdrawal syndrome.</p></div>
+  <h3>6&ndash;7. Remember and treatment</h3>
+  <div class="remember"><h4>Memory aid</h4><p><b>Hallucinogens = big perceptual "trip", no physical withdrawal, but flashbacks later.</b></p></div>
+  <p><b>Treatment:</b> a "bad trip" is managed by <b>reassurance in a calm environment ("talking down")</b> and a benzodiazepine if needed; treat persistent psychosis; psychological support for problematic use. <span class="tag tks">Kaplan &amp; Sadock</span></p>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+<!-- ═══════════════════════ F17 TOBACCO ═══════════════════════ -->
+<section id="f17">
+  <h2>F17 &middot; Disorders due to Tobacco / Nicotine Use &rarr; ICD-11 6C4A</h2>
+  <div class="idcard">
+    <div><b>ICD-10</b> F17 (tobacco)</div><div><b>ICD-11</b> 6C4A (nicotine)</div>
+    <div><b>Drug type</b> Stimulant (nicotine)</div>
+    <div><b>Examples</b> Cigarettes, chewing tobacco, e-cigarettes</div>
+  </div>
+  <h3>1&ndash;2. Introduction and mechanism</h3>
+  <p><b class="cl">Nicotine</b> <i class="si">(the addictive stimulant in tobacco)</i> acts on nicotinic acetylcholine receptors and the dopamine reward pathway. Dependence is very common and physically driven.</p>
+  <h3>3. Identifying symptoms</h3>
+  <div class="unique"><h4>Identifying clues</h4><ul class="t">
+    <li><b>Intoxication</b> is rarely a clinical issue; the main disorder is <b>dependence</b> with strong craving.</li>
+    <li><b>Withdrawal:</b> irritability, anxiety, restlessness, difficulty concentrating, increased appetite and weight gain, low mood, and intense craving &mdash; beginning within hours of the last cigarette.</li>
+  </ul></div>
+  <div class="assoc"><h4>Associated conditions</h4><ul class="t">
+    <li>Major cause of preventable death: cardiovascular disease, chronic lung disease, and many cancers (lung, mouth, throat, bladder).</li>
+    <li>High comorbidity with other mental disorders (very high smoking rates in schizophrenia).</li>
+  </ul></div>
+  <h3>4&ndash;5. Diagnostic criteria</h3>
+  <div class="panel10"><h4><span class="tag t10">ICD-10</span></h4><p>Shared syndromes applied to tobacco (F17.0&ndash;.9), dependence and withdrawal being the main entities.</p></div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11</span></h4><p>6C4A (nicotine) with harmful use, dependence, and withdrawal.</p></div>
+  <h3>6&ndash;7. Remember and treatment</h3>
+  <div class="remember"><h4>Memory aid</h4><p><b>Nicotine withdrawal = irritable, anxious, hungry, craving</b> &mdash; the disorder is dependence, not intoxication.</p></div>
+  <p><b>Treatment:</b> <b>nicotine replacement therapy</b> <i class="si">(patches, gum, lozenges that supply nicotine without tobacco smoke)</i>; <b>varenicline</b> and <b>bupropion</b> (anti-craving medications); behavioural support, brief advice, and quit-lines. <span class="tag tks">Kaplan &amp; Sadock</span></p>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+<!-- ═══════════════════════ F18 INHALANTS ═══════════════════════ -->
+<section id="f18">
+  <h2>F18 &middot; Disorders due to Volatile Solvent / Inhalant Use &rarr; ICD-11 6C4B</h2>
+  <div class="idcard">
+    <div><b>ICD-10</b> F18</div><div><b>ICD-11</b> 6C4B (volatile inhalants)</div>
+    <div><b>Drug type</b> CNS depressant (inhaled)</div>
+    <div><b>Examples</b> Glue, petrol, paint thinners, aerosols, butane</div>
+  </div>
+  <h3>1&ndash;2. Introduction, mechanism, epidemiology</h3>
+  <p><b class="cl">Volatile solvents / inhalants</b> <i class="si">(everyday chemicals whose fumes are breathed in to get intoxicated)</i> are CNS depressants. Use is most common among <b>children and adolescents</b> because these substances are cheap and easily available.</p>
+  <h3>3. Identifying symptoms</h3>
+  <div class="unique"><h4>Identifying clues</h4><ul class="t">
+    <li><b>Intoxication:</b> rapid, short-lived alcohol-like intoxication &mdash; euphoria, dizziness, slurred speech, ataxia, and sometimes hallucinations; a <b>chemical smell on breath/clothing</b> and a <b>peri-oral rash ("glue-sniffer's rash")</b> are giveaway signs.</li>
+  </ul></div>
+  <div class="assoc"><h4>Associated conditions</h4><ul class="t">
+    <li><b>"Sudden sniffing death"</b> <i class="si">(fatal heart rhythm disturbance during or right after inhalation)</i>.</li>
+    <li>Damage to brain, liver, kidney, bone marrow, and peripheral nerves with chronic use; cognitive impairment.</li>
+  </ul></div>
+  <h3>4&ndash;5. Diagnostic criteria</h3>
+  <div class="panel10"><h4><span class="tag t10">ICD-10</span></h4><p>Shared syndromes applied to volatile solvents (F18.0&ndash;.9).</p></div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11</span></h4><p>6C4B with harmful use, dependence, intoxication and withdrawal.</p></div>
+  <h3>6&ndash;7. Remember and treatment</h3>
+  <div class="remember"><h4>Memory aid</h4><p><b>Young person + chemical smell + glue-sniffer's rash = inhalant use; beware sudden sniffing death.</b></p></div>
+  <p><b>Treatment:</b> largely psychosocial and educational; family and social intervention; treat cognitive and organ complications; no specific pharmacotherapy. <span class="tag tks">Kaplan &amp; Sadock</span></p>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+<!-- ═══════════════════════ F19 MULTIPLE ═══════════════════════ -->
+<section id="f19">
+  <h2>F19 &middot; Multiple Drug Use and Use of Other Psychoactive Substances &rarr; ICD-11 6C4C&ndash;6C4G</h2>
+  <div class="idcard">
+    <div><b>ICD-10</b> F19</div><div><b>ICD-11</b> 6C4C MDMA/related; 6C4D dissociatives; 6C4E other; 6C4F multiple; 6C4G unknown</div>
+    <div><b>Drug type</b> Mixed</div>
+    <div><b>Examples</b> Polydrug use; MDMA/ecstasy; ketamine, PCP</div>
+  </div>
+  <h3>1. Introduction</h3>
+  <p>Used when a disorder arises from the use of <b>multiple substances</b> together (so that no single drug predominates), or from substances not covered by F10&ndash;F18. ICD-11 has created distinct new stems for several previously "other" substances.</p>
+  <h3>2&ndash;3. Key members and identifying features</h3>
+  <div class="unique"><h4>Identifying clues</h4><ul class="t">
+    <li><b>Polydrug use (F19):</b> a chaotic pattern in which several substances are taken, often to enhance or counteract each other's effects; complicates both intoxication and withdrawal pictures.</li>
+    <li><b class="cl">MDMA / ecstasy (6C4C)</b> <i class="si">(an "entactogen" stimulant-hallucinogen used at parties)</i>: euphoria, emotional closeness, increased energy; risks of <b>hyperthermia</b> <i class="si">(dangerous overheating)</i>, <b>hyponatraemia</b> <i class="si">(dangerously low blood sodium from drinking too much water)</i>, and serotonin toxicity.</li>
+    <li><b class="cl">Dissociative drugs (6C4D)</b> such as <b>ketamine</b> and <b>PCP</b> <i class="si">(drugs producing a sense of detachment from the body and surroundings)</i>: dissociation, hallucinations, analgesia, nystagmus; PCP is associated with agitation and violence.</li>
+  </ul></div>
+  <div class="assoc"><h4>Associated conditions</h4><ul class="t">
+    <li>Overdose risk is amplified by combining depressants (alcohol + opioids + benzodiazepines).</li>
+    <li>MDMA: hyperthermia, water intoxication/hyponatraemia, liver damage; ketamine: bladder damage ("ketamine cystitis"); PCP: violent behaviour and psychosis.</li>
+  </ul></div>
+  <h3>4&ndash;5. Diagnostic criteria</h3>
+  <div class="panel10"><h4><span class="tag t10">ICD-10</span></h4><p>F19 used for multiple drug use and other/unspecified psychoactive substances, applying the shared syndromes.</p></div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11</span></h4><p>Distinct stems: 6C4C MDMA and related drugs; 6C4D dissociative drugs including ketamine and PCP; 6C4E other specified; 6C4F multiple specified substances; 6C4G unknown or unspecified.</p></div>
+  <h3>6&ndash;7. Remember and treatment</h3>
+  <div class="remember"><h4>Memory aid</h4><p><b>F19 = "cocktail" &mdash; multiple drugs, or the newer ones (MDMA, ketamine, PCP) with their own hazards.</b></p></div>
+  <p><b>Treatment:</b> supportive and symptom-directed for intoxication/complications (cooling and fluids for MDMA hyperthermia, benzodiazepines for agitation); psychosocial treatment of the underlying pattern of use. <span class="tag tks">Kaplan &amp; Sadock</span></p>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+<!-- ═══════════════════════ COMPARISON TABLES ═══════════════════════ -->
+<section id="compare-table">
+  <h2>Master Comparison Tables</h2>
+
+  <h3>Intoxication vs Withdrawal &mdash; at a glance (identify the substance)</h3>
+  <table>
+    <tr><th>Substance</th><th>Intoxication (key identifying signs)</th><th>Withdrawal (key identifying signs)</th></tr>
+    <tr><td><b>Alcohol</b> (depressant)</td><td>Disinhibition, slurred speech, ataxia, nystagmus; coma at high dose</td><td>Tremor, sweating, anxiety, seizures, hallucinosis, delirium tremens</td></tr>
+    <tr><td><b>Opioids</b> (depressant)</td><td><b>Pinpoint pupils</b>, drowsiness, slow breathing (overdose triad)</td><td><b>Dilated pupils</b>, flu-like, gooseflesh, cramps, diarrhoea (not fatal but distressing)</td></tr>
+    <tr><td><b>Cannabis</b></td><td>Red eyes, increased appetite, altered time sense, tachycardia; paranoia at high dose</td><td>Irritability, anxiety, insomnia, vivid dreams, reduced appetite</td></tr>
+    <tr><td><b>Sedatives / hypnotics</b> (depressant)</td><td>Alcohol-like: sedation, slurred speech, ataxia, disinhibition</td><td>Anxiety, tremor, <b>seizures and delirium</b> (like alcohol)</td></tr>
+    <tr><td><b>Cocaine</b> (stimulant)</td><td>Euphoria, dilated pupils, tachycardia, hypertension, formication</td><td>"Crash": depression, fatigue, hypersomnia, hunger, craving</td></tr>
+    <tr><td><b>Amfetamines</b> (stimulant)</td><td>Hyperalertness, grandiosity, no sleep, paranoia, psychosis</td><td>"Crash": fatigue, hypersomnia, dysphoria, craving</td></tr>
+    <tr><td><b>Hallucinogens</b></td><td>Vivid hallucinations, synaesthesia, altered self/time, dilated pupils</td><td><b>No characteristic physical withdrawal</b>; flashbacks may occur later</td></tr>
+    <tr><td><b>Nicotine</b> (stimulant)</td><td>Rarely clinically significant</td><td>Irritability, anxiety, poor concentration, increased appetite, craving</td></tr>
+    <tr><td><b>Inhalants</b> (depressant)</td><td>Rapid alcohol-like intoxication; chemical smell; peri-oral rash</td><td>Mild; main risk is sudden sniffing death during use</td></tr>
+    <tr><td><b>MDMA / dissociatives</b></td><td>MDMA: euphoria, empathy, hyperthermia; ketamine/PCP: dissociation, nystagmus</td><td>Variable; fatigue and low mood ("mid-week blues" after MDMA)</td></tr>
+  </table>
+
+  <h3>Substance-specific associated conditions (high-yield)</h3>
+  <table>
+    <tr><th>Substance</th><th>Signature associated conditions</th></tr>
+    <tr><td>Alcohol</td><td>Delirium tremens; Wernicke encephalopathy; Korsakoff amnesic syndrome; alcoholic hallucinosis; morbid jealousy; cirrhosis; fetal alcohol syndrome</td></tr>
+    <tr><td>Opioids</td><td>Fatal respiratory-depression overdose; HIV/hepatitis and endocarditis from injecting; neonatal abstinence syndrome</td></tr>
+    <tr><td>Cannabis</td><td>Cannabis-induced psychosis; increased schizophrenia risk; amotivational syndrome</td></tr>
+    <tr><td>Sedatives / hypnotics</td><td>Withdrawal seizures and delirium; overdose synergy with alcohol/opioids; falls and amnesia</td></tr>
+    <tr><td>Cocaine</td><td>Heart attack, arrhythmia, stroke; cocaine psychosis with formication; nasal septum perforation</td></tr>
+    <tr><td>Amfetamines</td><td>Stimulant psychosis (schizophrenia-like); hyperthermia; cardiovascular events; "meth mouth"</td></tr>
+    <tr><td>Hallucinogens</td><td>Bad trips; flashbacks / hallucinogen persisting perception disorder</td></tr>
+    <tr><td>Nicotine</td><td>Cardiovascular disease, lung disease, cancers</td></tr>
+    <tr><td>Inhalants</td><td>Sudden sniffing death; brain, liver, kidney and marrow damage</td></tr>
+    <tr><td>MDMA / dissociatives</td><td>MDMA: hyperthermia, hyponatraemia; ketamine: bladder damage; PCP: violence, psychosis</td></tr>
+  </table>
+
+  <h3>ICD-10 vs ICD-11 dependence criteria side by side</h3>
+  <table>
+    <tr><th></th><th class="c10">ICD-10 (three or more in past year)</th><th class="c11">ICD-11 (two or more of three features)</th></tr>
+    <tr><td>1</td><td class="c10">Strong desire / compulsion to use</td><td class="c11">Impaired control over use</td></tr>
+    <tr><td>2</td><td class="c10">Difficulty controlling use</td><td class="c11">Increasing precedence of use over other activities</td></tr>
+    <tr><td>3</td><td class="c10">Physiological withdrawal state</td><td class="c11">Physiological features (tolerance, withdrawal, use to relieve withdrawal)</td></tr>
+    <tr><td>4</td><td class="c10">Tolerance</td><td class="c11">&mdash;</td></tr>
+    <tr><td>5</td><td class="c10">Neglect of alternative interests</td><td class="c11">&mdash;</td></tr>
+    <tr><td>6</td><td class="c10">Persisting use despite harm</td><td class="c11">&mdash;</td></tr>
+  </table>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+<!-- ═══════════════════════ GLOSSARY ═══════════════════════ -->
+<section id="glossary">
+  <h2>Clinical Terminology Glossary</h2>
+  <table>
+    <tr><th>Term</th><th>Plain-language meaning</th></tr>
+    <tr><td>Psychoactive substance</td><td>A chemical that acts on the brain to change mood, thinking, perception, or behaviour.</td></tr>
+    <tr><td>Acute intoxication</td><td>The transient effects appearing soon after taking a substance, wearing off as it clears.</td></tr>
+    <tr><td>Harmful use</td><td>A pattern of use actually damaging physical or mental health, without dependence.</td></tr>
+    <tr><td>Dependence syndrome</td><td>A cluster of features in which the substance takes priority over other behaviours; includes craving, loss of control, tolerance, and withdrawal.</td></tr>
+    <tr><td>Tolerance</td><td>Needing larger doses to get the effect a smaller dose once produced.</td></tr>
+    <tr><td>Withdrawal state</td><td>The symptoms that appear when a substance is stopped or reduced after heavy/prolonged use.</td></tr>
+    <tr><td>Craving</td><td>A strong desire or compulsion to use the substance.</td></tr>
+    <tr><td>Neuroadaptation</td><td>The brain's long-term adjustment to repeated substance exposure.</td></tr>
+    <tr><td>CNS depressant</td><td>A substance that slows brain activity (alcohol, opioids, sedatives, inhalants).</td></tr>
+    <tr><td>CNS stimulant</td><td>A substance that speeds up brain activity (cocaine, amfetamines, nicotine, caffeine).</td></tr>
+    <tr><td>GABA</td><td>The brain's main calming (inhibitory) neurotransmitter.</td></tr>
+    <tr><td>Glutamate</td><td>The brain's main stimulating (excitatory) neurotransmitter.</td></tr>
+    <tr><td>Dopamine</td><td>The brain's reward/pleasure chemical, central to addiction.</td></tr>
+    <tr><td>Delirium tremens</td><td>Severe, potentially fatal alcohol-withdrawal delirium (48&ndash;72 hours after stopping).</td></tr>
+    <tr><td>Wernicke encephalopathy</td><td>Acute, reversible brain disorder from thiamine (B1) deficiency: confusion, ataxia, eye-movement abnormality.</td></tr>
+    <tr><td>Korsakoff syndrome</td><td>Chronic amnesic state following untreated Wernicke: severe memory loss with confabulation.</td></tr>
+    <tr><td>Confabulation</td><td>Unintentionally producing false memories to fill gaps, without intent to deceive.</td></tr>
+    <tr><td>Formication</td><td>The sensation of insects crawling on or under the skin (cocaine/amfetamine).</td></tr>
+    <tr><td>Miosis / mydriasis</td><td>Pinpoint (small) pupils / dilated (large) pupils.</td></tr>
+    <tr><td>Ataxia</td><td>Unsteady, uncoordinated walking and movement.</td></tr>
+    <tr><td>Nystagmus</td><td>Rhythmic, involuntary jerking eye movements.</td></tr>
+    <tr><td>Respiratory depression</td><td>Dangerously slow, shallow breathing (opioid overdose).</td></tr>
+    <tr><td>Piloerection</td><td>Gooseflesh / "goosebumps" &mdash; a sign of opioid withdrawal ("cold turkey").</td></tr>
+    <tr><td>Synaesthesia</td><td>A blending of senses (e.g. "seeing" sounds) during hallucinogen use.</td></tr>
+    <tr><td>Flashback</td><td>Brief, spontaneous re-experiencing of drug effects long after taking the drug.</td></tr>
+    <tr><td>Amotivational syndrome</td><td>Apathy and reduced drive linked to chronic heavy cannabis use.</td></tr>
+    <tr><td>Hyperthermia</td><td>Dangerous overheating of the body (a risk with MDMA and stimulants).</td></tr>
+    <tr><td>Hyponatraemia</td><td>Dangerously low blood sodium (a risk with MDMA and excess water intake).</td></tr>
+    <tr><td>Naloxone</td><td>Emergency antidote that reverses opioid overdose.</td></tr>
+    <tr><td>Nicotine replacement therapy</td><td>Patches, gum, or lozenges that supply nicotine without tobacco smoke.</td></tr>
+    <tr><td>Opioid substitution therapy</td><td>Replacing an illicit opioid with a prescribed, longer-acting one (methadone, buprenorphine).</td></tr>
+    <tr><td>Motivational interviewing</td><td>A counselling style that builds a person's own motivation to change.</td></tr>
+    <tr><td>Post-coordination</td><td>The ICD-11 practice of adding extension codes (e.g. for severity) to a main code.</td></tr>
+  </table>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+<!-- ═══════════════════════ REFERENCES ═══════════════════════ -->
+<section id="references">
+  <h2>References and Source Attribution</h2>
+  <p>Diagnostic terminology and criteria are drawn strictly from the two official WHO classifications; clinical elaboration is drawn from standard psychiatric texts and peer-reviewed literature, each labelled inline with a source tag.</p>
+  <ul class="t">
+    <li><span class="tag t10">ICD-10</span> World Health Organization. <i>The ICD-10 Classification of Mental and Behavioural Disorders: Clinical Descriptions and Diagnostic Guidelines.</i> Geneva: World Health Organization, 1992.</li>
+    <li><span class="tag t11">ICD-11</span> World Health Organization. <i>Clinical Descriptions and Diagnostic Requirements for ICD-11 Mental, Behavioural and Neurodevelopmental Disorders.</i> Geneva: World Health Organization.</li>
+    <li><span class="tag tks">Kaplan &amp; Sadock</span> Sadock BJ, Sadock VA, Ruiz P. <i>Kaplan &amp; Sadock's Synopsis of Psychiatry</i> and <i>Comprehensive Textbook of Psychiatry</i> (clinical features, mechanism, complications, and treatment; content paraphrased).</li>
+    <li><span class="tag tother">Other evidence</span> World Health Organization reports on the global burden of substance use, and peer-reviewed reviews on substance intoxication, withdrawal, and treatment.</li>
+  </ul>
+  <div class="warn"><b>Note on use.</b> This is an educational study reference for M.Phil. Clinical Psychology. Diagnostic criteria are paraphrased from the ICD sources without reproducing copyrighted text at length; secondary-source content has been rephrased for compliance with licensing restrictions. It is not a substitute for the full official classifications or for individual clinical and medical judgement, and it is not a prescribing guide.</div>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+</main>
+</div>
+
+<footer>
+  <p><strong>ICD-10 &amp; ICD-11 Comparative Clinical Handbook &mdash; F10&ndash;F19 Mental and Behavioural Disorders due to Psychoactive Substance Use</strong></p>
+  <p>Comprehensive examination reference &middot; diagnostic criteria strictly from ICD-10 and ICD-11 &middot; identifying symptoms, withdrawal syndromes and associated conditions for every substance &middot; clinical terminology explained in plain language.</p>
+  <p style="margin-top:14px;font-size:1rem;color:#fff;letter-spacing:.04em">Made by <strong>Tejas Dangodra</strong></p>
+</footer>
+
+</body>
+</html>
