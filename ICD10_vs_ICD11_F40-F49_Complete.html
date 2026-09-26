@@ -1,0 +1,1228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ICD-10 &amp; ICD-11 Comparative Handbook — F40–F49 Neurotic, Stress-Related and Somatoform Disorders</title>
+<style>
+:root{
+  --deep:#0a2540;--accent:#0e6655;--icd10:#1a5276;--icd11:#1e8449;
+  --ks:#7d3c98;--other:#b9770e;--bg:#f4f6f9;--card:#ffffff;
+  --ink:#1c2833;--muted:#5d6d7e;--line:#d5dbdb;--soft:#eaf2f8;
+  --warn:#922b21;--uniq:#6c3483;--surface:#fdfefe;--psych:#1f6f8b;--ddx:#0b6b5f;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.72;font-size:16px}
+.cover{background:linear-gradient(160deg,#0a2540 0%,#154360 40%,#0e6655 100%);color:#fff;padding:60px 30px 50px;text-align:center}
+.cover .subtitle{text-transform:uppercase;letter-spacing:.3em;font-size:.72rem;opacity:.7;margin-bottom:16px}
+.cover h1{font-size:2.05rem;font-weight:800;line-height:1.22;margin-bottom:12px;max-width:940px;display:inline-block}
+.cover .tagline{font-size:1.05rem;font-weight:400;opacity:.9;max-width:820px;margin:0 auto 22px}
+.cover .chips{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-bottom:18px}
+.cover .chip{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);border-radius:6px;padding:5px 14px;font-size:.82rem}
+.cover .srcline{font-size:.8rem;opacity:.65;max-width:760px;margin:0 auto}
+.wrap{max-width:1160px;margin:0 auto;padding:0 22px}
+.layout{display:flex;gap:28px;align-items:flex-start}
+nav.toc{position:sticky;top:0;max-height:100vh;overflow-y:auto;flex:0 0 288px;padding:20px 12px 60px;font-size:.82rem;border-right:1px solid var(--line);background:var(--surface)}
+nav.toc h4{margin:18px 0 6px;color:var(--accent);text-transform:uppercase;font-size:.68rem;letter-spacing:.08em;font-weight:700}
+nav.toc a{display:block;color:var(--muted);text-decoration:none;padding:4px 10px;border-radius:6px;border-left:3px solid transparent;transition:all .15s}
+nav.toc a:hover{background:var(--soft);color:var(--icd10);border-left-color:var(--icd10)}
+nav.toc a.sub{padding-left:22px;font-size:.79rem}
+main{flex:1 1 auto;min-width:0;padding:28px 0 100px}
+section{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:28px 30px;margin:0 0 26px;scroll-margin-top:16px;box-shadow:0 1px 3px rgba(10,37,64,.04)}
+h2{font-size:1.45rem;color:var(--deep);border-bottom:3px solid var(--accent);padding-bottom:10px;margin-bottom:14px;font-weight:800}
+h3{font-size:1.1rem;color:var(--accent);margin:26px 0 8px;font-weight:700;padding-left:14px;border-left:4px solid var(--accent)}
+h4{font-size:.98rem;margin:16px 0 6px;font-weight:700;color:var(--deep)}
+p{margin:.55em 0}
+.tag{display:inline-block;font-size:.64rem;font-weight:700;padding:2px 9px;border-radius:4px;color:#fff;vertical-align:middle;letter-spacing:.02em}
+.t10{background:var(--icd10)}.t11{background:var(--icd11)}.tks{background:var(--ks)}.tother{background:var(--other)}
+b.cl{color:var(--deep);font-weight:700}
+i.si{color:var(--uniq);font-style:normal;font-weight:500}
+table{border-collapse:collapse;width:100%;margin:16px 0;font-size:.89rem;border-radius:10px;overflow:hidden;box-shadow:0 0 0 1px var(--line)}
+th,td{border:1px solid var(--line);padding:10px 12px;text-align:left;vertical-align:top}
+th{background:var(--deep);color:#fff;font-weight:600;font-size:.79rem;text-transform:uppercase;letter-spacing:.03em}
+tr:nth-child(even) td{background:#f8fafb}
+.c10{background:#eaf2f8!important}.c11{background:#eafaf1!important}
+.panel10{border-left:5px solid var(--icd10);background:#edf2f8;border-radius:0 10px 10px 0;padding:16px 20px;margin:14px 0}
+.panel11{border-left:5px solid var(--icd11);background:#edfaf1;border-radius:0 10px 10px 0;padding:16px 20px;margin:14px 0}
+.panel10 h4,.panel11 h4{margin:0 0 8px;padding-left:0;border-left:none}
+.note{border-left:5px solid var(--accent);background:var(--soft);padding:14px 18px;border-radius:0 10px 10px 0;margin:14px 0}
+.warn{border-left:5px solid var(--warn);background:#fdedec;padding:14px 18px;border-radius:0 10px 10px 0;margin:14px 0}
+.incl{border-left:5px solid var(--icd11);background:#eefaf2;padding:12px 16px;border-radius:0 8px 8px 0;margin:10px 0;font-size:.9rem}
+.excl{border-left:5px solid var(--warn);background:#fdf0ee;padding:12px 16px;border-radius:0 8px 8px 0;margin:10px 0;font-size:.9rem}
+.unique{border:2px solid var(--uniq);background:#f5eef8;border-radius:12px;padding:16px 20px;margin:16px 0}
+.unique h4{color:var(--uniq);margin:0 0 10px;border-left:none;padding-left:0}
+.assoc{border:2px solid var(--warn);background:#fdf0ee;border-radius:12px;padding:16px 20px;margin:16px 0}
+.assoc h4{color:var(--warn);margin:0 0 10px;border-left:none;padding-left:0}
+.psych{border:2px solid var(--psych);background:#eaf4f7;border-radius:12px;padding:16px 20px;margin:16px 0}
+.psych h4{color:var(--psych);margin:0 0 10px;border-left:none;padding-left:0}
+.subtype{border:2px solid #1a5276;background:#eef3f8;border-radius:12px;padding:18px 22px;margin:18px 0}
+.subtype h4{color:#1a5276;margin:0 0 10px;border-left:none;padding-left:0;font-size:1.04rem}
+.ddx{border:2px dashed var(--ddx);background:#e9f6f2;border-radius:10px;padding:12px 16px;margin:12px 0;font-size:.9rem}
+.ddx h5{color:var(--ddx);margin:0 0 6px;font-size:.9rem;text-transform:uppercase;letter-spacing:.03em}
+.sig{background:var(--deep);color:#fff;padding:14px 20px;border-radius:10px;margin:14px 0;font-size:.96rem}
+.sig b{color:#f9e79f}
+.remember{border:2px dashed #d4ac0d;background:#fef9e7;border-radius:12px;padding:16px 20px;margin:14px 0}
+.remember h4{color:#7d6608;margin:0 0 8px;border-left:none;padding-left:0}
+.idcard{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin:14px 0}
+.idcard div{background:#f2f6fa;border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:.85rem}
+.idcard b{display:block;font-size:.62rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:3px}
+ul.t,ol.t{margin:.5em 0;padding-left:1.3em}
+ul.t li,ol.t li{margin:.3em 0}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.top{text-align:right;font-size:.78rem;margin-top:10px}.top a{color:var(--muted);text-decoration:none}
+footer{background:var(--deep);color:#aeb6bf;padding:30px 22px;font-size:.86rem;text-align:center}
+footer strong{color:#fff}
+@media(max-width:920px){.layout{display:block}nav.toc{position:static;border-right:none;border-bottom:1px solid var(--line);max-height:none;flex:none}.g2{grid-template-columns:1fr}.cover h1{font-size:1.5rem}}
+@media print{nav.toc{display:none}body{background:#fff}section{box-shadow:none;break-inside:avoid}footer{background:#fff;color:#333}}
+</style>
+</head>
+<body>
+<a id="top"></a>
+
+<div class="cover">
+  <p class="subtitle">M.Phil. Clinical Psychology &mdash; Complete Diagnostic, Clinical &amp; Treatment Reference</p>
+  <h1>ICD-10 &amp; ICD-11 Comparative Clinical Handbook<br>F40&ndash;F49: Neurotic, Stress-Related and Somatoform Disorders</h1>
+  <p class="tagline">The fully comprehensive edition: every disorder and every subtype set out in detail with its own ICD-10 and ICD-11 diagnostic criteria, includes/excludes, and dedicated differential diagnosis &mdash; alongside extensive etiology (with psychological theories), epidemiology, unique presentations, comorbidities, memory aids, and treatment (pharmacological and psychological).</p>
+  <div class="chips">
+    <span class="chip">Criteria strictly from ICD-10 &amp; ICD-11</span>
+    <span class="chip">Every subtype detailed + its own differential diagnosis</span>
+    <span class="chip">Includes / excludes from ICD</span>
+    <span class="chip">Etiology incl. psychological theories</span>
+    <span class="chip">Epidemiology, comorbidities, mnemonics, treatment</span>
+  </div>
+  <p class="srcline">Primary authorities: WHO ICD-10 Clinical Descriptions &amp; Diagnostic Guidelines and WHO ICD-11 Clinical Descriptions &amp; Diagnostic Requirements. Secondary: Kaplan &amp; Sadock's Synopsis/Comprehensive Textbook of Psychiatry; peer-reviewed literature.</p>
+</div>
+
+<div class="wrap layout">
+<nav class="toc">
+  <h4>Foundations</h4>
+  <a href="#overview">The F40&ndash;F49 block overview</a>
+  <a href="#anxiety-concepts">Core concepts</a>
+  <a href="#compare">ICD-10 vs ICD-11 comparison</a>
+  <a href="#map">Master code map</a>
+  <h4>F40 Phobic anxiety</h4>
+  <a href="#f40">F40 &middot; Overview</a>
+  <a class="sub" href="#f40-0">F40.0 Agoraphobia</a>
+  <a class="sub" href="#f40-1">F40.1 Social phobias</a>
+  <a class="sub" href="#f40-2">F40.2 Specific phobias</a>
+  <h4>F41 Other anxiety</h4>
+  <a href="#f41">F41 &middot; Overview</a>
+  <a class="sub" href="#f41-0">F41.0 Panic disorder</a>
+  <a class="sub" href="#f41-1">F41.1 GAD</a>
+  <a class="sub" href="#f41-2">F41.2 Mixed anxiety-depressive</a>
+  <h4>F42 OCD</h4>
+  <a href="#f42">F42 &middot; Overview</a>
+  <a class="sub" href="#f42-0">F42.0 Obsessional thoughts</a>
+  <a class="sub" href="#f42-1">F42.1 Compulsive acts</a>
+  <a class="sub" href="#f42-2">F42.2 Mixed</a>
+  <h4>F43 Stress-related</h4>
+  <a href="#f43">F43 &middot; Overview</a>
+  <a class="sub" href="#f43-0">F43.0 Acute stress reaction</a>
+  <a class="sub" href="#f43-1">F43.1 PTSD (+ Complex PTSD)</a>
+  <a class="sub" href="#f43-2">F43.2 Adjustment disorders</a>
+  <h4>F44 Dissociative</h4>
+  <a href="#f44">F44 &middot; Overview</a>
+  <a class="sub" href="#f44-0">F44.0 Amnesia / .1 Fugue</a>
+  <a class="sub" href="#f44-2">F44.2 Stupor / .3 Trance</a>
+  <a class="sub" href="#f44-4">F44.4&ndash;.7 Conversion</a>
+  <a class="sub" href="#f44-8">F44.8 Ganser's syndrome</a>
+  <a class="sub" href="#f44-did">F44.81 DID (detailed)</a>
+  <h4>F45 Somatoform</h4>
+  <a href="#f45">F45 &middot; Overview</a>
+  <a class="sub" href="#f45-0">F45.0 Somatization</a>
+  <a class="sub" href="#f45-1">F45.1 Undifferentiated</a>
+  <a class="sub" href="#f45-2">F45.2 Hypochondriacal</a>
+  <a class="sub" href="#f45-3">F45.3 Autonomic dysfunction</a>
+  <a class="sub" href="#f45-4">F45.4 Pain disorder</a>
+  <h4>F48 Other neurotic</h4>
+  <a href="#f48">F48 &middot; Overview</a>
+  <a class="sub" href="#f48-0">F48.0 Neurasthenia</a>
+  <a class="sub" href="#f48-1">F48.1 Depersonalization</a>
+  <h4>Exam reference</h4>
+  <a href="#ddx-master">Differential master tables</a>
+  <a href="#mnemonics">Mnemonics master sheet</a>
+  <a href="#glossary">Terminology glossary</a>
+  <a href="#references">References</a>
+</nav>
+
+<main>
+
+<!-- ═══════════ OVERVIEW ═══════════ -->
+<section id="overview">
+  <h2>The F40&ndash;F49 Block &mdash; Overview</h2>
+  <p>The ICD-10 block <b class="cl">F40&ndash;F48</b> is titled <b>"Neurotic, stress-related and somatoform disorders"</b>. Historically these were the "<b class="cl">neuroses</b>" <i class="si">(disorders in which the person experiences distressing symptoms &mdash; anxiety, obsessions, physical complaints &mdash; but retains contact with reality and insight, in contrast to the "psychoses")</i>. ICD-10 keeps them together largely for historical reasons and because of their frequent association with <b>psychological causation</b> and with stress; it explicitly notes that a mixture of symptoms is common (especially anxiety and depression together). <span class="tag t10">ICD-10</span></p>
+  <p>ICD-11 <b>abolished the umbrella term "neurotic"</b> and broke this single block into several separate, mechanism-based groupings: <b>Anxiety or fear-related disorders (6B0x)</b>; <b>Obsessive-compulsive or related disorders (6B2x)</b>; <b>Disorders specifically associated with stress (6B4x)</b>; <b>Dissociative disorders (6B6x)</b>; and <b>Disorders of bodily distress or bodily experience (6C2x)</b>. <span class="tag t11">ICD-11</span></p>
+  <div class="note"><b>Biggest change to state in the exam:</b> ICD-11 <b>dismantled the "neurotic disorders" block</b> and redistributed its members. In particular, <b>OCD moved out of the anxiety disorders</b> into its own grouping, the <b>somatoform disorders were replaced by "bodily distress disorder"</b>, <b>hypochondriasis moved to the OCD-related grouping</b>, and <b>two new stress categories</b> (Complex PTSD, Prolonged grief disorder) were added while <b>acute stress reaction was reclassified as a normal reaction</b>.</p></div>
+</section>
+
+<!-- ═══════════ CORE CONCEPTS ═══════════ -->
+<section id="anxiety-concepts">
+  <h2>Core Concepts Needed for the Whole Block</h2>
+  <table>
+    <tr><th>Term</th><th>Plain-language meaning</th></tr>
+    <tr><td><b class="cl">Anxiety</b></td><td>An unpleasant state of apprehension/dread with bodily arousal (racing heart, sweating, trembling), anticipating a threat that may be unclear (free-floating) or attached to a cue.</td></tr>
+    <tr><td><b class="cl">Fear</b></td><td>The response to a real or perceived <b>present</b> threat (anxiety is future-oriented).</td></tr>
+    <tr><td><b class="cl">Phobia</b></td><td>A persistent, irrational, excessive fear of a specific object/situation, leading to avoidance, recognised as out of proportion.</td></tr>
+    <tr><td><b class="cl">Panic attack</b></td><td>A discrete episode of sudden intense fear with prominent physical symptoms, peaking within minutes.</td></tr>
+    <tr><td><b class="cl">Obsession</b></td><td>A recurrent, intrusive, unwanted thought/image/urge, recognised as one's own and resisted (ego-dystonic).</td></tr>
+    <tr><td><b class="cl">Compulsion</b></td><td>A repetitive behaviour or mental act the person feels driven to perform to reduce anxiety or prevent a feared event.</td></tr>
+    <tr><td><b class="cl">Dissociation</b></td><td>Disruption of the normal integration of consciousness, memory, identity, or perception.</td></tr>
+    <tr><td><b class="cl">Conversion</b></td><td>Psychological distress "converted" into a physical (usually neurological) symptom without organic cause.</td></tr>
+    <tr><td><b class="cl">Somatization</b></td><td>Experiencing and expressing psychological distress as physical symptoms, with medical help-seeking.</td></tr>
+    <tr><td><b class="cl">Free-floating vs situational anxiety</b></td><td>Generalised anxiety not tied to a trigger vs anxiety provoked by a specific situation.</td></tr>
+    <tr><td><b class="cl">Ego-dystonic vs ego-syntonic</b></td><td>Experienced as unwanted/alien vs consistent with one's self-image.</td></tr>
+  </table>
+  <div class="remember">
+    <h4>Mnemonic for the physical symptoms of anxiety &mdash; "PANICS"</h4>
+    <p><b>P</b>alpitations &middot; <b>A</b>bdominal distress / <b>A</b>ir hunger &middot; <b>N</b>umbness or tingling &middot; <b>I</b>ntense fear (of dying/losing control) &middot; <b>C</b>hest tightness / <b>C</b>hoking &middot; <b>S</b>weating, shaking, dizziness.</p>
+  </div>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+<!-- ═══════════ COMPARE ═══════════ -->
+<section id="compare">
+  <h2>ICD-10 vs ICD-11 &mdash; General Comparison</h2>
+  <table>
+    <tr><th>Dimension</th><th class="c10">ICD-10</th><th class="c11">ICD-11</th></tr>
+    <tr><td>Organisation</td><td class="c10">One block: "Neurotic, stress-related and somatoform disorders" (F40&ndash;F48)</td><td class="c11">Five separate groupings (anxiety/fear 6B0x; OC or related 6B2x; stress-associated 6B4x; dissociative 6B6x; bodily distress/experience 6C2x)</td></tr>
+    <tr><td>Term "neurotic"</td><td class="c10">Retained</td><td class="c11">Abolished</td></tr>
+    <tr><td>OCD</td><td class="c10">Near anxiety disorders (F42)</td><td class="c11">Own grouping (with BDD, hypochondriasis, hoarding, olfactory reference, trichotillomania, excoriation)</td></tr>
+    <tr><td>Stress disorders</td><td class="c10">Acute stress reaction, PTSD, adjustment (F43)</td><td class="c11">Require an identifiable stressor; adds Complex PTSD (6B41) and Prolonged grief disorder (6B42); acute stress reaction reframed as normal</td></tr>
+    <tr><td>Somatoform</td><td class="c10">Several categories (somatization, hypochondriacal, autonomic, pain)</td><td class="c11">Single Bodily distress disorder (6C20), rated mild/moderate/severe; hypochondriasis moved to OC grouping</td></tr>
+    <tr><td>Mixed anxiety-depression</td><td class="c10">F41.2 (within anxiety)</td><td class="c11">Moved to depressive disorders (6A73)</td></tr>
+    <tr><td>Depersonalization-derealization</td><td class="c10">F48.1 (other neurotic)</td><td class="c11">6B66 (dissociative grouping)</td></tr>
+    <tr><td>Panic attacks</td><td class="c10">Only within panic disorder/phobias</td><td class="c11">Can be recorded as a cross-cutting specifier on many disorders</td></tr>
+  </table>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+<!-- ═══════════ MAP ═══════════ -->
+<section id="map">
+  <h2>Master Code Map &mdash; F40&ndash;F48 to ICD-11</h2>
+  <table>
+    <tr><th>ICD-10</th><th>Disorder</th><th>ICD-11</th><th>Note</th></tr>
+    <tr><td>F40.0 (.00/.01)</td><td>Agoraphobia (without / with panic disorder)</td><td>6B02</td><td>Agoraphobia (panic recorded via specifier)</td></tr>
+    <tr><td>F40.1</td><td>Social phobias</td><td>6B04</td><td>Social anxiety disorder</td></tr>
+    <tr><td>F40.2</td><td>Specific (isolated) phobias</td><td>6B03</td><td>Specific phobia</td></tr>
+    <tr><td>F41.0</td><td>Panic disorder</td><td>6B01</td><td>Panic disorder</td></tr>
+    <tr><td>F41.1</td><td>Generalized anxiety disorder</td><td>6B00</td><td>Generalised anxiety disorder</td></tr>
+    <tr><td>F41.2</td><td>Mixed anxiety and depressive disorder</td><td>6A73</td><td>Moved to depressive disorders</td></tr>
+    <tr><td>F42 (.0/.1/.2)</td><td>Obsessive-compulsive disorder</td><td>6B20</td><td>OCD; heads its own OC-related grouping</td></tr>
+    <tr><td>F43.0</td><td>Acute stress reaction</td><td>QE84 (not a mental disorder)</td><td>Reframed as a normal reaction to stress</td></tr>
+    <tr><td>F43.1</td><td>Post-traumatic stress disorder</td><td>6B40</td><td>PTSD (tightened); + 6B41 Complex PTSD (new)</td></tr>
+    <tr><td>F43.2 (.20&ndash;.28)</td><td>Adjustment disorders</td><td>6B43</td><td>Adjustment disorder (redefined)</td></tr>
+    <tr><td>(new)</td><td>Prolonged grief disorder</td><td>6B42</td><td>New in ICD-11</td></tr>
+    <tr><td>F44.0 / .1</td><td>Dissociative amnesia / fugue</td><td>6B61</td><td>Fugue is a specifier of amnesia</td></tr>
+    <tr><td>F44.2</td><td>Dissociative stupor</td><td>6B60 / 6B6Y</td><td>Within dissociative disorders</td></tr>
+    <tr><td>F44.3</td><td>Trance and possession disorders</td><td>6B63</td><td>Trance / possession trance disorder</td></tr>
+    <tr><td>F44.4&ndash;.7</td><td>Dissociative motor/convulsions/anaesthesia (conversion)</td><td>6B60</td><td>Dissociative neurological symptom disorder</td></tr>
+    <tr><td>F44.81</td><td>Multiple personality disorder</td><td>6B64 / 6B65</td><td>Dissociative identity disorder / partial DID</td></tr>
+    <tr><td>F45.0 / .1</td><td>Somatization / undifferentiated</td><td>6C20</td><td>Bodily distress disorder</td></tr>
+    <tr><td>F45.2</td><td>Hypochondriacal disorder</td><td>6B23 (hypochondriasis); 6B21 (BDD)</td><td>Moved to OC-related grouping</td></tr>
+    <tr><td>F45.3 / .4</td><td>Autonomic dysfunction / persistent pain</td><td>6C20</td><td>Absorbed into bodily distress disorder</td></tr>
+    <tr><td>F48.0</td><td>Neurasthenia</td><td>(deprecated)</td><td>Largely dropped; overlaps fatigue/bodily distress</td></tr>
+    <tr><td>F48.1</td><td>Depersonalization-derealization</td><td>6B66</td><td>Moved to dissociative grouping</td></tr>
+  </table>
+  <div class="note"><b>Reading tip:</b> in this block ICD-10 and ICD-11 diverge more than in any earlier block, so the "what changed" points are heavily examinable. Every module below gives the ICD-10 criteria, the ICD-11 requirements, the ICD includes/excludes, and a dedicated differential diagnosis for each subtype.</div>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+<!-- ═══════════════════════ F40 PHOBIC ANXIETY ═══════════════════════ -->
+<section id="f40">
+  <h2>F40 &middot; Phobic Anxiety Disorders &rarr; ICD-11 6B02 / 6B03 / 6B04</h2>
+  <div class="idcard">
+    <div><b>ICD-10</b> F40 (.0 agoraphobia, .1 social phobias, .2 specific phobias, .8 other, .9 unspecified)</div>
+    <div><b>ICD-11</b> 6B02 agoraphobia; 6B04 social anxiety disorder; 6B03 specific phobia</div>
+    <div><b>Core</b> Anxiety evoked only/predominantly by well-defined situations or objects that are not currently dangerous</div>
+    <div><b>Key point</b> The situation is characteristically avoided or endured with dread</div>
+  </div>
+
+  <h3>1. Introduction</h3>
+  <p>In the phobic anxiety disorders, anxiety is evoked <b>only, or predominantly, by certain well-defined situations or objects (external to the individual) that are not currently dangerous</b>; as a result these are characteristically <b>avoided or endured with dread</b>. Phobic anxiety is subjectively, physiologically, and behaviourally <b>indistinguishable from other anxiety</b> and may range from mild unease to terror. The person's concern may focus on individual symptoms such as palpitations or feeling faint, and is often associated with secondary fears of <b>dying, losing control, or going mad</b>. The anxiety is not relieved by knowing that others do not regard the situation as dangerous. Merely contemplating entry to the phobic situation usually generates <b class="cl">anticipatory anxiety</b> <i class="si">(dread in advance of facing the situation)</i>. <span class="tag t10">ICD-10</span></p>
+  <div class="note"><b>ICD-10 boundary note:</b> because the phobic object/situation must be <b>external</b>, fears of having a disease (<b class="cl">nosophobia</b>) or of being disfigured (<b class="cl">dysmorphophobia</b>) are classified under <b>hypochondriacal disorder (F45.2)</b>, not here &mdash; unless the fear relates specifically to <b>catching</b> a disease (e.g. through contamination), in which case a specific phobia (F40.2) applies. Phobic anxiety often coexists with depression, and pre-existing phobic anxiety almost invariably worsens during a depressive episode.</div>
+
+  <h3>2. Etiology (with psychological theories)</h3>
+  <table>
+    <tr><th>Domain</th><th>Detail</th></tr>
+    <tr><td><b>Genetic / temperamental</b></td><td>Moderate heritability; the trait of <b class="cl">behavioural inhibition</b> <i class="si">(fearful withdrawal from novelty from early childhood)</i> predicts later phobias, especially social anxiety.</td></tr>
+    <tr><td><b>Neurobiological</b></td><td>Over-reactivity of the <b class="cl">amygdala</b> <i class="si">(the brain's fear centre)</i> and fear circuitry; serotonin, noradrenaline, and GABA involvement.</td></tr>
+    <tr><td><b>Evolutionary</b></td><td>Seligman's <b class="cl">preparedness theory</b> <i class="si">(we are biologically primed to acquire fears of ancestral dangers &mdash; snakes, heights, spiders &mdash; more readily than of modern hazards)</i> explains the non-random content of phobias.</td></tr>
+  </table>
+  <div class="psych">
+    <h4>Psychological theories</h4>
+    <ul class="t">
+      <li><b class="cl">Behavioural / Mowrer's two-factor theory</b>: a fear is <b>acquired by classical conditioning</b> (pairing with a frightening experience) and then <b>maintained by operant conditioning</b> &mdash; avoidance is negatively reinforced by the relief it brings. This is the direct rationale for exposure therapy.</li>
+      <li><b class="cl">Vicarious learning &amp; information transmission (Bandura)</b>: phobias can be learned by watching others' fear or by being told something is dangerous.</li>
+      <li><b class="cl">Cognitive theory</b>: overestimation of danger/probability and underestimation of coping; in social anxiety, heightened self-focused attention and fear of negative evaluation.</li>
+      <li><b class="cl">Psychodynamic (Freud, "Little Hans")</b>: the phobic object symbolically represents an unconscious conflict onto which anxiety is <b>displaced</b>.</li>
+    </ul>
+  </div>
+
+  <h3>3. Epidemiology</h3>
+  <ul class="t">
+    <li>Among the <b>most common</b> mental disorders: specific phobias lifetime ~7&ndash;12%; social anxiety ~7&ndash;12%; agoraphobia ~1&ndash;2%. <span class="tag tother">Other evidence</span></li>
+    <li><b>More common in women</b> (specific and agoraphobia markedly; social anxiety more equal).</li>
+    <li>Onset: specific phobias in <b>childhood</b>; social anxiety in <b>adolescence</b>; agoraphobia in <b>early adulthood</b>.</li>
+  </ul>
+
+  <h3>4. General diagnostic guidelines (ICD-10) &amp; requirements (ICD-11)</h3>
+  <div class="panel10"><h4><span class="tag t10">ICD-10</span> General guidelines (all must be met)</h4>
+    <ol class="t">
+      <li>The psychological or autonomic symptoms are <b>primary manifestations of anxiety</b>, not secondary to other symptoms such as delusions or obsessional thoughts.</li>
+      <li>The anxiety is <b>restricted to (or predominates in) the presence of the particular phobic object or situation</b>.</li>
+      <li>The phobic situation is <b>avoided whenever possible</b>.</li>
+    </ol>
+  </div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11</span> Common requirements</h4>
+    <p>Marked and excessive fear or anxiety that consistently occurs on exposure or anticipation of the specific stimulus, is <b>out of proportion to actual danger</b>, and leads to <b>avoidance</b>; the pattern persists for an <b>extended period (typically &ge; several months)</b> and causes significant distress or impairment in functioning.</p>
+  </div>
+
+  <h3>Detailed subtypes &mdash; each with criteria, includes/excludes, and differential diagnosis</h3>
+</section>
+
+<!-- F40.0 AGORAPHOBIA -->
+<section id="f40-0">
+  <div class="subtype">
+    <h4>F40.0 &mdash; Agoraphobia &rarr; ICD-11 6B02</h4>
+    <p class="si" style="color:#5d6d7e;margin:0 0 6px"><b>Group:</b> Phobic anxiety disorders (F40) &mdash; anxiety evoked only/predominantly by specific external situations that are not dangerous, leading to avoidance; see the F40 overview above.</p>
+    <p><b>Concept:</b> <b class="cl">agoraphobia</b> <i class="si">(literally "fear of the marketplace" &mdash; a well-defined cluster of fears of situations from which escape might be difficult or embarrassing, or help unavailable, especially if panic-like symptoms occur)</i>: fears of crowds, public places, travelling alone, and travelling away from home. It is the most incapacitating of the phobias; avoidance can leave some people entirely <b>housebound</b>.</p>
+    <p><b>Clinical detail:</b> depression, depersonalization, obsessional symptoms, and social phobias may also be present but must not dominate. Absence of an escape route is central; some agoraphobics experience little anxiety because they consistently avoid their phobic situations. Panic attacks are a common accompaniment.</p>
+    <div class="panel10"><h4><span class="tag t10">ICD-10 criteria</span></h4><ol class="t">
+      <li>Psychological/autonomic symptoms must be primary manifestations of anxiety, not secondary to other symptoms (e.g. delusions or obsessions).</li>
+      <li>Anxiety must be restricted to (or occur mainly in) at least <b>two</b> of: <b>crowds; public places; travelling away from home; travelling alone</b>.</li>
+      <li><b>Avoidance</b> of the phobic situation must be, or have been, a prominent feature.</li>
+    </ol>
+    <p><b>Sub-codes:</b> <b>F40.00 without panic disorder</b>; <b>F40.01 with panic disorder</b>.</p></div>
+    <div class="panel11"><h4><span class="tag t11">ICD-11 (6B02)</span></h4><p>Marked fear/anxiety in <b>multiple situations</b> (crowds, public places, travelling alone or away from home, using public transport) because escape might be difficult or help unavailable, especially if incapacitating or embarrassing symptoms (e.g. panic) occur; situations are avoided, entered only with a companion, or endured with intense fear, for <b>&ge; several months</b>, with significant impairment. A <b>panic attack specifier</b> may be added.</p></div>
+    <div class="incl"><b>Includes:</b> agoraphobia with or without panic disorder; panic disorder with agoraphobia.</div>
+    <div class="excl"><b>Excludes:</b> agoraphobia is <b>not</b> diagnosed if the avoidance is better explained by another disorder (e.g. avoidance solely due to fear of humiliation &rarr; social phobia; avoidance due to obsessional fear of contamination &rarr; OCD).</div>
+    <div class="ddx">
+      <h5>Differential diagnosis (F40.0)</h5>
+      <ul class="t">
+        <li><b>Social phobia</b> &mdash; if the fear is specifically of scrutiny/embarrassment rather than of escape being blocked. <b>ICD-10 rule:</b> if the distinction is very difficult, <b>precedence is given to agoraphobia</b>.</li>
+        <li><b>Depressive disorder</b> &mdash; agoraphobia and depression often coexist and both contribute to being housebound; a depressive diagnosis is added only if a <b>full depressive syndrome can be clearly identified</b> (and if the person was already significantly depressed when the phobia first appeared, depression may be primary).</li>
+        <li><b>Panic disorder</b> &mdash; panic without agoraphobic avoidance; if avoidance of agoraphobic situations is prominent, code agoraphobia (with the panic specifier).</li>
+        <li><b>Psychotic disorder</b> &mdash; avoidance driven by delusions rather than fear of escape being difficult.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- F40.1 SOCIAL PHOBIA -->
+<section id="f40-1">
+  <div class="subtype">
+    <h4>F40.1 &mdash; Social phobias &rarr; ICD-11 6B04 (Social anxiety disorder)</h4>
+    <p><b>Concept:</b> fear of <b>scrutiny by other people in comparatively small groups</b> (as opposed to crowds), leading to avoidance of social situations, with a fear of behaving in a way that will be humiliating or embarrassing. May be <b>discrete</b> (restricted to eating in public, public speaking, or encounters with the opposite sex) or <b>diffuse</b> (almost all social situations outside the family circle).</p>
+    <p><b>Clinical detail:</b> usually associated with <b>low self-esteem</b> and fear of criticism. Complaints may be of blushing, hand tremor, nausea, or urgency/fear of micturition, and the person may be convinced that one of these secondary manifestations is the primary problem. May progress to panic attacks. Avoidance is often marked and, in extreme cases, may result in almost complete social isolation.</p>
+    <div class="panel10"><h4><span class="tag t10">ICD-10 criteria</span></h4><ol class="t">
+      <li>Symptoms must be primarily manifestations of anxiety, not secondary to other symptoms (delusions/obsessions).</li>
+      <li>Anxiety must be restricted to, or predominate in, <b>particular social situations</b>.</li>
+      <li><b>Avoidance</b> of the phobic situation must be prominent.</li>
+    </ol></div>
+    <div class="panel11"><h4><span class="tag t11">ICD-11 (6B04)</span></h4><p>Marked, excessive fear/anxiety in one or more <b>social situations where the person may be scrutinised</b> (social interaction, being observed, performing), with fear of acting in a way (or showing anxiety) that will be <b>negatively evaluated</b>; situations are avoided or endured with intense fear, for <b>&ge; several months</b>, with significant impairment.</p></div>
+    <div class="incl"><b>Includes:</b> anthropophobia; social neurosis; social anxiety disorder.</div>
+    <div class="excl"><b>Excludes:</b> agoraphobia (F40.0) where the fear is of escape being difficult; body dysmorphic / hypochondriacal preoccupation (F45.2); delusional conviction (psychotic disorders).</div>
+    <div class="ddx">
+      <h5>Differential diagnosis (F40.1)</h5>
+      <ul class="t">
+        <li><b>Agoraphobia</b> &mdash; distinguished by the focus of fear (scrutiny/embarrassment vs escape/help unavailable); if very difficult, ICD-10 gives precedence to agoraphobia.</li>
+        <li><b>Normal shyness</b> &mdash; social phobia is more intense, persistent, causes marked distress/impairment, and prompts avoidance.</li>
+        <li><b>Depressive disorder</b> &mdash; social withdrawal secondary to low mood; a depressive diagnosis is made only if a full depressive syndrome is present.</li>
+        <li><b>Panic disorder / agoraphobia</b> &mdash; if panic attacks are cued only by social scrutiny, social phobia is the primary diagnosis.</li>
+        <li><b>Autism spectrum / avoidant personality disorder</b> &mdash; pervasive, lifelong social difficulty rather than situation-specific fear of scrutiny.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- F40.2 SPECIFIC PHOBIA -->
+<section id="f40-2">
+  <div class="subtype">
+    <h4>F40.2 &mdash; Specific (isolated) phobias &rarr; ICD-11 6B03</h4>
+    <p><b>Concept:</b> phobias restricted to <b>highly specific situations</b> such as proximity to particular animals, heights (acrophobia), thunder (astraphobia), darkness, flying, closed spaces (claustrophobia), using public toilets, eating certain foods, dentistry, or the <b>sight of blood or injury</b>. Though the triggering situation is discrete, contact with it can evoke panic as in agoraphobia or social phobia.</p>
+    <p><b>Recognised clusters (identifying detail):</b> <b>animal</b> type; <b>natural-environment</b> type (heights, storms, water); <b>blood-injection-injury</b> type; <b>situational</b> type (lifts, flying, enclosed spaces); and other. Specific phobias usually arise in childhood or early adult life and, if untreated, can persist for decades. The degree of resulting disability depends on how easy it is to avoid the trigger.</p>
+    <div class="panel10"><h4><span class="tag t10">ICD-10 criteria</span></h4><ol class="t">
+      <li>Symptoms must be primarily manifestations of anxiety, not secondary to other symptoms (delusions/obsessions).</li>
+      <li>Anxiety must be restricted to the presence of the <b>particular phobic object or situation</b>.</li>
+      <li>The phobic situation is <b>avoided whenever possible</b>.</li>
+    </ol></div>
+    <div class="panel11"><h4><span class="tag t11">ICD-11 (6B03)</span></h4><p>Marked, excessive fear/anxiety that consistently occurs on exposure or anticipation of a <b>specific object or situation</b>, out of proportion to actual danger, leading to avoidance, for <b>&ge; several months</b>, with significant distress/impairment.</p></div>
+    <div class="incl"><b>Includes:</b> acrophobia; animal phobias; claustrophobia; simple phobia; examination/dental/blood phobia.</div>
+    <div class="excl"><b>Excludes:</b> dysmorphophobia (non-delusional) and nosophobia &rarr; hypochondriacal disorder (F45.2); agoraphobia (F40.0); social phobias (F40.1).</div>
+    <div class="ddx">
+      <h5>Differential diagnosis (F40.2)</h5>
+      <ul class="t">
+        <li><b>Distinguishing feature vs other phobias:</b> it is usual for there to be <b>no other psychiatric symptoms</b>, in contrast to agoraphobia and social phobia.</li>
+        <li><b>Blood-injury phobia is unique</b> &mdash; it leads to <b>bradycardia and sometimes syncope (fainting)</b> via a vasovagal response, rather than the tachycardia of other phobias.</li>
+        <li><b>Hypochondriacal disorder (F45.2)</b> &mdash; fears of specific diseases (cancer, heart disease, venereal infection) are classified here <b>unless</b> they relate to a specific situation where the disease might be acquired (then specific phobia).</li>
+        <li><b>OCD</b> &mdash; if avoidance is driven by an obsessional fear of contamination with rituals.</li>
+      </ul>
+    </div>
+  </div>
+  <p><b>F40.8 other phobic anxiety disorders; F40.9 phobic anxiety disorder, unspecified.</b></p>
+
+  <h3>5. Comorbidities (F40 group)</h3>
+  <div class="assoc"><ul class="t"><li>Depression (very common, esp. agoraphobia and social anxiety), other anxiety disorders, panic disorder, and <b>alcohol/substance misuse</b> (used to self-medicate social anxiety).</li></ul></div>
+
+  <h3>6. Easy way to remember</h3>
+  <div class="remember"><h4>Mnemonics</h4><p><b>Targets:</b> agora = <b>places/escape</b>; social = <b>people/scrutiny</b>; specific = <b>one object/situation</b>. <b>Maintenance = "AA":</b> Avoidance &rarr; Anxiety relief &rarr; reinforcement (so treatment = exposure). <b>Blood-injury phobia</b> = the one that makes you <b>faint</b> (vasovagal).</p></div>
+
+  <h3>7. Treatment (F40 group)</h3>
+  <ul class="t">
+    <li><b>Psychological (first-line):</b> <b class="cl">graded exposure</b>, systematic desensitisation, and CBT (cognitive restructuring); social skills training for social anxiety; <b>applied tension</b> <i class="si">(tensing muscles to raise blood pressure and prevent fainting)</i> for blood-injury phobia.</li>
+    <li><b>Pharmacological:</b> SSRIs/SNRIs for social anxiety and agoraphobia; beta-blockers for performance anxiety; short-term benzodiazepines only with caution. <span class="tag tks">Kaplan &amp; Sadock</span></li>
+  </ul>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+<!-- ═══════════════════════ F41 OTHER ANXIETY ═══════════════════════ -->
+<section id="f41">
+  <h2>F41 &middot; Other Anxiety Disorders &rarr; ICD-11 6B01 / 6B00 / 6A73</h2>
+  <div class="idcard">
+    <div><b>ICD-10</b> F41 (.0 panic disorder, .1 GAD, .2 mixed anxiety-depressive, .3 other mixed, .8/.9)</div>
+    <div><b>ICD-11</b> 6B01 panic disorder; 6B00 GAD; 6A73 mixed depressive and anxiety (moved to depressive disorders)</div>
+    <div><b>Core</b> Anxiety is the major symptom and is <b>not restricted</b> to any particular situation</div>
+    <div><b>Key point</b> "Free-floating" anxiety, in contrast to the phobias</div>
+  </div>
+  <h3>1. Introduction</h3>
+  <p>Here manifestations of anxiety are the major symptoms and are <b>not restricted to any particular environmental situation</b>. Depressive and obsessional symptoms, and even some phobic anxiety, may be present but are clearly secondary or less severe. <span class="tag t10">ICD-10</span></p>
+
+  <h3>2. Etiology (with psychological theories)</h3>
+  <table>
+    <tr><th>Domain</th><th>Detail</th></tr>
+    <tr><td><b>Genetic</b></td><td>Moderate heritability; shared vulnerability with depression (a general internalising/neuroticism factor).</td></tr>
+    <tr><td><b>Neurobiological</b></td><td>Dysregulated serotonin, noradrenaline, GABA; amygdala hyper-reactivity; for panic, a hypersensitive <b class="cl">"suffocation alarm"</b> and locus-coeruleus over-activity; provocation by CO&#8322; and sodium lactate.</td></tr>
+  </table>
+  <div class="psych">
+    <h4>Psychological theories</h4>
+    <ul class="t">
+      <li><b class="cl">Clark's cognitive model of panic</b>: panic arises from the <b>catastrophic misinterpretation of benign bodily sensations</b> <i class="si">(reading a racing heart as "I'm having a heart attack")</i>, creating a vicious cycle of escalating fear and arousal.</li>
+      <li><b class="cl">Beck's cognitive theory of anxiety</b>: systematic overestimation of danger and underestimation of coping, with threat-biased attention.</li>
+      <li><b class="cl">Intolerance-of-uncertainty model (GAD)</b>: worry driven by low tolerance of uncertainty plus positive beliefs about worry.</li>
+      <li><b class="cl">Borkovec's avoidance theory of worry (GAD)</b>: verbal worry suppresses distressing imagery/arousal, negatively reinforcing the worry habit.</li>
+    </ul>
+  </div>
+
+  <h3>3. Epidemiology</h3>
+  <ul class="t">
+    <li><b>GAD:</b> lifetime ~5&ndash;6%; women ~2:1; often chronic/fluctuating. <b>Panic disorder:</b> lifetime ~2&ndash;5%; women more affected; early-adult onset. High comorbidity with depression. <span class="tag tother">Other evidence</span></li>
+  </ul>
+
+  <h3>Detailed subtypes &mdash; each with criteria, includes/excludes, and differential diagnosis</h3>
+</section>
+
+<!-- F41.0 PANIC -->
+<section id="f41-0">
+  <div class="subtype">
+    <h4>F41.0 &mdash; Panic disorder [episodic paroxysmal anxiety] &rarr; ICD-11 6B01</h4>
+    <p class="si" style="color:#5d6d7e;margin:0 0 6px"><b>Group:</b> Other anxiety disorders (F41) &mdash; anxiety is the major symptom but is not restricted to any particular situation ("free-floating"); see the F41 overview above.</p>
+    <p><b>Concept:</b> recurrent attacks of <b>severe anxiety (panic)</b> that are <b>not restricted to any particular situation and are therefore unpredictable</b>.</p>
+    <p><b>Clinical detail:</b> a <b class="cl">panic attack</b> is a discrete episode of intense fear peaking within minutes, with sudden <b>palpitations, chest pain, choking, dizziness, and feelings of unreality (depersonalization/derealization)</b>, almost always with a secondary fear of <b>dying, losing control, or going mad</b>. Individual attacks often last only minutes; a crescendo of fear and autonomic symptoms leads to a hurried exit. Between attacks there is <b>anticipatory anxiety</b> ("fear of fear"). Frequently followed by persistent avoidance and secondary agoraphobia.</p>
+    <div class="panel10"><h4><span class="tag t10">ICD-10 criteria</span></h4><p>Several <b>severe attacks of autonomic anxiety within about one month</b>, occurring in circumstances where there is <b>no objective danger</b>, <b>not confined to known or predictable situations</b>, and with <b>comparative freedom from anxiety symptoms between attacks</b> (though anticipatory anxiety is common).</p></div>
+    <div class="panel11"><h4><span class="tag t11">ICD-11 (6B01)</span></h4><p>Recurrent <b>unexpected</b> panic attacks not restricted to particular stimuli/situations, followed by <b>persistent concern</b> about recurrence or their significance, or maladaptive behaviour to avoid recurrence, over <b>&ge; several weeks</b>. (A "panic attack" specifier is used elsewhere when attacks are cued by another disorder.)</p></div>
+    <div class="incl"><b>Includes:</b> panic attack; panic state.</div>
+    <div class="excl"><b>Excludes:</b> panic disorder is <b>NOT</b> the main diagnosis if panic attacks occur as part of an established <b>phobic disorder</b> (they reflect the phobia), or if the criteria for a <b>depressive disorder</b> are met at the same time (panic is then secondary). Also exclude if attacks are due to a medical condition (e.g. hyperthyroidism) or substance.</div>
+    <div class="ddx">
+      <h5>Differential diagnosis (F41.0)</h5>
+      <ul class="t">
+        <li><b>Phobic disorders</b> &mdash; if panic attacks arise only on exposure to a specific phobic situation, the phobia is the diagnosis, not panic disorder.</li>
+        <li><b>Depressive disorder</b> &mdash; panic attacks may be secondary to depression (particularly in men); if depressive criteria are met concurrently, panic disorder should <b>not</b> be given as the main diagnosis.</li>
+        <li><b>Organic/medical causes</b> &mdash; hyperthyroidism, phaeochromocytoma, arrhythmia, hypoglycaemia, and stimulant/withdrawal states can mimic panic.</li>
+        <li><b>GAD</b> &mdash; continuous free-floating anxiety rather than discrete unexpected attacks.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- F41.1 GAD -->
+<section id="f41-1">
+  <div class="subtype">
+    <h4>F41.1 &mdash; Generalized anxiety disorder (GAD) &rarr; ICD-11 6B00</h4>
+    <p><b>Concept:</b> generalised and persistent anxiety that is <b class="cl">"free-floating"</b> <i class="si">(not restricted to, or even strongly predominating in, any particular environmental circumstances)</i>.</p>
+    <p><b>Clinical detail (the three symptom clusters):</b> (1) <b>apprehension</b> (worries about future misfortune, feeling "on edge", difficulty concentrating); (2) <b>motor tension</b> (restless fidgeting, tension headaches, trembling, inability to relax); and (3) <b>autonomic overactivity</b> (light-headedness, sweating, tachycardia or tachypnoea, epigastric discomfort, dizziness, dry mouth). Fears that the sufferer or a relative will shortly become ill or have an accident are common. In children, prominent need for reassurance and recurrent somatic complaints.</p>
+    <div class="panel10"><h4><span class="tag t10">ICD-10 criteria</span></h4><p>The person must have <b>primary symptoms of anxiety most days for at least several weeks at a time, and usually for several months</b>. These symptoms should usually involve elements of: (a) <b>apprehension</b>; (b) <b>motor tension</b>; and (c) <b>autonomic overactivity</b>.</p></div>
+    <div class="panel11"><h4><span class="tag t11">ICD-11 (6B00)</span></h4><p>Marked symptoms of anxiety with either <b>general apprehension ("free-floating anxiety")</b> or <b>excessive worry</b> about multiple everyday events, present <b>most days for at least several months</b>, accompanied by muscle tension, restlessness, autonomic overactivity, difficulty concentrating, irritability, or sleep disturbance, causing significant distress/impairment.</p></div>
+    <div class="incl"><b>Includes:</b> anxiety neurosis; anxiety reaction; anxiety state.</div>
+    <div class="excl"><b>Excludes:</b> neurasthenia (F48.0); if criteria for a depressive episode, phobic disorder, panic disorder, or OCD are met and dominate, code those instead.</div>
+    <div class="ddx">
+      <h5>Differential diagnosis (F41.1)</h5>
+      <ul class="t">
+        <li><b>Depressive disorder</b> &mdash; anxiety and depression frequently coexist; if a full depressive episode is present it usually takes precedence.</li>
+        <li><b>Panic disorder</b> &mdash; discrete unexpected attacks rather than continuous worry.</li>
+        <li><b>Phobic disorders</b> &mdash; anxiety tied to specific triggers.</li>
+        <li><b>Organic causes</b> &mdash; hyperthyroidism, caffeine/stimulant excess, medication effects, and withdrawal states.</li>
+        <li><b>Adjustment disorder</b> &mdash; anxiety clearly tied to a recent identifiable stressor and time-limited.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- F41.2 MIXED -->
+<section id="f41-2">
+  <div class="subtype">
+    <h4>F41.2 &mdash; Mixed anxiety and depressive disorder &rarr; ICD-11 6A73</h4>
+    <p><b>Concept:</b> symptoms of both anxiety and depression are present, but <b>neither set is severe enough to justify a diagnosis on its own</b>. Very common in primary care.</p>
+    <div class="panel10"><h4><span class="tag t10">ICD-10 criteria</span></h4><p>Symptoms of anxiety and depression are both present, with <b>neither clearly predominating</b>, and <b>neither set of symptoms sufficient to meet the criteria</b> for an anxiety disorder or a depressive episode considered separately; some autonomic symptoms (tremor, palpitations, dry mouth, etc.) must be present at least intermittently.</p></div>
+    <div class="panel11"><h4><span class="tag t11">ICD-11</span></h4><p><b>Moved out of the anxiety grouping</b> to the depressive disorders as <b>6A73 (mixed depressive and anxiety disorder)</b> &mdash; a notable classification change: both depressive and anxiety symptoms present for &ge; 2 weeks, with neither syndrome meeting full criteria alone.</p></div>
+    <div class="excl"><b>Excludes:</b> if either the anxiety or the depressive syndrome is severe enough to meet its own criteria, that specific diagnosis is used instead; persistent/severe worry alone &rarr; GAD.</div>
+    <div class="ddx">
+      <h5>Differential diagnosis (F41.2)</h5>
+      <ul class="t">
+        <li><b>Depressive episode</b> or <b>GAD</b> &mdash; diagnosed instead when either syndrome reaches full criteria.</li>
+        <li><b>Adjustment disorder</b> &mdash; if clearly tied to a recent stressor.</li>
+        <li><b>Dysthymia</b> &mdash; chronic sub-threshold depression without the mixed-anxiety pattern.</li>
+      </ul>
+    </div>
+  </div>
+  <p><b>F41.3 other mixed anxiety disorders; F41.8 other specified anxiety disorders; F41.9 anxiety disorder, unspecified.</b></p>
+
+  <h3>Comorbidities, memory aids, and treatment (F41 group)</h3>
+  <div class="assoc"><h4>Comorbidities</h4><ul class="t"><li>Depression (very high), other anxiety disorders, alcohol/sedative misuse, and physical conditions that both cause and are worsened by anxiety.</li></ul></div>
+  <div class="remember"><h4>Mnemonics</h4><p><b>Panic:</b> "unexpected attacks + fear of the fear". <b>GAD &mdash; "WATCHERS":</b> Worry, Anxiety, Tension, Concentration poor, Hyperarousal/irritability, Energy low, Restlessness, Sleep disturbance. Panic model = <b>catastrophic misreading of body sensations</b>.</p></div>
+  <ul class="t">
+    <li><b>Panic disorder:</b> CBT (interoceptive exposure + cognitive restructuring) is highly effective; SSRIs/SNRIs first-line; avoid long-term benzodiazepines.</li>
+    <li><b>GAD:</b> CBT (worry management, applied relaxation, problem-solving); SSRIs/SNRIs first-line; pregabalin/buspirone as options. <span class="tag tks">Kaplan &amp; Sadock</span></li>
+  </ul>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+<!-- ═══════════════════════ F42 OCD ═══════════════════════ -->
+<section id="f42">
+  <h2>F42 &middot; Obsessive-Compulsive Disorder &rarr; ICD-11 6B20</h2>
+  <div class="idcard">
+    <div><b>ICD-10</b> F42 (.0 predominantly obsessional thoughts/ruminations, .1 predominantly compulsive acts, .2 mixed, .8/.9)</div>
+    <div><b>ICD-11</b> 6B20 &mdash; heads its own grouping "Obsessive-compulsive or related disorders" (6B2x)</div>
+    <div><b>Core</b> Recurrent obsessions and/or compulsions</div>
+    <div><b>Key change</b> ICD-11 moved OCD OUT of the anxiety disorders into its own grouping</div>
+  </div>
+  <h3>1. Introduction</h3>
+  <p>The essential feature is <b>recurrent obsessional thoughts or compulsive acts</b>. <b class="cl">Obsessional thoughts</b> <i class="si">(ideas, images, or impulses that enter the mind again and again in a stereotyped form)</i> are almost invariably distressing and the person often tries, unsuccessfully, to resist them; they are recognised as the person's <b>own thoughts</b>, even though involuntary and often repugnant. <b class="cl">Compulsive acts or rituals</b> <i class="si">(stereotyped behaviours repeated again and again)</i> are not inherently enjoyable nor useful; they function to <b>prevent some objectively unlikely event</b>, often involving harm to or by the person, and are recognised as pointless/ineffectual with repeated attempts to resist. Anxiety is almost always present and worsens if the acts are resisted. <span class="tag t10">ICD-10</span></p>
+
+  <h3>2. Etiology (with psychological theories)</h3>
+  <table>
+    <tr><th>Domain</th><th>Detail</th></tr>
+    <tr><td><b>Genetic</b></td><td>Substantial heritability; higher in first-degree relatives; early-onset OCD more familial; link with tic disorders.</td></tr>
+    <tr><td><b>Neurobiological</b></td><td>Over-activity of the <b class="cl">cortico-striato-thalamo-cortical (CSTC) circuit</b> <i class="si">(a frontal&ndash;basal-ganglia&ndash;thalamus loop)</i>; strong <b>serotonin</b> involvement (SSRI responsiveness). <b class="cl">PANDAS</b> <i class="si">(abrupt-onset OCD/tics in children after streptococcal infection)</i> in a small subset.</td></tr>
+  </table>
+  <div class="psych">
+    <h4>Psychological theories</h4>
+    <ul class="t">
+      <li><b class="cl">Behavioural (Mowrer two-factor)</b>: obsessions raise anxiety; compulsions are <b>negatively reinforced</b> by the relief they bring &mdash; the basis of <b>exposure and response prevention (ERP)</b>.</li>
+      <li><b class="cl">Cognitive (Salkovskis; Rachman)</b>: intrusive thoughts are normal, but people with OCD appraise them as signifying an <b>inflated sense of responsibility for harm</b>, with <b class="cl">thought&ndash;action fusion</b> <i class="si">(believing that thinking something is morally equivalent to doing it, or makes it more likely)</i>; neutralising prevents disconfirmation.</li>
+      <li><b class="cl">Psychodynamic</b>: defence mechanisms of <b>isolation, undoing, reaction formation</b>; regression to the anal stage; conflict over aggressive/sexual impulses.</li>
+    </ul>
+  </div>
+
+  <h3>3. Epidemiology</h3>
+  <ul class="t">
+    <li>Lifetime ~2&ndash;3%; roughly <b>equal in men and women</b> (earlier onset in males); onset usually adolescence/early adulthood; chronic waxing-and-waning course with long treatment delay. <span class="tag tks">Kaplan &amp; Sadock</span></li>
+  </ul>
+
+  <h3>4. General diagnostic guidelines (ICD-10) &amp; requirements (ICD-11)</h3>
+  <div class="panel10"><h4><span class="tag t10">ICD-10</span></h4><p>Obsessional symptoms and/or compulsive acts must be present <b>most days for at least 2 successive weeks</b> and be a source of distress or interference with activities. The obsessional symptoms should have all of: (a) recognised as the individual's <b>own thoughts/impulses</b>; (b) at least one is <b>unsuccessfully resisted</b> (even if others are no longer resisted); (c) the thought of carrying out the act is <b>not itself pleasurable</b> (relief of anxiety/tension is not "pleasure"); (d) the thoughts/images/impulses are <b>unpleasantly repetitive</b>.</p></div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11 (6B20)</span></h4><p>Persistent <b>obsessions</b> and/or <b>compulsions</b>; obsessions are repetitive, intrusive, unwanted thoughts/images/urges; compulsions are repetitive behaviours or mental acts performed in response to an obsession, according to rigid rules, or to achieve "completeness". Symptoms are <b>time-consuming (e.g. &gt;1 hour/day)</b> or cause significant distress/impairment. Specify <b>insight</b> (fair/good vs poor/absent).</p></div>
+
+  <h3>Detailed subtypes &mdash; each with criteria and differential diagnosis</h3>
+</section>
+
+<!-- F42.0 -->
+<section id="f42-0">
+  <div class="subtype">
+    <h4>F42.0 &mdash; Predominantly obsessional thoughts or ruminations</h4>
+    <p class="si" style="color:#5d6d7e;margin:0 0 6px"><b>Group:</b> Obsessive-compulsive disorder (F42) &mdash; recurrent, ego-dystonic obsessions and/or compulsions with retained insight; in ICD-11 OCD heads its own OC-related grouping; see the F42 overview above.</p>
+    <p><b>Concept:</b> obsessions dominate &mdash; intrusive thoughts, images, or impulses, or <b class="cl">ruminations</b> <i class="si">(endless, inconclusive internal debate, often over trivial alternatives, with inability to reach a decision)</i>. There are no, or minimal, overt compulsive acts (though covert mental rituals may occur). Content is often distressing: fears of violence, harming others, obscenity, or repeated pointless questioning (e.g. religious/philosophical).</p>
+    <div class="ddx"><h5>Differential diagnosis (F42.0)</h5><ul class="t">
+      <li><b>Depressive rumination</b> &mdash; brooding on realistic negative themes, mood-congruent, without the ego-dystonic, resisted quality; if a depressive episode is present it may take precedence.</li>
+      <li><b>Generalized anxiety (worry)</b> &mdash; worries are about real-life concerns and are experienced as more realistic, not senseless/intrusive.</li>
+      <li><b>Psychotic disorder</b> &mdash; the person with OCD retains insight and resists the thoughts (ego-dystonic), unlike a delusion held with conviction.</li>
+    </ul></div>
+  </div>
+</section>
+
+<!-- F42.1 -->
+<section id="f42-1">
+  <div class="subtype">
+    <h4>F42.1 &mdash; Predominantly compulsive acts [obsessional rituals]</h4>
+    <p><b>Concept:</b> compulsions/rituals dominate. Most concern <b>cleaning</b> (especially handwashing), repeated <b>checking</b> to guard against a potentially dangerous situation, or <b>orderliness/tidiness</b>. The behaviour is an attempt to ward off an objectively unlikely danger (often harm to or caused by the person), is recognised as pointless, and is repeatedly resisted; underlying the behaviour is usually fear and a need to complete the ritual to reduce it. Rituals may occupy many hours daily and be associated with marked indecisiveness and slowness.</p>
+    <div class="ddx"><h5>Differential diagnosis (F42.1)</h5><ul class="t">
+      <li><b>Obsessive-compulsive personality disorder</b> (anankastic, F60.5) &mdash; lifelong ego-<b>syntonic</b> traits of perfectionism/rigidity, without true intrusive obsessions or distressing rituals.</li>
+      <li><b>Schizophrenia</b> &mdash; stereotyped behaviour may occur but with other psychotic features and loss of insight.</li>
+      <li><b>Organic/tic disorders</b> &mdash; repetitive movements of Tourette syndrome or basal-ganglia disease; can co-occur with OCD.</li>
+    </ul></div>
+  </div>
+</section>
+
+<!-- F42.2 -->
+<section id="f42-2">
+  <div class="subtype">
+    <h4>F42.2 &mdash; Mixed obsessional thoughts and acts</h4>
+    <p><b>Concept:</b> both obsessional thoughts and compulsive acts are present and roughly equally prominent &mdash; the <b>commonest</b> presentation. Most obsessional patients have elements of both.</p>
+    <div class="ddx"><h5>Differential diagnosis (F42 general)</h5><ul class="t">
+      <li><b>Depressive disorder</b> &mdash; OCD and depression frequently coexist. <b>ICD-10 rule:</b> in an acute episode, give precedence to whichever symptoms <b>developed first</b>; when both are present and neither predominates, it is usually best to regard the <b>depression as primary</b>. In chronic disorders, precedence goes to the symptoms that most often persist when the other has subsided.</li>
+      <li><b>Anxiety disorders</b> &mdash; generalized anxiety/phobia lack the intrusive, resisted, senseless obsessions and rituals.</li>
+      <li><b>Body dysmorphic disorder / hypochondriasis</b> &mdash; now grouped with OCD (obsessional preoccupation with appearance/health).</li>
+    </ul></div>
+  </div>
+  <p><b>F42.8 other obsessive-compulsive disorders; F42.9 obsessive-compulsive disorder, unspecified.</b></p>
+  <div class="incl"><b>Includes:</b> anankastic neurosis; obsessive-compulsive neurosis.</div>
+  <div class="excl"><b>Excludes:</b> obsessive-compulsive <b>personality</b> disorder (F60.5); obsessive-compulsive symptoms occurring in depression (code the depression if primary) or schizophrenia.</div>
+  <div class="note"><b>ICD-11 OCD-related grouping (6B2x):</b> 6B20 OCD; <b>6B21 body dysmorphic disorder</b> <i class="si">(preoccupation with a perceived appearance defect)</i>; <b>6B22 olfactory reference disorder</b> <i class="si">(preoccupation that one emits a foul odour)</i>; <b>6B23 hypochondriasis (health anxiety)</b> &mdash; moved here from the somatoform disorders; <b>6B24 hoarding disorder</b>; <b>6B25 body-focused repetitive behaviour disorders</b> (trichotillomania = hair-pulling; excoriation = skin-picking). Each specified by <b>insight</b>.</div>
+
+  <h3>Comorbidities, memory aids, and treatment (F42)</h3>
+  <div class="assoc"><h4>Comorbidities</h4><ul class="t"><li>Depression (very common), other anxiety disorders, <b>tic disorders/Tourette</b> (esp. early-onset), body dysmorphic disorder, eating disorders, OC personality disorder.</li></ul></div>
+  <div class="remember"><h4>Mnemonics</h4><p>Types &mdash; <b>"WCCOH"</b> (Washing, Checking, Counting, Ordering, Hoarding). Cognitive core &mdash; <b>inflated responsibility + thought&ndash;action fusion</b>. Treatment reflex &mdash; <b>ERP + SSRI (high dose, long duration)</b>.</p></div>
+  <ul class="t">
+    <li><b>Psychological (first-line):</b> <b class="cl">exposure and response prevention (ERP)</b>; cognitive therapy targeting responsibility beliefs.</li>
+    <li><b>Pharmacological:</b> SSRIs (higher doses, longer duration than in depression); clomipramine; antipsychotic augmentation in resistant cases; neurosurgery/DBS for severe refractory OCD. <span class="tag tks">Kaplan &amp; Sadock</span></li>
+  </ul>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+<!-- ═══════════════════════ F43 STRESS ═══════════════════════ -->
+<section id="f43">
+  <h2>F43 &middot; Reaction to Severe Stress, and Adjustment Disorders &rarr; ICD-11 6B4x</h2>
+  <div class="idcard">
+    <div><b>ICD-10</b> F43 (.0 acute stress reaction, .1 PTSD, .2 adjustment disorders [.20&ndash;.28], .8/.9)</div>
+    <div><b>ICD-11</b> 6B40 PTSD; 6B41 Complex PTSD (new); 6B42 Prolonged grief disorder (new); 6B43 Adjustment disorder; acute stress reaction &rarr; QE84 (normal reaction)</div>
+    <div><b>Core</b> Disorders arising as a <b>direct consequence of an identifiable stressor/trauma</b></div>
+    <div><b>Key point</b> Uniquely, a stressor is a <b>necessary causal factor</b></div>
+  </div>
+  <h3>1. Introduction</h3>
+  <p>These disorders are identified <b>not only on symptoms but on the presence of one of two causal influences</b>: an <b>exceptionally stressful/traumatic life event</b> (producing an acute stress reaction or PTSD), or a <b>significant life change leading to continued unpleasant circumstances</b> (producing an adjustment disorder). The stressor is a necessary, though not always sufficient, cause &mdash; the disorder would not have arisen without it. Individual vulnerability and coping capacity influence occurrence and form. <span class="tag t10">ICD-10</span></p>
+
+  <h3>2. Etiology (with psychological theories)</h3>
+  <table>
+    <tr><th>Domain</th><th>Detail</th></tr>
+    <tr><td><b>The stressor</b></td><td>Necessary cause; severity, duration, proximity, and interpersonal nature (esp. deliberate human cruelty) raise risk; prolonged/repeated trauma (childhood abuse, captivity) predisposes to <b>Complex PTSD</b>.</td></tr>
+    <tr><td><b>Vulnerability / protective</b></td><td>Prior trauma, pre-existing mental disorder, female sex, low social support, and neuroticism raise risk; strong social support is protective.</td></tr>
+    <tr><td><b>Neurobiological</b></td><td>Dysregulated HPA-axis and noradrenergic systems; over-active amygdala with reduced prefrontal control and hippocampal changes; failure of fear extinction.</td></tr>
+  </table>
+  <div class="psych">
+    <h4>Psychological theories</h4>
+    <ul class="t">
+      <li><b class="cl">Conditioning (two-factor) model</b>: trauma cues become conditioned fear stimuli; avoidance is negatively reinforced and blocks extinction.</li>
+      <li><b class="cl">Emotional processing theory (Foa &amp; Kozak)</b>: PTSD reflects an inadequately processed <b>fear network</b>; recovery needs activation and modification &mdash; basis of <b>prolonged exposure</b>.</li>
+      <li><b class="cl">Ehlers &amp; Clark cognitive model</b>: PTSD persists when trauma is processed so as to create a sense of <b>current threat</b>, via negative appraisals and a poorly elaborated, disjointed trauma memory.</li>
+      <li><b class="cl">Dual-representation theory</b>: verbally- vs situationally-accessible memory systems explain intrusive sensory flashbacks.</li>
+      <li>For grief: attachment theory and the <b>dual-process model of grieving</b> (oscillation between loss- and restoration-oriented coping).</li>
+    </ul>
+  </div>
+
+  <h3>3. Epidemiology</h3>
+  <ul class="t">
+    <li>Trauma exposure is common; only a minority develop PTSD. Lifetime PTSD ~6&ndash;8%, higher after interpersonal violence; about twice as common in women. Adjustment disorders are among the most frequent diagnoses in liaison and primary-care settings. <span class="tag tother">Other evidence</span></li>
+  </ul>
+
+  <h3>Detailed subtypes &mdash; each with criteria and differential diagnosis</h3>
+</section>
+
+<!-- F43.0 ACUTE STRESS -->
+<section id="f43-0">
+  <div class="subtype">
+    <h4>F43.0 &mdash; Acute stress reaction &rarr; ICD-11 QE84 (reframed as a normal reaction)</h4>
+    <p class="si" style="color:#5d6d7e;margin:0 0 6px"><b>Group:</b> Reaction to severe stress &amp; adjustment disorders (F43) &mdash; arise as a direct consequence of an identifiable stressor/trauma, which is a necessary cause; see the F43 overview above.</p>
+    <p><b>Concept:</b> a <b>transient</b> disorder of significant severity developing in response to <b>exceptional physical or mental stress</b> in an otherwise unaffected person, subsiding within hours to days.</p>
+    <p><b>Clinical detail:</b> typically an initial state of "<b>daze</b>" with narrowing of the field of consciousness and attention, inability to comprehend stimuli, and disorientation; this may be followed either by <b>withdrawal</b> (up to dissociative stupor) or by <b>agitation and overactivity</b> (flight reaction, panic). Autonomic signs of panic (tachycardia, sweating, flushing) are common. Symptoms usually appear <b>within minutes</b> and disappear rapidly (within hours if the stressor can be removed; within 2&ndash;3 days at most if it continues). Partial or complete amnesia for the episode may occur.</p>
+    <div class="panel10"><h4><span class="tag t10">ICD-10 criteria</span></h4><p>There must be an <b>immediate and clear temporal connection</b> between the impact of an exceptional stressor and the onset of symptoms (usually within a few minutes); symptoms show a mixed and usually changing picture; and, in addition to the initial daze, depression, anxiety, anger, despair, overactivity, and withdrawal may all be seen, but no one type predominates for long. Symptoms <b>begin to diminish after 24&ndash;48 hours</b> and are usually minimal after about 3 days.</p></div>
+    <div class="panel11"><h4><span class="tag t11">ICD-11</span></h4><p>Acute stress reaction is <b>NOT a mental disorder</b> in ICD-11 &mdash; it is regarded as a <b>normal reaction to severe stress</b> and listed among "factors influencing health status/contact with health services" (QE84). (An important examinable change.)</p></div>
+    <div class="incl"><b>Includes:</b> acute crisis reaction; combat fatigue; crisis state; psychic shock.</div>
+    <div class="excl"><b>Excludes:</b> symptoms persisting or arising later &rarr; PTSD (F43.1); reactions to a non-catastrophic life change &rarr; adjustment disorder (F43.2).</div>
+    <div class="ddx"><h5>Differential diagnosis (F43.0)</h5><ul class="t">
+      <li><b>PTSD</b> &mdash; if symptoms persist beyond the acute period or arise after a latency; re-experiencing, avoidance, and hyperarousal dominate.</li>
+      <li><b>Adjustment disorder</b> &mdash; slower onset, less severe stressor, longer course.</li>
+      <li><b>Panic disorder</b> &mdash; attacks not tied to an exceptional external stressor.</li>
+      <li><b>Dissociative disorders</b> &mdash; if dissociative stupor/amnesia dominates and persists.</li>
+    </ul></div>
+  </div>
+</section>
+
+<!-- F43.1 PTSD -->
+<section id="f43-1">
+  <div class="subtype">
+    <h4>F43.1 &mdash; Post-traumatic stress disorder (PTSD) &rarr; ICD-11 6B40 (+ 6B41 Complex PTSD)</h4>
+    <p><b>Concept:</b> a <b>delayed and/or protracted response</b> to a stressful event or situation of an <b>exceptionally threatening or catastrophic nature</b> that would cause pervasive distress in almost anyone (e.g. disaster, combat, serious accident, assault, rape, torture).</p>
+    <p><b>Clinical detail (the classic clusters):</b> (1) <b class="cl">re-experiencing</b> <i class="si">(repeated reliving of the trauma in intrusive memories ("flashbacks") or dreams)</i>, against a background of a sense of "numbness" and emotional blunting; (2) <b class="cl">avoidance</b> <i class="si">(detachment from others, unresponsiveness, avoidance of activities/situations reminiscent of the trauma)</i>; and (3) a state of <b class="cl">autonomic hyperarousal</b> <i class="si">(hypervigilance, enhanced startle, insomnia)</i>, often with anxiety, depression, and suicidal ideation. Onset follows the trauma after a latency of a few weeks to months (rarely &gt;6 months).</p>
+    <div class="panel10"><h4><span class="tag t10">ICD-10 criteria</span></h4><ol class="t">
+      <li>Exposure to a stressful event or situation of <b>exceptionally threatening or catastrophic nature</b>.</li>
+      <li>Persistent <b>remembering or "reliving"</b> of the stressor in intrusive flashbacks, vivid memories, recurring dreams, or distress on exposure to reminders.</li>
+      <li><b>Avoidance</b> of circumstances resembling or associated with the stressor.</li>
+      <li>Either (a) inability to recall some important aspects of the period of exposure, or (b) persistent symptoms of <b>increased psychological sensitivity and arousal</b> (difficulty sleeping, irritability, poor concentration, hypervigilance, exaggerated startle).</li>
+      <li>Criteria 2&ndash;4 arise <b>within 6 months</b> of the stressful event (or the end of a period of stress).</li>
+    </ol></div>
+    <div class="panel11"><h4><span class="tag t11">ICD-11 (6B40)</span></h4><p>Tightened, more specific requirements &mdash; <b>all three</b> core elements after exposure to an extremely threatening/horrific event: (1) <b>re-experiencing the trauma in the present</b> (vivid intrusive memories, flashbacks, or nightmares, typically with fear/horror); (2) <b>deliberate avoidance</b> of reminders; and (3) a persistent <b>sense of current threat</b> (hypervigilance, exaggerated startle). Symptoms persist for <b>&ge; several weeks</b> and cause significant impairment.</p></div>
+    <div class="incl"><b>Includes:</b> traumatic neurosis.</div>
+    <div class="excl"><b>Excludes:</b> acute stress reaction (F43.0); adjustment disorder (F43.2); enduring personality change after catastrophic experience (F62.0) &mdash; the ICD-10 forerunner of Complex PTSD.</div>
+    <div class="ddx"><h5>Differential diagnosis (F43.1)</h5><ul class="t">
+      <li><b>Acute stress reaction</b> &mdash; transient, resolves within days; PTSD persists and re-experiences the trauma.</li>
+      <li><b>Adjustment disorder</b> &mdash; the stressor is not of catastrophic/exceptional severity, and re-experiencing is not the core feature.</li>
+      <li><b>Depressive disorder</b> &mdash; may be comorbid; distinguished by the trauma-specific re-experiencing and avoidance.</li>
+      <li><b>Specific/other phobias, panic disorder, OCD</b> &mdash; anxiety not organised around reliving a specific trauma.</li>
+      <li><b>Organic causes / head injury / substance effects</b> &mdash; especially where there is amnesia or arousal changes.</li>
+    </ul></div>
+    <div class="note"><b>Complex PTSD &rarr; ICD-11 6B41 (NEW &mdash; no ICD-10 equivalent, but foreshadowed by F62.0):</b> arises after <b>prolonged or repeated trauma from which escape is difficult</b> (childhood abuse, domestic violence, torture, captivity). It requires <b>all three PTSD clusters PLUS three "disturbances in self-organisation" (DSO)</b>: (i) <b>affect dysregulation</b>; (ii) <b>negative self-concept</b> (persistent worthlessness, shame, guilt); and (iii) <b>disturbances in relationships</b> (difficulty feeling close to others).</div>
+    <div class="note"><b>Prolonged grief disorder &rarr; ICD-11 6B42 (NEW):</b> a persistent, pervasive grief response &mdash; longing/yearning for or preoccupation with the deceased, with intense emotional pain &mdash; persisting <b>abnormally long after the loss (at least 6 months and well beyond the expected social/cultural norm)</b>, causing significant impairment.</div>
+  </div>
+</section>
+
+<!-- F43.2 ADJUSTMENT -->
+<section id="f43-2">
+  <div class="subtype">
+    <h4>F43.2 &mdash; Adjustment disorders &rarr; ICD-11 6B43</h4>
+    <p><b>Concept:</b> states of <b>subjective distress and emotional disturbance</b>, usually interfering with social functioning, arising in the period of <b>adaptation to a significant life change or a stressful life event</b> (bereavement, separation, migration, serious illness, becoming a parent, failure to achieve a goal). Individual predisposition/vulnerability plays a greater role than in the other F43 disorders, but the condition would not have arisen without the stressor.</p>
+    <p><b>Clinical detail:</b> manifestations include depressed mood, anxiety, worry, a feeling of inability to cope/plan ahead, and some degree of disability in daily routine; in children, regressive phenomena (bed-wetting, baby-talk, thumb-sucking); in adolescents, conduct disturbance.</p>
+    <div class="panel10"><h4><span class="tag t10">ICD-10 criteria</span></h4><p>Onset usually <b>within 1 month</b> of the occurrence of the identifiable stressor; symptoms and behaviour are of a type found in mood (F30&ndash;F39), neurotic (F40&ndash;F48), or conduct disorders, but the criteria for an individual disorder are <b>not met</b>. Duration of symptoms does <b>not usually exceed 6 months</b> (except the prolonged depressive reaction). The subtype is chosen by the predominant symptom pattern:</p>
+    <ul class="t">
+      <li><b>F43.20 Brief depressive reaction:</b> a transient mild depressive state lasting <b>&le; 1 month</b>.</li>
+      <li><b>F43.21 Prolonged depressive reaction:</b> a mild depressive state in response to prolonged exposure to a stressful situation, lasting <b>up to 2 years</b>.</li>
+      <li><b>F43.22 Mixed anxiety and depressive reaction:</b> both anxiety and depressive symptoms prominent.</li>
+      <li><b>F43.23 With predominant disturbance of other emotions:</b> anxiety, worry, tension, and anger.</li>
+      <li><b>F43.24 With predominant disturbance of conduct:</b> e.g. aggressive or antisocial behaviour (esp. adolescents).</li>
+      <li><b>F43.25 With mixed disturbance of emotions and conduct.</b></li>
+      <li><b>F43.28 With other specified predominant symptoms.</b></li>
+    </ul></div>
+    <div class="panel11"><h4><span class="tag t11">ICD-11 (6B43)</span></h4><p>Redefined around a <b>preoccupation with the stressor or its consequences</b> (excessive worry, recurrent distressing thoughts about the stressor, constant rumination about its implications) together with a <b>failure to adapt</b> (symptoms interfere with functioning). Onset within a month of the stressor; symptoms typically resolve within about <b>6 months</b> of the stressor (or its consequences) ending.</p></div>
+    <div class="incl"><b>Includes:</b> culture shock; grief reaction; hospitalism in children.</div>
+    <div class="excl"><b>Excludes:</b> separation anxiety disorder of childhood (F93.0); if criteria are met for a specific mood/anxiety disorder, code that; bereavement that is a normal grief reaction; prolonged grief disorder (ICD-11 6B42).</div>
+    <div class="ddx"><h5>Differential diagnosis (F43.2)</h5><ul class="t">
+      <li><b>Depressive episode / anxiety disorder</b> &mdash; diagnosed instead if the full criteria are met (symptoms exceed those of the adjustment subtype).</li>
+      <li><b>PTSD / acute stress reaction</b> &mdash; if the stressor is of exceptional/catastrophic severity and re-experiencing dominates.</li>
+      <li><b>Normal grief / normal adaptation</b> &mdash; distinguished by severity, duration, and degree of functional impairment.</li>
+      <li><b>Prolonged grief disorder</b> &mdash; grief that is unusually intense and persists beyond expected norms.</li>
+    </ul></div>
+  </div>
+  <p><b>F43.8 other reactions to severe stress; F43.9 reaction to severe stress, unspecified.</b></p>
+
+  <h3>Comorbidities, memory aids, and treatment (F43)</h3>
+  <div class="assoc"><h4>Comorbidities</h4><ul class="t"><li>Depression, other anxiety disorders, substance misuse (esp. alcohol), and (for PTSD) chronic pain, dissociation, and increased suicide risk.</li></ul></div>
+  <div class="remember"><h4>Mnemonics</h4><p><b>PTSD &mdash; "RAH":</b> Re-experiencing, Avoidance, Hyperarousal (current threat). <b>Complex PTSD = PTSD + "DSO"</b> (affect dysregulation, negative self-concept, relationship difficulty). <b>Timeline:</b> acute stress reaction = minutes&ndash;days; PTSD = within ~6 months, lasting weeks+; adjustment disorder = within 1 month, resolves by ~6 months.</p></div>
+  <ul class="t">
+    <li><b>Acute stress reaction:</b> reassurance, safety, practical support; avoid single-session debriefing.</li>
+    <li><b>PTSD:</b> <b>trauma-focused CBT / prolonged exposure</b> and <b class="cl">EMDR</b> <i class="si">(eye movement desensitisation and reprocessing)</i> first-line; SSRIs/SNRIs; prazosin for nightmares. Complex PTSD needs a phased approach.</li>
+    <li><b>Adjustment / grief:</b> supportive and problem-focused psychotherapy, brief CBT; grief-focused therapy for prolonged grief. <span class="tag tks">Kaplan &amp; Sadock</span></li>
+  </ul>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+<!-- ═══════════════════════ F44 DISSOCIATIVE ═══════════════════════ -->
+<section id="f44">
+  <h2>F44 &middot; Dissociative (Conversion) Disorders &rarr; ICD-11 6B6x</h2>
+  <div class="idcard">
+    <div><b>ICD-10</b> F44 (.0 amnesia, .1 fugue, .2 stupor, .3 trance/possession, .4 motor, .5 convulsions, .6 anaesthesia/sensory loss, .7 mixed, .8 [.80 Ganser, .81 multiple personality])</div>
+    <div><b>ICD-11</b> 6B60 dissociative neurological symptom disorder; 6B61 dissociative amnesia (&plusmn; fugue); 6B63 trance/possession; 6B64/6B65 DID/partial DID; 6B66 depersonalization-derealization</div>
+    <div><b>Core</b> Partial/complete loss of the normal integration of memories, identity, sensation, and control of movement</div>
+    <div><b>Key point</b> Presumed psychogenic; no organic cause; close temporal link to trauma/conflict</div>
+  </div>
+  <h3>1. Introduction</h3>
+  <p>These disorders share a <b>partial or complete loss of the normal integration</b> between memories of the past, awareness of identity and immediate sensations, and control of bodily movements. ICD-10 uses "conversion" for the older concept that unpleasant affect generated by conflicts is transformed into symptoms. Onset and remission are often <b>sudden</b> and closely associated in time with <b>traumatic events, insoluble problems, or disturbed relationships</b>; the symptoms often represent the person's concept of how a physical illness would manifest. <span class="tag t10">ICD-10</span></p>
+  <div class="note">
+    <b>Important general features of the dissociative disorders (apply across the whole F44 group):</b>
+    <ul class="t">
+      <li>All are presumed <b>psychogenic</b> in origin and show a <b>close temporal link with trauma, insoluble/intolerable problems, or disturbed relationships</b>.</li>
+      <li><b>Insight and reality testing are broadly retained</b> (except during acute episodes), which helps distinguish them from psychosis &mdash; even though voices/hallucinatory and passivity-like experiences can occur (notably in DID).</li>
+      <li>Symptoms are <b>involuntary</b> (not consciously produced) &mdash; this distinguishes them from <b>factitious disorder</b> and <b>malingering</b>.</li>
+      <li>Symptoms often <b>lack an anatomical/physiological basis</b> and may be inconsistent on examination or vary with attention/observation.</li>
+      <li><b>Primary gain</b> (reducing internal conflict) and <b>secondary gain</b> (external advantage) may be present; <b>la belle indiff&eacute;rence</b> (relative unconcern) is a classic but non-specific pointer.</li>
+      <li>They form a <b>spectrum</b> &mdash; from transient dissociation under acute stress, through dissociative amnesia/fugue, to the chronic and severe end (DID).</li>
+      <li><b>High comorbidity</b> with PTSD/Complex PTSD, depression, anxiety, and borderline personality traits; a <b>medical/organic and substance cause must always be excluded first</b>.</li>
+      <li><b class="cl">Hallucinations occur across the dissociative disorders, not only in DID</b> &mdash; they are typically <b class="cl">pseudohallucinations</b> <i class="si">(perception-like experiences recognised as not really external, often located "inside the head")</i>, especially <b>voices that are external-seeming, negative, and uncontrollable</b>, and are best understood as a failure of "source monitoring" (misattributing self-generated experience to an outside source). Childhood trauma and higher depersonalization/derealization are stronger predictors of these voices than the specific diagnosis. <span class="tag tother">Other evidence</span></li>
+    </ul>
+  </div>
+  <div class="unique" style="border-color:#6c3483">
+    <h4>Where hallucination-like phenomena appear across the dissociative disorders</h4>
+    <ul class="t">
+      <li><b class="cl">Dissociative identity disorder (F44.81 / 6B64)</b> &mdash; the most frequent: internal (pseudohallucinatory) <b>voices of other identities</b> (commenting, arguing, commanding) plus passivity-like experiences; a common reason DID is misdiagnosed as schizophrenia.</li>
+      <li><b class="cl">Trance and possession disorders (F44.3 / 6B63)</b> &mdash; <b>hallucinatory symptoms are common during possession episodes</b> (reported in roughly half of cases), often the "voice" or presence of the possessing agent; amnesia for the episode is also frequent. <span class="tag tother">Other evidence</span></li>
+      <li><b class="cl">Depersonalization-derealization (F48.1 / 6B66)</b> &mdash; marked <b>perceptual distortions</b> (things seeming unreal, flat, dream-like, altered in size/distance) and heightened proneness to pseudohallucinatory voices; strictly these are alterations of perception with <b>intact insight</b>, not true hallucinations.</li>
+      <li><b class="cl">Dissociative amnesia and fugue (F44.0/.1 / 6B61)</b> &mdash; usually no hallucinations, but <b>fugue-like or trance states with transient hallucinatory experiences</b> are described, and dissociative flashbacks (re-experiencing) can be perceptually vivid.</li>
+      <li><b class="cl">Dissociative stupor / conversion disorders (F44.2, F44.4&ndash;.7)</b> &mdash; hallucinations are not characteristic, though dissociative sensory phenomena (e.g. dissociative "visual loss") and vivid trauma re-experiencing may occur.</li>
+    </ul>
+    <p style="margin:6px 0 0"><b>Key distinction from schizophrenia:</b> dissociative "voices" are usually <b>ego-related, internal, and understood by the person as part of themselves/their trauma</b>, occur with retained reality testing, and are strongly linked to a trauma history &mdash; in contrast to the external, third-person first-rank auditory hallucinations and loss of insight typical of a primary psychotic disorder.</p>
+  </div>
+
+  <h3>2. Etiology (with psychological theories)</h3>
+  <table>
+    <tr><th>Domain</th><th>Detail</th></tr>
+    <tr><td><b>Trauma / stress</b></td><td>Strong link with acute stress, unresolved conflict, and especially <b>childhood trauma/abuse</b> (dissociative amnesia and DID).</td></tr>
+    <tr><td><b>Neurobiological</b></td><td>Altered connectivity between limbic (emotion) and sensorimotor/prefrontal regions; imaging supports that the symptoms are genuinely involuntary (not feigned).</td></tr>
+  </table>
+  <div class="psych">
+    <h4>Psychological theories</h4>
+    <ul class="t">
+      <li><b class="cl">Psychodynamic</b>: dissociation/conversion as a <b>defence</b> &mdash; intolerable memories/impulses are split off. Classic concepts: <b>primary gain</b> <i class="si">(the symptom keeps the conflict out of awareness, reducing anxiety)</i>, <b>secondary gain</b> <i class="si">(external advantages &mdash; care, avoiding responsibility)</i>, and <b class="cl">la belle indiff&eacute;rence</b> <i class="si">(surprising lack of concern about a serious apparent disability)</i>.</li>
+      <li><b class="cl">Learning/behavioural</b>: the "sick role" and symptoms are reinforced by attention and avoidance of stressors.</li>
+      <li><b class="cl">Autohypnotic / trauma model</b>: a capacity for self-hypnosis; in DID, dissociation is theorised to protect the child from overwhelming abuse.</li>
+    </ul>
+  </div>
+
+  <h3>3. Epidemiology &amp; comorbidities</h3>
+  <ul class="t">
+    <li>More common in <b>women</b> and in <b>younger</b> people; conversion symptoms common in neurology/emergency settings. <span class="tag tks">Kaplan &amp; Sadock</span></li>
+    <li><b>Comorbidities:</b> depression, PTSD/trauma disorders, other anxiety disorders, personality disorders (esp. borderline), and (for conversion) comorbid neurological disease.</li>
+  </ul>
+
+  <h3>4. General diagnostic guidelines (ICD-10) &amp; requirements (ICD-11)</h3>
+  <div class="panel10"><h4><span class="tag t10">ICD-10</span></h4><p>For a definite diagnosis: (a) the clinical features specified for the individual subtype; (b) <b>no evidence of a physical disorder</b> that could explain the symptoms; and (c) <b>evidence of psychological causation</b>, in a clear temporal association with stressful events/problems or disturbed relationships (even if denied).</p></div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11</span></h4><p>Involuntary disruption/discontinuity in the normal integration of identity, sensations, perceptions, affect, thoughts, memory, control of movement, or behaviour; <b>not better explained by another disorder, substance, or medical condition</b>, and causing significant distress/impairment. (ICD-11 drops "conversion" and codes the neurological forms as <b>dissociative neurological symptom disorder, 6B60</b>.)</p></div>
+
+  <h3>Detailed subtypes &mdash; each with criteria and differential diagnosis</h3>
+</section>
+
+<!-- F44.0/.1 -->
+<section id="f44-0">
+  <div class="subtype">
+    <h4>F44.0 &mdash; Dissociative amnesia &rarr; ICD-11 6B61</h4>
+    <p class="si" style="color:#5d6d7e;margin:0 0 6px"><b>Group:</b> Dissociative (conversion) disorders (F44) &mdash; partial/complete loss of the normal integration of memory, identity, sensation, and movement control, presumed psychogenic; see the F44 overview and general-features note above.</p>
+    <p><b>Concept:</b> loss of memory, usually of important <b>recent events of a traumatic or stressful nature</b> (accidents, unexpected bereavements), too extensive to be ordinary forgetfulness and not due to an organic disorder. Amnesia is usually <b>partial and selective</b>, centred on traumatic material, and variable from day to day; complete/generalised amnesia is rare.</p>
+    <div class="panel10"><h4><span class="tag t10">ICD-10 criteria</span></h4><p>(a) Amnesia, partial or complete, for recent events of a <b>traumatic/stressful nature</b>; (b) absence of organic brain disorders, intoxication, or excessive fatigue.</p></div>
+    <div class="ddx"><h5>Differential diagnosis (F44.0)</h5><ul class="t">
+      <li><b>Organic amnesic states</b> &mdash; usually other neurological signs, clouding of consciousness, disorientation, and fluctuating awareness; <b>loss of very recent memory is more typical of organic states</b> regardless of any traumatic events.</li>
+      <li><b>Alcohol/drug "blackouts"</b> &mdash; closely tied to the time of intoxication; the lost memories can <b>never be regained</b> (unlike dissociative amnesia).</li>
+      <li><b>Post-ictal amnesia (epilepsy)</b>; <b>ordinary forgetfulness/fatigue</b>; <b>malingering</b> (deliberate simulation &mdash; may be very hard to distinguish).</li>
+    </ul></div>
+  </div>
+  <div class="subtype">
+    <h4>F44.1 &mdash; Dissociative fugue &rarr; ICD-11 6B61 (with dissociative fugue)</h4>
+    <p><b>Concept:</b> all the features of dissociative amnesia <b>PLUS</b> an apparently purposeful <b>journey away from home or the usual place of work/activities</b>, during which <b>self-care is largely maintained</b>. There may be assumption of a new identity (for days, occasionally longer), and to observers the person may appear entirely normal. Amnesia for the fugue period follows recovery.</p>
+    <div class="panel10"><h4><span class="tag t10">ICD-10 criteria</span></h4><p>(a) The features of dissociative amnesia; (b) a purposeful journey beyond the usual everyday range (differentiation of travel between areas may need local knowledge); (c) maintenance of basic self-care and simple social interaction with strangers.</p></div>
+    <div class="ddx"><h5>Differential diagnosis (F44.1)</h5><ul class="t">
+      <li><b>Post-ictal fugue (esp. temporal-lobe epilepsy)</b> &mdash; distinguished by a history of epilepsy, lack of stressful events, and <b>less purposeful, more fragmented</b> activity/travel.</li>
+      <li><b>Conscious simulation (malingering)</b> of a fugue &mdash; may be very difficult to distinguish.</li>
+      <li><b>Organic states / wandering in dementia.</b></li>
+    </ul></div>
+  </div>
+</section>
+
+<!-- F44.2/.3 -->
+<section id="f44-2">
+  <div class="subtype">
+    <h4>F44.2 &mdash; Dissociative stupor</h4>
+    <p><b>Concept:</b> profound <b>diminution or absence of voluntary movement, speech, and normal responsiveness</b> to light, noise, and touch, but with muscle tone, posture, breathing, and (sometimes) eye movements showing the person is neither asleep nor unconscious. No physical or other psychiatric disorder explains it, and there is positive evidence of psychogenic causation (recent stress/problems).</p>
+    <div class="panel10"><h4><span class="tag t10">ICD-10 criteria</span></h4><p>(a) Stupor as above; (b) absence of a physical or other psychiatric disorder that might explain it; (c) evidence of recent stressful events or current problems.</p></div>
+    <div class="ddx"><h5>Differential diagnosis (F44.2)</h5><ul class="t">
+      <li><b>Catatonic stupor (schizophrenia)</b> &mdash; often preceded by symptoms/behaviour suggestive of schizophrenia.</li>
+      <li><b>Depressive or manic stupor</b> &mdash; usually develop comparatively slowly; a history from an informant is decisive.</li>
+      <li><b>Organic stupor</b> &mdash; clouded consciousness, neurological signs, metabolic/structural causes.</li>
+    </ul></div>
+  </div>
+  <div class="subtype">
+    <h4>F44.3 &mdash; Trance and possession disorders &rarr; ICD-11 6B63</h4>
+    <p><b>Concept:</b> disorders with a <b>temporary loss of both the sense of personal identity and full awareness of the surroundings</b>; in some the person acts as if taken over by another personality, spirit, deity, or "force". Only trance states that are <b>involuntary or unwanted</b>, intruding into ordinary activities by occurring <b>outside</b> accepted collective cultural or religious situations, are classified here.</p>
+    <div class="excl"><b>Excludes:</b> trance states in religious/culturally accepted ceremonies; states associated with psychotic disorders, temporal-lobe epilepsy, or head injury.</div>
+    <div class="ddx"><h5>Differential diagnosis (F44.3)</h5><ul class="t">
+      <li><b>Culturally sanctioned trance/possession</b> &mdash; not a disorder if voluntary and within accepted practice.</li>
+      <li><b>Temporal-lobe epilepsy</b>; <b>psychotic disorders</b>; <b>organic states</b>.</li>
+    </ul></div>
+  </div>
+</section>
+
+<!-- F44.4-.7 CONVERSION -->
+<section id="f44-4">
+  <div class="subtype">
+    <h4>F44.4&ndash;F44.7 &mdash; Dissociative disorders of movement and sensation (conversion) &rarr; ICD-11 6B60</h4>
+    <p>In these, there is a loss of, or interference with, movements or sensations (usually cutaneous), so the person presents as having a physical disorder, though none is found; symptoms often represent the person's <b>concept</b> of physical illness and may be inconsistent with anatomy/physiology. Degree of disability may vary with circumstances and the presence of observers.</p>
+    <ul class="t">
+      <li><b>F44.4 Dissociative motor disorders:</b> loss of ability to move all or part of a limb(s); paralysis may be partial (weak/slow) or complete; ataxia, tremor, or inability to stand unaided (<b class="cl">astasia-abasia</b> &mdash; <i class="si">inability to stand or walk despite normal leg movements when lying/sitting</i>).</li>
+      <li><b>F44.5 Dissociative convulsions ("pseudoseizures" / non-epileptic attacks):</b> movements that mimic epileptic seizures, but <b>tongue-biting, serious bruising from falling, and incontinence are rare</b>, and there is <b>no loss of consciousness</b> (rather a state of stupor or trance).</li>
+      <li><b>F44.6 Dissociative anaesthesia and sensory loss:</b> anaesthetic skin areas often with boundaries reflecting the person's ideas about bodily function rather than medical knowledge (e.g. <b>"glove-and-stocking"</b> loss); differential loss between sensory modalities not attributable to a neurological lesion; may include dissociative visual loss (rarely total; often "tunnel vision"), deafness, or anosmia.</li>
+      <li><b>F44.7 Mixed dissociative (conversion) disorders:</b> combinations of the above.</li>
+    </ul>
+    <div class="ddx"><h5>Differential diagnosis (F44.4&ndash;.7)</h5><ul class="t">
+      <li><b>Early progressive neurological disease</b> &mdash; especially <b>multiple sclerosis</b> and <b>systemic lupus erythematosus</b>, which may be confused with conversion; long periods of assessment/observation may be needed before diagnostic probabilities become clear.</li>
+      <li><b>Epilepsy</b> (vs dissociative convulsions) &mdash; EEG, prolactin, and the features above help distinguish.</li>
+      <li><b>Malingering / factitious disorder</b> &mdash; symptoms deliberately produced; hard to prove.</li>
+      <li><b>Other psychiatric disorders</b> presenting with somatic symptoms.</li>
+    </ul></div>
+  </div>
+</section>
+
+<!-- F44.8 -->
+<section id="f44-8">
+  <div class="subtype">
+    <h4>F44.8 &mdash; Other dissociative (conversion) disorders (named syndromes)</h4>
+    <ul class="t">
+      <li><b>F44.80 Ganser's syndrome:</b> the characteristic feature is the giving of <b class="cl">approximate answers ("vorbeireden")</b> <i class="si">(near-miss but clearly wrong answers to simple questions, e.g. "2+2=5"; "a horse has 5 legs")</i>, usually accompanied by other dissociative symptoms, often in circumstances suggesting a psychogenic origin (frequently forensic settings).</li>
+      <li><b>F44.82 transient dissociative disorders occurring in childhood/adolescence; F44.88 other specified.</b></li>
+    </ul>
+    <div class="ddx"><h5>Differential diagnosis (F44.80 Ganser's syndrome)</h5><ul class="t">
+      <li><b>Organic confusional states / dementia</b> &mdash; exclude by history, examination, and investigations; Ganser occurs in clear-ish consciousness with the characteristic approximate answers.</li>
+      <li><b>Malingering</b> &mdash; deliberate feigning (esp. forensic contexts); Ganser is regarded as a genuine dissociative phenomenon, though the boundary can be difficult.</li>
+      <li><b>Psychotic disorders</b> &mdash; the approximate answers and dissociative context differ from formal thought disorder or delusions.</li>
+    </ul></div>
+  </div>
+</section>
+
+<!-- DID full block -->
+<section id="f44-did">
+  <div class="subtype">
+    <h4>F44.81 &mdash; Multiple personality disorder / Dissociative Identity Disorder (DID) &rarr; ICD-11 6B64 (DID) &middot; 6B65 (partial DID)</h4>
+    <p><b>Group note (reminder):</b> DID belongs to the <b>dissociative (conversion) disorders</b> &mdash; disorders sharing a partial or complete loss of the normal integration of memory, identity, sensation, and control of movement, presumed <b>psychogenic</b> and closely associated in time with trauma or insoluble conflict. DID is the most severe and chronic dissociative disorder. <span class="tag t10">ICD-10</span></p>
+    <p><b>Core concept:</b> the apparent existence of <b>two or more distinct personality states ("alters" / identities)</b> within one individual, with <b>only one evident at a time</b>. Each identity is complete, with its own memories, preferences, patterns of behaviour, and even its own name, age, and self-perception, and each may take full control of the person's behaviour in turn. There is <b>amnesia</b> between identity states for important personal information that is too extensive to be ordinary forgetfulness. Transition ("switching") between identities is usually sudden and closely associated with stress. Strongly associated with <b>severe, repeated childhood trauma/abuse</b>.</p>
+    <div class="unique">
+      <h4>Unique and important features of DID (high-yield)</h4>
+      <ul class="t">
+        <li><span class="cl">Two or more distinct identities/personality states</span>, with marked discontinuity in sense of self and agency, and alterations in affect, behaviour, consciousness, memory, perception, cognition, and sensory-motor functioning.</li>
+        <li><b class="cl">Dissociative (inter-identity) amnesia</b> <i class="si">(gaps in memory for everyday events, important personal information, or traumatic events; the person may "lose time", find unfamiliar objects, or be told of actions they cannot recall)</i>.</li>
+        <li><b class="cl">"Switching"</b> <i class="si">(sudden shifts from one identity state to another, often triggered by stress or reminders of trauma)</i>.</li>
+        <li><b class="cl">Hallucinations &mdash; especially auditory</b>: <b>voices are common in DID</b> and are a key point. They are typically experienced as <b>coming from inside the head</b> (the voices of other identities commenting, arguing, or issuing commands), often described as more like <b>pseudohallucinations</b> than the external third-person voices classic of schizophrenia; <b>passivity-like experiences</b> (feeling one's actions/thoughts are influenced by another identity) can also occur &mdash; which is why DID is frequently <b>misdiagnosed as schizophrenia</b>. Visual, tactile, and somatic dissociative phenomena may also occur.</li>
+        <li><b class="cl">Somatoform / conversion symptoms</b> (unexplained pain, pseudoseizures, sensory changes) are common.</li>
+        <li><b class="cl">High comorbidity</b> and risk: PTSD/Complex PTSD, depression, borderline personality traits, substance misuse, eating disorders, and <b>high rates of self-harm and suicide attempts</b>.</li>
+        <li><b class="cl">Identity confusion and alteration</b>, depersonalization/derealization, and a fluctuating, often chronic course.</li>
+        <li><b class="cl">Partial DID (ICD-11 6B65)</b>: the non-dominant identity states do not recurrently take <b>executive control</b> of behaviour, but there are intrusions of these states into the dominant identity (thoughts, emotions, actions, or voices) &mdash; the person usually continues to function in daily life. (This partial form has <b>no ICD-10 equivalent</b>.)</li>
+      </ul>
+    </div>
+    <div class="panel10"><h4><span class="tag t10">ICD-10 criteria (F44.81)</span></h4><ol class="t">
+      <li>Two or more <b>distinct personalities</b> exist within the individual, only one being evident at a time.</li>
+      <li>Each personality has its own memories, preferences, and behaviour, and at some time (and recurrently) takes full control of the person's behaviour.</li>
+      <li>There is <b>inability to recall important personal information</b> which is too extensive to be explained by ordinary forgetfulness.</li>
+      <li>The symptoms are not due to organic mental disorders (e.g. epilepsy) or to psychoactive substance use.</li>
+    </ol></div>
+    <div class="panel11"><h4><span class="tag t11">ICD-11 (6B64 DID / 6B65 partial DID)</span></h4><p>Disruption of identity characterised by <b>two or more distinct personality states (dissociative identities)</b>, involving marked discontinuities in the sense of self and agency; each identity has its own pattern of experiencing, perceiving, conceiving, and relating to self and environment. At least two identities <b>recurrently take executive control</b> (in DID) or the non-dominant states <b>intrude but do not routinely take executive control</b> (in <b>partial DID, 6B65</b>). Accompanied by dissociative amnesia; symptoms are not better explained by another disorder, substance, or medical condition, and cause significant distress/impairment.</p></div>
+    <div class="excl"><b>Excludes:</b> schizophrenia and other primary psychotic disorders; personality disorders; epilepsy and other organic causes; malingering (deliberate feigning); culturally sanctioned possession states.</div>
+    <div class="ddx"><h5>Differential diagnosis (DID)</h5><ul class="t">
+      <li><b>Schizophrenia</b> &mdash; the biggest confusion because DID features voices and passivity-like experiences; but in DID the voices are typically <b>internal</b> (pseudohallucinatory), there is amnesia and identity alteration, and there is an <b>absence of sustained formal thought disorder, negative symptoms, and true first-rank delusions</b>; DID responds to trauma-focused psychotherapy rather than antipsychotics.</li>
+      <li><b>Borderline personality disorder</b> &mdash; identity disturbance and dissociation occur, but without discrete, elaborated alternate identities that take executive control; the two frequently co-occur.</li>
+      <li><b>Bipolar disorder / rapid mood shifts</b> &mdash; mood episodes last days-weeks, not the sudden "switching" of identities.</li>
+      <li><b>PTSD / Complex PTSD</b> &mdash; share a trauma origin and dissociative symptoms; DID adds distinct identity states and inter-identity amnesia.</li>
+      <li><b>Temporal-lobe epilepsy and other organic states</b> &mdash; exclude with history, EEG, and imaging.</li>
+      <li><b>Malingering / factitious disorder</b> &mdash; especially in forensic settings; deliberate, goal-directed production of "alters".</li>
+      <li><b>Culturally sanctioned possession/trance</b> &mdash; not a disorder if voluntary and within accepted practice (contrast possession trance disorder, 6B63).</li>
+    </ul></div>
+  </div>
+
+  <h3>Memory aid &amp; treatment (F44)</h3>
+  <div class="remember"><h4>Mnemonics</h4><p><b>Dissociation of MEMORY/IDENTITY</b> (amnesia, fugue, DID) vs <b>conversion of MOVEMENT/SENSATION</b> (paralysis, pseudoseizures, sensory loss). Conversion clues &mdash; <b>la belle indiff&eacute;rence</b>, non-anatomical deficits, secondary gain. Ganser = <b>approximate answers</b>.</p></div>
+  <ul class="t">
+    <li><b>Psychological (mainstay):</b> safety and rapport, psychoeducation and reassurance, addressing the underlying stressor/conflict, CBT; physiotherapy and a rehabilitative "expectation of recovery" for conversion; phased trauma-focused therapy for DID; hypnosis/abreaction historically for amnesia.</li>
+    <li><b>Pharmacological:</b> no specific drug; treat comorbid depression/anxiety/PTSD; avoid unnecessary investigations and reinforcement of the sick role. <span class="tag tks">Kaplan &amp; Sadock</span></li>
+    <li><b>Prognosis:</b> acute states with a clear stressor usually recover well; chronic states and DID are more persistent.</li>
+  </ul>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+<!-- ═══════════════════════ F45 SOMATOFORM ═══════════════════════ -->
+<section id="f45">
+  <h2>F45 &middot; Somatoform Disorders &rarr; ICD-11 6C20 (Bodily Distress Disorder)</h2>
+  <div class="idcard">
+    <div><b>ICD-10</b> F45 (.0 somatization, .1 undifferentiated, .2 hypochondriacal, .3 autonomic dysfunction [.30&ndash;.38], .4 persistent pain, .8/.9)</div>
+    <div><b>ICD-11</b> 6C20 bodily distress disorder (mild/moderate/severe); hypochondriasis &rarr; 6B23 (OC-related grouping)</div>
+    <div><b>Core</b> Repeated presentation of physical symptoms with persistent requests for investigation despite negative findings and reassurance</div>
+    <div><b>Key change</b> ICD-11 collapses most somatoform categories into one bodily distress disorder and re-homes hypochondriasis with OCD</div>
+  </div>
+  <h3>1. Introduction</h3>
+  <p>The main feature is <b>repeated presentation of physical symptoms with persistent requests for medical investigations</b>, in spite of repeated negative findings and reassurance that the symptoms have no physical basis. If any physical disorder is present, it does not explain the nature/extent of the symptoms or the distress and preoccupation. The person usually resists attempts to discuss psychological causation, and there is often attention-seeking behaviour. <span class="tag t10">ICD-10</span></p>
+
+  <h3>2. Etiology (with psychological theories)</h3>
+  <div class="psych">
+    <h4>Psychological theories</h4>
+    <ul class="t">
+      <li><b class="cl">Cognitive-perceptual model</b>: heightened <b>somatosensory amplification</b> <i class="si">(noticing, focusing on, and being alarmed by normal/benign bodily sensations)</i> and catastrophic misinterpretation as serious disease.</li>
+      <li><b class="cl">Behavioural</b>: symptom-focus, checking, and reassurance-seeking are reinforced by anxiety reduction and attention (the "sick role"); avoidance prevents disconfirmation.</li>
+      <li><b class="cl">Psychodynamic</b>: physical symptoms as expression of unacceptable emotion (<b>alexithymia</b> &mdash; <i class="si">difficulty identifying/describing feelings</i>) and as a means of gaining care.</li>
+      <li><b class="cl">Learning/family</b>: modelling of illness behaviour, early illness experience, and reinforcement within family/health systems.</li>
+    </ul>
+  </div>
+
+  <h3>3. Epidemiology &amp; comorbidities</h3>
+  <ul class="t">
+    <li>Common in primary/general medical care; more frequent in <b>women</b>; somatization usually begins before age 30. <span class="tag tks">Kaplan &amp; Sadock</span></li>
+    <li><b>Comorbidities:</b> depression and anxiety disorders (very high), other functional somatic syndromes, personality disorders; strong association with early adversity.</li>
+  </ul>
+
+  <h3>Detailed subtypes &mdash; each with criteria and differential diagnosis</h3>
+</section>
+
+<!-- F45.0 -->
+<section id="f45-0">
+  <div class="subtype">
+    <h4>F45.0 &mdash; Somatization disorder (Briquet's syndrome) &rarr; ICD-11 6C20</h4>
+    <p class="si" style="color:#5d6d7e;margin:0 0 6px"><b>Group:</b> Somatoform disorders (F45) &mdash; repeated physical symptoms with persistent requests for investigation despite negative findings and reassurance; ICD-11 replaces most of these with bodily distress disorder; see the F45 overview above.</p>
+    <p><b>Concept:</b> <b>multiple, recurrent, and frequently changing physical symptoms</b> present for at least <b>2 years</b>, referable to any part of the body/any system (commonly GI sensations, abnormal skin sensations, sexual/menstrual complaints), for which no adequate physical explanation is found; a long, complicated history of contact with medical services and many negative investigations or fruitless operations; persistent refusal to accept reassurance; and some degree of social/family impairment.</p>
+    <div class="panel10"><h4><span class="tag t10">ICD-10 criteria</span></h4><ul class="t">
+      <li>(a) At least <b>2 years</b> of multiple and variable physical symptoms with no adequate physical explanation;</li>
+      <li>(b) persistent refusal to accept the advice/reassurance of several doctors that there is no physical explanation;</li>
+      <li>(c) some degree of impairment of social and family functioning attributable to the symptoms and resulting behaviour.</li>
+    </ul></div>
+    <div class="ddx"><h5>Differential diagnosis (F45.0)</h5><ul class="t">
+      <li><b>Physical disorders</b> &mdash; patients with long-standing somatization have the same chance as anyone of developing an <b>independent physical disorder</b>; consider further investigation if there is a <b>shift in the emphasis or stability</b> of complaints suggesting physical disease.</li>
+      <li><b>Depressive and anxiety disorders</b> &mdash; commonly accompany somatization; treat/diagnose separately if prominent (esp. if depression is moderate/severe).</li>
+      <li><b>Hypochondriacal disorder</b> &mdash; focus on a <b>disease</b> and its consequences rather than the individual symptoms.</li>
+      <li><b>Delusional disorder</b> (e.g. somatic type) &mdash; fixed false belief held with delusional conviction.</li>
+      <li><b>Factitious disorder / malingering</b> &mdash; deliberate production of symptoms.</li>
+    </ul></div>
+  </div>
+</section>
+
+<!-- F45.1 -->
+<section id="f45-1">
+  <div class="subtype">
+    <h4>F45.1 &mdash; Undifferentiated somatoform disorder &rarr; ICD-11 6C20</h4>
+    <p><b>Concept:</b> multiple, varying, and persistent physical complaints for which the <b>complete and typical clinical picture of somatization disorder is not fulfilled</b> (e.g. fewer symptoms, less persistent, shorter duration, or less social/family disruption). The commonest somatoform presentation in practice.</p>
+    <div class="ddx"><h5>Differential diagnosis (F45.1)</h5><p>As for the full syndrome of somatization disorder (F45.0) &mdash; exclude physical disease, depressive/anxiety disorders, hypochondriacal disorder, and delusional/factitious presentations.</p></div>
+  </div>
+</section>
+
+<!-- F45.2 -->
+<section id="f45-2">
+  <div class="subtype">
+    <h4>F45.2 &mdash; Hypochondriacal disorder &rarr; ICD-11 6B23 (hypochondriasis, in the OC-related grouping); BDD &rarr; 6B21</h4>
+    <p><b>Concept:</b> a <b>persistent preoccupation with the possibility of having one or more serious and progressive physical disorders</b>. The person manifests persistent somatic complaints or persistent preoccupation with physical appearance; normal/commonplace sensations and appearances are interpreted as abnormal and distressing; attention is usually focused on only <b>one or two organs/systems</b>. Includes <b>body dysmorphic disorder</b> <i class="si">(non-delusional preoccupation with imagined/minor appearance defect)</i> in ICD-10; ICD-11 codes BDD separately (6B21). Marked depression and anxiety are common.</p>
+    <div class="panel10"><h4><span class="tag t10">ICD-10 criteria</span></h4><ul class="t">
+      <li>(a) Persistent belief in the presence of at least one serious physical illness underlying the symptom(s), <b>or</b> a persistent preoccupation with a presumed deformity/disfigurement (BDD);</li>
+      <li>(b) persistent refusal to accept the advice/reassurance of several doctors that there is no physical illness/abnormality.</li>
+    </ul></div>
+    <div class="excl"><b>Excludes:</b> delusional disorders (hypochondriacal delusions, F22); dysmorphic delusions.</div>
+    <div class="ddx"><h5>Differential diagnosis (F45.2)</h5><ul class="t">
+      <li><b>Somatization disorder</b> &mdash; the emphasis in hypochondriasis is on the <b>disease and its future consequences</b> (and usually only <b>one or two</b> disorders, named consistently), rather than the multiple, changing individual symptoms of somatization.</li>
+      <li><b>Depressive disorders</b> &mdash; if depressive symptoms are prominent and precede the hypochondriacal ideas, code the depression.</li>
+      <li><b>Delusional (hypochondriacal) disorder</b> &mdash; the belief in hypochondriasis is usually susceptible, to some degree and in the short term, to argument/reassurance/further examination, unlike a fixed delusion.</li>
+      <li><b>Panic disorder</b> and <b>anxiety disorders</b> &mdash; health fears occurring only during panic.</li>
+    </ul></div>
+  </div>
+</section>
+
+<!-- F45.3 -->
+<section id="f45-3">
+  <div class="subtype">
+    <h4>F45.3 &mdash; Somatoform autonomic dysfunction &rarr; ICD-11 6C20</h4>
+    <p><b>Concept:</b> symptoms presented by the person <b>as if</b> due to a physical disorder of a system/organ largely under <b>autonomic</b> innervation and control (cardiovascular, gastrointestinal, respiratory, genitourinary). Two symptom types: (1) objective <b>autonomic arousal</b> signs (palpitations, sweating, flushing, tremor); and (2) idiosyncratic, subjective, non-specific symptoms referred by the person to a specific organ/system.</p>
+    <p><b>Sub-codes by system:</b> <b>.30 heart and cardiovascular system</b> (cardiac neurosis, Da Costa's syndrome, neurocirculatory asthenia); <b>.31 upper GI tract</b> (gastric neurosis, psychogenic aerophagy, hiccough, dyspepsia, pylorospasm); <b>.32 lower GI tract</b> (psychogenic irritable bowel syndrome, flatulence, diarrhoea); <b>.33 respiratory system</b> (psychogenic hyperventilation, cough); <b>.34 genitourinary system</b> (psychogenic frequency/dysuria); <b>.38 other organ or system</b>.</p>
+    <div class="panel10"><h4><span class="tag t10">ICD-10 criteria</span></h4><ul class="t">
+      <li>(a) Symptoms of <b>autonomic arousal</b> attributed by the person to a physical disorder of one/more of the listed systems;</li>
+      <li>(b) additional subjective symptoms referred to a specific organ/system;</li>
+      <li>(c) preoccupation with, and distress about, the possibility of a serious (but often unspecified) disorder of that system, unresponsive to repeated reassurance;</li>
+      <li>(d) no evidence of a significant structural/functional disturbance of that system.</li>
+    </ul></div>
+    <div class="ddx"><h5>Differential diagnosis (F45.3)</h5><ul class="t">
+      <li><b>Generalized anxiety disorder</b> &mdash; if the psychological components of anxiety predominate and are not attributed to a specific organ.</li>
+      <li><b>Somatization disorder</b> &mdash; autonomic symptoms occur but are not the sole/predominant feature.</li>
+      <li><b>Genuine physical disease of the organ</b> &mdash; must be excluded.</li>
+    </ul></div>
+  </div>
+</section>
+
+<!-- F45.4 -->
+<section id="f45-4">
+  <div class="subtype">
+    <h4>F45.4 &mdash; Persistent somatoform pain disorder &rarr; ICD-11 6C20</h4>
+    <p><b>Concept:</b> the predominant complaint is <b>persistent, severe, and distressing pain</b> that cannot be explained fully by a physiological process or a physical disorder, and occurs in association with <b>emotional conflict or psychosocial problems</b> that are sufficient to be judged the main causal influences. The result is usually a marked increase in support and attention (personal or medical).</p>
+    <div class="excl"><b>Excludes:</b> pain presumed of psychogenic origin occurring during depressive disorder or schizophrenia; tension headache (F54); back pain of specified organic cause.</div>
+    <div class="ddx"><h5>Differential diagnosis (F45.4)</h5><ul class="t">
+      <li><b>Organic pain</b> &mdash; must be excluded / reassessed if the picture changes.</li>
+      <li><b>Depressive disorder</b> &mdash; if pain occurs in the context of a depressive episode, code the depression.</li>
+      <li><b>Somatization disorder</b> &mdash; pain is one of many symptoms rather than the single predominant complaint.</li>
+    </ul></div>
+  </div>
+  <p><b>F45.8 other somatoform disorders</b> (e.g. psychogenic dysmenorrhoea, dysphagia including "globus hystericus", psychogenic pruritus, psychogenic torticollis, teeth-grinding)<b>; F45.9 somatoform disorder, unspecified.</b></p>
+  <div class="note"><b>ICD-11 (6C20 Bodily distress disorder):</b> bodily symptoms that are <b>distressing</b> and to which <b>excessive attention</b> is directed (with repeated health-care contact), persisting for several months; rated <b>mild/moderate/severe</b>. It replaces most F45 categories by focusing on the <b>distress and preoccupation</b> rather than on whether the symptoms are "medically unexplained".</div>
+
+  <h3>Memory aid (F45)</h3>
+  <div class="remember"><h4>Mnemonics</h4><p><b>Somatization</b> = many symptoms, many systems, many years. <b>Hypochondriasis</b> = fear of a <b>disease</b> (now grouped with OCD). <b>Pain disorder</b> = one persistent unexplained pain. Cognitive core &mdash; <b>somatosensory amplification + catastrophic misinterpretation</b>. ICD-11 &rarr; one <b>Bodily Distress Disorder</b>.</p></div>
+  <ul class="t">
+    <li><b>Treatment:</b> a single consistent clinician, regular fixed (not symptom-driven) appointments, <b>reattribution</b> and CBT, treatment of comorbid depression/anxiety, and avoidance of unnecessary investigations/iatrogenic harm. <span class="tag tks">Kaplan &amp; Sadock</span></li>
+  </ul>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+<!-- ═══════════════════════ F48 OTHER NEUROTIC ═══════════════════════ -->
+<section id="f48">
+  <h2>F48 &middot; Other Neurotic Disorders &rarr; ICD-11 (redistributed)</h2>
+  <div class="idcard">
+    <div><b>ICD-10</b> F48 (.0 neurasthenia, .1 depersonalization-derealization, .8/.9)</div>
+    <div><b>ICD-11</b> 6B66 depersonalization-derealization disorder (dissociative grouping); neurasthenia largely deprecated</div>
+    <div><b>Core</b> Residual neurotic conditions not classified elsewhere</div>
+  </div>
+  <h3>Detailed subtypes &mdash; each with criteria and differential diagnosis</h3>
+</section>
+
+<!-- F48.0 -->
+<section id="f48-0">
+  <div class="subtype">
+    <h4>F48.0 &mdash; Neurasthenia</h4>
+    <p class="si" style="color:#5d6d7e;margin:0 0 6px"><b>Group:</b> Other neurotic disorders (F48) &mdash; residual neurotic conditions not classified elsewhere; see the F48 overview above.</p>
+    <p><b>Concept:</b> two overlapping types &mdash; (1) increased <b>fatigue after mental effort</b>, often with reduced occupational performance and difficulty concentrating; or (2) <b>bodily/physical weakness and exhaustion after minimal effort</b>, with muscular aches and inability to relax. Both share unpleasant physical sensations (dizziness, tension headaches), worry about declining mental/physical wellbeing, irritability, anhedonia, and varying degrees of depression and anxiety, plus sleep disturbance.</p>
+    <div class="panel10"><h4><span class="tag t10">ICD-10 criteria</span></h4><ul class="t">
+      <li>(a) Either persistent, distressing complaints of increased fatigue after mental effort, or persistent complaints of bodily weakness/exhaustion after minimal effort;</li>
+      <li>(b) at least <b>two</b> of: muscular aches/pains, dizziness, tension headaches, sleep disturbance, inability to relax, irritability, dyspepsia;</li>
+      <li>(c) any autonomic/depressive symptoms are not sufficiently persistent/severe to fulfil a more specific disorder.</li>
+    </ul></div>
+    <div class="excl"><b>Excludes:</b> post-viral fatigue syndrome (G93.3); psychasthenia; burnout. <b>ICD-11:</b> the category is largely <b>deprecated/omitted</b> (overlaps with fatigue syndromes and bodily distress disorder).</div>
+    <div class="ddx"><h5>Differential diagnosis (F48.0)</h5><ul class="t">
+      <li><b>Depressive and anxiety disorders</b> &mdash; if they meet full criteria, code them instead (they take precedence).</li>
+      <li><b>Post-viral / chronic fatigue syndrome</b> and organic causes of fatigue (anaemia, hypothyroidism).</li>
+      <li><b>Bodily distress disorder</b> (ICD-11).</li>
+    </ul></div>
+  </div>
+</section>
+
+<!-- F48.1 -->
+<section id="f48-1">
+  <div class="subtype">
+    <h4>F48.1 &mdash; Depersonalization-derealization syndrome &rarr; ICD-11 6B66</h4>
+    <p><b>Concept:</b> <b class="cl">depersonalization</b> <i class="si">(a feeling that one's own self, feelings, thoughts, or body are unreal, remote, "not one's own", or as if one is watching oneself from outside)</i> and/or <b class="cl">derealization</b> <i class="si">(a feeling that surroundings, objects, or people are unreal, flat, colourless, lifeless, or dream-like)</i>, experienced <b>with intact insight</b> that this is a subjective, spontaneous change and not externally imposed.</p>
+    <div class="panel10"><h4><span class="tag t10">ICD-10 criteria</span></h4><p>Either or both of: (a) <b>depersonalization</b> &mdash; the person feels that their feelings and/or experiences are detached, distant, not their own, lost, etc.; (b) <b>derealization</b> &mdash; objects, people, and/or surroundings seem unreal, distant, artificial, colourless, or lifeless. The person <b>accepts that this is a subjective and spontaneous change, not imposed by outside forces or other people</b> (i.e. insight is retained &mdash; distinguishing it from psychosis).</p></div>
+    <div class="panel11"><h4><span class="tag t11">ICD-11 (6B66)</span></h4><p>Persistent or recurrent depersonalization and/or derealization with <b>intact reality testing</b>, causing significant distress/impairment; <b>moved into the dissociative disorders grouping</b>.</p></div>
+    <div class="ddx"><h5>Differential diagnosis (F48.1)</h5><ul class="t">
+      <li><b>Psychotic disorders</b> &mdash; in depersonalization insight is retained (the person knows it is subjective), unlike delusional misinterpretation.</li>
+      <li><b>Temporal-lobe epilepsy</b> and other organic causes (migraine, drug intoxication).</li>
+      <li><b>Anxiety and depressive disorders</b> &mdash; depersonalization often occurs as a symptom within these; a separate diagnosis is made only if it is the predominant, persistent feature.</li>
+    </ul></div>
+  </div>
+  <p><b>F48.8 other specified neurotic disorders</b> (e.g. Dhat syndrome, occupational neuroses, psychasthenia)<b>; F48.9 neurotic disorder, unspecified.</b></p>
+
+  <h3>Treatment (F48)</h3>
+  <ul class="t">
+    <li><b>Neurasthenia:</b> graded activity, sleep/stress management, CBT, treatment of comorbid depression/anxiety.</li>
+    <li><b>Depersonalization-derealization:</b> psychoeducation and reassurance, CBT (reducing catastrophic appraisal and self-monitoring), grounding techniques, treatment of comorbid anxiety/depression; SSRIs may help. <span class="tag tks">Kaplan &amp; Sadock</span></li>
+  </ul>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+<!-- ═══════════════════════ DIFFERENTIAL MASTER TABLES ═══════════════════════ -->
+<section id="ddx-master">
+  <h2>Differential Diagnosis &mdash; Master Tables</h2>
+
+  <h3>The anxiety disorders distinguished by trigger and pattern</h3>
+  <table>
+    <tr><th>Disorder</th><th>Key distinguishing feature</th></tr>
+    <tr><td>Specific phobia (F40.2)</td><td>Fear of one specific object/situation; usually no other psychiatric symptoms</td></tr>
+    <tr><td>Social phobia (F40.1)</td><td>Fear of scrutiny / negative evaluation by others</td></tr>
+    <tr><td>Agoraphobia (F40.0)</td><td>Fear of situations where escape is hard / help unavailable (given precedence over social phobia if unclear)</td></tr>
+    <tr><td>Panic disorder (F41.0)</td><td>Recurrent <b>unexpected</b> panic attacks + fear of further attacks</td></tr>
+    <tr><td>GAD (F41.1)</td><td>Persistent, free-floating worry about many everyday things</td></tr>
+  </table>
+
+  <h3>Obsessions vs look-alikes</h3>
+  <table>
+    <tr><th>Feature</th><th>OCD (F42)</th><th>OC personality disorder (F60.5)</th><th>Psychotic disorder</th></tr>
+    <tr><td>Nature</td><td>Ego-dystonic, resisted obsessions</td><td>Ego-syntonic traits (rigidity, perfectionism)</td><td>Delusions held with conviction</td></tr>
+    <tr><td>Insight</td><td>Usually retained</td><td>N/A (traits)</td><td>Absent</td></tr>
+  </table>
+
+  <h3>Stress-related differentials</h3>
+  <table>
+    <tr><th>Disorder</th><th>Distinguishing feature</th></tr>
+    <tr><td>Acute stress reaction (F43.0)</td><td>Minutes&ndash;days after exceptional stress; resolves quickly</td></tr>
+    <tr><td>PTSD (F43.1)</td><td>Re-experiencing + avoidance + current threat, weeks+ after catastrophic trauma</td></tr>
+    <tr><td>Complex PTSD (6B41)</td><td>PTSD + affect dysregulation + negative self-concept + relationship difficulty (prolonged/repeated trauma)</td></tr>
+    <tr><td>Adjustment disorder (F43.2)</td><td>Preoccupation + failure to adapt to a non-catastrophic stressor; within 1 month, resolves ~6 months</td></tr>
+    <tr><td>Prolonged grief disorder (6B42)</td><td>Persistent yearning/preoccupation with the deceased beyond expected norms</td></tr>
+  </table>
+
+  <h3>Amnesia &mdash; dissociative vs organic</h3>
+  <table>
+    <tr><th>Feature</th><th>Dissociative amnesia</th><th>Organic amnesia</th></tr>
+    <tr><td>Content</td><td>Selective, trauma-centred; recent stressful events</td><td>Loss of very recent memory; not selective for trauma</td></tr>
+    <tr><td>Consciousness</td><td>Clear</td><td>Often clouded / fluctuating; other neuro signs</td></tr>
+    <tr><td>Recovery of memory</td><td>Possible (esp. after stressor resolves)</td><td>Alcohol "blackouts" never regained</td></tr>
+  </table>
+
+  <h3>Medically unexplained symptoms &mdash; who is preoccupied with what?</h3>
+  <table>
+    <tr><th>Disorder</th><th>Core preoccupation</th></tr>
+    <tr><td>Somatization / bodily distress (F45.0/.1)</td><td>The <b>symptoms</b> themselves (and getting them investigated)</td></tr>
+    <tr><td>Hypochondriasis / health anxiety (F45.2 &rarr; 6B23)</td><td>The <b>fear of having a serious disease</b> and its consequences</td></tr>
+    <tr><td>Body dysmorphic disorder (6B21)</td><td>A perceived <b>defect in appearance</b></td></tr>
+    <tr><td>Conversion / dissociative neurological symptom disorder (F44.4&ndash;.7)</td><td>A <b>neurological deficit</b> incompatible with disease, with psychogenic cause</td></tr>
+    <tr><td>Somatoform pain disorder (F45.4)</td><td>One persistent, distressing, unexplained <b>pain</b></td></tr>
+    <tr><td>Factitious disorder / malingering</td><td>Symptoms <b>deliberately produced</b> (sick role / external gain) &mdash; NOT in this block</td></tr>
+  </table>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+<!-- ═══════════════════════ MNEMONICS MASTER SHEET ═══════════════════════ -->
+<section id="mnemonics">
+  <h2>Mnemonics Master Sheet</h2>
+  <table>
+    <tr><th>Topic</th><th>Mnemonic</th><th>Expansion</th></tr>
+    <tr><td>Physical symptoms of anxiety</td><td><b>PANICS</b></td><td>Palpitations, Abdominal/Air-hunger, Numbness, Intense fear, Chest/Choking, Sweating/Shaking</td></tr>
+    <tr><td>GAD features</td><td><b>WATCHERS</b></td><td>Worry, Anxiety, Tension, Concentration poor, Hyperarousal/irritability, Energy low, Restlessness, Sleep disturbance</td></tr>
+    <tr><td>Phobia maintenance</td><td><b>Avoidance &rarr; relief &rarr; reinforcement</b></td><td>Avoidance is negatively reinforced &rarr; treatment = exposure</td></tr>
+    <tr><td>Blood-injury phobia</td><td><b>Faint, not race</b></td><td>Vasovagal bradycardia/syncope (unique among phobias)</td></tr>
+    <tr><td>OCD types</td><td><b>WCCOH</b></td><td>Washing, Checking, Counting, Ordering, Hoarding</td></tr>
+    <tr><td>OCD cognition</td><td><b>Responsibility + TAF</b></td><td>Inflated responsibility + thought&ndash;action fusion</td></tr>
+    <tr><td>PTSD core clusters</td><td><b>RAH</b></td><td>Re-experiencing, Avoidance, Hyperarousal (current threat)</td></tr>
+    <tr><td>Complex PTSD extras</td><td><b>DSO</b></td><td>Disturbances in Self-Organisation: affect dysregulation, negative self-concept, relationship difficulty</td></tr>
+    <tr><td>Conversion clues</td><td><b>Belle + non-anatomical + gain</b></td><td>La belle indiff&eacute;rence; deficits defy anatomy; primary/secondary gain</td></tr>
+    <tr><td>Ganser syndrome</td><td><b>Approximate answers</b></td><td>Near-miss wrong answers (2+2=5)</td></tr>
+    <tr><td>Somatoform focus</td><td><b>Symptom / Disease / Appearance</b></td><td>Somatization = symptoms; hypochondriasis = disease fear; BDD = appearance</td></tr>
+  </table>
+  <div class="remember">
+    <h4>Two golden rules for the block</h4>
+    <p><b>Rule 1 &mdash; ICD-11 dismantled "neurotic disorders":</b> anxiety/fear (6B0x), obsessive-compulsive/related (6B2x, incl. hypochondriasis and BDD), stress-associated (6B4x, incl. new Complex PTSD and Prolonged grief), dissociative (6B6x), and bodily distress (6C2x).</p>
+    <p><b>Rule 2 &mdash; always exclude organic disease and substances first;</b> insight is characteristically retained (distinguishing these disorders from psychosis), and a stressor is a <b>necessary cause</b> only for the F43 group.</p>
+  </div>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+<!-- ═══════════════════════ GLOSSARY ═══════════════════════ -->
+<section id="glossary">
+  <h2>Clinical Terminology Glossary</h2>
+  <table>
+    <tr><th>Term</th><th>Plain-language meaning</th></tr>
+    <tr><td>Neurosis (neurotic)</td><td>Older term for distressing disorders (anxiety, obsessions, somatic complaints) with retained insight and contact with reality.</td></tr>
+    <tr><td>Anxiety / fear</td><td>Apprehension about a future threat / response to a present threat, with bodily arousal.</td></tr>
+    <tr><td>Free-floating anxiety</td><td>Generalised anxiety not attached to any particular trigger.</td></tr>
+    <tr><td>Phobia</td><td>Persistent, excessive, irrational fear of a specific object/situation, leading to avoidance.</td></tr>
+    <tr><td>Agoraphobia</td><td>Fear of situations where escape is difficult or help unavailable if panic occurs.</td></tr>
+    <tr><td>Anticipatory anxiety</td><td>Anxiety about the prospect of facing the feared situation ("fear of fear").</td></tr>
+    <tr><td>Behavioural inhibition</td><td>A temperament of fearful withdrawal from novelty, predicting later anxiety.</td></tr>
+    <tr><td>Preparedness (theory)</td><td>The idea that we are biologically primed to fear ancestral dangers.</td></tr>
+    <tr><td>Panic attack</td><td>A discrete episode of intense fear with physical symptoms, peaking within minutes.</td></tr>
+    <tr><td>Obsession</td><td>Intrusive, unwanted, recurrent thought/image/urge, recognised as one's own and resisted.</td></tr>
+    <tr><td>Compulsion / ritual</td><td>Repetitive act or mental act performed to relieve anxiety or prevent a feared event.</td></tr>
+    <tr><td>Rumination</td><td>Endless, inconclusive internal debate (an obsessional form).</td></tr>
+    <tr><td>Ego-dystonic / ego-syntonic</td><td>Experienced as unwanted and alien / as consistent with one's self-image.</td></tr>
+    <tr><td>Thought&ndash;action fusion</td><td>Belief that thinking something is morally equal to doing it, or makes it more likely.</td></tr>
+    <tr><td>Exposure and response prevention (ERP)</td><td>Facing the trigger while refraining from the compulsion, letting anxiety subside.</td></tr>
+    <tr><td>Acute stress reaction</td><td>A transient reaction within minutes of severe stress, resolving in hours to days.</td></tr>
+    <tr><td>PTSD</td><td>Delayed/protracted response to trauma: re-experiencing, avoidance, and a sense of current threat.</td></tr>
+    <tr><td>Flashback</td><td>Reliving a trauma as if it were happening in the present.</td></tr>
+    <tr><td>Complex PTSD</td><td>PTSD plus disturbances in self-organisation, after prolonged/repeated trauma.</td></tr>
+    <tr><td>Prolonged grief disorder</td><td>Persistent, impairing grief beyond expected social/cultural norms.</td></tr>
+    <tr><td>Adjustment disorder</td><td>Distress and failure to adapt to an identifiable, non-catastrophic stressor.</td></tr>
+    <tr><td>Dissociation</td><td>Disruption of the normal integration of memory, identity, perception, or movement.</td></tr>
+    <tr><td>Conversion</td><td>Psychological distress expressed as a physical (neurological) symptom without organic cause.</td></tr>
+    <tr><td>Dissociative fugue</td><td>Amnesia plus a purposeful journey away from home, sometimes with a new identity.</td></tr>
+    <tr><td>Astasia-abasia</td><td>Inability to stand/walk despite normal leg movements when lying or sitting (a conversion sign).</td></tr>
+    <tr><td>Dissociative identity disorder</td><td>Two or more distinct identity states with amnesia between them; linked to childhood trauma.</td></tr>
+    <tr><td>Ganser syndrome</td><td>Giving approximate ("near-miss") answers, usually in a dissociative/forensic context.</td></tr>
+    <tr><td>La belle indiff&eacute;rence</td><td>A surprising lack of concern about an apparently serious disability (conversion).</td></tr>
+    <tr><td>Primary / secondary gain</td><td>The symptom reduces internal conflict / brings external advantages (care, avoidance).</td></tr>
+    <tr><td>Somatization</td><td>Experiencing and presenting psychological distress as physical symptoms.</td></tr>
+    <tr><td>Somatosensory amplification</td><td>Tendency to notice, focus on, and be alarmed by normal bodily sensations.</td></tr>
+    <tr><td>Hypochondriasis (health anxiety)</td><td>Persistent preoccupation with the fear of having a serious illness.</td></tr>
+    <tr><td>Body dysmorphic disorder</td><td>Preoccupation with a perceived defect in physical appearance.</td></tr>
+    <tr><td>Alexithymia</td><td>Difficulty identifying and describing one's own emotions.</td></tr>
+    <tr><td>Bodily distress disorder</td><td>ICD-11 category: distressing bodily symptoms with excessive attention and help-seeking.</td></tr>
+    <tr><td>Depersonalization / derealization</td><td>Feeling unreal/detached from oneself / feeling the surroundings are unreal.</td></tr>
+    <tr><td>Neurasthenia</td><td>Persistent fatigue/weakness after mental or physical effort (largely deprecated in ICD-11).</td></tr>
+  </table>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+<!-- ═══════════════════════ REFERENCES ═══════════════════════ -->
+<section id="references">
+  <h2>References and Source Attribution</h2>
+  <p>Diagnostic terminology and criteria (including the includes/excludes and differential-diagnosis notes) are drawn strictly from the two official WHO classifications; clinical elaboration and psychological theories are drawn from standard psychiatric and psychological texts and peer-reviewed literature, each labelled inline with a source tag.</p>
+  <ul class="t">
+    <li><span class="tag t10">ICD-10</span> World Health Organization. <i>The ICD-10 Classification of Mental and Behavioural Disorders: Clinical Descriptions and Diagnostic Guidelines.</i> Geneva: World Health Organization, 1992.</li>
+    <li><span class="tag t11">ICD-11</span> World Health Organization. <i>Clinical Descriptions and Diagnostic Requirements for ICD-11 Mental, Behavioural and Neurodevelopmental Disorders.</i> Geneva: World Health Organization.</li>
+    <li><span class="tag tks">Kaplan &amp; Sadock</span> Sadock BJ, Sadock VA, Ruiz P. <i>Kaplan &amp; Sadock's Synopsis of Psychiatry</i> and <i>Comprehensive Textbook of Psychiatry</i> (etiology, psychological theories, clinical features, and treatment; content paraphrased).</li>
+    <li><span class="tag tother">Other evidence</span> Foundational psychological sources (Mowrer's two-factor theory; Bandura's vicarious learning; Seligman's preparedness; Clark's cognitive model of panic; Salkovskis and Rachman on OCD; Foa and Ehlers &amp; Clark on PTSD; the dual-process model of grief) and peer-reviewed epidemiological reviews.</li>
+  </ul>
+  <div class="warn"><b>Note on use.</b> This is an educational study reference for M.Phil. Clinical Psychology. Diagnostic criteria are paraphrased from the ICD sources without reproducing copyrighted text at length; secondary-source content has been rephrased for compliance with licensing restrictions. It is not a substitute for the full official classifications or for individual clinical and medical judgement, and it is not a prescribing guide.</div>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+</main>
+</div>
+
+<footer>
+  <p><strong>ICD-10 &amp; ICD-11 Comparative Clinical Handbook &mdash; F40&ndash;F49 Neurotic, Stress-Related and Somatoform Disorders</strong></p>
+  <p>Fully comprehensive edition &middot; every disorder and subtype detailed with its own ICD-10 &amp; ICD-11 criteria, includes/excludes, and differential diagnosis &middot; etiology (with psychological theories), epidemiology, comorbidities, mnemonics and treatment &middot; terminology explained in plain language.</p>
+  <p style="margin-top:14px;font-size:1rem;color:#fff;letter-spacing:.04em">Made by <strong>Tejas Dangodra</strong></p>
+</footer>
+
+</body>
+</html>

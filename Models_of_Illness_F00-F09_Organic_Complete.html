@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Models of Illness &amp; Etiology — F00–F09 Organic Disorders (Comprehensive, Illustrated)</title>
+<style>
+:root{
+  --deep:#0a2540;--accent:#0e6655;--icd10:#1a5276;--icd11:#1e8449;
+  --ks:#7d3c98;--other:#b9770e;--bg:#eef2f6;--card:#ffffff;
+  --ink:#1c2833;--muted:#5d6d7e;--line:#d5dbdb;--soft:#eaf2f8;
+  --warn:#922b21;--uniq:#6c3483;--surface:#fdfefe;--psych:#1f6f8b;--ddx:#0b6b5f;
+  --bio:#c0392b;--psy:#2e86c1;--soc:#1e8449;--amy:#8e44ad;--tau:#d35400;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.72;font-size:16px}
+.cover{background:linear-gradient(150deg,#0a2540 0%,#154360 35%,#0e6655 75%,#117a65 100%);color:#fff;padding:64px 30px 54px;text-align:center;position:relative;overflow:hidden}
+.cover::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 20% 30%,rgba(255,255,255,.08),transparent 40%),radial-gradient(circle at 80% 70%,rgba(255,255,255,.06),transparent 45%);pointer-events:none}
+.cover .subtitle{text-transform:uppercase;letter-spacing:.3em;font-size:.72rem;opacity:.75;margin-bottom:16px}
+.cover h1{font-size:2.1rem;font-weight:800;line-height:1.2;margin-bottom:12px;max-width:960px;display:inline-block;position:relative}
+.cover .tagline{font-size:1.05rem;opacity:.92;max-width:840px;margin:0 auto 22px;position:relative}
+.cover .chips{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-bottom:8px;position:relative}
+.cover .chip{background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.24);border-radius:20px;padding:6px 15px;font-size:.82rem}
+.cover .srcline{font-size:.8rem;opacity:.68;max-width:780px;margin:16px auto 0;position:relative}
+.wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+.layout{display:flex;gap:28px;align-items:flex-start}
+nav.toc{position:sticky;top:0;max-height:100vh;overflow-y:auto;flex:0 0 292px;padding:20px 12px 60px;font-size:.82rem;border-right:1px solid var(--line);background:var(--surface)}
+nav.toc h4{margin:18px 0 6px;color:var(--accent);text-transform:uppercase;font-size:.67rem;letter-spacing:.08em;font-weight:700}
+nav.toc a{display:block;color:var(--muted);text-decoration:none;padding:4px 10px;border-radius:6px;border-left:3px solid transparent;transition:all .15s}
+nav.toc a:hover{background:var(--soft);color:var(--icd10);border-left-color:var(--icd10)}
+nav.toc a.sub{padding-left:22px;font-size:.79rem}
+main{flex:1 1 auto;min-width:0;padding:28px 0 100px}
+section{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:28px 30px;margin:0 0 26px;scroll-margin-top:16px;box-shadow:0 1px 3px rgba(10,37,64,.05)}
+h2{font-size:1.44rem;color:var(--deep);border-bottom:3px solid var(--accent);padding-bottom:10px;margin-bottom:14px;font-weight:800}
+h3{font-size:1.1rem;color:var(--accent);margin:26px 0 8px;font-weight:700;padding-left:14px;border-left:4px solid var(--accent)}
+h4{font-size:.98rem;margin:16px 0 6px;font-weight:700;color:var(--deep)}
+p{margin:.55em 0}
+.tag{display:inline-block;font-size:.64rem;font-weight:700;padding:2px 9px;border-radius:4px;color:#fff;vertical-align:middle;letter-spacing:.02em}
+.t10{background:var(--icd10)}.t11{background:var(--icd11)}.tks{background:var(--ks)}.tother{background:var(--other)}
+.tnew{background:#117a65}.told{background:#7f8c8d}
+b.cl{color:var(--deep);font-weight:700}
+i.si{color:var(--uniq);font-style:normal;font-weight:500}
+table{border-collapse:collapse;width:100%;margin:16px 0;font-size:.88rem;border-radius:10px;overflow:hidden;box-shadow:0 0 0 1px var(--line)}
+th,td{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top}
+th{background:var(--deep);color:#fff;font-weight:600;font-size:.78rem;text-transform:uppercase;letter-spacing:.03em}
+tr:nth-child(even) td{background:#f8fafb}
+.note{border-left:5px solid var(--accent);background:var(--soft);padding:14px 18px;border-radius:0 10px 10px 0;margin:14px 0}
+.warn{border-left:5px solid var(--warn);background:#fdedec;padding:14px 18px;border-radius:0 10px 10px 0;margin:14px 0}
+.unique{border:2px solid var(--uniq);background:#f5eef8;border-radius:12px;padding:16px 20px;margin:16px 0}
+.unique h4{color:var(--uniq);margin:0 0 10px}
+.psych{border:2px solid var(--psych);background:#eaf4f7;border-radius:12px;padding:16px 20px;margin:16px 0}
+.psych h4{color:var(--psych);margin:0 0 10px}
+.remember{border:2px dashed #d4ac0d;background:#fef9e7;border-radius:12px;padding:16px 20px;margin:14px 0}
+.remember h4{color:#7d6608;margin:0 0 8px}
+ul.t,ol.t{margin:.5em 0;padding-left:1.3em}
+ul.t li,ol.t li{margin:.35em 0}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.top{text-align:right;font-size:.78rem;margin-top:10px}.top a{color:var(--muted);text-decoration:none}
+footer{background:var(--deep);color:#aeb6bf;padding:30px 22px;font-size:.86rem;text-align:center}
+footer strong{color:#fff}
+/* ── graphics ── */
+.bps{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:18px 0}
+.bps .col{border-radius:12px;padding:14px 16px;color:#fff}
+.bps .bio{background:linear-gradient(160deg,#c0392b,#e74c3c)}
+.bps .psy{background:linear-gradient(160deg,#2471a3,#3498db)}
+.bps .soc{background:linear-gradient(160deg,#1e8449,#27ae60)}
+.bps h5{font-size:.95rem;margin:0 0 6px;letter-spacing:.02em}
+.bps ul{list-style:none;padding:0;margin:0;font-size:.82rem}
+.bps li{padding:3px 0;border-top:1px solid rgba(255,255,255,.25)}
+.bps li:first-child{border-top:none}
+.cascade{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin:20px 0;align-items:stretch}
+.cascade.c4{grid-template-columns:repeat(4,1fr)}
+.cascade .step{background:#f2f6fa;border:1px solid var(--line);border-radius:10px;padding:14px 12px 14px;font-size:.83rem;line-height:1.5;text-align:left;position:relative;overflow-wrap:break-word;word-break:normal;hyphens:none}
+.cascade .step .n{display:block;font-weight:800;font-size:.72rem;letter-spacing:.05em;color:#fff;background:var(--deep);border-radius:20px;width:24px;height:24px;line-height:24px;text-align:center;margin-bottom:8px}
+.cascade .step b{color:var(--deep);white-space:normal}
+.cascade .step::after{content:"\2193";position:absolute;right:8px;bottom:6px;color:var(--accent);font-size:1rem;opacity:.55}
+.cascade .step:last-child::after{content:""}
+.cascade.amy .step{background:#f4ecf7}.cascade.amy .step .n{background:#8e44ad}
+.cascade.vas .step{background:#fdecea}.cascade.vas .step .n{background:#c0392b}
+.cascade.dlx .step{background:#eafaf1}.cascade.dlx .step .n{background:#1e8449}
+@media(min-width:721px){.cascade .step::after{content:"\2192";right:-9px;bottom:auto;top:50%;transform:translateY(-50%);font-size:1.3rem;opacity:.7}.cascade .step:last-child::after{content:""}}
+.bar{margin:10px 0}
+.bar .lab{font-size:.82rem;margin-bottom:3px;display:flex;justify-content:space-between}
+.bar .track{background:#e5eaee;border-radius:6px;height:20px;overflow:hidden}
+.bar .fill{height:100%;border-radius:6px;color:#fff;font-size:.7rem;line-height:20px;text-align:right;padding-right:6px;white-space:nowrap}
+.legend{display:flex;flex-wrap:wrap;gap:14px;font-size:.8rem;margin:8px 0}
+.legend span{display:inline-flex;align-items:center;gap:5px}
+.legend i{width:13px;height:13px;border-radius:3px;display:inline-block}
+figure{margin:18px 0;text-align:center}
+figure svg{max-width:100%;height:auto}
+figcaption{font-size:.8rem;color:var(--muted);margin-top:6px}
+.model{border:2px solid var(--psych);border-radius:12px;padding:16px 20px;margin:16px 0;background:#f4f9fb}
+.model h4{color:var(--psych);margin:0 0 8px}
+.evi{display:inline-block;font-size:.6rem;font-weight:700;padding:2px 7px;border-radius:10px;color:#fff;vertical-align:middle;letter-spacing:.03em}
+.evi-strong{background:#1e8449}.evi-mod{background:#b9770e}.evi-emerg{background:#7d3c98}
+.ref{font-size:.82rem;color:var(--muted)}
+.ref a{color:var(--icd10)}
+@media(max-width:720px){.layout{display:block}nav.toc{position:static;border-right:none;border-bottom:1px solid var(--line);max-height:none;flex:none}.g2,.bps{grid-template-columns:1fr}.cover h1{font-size:1.5rem}.cascade,.cascade.c4{grid-template-columns:1fr}}
+@media print{nav.toc{display:none}body{background:#fff}section{box-shadow:none;break-inside:avoid}footer{background:#fff;color:#333}}
+</style>
+</head>
+<body>
+<a id="top"></a>
+
+<div class="cover">
+  <p class="subtitle">M.Phil. Clinical Psychology &mdash; Etiology &amp; Models of Illness</p>
+  <h1>Models of Illness &amp; Causation<br>F00&ndash;F09: Organic (incl. Symptomatic) Mental Disorders</h1>
+  <p class="tagline">A comprehensive, illustrated account of <b>why these disorders happen</b> &mdash; the biological, psychological and social models of causation for every F00&ndash;F09 subdisorder, integrating classic hypotheses with the latest research (2023&ndash;2026). Written in plain language (difficult terms explained in brackets) and designed with diagrams, cascades, bar charts and model boxes.</p>
+  <div class="chips">
+    <span class="chip">Every F00&ndash;F09 subdisorder</span>
+    <span class="chip">Old + latest research models</span>
+    <span class="chip">Biopsychosocial framing</span>
+    <span class="chip">Illustrated: cascades, charts, diagrams</span>
+    <span class="chip">Plain language, terms in brackets</span>
+  </div>
+  <p class="srcline">Etiology synthesised from peer-reviewed reviews (Nature, PMC/NIH, Springer, Frontiers, 2019&ndash;2026) and classic hypotheses, alongside standard textbooks: <b>Kaplan &amp; Sadock's Synopsis / Comprehensive Textbook of Psychiatry</b>, the <b>Oxford Textbook of Psychiatry / Old Age Psychiatry</b>, and <b>Neeraj Ahuja, A Short Textbook of Psychiatry</b>; ICD-10/ICD-11 for classification. Full inline citations in each section. Educational reference &mdash; not diagnostic or treatment advice.</p>
+</div>
+
+<div class="wrap layout">
+<nav class="toc">
+  <h4>Foundations</h4>
+  <a href="#intro">What &ldquo;models of illness&rdquo; means</a>
+  <a href="#bps">The biopsychosocial frame</a>
+  <a href="#organic-common">Common organic mechanisms</a>
+  <a href="#genetic-models">The genetic models</a>
+  <a href="#brain-models">The brain-anatomy models</a>
+  <a href="#psych-models">The psychological models</a>
+  <a href="#evidence">How to read the evidence</a>
+  <h4>F00 Alzheimer's dementia</h4>
+  <a href="#f00">F00 &middot; Overview &amp; models</a>
+  <a class="sub" href="#f00-amyloid">Amyloid cascade</a>
+  <a class="sub" href="#f00-tau">Tau &amp; other hypotheses</a>
+  <a class="sub" href="#f00-subtypes">F00.0&ndash;F00.9 subtypes</a>
+  <h4>F01 Vascular dementia</h4>
+  <a href="#f01">F01 &middot; Models &amp; subtypes</a>
+  <h4>F02 Dementia in other diseases</h4>
+  <a href="#f02">F02 &middot; Overview</a>
+  <a class="sub" href="#f02-pick">F02.0 Pick / FTD</a>
+  <a class="sub" href="#f02-cjd">F02.1 Creutzfeldt-Jakob</a>
+  <a class="sub" href="#f02-hunt">F02.2 Huntington</a>
+  <a class="sub" href="#f02-park">F02.3 Parkinson / Lewy body</a>
+  <a class="sub" href="#f02-hiv">F02.4 HIV</a>
+  <a class="sub" href="#f02-other">F02.8 Others</a>
+  <h4>F03 &amp; F04</h4>
+  <a href="#f03">F03 &middot; Unspecified dementia</a>
+  <a href="#f04">F04 &middot; Amnesic syndrome</a>
+  <h4>F05 Delirium</h4>
+  <a href="#f05">F05 &middot; Models &amp; factors</a>
+  <h4>F06 Other organic</h4>
+  <a href="#f06">F06 &middot; Overview</a>
+  <a class="sub" href="#f06-sub">F06.0&ndash;F06.9 subtypes</a>
+  <h4>F07 &amp; F09</h4>
+  <a href="#f07">F07 &middot; Personality/behaviour</a>
+  <a href="#f09">F09 &middot; Unspecified</a>
+  <h4>Reference</h4>
+  <a href="#synthesis">Cross-cluster synthesis</a>
+  <a href="#references">References</a>
+</nav>
+<main>
+
+
+<!-- ══════ INTRO ══════ -->
+<section id="intro">
+  <h2>What a &ldquo;model of illness&rdquo; means</h2>
+  <p>A <b class="cl">model of illness</b> is a way of <b>explaining why a disorder happens</b> &mdash; what causes it, what makes it more likely, and how those causes lead, step by step, to the symptoms. For each disorder we ask three linked questions:</p>
+  <ul class="t">
+    <li><b>Etiology</b> (the cause) &mdash; the underlying disease or root cause (e.g. a specific brain protein building up).</li>
+    <li><b>Pathophysiology</b> (how it damages the body) &mdash; the chain of biological events from the cause to the symptoms (the &ldquo;mechanism&rdquo;).</li>
+    <li><b>Risk / causal factors</b> &mdash; the things (genes, age, lifestyle, environment) that raise or lower the chance of getting the illness.</li>
+  </ul>
+  <div class="note"><b>The F00&ndash;F09 group is special.</b> These are the <b>&ldquo;organic&rdquo;</b> mental disorders &mdash; <i>organic</i> means they have a <b>known physical cause in the brain or body</b> (a disease, injury, toxin or chemical upset), rather than being &ldquo;functional&rdquo; disorders where no single physical lesion is found. So for this cluster the models are strongly <b>biological</b>, but psychological and social factors still shape <b>who develops them, how fast, and how severe</b>.</p></div>
+  <div class="warn"><b>Plain-language promise &amp; scope.</b> Difficult terms are explained in brackets the first time they appear. This is an <b>educational</b> synthesis of research for study; it is not medical, diagnostic or treatment advice. It covers <b>etiology/models</b> &mdash; classification detail lives in the separate F00&ndash;F09 ICD-10/ICD-11 handbook.</p></div>
+</section>
+
+<!-- ══════ BPS ══════ -->
+<section id="bps">
+  <h2>The biopsychosocial frame &mdash; the master model</h2>
+  <p>Almost every modern model of any mental disorder uses the <b class="cl">biopsychosocial model</b> (Engel, 1977): illness arises from the interaction of <b>biological</b>, <b>psychological</b> and <b>social</b> factors, not one alone. Even for &ldquo;organic&rdquo; brain disease, this frame explains why two people with the same brain pathology can have very different outcomes.</p>
+  <div class="bps">
+    <div class="col bio"><h5>BIOLOGICAL</h5>
+      <ul>
+        <li>Genes &amp; inheritance</li>
+        <li>Abnormal proteins (amyloid, tau, &alpha;-synuclein)</li>
+        <li>Blood-vessel &amp; blood-flow damage</li>
+        <li>Inflammation &amp; oxidative stress</li>
+        <li>Neurotransmitter (brain-chemical) imbalance</li>
+        <li>Infection, toxins, injury, metabolic upset</li>
+      </ul>
+    </div>
+    <div class="col psy"><h5>PSYCHOLOGICAL</h5>
+      <ul>
+        <li>&ldquo;Cognitive reserve&rdquo; (mental resilience built over life)</li>
+        <li>Education &amp; lifelong mental activity</li>
+        <li>Personality &amp; coping style</li>
+        <li>Depression, stress, sleep</li>
+        <li>Prior cognitive ability</li>
+        <li>Illness beliefs &amp; response to symptoms</li>
+      </ul>
+    </div>
+    <div class="col soc"><h5>SOCIAL</h5>
+      <ul>
+        <li>Education &amp; socioeconomic status</li>
+        <li>Social isolation vs support</li>
+        <li>Air pollution &amp; environment</li>
+        <li>Access to healthcare</li>
+        <li>Diet, exercise, alcohol, smoking</li>
+        <li>Occupational &amp; head-injury exposure</li>
+      </ul>
+    </div>
+  </div>
+  <div class="unique"><h4>Cognitive reserve &mdash; the single most useful psychosocial idea here</h4><p><b>Cognitive reserve</b> means the brain's built-up &ldquo;spare capacity&rdquo; &mdash; from education, mentally demanding work and an active social/intellectual life &mdash; that lets a person <b>tolerate more brain damage before symptoms appear</b>. Two brains can have the same amount of Alzheimer's pathology, yet the one with higher reserve stays functional longer. This is why the same biological disease produces different clinical pictures, and why <b>education and lifelong mental activity are protective</b>.</p></div>
+</section>
+
+<!-- ══════ ORGANIC COMMON ══════ -->
+<section id="organic-common">
+  <h2>The common biological mechanisms behind F00&ndash;F09</h2>
+  <p>Across the organic cluster, a small set of mechanisms recur. Recognising them makes every individual disorder easier to understand &mdash; most dementias are a specific combination of these.</p>
+  <table>
+    <tr><th>Mechanism (plain meaning)</th><th>What goes wrong</th><th>Which F00&ndash;F09 disorders</th></tr>
+    <tr><td><b>Proteinopathy</b> (a protein misfolds and clumps)</td><td>A normal brain protein changes shape, sticks together and becomes toxic, killing neurons (nerve cells)</td><td>Alzheimer (amyloid, tau); Lewy body/Parkinson (&alpha;-synuclein); FTD (tau, TDP-43); prion (CJD)</td></tr>
+    <tr><td><b>Vascular injury</b> (blood-supply damage)</td><td>Strokes, or chronic damage to small brain vessels, starve brain tissue of oxygen</td><td>Vascular dementia (F01)</td></tr>
+    <tr><td><b>Neuroinflammation</b> (the brain's immune cells over-activate)</td><td>Microglia (the brain's clean-up/immune cells) release harmful chemicals that damage neurons</td><td>Shared amplifier in Alzheimer, vascular, delirium, HIV</td></tr>
+    <tr><td><b>Neurotransmitter imbalance</b> (brain-messenger chemicals disrupted)</td><td>Loss of acetylcholine (memory/attention messenger) or dopamine; excess/deficit of others</td><td>Alzheimer (cholinergic loss); delirium (cholinergic deficit + dopamine excess); Parkinson (dopamine loss)</td></tr>
+    <tr><td><b>Oxidative &amp; mitochondrial stress</b> (cell &ldquo;power stations&rdquo; fail; damaging molecules build up)</td><td>Energy failure and toxic free radicals injure neurons</td><td>Alzheimer, Parkinson/Lewy body, delirium</td></tr>
+    <tr><td><b>Direct insult</b> (infection, toxin, injury, metabolic upset)</td><td>An outside agent or body-chemistry problem directly disturbs the brain</td><td>Delirium (F05), HIV dementia (F02.4), amnesic &amp; other organic syndromes (F04, F06), symptomatic states</td></tr>
+  </table>
+  <div class="note"><b>&ldquo;Mixed pathology&rdquo; is the rule, not the exception.</b> Recent large brain-bank studies show that most older people with dementia have <b>more than one</b> of these processes at once (e.g. Alzheimer + vascular + Lewy body together). So the neat ICD categories are, biologically, often overlapping &mdash; a key modern insight (Continuum 2022; Mayo Clinic reviews 2023&ndash;2025).</p></div>
+</section>
+
+<!-- ══════ GENETIC MODELS ══════ -->
+<section id="genetic-models">
+  <h2>The genetic models &mdash; what is inherited across F00&ndash;F09</h2>
+  <p>Genetics (the instructions we inherit in our DNA) shape almost every disorder in this cluster, but in very different ways. It helps to sort them into three genetic patterns (Kaplan &amp; Sadock, <i>Synopsis of Psychiatry</i>; Neeraj Ahuja, <i>A Short Textbook of Psychiatry</i>; Oxford <i>Textbook of Psychiatry</i>):</p>
+  <ul class="t">
+    <li><b>Deterministic (single-gene) genes</b> &mdash; a fault in <b>one</b> gene <b>guarantees</b> the disease. Rare, but certain (e.g. Huntington's; the familial early-onset Alzheimer genes).</li>
+    <li><b>Susceptibility (risk) genes</b> &mdash; a gene variant <b>raises the odds</b> but does not guarantee the disease (e.g. the <b>APOE-&epsilon;4</b> variant in Alzheimer's). Most common.</li>
+    <li><b>Polygenic risk</b> &mdash; <b>many</b> small gene effects add up (measured as a &ldquo;polygenic risk score&rdquo;), interacting with lifestyle and age.</li>
+  </ul>
+  <table>
+    <tr><th>Disorder</th><th>Gene(s)</th><th>Genetic model &amp; heritability (plain)</th></tr>
+    <tr><td><b>F00 Early-onset Alzheimer</b> (&lt;65 yrs)</td><td><b>APP</b> (chromosome 21), <b>PSEN1</b>, <b>PSEN2</b></td><td><b>Deterministic, autosomal dominant</b> (one faulty copy from either parent &rarr; ~50% chance in children; disease near-certain). These push up amyloid production. Rare (a small % of all AD) but the model that proved amyloid matters. <span class="tag tks">K&amp;S</span></td></tr>
+    <tr><td><b>F00 Late-onset Alzheimer</b> (&gt;65 yrs)</td><td><b>APOE-&epsilon;4</b> (chromosome 19) + dozens of polygenic loci (TREM2, CLU, etc.)</td><td><b>Susceptibility + polygenic.</b> One copy of APOE-&epsilon;4 roughly <b>triples</b> risk; two copies raise it much more &mdash; but many carriers never develop AD, and many patients carry none. APOE-&epsilon;2 is <b>protective</b>. Overall heritability of AD is high (~60&ndash;80% from twin studies). <span class="tag tnew">latest</span></td></tr>
+    <tr><td><b>F02.2 Huntington</b></td><td><b>HTT</b> (chromosome 4) &mdash; expanded CAG repeat</td><td><b>Fully deterministic, autosomal dominant.</b> If you carry the expansion you <b>will</b> develop it; children have a 50% chance. The clearest single-gene model in psychiatry. <span class="tag tks">K&amp;S</span></td></tr>
+    <tr><td><b>F02.0 Frontotemporal dementia</b></td><td><b>MAPT</b> (tau), <b>GRN</b> (progranulin), <b>C9orf72</b></td><td><b>Strongly familial</b> &mdash; up to ~30&ndash;40% have a family history; several single-gene forms. C9orf72 links FTD with motor neurone disease. <span class="tag tnew">latest</span></td></tr>
+    <tr><td><b>F02.1 CJD (genetic form)</b></td><td><b>PRNP</b> (prion protein gene)</td><td>Genetic CJD is autosomal dominant; most CJD, though, is sporadic (no inherited cause).</td></tr>
+    <tr><td><b>F02.3 Parkinson / Lewy body</b></td><td><b>SNCA</b> (&alpha;-synuclein), <b>LRRK2</b>, <b>GBA</b>, <b>APOE</b></td><td>Mostly <b>susceptibility/polygenic</b>; some rare single-gene families. GBA and APOE variants raise dementia risk in Parkinson's. <span class="tag tnew">latest</span></td></tr>
+    <tr><td><b>F01 Vascular dementia</b></td><td><b>NOTCH3</b> (causes CADASIL); vascular-risk gene variants</td><td>Mostly the <b>inheritance of vascular risk</b> (blood pressure, diabetes, cholesterol tendencies); rare single-gene small-vessel disease (CADASIL). <span class="tag tnew">latest</span></td></tr>
+    <tr><td><b>F04 / F05 / F06 / F07</b></td><td>&mdash;</td><td>Largely <b>acquired</b> (deficiency, toxins, infection, injury, medical illness) rather than inherited &mdash; though genes influence <b>vulnerability</b> (e.g. who gets delirium, alcohol-metabolism genes in Korsakoff).</td></tr>
+  </table>
+  <div class="unique"><h4>The crucial gene&times;environment idea</h4><p>Genes are rarely destiny (except the deterministic ones). For the common disorders, a <b>risk gene loads the dice, but lifestyle, education and vascular health decide the throw</b>. Cohort studies show that <b>high cognitive reserve can blunt even genetic (APOE-&epsilon;4) risk</b> &mdash; i.e. &ldquo;gene &times; environment interaction&rdquo; (PMC cohort 2019; Frontiers <i>Aging Neurosci</i> 2019 <span class="tag tnew">latest</span>).</p></div>
+</section>
+
+<!-- ══════ BRAIN MODELS ══════ -->
+<section id="brain-models">
+  <h2>The brain-anatomy models &mdash; where the damage is, and why the symptoms follow</h2>
+  <p>A powerful idea runs through this whole cluster: <b>the symptoms tell you where the brain is damaged</b>. Each disorder attacks particular regions in a particular order, and each region has a job &mdash; so the pattern of loss predicts the pattern of symptoms.</p>
+
+  <figure>
+    <svg viewBox="0 0 760 220" role="img" aria-label="Braak staging: how Alzheimer's spreads through the brain">
+      <text x="30" y="26" font-size="14" font-weight="bold" fill="#0a2540">How Alzheimer's spreads through the brain (Braak stages) &mdash; and what each stage does</text>
+      <rect x="30" y="50" width="165" height="120" rx="10" fill="#f9e6ef" stroke="#8e44ad"/>
+      <text x="112" y="74" font-size="12" font-weight="bold" text-anchor="middle" fill="#8e44ad">Stage 1&ndash;2</text>
+      <text x="112" y="96" font-size="11" text-anchor="middle" fill="#1c2833">Entorhinal cortex</text>
+      <text x="112" y="112" font-size="11" text-anchor="middle" fill="#1c2833">&amp; hippocampus</text>
+      <text x="112" y="140" font-size="10.5" text-anchor="middle" fill="#5d6d7e">(memory gateway)</text>
+      <text x="112" y="158" font-size="10.5" text-anchor="middle" fill="#5d6d7e">&rarr; early memory loss</text>
+      <text x="205" y="115" font-size="22" fill="#0a2540">&rarr;</text>
+      <rect x="230" y="50" width="165" height="120" rx="10" fill="#fdeee2" stroke="#d35400"/>
+      <text x="312" y="74" font-size="12" font-weight="bold" text-anchor="middle" fill="#d35400">Stage 3&ndash;4</text>
+      <text x="312" y="96" font-size="11" text-anchor="middle" fill="#1c2833">Limbic areas &amp;</text>
+      <text x="312" y="112" font-size="11" text-anchor="middle" fill="#1c2833">temporal lobe</text>
+      <text x="312" y="140" font-size="10.5" text-anchor="middle" fill="#5d6d7e">(emotion, memory)</text>
+      <text x="312" y="158" font-size="10.5" text-anchor="middle" fill="#5d6d7e">&rarr; mood, worse memory</text>
+      <text x="405" y="115" font-size="22" fill="#0a2540">&rarr;</text>
+      <rect x="430" y="50" width="165" height="120" rx="10" fill="#fdecea" stroke="#c0392b"/>
+      <text x="512" y="74" font-size="12" font-weight="bold" text-anchor="middle" fill="#c0392b">Stage 5&ndash;6</text>
+      <text x="512" y="96" font-size="11" text-anchor="middle" fill="#1c2833">Neocortex</text>
+      <text x="512" y="112" font-size="11" text-anchor="middle" fill="#1c2833">(whole outer brain)</text>
+      <text x="512" y="140" font-size="10.5" text-anchor="middle" fill="#5d6d7e">(language, reason,</text>
+      <text x="512" y="158" font-size="10.5" text-anchor="middle" fill="#5d6d7e">personality) &rarr; full dementia</text>
+      <text x="605" y="115" font-size="22" fill="#0a2540">&rarr;</text>
+      <rect x="630" y="50" width="105" height="120" rx="10" fill="#eef2f6" stroke="#5d6d7e"/>
+      <text x="682" y="100" font-size="11" text-anchor="middle" fill="#1c2833">Severe,</text>
+      <text x="682" y="118" font-size="11" text-anchor="middle" fill="#1c2833">global</text>
+      <text x="682" y="136" font-size="11" text-anchor="middle" fill="#1c2833">dementia</text>
+    </svg>
+    <figcaption>Braak &amp; Braak staging: tau pathology begins in the <b>entorhinal cortex</b> (the &ldquo;doorway&rdquo; to memory) and hippocampus, then spreads outward &mdash; which is exactly why memory fails first and personality/language later. (Braak 1991, classic; PMC 2021&ndash;2025 updates.)</figcaption>
+  </figure>
+
+  <table>
+    <tr><th>Brain region (plain job)</th><th>What it normally does</th><th>Which F00&ndash;F09 disorder hits it &rarr; symptom</th></tr>
+    <tr><td><b>Hippocampus</b> (memory factory)</td><td>Forms new memories</td><td>Alzheimer &amp; amnesic syndrome &rarr; <b>can't form new memories</b></td></tr>
+    <tr><td><b>Entorhinal cortex</b> (memory gateway)</td><td>Feeds information into the hippocampus</td><td>Alzheimer starts here &rarr; <b>earliest memory sign</b></td></tr>
+    <tr><td><b>Frontal lobes</b> (the &ldquo;boss&rdquo;)</td><td>Planning, judgement, impulse control, personality</td><td>FTD &amp; organic personality disorder (F07) &rarr; <b>personality change, disinhibition</b></td></tr>
+    <tr><td><b>Temporal lobes (side)</b></td><td>Language, meaning, memory</td><td>FTD (language variant), Alzheimer &rarr; <b>word-finding &amp; comprehension loss</b></td></tr>
+    <tr><td><b>Basal ganglia</b> (movement gearbox)</td><td>Smooth, controlled movement</td><td>Huntington &rarr; <b>chorea</b>; Parkinson &rarr; <b>slowness/tremor</b></td></tr>
+    <tr><td><b>Substantia nigra</b> (dopamine factory)</td><td>Makes dopamine for movement</td><td>Parkinson/Lewy &rarr; <b>parkinsonism</b></td></tr>
+    <tr><td><b>Cholinergic nucleus (nucleus basalis)</b></td><td>Supplies acetylcholine for memory/attention</td><td>Alzheimer &rarr; <b>memory/attention loss</b> (basis of the drugs)</td></tr>
+    <tr><td><b>Mammillary bodies &amp; thalamus</b> (memory relay)</td><td>Part of the Papez memory circuit</td><td>Korsakoff (F04) &rarr; <b>dense amnesia + confabulation</b></td></tr>
+    <tr><td><b>White matter &amp; small vessels</b></td><td>The brain's &ldquo;wiring&rdquo; and its blood supply</td><td>Vascular dementia (F01) &rarr; <b>slowed thinking, executive &amp; gait problems</b></td></tr>
+    <tr><td><b>Diffuse cortex / networks</b></td><td>Overall integrated function</td><td>Delirium (F05) &rarr; <b>global, fluctuating inattention</b></td></tr>
+  </table>
+  <div class="remember"><h4>Remember the brain rule</h4><p>&ldquo;<b>The site of the damage writes the symptom.</b>&rdquo; Memory-region damage &rarr; amnesia (Alzheimer, Korsakoff); frontal damage &rarr; personality change (FTD, F07); movement-region damage &rarr; chorea/parkinsonism (Huntington, Parkinson); whole-brain chemical upset &rarr; delirium.</p></div>
+</section>
+
+<!-- ══════ PSYCHOLOGICAL MODELS ══════ -->
+<section id="psych-models">
+  <h2>The psychological models &mdash; why the mind is not just a passenger</h2>
+  <p>Even in &ldquo;organic&rdquo; brain disease, <b>psychological factors decide who shows symptoms, when, and how badly.</b> These are genuine causal/modifying models, strongly evidenced (Oxford <i>Textbook of Old Age Psychiatry</i>; Kaplan &amp; Sadock; PMC reviews 2020&ndash;2025).</p>
+
+  <div class="model"><h4>1. Cognitive-reserve model <span class="evi evi-strong">STRONG</span></h4>
+    <p class="ref"><span class="tag told">classic</span> Stern 2002 &middot; <span class="tag tnew">latest</span> PMC/Frontiers 2019&ndash;2025</p>
+    <p><b>Cognitive reserve</b> = the brain's built-up &ldquo;spare capacity&rdquo; (mental resilience) from education, mentally demanding work, bilingualism and an active social/intellectual life. Higher reserve lets a person <b>tolerate more brain damage before symptoms appear</b> &mdash; two people with identical pathology can look very different. Evidence: education strongly predicts <b>later</b> dementia onset; a systematic review confirms low education raises dementia risk. This is the single most important psychological model here, and it turns learning and staying mentally active into <b>protective factors</b>.</p>
+  </div>
+  <div class="model"><h4>2. Depression &amp; chronic-stress model <span class="evi evi-mod">MODERATE / rising</span></h4>
+    <p class="ref"><span class="tag tnew">latest</span> PMC 2020&ndash;2024</p>
+    <p>Long-standing <b>depression</b> is both an <b>early warning sign (prodrome)</b> of dementia and an independent <b>risk factor</b>. The proposed mechanism: chronic stress raises <b>cortisol</b> (the stress hormone), which is <b>toxic to the hippocampus</b> (the memory factory) over years, and depression reduces mentally-stimulating activity (lowering reserve). So mood and stress feed back into the biology.</p>
+  </div>
+  <div class="model"><h4>3. The &ldquo;use-it-or-lose-it&rdquo; / lifestyle-activity model <span class="evi evi-mod">MODERATE</span></h4>
+    <p>Sustained mental, physical and social activity appears to <b>build and maintain</b> neural networks and reserve, while <b>social isolation and inactivity</b> accelerate decline &mdash; a psychological&ndash;social loop that directly modifies the biological trajectory.</p>
+  </div>
+  <div class="model"><h4>4. Psychological reaction &amp; &ldquo;excess disability&rdquo; model <span class="evi evi-mod">MODERATE</span></h4>
+    <p>How a person (and their family) <b>reacts</b> to early symptoms changes the outcome. Anxiety, withdrawal, loss of confidence and a stressful environment can produce <b>&ldquo;excess disability&rdquo;</b> &mdash; more impairment than the brain damage alone would cause. Good psychological support, routine and a calm environment reduce it. This is central to delirium and dementia care.</p>
+  </div>
+  <div class="model"><h4>5. Gene &times; psychosocial interaction <span class="evi evi-emerg">EMERGING</span></h4>
+    <p class="ref"><span class="tag tnew">latest</span> Frontiers <i>Aging Neurosci</i> 2019; cohort studies</p>
+    <p>The newest, most integrative model: psychological factors (education, leisure, depression) <b>interact with</b> genetic susceptibility (e.g. APOE-&epsilon;4). The same lifestyle change may help a gene-carrier more (or differently) than a non-carrier &mdash; biology and psychology are not separate tracks but a single interacting system.</p>
+  </div>
+  <div class="unique"><h4>The bottom line for the psychological models</h4><p>For F00&ndash;F09 the mind is <b>not just a passive victim of the brain</b>. Reserve, mood, stress, activity and reaction each <b>shift the threshold</b> at which brain pathology becomes clinical illness &mdash; which is why prevention and psychosocial care genuinely change outcomes even in &ldquo;organic&rdquo; disease.</p></div>
+</section>
+
+<!-- ══════ EVIDENCE ══════ -->
+<section id="evidence">
+  <h2>How to read the evidence tags in this handbook</h2>
+  <p>Each model is tagged so you can see how well-supported it is:</p>
+  <div class="legend">
+    <span><i style="background:#1e8449"></i> <b><span class="evi evi-strong">STRONG</span></b> well-replicated, mainstream</span>
+    <span><i style="background:#b9770e"></i> <b><span class="evi evi-mod">MODERATE</span></b> supported but debated</span>
+    <span><i style="background:#7d3c98"></i> <b><span class="evi evi-emerg">EMERGING</span></b> newer / still being tested</span>
+  </div>
+  <p class="ref">Citations are given inline as <span class="tag tnew">latest</span> (2023&ndash;2026 reviews) or <span class="tag told">classic</span> (foundational older work), with the source listed in the References section.</p>
+</section>
+
+
+<!-- ══════ F00 ALZHEIMER ══════ -->
+<section id="f00">
+  <h2>F00 &middot; Dementia in Alzheimer's disease &mdash; models of causation</h2>
+  <p>Alzheimer's disease (AD) is the commonest cause of dementia (a progressive loss of memory and thinking severe enough to affect daily life). Its causation is now understood as a <b>multi-hypothesis, cascade</b> problem &mdash; several linked processes, unfolding over 15&ndash;20 years <b>before</b> symptoms appear. No single hypothesis fully explains it, and the field increasingly favours an <b>integrated</b> model (Springer <i>Mol Neurobiol</i> 2025 <span class="tag tnew">latest</span>).</p>
+
+  <figure>
+    <svg viewBox="0 0 760 150" role="img" aria-label="Alzheimer timeline from silent pathology to dementia">
+      <line x1="30" y1="100" x2="730" y2="100" stroke="#0a2540" stroke-width="3"/>
+      <polygon points="730,100 718,94 718,106" fill="#0a2540"/>
+      <circle cx="120" cy="100" r="7" fill="#8e44ad"/><text x="120" y="128" font-size="12" text-anchor="middle" fill="#1c2833">Amyloid builds up</text><text x="120" y="80" font-size="11" text-anchor="middle" fill="#8e44ad">~15&ndash;20 yrs before</text>
+      <circle cx="320" cy="100" r="7" fill="#d35400"/><text x="320" y="128" font-size="12" text-anchor="middle" fill="#1c2833">Tau tangles spread</text><text x="320" y="80" font-size="11" text-anchor="middle" fill="#d35400">~5&ndash;10 yrs before</text>
+      <circle cx="500" cy="100" r="7" fill="#b9770e"/><text x="500" y="128" font-size="12" text-anchor="middle" fill="#1c2833">Neurons die, brain shrinks</text>
+      <circle cx="670" cy="100" r="7" fill="#c0392b"/><text x="670" y="128" font-size="12" text-anchor="middle" fill="#1c2833">Dementia (symptoms)</text>
+      <text x="30" y="40" font-size="13" font-weight="bold" fill="#0a2540">The Alzheimer's timeline &mdash; the disease starts silently, long before memory fails</text>
+    </svg>
+    <figcaption>Pathology accumulates for years while the person is symptom-free (the &ldquo;preclinical&rdquo; phase), thanks partly to cognitive reserve. Adapted from current AD staging models (PMC 2024&ndash;2025).</figcaption>
+  </figure>
+
+  <h3>The hallmark pathology (what is found in the brain)</h3>
+  <p>Two microscopic hallmarks define AD (Nature/PMC reviews 2024&ndash;2025 <span class="tag tnew">latest</span>; Kaplan &amp; Sadock <span class="tag tks">K&amp;S</span>):</p>
+  <ul class="t">
+    <li><b>Amyloid-beta plaques</b> &mdash; sticky clumps of a protein fragment (amyloid-beta, or A&beta;) that build up <b>between</b> the neurons (nerve cells).</li>
+    <li><b>Neurofibrillary tangles</b> &mdash; twisted threads of a protein called <b>tau</b> that build up <b>inside</b> neurons when tau becomes &ldquo;hyperphosphorylated&rdquo; (over-loaded with phosphate tags &mdash; chemical labels &mdash; which makes it fall off its normal scaffold and clump).</li>
+    <li><b>Granulovacuolar degeneration</b> and <b>loss of synapses</b> (the connections between cells) &mdash; the synapse loss actually correlates best with how bad the memory problems are.</li>
+  </ul>
+
+  <h3>The genetics of Alzheimer's (in detail)</h3>
+  <p class="ref"><span class="tag tks">K&amp;S / Ahuja / Oxford</span> &middot; <span class="tag tnew">latest</span> APOE &amp; polygenic reviews</p>
+  <p>AD is one of the most heritable common disorders &mdash; twin studies estimate heritability around <b>60&ndash;80%</b> (a large share of who gets it is explained by genes). But this splits into two very different stories:</p>
+  <ul class="t">
+    <li><b>Early-onset familial AD (rare, &lt;5%):</b> caused by <b>deterministic</b> single-gene mutations &mdash; <b>APP</b> (amyloid precursor protein gene, chromosome 21), <b>PSEN1</b> and <b>PSEN2</b> (presenilin genes). Each is <b>autosomal dominant</b> (one faulty copy causes disease; children have ~50% risk). All three <b>increase amyloid-beta production</b> &mdash; which is why they were the proof that amyloid is central. <b>Down syndrome</b> (an extra chromosome 21, carrying an extra APP gene) causes almost universal early AD pathology &mdash; a natural experiment supporting the amyloid model.</li>
+    <li><b>Late-onset AD (the common form):</b> driven by <b>susceptibility</b> and <b>polygenic</b> risk. The big one is <b>APOE</b> (apolipoprotein E, chromosome 19): the <b>&epsilon;4</b> variant roughly <b>triples</b> risk with one copy and much more with two (it impairs the <b>clearance</b> of amyloid); the <b>&epsilon;2</b> variant is <b>protective</b>. Dozens of other small-effect genes (TREM2 &rarr; microglia/inflammation, CLU, etc.) add up into a &ldquo;polygenic risk score&rdquo;. Crucially, APOE-&epsilon;4 is a <b>risk factor, not a guarantee</b> &mdash; many carriers never get AD.</li>
+  </ul>
+
+  <h3>Which brain regions, in which order (the anatomy)</h3>
+  <p>AD follows the <b>Braak staging</b> pattern (see the diagram in the brain-models section). Tau tangles begin in the <b>entorhinal cortex</b> (the &ldquo;doorway&rdquo; feeding the memory factory) and <b>hippocampus</b> (the memory factory itself) &mdash; which is why <b>short-term memory fails first</b>. The damage then spreads outward to the limbic system (emotion) and finally the whole <b>neocortex</b> (the outer brain governing language, reasoning and personality), giving the late picture of global dementia. The <b>cholinergic nucleus basalis</b> (which supplies acetylcholine, the memory/attention messenger) degenerates early &mdash; the basis of cholinesterase-inhibitor drugs.</p>
+</section>
+
+<section id="f00-amyloid">
+  <h2>&middot; The amyloid cascade hypothesis <span class="evi evi-strong">STRONG (but debated)</span></h2>
+  <p class="ref"><span class="tag told">classic</span> Hardy &amp; Higgins 1992 &middot; <span class="tag tnew">latest</span> integrated reviews PMC 2024&ndash;2025</p>
+  <p>The <b>amyloid cascade hypothesis</b> is the most influential model. In plain terms: the <b>build-up of amyloid-beta is the first domino</b> that sets off everything else.</p>
+  <div class="cascade amy">
+    <div class="step"><span class="n">1</span>A normal brain protein (APP) is cut in the wrong way, making too much <b>amyloid-beta</b> (a sticky protein fragment).</div>
+    <div class="step"><span class="n">2</span>Amyloid-beta clumps together into <b>plaques</b> (deposits sitting between the nerve cells).</div>
+    <div class="step"><span class="n">3</span>This triggers <b>tau tangles</b> (twisted threads inside nerve cells) plus <b>inflammation</b> (immune over-activation).</div>
+    <div class="step"><span class="n">4</span><b>Synapses</b> (the junctions where nerve cells talk to each other) fail, and neurons start to die.</div>
+    <div class="step"><span class="n">5</span>The brain shrinks (atrophy) &rarr; <b>memory loss and dementia</b>.</div>
+  </div>
+  <div class="note"><b>Why it matters &amp; why it's debated.</b> This hypothesis drove the new <b>anti-amyloid antibody drugs</b> (lecanemab, donanemab) that clear plaques and modestly slow decline &mdash; strong support that amyloid is causal. But amyloid removal only <b>slows</b>, not stops, the disease, and some people have heavy amyloid without dementia &mdash; so amyloid is necessary but <b>not sufficient</b> alone. Hence the shift to integrated models (PMC 2024; Springer 2025 <span class="tag tnew">latest</span>).</p></div>
+</section>
+
+<section id="f00-tau">
+  <h2>&middot; Tau, inflammation, cholinergic &amp; other hypotheses</h2>
+  <div class="model"><h4>Tau / tauopathy hypothesis <span class="evi evi-strong">STRONG</span></h4>
+    <p class="ref"><span class="tag tnew">latest</span> <i>Targeting tau in AD</i> PMC 2023</p>
+    <p>Tau tangles correlate with symptoms <b>better than amyloid does</b>: the <b>spread of tau</b> through the brain tracks closely with where and when neurons die and which abilities are lost. Many now see amyloid as the <b>trigger</b> and tau as the <b>executioner</b> that actually spreads the damage (tau can propagate cell-to-cell, &ldquo;prion-like&rdquo;).</p>
+  </div>
+  <div class="model"><h4>Cholinergic hypothesis <span class="evi evi-mod">MODERATE (classic basis of current drugs)</span></h4>
+    <p class="ref"><span class="tag told">classic</span> Bartus 1982</p>
+    <p>AD destroys neurons that make <b>acetylcholine</b> (a brain chemical essential for memory and attention). This loss explains much of the memory impairment and is the basis of <b>cholinesterase-inhibitor drugs</b> (donepezil etc.), which boost remaining acetylcholine. It explains symptoms and treatment but not the root cause.</p>
+  </div>
+  <div class="model"><h4>Neuroinflammation hypothesis <span class="evi evi-strong">STRONG / rising</span></h4>
+    <p class="ref"><span class="tag tnew">latest</span> <i>Integrated view of amyloid, tau &amp; inflammation</i> PMC 2024&ndash;2025</p>
+    <p>The brain's immune cells (<b>microglia</b>) try to clear amyloid but, when chronically over-activated, release inflammatory chemicals that <b>accelerate</b> neuron death. Inflammation is now seen as a core amplifier linking amyloid and tau, not a side-effect &mdash; and a major drug target.</p>
+  </div>
+  <div class="model"><h4>Mitochondrial / oxidative-stress &amp; vascular hypotheses <span class="evi evi-mod">MODERATE</span></h4>
+    <p class="ref"><span class="tag tnew">latest</span> PMC 2022&ndash;2025</p>
+    <p>Failing <b>mitochondria</b> (the cell's power stations) and a build-up of <b>free radicals</b> (damaging reactive molecules &mdash; &ldquo;oxidative stress&rdquo;) injure neurons and interact with amyloid/tau. Vascular damage (see F01) very commonly co-exists and worsens AD &mdash; the &ldquo;two-hit&rdquo; vascular contribution.</p>
+  </div>
+  <div class="model"><h4>Other emerging hypotheses <span class="evi evi-emerg">EMERGING</span></h4>
+    <p class="ref"><span class="tag tnew">latest</span> Springer <i>Mol Neurobiol</i> 2025</p>
+    <p>Recent reviews also weigh <b>metal dyshomeostasis</b> (imbalance of brain metals like copper/zinc/iron), <b>autophagy&ndash;lysosomal failure</b> (the cell's &ldquo;waste-disposal&rdquo; system breaking down so junk proteins accumulate), and <b>infectious triggers</b> (e.g. herpes virus, gum-disease bacteria as possible seeds) &mdash; all still being tested.</p>
+  </div>
+
+  <h3>Risk &amp; protective factors (who gets it &mdash; the biopsychosocial layer)</h3>
+  <p>The strongest single risk factor is <b>age</b>. Genetics range from rare deterministic mutations to the common risk gene. Crucially, an estimated <b>~40&ndash;45% of dementia is attributable to modifiable factors</b> (Lancet Commission), which is where psychology and society meet biology.</p>
+  <div class="bar"><div class="lab"><span>Age (biggest risk &mdash; risk roughly doubles every ~5 yrs after 65)</span><span>&#9733;&#9733;&#9733;&#9733;&#9733;</span></div><div class="track"><div class="fill" style="width:96%;background:#c0392b">non-modifiable</div></div></div>
+  <div class="bar"><div class="lab"><span>Genetics: <b>APOE-&epsilon;4</b> gene (common risk variant)</span><span>&#9733;&#9733;&#9733;&#9733;</span></div><div class="track"><div class="fill" style="width:80%;background:#c0392b">non-modifiable</div></div></div>
+  <div class="bar"><div class="lab"><span>Rare deterministic genes (APP, PSEN1/2 &mdash; early-onset familial)</span><span>&#9733;&#9733;&#9733;&#9733;</span></div><div class="track"><div class="fill" style="width:78%;background:#8e44ad">non-modifiable</div></div></div>
+  <div class="bar"><div class="lab"><span>Vascular factors (hypertension, diabetes, obesity, smoking)</span><span>&#9733;&#9733;&#9733;</span></div><div class="track"><div class="fill" style="width:62%;background:#b9770e">MODIFIABLE</div></div></div>
+  <div class="bar"><div class="lab"><span>Low education / low cognitive reserve</span><span>&#9733;&#9733;&#9733;</span></div><div class="track"><div class="fill" style="width:58%;background:#2e86c1">MODIFIABLE</div></div></div>
+  <div class="bar"><div class="lab"><span>Hearing loss, depression, social isolation, inactivity</span><span>&#9733;&#9733;</span></div><div class="track"><div class="fill" style="width:50%;background:#1e8449">MODIFIABLE</div></div></div>
+  <div class="bar"><div class="lab"><span>Air pollution, head injury, excess alcohol</span><span>&#9733;&#9733;</span></div><div class="track"><div class="fill" style="width:44%;background:#1e8449">MODIFIABLE</div></div></div>
+  <p class="ref">Bar length = rough relative importance for study purposes (not exact risk ratios). Modifiable factors from Lancet Commission on dementia prevention.</p>
+  <div class="psych"><h4>Psychological models specific to Alzheimer's</h4>
+    <ul class="t">
+      <li><b>Cognitive-reserve model:</b> higher education and lifelong mental activity <b>delay</b> the point at which the same amyloid/tau load produces symptoms &mdash; so a professor and a person with little schooling can have identical pathology but very different function. Low education is a confirmed risk factor (systematic review, PMC).</li>
+      <li><b>Depression-as-prodrome/risk:</b> late-life depression is both an <b>early sign</b> and an independent <b>risk factor</b>; chronic stress raises cortisol, which damages the hippocampus over years.</li>
+      <li><b>Excess-disability model:</b> anxiety, a confusing environment and loss of routine make the person <b>function worse than the brain damage alone dictates</b> &mdash; good psychosocial care recovers some of that gap.</li>
+      <li><b>Gene&times;lifestyle interaction:</b> cognitive reserve can <b>partly offset even APOE-&epsilon;4 genetic risk</b> (cohort evidence).</li>
+    </ul>
+  </div>
+  <div class="remember"><h4>Remember F00 &mdash; &ldquo;A-T-I-C&rdquo;</h4><p><b>A</b>myloid (the trigger) &rarr; <b>T</b>au (the executioner that spreads) &rarr; <b>I</b>nflammation (the amplifier) &rarr; <b>C</b>holinergic loss (explains memory symptoms &amp; the drugs). Over it all: <b>age + genes (APOE) vs cognitive reserve + modifiable lifestyle</b>.</p></div>
+</section>
+
+<section id="f00-subtypes">
+  <h2>&middot; F00 subtypes &mdash; how the model shifts across them</h2>
+  <table>
+    <tr><th>ICD-10 subtype</th><th>What differs in the model</th></tr>
+    <tr><td><b>F00.0 Early-onset AD</b> (before ~65)</td><td>More likely to involve <b>rare deterministic genes</b> (APP, PSEN1, PSEN2) causing over-production of amyloid; faster, more &ldquo;malignant&rdquo; course; strong autosomal-dominant inheritance in familial cases.</td></tr>
+    <tr><td><b>F00.1 Late-onset AD</b> (after ~65)</td><td>The common form: <b>polygenic + APOE-&epsilon;4</b> risk interacting with age and vascular/lifestyle factors; amyloid <b>clearance</b> failure (not just over-production) is central.</td></tr>
+    <tr><td><b>F00.2 Atypical / mixed type</b></td><td>AD pathology <b>mixed with</b> vascular or Lewy-body pathology &mdash; the &ldquo;mixed dementia&rdquo; that brain-bank studies show is actually the norm in older people.</td></tr>
+    <tr><td><b>F00.9 Unspecified</b></td><td>Same underlying models; simply not sub-classified.</td></tr>
+  </table>
+  <div class="note"><b>The key subtype insight:</b> the <b>younger</b> the onset, the more the model tilts toward <b>single-gene, amyloid-overproduction</b> causation; the <b>older</b> the onset, the more it tilts toward <b>impaired clearance + APOE + vascular/lifestyle</b> and <b>mixed pathology</b>.</p></div>
+</section>
+
+
+<!-- ══════ F01 VASCULAR ══════ -->
+<section id="f01">
+  <h2>F01 &middot; Vascular dementia &mdash; the blood-supply model</h2>
+  <p>Vascular dementia (VaD) is dementia caused by <b>damage to the brain's blood supply</b> &mdash; the second commonest cause of dementia and, with AD, part of most &ldquo;mixed&rdquo; dementias. The core idea is simple: <b>if brain tissue does not get enough blood (and therefore oxygen and glucose), it is injured or dies</b>, and cognition declines. It accounts for at least <b>20&ndash;40%</b> of dementia (PMC 2022 <span class="tag tnew">latest</span>).</p>
+
+  <div class="cascade vas">
+    <div class="step"><span class="n">1</span><b>Vascular risk factors</b> (things that harm blood vessels &mdash; high blood pressure, diabetes, high cholesterol, smoking).</div>
+    <div class="step"><span class="n">2</span><b>Blood-vessel damage</b> &mdash; either sudden <b>strokes</b> (a blocked or burst vessel) or slow <b>small-vessel disease</b> (chronic damage to tiny vessels).</div>
+    <div class="step"><span class="n">3</span>Reduced blood flow, plus breakdown of the <b>blood-brain barrier</b> (the brain's protective filter, which starts to leak).</div>
+    <div class="step"><span class="n">4</span>Brain tissue is injured &mdash; <b>white-matter damage</b> (harm to the brain's &ldquo;wiring&rdquo;) and <b>inflammation</b>.</div>
+    <div class="step"><span class="n">5</span>Thinking declines step by step &rarr; <b>vascular dementia</b>.</div>
+  </div>
+
+  <h3>Current mechanistic model (latest research)</h3>
+  <p class="ref"><span class="tag tnew">latest</span> <i>Vascular Dementia: Pathophysiology to Therapeutic Frontiers</i> PMC 2025; Nature reviews 2026</p>
+  <p>Modern reviews describe VaD as a set of processes that converge on brain-cell injury:</p>
+  <ul class="t">
+    <li><b>Endothelial dysfunction</b> &mdash; the inner lining of blood vessels stops working properly, so vessels can't regulate flow.</li>
+    <li><b>Blood-brain barrier (BBB) breakdown</b> &mdash; the protective filter between blood and brain leaks, letting harmful substances in.</li>
+    <li><b>Chronic neuroinflammation</b> and <b>oxidative stress</b> (immune over-activation and damaging free radicals).</li>
+    <li><b>Impaired glymphatic clearance</b> &mdash; the brain's waste-drainage system (the &ldquo;glymphatic&rdquo; system) fails, so toxins accumulate (an emerging idea linking VaD and AD).</li>
+    <li><b>White-matter demyelination</b> &mdash; loss of the insulating sheath around nerve fibres, slowing brain &ldquo;wiring&rdquo;.</li>
+    <li><b>Synaptic failure</b> &mdash; the connections between neurons stop working.</li>
+  </ul>
+  <div class="model"><h4>Genetic contribution <span class="evi evi-mod">MODERATE</span></h4>
+    <p class="ref"><span class="tag tnew">latest</span> PMC 2025</p>
+    <p>Susceptibility depends partly on genes &mdash; notably <b>NOTCH3</b> mutations (which cause <b>CADASIL</b>, an inherited small-vessel disease) and various vascular risk gene variants.</p>
+  </div>
+
+  <h3>Risk factors (the most preventable dementia)</h3>
+  <div class="bar"><div class="lab"><span>Hypertension (high blood pressure) &mdash; the leading modifiable factor</span><span>&#9733;&#9733;&#9733;&#9733;&#9733;</span></div><div class="track"><div class="fill" style="width:92%;background:#b9770e">MODIFIABLE</div></div></div>
+  <div class="bar"><div class="lab"><span>Diabetes</span><span>&#9733;&#9733;&#9733;&#9733;</span></div><div class="track"><div class="fill" style="width:78%;background:#b9770e">MODIFIABLE</div></div></div>
+  <div class="bar"><div class="lab"><span>Prior stroke / atrial fibrillation (irregular heartbeat)</span><span>&#9733;&#9733;&#9733;&#9733;</span></div><div class="track"><div class="fill" style="width:80%;background:#b9770e">partly modifiable</div></div></div>
+  <div class="bar"><div class="lab"><span>Smoking, high cholesterol, obesity</span><span>&#9733;&#9733;&#9733;</span></div><div class="track"><div class="fill" style="width:66%;background:#1e8449">MODIFIABLE</div></div></div>
+  <div class="bar"><div class="lab"><span>Age &amp; male sex</span><span>&#9733;&#9733;&#9733;</span></div><div class="track"><div class="fill" style="width:60%;background:#c0392b">non-modifiable</div></div></div>
+  <div class="unique"><h4>The clinical fingerprint of the model</h4><p>Because the cause is vascular events, VaD classically shows a <b>&ldquo;stepwise&rdquo; decline</b> (sudden drops after each stroke, then plateaus) rather than the smooth glide of AD &mdash; and early on, <b>executive function</b> (planning, attention, speed) suffers more than pure memory. This directly reflects the model: damage follows the blood vessels, not a spreading protein.</p></div>
+
+  <h3>F01 subtypes &mdash; the same model, different vessel pattern</h3>
+  <table>
+    <tr><th>ICD-10 subtype</th><th>Vascular mechanism</th></tr>
+    <tr><td><b>F01.0 Acute onset</b></td><td>Dementia appears rapidly after a series of strokes (or one large one), usually from clots/bleeds.</td></tr>
+    <tr><td><b>F01.1 Multi-infarct dementia</b></td><td>Accumulation of many small-to-medium <b>cortical infarcts</b> (areas of dead tissue from blocked vessels) &mdash; the classic &ldquo;stepwise&rdquo; picture.</td></tr>
+    <tr><td><b>F01.2 Subcortical vascular dementia</b></td><td><b>Small-vessel disease</b> deep in the brain damaging white matter (Binswanger-type); driven by chronic hypertension; prominent slowing and executive/gait problems.</td></tr>
+    <tr><td><b>F01.3 Mixed cortical &amp; subcortical</b></td><td>Combination of the above.</td></tr>
+    <tr><td><b>F01.8 / F01.9 Other / unspecified</b></td><td>Same vascular model, not further specified.</td></tr>
+  </table>
+  <div class="psych"><h4>Psychological &amp; social models specific to vascular dementia</h4>
+    <ul class="t">
+      <li><b>Post-stroke depression loop:</b> stroke frequently causes depression (both from the brain damage and the psychological blow of disability); depression then reduces activity and rehabilitation, worsening cognition &mdash; a vicious cycle.</li>
+      <li><b>Cognitive reserve</b> applies here too: higher reserve buffers the cognitive impact of the same amount of vascular damage.</li>
+      <li><b>Social determinants:</b> vascular risk factors cluster with <b>poverty, poor diet, low health-literacy and reduced healthcare access</b> &mdash; so this &ldquo;biological&rdquo; dementia is strongly shaped by social conditions, making it the most <b>socially preventable</b>.</li>
+    </ul>
+  </div>
+  <div class="remember"><h4>Remember F01 &mdash; &ldquo;Vessels &rarr; Voids&rdquo;</h4><p>Vascular risk factors damage vessels &rarr; strokes/small-vessel disease &rarr; brain tissue starved &rarr; stepwise decline, executive-first. It is the <b>most preventable</b> dementia: control blood pressure, sugar, cholesterol, smoking.</p></div>
+</section>
+
+
+<!-- ══════ F02 ══════ -->
+<section id="f02">
+  <h2>F02 &middot; Dementia in other diseases classified elsewhere &mdash; overview</h2>
+  <p>F02 groups dementias caused by <b>specific, named diseases</b>. Each has its own model, but they cluster into three model-types:</p>
+  <ul class="t">
+    <li><b>Proteinopathies</b> (a specific protein misfolds): Pick/FTD (tau, TDP-43), Parkinson/Lewy body (&alpha;-synuclein), CJD (prion protein), Huntington (huntingtin).</li>
+    <li><b>Infective</b>: HIV dementia.</li>
+    <li><b>Others</b>: metabolic, endocrine, toxic, deficiency states.</li>
+  </ul>
+</section>
+
+<section id="f02-pick">
+  <h2>&middot; F02.0 Frontotemporal dementia (Pick's disease) <span class="evi evi-strong">STRONG</span></h2>
+  <p class="ref"><span class="tag tnew">latest</span> <i>AD &amp; FTD pathophysiology review</i> PMC 2024&ndash;2025</p>
+  <p>Frontotemporal dementia (FTD) is caused by degeneration of the <b>frontal and temporal lobes</b> (the front and side parts of the brain that control personality, behaviour and language). Because these areas run <b>social behaviour and language</b>, FTD's model predicts its signature: <b>personality/behaviour change or language breakdown come first</b>, with memory relatively spared early &mdash; the opposite of AD.</p>
+  <ul class="t">
+    <li><b>Protein model:</b> abnormal build-up of <b>tau</b> (in some subtypes; &ldquo;Pick bodies&rdquo; are tau clumps) or <b>TDP-43</b> (a different misfolding protein) &mdash; so FTD is a mixed group of proteinopathies.</li>
+    <li><b>Genetic model:</b> a strongly heritable dementia &mdash; mutations in <b>MAPT</b> (the tau gene), <b>GRN</b> (progranulin) and <b>C9orf72</b> account for many familial cases (the C9orf72 expansion also links FTD to motor neurone disease).</li>
+    <li><b>Age:</b> a leading cause of <b>younger-onset</b> dementia (often 45&ndash;65).</li>
+  </ul>
+  <div class="remember"><h4>Remember</h4><p>&ldquo;<b>Front = personality &amp; language first, memory later</b>&rdquo; &mdash; tau/TDP-43 proteinopathy of the frontal &amp; temporal lobes; young onset; strongly genetic.</p></div>
+</section>
+
+<section id="f02-cjd">
+  <h2>&middot; F02.1 Creutzfeldt-Jakob disease (CJD) &mdash; the prion model <span class="evi evi-strong">STRONG</span></h2>
+  <p>CJD is caused by a <b>prion</b> &mdash; a normal brain protein (PrP) that misfolds into an abnormal, infectious shape and then <b>forces neighbouring normal proteins to misfold too</b>, spreading like a chain reaction. This &ldquo;protein-only&rdquo; infectious model is unique and was Nobel-recognised.</p>
+  <ul class="t">
+    <li><b>Mechanism:</b> misfolded prion protein accumulates, punches holes in brain tissue (giving the classic <b>&ldquo;spongiform&rdquo;</b>, sponge-like appearance), causing rapid neuron death.</li>
+    <li><b>Course:</b> a <b>rapidly progressive dementia</b> (weeks to months) with prominent <b>myoclonus</b> (sudden muscle jerks) &mdash; the model explains the speed: it is a self-amplifying chain reaction.</li>
+    <li><b>Forms:</b> sporadic (most common, no known cause), genetic (PRNP gene), and acquired/transmissible (e.g. variant CJD linked to contaminated beef; iatrogenic from medical exposure).</li>
+  </ul>
+  <div class="remember"><h4>Remember</h4><p>&ldquo;<b>Rapid dementia + myoclonus + spongy brain</b>&rdquo; &mdash; a self-propagating misfolded <b>prion</b> protein.</p></div>
+</section>
+
+<section id="f02-hunt">
+  <h2>&middot; F02.2 Huntington's disease &mdash; the single-gene model <span class="evi evi-strong">STRONG</span></h2>
+  <p>Huntington's disease (HD) is the clearest <b>purely genetic</b> model in the whole cluster: it is caused by a <b>single dominant gene</b> (the <b>HTT</b> gene) with an expanded <b>&ldquo;CAG repeat&rdquo;</b> (a stretch of DNA code that is abnormally repeated too many times). One copy is enough to cause the disease (autosomal dominant), so a child of an affected parent has a 50% chance.</p>
+  <ul class="t">
+    <li><b>Mechanism:</b> the faulty gene makes an abnormal <b>huntingtin</b> protein that becomes toxic and destroys neurons, especially in the <b>basal ganglia</b> (deep brain structures controlling movement) and later the cortex.</li>
+    <li><b>&ldquo;Anticipation&rdquo;:</b> the more CAG repeats, the earlier and more severe the onset &mdash; and repeats tend to lengthen across generations.</li>
+    <li><b>Clinical fingerprint:</b> the model predicts the triad &mdash; <b>chorea</b> (involuntary dance-like movements, from basal-ganglia damage), <b>cognitive decline</b>, and <b>psychiatric symptoms</b> (depression, irritability, high suicide risk).</li>
+  </ul>
+  <div class="remember"><h4>Remember</h4><p>&ldquo;<b>One dominant gene, CAG repeats &rarr; chorea + dementia + psychiatric symptoms</b>&rdquo; &mdash; the textbook single-gene dementia.</p></div>
+</section>
+
+<section id="f02-park">
+  <h2>&middot; F02.3 Dementia in Parkinson's disease &amp; Lewy body dementia &mdash; the &alpha;-synuclein model <span class="evi evi-strong">STRONG</span></h2>
+  <p class="ref"><span class="tag tnew">latest</span> Alpha-synuclein reviews PMC 2024&ndash;2025; Mayo neuropathology 2025</p>
+  <p>Parkinson's disease dementia (PDD) and dementia with Lewy bodies (DLB) share one core model: the misfolding and clumping of a protein called <b>&alpha;-synuclein</b> into deposits named <b>Lewy bodies</b> inside neurons. Because these accumulate in movement, alertness and perception systems, the model predicts the signature features.</p>
+  <div class="cascade dlx c4">
+    <div class="step"><span class="n">1</span><b>&alpha;-synuclein</b> (a brain protein) misfolds and clumps into <b>Lewy bodies</b> (abnormal deposits inside nerve cells).</div>
+    <div class="step"><span class="n">2</span>It spreads in a &ldquo;prion-like&rdquo; way (forcing neighbouring proteins to misfold too) from brainstem &rarr; midbrain &rarr; cortex (outer brain).</div>
+    <div class="step"><span class="n">3</span>It kills <b>dopamine</b> neurons (controlling movement) and disrupts the cortex (controlling thinking and perception).</div>
+    <div class="step"><span class="n">4</span>Result: <b>parkinsonism</b> (stiffness/slowness/tremor) + fluctuating alertness + <b>visual hallucinations</b>.</div>
+  </div>
+  <ul class="t">
+    <li><b>PDD vs DLB &mdash; the &ldquo;1-year rule&rdquo;:</b> same pathology, timing differs. If movement problems (parkinsonism) come <b>first</b> and dementia arrives <b>&gt;1 year later</b> &rarr; Parkinson's disease dementia. If dementia comes <b>first or within 1 year</b> of parkinsonism &rarr; dementia with Lewy bodies.</li>
+    <li><b>Signature features (predicted by the model):</b> <b>fluctuating</b> alertness, recurrent <b>visual hallucinations</b>, spontaneous parkinsonism, REM sleep behaviour disorder (acting out dreams), and <b>severe sensitivity to antipsychotics</b> (a crucial safety point &mdash; dopamine-blockers can cause dangerous reactions).</li>
+    <li><b>Mixed pathology:</b> latest neuropathology (Mayo 2025 <span class="tag tnew">latest</span>) shows Lewy pathology very often <b>co-occurs with amyloid and tau</b>, which accelerates decline.</li>
+  </ul>
+  <div class="remember"><h4>Remember</h4><p>&ldquo;<b>&alpha;-synuclein Lewy bodies &rarr; parkinsonism + fluctuations + visual hallucinations; NEVER give strong antipsychotics</b>&rdquo;. The 1-year rule separates PDD from DLB.</p></div>
+</section>
+
+<section id="f02-hiv">
+  <h2>&middot; F02.4 HIV-associated dementia &mdash; the infective/inflammatory model <span class="evi evi-mod">MODERATE</span></h2>
+  <p>Here the cause is an <b>infection</b>: the HIV virus enters the brain (carried in by infected immune cells) and drives dementia <b>not mainly by infecting neurons directly, but by triggering chronic inflammation</b>.</p>
+  <ul class="t">
+    <li><b>Mechanism:</b> HIV infects the brain's immune cells (microglia and macrophages), which then release <b>neurotoxic inflammatory chemicals and viral proteins</b> that injure neurons &mdash; a mainly <b>subcortical</b> pattern (slowing, apathy, motor and memory problems).</li>
+    <li><b>Modern context:</b> with effective antiretroviral therapy, severe HIV dementia is now <b>much rarer</b>, replaced by milder &ldquo;HIV-associated neurocognitive disorders&rdquo; &mdash; a good example of how <b>treating the cause changes the model's outcome</b>.</li>
+  </ul>
+  <div class="remember"><h4>Remember</h4><p>&ldquo;<b>Virus in immune cells &rarr; inflammation &rarr; subcortical dementia</b>&rdquo; &mdash; largely preventable/treatable with antiretrovirals.</p></div>
+</section>
+
+<section id="f02-other">
+  <h2>&middot; F02.8 Dementia in other specified diseases &mdash; the &ldquo;reversible causes&rdquo; group</h2>
+  <p>This category is clinically vital because it contains many <b>potentially reversible</b> dementias &mdash; where treating the cause can improve cognition. The model is &ldquo;<b>a body/brain problem starves or poisons the neurons</b>&rdquo;.</p>
+  <table>
+    <tr><th>Cause</th><th>Model (plain)</th></tr>
+    <tr><td><b>Vitamin B12 / folate / thiamine deficiency</b></td><td>Neurons lack an essential building block/co-factor &rarr; dysfunction (thiamine lack &rarr; Wernicke-Korsakoff, see F04).</td></tr>
+    <tr><td><b>Hypothyroidism</b> (underactive thyroid)</td><td>Low thyroid hormone slows whole-brain metabolism &rarr; reversible cognitive slowing.</td></tr>
+    <tr><td><b>Neurosyphilis</b></td><td>Chronic bacterial infection damages the brain (&ldquo;general paresis&rdquo;).</td></tr>
+    <tr><td><b>Normal-pressure hydrocephalus</b></td><td>Fluid build-up stretches brain tissue &rarr; the triad of gait problems, incontinence, cognitive decline; shunting can help.</td></tr>
+    <tr><td><b>Chronic alcohol / toxins / heavy metals</b></td><td>Direct neurotoxic damage over time.</td></tr>
+    <tr><td><b>Multiple sclerosis, epilepsy, tumours, autoimmune encephalitis</b></td><td>Structural/inflammatory brain disease producing cognitive impairment.</td></tr>
+  </table>
+  <div class="note"><b>Why this matters:</b> the model here delivers a hopeful message &mdash; <b>always screen for reversible causes</b> (bloods, imaging), because unlike the proteinopathies, some of these can be <b>halted or reversed</b>.</p></div>
+</section>
+
+
+<!-- ══════ F03 ══════ -->
+<section id="f03">
+  <h2>F03 &middot; Unspecified dementia &mdash; the model when the cause is unknown</h2>
+  <p>F03 is used when dementia is clearly present but the specific disease cannot (yet) be identified. There is <b>no separate model</b> &mdash; the true cause is one (or a mix) of the F00&ndash;F02 mechanisms above; it is simply not yet pinned down. In practice, many F03 cases in older people turn out to be <b>mixed pathology</b> (AD + vascular + Lewy) &mdash; which is exactly why a single label is hard to assign.</p>
+  <div class="note"><b>Model takeaway:</b> &ldquo;unspecified&rdquo; is a statement about our <b>knowledge</b>, not about a distinct cause. The likeliest underlying model is <b>mixed neurodegenerative + vascular</b>.</p></div>
+</section>
+
+<!-- ══════ F04 ══════ -->
+<section id="f04">
+  <h2>F04 &middot; Organic amnesic syndrome &mdash; the memory-circuit model <span class="evi evi-strong">STRONG</span></h2>
+  <p>The organic amnesic (memory-loss) syndrome is dementia's &ldquo;focused&rdquo; cousin: a <b>severe memory impairment with other thinking largely intact</b>, caused by damage to the brain's specific <b>memory circuit</b> &mdash; the hippocampus and the connected structures of the medial temporal lobe and diencephalon (the <b>Papez / limbic memory circuit</b>).</p>
+  <ul class="t">
+    <li><b>Core deficit:</b> inability to form <b>new</b> long-term memories (anterograde amnesia) &plusmn; loss of some recent past memories (retrograde amnesia), with preserved immediate attention and old skills.</li>
+    <li><b>Classic cause &mdash; Korsakoff syndrome:</b> chronic <b>thiamine (vitamin B1) deficiency</b>, usually from alcohol misuse, damages the mammillary bodies and thalamus (memory-circuit hubs). Often preceded by <b>Wernicke's encephalopathy</b> (confusion + eye-movement problems + unsteadiness) &mdash; a medical emergency that is <b>reversible with prompt thiamine</b>. A hallmark is <b>confabulation</b> (unintentionally filling memory gaps with invented details).</li>
+    <li><b>Other causes:</b> hypoxia (oxygen lack), herpes encephalitis, head injury, thalamic stroke, brain tumours.</li>
+  </ul>
+  <div class="remember"><h4>Remember F04</h4><p>&ldquo;<b>Memory circuit knocked out, rest intact</b>&rdquo; &mdash; classically <b>thiamine deficiency &rarr; Korsakoff</b> (with confabulation); give thiamine early to prevent it.</p></div>
+</section>
+
+<!-- ══════ F05 DELIRIUM ══════ -->
+<section id="f05">
+  <h2>F05 &middot; Delirium &mdash; the &ldquo;acute brain failure&rdquo; model</h2>
+  <p>Delirium is an <b>acute (sudden), fluctuating disturbance of attention and awareness</b> caused by a medical problem &mdash; think of it as <b>temporary, reversible brain failure</b> under stress. Unlike dementia (slow, chronic), delirium comes on over <b>hours to days</b> and typically clears when the cause is treated. Its model is captured by a famous equation: <b>vulnerability &times; insult</b>.</p>
+
+  <figure>
+    <svg viewBox="0 0 720 220" role="img" aria-label="Delirium predisposing versus precipitating model">
+      <rect x="30" y="40" width="300" height="150" rx="10" fill="#eaf4f7" stroke="#2471a3"/>
+      <text x="180" y="64" font-size="14" font-weight="bold" text-anchor="middle" fill="#2471a3">PREDISPOSING (vulnerability)</text>
+      <text x="180" y="90" font-size="12" text-anchor="middle" fill="#1c2833">Old age &middot; dementia &middot; frailty</text>
+      <text x="180" y="112" font-size="12" text-anchor="middle" fill="#1c2833">Sensory impairment &middot; many illnesses</text>
+      <text x="180" y="134" font-size="12" text-anchor="middle" fill="#1c2833">Low brain &ldquo;reserve&rdquo;</text>
+      <text x="180" y="168" font-size="11" text-anchor="middle" fill="#5d6d7e">High vulnerability = tiny trigger sets it off</text>
+      <text x="360" y="120" font-size="30" text-anchor="middle" fill="#0a2540">&times;</text>
+      <rect x="390" y="40" width="300" height="150" rx="10" fill="#fdedec" stroke="#c0392b"/>
+      <text x="540" y="64" font-size="14" font-weight="bold" text-anchor="middle" fill="#c0392b">PRECIPITATING (the insult)</text>
+      <text x="540" y="90" font-size="12" text-anchor="middle" fill="#1c2833">Infection &middot; surgery &middot; drugs</text>
+      <text x="540" y="112" font-size="12" text-anchor="middle" fill="#1c2833">Low oxygen &middot; metabolic upset</text>
+      <text x="540" y="134" font-size="12" text-anchor="middle" fill="#1c2833">Pain &middot; dehydration &middot; withdrawal</text>
+      <text x="540" y="168" font-size="11" text-anchor="middle" fill="#5d6d7e">Low vulnerability = needs a big insult</text>
+    </svg>
+    <figcaption>The predisposing &times; precipitating model (Inouye): a very vulnerable brain needs only a small trigger; a robust brain needs a large one. PMC systematic review 2023 <span class="tag tnew">latest</span>.</figcaption>
+  </figure>
+
+  <h3>The core biological hypotheses (why the brain &ldquo;fails&rdquo;)</h3>
+  <p class="ref"><span class="tag tnew">latest</span> <i>Mechanisms of delirium in critical illness</i> Frontiers 2024; <i>Pathophysiology &amp; biomarkers of delirium</i> PMC 2024</p>
+  <p>Delirium is a &ldquo;final common pathway&rdquo; that many causes converge on. The leading, interacting hypotheses:</p>
+  <div class="model"><h4>1. Neuroinflammation hypothesis <span class="evi evi-strong">STRONG</span></h4><p>A bodily illness (infection, surgery, trauma) releases inflammatory signals (cytokines) that cross into the brain, activate microglia, and disrupt neuron function &mdash; the leading model for delirium after infection or operations.</p></div>
+  <div class="model"><h4>2. Neurotransmitter-imbalance hypothesis <span class="evi evi-strong">STRONG</span></h4><p>Classically a <b>deficit of acetylcholine</b> (needed for attention) plus an <b>excess of dopamine</b> &mdash; which is why anticholinergic drugs (that block acetylcholine) commonly <b>trigger</b> delirium, and why dopamine-excess produces the agitated, hallucinating form.</p></div>
+  <div class="model"><h4>3. Oxidative-stress / energy-failure hypothesis <span class="evi evi-mod">MODERATE</span></h4><p>Low oxygen or impaired brain metabolism means neurons can't make enough energy &rarr; widespread dysfunction. Explains delirium in hypoxia, sepsis and metabolic upset.</p></div>
+  <div class="model"><h4>4. Network-disconnection &amp; stress hypotheses <span class="evi evi-emerg">EMERGING</span></h4><p>Imaging shows delirium as a <b>breakdown of brain-network connectivity</b>; chronic stress hormones (cortisol) and disrupted sleep/circadian rhythm also contribute.</p></div>
+
+  <h3>Predisposing &amp; precipitating factors (from systematic reviews)</h3>
+  <p class="ref"><span class="tag tnew">latest</span> Predisposing &amp; precipitating factors systematic review, PMC 2023</p>
+  <div class="g2">
+    <div class="psych"><h4>Predisposing (who is vulnerable)</h4><ul class="t"><li>Older age</li><li>Pre-existing dementia / cognitive impairment</li><li>Frailty &amp; multiple medical conditions</li><li>Sensory impairment (poor sight/hearing)</li><li>Previous delirium; depression</li></ul></div>
+    <div class="unique"><h4>Precipitating (the triggers)</h4><ul class="t"><li>Infection (esp. urinary, chest); sepsis</li><li>Surgery &amp; anaesthesia (post-operative delirium)</li><li>Medications (anticholinergics, sedatives, opioids) &amp; polypharmacy</li><li>Metabolic upset, dehydration, low oxygen, pain, constipation, urinary retention</li><li>Alcohol/benzodiazepine <b>withdrawal</b>; ICU environment, sleep deprivation</li></ul></div>
+  </div>
+  <div class="remember"><h4>Remember F05 &mdash; delirium = vulnerability &times; insult</h4><p>A brittle brain (old, demented, frail) + a trigger (infection, drugs, surgery, metabolic upset) &rarr; acute inflammation + acetylcholine deficit/dopamine excess &rarr; <b>sudden, fluctuating inattention</b>. Usually <b>reversible</b> &mdash; find and fix the cause.</p></div>
+</section>
+
+
+<!-- ══════ F06 ══════ -->
+<section id="f06">
+  <h2>F06 &middot; Other mental disorders due to brain damage/disease &mdash; overview</h2>
+  <p>F06 is a crucial and often-forgotten category: <b>psychiatric symptoms produced directly by a physical brain or body problem</b>. The overarching model is <b>&ldquo;a physical lesion or chemical upset in a particular brain system generates a symptom that looks psychiatric&rdquo;</b> &mdash; so the same symptom (hallucinations, mania, anxiety) has an <b>organic cause</b> rather than a primary psychiatric one. This is why every first-episode psychosis, mania or severe anxiety deserves screening for an organic cause.</p>
+</section>
+
+<section id="f06-sub">
+  <h2>&middot; F06 subtypes &mdash; lesion-to-symptom models</h2>
+  <table>
+    <tr><th>ICD-10 subtype</th><th>Model (where the lesion/chemistry produces the symptom)</th></tr>
+    <tr><td><b>F06.0 Organic hallucinosis</b></td><td>Persistent hallucinations from a brain cause &mdash; e.g. occipital lesions or eye disease (visual), drug/alcohol effects, or specific syndromes; sensory or neural pathways generate false perceptions.</td></tr>
+    <tr><td><b>F06.1 Organic catatonic disorder</b></td><td>Catatonia (a state of abnormal movement/immobility and unresponsiveness) from encephalitis, metabolic upset or other brain disease disrupting motor-regulation circuits.</td></tr>
+    <tr><td><b>F06.2 Organic delusional (schizophrenia-like) disorder</b></td><td>Delusions from a brain cause &mdash; e.g. temporal-lobe epilepsy, stimulant drugs, or lesions of limbic/temporal circuits mimicking schizophrenia.</td></tr>
+    <tr><td><b>F06.3 Organic mood disorder</b></td><td>Depression or mania caused by a physical condition &mdash; e.g. <b>hypothyroidism &rarr; depression</b>, <b>steroids/hyperthyroidism &rarr; mania</b>, stroke (esp. left frontal &rarr; post-stroke depression), Cushing's disease. The disease directly shifts mood-regulating chemistry.</td></tr>
+    <tr><td><b>F06.4 Organic anxiety disorder</b></td><td>Anxiety/panic from a physical cause &mdash; e.g. <b>hyperthyroidism</b>, phaeochromocytoma (an adrenaline-secreting tumour), caffeine/stimulants, cardiac/respiratory disease; excess arousal chemistry produces the anxiety.</td></tr>
+    <tr><td><b>F06.5 Organic dissociative disorder</b></td><td>Dissociative symptoms attributable to a brain disorder.</td></tr>
+    <tr><td><b>F06.6 Organic emotionally labile (asthenic) disorder</b></td><td>Emotional instability, tearfulness and fatigue after brain disease (e.g. cerebrovascular disease) &mdash; damage to emotion-control pathways.</td></tr>
+    <tr><td><b>F06.7 Mild cognitive disorder</b></td><td>Measurable cognitive decline not severe enough for dementia, linked to a physical illness &mdash; often a <b>prodrome</b> (early stage) of a dementia process.</td></tr>
+    <tr><td><b>F06.8 / F06.9 Other / unspecified</b></td><td>Same organic-cause model, other or unspecified symptoms.</td></tr>
+  </table>
+  <div class="remember"><h4>Remember F06</h4><p>&ldquo;<b>Psychiatric symptom, physical cause</b>&rdquo; &mdash; hallucinations, delusions, mania, depression or anxiety produced <b>directly</b> by brain disease, endocrine upset, drugs or metabolic problems. Always screen for the organic driver.</p></div>
+</section>
+
+<!-- ══════ F07 ══════ -->
+<section id="f07">
+  <h2>F07 &middot; Personality &amp; behavioural disorders due to brain disease/injury &mdash; the &ldquo;lesion changes character&rdquo; model</h2>
+  <p>F07 covers <b>lasting changes in personality and behaviour</b> caused by brain damage &mdash; the model is that <b>injury to specific brain regions (especially the frontal lobes) removes the normal &ldquo;brakes&rdquo; on behaviour</b>.</p>
+  <ul class="t">
+    <li><b>F07.0 Organic personality disorder:</b> after frontal-lobe damage (head injury, stroke, tumour, infection), a person may show <b>disinhibition</b> (loss of social restraint), apathy, irritability, poor judgement, emotional shallowness &mdash; the classic <b>&ldquo;frontal lobe syndrome&rdquo;</b>. The historic case of <b>Phineas Gage</b> (a railway worker whose personality changed after a rod destroyed his frontal lobe) is the founding example: <b>the frontal lobe governs personality and impulse control</b>.</li>
+    <li><b>F07.1 Postencephalitic syndrome:</b> behavioural change remaining after recovery from brain infection (encephalitis).</li>
+    <li><b>F07.2 Postconcussional syndrome:</b> headache, dizziness, poor concentration, irritability and fatigue after head injury &mdash; a mix of physical (mild brain injury) and psychological (stress, expectation) factors, a genuinely <b>biopsychosocial</b> model.</li>
+  </ul>
+  <div class="remember"><h4>Remember F07</h4><p>&ldquo;<b>Damage the frontal lobe &rarr; change the personality</b>&rdquo; (disinhibition/apathy) &mdash; Phineas Gage is the archetype. Postconcussional syndrome blends brain injury with psychological factors.</p></div>
+</section>
+
+<!-- ══════ F09 ══════ -->
+<section id="f09">
+  <h2>F09 &middot; Unspecified organic or symptomatic mental disorder</h2>
+  <p>F09 is the <b>residual code</b>: there is clear evidence of an <b>organic/symptomatic cause</b> (a physical brain or body problem is producing the mental disorder) but it cannot be assigned to F00&ndash;F07. There is no distinct model &mdash; the true mechanism is one of those already described, simply not yet specified.</p>
+  <div class="note"><b>Model takeaway:</b> like F03, F09 reflects the <b>limits of current information</b>, not a unique cause. The clinical duty is to keep searching for the specific &mdash; and possibly reversible &mdash; organic driver.</p></div>
+</section>
+
+<!-- ══════ SYNTHESIS ══════ -->
+<section id="synthesis">
+  <h2>Cross-cluster synthesis &mdash; the F00&ndash;F09 models on one page</h2>
+  <table>
+    <tr><th>Disorder</th><th>Dominant model</th><th>Key mechanism (plain)</th><th>Biggest modifiable/treatable lever</th></tr>
+    <tr><td><b>F00 Alzheimer</b></td><td>Multi-hypothesis cascade</td><td>Amyloid &rarr; tau &rarr; inflammation &rarr; cholinergic loss</td><td>Vascular/lifestyle risk; cognitive reserve; anti-amyloid drugs</td></tr>
+    <tr><td><b>F01 Vascular</b></td><td>Blood-supply injury</td><td>Vessel damage &rarr; starved/dead tissue</td><td>Blood pressure, diabetes, cholesterol, smoking</td></tr>
+    <tr><td><b>F02.0 FTD/Pick</b></td><td>Proteinopathy (frontal/temporal)</td><td>Tau/TDP-43 kill front &amp; side lobes</td><td>Genetic counselling; symptom management</td></tr>
+    <tr><td><b>F02.1 CJD</b></td><td>Prion (protein-only infection)</td><td>Misfolded prion self-propagates</td><td>Prevention of transmission (limited treatment)</td></tr>
+    <tr><td><b>F02.2 Huntington</b></td><td>Single dominant gene</td><td>Expanded HTT gene &rarr; toxic huntingtin</td><td>Genetic testing/counselling; symptom control</td></tr>
+    <tr><td><b>F02.3 Parkinson/Lewy</b></td><td>&alpha;-synuclein proteinopathy</td><td>Lewy bodies &rarr; dopamine loss + cortical disruption</td><td>Dopamine therapy; AVOID antipsychotics</td></tr>
+    <tr><td><b>F02.4 HIV</b></td><td>Infective/inflammatory</td><td>Virus &rarr; brain inflammation</td><td>Antiretroviral therapy</td></tr>
+    <tr><td><b>F02.8 Other</b></td><td>Deficiency/metabolic/toxic</td><td>Neurons starved or poisoned</td><td>Often REVERSIBLE &mdash; treat the cause</td></tr>
+    <tr><td><b>F04 Amnesic</b></td><td>Memory-circuit lesion</td><td>Hippocampus/diencephalon damaged (thiamine lack)</td><td>Early thiamine (prevent Korsakoff)</td></tr>
+    <tr><td><b>F05 Delirium</b></td><td>Vulnerability &times; insult</td><td>Inflammation + neurotransmitter imbalance</td><td>Treat the trigger; deliriogenic-drug review</td></tr>
+    <tr><td><b>F06 Other organic</b></td><td>Lesion-to-symptom</td><td>Brain/endocrine problem &rarr; psychiatric symptom</td><td>Treat underlying medical cause</td></tr>
+    <tr><td><b>F07 Personality change</b></td><td>Frontal-lobe damage</td><td>Loss of behavioural &ldquo;brakes&rdquo;</td><td>Rehabilitation; environmental support</td></tr>
+  </table>
+  <div class="unique"><h4>Three unifying messages</h4>
+    <ul class="t">
+      <li><b>1. Protein or plumbing or poison.</b> Most F00&ndash;F09 disorders are a <b>misfolded protein</b> (AD, FTD, Lewy, CJD, HD), a <b>blood-supply problem</b> (vascular), or a <b>direct insult</b> (delirium, HIV, deficiency, toxins, injury).</li>
+      <li><b>2. Biology loads the gun; psychosocial factors pull the trigger and shape the outcome.</b> Cognitive reserve, education, vascular lifestyle, social support and prompt medical care change who becomes ill, how fast, and how severely.</li>
+      <li><b>3. Mixed &amp; modifiable.</b> Real patients usually have <b>mixed pathology</b>, and a large share of risk (and some causes entirely) is <b>modifiable or reversible</b> &mdash; the most hopeful theme in the whole cluster.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ══════ REFERENCES ══════ -->
+<section id="references">
+  <h2>References &amp; source attribution</h2>
+  <p>Etiological models synthesise classic hypotheses with recent peer-reviewed reviews (2023&ndash;2026). Content is paraphrased and rephrased for compliance with licensing restrictions; no source is quoted at length. Classification terms follow ICD-10/ICD-11; clinical framing follows Kaplan &amp; Sadock.</p>
+  <ul class="t">
+    <li><span class="tag tnew">Alzheimer</span> Integrated amyloid/tau/inflammation reviews, PMC 2024&ndash;2025; <i>Toward a Unified Framework in Molecular Neurobiology of AD</i>, Springer <i>Mol Neurobiol</i> 2025; <i>Targeting tau in AD</i>, PMC 2023; amyloid cascade &mdash; Hardy &amp; Higgins 1992 (classic); cholinergic hypothesis &mdash; Bartus 1982 (classic); Lancet Commission on dementia prevention (modifiable factors).</li>
+    <li><span class="tag tnew">Vascular dementia</span> <i>Vascular Dementia: From Pathophysiology to Therapeutic Frontiers</i>, PMC 2025; <i>Vascular cognitive impairment &amp; dementia</i>, Nature 2026; <i>Neurovascular Alterations in VaD</i>, Frontiers 2021; <i>Emerging Molecular Mechanisms of VaD</i>, PMC.</li>
+    <li><span class="tag tnew">Parkinson / Lewy body</span> <i>Alpha-Synuclein Neurobiology in PD</i>, PMC 2024&ndash;2025; <i>Neuropathology of Lewy body dementia</i>, Mayo Clinic, PMC 2025; contribution of tau/amyloid/&alpha;-synuclein to LBD, PMC.</li>
+    <li><span class="tag tnew">FTD / mixed pathology</span> <i>AD &amp; FTD: pathophysiology &amp; therapeutic approaches</i>, PMC; Continuum &ldquo;Neurology of Dementia&rdquo; 2022 (proteinopathies overview).</li>
+    <li><span class="tag tnew">Delirium</span> <i>Mechanisms underlying delirium in critical illness</i>, Frontiers 2024; <i>The Pathophysiology and Biomarkers of Delirium</i>, PMC 2024; <i>Predisposing and Precipitating Factors Associated with Delirium: A Systematic Review</i>, PMC 2023; Inouye predisposing&times;precipitating model (classic).</li>
+    <li><span class="tag tnew">Genetics &amp; brain anatomy</span> Braak &amp; Braak staging (1991, classic) and updates PMC 2021&ndash;2025; hippocampus &amp; entorhinal cortex in AD, PMC; APOE and polygenic risk reviews; NOTCH3/CADASIL (vascular); MAPT/GRN/C9orf72 (FTD); HTT/CAG repeat (Huntington); SNCA/LRRK2/GBA (Parkinson/Lewy).</li>
+    <li><span class="tag tnew">Psychological models</span> <i>Cognitive reserve</i> reviews, PMC 2009&ndash;2025; <i>Education and Dementia in the Context of the Cognitive Reserve Hypothesis</i> (systematic review), PMC; <i>Lifespan Intellectual Factors, Genetic Susceptibility &amp; Cognitive Phenotypes</i> (gene&times;environment), Frontiers <i>Aging Neurosci</i> 2019; <i>Genetic risk of dementia mitigated by cognitive reserve</i> (cohort), PMC.</li>
+    <li><span class="tag told">Classic / foundational</span> Engel 1977 (biopsychosocial model); Stern 2002 (cognitive reserve); Hardy &amp; Higgins 1992 (amyloid cascade); Bartus 1982 (cholinergic hypothesis); Papez circuit (memory); Harlow (Phineas Gage, frontal-lobe personality change); Inouye (delirium vulnerability&times;precipitant model).</li>
+    <li><span class="tag tks">Textbooks / clinical framing</span> Sadock, Sadock &amp; Ruiz, <i>Kaplan &amp; Sadock's Synopsis of Psychiatry</i> and <i>Comprehensive Textbook of Psychiatry</i>; <i>Oxford Textbook of Psychiatry</i> and <i>Oxford Textbook of Old Age Psychiatry</i>; Neeraj Ahuja, <i>A Short Textbook of Psychiatry</i>; WHO ICD-10 &amp; ICD-11.</li>
+  </ul>
+  <div class="warn"><b>Note on use.</b> Educational study reference for M.Phil. Clinical Psychology. It summarises etiological models and research; it is <b>not</b> diagnostic, prognostic or treatment advice, and drug/therapy mentions are illustrative of the model, not prescribing guidance. Research on causation is evolving &mdash; models are provisional and often overlap.</p></div>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+</main>
+</div>
+
+<footer>
+  <p><strong>Models of Illness &amp; Causation &mdash; F00&ndash;F09 Organic (incl. Symptomatic) Mental Disorders</strong></p>
+  <p>Every subdisorder's etiology &amp; models &middot; classic hypotheses integrated with 2023&ndash;2026 research &middot; amyloid cascade, tau, inflammation, cholinergic, vascular, &alpha;-synuclein, prion, single-gene, infective, deficiency, delirium (vulnerability&times;insult), lesion-to-symptom &amp; frontal-lobe models &middot; biopsychosocial framing with cognitive reserve &middot; illustrated with cascades, timelines, charts &amp; diagrams &middot; plain language, difficult terms in brackets &middot; educational reference, not medical advice.</p>
+  <p style="margin-top:14px;font-size:1rem;color:#fff;letter-spacing:.04em">Made by <strong>Tejas Dangodra</strong></p>
+</footer>
+
+</body>
+</html>
