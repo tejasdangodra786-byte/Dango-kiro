@@ -1,0 +1,1494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Child Psychodiagnostic Case History — Interview &amp; Documentation Handbook | M.Phil. Clinical Psychology</title>
+<meta name="description" content="A practical child case-history interview companion: Ask → Possible Answer → Probe → Clinical Meaning → Documentation. Made by Tejas Dangodra.">
+<style>
+:root{
+  --lavender:#e9e4f5; --lilac:#d9cff0; --lilac-deep:#b9a7e0;
+  --powder:#dbeafe; --powder-deep:#bcd6f5;
+  --sage:#dcecdc; --sage-deep:#bcd8bc;
+  --mint:#dbf3ec; --peach:#ffe6d6; --blush:#fbe0e6;
+  --cream:#fbf9f4; --grey:#eef0f3; --ink:#3a3550; --ink-soft:#5c5670;
+  --line:#e2ddf0; --white:#ffffff;
+  --shadow:0 6px 22px rgba(90,70,140,.10);
+  --shadow-sm:0 3px 10px rgba(90,70,140,.08);
+  --radius:18px; --radius-sm:12px;
+  --ask:#6b5bb0; --ans:#3f7a5e; --probe:#b07a2e; --doc:#3a6ea5; --why:#8a4a6b;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; font-family:"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  color:var(--ink); line-height:1.6;
+  background:linear-gradient(135deg,var(--lavender),var(--powder) 45%,var(--mint));
+  background-attachment:fixed;
+}
+a{color:var(--ask);text-decoration:none}
+a:hover{text-decoration:underline}
+
+/* ---------- Layout ---------- */
+.wrap{max-width:1180px;margin:0 auto;padding:0 18px}
+header.cover{
+  text-align:center;padding:64px 20px 48px;
+  background:linear-gradient(160deg,#efe9fb,#dfeafc 60%,#e0f4ec);
+  border-bottom:1px solid var(--line);
+}
+.badge{display:inline-block;background:var(--white);color:var(--ask);
+  border:1px solid var(--lilac);border-radius:999px;padding:6px 16px;
+  font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:20px;box-shadow:var(--shadow-sm)}
+header.cover h1{font-size:2.3rem;margin:.2em 0;color:var(--ink);line-height:1.25}
+header.cover .sub{font-size:1.05rem;color:var(--ink-soft);max-width:760px;margin:14px auto}
+.byline{margin-top:22px;font-size:1.15rem;font-weight:600;color:var(--ask)}
+.central-fmt{margin:26px auto 0;max-width:820px;background:var(--white);border-radius:var(--radius);
+  padding:16px 20px;box-shadow:var(--shadow);border:1px solid var(--line);font-weight:600;color:var(--ink-soft)}
+.central-fmt span{color:var(--ask)}
+
+/* ---------- Search + Nav ---------- */
+.toolbar{position:sticky;top:0;z-index:40;background:rgba(251,249,244,.92);
+  backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding:10px 0;box-shadow:var(--shadow-sm)}
+.toolbar .wrap{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+#search{flex:1;min-width:220px;padding:11px 16px;border-radius:999px;border:1px solid var(--lilac);
+  font-size:1rem;background:var(--white);color:var(--ink);outline:none}
+#search:focus{border-color:var(--lilac-deep);box-shadow:0 0 0 3px var(--lavender)}
+.search-tags{display:flex;gap:6px;flex-wrap:wrap}
+.search-tags button{border:1px solid var(--line);background:var(--white);color:var(--ink-soft);
+  border-radius:999px;padding:5px 12px;font-size:.8rem;cursor:pointer}
+.search-tags button:hover{background:var(--lavender)}
+#searchInfo{font-size:.85rem;color:var(--ink-soft);width:100%}
+
+/* ---------- TOC ---------- */
+nav.toc{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);
+  margin:26px 0;padding:22px 24px;box-shadow:var(--shadow)}
+nav.toc h2{margin:0 0 12px;font-size:1.1rem;color:var(--ask)}
+nav.toc ol{columns:2;column-gap:34px;margin:0;padding-left:20px;font-size:.93rem}
+nav.toc li{margin:3px 0;break-inside:avoid}
+@media(max-width:640px){nav.toc ol{columns:1}}
+
+/* ---------- Sections ---------- */
+section{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);
+  margin:22px 0;padding:26px 28px;box-shadow:var(--shadow);scroll-margin-top:80px}
+section>h2{margin-top:0;font-size:1.5rem;color:var(--ink);border-bottom:3px solid var(--lilac);
+  padding-bottom:10px;display:flex;align-items:center;gap:10px}
+section>h2 .num{background:var(--lilac);color:#fff;border-radius:10px;font-size:.9rem;
+  padding:3px 10px;font-weight:700}
+h3{color:var(--ask);margin:26px 0 10px;font-size:1.18rem}
+h4{color:var(--ink-soft);margin:18px 0 8px;font-size:1.02rem}
+p{margin:10px 0}
+.lead{color:var(--ink-soft);font-size:1.02rem}
+ul,ol{margin:8px 0 8px 4px;padding-left:22px}
+li{margin:4px 0}
+.src{font-size:.82rem;color:var(--ink-soft);background:var(--grey);border-radius:8px;
+  padding:3px 10px;display:inline-block;margin:6px 6px 0 0;border:1px solid var(--line)}
+
+/* ---------- Question card ---------- */
+.qcard{border:1px solid var(--line);border-radius:var(--radius-sm);overflow:hidden;
+  margin:18px 0;box-shadow:var(--shadow-sm);background:var(--white)}
+.qcard .qhead{background:linear-gradient(90deg,var(--lavender),var(--powder));
+  padding:12px 16px;font-weight:700;color:var(--ink);display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.qcard .who{font-size:.78rem;background:var(--white);color:var(--ask);border:1px solid var(--lilac);
+  border-radius:999px;padding:3px 12px;font-weight:600;white-space:nowrap}
+.qbody{padding:6px 16px 14px}
+.layer{border-left:4px solid var(--line);padding:8px 14px;margin:10px 0;border-radius:0 10px 10px 0;background:var(--cream)}
+.layer .lab{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;font-weight:700;display:block;margin-bottom:3px}
+.layer.ask{border-color:var(--ask)} .layer.ask .lab{color:var(--ask)}
+.layer.ans{border-color:var(--ans)} .layer.ans .lab{color:var(--ans)}
+.layer.probe{border-color:var(--probe)} .layer.probe .lab{color:var(--probe)}
+.layer.why{border-color:var(--why)} .layer.why .lab{color:var(--why)}
+.layer.doc{border-color:var(--doc);background:#eef5fc} .layer.doc .lab{color:var(--doc)}
+.layer.doc em{color:var(--doc);font-style:normal;font-weight:600}
+.ans-list{margin:4px 0 0;padding-left:0;list-style:none}
+.ans-list li{padding:4px 0 4px 20px;position:relative}
+.ans-list li:before{content:"“";position:absolute;left:0;color:var(--ans);font-weight:700}
+.ans-list li .tag{display:inline-block;font-size:.68rem;text-transform:uppercase;letter-spacing:.05em;
+  border-radius:6px;padding:1px 7px;margin-left:6px;font-weight:700}
+.t-normal{background:var(--sage);color:#2f5f42}
+.t-pos{background:var(--peach);color:#8a5320}
+.t-neg{background:var(--grey);color:#555}
+.t-concern{background:var(--blush);color:#9a3350}
+.t-unsure{background:#efe7d6;color:#7a5d20}
+.t-na{background:#e4e9f0;color:#4a5a70}
+.t-incon{background:#e9dcf0;color:#6b4a8a}
+
+/* ---------- Callout boxes ---------- */
+.box{border-radius:var(--radius-sm);padding:14px 18px;margin:16px 0;border:1px solid var(--line);box-shadow:var(--shadow-sm)}
+.box .bt{font-weight:700;display:block;margin-bottom:6px;font-size:.95rem}
+.box.clin{background:#eef5fc;border-color:var(--powder-deep)}.box.clin .bt{color:var(--doc)}
+.box.confuse{background:var(--blush);border-color:#f0c0cd}.box.confuse .bt{color:var(--why)}
+.box.ask-next{background:#fdf2e4;border-color:#f0d5ac}.box.ask-next .bt{color:var(--probe)}
+.box.red{background:#fde2e2;border-color:#f2b3b3}.box.red .bt{color:#b23434}
+.box.tip{background:var(--mint);border-color:var(--sage-deep)}.box.tip .bt{color:var(--ans)}
+.box.disclaimer{background:var(--cream);border-color:var(--lilac)}
+.box.confuse .neq{font-weight:700;color:var(--why)}
+
+/* ---------- Tables ---------- */
+.tablewrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:14px 0;border-radius:var(--radius-sm);border:1px solid var(--line)}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:.92rem;background:var(--white)}
+th,td{border:1px solid var(--line);padding:9px 12px;text-align:left;vertical-align:top}
+thead th{background:var(--lilac);color:#fff;position:sticky;top:0}
+tbody tr:nth-child(even){background:var(--cream)}
+caption{caption-side:top;text-align:left;font-weight:600;color:var(--ink-soft);padding:6px 2px}
+
+/* ---------- Flowchart ---------- */
+.flow{display:flex;flex-direction:column;align-items:center;gap:0;margin:16px 0}
+.flow .step{background:linear-gradient(90deg,var(--lavender),var(--powder));border:1px solid var(--lilac);
+  border-radius:999px;padding:9px 22px;font-weight:600;color:var(--ink);min-width:200px;text-align:center;box-shadow:var(--shadow-sm)}
+.flow .arrow{color:var(--lilac-deep);font-size:1.3rem;line-height:1.1}
+.flow-h{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;align-items:center}
+.flow-h .step{border-radius:12px;min-width:auto;padding:8px 14px;font-size:.9rem}
+
+/* ---------- Milestone timeline ---------- */
+.timeline{position:relative;margin:16px 0 16px 8px;padding-left:22px;border-left:3px solid var(--lilac)}
+.timeline .tp{position:relative;margin:0 0 14px}
+.timeline .tp:before{content:"";position:absolute;left:-30px;top:5px;width:12px;height:12px;border-radius:50%;background:var(--lilac-deep);border:2px solid #fff}
+.timeline .age{font-weight:700;color:var(--ask)}
+
+/* ---------- Checklist ---------- */
+.checklist{columns:2;column-gap:30px}
+.checklist label{display:block;break-inside:avoid;padding:4px 0}
+.checklist input{margin-right:8px;accent-color:var(--lilac-deep)}
+@media(max-width:640px){.checklist{columns:1}}
+
+/* ---------- Case ---------- */
+.case{border:1px solid var(--lilac);border-radius:var(--radius);padding:0;overflow:hidden;margin:18px 0}
+.case .chead{background:linear-gradient(90deg,var(--lilac),var(--powder-deep));color:#fff;padding:12px 18px;font-weight:700}
+.case .cbody{padding:8px 20px 18px}
+.raw{background:var(--cream);border:1px dashed var(--lilac);border-radius:10px;padding:12px 16px;font-style:italic;color:var(--ink-soft)}
+
+.pill-legend{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.pill-legend span{font-size:.72rem;border-radius:6px;padding:2px 9px;font-weight:700}
+
+/* ---------- Footer ---------- */
+footer{text-align:center;padding:40px 20px 60px;color:var(--ink-soft)}
+footer .made{font-size:1.35rem;font-weight:700;color:var(--ask);margin:10px 0}
+.backtop{position:fixed;right:18px;bottom:18px;z-index:50;background:var(--lilac-deep);color:#fff;
+  border:none;border-radius:50%;width:46px;height:46px;font-size:1.2rem;cursor:pointer;box-shadow:var(--shadow);display:none}
+.backtop.show{display:block}
+
+.hidden{display:none !important}
+mark{background:#fff2a8;padding:0 2px;border-radius:3px}
+
+/* ---------- Print ---------- */
+@media print{
+  body{background:#fff;color:#000}
+  .toolbar,.backtop,nav.toc .noprint{display:none !important}
+  section{box-shadow:none;border:1px solid #ccc;break-inside:avoid;page-break-inside:avoid}
+  .qcard,.box,.case,.tablewrap{break-inside:avoid;page-break-inside:avoid}
+  header.cover{background:#fff}
+  a{color:#000;text-decoration:none}
+  section>h2{break-after:avoid}
+}
+@media(max-width:640px){
+  header.cover h1{font-size:1.6rem}
+  section{padding:20px 16px}
+}
+</style>
+</head>
+<body>
+<a id="top"></a>
+<header class="cover">
+  <div class="wrap">
+    <span class="badge">M.Phil. Clinical Psychology</span>
+    <h1>Child Psychodiagnostic Case History<br>Interview &amp; Documentation Handbook</h1>
+    <p class="sub">A practical companion for conducting an actual child case-history interview and correctly documenting the information obtained — built on the <strong>Clinical Case History – Child</strong> proforma, supplemented by standard psychiatric history-taking and authoritative child-psychiatry sources.</p>
+    <div class="central-fmt">
+      <span>ASK</span> → <span>POSSIBLE ANSWER</span> → <span>PROBE</span> → <span>CLINICAL MEANING</span> → <span>DOCUMENTATION</span>
+    </div>
+    <div class="byline">Made by Tejas Dangodra</div>
+  </div>
+</header>
+
+<div class="toolbar">
+  <div class="wrap">
+    <input id="search" type="search" placeholder="Search: ADHD, autism, milestones, MSE, school, anxiety, trauma, treatment…" aria-label="Search handbook">
+    <div class="search-tags">
+      <button data-q="developmental history">Developmental</button>
+      <button data-q="ADHD">ADHD</button>
+      <button data-q="autism">Autism</button>
+      <button data-q="learning">Learning</button>
+      <button data-q="anxiety">Anxiety</button>
+      <button data-q="depression">Depression</button>
+      <button data-q="school">School</button>
+      <button data-q="MSE">MSE</button>
+      <button data-q="milestones">Milestones</button>
+      <button data-q="trauma">Trauma</button>
+    </div>
+    <div id="searchInfo"></div>
+  </div>
+</div>
+
+<div class="wrap">
+
+<nav class="toc noprint" aria-label="Contents">
+  <h2>Contents</h2>
+  <ol>
+    <li><a href="#howto">How to use this handbook</a></li>
+    <li><a href="#technique">Interviewing technique &amp; child rapport</a></li>
+    <li><a href="#proforma">The Child Proforma at a glance</a></li>
+    <li><a href="#sociodemo">1. Socio-Demographic Data</a></li>
+    <li><a href="#informant">2. Informant &amp; reliability</a></li>
+    <li><a href="#complaints">3. Chief Complaints</a></li>
+    <li><a href="#hopi">4. History of Present Illness</a></li>
+    <li><a href="#symptoms">5. Psychiatric symptom probing (domain-wise)</a></li>
+    <li><a href="#family">6. Family History</a></li>
+    <li><a href="#personal">7. Personal &amp; Developmental History</a></li>
+    <li><a href="#milestones">8. Developmental Milestones &amp; regression</a></li>
+    <li><a href="#temperament">9. Temperament &amp; personality attributes</a></li>
+    <li><a href="#school">10. Schooling &amp; learning difficulties</a></li>
+    <li><a href="#social">11. Social, play &amp; digital media</a></li>
+    <li><a href="#medical">12. Medical &amp; neurological history</a></li>
+    <li><a href="#bio">13. Sleep, appetite, toileting, sensory</a></li>
+    <li><a href="#sexual">14. Sexual development &amp; substance use</a></li>
+    <li><a href="#trauma">15. Trauma / adversity</a></li>
+    <li><a href="#treatment">16. Treatment history</a></li>
+    <li><a href="#functioning">17. Current functioning &amp; impairment</a></li>
+    <li><a href="#mse">18. Mental Status Examination (child)</a></li>
+    <li><a href="#observation">19. Behavioural observation &amp; play room</a></li>
+    <li><a href="#gpe">20. General Physical Examination</a></li>
+    <li><a href="#red">21. Red-flag / risk questions</a></li>
+    <li><a href="#library">22. Possible-answers library</a></li>
+    <li><a href="#negative">23. Negative / unknown / inconsistent history</a></li>
+    <li><a href="#language">24. Parent language → clinical documentation</a></li>
+    <li><a href="#formulation">25. Formulation &amp; multi-axial diagnosis</a></li>
+    <li><a href="#differential">26. Differential-diagnosis questioning</a></li>
+    <li><a href="#confuse">27. "Do not confuse" distinctions</a></li>
+    <li><a href="#template">28. Blank case-history template</a></li>
+    <li><a href="#cases">29. Three worked fictional cases</a></li>
+    <li><a href="#flow">30. Interview flow &amp; rapid checklist</a></li>
+    <li><a href="#audit">31. Source audit &amp; version control</a></li>
+  </ol>
+</nav>
+
+<div class="box disclaimer">
+  <span class="bt">⚑ Clinical disclaimer</span>
+  This handbook is an <strong>educational clinical-interviewing reference</strong>. Questions should be selected according to the child's age, presenting problem, cultural context, developmental level, and clinical need. <strong>Not every question needs to be asked in every case.</strong> No diagnosis should be made from a single symptom. Developmental norms are guides, not absolute cut-offs. Sensitive topics (abuse, self-harm, sexuality, substance use) must be approached only in a safe, private, confidential and developmentally suitable manner.
+</div>
+
+<section id="howto">
+  <h2><span class="num">i</span>How to use this handbook</h2>
+  <p class="lead">This is a practical interview companion, not a textbook chapter. It follows the <strong>Clinical Case History – Child</strong> proforma section-by-section, and for the important domains gives you the five working layers:</p>
+  <div class="pill-legend">
+    <span class="t-normal">Normal</span><span class="t-pos">Positive</span><span class="t-neg">Negative</span>
+    <span class="t-concern">Concerning</span><span class="t-unsure">Uncertain</span><span class="t-na">Not applicable</span><span class="t-incon">Inconsistent</span>
+  </div>
+  <p>Every <strong>question card</strong> shows:</p>
+  <ul>
+    <li><strong>Ask</strong> — the exact natural question you can say aloud.</li>
+    <li><strong>Who?</strong> — parent / caregiver / child / teacher / multiple informants.</li>
+    <li><strong>Possible answers</strong> — realistic replies, tagged so you can see the range (a concerning answer is only <em>one</em> of several possibilities).</li>
+    <li><strong>Follow-up (Ask next)</strong> — branching probes for a positive answer.</li>
+    <li><strong>Why it matters</strong> — the clinical significance.</li>
+    <li><strong>Documentation</strong> — how to convert the reply into professional case-history language.</li>
+  </ul>
+  <div class="box tip"><span class="bt">Reading the tags</span>The answer tags (Normal / Concerning / Uncertain etc.) are there to <em>protect you from bias</em>: a positive-sounding reply is not proof of a disorder, and a single concerning reply is a lead to probe — not a conclusion.</div>
+</section>
+
+<section id="technique">
+  <h2><span class="num">ii</span>Interviewing technique &amp; child rapport</h2>
+
+  <h3>Open → Closed → Clarifying model</h3>
+  <div class="flow">
+    <div class="step">Open question ("Tell me about…")</div><div class="arrow">↓</div>
+    <div class="step">Specific / closed question</div><div class="arrow">↓</div>
+    <div class="step">Clarification</div><div class="arrow">↓</div>
+    <div class="step">Example ("Can you give me an instance?")</div><div class="arrow">↓</div>
+    <div class="step">Frequency</div><div class="arrow">↓</div>
+    <div class="step">Duration</div><div class="arrow">↓</div>
+    <div class="step">Context (home / school / both)</div><div class="arrow">↓</div>
+    <div class="step">Functional impact</div>
+  </div>
+
+  <h3>Avoid leading questions</h3>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Poor (leading / loaded)</th><th>Better (open, then probe)</th></tr></thead>
+    <tbody>
+      <tr><td>"Does your child have ADHD?"</td><td>"Tell me about your child's attention and activity level." → then probe distractibility, sitting still, waiting turn.</td></tr>
+      <tr><td>"He's autistic, isn't he?"</td><td>"How does he get along with other children? How does he play?"</td></tr>
+      <tr><td>"You must be very strict at home?"</td><td>"How do you usually respond when he doesn't listen?"</td></tr>
+      <tr><td>"She's just lazy at studies, right?"</td><td>"How does she manage reading, writing and maths compared with the rest of the class?"</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>Family interview technique</h3>
+  <ul>
+    <li><strong>Rapport &amp; normalization</strong> — "Many parents notice these things; you've done well to bring him."</li>
+    <li><strong>Non-judgmental language</strong> — avoid blame; ask "what happens" not "what did you do wrong".</li>
+    <li><strong>Check multiple sources</strong> — parent, other caregiver, teacher, child, and your own observation.</li>
+    <li><strong>Summarize &amp; confirm</strong> — "So the main concern is… since about two years — have I understood correctly?"</li>
+  </ul>
+
+  <h3>Child rapport by age</h3>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Stage</th><th>Approach</th><th>Opening examples</th></tr></thead>
+    <tbody>
+      <tr><td>Preschool</td><td>Simple language, play materials, concrete questions; rely mostly on caregiver.</td><td>"Shall we draw something together?" "Which is your favourite toy?"</td></tr>
+      <tr><td>School-age</td><td>Direct questions with examples; child report + caregiver report.</td><td>"What do you like doing after school?" "Who do you sit with in class?"</td></tr>
+      <tr><td>Adolescent</td><td>Direct, respectful; offer privacy for sensitive topics; assess mood, self-harm, peers, substances, safety.</td><td>"What's going well for you right now, and what's hard?"</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="box confuse"><span class="bt">What NOT to ask</span>
+    <ul style="margin:0">
+      <li>Leading ("He gets very angry, doesn't he?")</li>
+      <li>Accusatory ("Why do you let him behave like that?")</li>
+      <li>Judgmental / shaming the parent or child</li>
+      <li>Unnecessarily repetitive questions the informant already answered</li>
+      <li>Developmentally inappropriate abstract questions to a young child</li>
+      <li>Diagnostically loaded ("So he's basically bipolar?")</li>
+    </ul>
+  </div>
+</section>
+
+<section id="proforma">
+  <h2><span class="num">iii</span>The Child Proforma at a glance</h2>
+  <p class="lead">This handbook preserves the sequence and terminology of the uploaded <strong>Clinical Case History – Child</strong> proforma (8 pages). The order below is followed throughout.</p>
+  <div class="tablewrap"><table>
+    <thead><tr><th>#</th><th>Proforma section</th><th>Key fields (as printed)</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Socio-Demographic Data</td><td>Name; Parents' name; DOB; UHID No.; Age; Gender; Religion; Educational status; Socio-economic status; Place of residence; Address; Aadhar No.; Mob. No.; Date of Admission; Informants (Name / Relationship / Duration of acquaintance); Trainee status; Case worked up by; Reliable &amp; Adequacy; Source of referral</td></tr>
+      <tr><td>2</td><td>Chief Complaints</td><td>Complaints 1–6 (with duration); Reason for Consultation</td></tr>
+      <tr><td>3</td><td>Family History</td><td>Genogram; family history of medical/psychiatric illness; living arrangements; primary care giver; description of parents; home &amp; neighbourhood; family life &amp; relationships; child-rearing practices; other relevant information</td></tr>
+      <tr><td>4</td><td>Personal History</td><td>Prenatal, perinatal, health status during pregnancy, postnatal, birth &amp; early development (normal/caesarean/birth cry), milestones (motor/social/adaptive/language), caseworker's impression, current developmental status, behaviour, physical illness</td></tr>
+      <tr><td>5</td><td>Schooling History</td><td>Age of initiation; adjustment; change of school/medium; scholastic performance; parents' expectations &amp; satisfaction; peer relationship; extra-curricular; reading/writing/arithmetic; teacher's perceptions; discontinuation; school report; Habits/Interests/Talents; Sexual History (menarche/pubertal status)</td></tr>
+      <tr><td>6</td><td>General Temperament &amp; Personality Attributes</td><td>Emotionality; attention &amp; concentration; activity; aggression; sociability; rhythmicity; motivation; trustworthiness/dependability; moral standards; adaptability; strengths</td></tr>
+      <tr><td>7</td><td>History of Present Illness</td><td>Total duration; Onset (abrupt/acute/subacute/insidious); Course (episodic/chronic/chronic-fluctuating); Progress (static/deteriorating/improved); Predisposing / Precipitating / Perpetuating factors; Biological functioning; Occupational functioning</td></tr>
+      <tr><td>8</td><td>Treatment History &amp; Negative History</td><td>Treatment till date; negative history (points that were assessed and found absent)</td></tr>
+      <tr><td>9</td><td>Family perception; Charting of illness; Functional impairment</td><td>Family perception &amp; responses to problem; charting over lifetime; interference in social &amp; academic activities</td></tr>
+      <tr><td>10</td><td>Psychiatric / Mental Status Examination</td><td>Initial observations; General appearance &amp; behaviour (1–12); attention; activity; motor behaviour; speech &amp; language; general intelligence; cognition; mood &amp; affect; thought; perception; child's version; 3-wish test; tasks; play-room observations</td></tr>
+      <tr><td>11</td><td>General Physical Examination</td><td>Vitals; hearing; birth mark; pubertal status; lymph nodes; thyroid; retinal; respiratory; CVS; PA; CNS (filled by staff nurse)</td></tr>
+      <tr><td>12</td><td>Summary &amp; Diagnosis</td><td>Summary of evaluation (multi-axial); detailed notes of discussion; provisional multi-axial diagnosis Axis 1–5</td></tr>
+    </tbody>
+  </table></div>
+  <span class="src">Primary source: Clinical Case History – Child proforma (8 pp.)</span>
+</section>
+
+<section id="sociodemo">
+  <h2><span class="num">1</span>Socio-Demographic Data</h2>
+  <p class="lead">Recorded first, exactly as the proforma lists it. Ask factually; document neutrally. Age, gender and educational/schooling details are documented as they present in the clinical setting.</p>
+
+  <div class="qcard">
+    <div class="qhead"><span>Basic identification (name, age, DOB, gender)</span><span class="who">Parent / records</span></div>
+    <div class="qbody">
+      <div class="layer ask"><span class="lab">Ask</span>"Can you tell me the child's full name, date of birth and age? And how is the child registered here — as a boy or a girl?"</div>
+      <div class="layer ans"><span class="lab">Possible answers</span>
+        <ul class="ans-list">
+          <li>Rahul, born 12 March 2016, 8 years old, boy.<span class="tag t-normal">Clear</span></li>
+          <li>We're not sure of the exact date — around 2017.<span class="tag t-unsure">Uncertain</span></li>
+          <li>The school records one age, the birth certificate another.<span class="tag t-incon">Inconsistent</span></li>
+        </ul>
+      </div>
+      <div class="layer doc"><span class="lab">Documentation</span><em>Master R., an 8-year-old boy (DOB 12/03/2016), was brought for assessment.</em> If age is uncertain: <em>"Exact date of birth could not be confirmed by the informant; approximate age 7–8 years."</em></div>
+    </div>
+  </div>
+
+  <div class="qcard">
+    <div class="qhead"><span>Schooling, class &amp; medium of instruction</span><span class="who">Parent / child</span></div>
+    <div class="qbody">
+      <div class="layer ask"><span class="lab">Ask</span>"Which school does the child attend, in which class, and what is the medium of instruction?"</div>
+      <div class="layer ans"><span class="lab">Possible answers</span>
+        <ul class="ans-list">
+          <li>Class 3, Hindi-medium government school.<span class="tag t-normal">Normal</span></li>
+          <li>He is not enrolled in any school.<span class="tag t-na">N/A</span></li>
+          <li>He was in Class 2 but stopped last year.<span class="tag t-concern">Concerning</span></li>
+        </ul>
+      </div>
+      <div class="layer why"><span class="lab">Why it matters</span>Educational status, class and medium frame the school and learning history; discontinuation is itself a lead to explore under Schooling History.</div>
+      <div class="layer doc"><span class="lab">Documentation</span><em>The child studies in Class 3 in a Hindi-medium government school.</em></div>
+    </div>
+  </div>
+
+  <div class="qcard">
+    <div class="qhead"><span>Socio-economic status, residence, referral</span><span class="who">Parent</span></div>
+    <div class="qbody">
+      <div class="layer ask"><span class="lab">Ask</span>"Where does the family live? What does the family do for a living? Who suggested you come here today?"</div>
+      <div class="layer ans"><span class="lab">Possible answers</span>
+        <ul class="ans-list">
+          <li>Urban, father is a shopkeeper; referred by the school counsellor.<span class="tag t-normal">Clear</span></li>
+          <li>Rural, daily-wage family; came on their own after neighbours' advice.<span class="tag t-normal">Clear</span></li>
+          <li>Referred by paediatrician for suspected developmental delay.<span class="tag t-pos">Referral note</span></li>
+        </ul>
+      </div>
+      <div class="layer doc"><span class="lab">Documentation</span><em>The family belongs to a lower-middle socio-economic background and resides in an urban area. The child was referred by the school for behavioural concerns.</em></div>
+    </div>
+  </div>
+
+  <div class="box tip"><span class="bt">Also record on this page</span>UHID No., Aadhar No., Mob. No., Date of Admission, Trainee status, "Case worked up by", and "Reliable &amp; Adequacy" — the latter is elaborated under the Informant section below.</div>
+  <span class="src">Primary source: Child Proforma — Socio-Demographic Data</span>
+</section>
+
+<section id="informant">
+  <h2><span class="num">2</span>Informant &amp; reliability</h2>
+  <p class="lead">The proforma records the informant's <strong>name, relationship, duration of acquaintance</strong> and whether information is <strong>reliable and adequate</strong>. Begin history-taking here.</p>
+
+  <div class="qcard">
+    <div class="qhead"><span>Who is the informant &amp; how well do they know the child?</span><span class="who">Accompanying adult</span></div>
+    <div class="qbody">
+      <div class="layer ask"><span class="lab">Ask</span>"Who has come with the child today? What is your relationship? Do you live with the child, and how much time do you spend with him each day? Is there anyone else who could add to this history?"</div>
+      <div class="layer ans"><span class="lab">Possible answers</span>
+        <ul class="ans-list">
+          <li>I'm his mother, I'm with him all day.<span class="tag t-normal">Primary caregiver</span></li>
+          <li>I'm his father; his mother knows the early history better.<span class="tag t-pos">Partial</span></li>
+          <li>Grandmother — she's raised him since infancy.<span class="tag t-normal">Primary caregiver</span></li>
+          <li>Older sister; parents are working, she brings him.<span class="tag t-unsure">Limited on early history</span></li>
+          <li>I only started living with him two years ago.<span class="tag t-incon">Limited</span></li>
+        </ul>
+      </div>
+      <div class="layer why"><span class="lab">Why it matters</span>Reliability of the whole history depends on the informant's contact, memory and relationship. Corroboration (a second caregiver or the teacher) strengthens the account.</div>
+      <div class="layer doc"><span class="lab">Documentation (reliable)</span><em>Information was provided by the mother, who is the primary caregiver and lives with the child; the information was considered reliable and adequate.</em></div>
+      <div class="layer doc"><span class="lab">Documentation (limited)</span><em>Information was provided by the father, who was unable to give details of early development as this was primarily managed by the mother; the account was adequate for the present concerns but limited regarding early history.</em></div>
+    </div>
+  </div>
+
+  <div class="box clin"><span class="bt">Documenting reliability without over-judging</span>
+    State the <em>basis</em> for the judgment, not just the label. Prefer "considered reliable and adequate, as the informant is the primary caregiver with continuous contact" over a bare "reliable". If two informants disagree, record both accounts (see §23) rather than choosing one without evidence.</div>
+  <span class="src">Primary source: Child Proforma — Informants / Reliable &amp; Adequacy</span>
+  <span class="src">Documentation style: Psychodiagnostic Cases Submission</span>
+</section>
+
+<section id="complaints">
+  <h2><span class="num">3</span>Chief Complaints</h2>
+  <p class="lead">The proforma provides 6 numbered lines plus "Reason for Consultation". Complaints should be <strong>concise, symptom-focused, with duration, in the informant's frame, in chronological order</strong> — not converted into diagnostic labels.</p>
+
+  <div class="qcard">
+    <div class="qhead"><span>Eliciting the complaints</span><span class="who">Parent (then child)</span></div>
+    <div class="qbody">
+      <div class="layer ask"><span class="lab">Ask</span>"What brought you here today? What problems have you noticed in the child? Which one concerns you the most? When did you first notice it, and how long has it been present?"</div>
+      <div class="layer ans"><span class="lab">Possible answers (parent's words)</span>
+        <ul class="ans-list">
+          <li>He doesn't sit in one place and keeps running around.<span class="tag t-concern">Symptom report</span></li>
+          <li>She hardly speaks and doesn't play with other children.<span class="tag t-concern">Symptom report</span></li>
+          <li>His marks have dropped and the teacher complains.<span class="tag t-concern">Symptom report</span></li>
+          <li>Honestly, the school told us to come; we don't see much of a problem.<span class="tag t-unsure">Discordant</span></li>
+        </ul>
+      </div>
+      <div class="layer probe"><span class="lab">Convert to concise complaints (with duration)</span>
+        <ul>
+          <li>"Doesn't sit in one place / keeps running" → <em>Excessive activity — 2 years</em></li>
+          <li>"Hardly speaks, doesn't play with others" → <em>Reduced speech and social interaction — since early childhood</em></li>
+          <li>"Marks dropped, teacher complains" → <em>Decline in academic performance — 1 year</em></li>
+        </ul>
+      </div>
+      <div class="layer doc"><span class="lab">Documentation</span><em>Chief complaints (as reported by the mother):<br>1. Excessive activity — 2 years<br>2. Difficulty sustaining attention — 2 years<br>3. Not following instructions — 1½ years.<br>Reason for consultation: brought for assessment of overactivity and inattention on the school's advice.</em></div>
+    </div>
+  </div>
+  <div class="box tip"><span class="bt">Keep it as report, not diagnosis</span>Write "excessive activity", not "ADHD"; write "repetitive hand movements", not "stereotypies of autism". Diagnostic terms belong in the formulation, after the whole history.</div>
+  <span class="src">Primary source: Child Proforma — Chief Complaints / Reason for Consultation</span>
+</section>
+
+<section id="hopi">
+  <h2><span class="num">4</span>History of Present Illness (HOPI)</h2>
+  <p class="lead">The proforma structures HOPI as <strong>Total Duration · Onset (abrupt/acute/subacute/insidious) · Course (episodic/chronic/chronic-fluctuating) · Progress (static/deteriorating/improved) · Predisposing · Precipitating · Perpetuating factors · Biological functioning · Occupational functioning.</strong> Open the narrative with the classic anchor.</p>
+  <div class="box tip"><span class="bt">Opening line</span><em>"The index child was apparently well until … when the informant first noticed …"</em></div>
+
+  <h3>HOPI question bank (open → probe)</h3>
+  <div class="qcard">
+    <div class="qhead"><span>Onset, course &amp; progression</span><span class="who">Parent</span></div>
+    <div class="qbody">
+      <div class="layer ask"><span class="lab">Ask (open)</span>"What was the first change you noticed? How old was the child then? Did it start suddenly or gradually? Since then, has it stayed the same, worsened, or improved?"</div>
+      <div class="layer probe"><span class="lab">Probes</span>
+        <ul>
+          <li>"What was happening in the child's life around that time?" (precipitant)</li>
+          <li>"Does it come and go, or is it there all the time?" (course)</li>
+          <li>"What makes it better or worse?" (maintaining factors)</li>
+          <li>"Where does it happen — home, school, or both?" (situational variation)</li>
+          <li>"How is it affecting his studies, friendships and daily routine?" (functional impact)</li>
+          <li>"Have you consulted anyone before? What was tried and did it help?" (previous treatment / response)</li>
+          <li>"Why did you decide to seek help now?" (reason now)</li>
+        </ul>
+      </div>
+      <div class="layer ans"><span class="lab">Possible answers</span>
+        <ul class="ans-list">
+          <li>Gradual, over about two years, slowly getting worse.<span class="tag t-concern">Insidious, deteriorating</span></li>
+          <li>Started after he changed school; comes in episodes.<span class="tag t-pos">Precipitant + episodic</span></li>
+          <li>Present since he was a toddler; unchanged.<span class="tag t-normal">Chronic, static</span></li>
+        </ul>
+      </div>
+      <div class="layer doc"><span class="lab">Documentation</span><em>Total duration ~2 years. Onset insidious; course chronic; progress gradually deteriorating. Symptoms are present across home and school. Precipitating factor: none clearly identified. Perpetuating factors: inconsistent limit-setting and academic pressure. No prior consultation.</em></div>
+    </div>
+  </div>
+
+  <div class="qcard">
+    <div class="qhead"><span>Biological &amp; occupational functioning within HOPI</span><span class="who">Parent</span></div>
+    <div class="qbody">
+      <div class="layer ask"><span class="lab">Ask</span>"Since the problem began, how has his sleep, appetite, self-care, and bowel/bladder control been? Has school attendance or routine been affected?"</div>
+      <div class="layer ans"><span class="lab">Possible answers</span>
+        <ul class="ans-list">
+          <li>Sleep and appetite normal; self-care age-appropriate.<span class="tag t-normal">Preserved</span></li>
+          <li>Sleep disturbed, appetite reduced since it started.<span class="tag t-concern">Affected</span></li>
+          <li>Started wetting the bed again after being dry.<span class="tag t-concern">Regression</span></li>
+        </ul>
+      </div>
+      <div class="layer doc"><span class="lab">Documentation</span><em>Biological functions: sleep and appetite reported adequate; self-care age-appropriate; bowel and bladder control maintained. Occupational (scholastic) functioning impaired, with frequent teacher complaints and declining marks over the past year.</em></div>
+    </div>
+  </div>
+
+  <div class="box tip"><span class="bt">Symptom-by-symptom probe template (use for each complaint)</span>
+    When? · How often? · What happens immediately before? · During? · Afterward? · Home / school / both? · Better or worse with anything? · How does the child behave afterward?</div>
+  <span class="src">Primary source: Child Proforma — History of Present Illness</span>
+  <span class="src">Documentation style: Psychodiagnostic Cases Submission (Onset/Course/Progress/Precipitating/Perpetuating)</span>
+</section>
+
+<section id="symptoms">
+  <h2><span class="num">5</span>Psychiatric symptom probing — domain-wise</h2>
+  <p class="lead">Screen each domain with an open question, then use the probes. A positive screen is a lead to explore, never a diagnosis. Use developmentally appropriate wording.</p>
+
+  <h3>Attention / inattention</h3>
+  <div class="qcard">
+    <div class="qhead"><span>Attention</span><span class="who">Parent + Teacher</span></div>
+    <div class="qbody">
+      <div class="layer ask"><span class="lab">Ask</span>"Tell me about his ability to pay attention. Does he finish what he starts? Does he lose or forget things?"</div>
+      <div class="layer probe"><span class="lab">Probes</span>distractibility · sustaining attention on tasks/play · careless mistakes · seems not to listen when spoken to · task completion · loses belongings · everyday forgetfulness · avoids sustained mental effort.</div>
+      <div class="layer ans"><span class="lab">Possible answers</span>
+        <ul class="ans-list">
+          <li>He concentrates well on things he enjoys and finishes homework.<span class="tag t-normal">Normal</span></li>
+          <li>Even after telling him 2–3 times, he forgets what to do.<span class="tag t-concern">Concerning</span></li>
+          <li>He's fine at home but the teacher says he drifts off in class.<span class="tag t-incon">Setting-specific</span></li>
+        </ul>
+      </div>
+      <div class="box ask-next"><span class="bt">Ask next (if positive)</span>Is it in one setting or both? Since when? Has it always been this way or is it new? Does it improve with one-to-one attention? Is it worse when the task is boring vs interesting?</div>
+      <div class="layer doc"><span class="lab">Documentation</span><em>Caregiver reported difficulty following and retaining multi-step instructions across home and school, with frequent forgetfulness and incomplete tasks.</em></div>
+    </div>
+  </div>
+
+  <h3>Hyperactivity &amp; impulsivity</h3>
+  <div class="qcard">
+    <div class="qhead"><span>Hyperactivity / impulsivity</span><span class="who">Parent + Teacher</span></div>
+    <div class="qbody">
+      <div class="layer ask"><span class="lab">Ask</span>"How active is he compared with other children his age? Can he sit through a meal or a class? Does he wait for his turn?"</div>
+      <div class="layer probe"><span class="lab">Probes</span><strong>Hyperactivity:</strong> fidgeting · leaving seat · running/climbing when inappropriate · always "on the go" · excessive talking · difficulty playing quietly. <strong>Impulsivity:</strong> interrupts · answers before question finishes · difficulty waiting · acts without thinking.</div>
+      <div class="layer ans"><span class="lab">Possible answers</span>
+        <ul class="ans-list">
+          <li>Active but settles when needed.<span class="tag t-normal">Normal</span></li>
+          <li>Can't sit for a meal, climbs on furniture, always running.<span class="tag t-concern">Concerning</span></li>
+        </ul>
+      </div>
+      <div class="layer doc"><span class="lab">Documentation</span><em>Reported motor overactivity with difficulty remaining seated, and impulsivity in the form of interrupting and difficulty awaiting turn, present across settings.</em></div>
+    </div>
+  </div>
+
+  <h3>Oppositional behaviour &amp; temper</h3>
+  <div class="qcard">
+    <div class="qhead"><span>Oppositional / defiant behaviour</span><span class="who">Parent</span></div>
+    <div class="qbody">
+      <div class="layer ask"><span class="lab">Ask</span>"How does he respond when asked to do something he doesn't want to? Tell me about his temper."</div>
+      <div class="layer probe"><span class="lab">Probes</span>arguing with adults · defiance / refusing rules · temper outbursts · deliberately annoying others · blaming others · touchy / easily annoyed · resentful · spiteful.</div>
+      <div class="box ask-next"><span class="bt">Ask next — "Does he have temper tantrums?" (if YES)</span>How often? How long do they last? What triggers them? What does he do during (hurt self / hurt others / break things)? How do parents respond? Does he calm down on his own? Does it happen at school too? How does he behave afterward?</div>
+      <div class="layer why"><span class="lab">Clinical meaning</span>Frequency, duration, triggers and whether behaviour is directed/vindictive help distinguish age-typical tantrums from oppositional defiant patterns and from conduct problems.</div>
+      <div class="layer doc"><span class="lab">Documentation</span><em>Caregiver reported frequent temper outbursts (3–4/week, lasting 10–20 min), typically triggered by demands, without deliberate harm to others; the child settles with time. No cruelty or destructiveness reported.</em></div>
+    </div>
+  </div>
+
+  <h3>Conduct symptoms</h3>
+  <div class="qcard">
+    <div class="qhead"><span>Conduct</span><span class="who">Parent + Teacher</span></div>
+    <div class="qbody">
+      <div class="layer ask"><span class="lab">Ask</span>"Have there been any problems with rules — things like fighting, taking things that aren't his, or staying away from home or school?"</div>
+      <div class="layer probe"><span class="lab">Probes (screen sensitively)</span>aggression to people/animals · cruelty · stealing · lying/conning · destroying property · truancy · running away · bullying · use of weapons · fire-setting · serious rule violations.</div>
+      <div class="layer ans"><span class="lab">Possible answers</span>
+        <ul class="ans-list">
+          <li>No such problems.<span class="tag t-neg">Negative</span></li>
+          <li>Occasional lies to avoid scolding.<span class="tag t-unsure">Ambiguous / age-typical</span></li>
+          <li>Repeated stealing, bunking school, hurt a younger child.<span class="tag t-concern">Concerning</span></li>
+        </ul>
+      </div>
+      <div class="layer doc"><span class="lab">Documentation (if present)</span><em>Reported repetitive rule-violating behaviour including truancy and taking others' belongings over the past year.</em> <span style="color:var(--why)">(If genuinely assessed and absent:</span> <em>No history suggestive of aggression, cruelty, stealing, or truancy.</em><span style="color:var(--why)">)</span></div>
+    </div>
+  </div>
+
+  <h3>Anxiety</h3>
+  <div class="qcard">
+    <div class="qhead"><span>Anxiety</span><span class="who">Parent + Child</span></div>
+    <div class="qbody">
+      <div class="layer ask"><span class="lab">Ask (child)</span>"Is there anything that makes you feel scared or worried a lot?" <br><strong>Ask (parent):</strong> "Does he worry more than other children? How does he manage being away from you?"</div>
+      <div class="layer probe"><span class="lab">Probes</span>excessive worries · separation anxiety · school refusal · specific fears · somatic complaints (tummy ache, headache before school) · repeated reassurance-seeking · panic-like episodes.</div>
+      <div class="layer ans"><span class="lab">Possible answers</span>
+        <ul class="ans-list">
+          <li>Normal shyness that settles.<span class="tag t-normal">Normal</span></li>
+          <li>Cries and clings every morning before school; complains of stomach ache.<span class="tag t-concern">Concerning</span></li>
+        </ul>
+      </div>
+      <div class="layer doc"><span class="lab">Documentation</span><em>Reported separation-related distress with morning somatic complaints and reluctance to attend school over the past three months.</em></div>
+    </div>
+  </div>
+
+  <h3>Depression (developmentally worded)</h3>
+  <div class="qcard">
+    <div class="qhead"><span>Depression / low mood</span><span class="who">Child + Parent</span></div>
+    <div class="qbody">
+      <div class="layer ask"><span class="lab">Ask (child)</span>"How have you been feeling — happy, okay, or sad most days?" "Are the things you used to enjoy still fun?"</div>
+      <div class="layer probe"><span class="lab">Probes</span>sadness or irritability · loss of interest · reduced activity/play · guilt · hopelessness · sleep &amp; appetite change · fatigue · poor concentration · <strong>thoughts of death or self-harm</strong> (ask directly and calmly — see §21).</div>
+      <div class="layer ans"><span class="lab">Possible answers</span>
+        <ul class="ans-list">
+          <li>Usually cheerful.<span class="tag t-normal">Normal</span></li>
+          <li>Irritable, stopped playing, says "nobody likes me".<span class="tag t-concern">Concerning</span></li>
+        </ul>
+      </div>
+      <div class="layer doc"><span class="lab">Documentation</span><em>Child reported persistent low mood and irritability with reduced interest in play over the past two months; no active suicidal ideation elicited on direct enquiry.</em></div>
+    </div>
+  </div>
+
+  <h3>Obsessive–compulsive symptoms</h3>
+  <div class="qcard">
+    <div class="qhead"><span>Obsessions &amp; compulsions</span><span class="who">Child + Parent</span></div>
+    <div class="qbody">
+      <div class="layer ask"><span class="lab">Ask</span>"Do thoughts ever get stuck in your mind that you can't push away? Do you feel you <em>must</em> do certain things a special way or something bad will happen?"</div>
+      <div class="layer probe"><span class="lab">Probes</span><strong>Obsessions:</strong> unwanted thoughts · fears · doubts · contamination · symmetry. <strong>Compulsions:</strong> washing · checking · counting · repeating · arranging · reassurance-seeking. Ask about time spent, distress, and interference.</div>
+      <div class="box confuse"><span class="bt">Distinguish</span><span class="neq">Bedtime rituals / lining up toys ≠ automatically OCD.</span> Developmentally normal routines are flexible and not distressing; clinical compulsions are rigid, time-consuming and cause distress when prevented.</div>
+      <div class="layer doc"><span class="lab">Documentation</span><em>Reported repetitive hand-washing associated with contamination fears, occupying &gt;1 hour/day and causing distress when interrupted.</em></div>
+    </div>
+  </div>
+
+  <h3>Psychotic-spectrum phenomena (age-appropriate)</h3>
+  <div class="qcard">
+    <div class="qhead"><span>Perceptual / unusual experiences</span><span class="who">Child + Parent</span></div>
+    <div class="qbody">
+      <div class="layer ask"><span class="lab">Ask (gently)</span>"Sometimes children hear or see things that others don't — has that ever happened to you?" "Do you ever feel that others are against you?"</div>
+      <div class="layer probe"><span class="lab">Probes</span>hearing voices · seeing things others don't · unusual/fixed beliefs · suspiciousness · bizarre behaviour · self-talk beyond age norm.</div>
+      <div class="box confuse"><span class="bt">Distinguish imagination from psychosis</span><span class="neq">Imaginary friends and vivid pretend play in young children ≠ psychosis.</span> Normal imaginative phenomena are under the child's control, ego-syntonic and age-typical; genuine hallucinations/delusions are distressing, not controllable, and often accompanied by functional decline. Interpret cautiously and never from a single item.</div>
+      <div class="layer doc"><span class="lab">Documentation</span><em>On sensitive enquiry, no clear history suggestive of hallucinations or delusional beliefs was elicited; reported "imaginary friend" appeared developmentally typical and ego-syntonic.</em></div>
+    </div>
+  </div>
+  <span class="src">Structure: standard child psychiatric symptom review (integrated with Nitin Sethi psychiatric history-taking framework)</span>
+  <span class="src">Terminology anchored to Child Proforma &amp; ICD-10/ICD-11 (repo copies)</span>
+</section>
+
+<section id="family">
+  <h2><span class="num">6</span>Family History</h2>
+  <p class="lead">The proforma asks for a <strong>genogram</strong>, family history of medical/psychiatric illness, living arrangements, primary caregiver, description of parents, home &amp; neighbourhood, family life &amp; relationships, and child-rearing practices. Ask sensitively and without blame.</p>
+
+  <div class="qcard">
+    <div class="qhead"><span>Family history of illness</span><span class="who">Parent</span></div>
+    <div class="qbody">
+      <div class="layer ask"><span class="lab">Ask</span>"In the wider family — parents, siblings, grandparents, uncles/aunts — has anyone had psychiatric illness, epilepsy, developmental or learning problems, intellectual disability, substance use, or died by suicide? Are the parents related by blood?"</div>
+      <div class="layer probe"><span class="lab">Probes</span>psychiatric illness · neurological illness · developmental disorders · intellectual disability · learning difficulties · substance use · epilepsy · genetic disorders · suicide · chronic medical illness · consanguinity (where relevant).</div>
+      <div class="layer ans"><span class="lab">Possible answers</span>
+        <ul class="ans-list">
+          <li>No known illness in the family.<span class="tag t-neg">Negative</span></li>
+          <li>Father had alcohol dependence.<span class="tag t-concern">Positive FH</span></li>
+          <li>A cousin has "fits"; not sure of details.<span class="tag t-unsure">Uncertain</span></li>
+          <li>Parents are first cousins.<span class="tag t-pos">Consanguinity</span></li>
+        </ul>
+      </div>
+      <div class="layer doc"><span class="lab">Documentation</span><em>Family history was significant for alcohol dependence in the father. Parents were non-consanguineous.</em></div>
+    </div>
+  </div>
+
+  <div class="qcard">
+    <div class="qhead"><span>Family structure, relationships &amp; stressors</span><span class="who">Parent</span></div>
+    <div class="qbody">
+      <div class="layer ask"><span class="lab">Ask</span>"Who lives at home with the child? Who is the main caregiver? How would you describe the relationships at home? Have there been recent changes — separation, loss, illness, or conflict?"</div>
+      <div class="layer probe"><span class="lab">Probes</span>living arrangements · primary caregiver · description of parents · home &amp; neighbourhood · family life &amp; relationships · child-rearing practices · major conflicts / recent stressors · parental separation · bereavement · domestic violence (only where appropriate) · caregiving arrangements.</div>
+      <div class="layer doc"><span class="lab">Documentation</span><em>The child lives in a nuclear family with both parents and one younger sibling; the mother is the primary caregiver. Communication within the family was described as open, and members were supportive. No major family discord was reported.</em></div>
+    </div>
+  </div>
+  <div class="box tip"><span class="bt">Genogram</span>Draw a three-generation genogram; mark ages, illnesses, deaths (with cause where relevant), consanguinity, and the child's position/birth order.</div>
+  <span class="src">Primary source: Child Proforma — Family History (genogram, FH illness, living arrangements, parents, home, child-rearing)</span>
+</section>
+
+<section id="personal">
+  <h2><span class="num">7</span>Personal &amp; Developmental History</h2>
+  <p class="lead">The proforma's Personal History covers <strong>significant prenatal factors · significant perinatal factors · health status during pregnancy · postnatal development · birth &amp; early development (normal / caesarean delivery / birth cry present or absent) · developmental milestones · caseworker's impression · current developmental status · behaviour · physical illness.</strong> Possible answers below deliberately include normal <em>and</em> abnormal examples.</p>
+
+  <h3>Prenatal (antenatal) history</h3>
+  <div class="qcard">
+    <div class="qhead"><span>Pregnancy &amp; antenatal period</span><span class="who">Mother preferably</span></div>
+    <div class="qbody">
+      <div class="layer ask"><span class="lab">Ask</span>"Was the pregnancy planned? How old were you? Did you have regular antenatal check-ups? Any illness, fever, high blood pressure, diabetes, thyroid problem, or fits during pregnancy? Any medicines, tobacco, alcohol, or other substances? Any significant stress, injury, or bleeding?"</div>
+      <div class="layer probe"><span class="lab">Probes</span>planned pregnancy · maternal age · antenatal care · maternal illness/fever/infections · hypertension · diabetes · seizures · thyroid disease · medications · tobacco/alcohol/other substances · nutrition · significant stress · trauma · bleeding / threatened abortion · radiation/toxin exposure (where relevant).</div>
+      <div class="layer ans"><span class="lab">Possible answers</span>
+        <ul class="ans-list">
+          <li>Planned, regular check-ups, uneventful pregnancy.<span class="tag t-normal">Normal</span></li>
+          <li>Had high fever with rash in the first trimester.<span class="tag t-concern">Concerning</span></li>
+          <li>Took some tablets but I don't remember which.<span class="tag t-unsure">Uncertain</span></li>
+        </ul>
+      </div>
+      <div class="layer doc"><span class="lab">Documentation</span><em>Antenatal period was uneventful; the pregnancy was planned with regular antenatal care and no significant maternal illness, substance exposure, or complications reported.</em></div>
+    </div>
+  </div>
+
+  <h3>Perinatal &amp; neonatal history</h3>
+  <div class="qcard">
+    <div class="qhead"><span>Birth &amp; newborn period</span><span class="who">Mother / records</span></div>
+    <div class="qbody">
+      <div class="layer ask"><span class="lab">Ask</span>"Was the baby born on time or early? Normal or caesarean delivery? Did the baby cry immediately at birth? Any need for oxygen or NICU admission? Any yellowness, fits, or feeding problems in the first days?"</div>
+      <div class="layer probe"><span class="lab">Probes</span>gestational age (term/preterm) · mode of delivery &amp; indication · birth weight · cry at birth · resuscitation · NICU admission · neonatal seizures · jaundice · cyanosis · feeding/respiratory problems · neonatal infection.</div>
+      <div class="layer ans"><span class="lab">Possible answers</span>
+        <ul class="ans-list">
+          <li>Full-term, normal delivery, cried immediately.<span class="tag t-normal">Normal</span></li>
+          <li>Caesarean; baby kept in NICU for jaundice for 5 days.<span class="tag t-concern">Concerning</span></li>
+          <li>Not sure if he cried right away.<span class="tag t-unsure">Uncertain</span></li>
+        </ul>
+      </div>
+      <div class="layer doc"><span class="lab">Documentation</span><em>The child was a full-term normal vaginal delivery; birth cry was present immediately, with no history of NICU admission, neonatal jaundice requiring treatment, or seizures.</em></div>
+    </div>
+  </div>
+
+  <div class="box tip"><span class="bt">Also record</span>Postnatal development, "caseworker's impression about the milestones", current developmental status (general intelligence / speech / language stability / self-help skills), behaviour (easy-going / frequent temper tantrums), and any physical illness — all as printed in the proforma.</div>
+  <span class="src">Primary source: Child Proforma — Personal History (prenatal, perinatal, postnatal, birth &amp; early development, milestones, current developmental status)</span>
+</section>
+
+<section id="milestones">
+  <h2><span class="num">8</span>Developmental Milestones &amp; regression</h2>
+  <p class="lead">Ask domain by domain: motor, social, adaptive, language (the proforma's four milestone streams). Windows below are typical guides — <strong>not absolute diagnostic cut-offs</strong>.</p>
+
+  <div class="tablewrap"><table>
+    <caption>Milestone reference (typical windows) — ask "At what age did the child…?"</caption>
+    <thead><tr><th>Domain</th><th>Milestone (typical age)</th><th>Ask</th></tr></thead>
+    <tbody>
+      <tr><td rowspan="4">Gross motor</td><td>Head control (~3 mo)</td><td rowspan="4">"When did he hold his head up, sit without support, stand, and walk on his own?"</td></tr>
+      <tr><td>Sits without support (~6–8 mo)</td></tr>
+      <tr><td>Stands (~9–12 mo)</td></tr>
+      <tr><td>Walks independently (~12–18 mo)</td></tr>
+      <tr><td rowspan="3">Fine motor</td><td>Reaches/grasps (~4–5 mo)</td><td rowspan="3">"When did he start picking up small things with finger and thumb, scribbling, drawing?"</td></tr>
+      <tr><td>Pincer grasp (~9–12 mo)</td></tr>
+      <tr><td>Scribbles / draws (~15 mo–3 yr)</td></tr>
+      <tr><td rowspan="4">Language</td><td>Babbling (~6–9 mo)</td><td rowspan="4">"When did he babble, say his first meaningful word, join two words, speak in sentences?"</td></tr>
+      <tr><td>First word (~10–14 mo)</td></tr>
+      <tr><td>Two-word phrases (~18–24 mo)</td></tr>
+      <tr><td>Sentences / conversation (~3–4 yr)</td></tr>
+      <tr><td rowspan="4">Social</td><td>Social smile (~6–8 wk)</td><td rowspan="4">"When did he first smile back, show stranger wariness, point to show you things, play pretend, play with other children?"</td></tr>
+      <tr><td>Stranger anxiety (~6–9 mo)</td></tr>
+      <tr><td>Joint attention / pointing (~9–14 mo)</td></tr>
+      <tr><td>Pretend / peer play (~2–4 yr)</td></tr>
+      <tr><td rowspan="3">Adaptive / self-help</td><td>Feeds self (~15–18 mo)</td><td rowspan="3">"When could he feed himself, use the toilet, dress with help/independently?"</td></tr>
+      <tr><td>Toilet trained (~2–3 yr)</td></tr>
+      <tr><td>Dresses with help → independently (~3–5 yr)</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="qcard">
+    <div class="qhead"><span>Overall milestone screen</span><span class="who">Parent</span></div>
+    <div class="qbody">
+      <div class="layer ask"><span class="lab">Ask</span>"How was the child's development compared with other children of the same age?"</div>
+      <div class="layer ans"><span class="lab">Possible answers &amp; how to document each</span>
+        <ul class="ans-list">
+          <li>He developed normally. → <em>"Milestones reported to be age-appropriate across domains."</em><span class="tag t-normal">Normal</span></li>
+          <li>He started walking at around 13 months. → <em>"Independent walking attained at ~13 months (within normal range)."</em><span class="tag t-normal">Normal</span></li>
+          <li>He was late in speaking. → <em>"Language milestones reported delayed; first meaningful words after 2½ years."</em><span class="tag t-concern">Delay</span></li>
+          <li>He still needs help with dressing. → <em>"Adaptive self-help skill (dressing) not yet independently attained."</em><span class="tag t-concern">Delay</span></li>
+          <li>I'm not sure about the exact age. → <em>"Informant was unable to recall the exact ages of attainment."</em><span class="tag t-unsure">Uncertain</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="box confuse"><span class="bt">Four things to keep separate when documenting</span>
+    <ul style="margin:0">
+      <li><strong>Delayed milestone</strong> — skill attained, but later than typical.</li>
+      <li><strong>Skill never acquired</strong> — the child has not attained it at all.</li>
+      <li><strong>Regression</strong> — a skill was clearly acquired and then <em>lost</em>.</li>
+      <li><strong>Loss of a previously acquired skill</strong> — the specific event that defines regression.</li>
+    </ul>
+    <span class="neq">Regression ≠ developmental delay.</span> Document exactly which one the history supports.</div>
+
+  <h3>Developmental regression (ask explicitly)</h3>
+  <div class="qcard">
+    <div class="qhead"><span>Loss of previously acquired skills</span><span class="who">Parent</span></div>
+    <div class="qbody">
+      <div class="layer ask"><span class="lab">Ask</span>"Did the child ever learn a skill and then <em>lose</em> it — words he used to say, ways he used to play or interact, being toilet-trained, or things he had learnt at school?"</div>
+      <div class="layer probe"><span class="lab">Probes</span>language loss · social loss · motor loss · toileting loss · academic regression · behavioural regression. Establish age, speed, and any illness/seizure around that time.</div>
+      <div class="box red"><span class="bt">Why this needs careful assessment</span>Genuine loss of previously acquired skills is a red flag that warrants prompt medical/neurological evaluation. Document the specific skill, the age it was present, and when it was lost.</div>
+      <div class="layer doc"><span class="lab">Documentation</span><em>The informant reported that the child had acquired ~10 meaningful words by 18 months and subsequently lost expressive speech by ~24 months, with reduced social responsiveness — suggestive of regression requiring further evaluation.</em></div>
+    </div>
+  </div>
+  <span class="src">Primary source: Child Proforma — milestones (motor/social/adaptive/language)</span>
+  <span class="src">Reference windows: standard developmental paediatrics / child-psychiatry norms</span>
+</section>
+
+<section id="temperament">
+  <h2><span class="num">9</span>General Temperament &amp; Personality Attributes</h2>
+  <p class="lead">The proforma lists: emotionality · attention &amp; concentration · activity · aggression · sociability · rhythmicity · motivation · trustworthiness/dependability · moral standards · adaptability · particular strengths. Capture the child's <em>usual style</em>, with normal and concerning examples.</p>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Attribute</th><th>Ask</th><th>Normal example</th><th>Concerning example</th></tr></thead>
+    <tbody>
+      <tr><td>Activity level</td><td>"Is the child generally very active, average, or calm?"</td><td>Active but manageable</td><td>Constantly restless from infancy</td></tr>
+      <tr><td>Adaptability</td><td>"How does the child cope with change of routine or new places?"</td><td>Settles after brief protest</td><td>Extreme, prolonged distress at any change</td></tr>
+      <tr><td>Rhythmicity</td><td>"Are sleep and meals fairly regular?"</td><td>Predictable routine</td><td>Chaotic sleep/feeding pattern</td></tr>
+      <tr><td>Approach / withdrawal</td><td>"Does the child approach new people or hold back?"</td><td>Warms up gradually</td><td>Withdraws and cannot engage at all</td></tr>
+      <tr><td>Mood &amp; intensity</td><td>"What is the child's usual mood, and how strongly are feelings shown?"</td><td>Generally cheerful</td><td>Predominantly irritable / intense reactions</td></tr>
+      <tr><td>Persistence &amp; attention</td><td>"Does the child stick with a task?"</td><td>Completes age-appropriate tasks</td><td>Abandons almost everything quickly</td></tr>
+      <tr><td>Sociability</td><td>"How does the child get on with others?"</td><td>Enjoys company</td><td>Marked, persistent social withdrawal</td></tr>
+      <tr><td>Sensory sensitivity</td><td>"Is the child unusually sensitive to sounds, textures, light?"</td><td>Within normal range</td><td>Extreme distress to everyday sensory input</td></tr>
+    </tbody>
+  </table></div>
+  <div class="layer doc"><span class="lab">Documentation example</span><em>Premorbidly, the child was described as active but adaptable, generally cheerful, sociable with peers, and dependable in routine tasks; particular strengths were noted in drawing.</em></div>
+  <span class="src">Primary source: Child Proforma — General Temperament &amp; Personality Attributes</span>
+  <span class="src">Framework: Thomas &amp; Chess temperament dimensions (standard reference)</span>
+</section>
+
+<section id="school">
+  <h2><span class="num">10</span>Schooling History &amp; learning difficulties</h2>
+  <p class="lead">The proforma's schooling section is detailed (a–n): age of initiation · adjustment to school · change of school/medium/syllabus · scholastic performance · parents' expectations &amp; satisfaction · appropriateness of expectations · peer relationship · extra-curricular · reading/writing/arithmetic skills · other school-related problems · teacher's perceptions · discontinuation (when &amp; why) · details of the school report.</p>
+
+  <div class="qcard">
+    <div class="qhead"><span>School entry, adjustment &amp; performance</span><span class="who">Parent + Teacher + Child</span></div>
+    <div class="qbody">
+      <div class="layer ask"><span class="lab">Ask</span>"At what age did the child start school? How did he settle in? How is he doing academically? What does the teacher say?"</div>
+      <div class="layer probe"><span class="lab">Probes</span>age of initiation · separation/adjustment · changes of school or medium · overall &amp; subject-wise performance · homework · exams · attendance · repetition of a class · school refusal · bullying · special education / remedial teaching / support services (where applicable).</div>
+      <div class="layer ans"><span class="lab">Possible answers</span>
+        <ul class="ans-list">
+          <li>Started at 4, settled well, average student.<span class="tag t-normal">Normal</span></li>
+          <li>Struggles specifically with reading; fine in maths.<span class="tag t-concern">Specific difficulty</span></li>
+          <li>Refuses to go; cries at the gate.<span class="tag t-concern">School refusal</span></li>
+          <li>Mother says he's fine; teacher says he rarely speaks in class.<span class="tag t-incon">Discrepant informants</span></li>
+        </ul>
+      </div>
+      <div class="layer doc"><span class="lab">Documentation</span><em>The child began formal schooling at ~4 years and adjusted adequately. Scholastic performance was average overall, with specific difficulty in reading reported by the class teacher. No history of class repetition or school refusal.</em></div>
+    </div>
+  </div>
+
+  <h3>Learning difficulties — subject-wise probing</h3>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Area</th><th>Ask about</th><th>Concerning sign</th></tr></thead>
+    <tbody>
+      <tr><td>Reading</td><td>letter recognition · decoding · fluency · comprehension</td><td>Cannot read simple words expected for grade</td></tr>
+      <tr><td>Writing</td><td>handwriting · spelling · written expression</td><td>Persistent reversals / very poor spelling</td></tr>
+      <tr><td>Mathematics</td><td>number concepts · calculation · arithmetic reasoning</td><td>Cannot do age-expected calculations</td></tr>
+      <tr><td>Memory</td><td>retaining instructions · remembering learnt material</td><td>Forgets recently learnt material repeatedly</td></tr>
+      <tr><td>Executive function</td><td>planning · organization · task initiation · completion</td><td>Cannot start/finish or organize tasks</td></tr>
+    </tbody>
+  </table></div>
+  <div class="box confuse"><span class="bt">Distinguish</span><span class="neq">Poor academic performance ≠ automatically a specific learning disorder.</span> Rule out inadequate/irregular schooling, language barrier, sensory impairment (vision/hearing), inattention, low mood, and intellectual disability before concluding a specific learning disorder.</div>
+  <span class="src">Primary source: Child Proforma — Schooling History (a–n), reading/writing/arithmetic</span>
+</section>
+
+<section id="social">
+  <h2><span class="num">11</span>Social, play &amp; digital-media history</h2>
+
+  <h3>Social history</h3>
+  <div class="qcard">
+    <div class="qhead"><span>Peer relationships &amp; social communication</span><span class="who">Parent + Child + Teacher</span></div>
+    <div class="qbody">
+      <div class="layer ask"><span class="lab">Ask</span>"Does the child have friends? How does he share, cooperate, and handle disagreements? Is he ever left out or bullied?"</div>
+      <div class="layer probe"><span class="lab">Probes</span>friendships · peer interaction · sharing · cooperation · conflict · bullying · victimization · isolation · social communication · group participation.</div>
+      <div class="layer doc"><span class="lab">Documentation</span><em>The child was reported to have age-appropriate friendships with adequate sharing and cooperation; no bullying or social isolation reported.</em></div>
+    </div>
+  </div>
+
+  <h3>Play history (especially younger children)</h3>
+  <div class="qcard">
+    <div class="qhead"><span>Play</span><span class="who">Parent + observation</span></div>
+    <div class="qbody">
+      <div class="layer ask"><span class="lab">Ask</span>"What does the child like to play? Does he play pretend games? Alone or with others? Does he imitate, share toys, follow game rules? Does the play become very repetitive?"</div>
+      <div class="layer probe"><span class="lab">Probes</span>pretend play · solitary vs. shared · imitation · sharing · rule-following · repetitiveness · flexibility.</div>
+      <div class="box confuse"><span class="bt">Distinguish</span><span class="neq">Solitary play ≠ automatically autism.</span> Many children enjoy playing alone. Concern rises when there is <em>combined</em> reduced social reciprocity, limited pretend play, and rigid/repetitive play — assessed alongside communication and the developmental history, never from one observation.</div>
+      <div class="layer doc"><span class="lab">Documentation</span><em>Play was reported to be imaginative and interactive, with age-appropriate pretend play and turn-taking; no marked repetitiveness or rigidity noted.</em></div>
+    </div>
+  </div>
+
+  <h3>Screen / digital-media history</h3>
+  <div class="qcard">
+    <div class="qhead"><span>Screen use</span><span class="who">Parent + Child</span></div>
+    <div class="qbody">
+      <div class="layer ask"><span class="lab">Ask</span>"How much screen time per day? What kind of content — videos, games, social media? Any use at night? Is it affecting sleep or schoolwork? How is it monitored?"</div>
+      <div class="layer ans"><span class="lab">Possible answers</span>
+        <ul class="ans-list">
+          <li>About an hour, mostly cartoons, monitored.<span class="tag t-normal">Normal</span></li>
+          <li>4–5 hours of gaming, up late at night, homework suffering.<span class="tag t-concern">Concerning</span></li>
+        </ul>
+      </div>
+      <div class="layer doc"><span class="lab">Documentation</span><em>Daily screen use ~4–5 hours, predominantly gaming, extending into the night with reported impact on sleep and homework; limited parental monitoring.</em></div>
+    </div>
+  </div>
+  <span class="src">Primary source: Child Proforma — peer relationship, extra-curricular, habits/interests</span>
+  <span class="src">Supplement: standard child-psychiatry social/play &amp; media enquiry</span>
+</section>
+
+<section id="medical">
+  <h2><span class="num">12</span>Medical &amp; neurological history</h2>
+
+  <div class="qcard">
+    <div class="qhead"><span>Medical history</span><span class="who">Parent / records</span></div>
+    <div class="qbody">
+      <div class="layer ask"><span class="lab">Ask</span>"Has the child had any major illness, hospital admission, surgery, or injury? Any long-term medical condition, allergies, or regular medicines? Any problem with hearing or vision?"</div>
+      <div class="layer probe"><span class="lab">Probes</span>major illnesses · hospitalization · head injury · seizures · CNS infections (meningitis/encephalitis) · high fever · endocrine/metabolic conditions · sensory impairment · chronic illness · surgeries · medications · allergies.</div>
+      <div class="layer doc"><span class="lab">Documentation</span><em>No significant past medical illness, hospitalization, surgery, or drug allergy reported. Hearing and vision were reported to be normal.</em></div>
+    </div>
+  </div>
+
+  <div class="qcard">
+    <div class="qhead"><span>Neurological history</span><span class="who">Parent</span></div>
+    <div class="qbody">
+      <div class="layer ask"><span class="lab">Ask</span>"Has the child ever had fits or convulsions, fainting, staring spells, unusual movements, severe headaches, weakness, or difficulty walking? Any loss of consciousness or loss of skills he once had?"</div>
+      <div class="layer probe"><span class="lab">Seizure-specific probes (if positive)</span>age at first episode · warning/aura · what happened during (limb stiffening/jerking, eye deviation, tongue bite, incontinence) · duration · post-episode confusion/drowsiness · frequency · triggers (fever, sleep loss) · treatment &amp; response.</div>
+      <div class="layer ans"><span class="lab">Possible answers</span>
+        <ul class="ans-list">
+          <li>No such episodes ever.<span class="tag t-neg">Negative</span></li>
+          <li>Brief staring spells where he "switches off".<span class="tag t-concern">Concerning</span></li>
+          <li>One febrile convulsion as a toddler.<span class="tag t-pos">Past event</span></li>
+        </ul>
+      </div>
+      <div class="box confuse"><span class="bt">Distinguish</span><span class="neq">Seizure ≠ behavioural episode; dissociation ≠ seizure.</span> Ask about responsiveness during the event, stereotypy, post-event state, and triggers. When uncertain, refer for neurological evaluation and EEG rather than concluding.</div>
+      <div class="layer doc"><span class="lab">Documentation</span><em>No history suggestive of seizures, loss of consciousness, staring spells, abnormal movements, or significant head injury was elicited.</em> (Write only because it was actually assessed.)</div>
+    </div>
+  </div>
+  <span class="src">Primary source: Child Proforma — physical illness; GPE (CNS examination)</span>
+  <span class="src">Negative-history style: Psychodiagnostic Cases Submission</span>
+</section>
+
+<section id="bio">
+  <h2><span class="num">13</span>Sleep, appetite, toileting &amp; sensory history</h2>
+  <p class="lead">These map to the proforma's <strong>Biological Functioning</strong> (sleep / appetite / self-care / bowel &amp; bladder control) plus a sensory screen.</p>
+
+  <div class="tablewrap"><table>
+    <thead><tr><th>Area</th><th>Ask</th><th>Concerning answers</th><th>Documentation example</th></tr></thead>
+    <tbody>
+      <tr><td>Sleep</td><td>"What time does he sleep and wake? Does he fall asleep easily, wake at night, snore, stop breathing, have nightmares or sleepwalking? Daytime sleepiness?"</td><td>Loud snoring with breathing pauses; frequent night terrors; very delayed sleep from screens</td><td><em>Sleep onset delayed with frequent night awakenings; loud snoring reported.</em></td></tr>
+      <tr><td>Appetite / diet</td><td>"How is his appetite? Any very restricted or unusual eating? Does he eat non-food items? Any swallowing or feeding difficulty? Weight change?"</td><td>Extreme food selectivity; pica; marked weight loss</td><td><em>Appetite reduced over 2 months with mild weight loss; no pica or unusual eating reported.</em></td></tr>
+      <tr><td>Toileting</td><td>"At what age was he toilet trained? Is he dry by day and night? Any bedwetting, soiling, constipation, or return of wetting after being dry?"</td><td>Secondary enuresis/encopresis; regression</td><td><em>Toilet trained by ~3 years; recently resumed nocturnal bedwetting after a period of being dry (secondary enuresis).</em></td></tr>
+      <tr><td>Sensory</td><td>"Is he unusually bothered by sounds, textures, lights, smells or tastes? Does he seek out or avoid certain sensations?"</td><td>Extreme, functionally impairing sensitivity or seeking</td><td><em>Reported marked sensitivity to loud sounds with distress in crowded places.</em></td></tr>
+    </tbody>
+  </table></div>
+  <span class="src">Primary source: Child Proforma — Biological Functioning</span>
+  <span class="src">Supplement: standard paediatric sleep / feeding / sensory enquiry</span>
+</section>
+
+<section id="sexual">
+  <h2><span class="num">14</span>Sexual development &amp; substance use</h2>
+  <div class="box disclaimer"><span class="bt">Approach</span>Ask only where clinically indicated and appropriate to age; ensure privacy and confidentiality; avoid unnecessary invasive questioning; do not force disclosure.</div>
+
+  <h3>Sexual development / safety (proforma: Sexual History — menarche / pubertal status)</h3>
+  <div class="qcard">
+    <div class="qhead"><span>Puberty &amp; safeguarding</span><span class="who">Parent / adolescent (privately)</span></div>
+    <div class="qbody">
+      <div class="layer ask"><span class="lab">Ask (parent)</span>"Have there been any body changes / signs of puberty? For girls — has menstruation started, and is it regular?" <br><strong>Where indicated:</strong> gently assess age-inappropriate sexual behaviour, exposure to sexual content, or any safeguarding concern.</div>
+      <div class="layer doc"><span class="lab">Documentation</span><em>Pubertal status pre-pubertal / Tanner stage as assessed; menarche not yet attained. No concerns regarding inappropriate sexual behaviour were reported.</em></div>
+    </div>
+  </div>
+
+  <h3>Substance exposure (adolescents)</h3>
+  <div class="qcard">
+    <div class="qhead"><span>Substance use — sensitive, non-judgmental</span><span class="who">Adolescent (privately)</span></div>
+    <div class="qbody">
+      <div class="layer ask"><span class="lab">Ask</span>"Many young people try things like tobacco, alcohol, or other substances. Have you come across any of these? Have you tried any yourself?"</div>
+      <div class="layer probe"><span class="lab">Probes (if positive)</span>substance · age of first use · frequency · quantity · route · context/peers · perceived effect · attempts to cut down. Screen: tobacco, alcohol, cannabis, inhalants, prescription misuse, others.</div>
+      <div class="layer doc"><span class="lab">Documentation</span><em>On confidential enquiry, the adolescent denied use of tobacco, alcohol, or other substances.</em> (Or record use factually and non-judgmentally if disclosed.)</div>
+    </div>
+  </div>
+  <span class="src">Primary source: Child Proforma — Sexual History (menarche/pubertal status)</span>
+  <span class="src">Supplement: adolescent substance screen (non-judgmental framing)</span>
+</section>
+
+<section id="trauma">
+  <h2><span class="num">15</span>Trauma / adversity history</h2>
+  <div class="box disclaimer"><span class="bt">Only ask in a safe, private, confidential and developmentally suitable manner. Do not force disclosure.</span></div>
+  <div class="qcard">
+    <div class="qhead"><span>Adverse experiences</span><span class="who">Parent &amp; child (carefully)</span></div>
+    <div class="qbody">
+      <div class="layer ask"><span class="lab">Ask (child, gently)</span>"Has anything happened that frightened or upset you a lot?" <br><strong>Ask (parent):</strong> "Has the child been through anything difficult — bullying, a frightening event, a loss, family upheaval, an accident, or serious illness?"</div>
+      <div class="layer probe"><span class="lab">Probes</span>bullying · abuse · neglect · family violence · loss / bereavement · parental separation · serious illness · accidents · disasters · other frightening experiences. Note re-experiencing, avoidance, hyperarousal if trauma is disclosed.</div>
+      <div class="box red"><span class="bt">If abuse, neglect or a safeguarding risk is disclosed</span>Prioritise the child's safety, follow local child-protection procedures, and involve appropriate services. Document factually and preserve confidentiality within safeguarding limits.</div>
+      <div class="layer doc"><span class="lab">Documentation</span><em>No history of significant trauma, abuse, or major adverse life events was elicited on sensitive enquiry.</em> (Or record disclosed events factually.)</div>
+    </div>
+  </div>
+  <div class="box confuse"><span class="bt">Distinguish</span><span class="neq">Trauma-related symptoms ≠ automatically a primary psychiatric disorder</span>, and vice versa. Establish the temporal relationship between adversity and symptom onset before attributing causation.</div>
+  <span class="src">Supplement: standard trauma/adversity screen (used with safeguarding caution)</span>
+</section>
+
+<section id="treatment">
+  <h2><span class="num">16</span>Treatment History</h2>
+  <div class="qcard">
+    <div class="qhead"><span>Previous care &amp; response</span><span class="who">Parent / records</span></div>
+    <div class="qbody">
+      <div class="layer ask"><span class="lab">Ask</span>"Have you consulted anyone for this before — doctor, psychologist, special educator, therapist? What diagnosis, if any, were you given? What treatment was tried, for how long, and did it help? Any side effects?"</div>
+      <div class="layer probe"><span class="lab">Probes</span>previous consultation · prior diagnosis · medications (name/dose/duration) · adherence · side effects · psychological therapy · counselling · special education · occupational therapy · speech therapy · behavioural intervention · response.</div>
+      <div class="layer ans"><span class="lab">Possible answers</span>
+        <ul class="ans-list">
+          <li>Never consulted anyone before.<span class="tag t-na">First contact</span></li>
+          <li>Saw a paediatrician; advised speech therapy, attended a few sessions.<span class="tag t-pos">Partial</span></li>
+          <li>Was on some syrup but we stopped it — not sure of the name.<span class="tag t-unsure">Uncertain adherence</span></li>
+        </ul>
+      </div>
+      <div class="layer doc"><span class="lab">Documentation</span><em>The child was previously assessed by a paediatrician and advised speech therapy; attended ~5 sessions with partial improvement in expressive speech before discontinuation. No psychotropic medication reported.</em></div>
+    </div>
+  </div>
+  <span class="src">Primary source: Child Proforma — Treatment History (till date)</span>
+</section>
+
+<section id="functioning">
+  <h2><span class="num">17</span>Current functioning &amp; impairment</h2>
+  <p class="lead">Maps to the proforma's "Functional Impairment and Interference in social and academic activities". Assess each domain, ideally <strong>before vs after onset</strong>.</p>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Domain</th><th>Ask</th><th>Before → After onset example</th></tr></thead>
+    <tbody>
+      <tr><td>Home</td><td>"How does he manage daily routines and get along at home now vs before?"</td><td>Followed routine → now needs constant prompting</td></tr>
+      <tr><td>School / Academic</td><td>"How is his classwork, homework, and behaviour in school compared with earlier?"</td><td>Average marks → declining, frequent complaints</td></tr>
+      <tr><td>Social</td><td>"How is he with friends and in groups now?"</td><td>Had friends → increasingly isolated</td></tr>
+      <tr><td>Self-care / Adaptive</td><td>"Can he manage dressing, eating, hygiene as expected?"</td><td>Independent → regressed, needs help</td></tr>
+      <tr><td>Communication</td><td>"How well does he express needs and understand others?"</td><td>Conversational → reduced spontaneous speech</td></tr>
+      <tr><td>Emotional / Behavioural</td><td>"How is his mood and behaviour affecting daily life?"</td><td>Settled → frequent outbursts disrupting routine</td></tr>
+    </tbody>
+  </table></div>
+  <div class="layer doc"><span class="lab">Documentation</span><em>The current difficulties have led to significant interference in scholastic functioning and mild interference in peer relationships, with home functioning relatively preserved.</em></div>
+  <span class="src">Primary source: Child Proforma — Functional Impairment &amp; Interference</span>
+</section>
+
+<section id="mse">
+  <h2><span class="num">18</span>Mental Status Examination — child</h2>
+  <p class="lead">Follows the proforma's <strong>General Appearance &amp; Behaviour (1–12)</strong> then attention, activity, motor behaviour, speech &amp; language, general intelligence, other cognition, mood &amp; affect, thought, perception, child's version, 3-wish test, tasks, play-room observations. Adapt to age — do not apply adult questioning mechanically.</p>
+
+  <div class="tablewrap"><table>
+    <caption>General appearance &amp; behaviour (proforma items 1–12)</caption>
+    <thead><tr><th>Item</th><th>Observe / options (as printed)</th><th>Documentation example</th></tr></thead>
+    <tbody>
+      <tr><td>Physical appearance</td><td>well-kempt / untidy / shabby</td><td><em>Appeared well-kempt, dressed appropriately for age.</em></td></tr>
+      <tr><td>Entered the room</td><td>voluntarily / with cohesion (with caregiver)</td><td><em>Entered voluntarily, holding the mother's hand.</em></td></tr>
+      <tr><td>Facial expression &amp; body language</td><td>interested / uninterested / irritated / angry / upset</td><td><em>Facial expression interested and engaged.</em></td></tr>
+      <tr><td>Personal hygiene</td><td>maintained / not maintained</td><td><em>Personal hygiene adequately maintained.</em></td></tr>
+      <tr><td>Eye contact</td><td>made &amp; maintained / not made / not maintained</td><td><em>Eye contact made but not consistently maintained.</em></td></tr>
+      <tr><td>Attitude toward examiner</td><td>co-operative / uncooperative</td><td><em>Cooperative throughout the assessment.</em></td></tr>
+      <tr><td>Rapport</td><td>established / not established</td><td><em>Rapport was established and maintained.</em></td></tr>
+      <tr><td>Behaviour during interview</td><td>free text</td><td><em>Fidgety, left the seat several times.</em></td></tr>
+      <tr><td>Response to separation</td><td>free text</td><td><em>Separated from mother without significant distress.</em></td></tr>
+      <tr><td>Parent–child interaction</td><td>free text</td><td><em>Warm, responsive interaction observed.</em></td></tr>
+      <tr><td>Communicative pattern</td><td>free text</td><td><em>Communicated in short phrases with gestures.</em></td></tr>
+      <tr><td>Motivation &amp; cooperativeness</td><td>free text</td><td><em>Adequately motivated; cooperated with tasks.</em></td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>Cognitive &amp; affective components (proforma items 1–13)</h3>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Component</th><th>Child-appropriate assessment / question</th><th>Documentation example</th></tr></thead>
+    <tbody>
+      <tr><td>Attention &amp; concentration</td><td>Age-appropriate task (e.g. digit span for older child; naming/simple counting for younger).</td><td><em>Attention could be aroused and sustained adequately for age.</em></td></tr>
+      <tr><td>Activity level</td><td>Observe restlessness, ability to remain seated.</td><td><em>Increased psychomotor activity noted.</em></td></tr>
+      <tr><td>Motor behaviour</td><td>tics / mannerisms / stereotypes / involuntary movements / tremors / chorea / fidgetiness / any other.</td><td><em>No abnormal involuntary movements or stereotypies observed.</em></td></tr>
+      <tr><td>Speech &amp; language</td><td>spontaneity, rate, volume, articulation, comprehension.</td><td><em>Speech spontaneous, relevant, normal in rate and volume.</em></td></tr>
+      <tr><td>General intelligence</td><td>Impression from information/comprehension for age (formal testing separately).</td><td><em>General intelligence appeared average clinically.</em></td></tr>
+      <tr><td>Other cognitive functions</td><td>orientation, memory (immediate/recent), simple abstraction for age.</td><td><em>Oriented to person and place; memory grossly intact.</em></td></tr>
+      <tr><td>Mood &amp; affect</td><td>"How have you been feeling?" + observed range/reactivity/congruence.</td><td><em>Subjective mood "okay"; affect appropriate and reactive.</em></td></tr>
+      <tr><td>Thought processes</td><td>coherence, relevance, flow (developmentally judged).</td><td><em>Thought stream coherent and goal-directed for age.</em></td></tr>
+      <tr><td>Perceptual disturbances</td><td>gentle, age-appropriate enquiry (see §5).</td><td><em>No perceptual abnormality elicited.</em></td></tr>
+      <tr><td>Child's version of the problem</td><td>"Why do you think you came here today?"</td><td><em>Child stated he "gets scolded for not sitting still".</em></td></tr>
+      <tr><td>3-wish test</td><td>"If you could have any three wishes, what would they be?"</td><td><em>Wishes centred on toys and playing with friends — age-typical.</em></td></tr>
+      <tr><td>Tasks &amp; play-room observations</td><td>drawing, blocks, play; note engagement &amp; behaviour.</td><td><em>Engaged in drawing; play was interactive and imaginative.</em></td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="box tip"><span class="bt">Child-specific orientation/attention/memory quick-asks</span>
+    Orientation: "Where are we now? Who came with you today?" · Attention: age-appropriate simple task · Memory: immediate + delayed recall of 3 items · Abstract thinking: age-appropriate similarities ("How are an apple and a banana alike?") — <strong>expectations scaled to age.</strong></div>
+
+  <div class="box clin"><span class="bt">Developmentally appropriate interpretation</span>An MSE finding is normal or abnormal <em>relative to the child's age</em>. Restlessness in a 4-year-old differs from the same in a 12-year-old; solitary imaginative talk may be normal in a preschooler. Interpret every item against developmental expectations.</div>
+  <span class="src">Primary source: Child Proforma — Psychiatric Examination / MSE (General Appearance 1–12; cognitive/affective 1–13; 3-wish test; play-room)</span>
+  <span class="src">MSE documentation style: Psychodiagnostic Cases Submission</span>
+</section>
+
+<section id="observation">
+  <h2><span class="num">19</span>Behavioural observation &amp; play-room</h2>
+  <p class="lead">Systematic observation supports — but does not by itself establish — a diagnosis.</p>
+  <div class="checklist">
+    <label><input type="checkbox">Separation from caregiver</label>
+    <label><input type="checkbox">Eye contact</label>
+    <label><input type="checkbox">Response to name</label>
+    <label><input type="checkbox">Spontaneous communication</label>
+    <label><input type="checkbox">Cooperation</label>
+    <label><input type="checkbox">Activity level</label>
+    <label><input type="checkbox">Impulsivity</label>
+    <label><input type="checkbox">Frustration tolerance</label>
+    <label><input type="checkbox">Play behaviour</label>
+    <label><input type="checkbox">Social reciprocity</label>
+    <label><input type="checkbox">Repetitive behaviour</label>
+    <label><input type="checkbox">Sensory behaviour</label>
+    <label><input type="checkbox">Affect</label>
+    <label><input type="checkbox">Emotional regulation</label>
+    <label><input type="checkbox">Response to examiner</label>
+  </div>
+  <div class="box clin"><span class="bt">Note</span>Behavioural observation is one strand of assessment. A child may behave atypically due to anxiety, an unfamiliar setting, or fatigue. Record what you observe descriptively and integrate it with history and testing.</div>
+  <span class="src">Primary source: Child Proforma — play-room observations / "any other observations"</span>
+</section>
+
+<section id="gpe">
+  <h2><span class="num">20</span>General Physical Examination</h2>
+  <p class="lead">The proforma marks this "to be filled by staff nurse / clinician": Vitals (Pulse, Temperature, Height, Weight, B.P.), Hearing, Birth mark, Pubertal status, Lymph nodes, Thyroid, Retinal, Respiratory system, CVS, PA, CNS examination. Record objectively; flag any abnormality for medical review.</p>
+  <div class="layer doc"><span class="lab">Documentation example</span><em>Vitals within normal limits for age; anthropometry appropriate; no dysmorphic features or neurocutaneous markers; systemic and CNS examination unremarkable (as recorded by the clinician).</em></div>
+  <span class="src">Primary source: Child Proforma — General Physical Examination</span>
+</section>
+
+<section id="red">
+  <h2><span class="num">21</span>Red-flag / risk questions</h2>
+  <div class="box red"><span class="bt">Screen every child for these; escalate promptly when positive.</span></div>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Concern</th><th>Ask</th><th>Action if positive</th></tr></thead>
+    <tbody>
+      <tr><td>Self-harm / suicidal thoughts</td><td>"Do you ever feel life is not worth living, or think of hurting yourself?" (age-appropriate, calm, direct)</td><td>Assess intent/plan/means; ensure supervision; urgent psychiatric review.</td></tr>
+      <tr><td>Harm to others / severe aggression</td><td>"Have there been times he has seriously hurt someone or wanted to?"</td><td>Safety planning; urgent review.</td></tr>
+      <tr><td>Abuse / neglect / safeguarding</td><td>Sensitive enquiry; observe interaction &amp; injuries.</td><td>Follow child-protection procedures immediately.</td></tr>
+      <tr><td>Seizures / LOC / severe headache / focal deficits</td><td>See §12 neurological probes.</td><td>Urgent medical/neurological evaluation.</td></tr>
+      <tr><td>Developmental regression</td><td>"Has he lost skills he once had?" (§8)</td><td>Prompt neurodevelopmental/neurological work-up.</td></tr>
+      <tr><td>Acute behavioural change / psychotic symptoms</td><td>Sudden change in behaviour, perception, or contact with reality.</td><td>Urgent psychiatric evaluation; rule out organic cause.</td></tr>
+      <tr><td>Intoxication / severe eating restriction</td><td>Substance use (§14); marked food refusal / rapid weight loss.</td><td>Medical assessment; monitor vitals.</td></tr>
+    </tbody>
+  </table></div>
+  <p><strong>Immediate medical/psychiatric evaluation</strong> is indicated for active suicidal/homicidal risk, acute psychosis, suspected seizures or neurological deficit, developmental regression, safeguarding concerns, intoxication, or medical instability.</p>
+  <span class="src">Supplement: standard child &amp; adolescent risk assessment</span>
+</section>
+
+<section id="library">
+  <h2><span class="num">22</span>Possible-answers library</h2>
+  <p class="lead">Realistic parent replies and how each should be documented — a reminder that the same question yields a spectrum, not a single expected answer.</p>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Type</th><th>Example reply</th><th>Documentation</th></tr></thead>
+    <tbody>
+      <tr><td><span class="tag t-normal">Normal</span></td><td>"He started speaking on time and never had any developmental concerns."</td><td><em>Developmental milestones reported to be age-appropriate; no early concerns.</em></td></tr>
+      <tr><td><span class="tag t-unsure">Mild concern</span></td><td>"He is a little slower than other children in reading."</td><td><em>Reading reported to be somewhat below peer level.</em></td></tr>
+      <tr><td><span class="tag t-concern">Significant</span></td><td>"He still cannot read simple words independently."</td><td><em>Reported inability to read simple words independently at his grade level.</em></td></tr>
+      <tr><td><span class="tag t-unsure">Uncertain</span></td><td>"I don't remember exactly when he started walking."</td><td><em>Informant was unable to recall the exact age of independent walking.</em></td></tr>
+      <tr><td><span class="tag t-incon">Contradictory</span></td><td>"His mother says he talks normally, but the teacher says he rarely speaks in class."</td><td><em>Accounts differed: the mother reported normal speech, whereas the class teacher reported minimal speech at school.</em></td></tr>
+      <tr><td><span class="tag t-na">Informant limit</span></td><td>"I was not living with him during that period."</td><td><em>Information regarding this period was unavailable as the informant was not the primary caregiver at the time.</em></td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="negative">
+  <h2><span class="num">23</span>Negative, unknown &amp; inconsistent history</h2>
+
+  <h3>Writing negative history correctly</h3>
+  <div class="box clin"><span class="bt">Rule</span>Record a negative finding <strong>only when it was actually assessed.</strong> Do not auto-generate long lists of negatives.</div>
+  <p>Example (assessed and absent): <em>"There was no history suggestive of seizures, loss of consciousness, or significant head injury."</em> The Child Proforma provides a dedicated <strong>Negative History</strong> block for exactly these points, mirroring the style used in the psychodiagnostic case submissions.</p>
+
+  <h3>Handling unknown information</h3>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Situation</th><th>Standard wording</th></tr></thead>
+    <tbody>
+      <tr><td>Informant cannot recall</td><td><em>"Informant was unable to recall the exact age."</em></td></tr>
+      <tr><td>Details not obtainable</td><td><em>"Details were not available."</em></td></tr>
+      <tr><td>Nothing relevant elicited</td><td><em>"No relevant history could be elicited."</em></td></tr>
+      <tr><td>Informant lacks the information</td><td><em>"Information was unavailable from the accompanying informant."</em></td></tr>
+    </tbody>
+  </table></div>
+  <div class="box confuse"><span class="bt">"No history" vs "History unknown"</span><strong>No history</strong> = the item was assessed and is genuinely absent. <strong>History unknown</strong> = the item could not be assessed / the informant did not know. These are <em>not</em> interchangeable — never convert "unknown" into "absent".</div>
+
+  <h3>Handling inconsistent information</h3>
+  <p>Record both accounts and their sources without resolving the contradiction unless you have evidence: <em>"Caregiver A reported X, whereas caregiver B reported Y."</em></p>
+</section>
+
+<section id="language">
+  <h2><span class="num">24</span>Parent language → clinical documentation</h2>
+  <p class="lead">Translate faithfully — capture the meaning without over-interpreting or adding a diagnosis.</p>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Parent says</th><th>Document as</th></tr></thead>
+    <tbody>
+      <tr><td>"He never listens."</td><td><em>Caregiver reported difficulty sustaining attention to verbal instructions.</em></td></tr>
+      <tr><td>"She is always angry."</td><td><em>Caregiver reported frequent episodes of irritability and temper outbursts.</em></td></tr>
+      <tr><td>"He doesn't mix with anyone."</td><td><em>Reduced peer interaction was reported.</em></td></tr>
+      <tr><td>"He keeps doing the same thing again and again."</td><td><em>Repetitive behaviour was reported.</em></td></tr>
+      <tr><td>"He can't sit still for a minute."</td><td><em>Motor overactivity with difficulty remaining seated was reported.</em></td></tr>
+      <tr><td>"He talks to himself and laughs."</td><td><em>Self-talk with unprovoked laughter was reported (to be clarified on examination).</em></td></tr>
+    </tbody>
+  </table></div>
+  <div class="box clin"><span class="bt">Don't over-interpret</span>"Talks to himself" is a <em>report</em>, not a symptom of psychosis until clarified. Preserve the observation; let the formulation do the interpreting.</div>
+</section>
+
+<section id="formulation">
+  <h2><span class="num">25</span>Formulation &amp; multi-axial diagnosis</h2>
+  <p class="lead">The proforma closes with a <strong>Summary of Evaluation (multi-axial)</strong>, <strong>detailed notes of discussion</strong>, and a <strong>Provisional Multi-Axial Diagnosis (Axis 1–5)</strong>.</p>
+
+  <h3>From history to hypotheses</h3>
+  <div class="flow-h">
+    <div class="step">History</div><div class="arrow">→</div>
+    <div class="step">Symptoms</div><div class="arrow">→</div>
+    <div class="step">Development</div><div class="arrow">→</div>
+    <div class="step">Context</div><div class="arrow">→</div>
+    <div class="step">Functional impairment</div><div class="arrow">→</div>
+    <div class="step">Risk / protective factors</div><div class="arrow">→</div>
+    <div class="step">Diagnostic hypotheses</div>
+  </div>
+  <div class="box clin"><span class="bt">Golden rule</span>Do not make a diagnosis from a single symptom. Weigh onset, course, development, pervasiveness across settings, functional impact, and differentials before proposing a provisional diagnosis.</div>
+
+  <h3>Multi-axial framing (ICD-10 multiaxial for child &amp; adolescent psychiatry)</h3>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Axis</th><th>Captures</th><th>Example entry</th></tr></thead>
+    <tbody>
+      <tr><td>Axis 1</td><td>Clinical psychiatric syndrome</td><td>Hyperkinetic disorder (to be confirmed)</td></tr>
+      <tr><td>Axis 2</td><td>Specific disorders of development</td><td>Specific reading disorder</td></tr>
+      <tr><td>Axis 3</td><td>Intellectual level</td><td>Intelligence within average range</td></tr>
+      <tr><td>Axis 4</td><td>Medical conditions</td><td>Nil significant</td></tr>
+      <tr><td>Axis 5</td><td>Associated abnormal psychosocial situations</td><td>Discordant intrafamilial relationships</td></tr>
+    </tbody>
+  </table></div>
+  <div class="box tip"><span class="bt">Provisional-diagnosis documentation style</span>State the provisional diagnosis with its classification label, then list <em>Points in favour</em> (and, where relevant, points against) — the format used in the psychodiagnostic case submissions.</div>
+  <span class="src">Primary source: Child Proforma — Summary of Evaluation; Provisional Multi-Axial Diagnosis (Axis 1–5)</span>
+  <span class="src">Formulation style ("Diagnostic Formulation", "Points in favour"): Psychodiagnostic Cases Submission</span>
+  <span class="src">Multiaxial scheme: ICD-10 (repo copy)</span>
+</section>
+
+<section id="differential">
+  <h2><span class="num">26</span>Differential-diagnosis questioning</h2>
+  <p class="lead">Targeted questions that help separate look-alike presentations. Use to guide, not to conclude.</p>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Distinction</th><th>Discriminating questions</th></tr></thead>
+    <tbody>
+      <tr><td>ADHD vs anxiety</td><td>Is inattention pervasive, or only when worried? Are there specific fears/worries driving distraction?</td></tr>
+      <tr><td>ADHD vs autism</td><td>Alongside overactivity, is there qualitative social-communication difficulty, restricted interests, or rigidity?</td></tr>
+      <tr><td>ADHD vs specific learning disorder</td><td>Is the difficulty global (attention everywhere) or confined to specific academic skills (reading/maths)?</td></tr>
+      <tr><td>ADHD vs sleep disorder</td><td>How is sleep? Could daytime inattention/overactivity follow poor or fragmented sleep?</td></tr>
+      <tr><td>ADHD vs intellectual disability</td><td>Are difficulties selective to attention, or is there global delay across development and adaptive skills?</td></tr>
+      <tr><td>Autism vs developmental language disorder</td><td>Is difficulty limited to language, or also social reciprocity, joint attention, and play?</td></tr>
+      <tr><td>Autism vs social anxiety</td><td>Does the child <em>want</em> to interact but fears judgment (anxiety), or lack social interest/reciprocity (autism)?</td></tr>
+      <tr><td>Specific learning disorder vs inadequate schooling</td><td>Has schooling been regular and adequate? Language of instruction understood?</td></tr>
+      <tr><td>Depression vs normal adolescent mood variation</td><td>Duration, pervasiveness, loss of interest, functional impact, and any self-harm thoughts?</td></tr>
+      <tr><td>Oppositional behaviour vs conduct disorder</td><td>Argumentative/defiant only, or violation of others' rights (aggression, stealing, truancy)?</td></tr>
+      <tr><td>OCD vs normal rituals</td><td>Are routines flexible &amp; non-distressing, or rigid, time-consuming &amp; distressing when prevented?</td></tr>
+      <tr><td>Psychosis vs imagination</td><td>Is the experience controllable, ego-syntonic &amp; age-typical, or distressing, uncontrollable, with functional decline?</td></tr>
+      <tr><td>Seizure vs behavioural episode</td><td>Responsiveness during the event? Stereotyped? Post-event confusion? Triggers?</td></tr>
+      <tr><td>Dissociation vs seizure</td><td>Situational triggers, variability, and preserved responses vs stereotyped ictal features (consider EEG).</td></tr>
+      <tr><td>Trauma-related vs primary disorder</td><td>Did symptoms follow a specific adverse event, with re-experiencing/avoidance/hyperarousal?</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>Neurodevelopmental differentials to keep in mind</h3>
+  <p>Global developmental delay · intellectual developmental disorder · autism spectrum disorder · developmental language disorder · ADHD · specific learning disorder · motor disorders · communication disorders. Classify using <strong>ICD-10 / ICD-11 / DSM-5-TR</strong> only where appropriate, and <strong>state which system you are using</strong> — do not mix systems without labelling.</p>
+  <span class="src">Supplement: standard child-psychiatry differentials; classification per ICD-10/ICD-11 (repo copies) / DSM-5-TR where used</span>
+</section>
+
+<section id="confuse">
+  <h2><span class="num">27</span>"Do not confuse" — quick distinctions</h2>
+  <div class="box confuse"><span class="bt">Keep these separate</span>
+    <ul style="margin:0">
+      <li><span class="neq">Delayed speech ≠ automatically autism</span></li>
+      <li><span class="neq">Poor academic performance ≠ automatically a learning disorder</span></li>
+      <li><span class="neq">Hyperactivity ≠ automatically ADHD</span></li>
+      <li><span class="neq">Shyness ≠ automatically social anxiety</span></li>
+      <li><span class="neq">Solitary play ≠ automatically autism</span></li>
+      <li><span class="neq">A tantrum ≠ automatically conduct disorder</span></li>
+      <li><span class="neq">An imaginary friend ≠ automatically psychosis</span></li>
+      <li><span class="neq">Forgetfulness ≠ automatically ADHD</span></li>
+      <li><span class="neq">Regression ≠ developmental delay</span></li>
+    </ul>
+  </div>
+</section>
+
+<section id="template">
+  <h2><span class="num">28</span>Blank case-history template</h2>
+  <p class="lead">A ready-to-fill outline following the proforma order (with standard supplementary domains folded in). Print §30's checklist alongside.</p>
+  <ol>
+    <li><strong>Identification / Socio-Demographic Data</strong> — name, parents' name, DOB, UHID, age, gender, religion, educational status, SES, residence, address, contact, date of admission, source of referral, case worked up by.</li>
+    <li><strong>Informant</strong> — name, relationship, duration of acquaintance; reliability &amp; adequacy (with basis).</li>
+    <li><strong>Chief Complaints</strong> — 1–6 with duration; reason for consultation.</li>
+    <li><strong>History of Present Illness</strong> — total duration; onset; course; progress; predisposing / precipitating / perpetuating factors; biological &amp; occupational functioning.</li>
+    <li><strong>Family History</strong> — genogram; FH of illness; living arrangements; primary caregiver; parents; home &amp; neighbourhood; relationships; child-rearing.</li>
+    <li><strong>Personal / Developmental History</strong> — prenatal; perinatal; neonatal; postnatal; birth &amp; early development; milestones (motor/social/adaptive/language); regression; current developmental status.</li>
+    <li><strong>Schooling History</strong> — entry; adjustment; performance (subject-wise); teacher's perceptions; peer relations; discontinuation; report.</li>
+    <li><strong>General Temperament &amp; Personality Attributes.</strong></li>
+    <li><strong>Medical &amp; Neurological History.</strong></li>
+    <li><strong>Sleep / Appetite / Toileting / Sensory.</strong></li>
+    <li><strong>Sexual development / Substance history</strong> (where appropriate).</li>
+    <li><strong>Trauma / Adversity</strong> (where appropriate).</li>
+    <li><strong>Treatment History.</strong></li>
+    <li><strong>Family perception; Charting of illness; Functional impairment.</strong></li>
+    <li><strong>Mental Status Examination</strong> — general appearance &amp; behaviour (1–12); attention; activity; motor behaviour; speech &amp; language; intelligence; cognition; mood &amp; affect; thought; perception; child's version; 3-wish test; tasks; play-room.</li>
+    <li><strong>Behavioural Observation.</strong></li>
+    <li><strong>General Physical Examination.</strong></li>
+    <li><strong>Summary of Evaluation.</strong></li>
+    <li><strong>Diagnostic Formulation</strong> — with <em>points in favour</em>.</li>
+    <li><strong>Provisional Multi-Axial Diagnosis</strong> — Axis 1–5.</li>
+    <li><strong>Recommendations.</strong></li>
+  </ol>
+</section>
+
+<section id="cases">
+  <h2><span class="num">29</span>Three worked fictional cases</h2>
+  <p class="lead">Illustrative only — no real patient data. Each moves from raw interview answers → organized history → MSE → assessment → formulation.</p>
+
+  <div class="case">
+    <div class="chead">Case 1 — Neurodevelopmental presentation (fictional): "Aarav", 5 years</div>
+    <div class="cbody">
+      <p class="raw"><strong>Raw answers:</strong> Mother: "He doesn't talk much, only a few words. He doesn't look at us when we call, plays alone lining up his cars for hours, gets very upset if the routine changes." Milestones: walked at 14 months; said 5–6 words by 18 months then <em>spoke less</em>; no pointing to show things.</p>
+      <p><strong>Organized history:</strong> Chief complaints — reduced speech (since ~2 yr), poor social response (since ~2 yr), repetitive play. HOPI — insidious onset, chronic, static-to-slowly-progressive; concern for early expressive-language <em>regression</em> around 18–24 months. Milestones — motor age-appropriate; language delayed with reported loss; social milestones (joint attention, pointing) not attained. No seizures reported.</p>
+      <p><strong>MSE:</strong> poor eye contact, limited response to name, minimal spontaneous communication, repetitive lining-up play, distress at interruption; affect difficult to engage.</p>
+      <p><strong>Assessment / formulation:</strong> Pervasive difficulties in social communication with restricted/repetitive behaviour and reported early language loss — hypotheses centre on an <em>autism spectrum</em> presentation; differentials include developmental language disorder and global developmental delay. Reported regression warrants <strong>neurodevelopmental/neurological evaluation</strong>. Provisional (Axis 1) pending formal assessment (e.g. developmental/autism-specific tools). No single feature is diagnostic on its own.</p>
+    </div>
+  </div>
+
+  <div class="case">
+    <div class="chead">Case 2 — Emotional / behavioural presentation (fictional): "Kabir", 9 years</div>
+    <div class="cbody">
+      <p class="raw"><strong>Raw answers:</strong> Father: "He can't sit still, forgets instructions, blurts out answers, and the teacher says he's out of his seat constantly. At home he argues and has tantrums." Teacher's note: inattentive, disruptive, but no cruelty or stealing. Present since Class 1 (~3 yr), across home and school.</p>
+      <p><strong>Organized history:</strong> Chief complaints — overactivity, inattention, impulsivity (~3 yr), plus argumentativeness/temper. HOPI — insidious, chronic, pervasive across settings; sleep/appetite normal; scholastic functioning impaired. No mood or perceptual symptoms. No trauma. FH: paternal uncle "restless as a child".</p>
+      <p><strong>MSE:</strong> fidgety, left seat repeatedly, interrupted, attention poorly sustained on tasks; mood euthymic; no thought/perceptual abnormality.</p>
+      <p><strong>Assessment / formulation:</strong> Pervasive inattention–overactivity–impulsivity with cross-setting impairment suggests a <em>hyperkinetic / ADHD</em> hypothesis; the oppositional/temper features are noted but do not meet a conduct pattern (no rights-violating behaviour). Differentials: anxiety-driven inattention, learning disorder, sleep problems — screened and less likely. Multi-axial: Axis 1 provisional hyperkinetic disorder; Axis 5 note academic pressure. Confirm with rating scales (parent + teacher) and cognitive assessment.</p>
+    </div>
+  </div>
+
+  <div class="case">
+    <div class="chead">Case 3 — Learning / academic presentation (fictional): "Meera", 10 years</div>
+    <div class="cbody">
+      <p class="raw"><strong>Raw answers:</strong> Mother: "She's bright and chatty but just can't read well — mixes up letters, reads very slowly, spells poorly. Maths and everything else is fine." Teacher: reading &amp; spelling well below class; attention and behaviour fine; regular schooling in her first language.</p>
+      <p><strong>Organized history:</strong> Chief complaints — difficulty reading and spelling (since Class 1). HOPI — persistent, specific to literacy; no global delay; milestones age-appropriate; good social/adaptive skills; no inattention across settings; hearing/vision normal; schooling regular and adequate.</p>
+      <p><strong>MSE:</strong> alert, articulate, cooperative; attention adequate; on reading tasks — slow decoding, letter confusions; other cognition grossly intact.</p>
+      <p><strong>Assessment / formulation:</strong> An <em>isolated, persistent</em> difficulty in reading/spelling with otherwise intact development and adequate schooling points to a <em>specific learning disorder (reading)</em> hypothesis. Differentials ruled out: inadequate schooling, sensory impairment, intellectual disability, ADHD. Multi-axial: Axis 2 specific reading disorder; average intellectual level (Axis 3) to be confirmed on formal psychoeducational assessment. Recommend remedial teaching and formal SLD evaluation.</p>
+    </div>
+  </div>
+  <div class="box disclaimer"><span class="bt">Note</span>All three cases are fictional teaching examples. No provisional diagnosis here rests on a single symptom; each requires confirmatory assessment.</div>
+</section>
+
+<section id="flow">
+  <h2><span class="num">30</span>Interview flow &amp; rapid checklist</h2>
+  <h3>Clinical interview flow</h3>
+  <div class="flow">
+    <div class="step">Rapport</div><div class="arrow">↓</div>
+    <div class="step">Identification</div><div class="arrow">↓</div>
+    <div class="step">Informant</div><div class="arrow">↓</div>
+    <div class="step">Chief complaints</div><div class="arrow">↓</div>
+    <div class="step">HOPI</div><div class="arrow">↓</div>
+    <div class="step">Developmental history</div><div class="arrow">↓</div>
+    <div class="step">Medical / Neurological</div><div class="arrow">↓</div>
+    <div class="step">Psychiatric symptoms</div><div class="arrow">↓</div>
+    <div class="step">School</div><div class="arrow">↓</div>
+    <div class="step">Family</div><div class="arrow">↓</div>
+    <div class="step">Social / Play</div><div class="arrow">↓</div>
+    <div class="step">Sleep / Appetite / Toileting</div><div class="arrow">↓</div>
+    <div class="step">Treatment</div><div class="arrow">↓</div>
+    <div class="step">Current functioning</div><div class="arrow">↓</div>
+    <div class="step">Child interview</div><div class="arrow">↓</div>
+    <div class="step">MSE</div><div class="arrow">↓</div>
+    <div class="step">Behavioural observation</div><div class="arrow">↓</div>
+    <div class="step">Assessment</div><div class="arrow">↓</div>
+    <div class="step">Formulation</div><div class="arrow">↓</div>
+    <div class="step">Recommendations</div>
+  </div>
+
+  <h3>Rapid one-page checklist</h3>
+  <div class="checklist">
+    <label><input type="checkbox"> Informant</label>
+    <label><input type="checkbox"> Chief complaints</label>
+    <label><input type="checkbox"> HOPI</label>
+    <label><input type="checkbox"> Prenatal</label>
+    <label><input type="checkbox"> Perinatal</label>
+    <label><input type="checkbox"> Neonatal</label>
+    <label><input type="checkbox"> Milestones</label>
+    <label><input type="checkbox"> Regression</label>
+    <label><input type="checkbox"> Medical</label>
+    <label><input type="checkbox"> Neurological</label>
+    <label><input type="checkbox"> Psychiatric</label>
+    <label><input type="checkbox"> School</label>
+    <label><input type="checkbox"> Academic</label>
+    <label><input type="checkbox"> Social</label>
+    <label><input type="checkbox"> Play</label>
+    <label><input type="checkbox"> Family</label>
+    <label><input type="checkbox"> Sleep</label>
+    <label><input type="checkbox"> Appetite</label>
+    <label><input type="checkbox"> Toileting</label>
+    <label><input type="checkbox"> Sensory</label>
+    <label><input type="checkbox"> Trauma/adversity (where indicated)</label>
+    <label><input type="checkbox"> Treatment</label>
+    <label><input type="checkbox"> Current functioning</label>
+    <label><input type="checkbox"> Child interview</label>
+    <label><input type="checkbox"> MSE</label>
+    <label><input type="checkbox"> Behavioural observation</label>
+    <label><input type="checkbox"> Risk</label>
+    <label><input type="checkbox"> Assessment</label>
+    <label><input type="checkbox"> Formulation</label>
+  </div>
+</section>
+
+<section id="audit">
+  <h2><span class="num">31</span>Source audit &amp; version control</h2>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Section</th><th>Primary source</th><th>Supplementary source</th></tr></thead>
+    <tbody>
+      <tr><td>Overall structure &amp; terminology</td><td>Clinical Case History – Child proforma (8 pp.)</td><td>—</td></tr>
+      <tr><td>Socio-demographic, informant, chief complaints</td><td>Child Proforma</td><td>Psychodiagnostic Cases Submission (documentation style)</td></tr>
+      <tr><td>HOPI (onset/course/progress/factors)</td><td>Child Proforma</td><td>Psychodiagnostic Cases Submission; Nitin Sethi – Psychiatric History Taking (framework)</td></tr>
+      <tr><td>Psychiatric symptom probing</td><td>Standard child-psychiatry symptom review</td><td>ICD-10 / ICD-11 (repo copies); Nitin Sethi (interview framework)</td></tr>
+      <tr><td>Family &amp; personal/developmental history</td><td>Child Proforma</td><td>Developmental paediatrics norms</td></tr>
+      <tr><td>Milestones &amp; regression</td><td>Child Proforma (milestone streams)</td><td>Standard developmental norms</td></tr>
+      <tr><td>Temperament</td><td>Child Proforma (Temperament &amp; Personality Attributes)</td><td>Thomas &amp; Chess temperament dimensions</td></tr>
+      <tr><td>Schooling &amp; learning</td><td>Child Proforma (Schooling a–n)</td><td>Standard SLD assessment references</td></tr>
+      <tr><td>MSE (child)</td><td>Child Proforma (MSE items)</td><td>Psychodiagnostic Cases Submission (MSE documentation)</td></tr>
+      <tr><td>Formulation &amp; multi-axial diagnosis</td><td>Child Proforma (Summary; Axis 1–5)</td><td>Psychodiagnostic Cases Submission ("Points in favour"); ICD-10 multiaxial</td></tr>
+      <tr><td>Differentials &amp; "do not confuse"</td><td>Standard child-psychiatry differentials</td><td>ICD-10 / ICD-11 / DSM-5-TR (labelled where used)</td></tr>
+      <tr><td>Risk / red flags</td><td>Standard child &amp; adolescent risk assessment</td><td>—</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>Version control</h3>
+  <ul>
+    <li><strong>ICD-10</strong> — WHO ICD-10 (repository copy: <em>ICD 10.pdf</em>); multiaxial classification for child &amp; adolescent psychiatry.</li>
+    <li><strong>ICD-11</strong> — WHO ICD-11 (repository copies: <em>ICD 11.pdf</em>, <em>ICD 11 LATEST.pdf</em>).</li>
+    <li><strong>DSM-5-TR</strong> — referenced only where explicitly labelled; not mixed with ICD terminology within a single diagnosis.</li>
+    <li><strong>Primary user documents</strong> — <em>child performa 1.pdf</em>; <em>Nitin Sethi - Psychiatric History taking (1).pdf</em>; <em>PSYCHODIAGNOSTIC CASES SUBMISSION (1).docx</em> (and <em>… - Mahek.docx</em>).</li>
+  </ul>
+  <div class="box clin"><span class="bt">Diagnostic-version integrity</span>Where a classification term is used, the system (ICD-10 / ICD-11 / DSM-5-TR) is identified. Incompatible versions are not mixed within one diagnostic statement without labelling the difference. No sources have been fabricated.</div>
+</section>
+
+</div><!-- /.wrap -->
+
+<footer>
+  <div class="wrap">
+    <div class="box disclaimer" style="text-align:left">
+      <span class="bt">⚑ Educational use</span>
+      This handbook is a clinical-interviewing reference for M.Phil. Clinical Psychology trainees. Select questions by the child's age, presentation, culture, developmental level, and clinical need. Not every question is asked in every case; no diagnosis follows from a single symptom.
+    </div>
+    <p>Child Psychodiagnostic Case History — Interview &amp; Documentation Handbook</p>
+    <div class="made">Made by Tejas Dangodra</div>
+    <p style="font-size:.85rem">Built on the Clinical Case History – Child proforma, Nitin Sethi – Psychiatric History Taking, and the Psychodiagnostic Cases Submission, supplemented by authoritative child-psychiatry and clinical-psychology sources (ICD-10 / ICD-11 / DSM-5-TR where labelled).</p>
+  </div>
+</footer>
+
+<button class="backtop" id="backtop" aria-label="Back to top">↑</button>
+
+<script>
+(function(){
+  var search = document.getElementById('search');
+  var info = document.getElementById('searchInfo');
+  var sections = Array.prototype.slice.call(document.querySelectorAll('section'));
+  var tocNav = document.querySelector('nav.toc');
+
+  function clearMarks(root){
+    root.querySelectorAll('mark').forEach(function(m){
+      var t=document.createTextNode(m.textContent); m.parentNode.replaceChild(t,m); 
+    });
+    root.normalize();
+  }
+  function highlight(el, term){
+    if(!term) return;
+    var rx = new RegExp('('+term.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','gi');
+    var walker=document.createTreeWalker(el,NodeFilter.SHOW_TEXT,null,false);
+    var nodes=[],n;
+    while(n=walker.nextNode()){ if(n.parentNode && !/^(SCRIPT|STYLE|MARK)$/.test(n.parentNode.nodeName)) nodes.push(n); }
+    nodes.forEach(function(node){
+      if(rx.test(node.nodeValue)){
+        var span=document.createElement('span');
+        span.innerHTML=node.nodeValue.replace(rx,'<mark>$1</mark>');
+        node.parentNode.replaceChild(span,node);
+      }
+    });
+  }
+
+  function doSearch(q){
+    q=(q||'').trim();
+    sections.forEach(function(s){ clearMarks(s); });
+    if(!q){
+      sections.forEach(function(s){ s.classList.remove('hidden'); });
+      if(tocNav) tocNav.classList.remove('hidden');
+      info.textContent='';
+      return;
+    }
+    if(tocNav) tocNav.classList.add('hidden');
+    var lower=q.toLowerCase(), count=0;
+    sections.forEach(function(s){
+      var match = s.textContent.toLowerCase().indexOf(lower)>-1;
+      s.classList.toggle('hidden', !match);
+      if(match){ count++; highlight(s,q); }
+    });
+    info.textContent = count ? ('Showing '+count+' section'+(count>1?'s':'')+' matching "'+q+'". Clear the box to see all.') : ('No sections match "'+q+'".');
+  }
+
+  var t;
+  search.addEventListener('input', function(){ clearTimeout(t); t=setTimeout(function(){ doSearch(search.value); },180); });
+  document.querySelectorAll('.search-tags button').forEach(function(b){
+    b.addEventListener('click', function(){ search.value=b.getAttribute('data-q'); doSearch(search.value); search.focus(); });
+  });
+
+  var backtop=document.getElementById('backtop');
+  window.addEventListener('scroll', function(){
+    backtop.classList.toggle('show', window.scrollY>500);
+  });
+  backtop.addEventListener('click', function(){ window.scrollTo({top:0,behavior:'smooth'}); });
+})();
+</script>
+</body>
+</html>
