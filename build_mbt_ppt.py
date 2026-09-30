@@ -169,15 +169,22 @@ def footer(page):
 print("helpers loaded")
 
 # ============================================================
-# SLIDE CONTENT
-# Each slide = (list_of_shape_xml, speaker_notes_string)
+# SLIDE CONTENT  (body font = 14pt / 1400; simple language;
+# hard terms explained in brackets; every graph has a plain caption)
 # ============================================================
 SLIDES = []
 def add(shapes, notes):
     SLIDES.append(("".join(shapes), notes))
 
-CX_L = 560000              # left margin
-CONTENT_W = W - 2*CX_L     # usable width
+CX_L = 560000
+CONTENT_W = W - 2*CX_L
+BODY = 1400
+SUB  = 1400
+
+def caption(x, y, cx, text):
+    return roundrect(x, y, cx, 680000, CREAM, [
+        multi_run_para([("What this shows:  ",{"bold":True,"color":ACCENT2,"sz":1400}),
+                        (text,{"sz":1400})], space_after=0)], line=LILAC, anchor="ctr")
 
 def content_slide(title, kicker, body_paras, page, cardfill=None):
     s, ytop = banner(title, kicker)
@@ -193,262 +200,19 @@ def two_col(title, kicker, left_head, left_items, left_fill, right_head, right_i
     colw = (CONTENT_W - 300000)//2
     y = ytop+120000
     ch = H - y - 620000
-    lp = [para(left_head, sz=1700, color=ACCENT, bold=True, space_after=500)]
-    lp += [para(t, sz=1350, bullet=True, space_after=340) for t in left_items]
-    rp = [para(right_head, sz=1700, color=ACCENT, bold=True, space_after=500)]
-    rp += [para(t, sz=1350, bullet=True, space_after=340) for t in right_items]
+    lp = [para(left_head, sz=1700, color=ACCENT, bold=True, space_after=360)]
+    lp += [para(t, sz=BODY, bullet=True, space_after=280) for t in left_items]
+    rp = [para(right_head, sz=1700, color=ACCENT, bold=True, space_after=360)]
+    rp += [para(t, sz=BODY, bullet=True, space_after=280) for t in right_items]
     s.append(roundrect(CX_L, y, colw, ch, left_fill, lp, anchor="t"))
     s.append(roundrect(CX_L+colw+300000, y, colw, ch, right_fill, rp, anchor="t"))
     s += footer(page)
     return s
 
-# ---------- SLIDE 1 : TITLE ----------
-def slide_title():
-    s = []
-    s.append(rect(0,0,W,H,CREAM))
-    s.append(rect(0,0,W,120000,ACCENT))
-    s.append(rect(0,H-120000,W,120000,ACCENT))
-    # decorative pastel circles
-    s.append(oval(-500000,-500000,2200000,2200000,LAVENDER))
-    s.append(oval(W-1600000,H-1600000,2200000,2200000,POWDER))
-    s.append(textbox(900000, 900000, W-1800000, 500000,
-        [para("M.Phil. CLINICAL PSYCHOLOGY  \u2022  JOURNAL CLUB", sz=1500, color=ACCENT2, bold=True, align="ctr", space_after=0)]))
-    s.append(roundrect(900000, 1550000, W-1800000, 1650000, WHITE,
-        [para("Efficacy of Mentalization-Based Therapy in Treating Self-Harm",
-              sz=3200, color=ACCENT, bold=True, align="ctr", space_after=200),
-         para("A Systematic Review and Meta-Analysis", sz=2200, color=CHARCOAL, italic=True, align="ctr", space_after=0)],
-        line=LILAC, anchor="ctr"))
-    s.append(textbox(900000, 3400000, W-1800000, 900000, [
-        multi_run_para([("Journal: ",{"bold":True,"color":ACCENT2,"sz":1500}),
-                        ("Suicide and Life-Threatening Behavior (2024) \u2022 DOI: 10.1111/sltb.13044",{"sz":1500})], align="ctr", space_after=200),
-        multi_run_para([("Design: ",{"bold":True,"color":ACCENT2,"sz":1400}),
-                        ("Systematic review & random-effects meta-analysis of MBT / MBT-A trials",{"sz":1400})], align="ctr", space_after=0),
-    ]))
-    s.append(roundrect(2400000, 4550000, W-4800000, 1150000, LAVENDER, [
-        multi_run_para([("Presented by: ",{"bold":True,"sz":1500,"color":ACCENT}),("Sonal ______________",{"sz":1500})], align="ctr", space_after=160),
-        multi_run_para([("M.Phil. Clinical Psychology  \u2022  Institution: ______________",{"sz":1300})], align="ctr", space_after=160),
-        multi_run_para([("Journal Club Date: ______________",{"sz":1300})], align="ctr", space_after=0),
-    ], line=LILAC))
-    notes = ("Open by stating the full title, that it is a 2024 systematic review and meta-analysis in Suicide and "
-             "Life-Threatening Behavior (a leading suicidology journal), and that it pools trials of MBT (adults) and "
-             "MBT-A (adolescents) for self-harm. Fill in your name, institution and the journal-club date. "
-             "Frame the talk: I will summarise the clinical problem, the rationale for MBT, the review method, the "
-             "pooled findings, and then critically appraise the evidence and its clinical implications.")
-    return s, notes
-s,n = slide_title(); add(s,n)
-
-# ---------- SLIDE 2 : WHY THIS PAPER ----------
-def slide_why():
-    s, ytop = banner("Why This Paper Matters", "CLINICAL & ACADEMIC RELEVANCE")
-    y = ytop+120000
-    left_w = 5600000
-    lp = [
-        para("Self-harm is a major clinical and public-health concern with high recurrence.", sz=1350, bullet=True, space_after=320),
-        para("It is strongly linked to emotional dysregulation, trauma, personality pathology and elevated suicide risk.", sz=1350, bullet=True, space_after=320),
-        para("Repetition is common, so effective psychological interventions are urgently needed.", sz=1350, bullet=True, space_after=320),
-        para("Therapies that target underlying processes (not just the behaviour) are of particular interest.", sz=1350, bullet=True, space_after=320),
-        para("Meta-analysis synthesises scattered trials into a pooled estimate to guide practice.", sz=1350, bullet=True, space_after=0),
-    ]
-    s.append(roundrect(CX_L, y, left_w, H-y-620000, CREAM, lp, anchor="t", line=LILAC))
-    # right vertical pathway
-    rx = CX_L + left_w + 300000
-    rw = CONTENT_W - left_w - 300000
-    steps = [("Self-harm", BLUSH), ("Repetition", PEACH), ("Suicide risk", LILAC),
-             ("Treatment need", POWDER), ("Evidence-based intervention", SAGE)]
-    sy = y+40000
-    bh = 620000; gap = 200000
-    for i,(t,c) in enumerate(steps):
-        s.append(roundrect(rx, sy, rw, bh, c, [para(t, sz=1350, bold=True, align="ctr", space_after=0)]))
-        if i < len(steps)-1:
-            s.append(arrow_down(rx+rw/2-120000, sy+bh+10000, 240000, gap-20000, ACCENT))
-        sy += bh+gap
-    s += footer(2)
-    return s
-add(slide_why(),
-    "Motivate the paper. Self-harm is common, highly recurrent, and a leading predictor of later suicide. "
-    "Individual trials of MBT exist but vary in size and quality, so clinicians lack a clear pooled answer. "
-    "Walk down the right-hand pathway: self-harm tends to repeat, repetition raises suicide risk, which creates "
-    "a treatment need, which this meta-analysis addresses by evaluating MBT. Emphasise that MBT is theory-driven, "
-    "targeting the mentalizing failures thought to underlie impulsive self-harm.")
-
-# ---------- SLIDE 3 : CLINICAL PROBLEM ----------
-def slide_problem():
-    s, ytop = banner("The Clinical Problem: Defining Self-Harm", "BACKGROUND")
-    y = ytop+120000
-    colw = (CONTENT_W-300000)//2
-    ch = H-y-980000
-    lp = [para("What is self-harm?", sz=1600, color=ACCENT, bold=True, space_after=360),
-          para("Intentional self-poisoning or self-injury, irrespective of motive or suicidal intent.", sz=1300, bullet=True, space_after=300),
-          para("Overlaps with, but is not identical to, suicidal behaviour \u2014 non-suicidal self-injury and suicidal self-injury can co-occur.", sz=1300, bullet=True, space_after=300),
-          para("Serves emotional and interpersonal functions (affect relief, communication, self-punishment).", sz=1300, bullet=True, space_after=0)]
-    rp = [para("Common forms", sz=1600, color=ACCENT, bold=True, space_after=360)]
-    for f in ["Cutting","Burning","Hitting oneself","Scratching","Self-poisoning (overdose)","Interfering with wound healing"]:
-        rp.append(para(f, sz=1300, bullet=True, space_after=240))
-    s.append(roundrect(CX_L, y, colw, ch, POWDER, lp, anchor="t"))
-    s.append(roundrect(CX_L+colw+300000, y, colw, ch, MINT, rp, anchor="t"))
-    # caution bar
-    s.append(roundrect(CX_L, y+ch+120000, CONTENT_W, 620000, PEACH, [
-        multi_run_para([("\u26A0  Clinical caution:  ",{"bold":True,"color":"B5651D","sz":1350}),
-                        ("Every episode must be assessed for suicidal intent, lethality, frequency, triggers, functions and current safety.",
-                         {"sz":1300})], space_after=0)], line="E0A96D", anchor="ctr"))
-    s += footer(3)
-    return s
-add(slide_problem(),
-    "Define self-harm operationally: intentional self-poisoning or self-injury regardless of intent \u2014 the broad "
-    "definition used across UK/NICE literature and this review. Stress the self-harm vs suicide distinction: they "
-    "overlap but are not the same; NSSI and suicidal self-injury can coexist in the same person. Note the functions "
-    "(emotion regulation, communication, self-punishment) because these are exactly what MBT targets. Read the "
-    "caution box aloud: assessment of intent, lethality, frequency, triggers, function and safety is non-negotiable.")
-
-print("slides 1-3 done:", len(SLIDES))
-
-# ---------- SLIDE 4 : SELF-HARM & RECURRENCE (cycle) ----------
-def slide_cycle():
-    s, ytop = banner("Self-Harm & the Recurrence Cycle", "WHY IT REPEATS")
-    y = ytop+120000
-    # left triggers/maintainers
-    lw = 4400000
-    lp = [para("Common triggers", sz=1500, color=ACCENT, bold=True, space_after=260)]
-    for t in ["Interpersonal conflict / rejection","Abandonment fears","Shame & emotional overwhelm","Dissociation, trauma reminders"]:
-        lp.append(para(t, sz=1200, bullet=True, space_after=180))
-    lp.append(para("Maintaining factors", sz=1500, color=ACCENT, bold=True, space_after=260))
-    for t in ["Temporary emotional relief","Difficulty identifying emotions","Poor impulse control","Interpersonal reinforcement"]:
-        lp.append(para(t, sz=1200, bullet=True, space_after=180))
-    s.append(roundrect(CX_L, y, lw, H-y-620000, CREAM, lp, anchor="t", line=LILAC))
-    # right cycle diagram (vertical chain)
-    rx = CX_L+lw+300000
-    rw = CONTENT_W-lw-300000
-    steps=[("Trigger",BLUSH),("Emotional arousal",PEACH),("Reduced mentalization",LILAC),
-           ("Self-harm urge \u2192 act",POWDER),("Temporary relief",MINT),("Shame / distress \u2192 repeat",BLUSH)]
-    sy=y; bh=460000; gap=120000
-    for i,(t,c) in enumerate(steps):
-        s.append(roundrect(rx, sy, rw, bh, c, [para(t, sz=1250, bold=True, align="ctr", space_after=0)]))
-        if i<len(steps)-1:
-            s.append(arrow_down(rx+rw/2-100000, sy+bh+2000, 200000, gap-8000, ACCENT))
-        sy+=bh+gap
-    s += footer(4)
-    return s
-add(slide_cycle(),
-    "Explain recurrence as the central treatment challenge. Interpersonal triggers (conflict, rejection, "
-    "abandonment, shame) raise arousal; under arousal, mentalizing collapses, an urge appears, self-harm gives "
-    "short-term relief, and the subsequent shame feeds the next episode. Point out the maintaining factors on the "
-    "left \u2014 relief acts as negative reinforcement. This cycle is why relapse-prevention planning and a therapy "
-    "that targets the mentalizing failure (the pivot point) are both needed.")
-
-# ---------- SLIDE 5 : TREATMENT GAP ----------
-def slide_gap():
-    body = [
-        para("Access & delivery", sz=1600, color=ACCENT, bold=True, space_after=300),
-        para("Specialist psychological therapies are scarce; treatment response is variable and dropout is high.", sz=1350, bullet=True, space_after=280),
-        para("Individuals with severe emotional dysregulation are hard to engage and retain.", sz=1350, bullet=True, space_after=280),
-        para("Evidence base", sz=1600, color=ACCENT, bold=True, space_after=300),
-        para("Inconsistent findings across studies, heterogeneous protocols, and limited long-term follow-up.", sz=1350, bullet=True, space_after=280),
-        para("Unclear which patients benefit most, and limited pooled evidence on self-harm frequency, suicidal behaviour, BPD symptoms and general functioning.", sz=1350, bullet=True, space_after=0),
-    ]
-    return content_slide("The Existing Treatment Gap", "RATIONALE", body, 5, cardfill=LGREY)
-add(slide_gap(),
-    "Frame the gap the review addresses. Effective, specialist psychotherapies for self-harm are limited in "
-    "availability and show variable response and high dropout, especially in people with marked emotional "
-    "dysregulation. Individual MBT trials disagree, use different protocols, and rarely report long follow-up. So "
-    "clinicians cannot yet say confidently how well MBT works or for whom \u2014 which is exactly the pooled question "
-    "this meta-analysis sets out to answer.")
-
-# ---------- SLIDE 6 : WHY MBT (conceptual model) ----------
-def slide_whymbt():
-    s, ytop = banner("Why Mentalization-Based Therapy?", "THEORETICAL RATIONALE")
-    y = ytop+120000
-    s.append(roundrect(CX_L, y, CONTENT_W, 780000, LAVENDER, [
-        multi_run_para([("Mentalization = ",{"bold":True,"color":ACCENT,"sz":1400}),
-                        ("the capacity to understand oneself and others in terms of intentional mental states \u2014 thoughts, feelings, wishes, beliefs and intentions.",{"sz":1350})], space_after=0)], line=LILAC, anchor="ctr"))
-    # horizontal model
-    my = y+920000
-    steps=[("Attachment threat",BLUSH),("Mentalization failure",PEACH),("Misreading self/others",LILAC),
-           ("Emotional dysregulation",POWDER),("Self-harm",BLUSH)]
-    bw=2000000; gap=340000; bh=780000
-    total = len(steps)*bw + (len(steps)-1)*gap
-    sx = (W-total)//2
-    for i,(t,c) in enumerate(steps):
-        s.append(roundrect(sx, my, bw, bh, c, [para(t, sz=1250, bold=True, align="ctr", space_after=0)]))
-        if i<len(steps)-1:
-            s.append(arrow_right(sx+bw+40000, my+bh/2-90000, gap-80000, 180000, ACCENT))
-        sx+=bw+gap
-    # MBT aims
-    ay = my+bh+220000
-    s.append(roundrect(CX_L, ay, CONTENT_W, H-ay-560000, MINT, [
-        para("MBT aims to:", sz=1450, color=ACCENT, bold=True, space_after=240),
-        multi_run_para([("\u2022 improve understanding of mental states   \u2022 increase emotional awareness   \u2022 reduce certainty about negative interpretations",{"sz":1250})], space_after=180),
-        multi_run_para([("\u2022 strengthen affect regulation   \u2022 improve interpersonal functioning   \u2022 reduce impulsive, self-destructive behaviour",{"sz":1250})], space_after=0),
-    ], line=SAGE, anchor="t"))
-    s += footer(6)
-    return s
-add(slide_whymbt(),
-    "Define mentalization plainly, then give the causal model: an attachment threat or interpersonal stressor "
-    "triggers a temporary failure of mentalizing; the person misreads their own and others' intentions, becomes "
-    "dysregulated, and self-harms. MBT intervenes at the mentalizing-failure link. List its aims: rebuild reflective "
-    "understanding, increase emotional awareness, loosen rigid negative interpretations, and improve affect "
-    "regulation and relationships \u2014 which should, in turn, reduce impulsive self-harm.")
-
-print("slides through 6:", len(SLIDES))
-
-# ---------- SLIDE 7 : INTRODUCTION ----------
-def slide_intro():
-    s, ytop = banner("Introduction: Key Concepts", "BACKGROUND")
-    y = ytop+120000
-    cw=(CONTENT_W-2*260000)//3
-    ch=H-y-620000
-    c1=[para("Self-harm", sz=1500, color=ACCENT, bold=True, space_after=240),
-        para("Intentional self-injury/poisoning; multiple forms & functions; a strong predictor of later suicide.", sz=1200, bullet=True, space_after=0)]
-    c2=[para("Mentalization", sz=1500, color=ACCENT, bold=True, space_after=240),
-        para("Understanding behaviour via mental states; develops in secure attachment; fails under emotional arousal.", sz=1200, bullet=True, space_after=0)]
-    c3=[para("MBT", sz=1500, color=ACCENT, bold=True, space_after=240),
-        para("Structured psychotherapy (Bateman & Fonagy). Curious, not-knowing stance; focus on current affect & interpersonal experience.", sz=1200, bullet=True, space_after=0)]
-    s.append(roundrect(CX_L, y, cw, ch, POWDER, c1, anchor="t"))
-    s.append(roundrect(CX_L+cw+260000, y, cw, ch, LAVENDER, c2, anchor="t"))
-    s.append(roundrect(CX_L+2*(cw+260000), y, cw, ch, MINT, c3, anchor="t"))
-    s += footer(7)
-    return s
-add(slide_intro(),
-    "Give three tight definitions. Self-harm: intentional injury/poisoning, a strong suicide predictor. "
-    "Mentalization: reading behaviour through mental states; it is attachment-based and collapses under stress. "
-    "MBT: the structured psychotherapy developed by Bateman and Fonagy, using a curious, not-knowing stance that "
-    "keeps attention on present affect and interpersonal experience. Also remind the audience why we meta-analyse: "
-    "to pool small trials into a more precise effect estimate and formally examine heterogeneity and bias.")
-
-# ---------- SLIDE 8 : CONCEPTUAL FRAMEWORK ----------
-def slide_framework():
-    s, ytop = banner("Conceptual Framework", "MECHANISTIC PATHWAY")
-    y = ytop+80000
-    steps=[("Attachment insecurity / interpersonal stress",LILAC),
-           ("Reduced mentalization under emotional arousal",PEACH),
-           ("Misinterpretation of self and others",BLUSH),
-           ("Affect dysregulation & impulsivity",POWDER),
-           ("Self-harm behaviour \u2192 short-term relief",MINT),
-           ("MBT targets mentalizing, affect regulation & interpersonal understanding",SAGE),
-           ("Reduced self-harm & improved clinical functioning",LAVENDER)]
-    bh=520000; gap=90000
-    sx=CX_L+1500000; bw=CONTENT_W-3000000
-    sy=y
-    for i,(t,c) in enumerate(steps):
-        bold = i>=5
-        s.append(roundrect(sx, sy, bw, bh, c, [para(t, sz=1250, bold=bold, align="ctr", space_after=0)], line=(ACCENT if bold else None)))
-        if i<len(steps)-1:
-            s.append(arrow_down(sx+bw/2-90000, sy+bh+2000, 180000, gap-8000, ACCENT))
-        sy+=bh+gap
-    s += footer(8)
-    return s
-add(slide_framework(),
-    "This is the integrating model for the whole talk. Read top to bottom: attachment/interpersonal stress reduces "
-    "mentalizing; the person misreads self and others; dysregulation and impulsivity follow; self-harm brings brief "
-    "relief but long-term distress. The last two green/lavender boxes are the therapeutic hypothesis: MBT works "
-    "upstream on mentalizing and affect regulation, which should reduce self-harm and improve functioning. Keep this "
-    "picture in mind when we reach the results.")
-
-# ---------- SLIDE 9 : REVIEW OF LITERATURE (table) ----------
 def table(x, y, col_w, row_h, headers, rows, head_fill=ACCENT, head_color=WHITE,
-          zebra=(WHITE, LGREY), font=1100, head_font=1150):
+          zebra=(WHITE, LGREY), font=1400, head_font=1400):
     shapes=[]
     cx=x
-    # header
     for j,htxt in enumerate(headers):
         shapes.append(rect(cx, y, col_w[j], row_h, head_fill,
             [para(htxt, sz=head_font, color=head_color, bold=True, align="l", space_after=0)]))
@@ -464,392 +228,591 @@ def table(x, y, col_w, row_h, headers, rows, head_fill=ACCENT, head_color=WHITE,
         ry+=row_h
     return shapes
 
-def slide_litreview():
-    s, ytop = banner("Review of Literature", "KEY CONSTITUENT / RELATED STUDIES")
-    y = ytop+100000
-    headers=["Study (year)","Setting / N","Intervention vs control","Main finding"]
-    cw=[2500000, 2200000, 3200000, CONTENT_W-2500000-2200000-3200000]
-    rows=[
-        ["Rossouw & Fonagy (2012)","UK; N=80 adolescents","MBT-A vs TAU (12 mo)","MBT-A superior for self-harm & depression; mediated by \u2191 mentalizing"],
-        ["Bateman & Fonagy (2009)","UK; adults, BPD","MBT vs structured clinical mgmt","Fewer suicide attempts & self-harm; symptom reduction"],
-        ["Laurenssen et al. (2018)","NL; adolescents","MBT-A vs TAU","No clear MBT-A advantage \u2014 mixed / null result"],
-        ["Beck et al. (2020)","DK; adolescents, BPD","MBT-A vs TAU","No significant group difference on self-harm"],
-        ["Griffiths et al. (2019)","UK; MBT-Ai (group)","Feasibility RCT","Acceptable & feasible; underpowered for efficacy"],
+def slide_title():
+    s = []
+    s.append(rect(0,0,W,H,CREAM))
+    s.append(rect(0,0,W,120000,ACCENT))
+    s.append(rect(0,H-120000,W,120000,ACCENT))
+    s.append(oval(-500000,-500000,2200000,2200000,LAVENDER))
+    s.append(oval(W-1600000,H-1600000,2200000,2200000,POWDER))
+    s.append(textbox(900000, 850000, W-1800000, 500000,
+        [para("M.Phil. CLINICAL PSYCHOLOGY  \u2022  JOURNAL CLUB", sz=1500, color=ACCENT2, bold=True, align="ctr", space_after=0)]))
+    s.append(roundrect(900000, 1480000, W-1800000, 1650000, WHITE,
+        [para("Efficacy of Mentalization-Based Therapy in Treating Self-Harm",
+              sz=3200, color=ACCENT, bold=True, align="ctr", space_after=200),
+         para("A Systematic Review and Meta-Analysis", sz=2200, color=CHARCOAL, italic=True, align="ctr", space_after=0)],
+        line=LILAC, anchor="ctr"))
+    s.append(textbox(900000, 3320000, W-1800000, 1000000, [
+        multi_run_para([("Journal: ",{"bold":True,"color":ACCENT2,"sz":1400}),
+                        ("Suicide and Life-Threatening Behavior (2024)  \u2022  DOI: 10.1111/sltb.13044",{"sz":1400})], align="ctr", space_after=200),
+        multi_run_para([("What kind of study: ",{"bold":True,"color":ACCENT2,"sz":1400}),
+                        ("a systematic review + meta-analysis (a study that gathers all good earlier studies and combines their results into one overall answer).",{"sz":1400})], align="ctr", space_after=0),
+    ]))
+    s.append(roundrect(2400000, 4650000, W-4800000, 1150000, LAVENDER, [
+        multi_run_para([("Presented by: ",{"bold":True,"sz":1500,"color":ACCENT}),("Sonal ______________",{"sz":1500})], align="ctr", space_after=160),
+        multi_run_para([("M.Phil. Clinical Psychology  \u2022  Institution: ______________",{"sz":1400})], align="ctr", space_after=160),
+        multi_run_para([("Journal Club Date: ______________",{"sz":1400})], align="ctr", space_after=0),
+    ], line=LILAC))
+    notes = ("Open simply: 'Today I am presenting a 2024 paper that asks one clear question - does mentalization-based "
+             "therapy (a talking therapy that helps people understand thoughts and feelings) actually reduce self-harm?' "
+             "Explain it is a systematic review and meta-analysis: the authors did not run a new experiment; they "
+             "collected earlier good-quality studies and combined them to get one overall result. Fill in your name, "
+             "institution and date. Give the plan: the problem, why this therapy, how the review was done, what it "
+             "found, and how strong the evidence really is.")
+    return s, notes
+s,n = slide_title(); add(s,n)
+
+def slide_why():
+    s, ytop = banner("Why This Paper Matters", "CLINICAL & ACADEMIC RELEVANCE")
+    y = ytop+120000
+    left_w = 5600000
+    lp = [
+        para("Self-harm is common and tends to happen again and again (high recurrence).", sz=BODY, bullet=True, space_after=300),
+        para("It is closely linked to poor emotion control (emotional dysregulation), past trauma, personality difficulties, and a higher risk of suicide.", sz=BODY, bullet=True, space_after=300),
+        para("Because it repeats so often, we badly need talking therapies that actually work.", sz=BODY, bullet=True, space_after=300),
+        para("Therapies that fix the root cause (how a person handles emotions and relationships) are more useful than ones that only stop the behaviour briefly.", sz=BODY, bullet=True, space_after=300),
+        para("A meta-analysis (combining many studies) gives one clearer, stronger answer than any single small study.", sz=BODY, bullet=True, space_after=0),
     ]
-    s += table(CX_L, y, cw, 620000, headers, rows, head_fill=ACCENT, zebra=(CREAM, LAVENDER), font=1050, head_font=1150)
-    s.append(textbox(CX_L, y+620000*6+40000, CONTENT_W, 300000,
-        [para("Note: findings are mixed \u2014 early positive trials (Rossouw & Fonagy) contrast with later null/feasibility trials. Sources cross-checked with PubMed.",
-              sz=1000, color="9AA0A6", italic=True, space_after=0)]))
+    s.append(roundrect(CX_L, y, left_w, H-y-720000, CREAM, lp, anchor="t", line=LILAC))
+    rx = CX_L + left_w + 300000
+    rw = CONTENT_W - left_w - 300000
+    steps = [("Self-harm", BLUSH), ("It repeats", PEACH), ("Suicide risk rises", LILAC),
+             ("Treatment needed", POWDER), ("Use proven therapy", SAGE)]
+    sy = y+20000
+    bh = 560000; gap = 170000
+    for i,(t,c) in enumerate(steps):
+        s.append(roundrect(rx, sy, rw, bh, c, [para(t, sz=BODY, bold=True, align="ctr", space_after=0)]))
+        if i < len(steps)-1:
+            s.append(arrow_down(rx+rw/2-120000, sy+bh+8000, 240000, gap-16000, ACCENT))
+        sy += bh+gap
+    s.append(caption(rx, sy+10000, rw, "The chain: self-harm usually repeats, repeating raises suicide risk, so treatment is needed - ideally a therapy already proven to work."))
+    s += footer(2)
+    return s
+add(slide_why(),
+    "Explain why the topic matters in everyday words. Self-harm is common and keeps coming back. It travels with "
+    "trouble managing emotions, past trauma, personality difficulties, and a higher chance of suicide later. Because "
+    "it repeats, we need therapies that genuinely help - ideally ones that treat the underlying cause. Then explain "
+    "why a meta-analysis is valuable: one small study can be a fluke, but combining many gives a steadier answer. "
+    "Walk down the arrow-chain on the right.")
+
+def slide_problem():
+    s, ytop = banner("The Clinical Problem: What Is Self-Harm?", "BACKGROUND")
+    y = ytop+120000
+    colw = (CONTENT_W-300000)//2
+    ch = H-y-1080000
+    lp = [para("Definition", sz=1600, color=ACCENT, bold=True, space_after=320),
+          para("Deliberately hurting or poisoning oneself, whether or not the person wants to die.", sz=BODY, bullet=True, space_after=300),
+          para("It overlaps with, but is not the same as, suicidal behaviour - non-suicidal self-injury (hurting self with no wish to die) and suicidal self-injury (with a wish to die) can both occur.", sz=BODY, bullet=True, space_after=300),
+          para("It serves a purpose for the person: to feel relief, to cope, to communicate distress, or to punish oneself.", sz=BODY, bullet=True, space_after=0)]
+    rp = [para("Common forms", sz=1600, color=ACCENT, bold=True, space_after=320)]
+    for f in ["Cutting","Burning","Hitting oneself","Scratching","Self-poisoning (taking an overdose)","Interfering with wound healing (stopping wounds from healing)"]:
+        rp.append(para(f, sz=BODY, bullet=True, space_after=250))
+    s.append(roundrect(CX_L, y, colw, ch, POWDER, lp, anchor="t"))
+    s.append(roundrect(CX_L+colw+300000, y, colw, ch, MINT, rp, anchor="t"))
+    s.append(roundrect(CX_L, y+ch+120000, CONTENT_W, 720000, PEACH, [
+        multi_run_para([("\u26A0  Always assess safety:  ",{"bold":True,"color":"B5651D","sz":BODY}),
+                        ("check for suicidal intent (wish to die), lethality (how dangerous), how often it happens, what triggers it, what purpose it serves, and whether the person is safe right now.",
+                         {"sz":BODY})], space_after=0)], line="E0A96D", anchor="ctr"))
+    s += footer(3)
+    return s
+add(slide_problem(),
+    "Define self-harm plainly: deliberately hurting or poisoning yourself, regardless of intent. Make the key "
+    "distinction: self-harm and suicide overlap but are not identical; a person can hurt themselves with no wish to "
+    "die, or with a wish to die. Stress that self-harm serves a function - relief, coping, communicating pain, "
+    "self-punishment - and those functions are what this therapy addresses. Read the orange safety box aloud.")
+
+print("content slides 1-3 done:", len(SLIDES))
+
+def slide_cycle():
+    s, ytop = banner("Why Self-Harm Repeats: The Cycle", "RECURRENCE")
+    y = ytop+120000
+    lw = 4400000
+    lp = [para("Common triggers (what sets it off)", sz=SUB, color=ACCENT, bold=True, space_after=240)]
+    for t in ["Conflict or rejection by others","Fear of being abandoned","Shame and feeling overwhelmed","Dissociation (feeling cut off / unreal) or trauma reminders"]:
+        lp.append(para(t, sz=BODY, bullet=True, space_after=200))
+    lp.append(para("What keeps it going (maintaining factors)", sz=SUB, color=ACCENT, bold=True, space_after=240))
+    for t in ["It brings quick emotional relief","Hard to name what one is feeling","Acting on impulse (little pause before acting)","Others respond, which unintentionally reinforces it"]:
+        lp.append(para(t, sz=BODY, bullet=True, space_after=200))
+    s.append(roundrect(CX_L, y, lw, H-y-720000, CREAM, lp, anchor="t", line=LILAC))
+    rx = CX_L+lw+300000
+    rw = CONTENT_W-lw-300000
+    steps=[("Trigger",BLUSH),("Emotions spike",PEACH),("Can't think clearly\n(mentalizing drops)",LILAC),
+           ("Urge \u2192 self-harm",POWDER),("Quick relief",MINT),("Shame \u2192 repeat",BLUSH)]
+    sy=y+10000; bh=470000; gap=120000
+    for i,(t,c) in enumerate(steps):
+        lines=t.split("\n")
+        ps=[para(lines[0], sz=1300, bold=True, align="ctr", space_after=(40 if len(lines)>1 else 0))]
+        for extra in lines[1:]:
+            ps.append(para(extra, sz=1100, bold=True, align="ctr", space_after=0))
+        s.append(roundrect(rx, sy, rw, bh, c, ps))
+        if i<len(steps)-1:
+            s.append(arrow_down(rx+rw/2-100000, sy+bh+2000, 200000, gap-8000, ACCENT))
+        sy+=bh+gap
+    s.append(caption(rx-200000, sy+10000, rw+400000, "The loop: a trigger raises emotion, thinking clearly gets harder, self-harm gives quick relief, then shame restarts the loop."))
+    s += footer(4)
+    return s
+add(slide_cycle(),
+    "Explain recurrence as a vicious cycle. A trigger (often a relationship problem) raises emotion; when emotion is "
+    "high, thinking clearly about feelings drops; an urge appears; self-harm brings quick relief - which is why the "
+    "brain wants to repeat it; then shame becomes the next trigger. Point to the maintaining factors on the left: "
+    "relief acts as a reward, so the loop keeps running. That is why we need a therapy that works at the 'can't "
+    "think clearly' step.")
+
+def slide_gap():
+    body = [
+        para("Getting the right help", sz=SUB, color=ACCENT, bold=True, space_after=320),
+        para("Specialist talking therapies are hard to access; people respond differently, and many drop out before finishing.", sz=BODY, bullet=True, space_after=300),
+        para("People who struggle most with emotions are often the hardest to keep in treatment.", sz=BODY, bullet=True, space_after=300),
+        para("What the research is missing", sz=SUB, color=ACCENT, bold=True, space_after=320),
+        para("Studies disagree with each other, use different treatment set-ups, and rarely follow people for a long time.", sz=BODY, bullet=True, space_after=300),
+        para("There was no single combined answer on self-harm, suicidal behaviour, borderline personality symptoms, and day-to-day functioning - which is the gap this paper fills.", sz=BODY, bullet=True, space_after=0),
+    ]
+    return content_slide("The Gap This Study Fills", "RATIONALE", body, 5, cardfill=LGREY)
+add(slide_gap(),
+    "Explain the problem the review solves. In real life, specialist therapies for self-harm are scarce, people "
+    "respond unevenly, and dropout is high - especially in those with the biggest emotional struggles. On the "
+    "research side, individual studies contradict each other, use different versions of the therapy, and rarely "
+    "follow people long enough. Nobody had combined them into one clear answer - which is what this meta-analysis "
+    "does.")
+
+def slide_whymbt():
+    s, ytop = banner("Why Mentalization-Based Therapy (MBT)?", "THE MAIN IDEA")
+    y = ytop+120000
+    s.append(roundrect(CX_L, y, CONTENT_W, 800000, LAVENDER, [
+        multi_run_para([("Mentalizing = ",{"bold":True,"color":ACCENT,"sz":BODY}),
+                        ("the ability to understand your own and other people's behaviour by thinking about the feelings, thoughts and intentions behind it ('reading minds - your own and others').",{"sz":BODY})], space_after=0)], line=LILAC, anchor="ctr"))
+    my = y+920000
+    steps=[("Relationship\nstress",BLUSH),("Can't 'read'\nfeelings",PEACH),("Misreads self\n& others",LILAC),
+           ("Emotions get\nout of control",POWDER),("Self-harm",BLUSH)]
+    bw=2000000; gap=320000; bh=820000
+    total = len(steps)*bw + (len(steps)-1)*gap
+    sx = (W-total)//2
+    for i,(t,c) in enumerate(steps):
+        lines=t.split("\n")
+        ps=[para(lines[0], sz=1300, bold=True, align="ctr", space_after=40)]
+        for extra in lines[1:]:
+            ps.append(para(extra, sz=1300, bold=True, align="ctr", space_after=0))
+        s.append(roundrect(sx, my, bw, bh, c, ps))
+        if i<len(steps)-1:
+            s.append(arrow_right(sx+bw+40000, my+bh/2-90000, gap-80000, 180000, ACCENT))
+        sx+=bw+gap
+    s.append(caption(CX_L, my+bh+140000, CONTENT_W, "Under relationship stress, the ability to 'read' feelings drops, the person misjudges what's happening, emotions overflow, and self-harm follows. MBT works on this weak link."))
+    s.append(roundrect(CX_L, my+bh+800000, CONTENT_W, H-(my+bh+800000)-560000, MINT, [
+        multi_run_para([("MBT helps a person: ",{"bold":True,"color":ACCENT,"sz":BODY}),
+                        ("understand feelings better, become more aware of emotions, be less sure their negative reading of a situation is correct, calm strong emotions, get on better with others, and act less on impulse.",{"sz":BODY})], space_after=0)],
+        line=SAGE, anchor="ctr"))
+    s += footer(6)
+    return s
+add(slide_whymbt(),
+    "Give the core idea plainly. 'Mentalizing' means reading the feelings and intentions behind behaviour - in "
+    "yourself and others. The horizontal chain shows the theory: relationship stress makes this mind-reading break "
+    "down, so the person misjudges what's happening, emotions overflow, and self-harm follows. MBT targets that "
+    "breakdown. List what MBT builds: better understanding of feelings, more emotional awareness, less certainty "
+    "that 'they hate me' is true, calmer reactions, better relationships, fewer impulsive acts. Give a quick "
+    "everyday example if time allows.")
+
+def slide_intro():
+    s, ytop = banner("Introduction: Three Key Terms", "BACKGROUND")
+    y = ytop+120000
+    cw=(CONTENT_W-2*260000)//3
+    ch=H-y-620000
+    c1=[para("Self-harm", sz=SUB, color=ACCENT, bold=True, space_after=260),
+        para("Deliberately hurting or poisoning oneself. Comes in many forms, serves a purpose, and is a strong warning sign for later suicide.", sz=BODY, bullet=True, space_after=0)]
+    c2=[para("Mentalizing", sz=SUB, color=ACCENT, bold=True, space_after=260),
+        para("Understanding behaviour through the feelings behind it. It grows in safe relationships and breaks down when emotions run high.", sz=BODY, bullet=True, space_after=0)]
+    c3=[para("MBT", sz=SUB, color=ACCENT, bold=True, space_after=260),
+        para("A structured talking therapy (Bateman & Fonagy). The therapist stays curious and 'not-knowing' (asks rather than assumes) and focuses on present feelings and relationships.", sz=BODY, bullet=True, space_after=0)]
+    s.append(roundrect(CX_L, y, cw, ch, POWDER, c1, anchor="t"))
+    s.append(roundrect(CX_L+cw+260000, y, cw, ch, LAVENDER, c2, anchor="t"))
+    s.append(roundrect(CX_L+2*(cw+260000), y, cw, ch, MINT, c3, anchor="t"))
+    s += footer(7)
+    return s
+add(slide_intro(),
+    "Give three simple definitions. Self-harm: deliberately hurting yourself; a strong warning sign for suicide. "
+    "Mentalizing: understanding behaviour by the feelings behind it; develops in safe relationships and switches "
+    "off under stress. MBT: a structured talking therapy where the therapist stays curious and avoids assuming "
+    "('not-knowing stance'), focusing on present feelings and relationships. Also remind them why we combine "
+    "studies: a more reliable answer than any single small study.")
+
+def slide_framework():
+    s, ytop = banner("The Whole Idea in One Picture", "CONCEPTUAL FRAMEWORK")
+    y = ytop+60000
+    steps=[("Insecure relationships / relationship stress",LILAC),
+           ("Ability to 'read' feelings drops when emotions rise",PEACH),
+           ("Person misreads self and others",BLUSH),
+           ("Emotions get out of control; acts on impulse",POWDER),
+           ("Self-harm \u2192 quick relief",MINT),
+           ("MBT strengthens mentalizing, emotion control & understanding others",SAGE),
+           ("Less self-harm & better day-to-day functioning",LAVENDER)]
+    bh=470000; gap=80000
+    sx=CX_L+1500000; bw=CONTENT_W-3000000
+    sy=y
+    for i,(t,c) in enumerate(steps):
+        bold = i>=5
+        s.append(roundrect(sx, sy, bw, bh, c, [para(t, sz=1300, bold=bold, align="ctr", space_after=0)], line=(ACCENT if bold else None)))
+        if i<len(steps)-1:
+            s.append(arrow_down(sx+bw/2-90000, sy+bh+2000, 180000, gap-8000, ACCENT))
+        sy+=bh+gap
+    s.append(caption(CX_L, sy+6000, CONTENT_W, "Read top to bottom: stress breaks down 'mind-reading', leading to self-harm. The two highlighted boxes show where MBT steps in to break the chain."))
+    s += footer(8)
+    return s
+add(slide_framework(),
+    "This single picture ties the talk together - read top to bottom. Relationship stress makes reading feelings "
+    "harder; the person misjudges; emotions overflow and they act on impulse; self-harm brings quick relief. The "
+    "last two highlighted boxes are the hopeful part: MBT strengthens mind-reading and emotion-control, which should "
+    "break the chain and reduce self-harm while improving daily life. Keep this in mind for the results.")
+
+def slide_litreview():
+    s, ytop = banner("What Earlier Studies Found", "REVIEW OF LITERATURE")
+    y = ytop+100000
+    headers=["Study (year)","Who / how many","Compared","Main finding (plain)"]
+    cw=[2500000, 2350000, 2650000, CONTENT_W-2500000-2350000-2650000]
+    rows=[
+        ["Rossouw & Fonagy (2012)","UK; 80 teenagers","MBT-A vs usual care","MBT helped more - less self-harm & depression; worked by improving mind-reading"],
+        ["Bateman & Fonagy (2009)","UK; adults with BPD","MBT vs generic support","Fewer suicide attempts & self-harm; symptoms improved"],
+        ["Laurenssen et al. (2018)","Netherlands; teenagers","MBT-A vs usual care","No clear extra benefit - mixed result"],
+        ["Beck et al. (2020)","Denmark; teenagers, BPD","MBT-A vs usual care","No significant difference in self-harm"],
+        ["Griffiths et al. (2019)","UK; group MBT","Small pilot study","Doable & acceptable, but too small to prove it works"],
+    ]
+    s += table(CX_L, y, cw, 600000, headers, rows, head_fill=ACCENT, zebra=(CREAM, LAVENDER), font=1200, head_font=1250)
+    s.append(caption(CX_L, y+600000*6+20000, CONTENT_W, "Early studies were positive, but later ones were mixed or found no clear benefit - which is why one combined answer (this meta-analysis) is needed. (Confirm details against the paper.)"))
     s += footer(9)
     return s
 add(slide_litreview(),
-    "Summarise the landscape of trials that feed this meta-analysis. The landmark is Rossouw & Fonagy (2012): 80 "
-    "adolescents, MBT-A beat TAU on self-harm and depression, and the effect was mediated by improved mentalizing "
-    "and reduced attachment avoidance. Bateman & Fonagy's adult BPD work is the parent evidence base. Crucially, "
-    "later trials (Laurenssen 2018, Beck 2020) were null or mixed, and some (Griffiths) were only feasibility "
-    "studies. Flag this heterogeneity now \u2014 it is central to interpreting the pooled effect and its wide "
-    "confidence intervals. Verify exact citations against the paper's reference list.")
+    "Walk through the earlier studies plainly. The landmark is Rossouw & Fonagy (2012): 80 teenagers; MBT beat usual "
+    "care on self-harm and depression, working specifically by improving mind-reading. Bateman & Fonagy's adult work "
+    "is the foundation. Be honest: later studies (Laurenssen 2018, Beck 2020) found no clear extra benefit, and some "
+    "were only small pilots. This disagreement is the key reason we need a combined answer, and it explains why the "
+    "final result must be read carefully. Say details should be checked against the paper.")
 
-print("slides through 9:", len(SLIDES))
+print("content slides through 9:", len(SLIDES))
 
-# ---------- SLIDE 10 : GRAPHICAL COMPARISON (bar of study sizes) ----------
 def hbar(x, y, max_w, h, val, maxval, fill, label, valtxt):
     shapes=[]
     bw=int(max_w*val/maxval)
-    shapes.append(textbox(x-1900000, y-30000, 1850000, h+60000, [para(label, sz=1050, align="r", space_after=0)], anchor="ctr"))
+    shapes.append(textbox(x-2100000, y-30000, 2050000, h+60000, [para(label, sz=1250, align="r", space_after=0)], anchor="ctr"))
     shapes.append(rect(x, y, max_w, h, WHITE, line="E0E4E8"))
-    shapes.append(roundrect(x, y, max(bw,60000), h, fill, [], rad=8000, shadow=False))
-    shapes.append(textbox(x+max(bw,60000)+40000, y-30000, 900000, h+60000, [para(valtxt, sz=1050, bold=True, space_after=0)], anchor="ctr"))
+    shapes.append(roundrect(x, y, max(bw,60000), h, fill, None, rad=8000, shadow=False))
+    shapes.append(textbox(x+max(bw,60000)+40000, y-30000, 900000, h+60000, [para(valtxt, sz=1250, bold=True, space_after=0)], anchor="ctr"))
     return shapes
 
 def slide_compare():
-    s, ytop = banner("Graphical Comparison of Constituent Trials", "SAMPLE SIZE (illustrative)")
-    y=ytop+240000
+    s, ytop = banner("How Big Were the Studies?", "COMPARISON OF SAMPLE SIZE")
+    y=ytop+200000
     data=[("Rossouw & Fonagy 2012",80,BLUSH),("Bateman & Fonagy 2009",134,PEACH),
           ("Laurenssen 2018",109,LILAC),("Beck 2020",111,POWDER),("Griffiths 2019 (pilot)",53,SAGE)]
-    maxv=140; bx=CX_L+2000000; bmax=CONTENT_W-2000000-1000000; bh=520000; gap=260000
+    maxv=140; bx=CX_L+2200000; bmax=CONTENT_W-2200000-1000000; bh=520000; gap=230000
     sy=y
     for lbl,v,c in data:
-        s += hbar(bx, sy, bmax, bh, v, maxv, c, lbl, f"N={v}")
+        s += hbar(bx, sy, bmax, bh, v, maxv, c, lbl, f"{v} people")
         sy+=bh+gap
-    s.append(textbox(CX_L, sy+40000, CONTENT_W, 400000,
-        [para("Small samples (all N<150) \u2192 limited power and wide confidence intervals in the pooled analysis. "
-              "Values illustrative from published trial reports; confirm against the paper.",
-              sz=1050, color="9AA0A6", italic=True, space_after=0)]))
+    s.append(caption(CX_L, sy+10000, CONTENT_W, "Every study was small (under 150 people). Small studies give a less reliable answer, so even the combined result carries a wide margin of uncertainty. (Numbers from trial reports - confirm with the paper.)"))
     s += footer(10)
     return s
 add(slide_compare(),
-    "This bar chart makes the small-sample problem visible: every constituent trial enrolled fewer than ~150 "
-    "participants. Small samples mean low statistical power in the individual studies and wide confidence intervals "
-    "even after pooling. Use this to set up the appraisal: a large pooled effect size from small, heterogeneous "
-    "trials should be read cautiously. State clearly these Ns are taken from the published trial reports and should "
-    "be checked against the review's data-extraction table.")
+    "This bar chart makes one point visually: every study was small - all under about 150 people. Say why it "
+    "matters: small studies are more easily thrown off by chance, so their results are less reliable, and even "
+    "combined the answer has a wide margin of uncertainty. Use it to prepare for the appraisal: a big-looking "
+    "benefit built from small studies deserves caution. Check exact numbers against the paper.")
 
-# ---------- SLIDE 11 : RESEARCH GAP ----------
 def slide_researchgap():
     body=[
-        para("Few well-powered randomized controlled trials; small samples dominate.", sz=1300, bullet=True, space_after=260),
-        para("Inconsistent definitions of self-harm and differing outcome measures.", sz=1300, bullet=True, space_after=260),
-        para("Varied MBT formats (individual, group, MBT-A) and treatment durations.", sz=1300, bullet=True, space_after=260),
-        para("Heterogeneous control conditions (TAU, SCM, waiting list).", sz=1300, bullet=True, space_after=260),
-        para("Limited long-term follow-up and inconsistent adherence/fidelity reporting.", sz=1300, bullet=True, space_after=260),
-        para("Little evidence from culturally diverse / low-resource settings; unclear mechanisms of change.", sz=1300, bullet=True, space_after=260),
-        para("Limited head-to-head comparison with other evidence-based therapies (DBT, CBT).", sz=1300, bullet=True, space_after=0),
+        para("Very few large, high-quality trials - most studies were small.", sz=BODY, bullet=True, space_after=280),
+        para("Studies defined self-harm differently and measured outcomes with different tools.", sz=BODY, bullet=True, space_after=280),
+        para("The therapy was delivered in different ways (one-to-one, group, teen version) and for different lengths of time.", sz=BODY, bullet=True, space_after=280),
+        para("The comparison groups differed (usual care, structured support, or a waiting list).", sz=BODY, bullet=True, space_after=280),
+        para("People were rarely followed for long, and adherence (whether the therapy was delivered as intended) was poorly reported.", sz=BODY, bullet=True, space_after=280),
+        para("Almost no evidence from non-Western or low-resource settings; little direct comparison with other proven therapies (like DBT or CBT).", sz=BODY, bullet=True, space_after=0),
     ]
-    return content_slide("Research Gap", "WHAT PRIOR LITERATURE LEAVES UNRESOLVED", body, 11, cardfill=LGREY)
+    return content_slide("What Was Still Unknown", "RESEARCH GAP", body, 11, cardfill=LGREY)
 add(slide_researchgap(),
-    "Consolidate the gaps that justify a synthesis: too few adequately powered RCTs, inconsistent self-harm "
-    "definitions and outcome tools, mixed MBT formats and durations, heterogeneous controls, short follow-up, and "
-    "weak reporting of adherence. There is little evidence outside Western settings and unclear mechanisms of change. "
-    "These gaps are precisely why the authors pooled the trials \u2014 and also why we must temper confidence in any "
-    "single pooled number.")
+    "List the gaps in everyday language: too few large, good-quality trials; different definitions and measures; "
+    "different forms and lengths of therapy; different comparison groups; short follow-up; and often unclear whether "
+    "the therapy was even delivered correctly. Almost nothing from non-Western settings and little head-to-head "
+    "comparison with other proven therapies. These gaps justify combining the studies - and remind us to stay "
+    "cautious about the final number.")
 
-# ---------- SLIDE 12 : RATIONALE ----------
 def slide_rationale():
     body=[
-        para("Synthesise the scattered evidence into a single pooled estimate of MBT efficacy for self-harm.", sz=1350, bullet=True, space_after=300),
-        para("Quantify effects on self-harm and related outcomes (BPD symptoms, depression).", sz=1350, bullet=True, space_after=300),
-        para("Assess consistency across studies and identify sources of heterogeneity.", sz=1350, bullet=True, space_after=300),
-        para("Inform clinical decision-making about when and for whom to offer MBT.", sz=1350, bullet=True, space_after=300),
-        para("Define priorities for future, better-designed trials.", sz=1350, bullet=True, space_after=0),
+        para("Bring together all the scattered evidence into one overall answer.", sz=BODY, bullet=True, space_after=320),
+        para("Measure how much MBT helps with self-harm and related problems (borderline personality symptoms, depression).", sz=BODY, bullet=True, space_after=320),
+        para("Check whether the studies agree with each other, and why they might differ.", sz=BODY, bullet=True, space_after=320),
+        para("Help clinicians decide when and for whom to use MBT.", sz=BODY, bullet=True, space_after=320),
+        para("Point out what better future studies should do.", sz=BODY, bullet=True, space_after=0),
     ]
-    return content_slide("Rationale of the Study", "WHY A SYSTEMATIC REVIEW & META-ANALYSIS", body, 12, cardfill=MINT)
+    return content_slide("Why the Review Was Done", "RATIONALE", body, 12, cardfill=MINT)
 add(slide_rationale(),
-    "State why the review was needed: to convert a set of small, conflicting trials into one pooled, more precise "
-    "estimate; to quantify MBT's effect not only on self-harm but on BPD symptoms and depression; to test how "
-    "consistent the trials are; and to give clinicians and future researchers a clearer evidence signal. Emphasise "
-    "the dual clinical and research payoff.")
+    "State the purpose simply: turn many small, conflicting studies into one clearer answer; measure how much MBT "
+    "helps self-harm, borderline symptoms and depression; check whether studies agree; guide clinicians on when to "
+    "use it; and flag what future research must improve. Emphasise the practical value for real decisions.")
 
-# ---------- SLIDE 13 : AIM, RESEARCH QUESTION, HYPOTHESIS ----------
 def slide_aim():
-    s, ytop = banner("Aim, Research Question & Review Objective", "OBJECTIVES")
+    s, ytop = banner("Aim, Question & What They Expected", "OBJECTIVES")
     y=ytop+120000
     ch=(H-y-620000-2*180000)//3
     s.append(roundrect(CX_L, y, CONTENT_W, ch, LAVENDER, [
-        multi_run_para([("Aim:  ",{"bold":True,"color":ACCENT,"sz":1450}),
-                        ("To systematically review and quantitatively synthesise the evidence on the efficacy of MBT in reducing self-harm and improving related clinical outcomes.",{"sz":1300})], space_after=0)], line=LILAC, anchor="ctr"))
+        multi_run_para([("Aim:  ",{"bold":True,"color":ACCENT,"sz":BODY}),
+                        ("to gather and combine the evidence on whether MBT reduces self-harm and improves related problems.",{"sz":BODY})], space_after=0)], line=LILAC, anchor="ctr"))
     s.append(roundrect(CX_L, y+ch+180000, CONTENT_W, ch, POWDER, [
-        multi_run_para([("Research question:  ",{"bold":True,"color":ACCENT,"sz":1450}),
-                        ("Is MBT effective in reducing self-harm and related outcomes compared with control / treatment-as-usual conditions?",{"sz":1300})], space_after=0)], line=ACCENT2, anchor="ctr"))
+        multi_run_para([("Question:  ",{"bold":True,"color":ACCENT,"sz":BODY}),
+                        ("Does MBT reduce self-harm (and related problems) more than usual care or other comparison conditions?",{"sz":BODY})], space_after=0)], line=ACCENT2, anchor="ctr"))
     s.append(roundrect(CX_L, y+2*(ch+180000), CONTENT_W, ch, MINT, [
-        multi_run_para([("Review objective (in lieu of a formal hypothesis):  ",{"bold":True,"color":ACCENT,"sz":1400}),
-                        ("MBT is expected to be associated with a significant reduction in self-harm and related symptoms vs control. As a meta-analysis, the study used predefined review questions rather than an experimental hypothesis.",{"sz":1250})], space_after=0)], line=SAGE, anchor="ctr"))
+        multi_run_para([("What they expected:  ",{"bold":True,"color":ACCENT,"sz":BODY}),
+                        ("MBT would lower self-harm and related symptoms compared with the control group. (A review like this uses set questions rather than a formal experimental hypothesis.)",{"sz":BODY})], space_after=0)], line=SAGE, anchor="ctr"))
     s += footer(13)
     return s
 add(slide_aim(),
-    "Present the aim, question and objective together. Aim: synthesise the efficacy evidence for MBT on self-harm "
-    "and related outcomes. Research question: does MBT reduce self-harm versus control/TAU? Because this is a "
-    "systematic review, there is no conventional experimental hypothesis \u2014 the expectation is a significant "
-    "reduction favouring MBT, tested through predefined review questions. Adapt wording to the paper's exact "
-    "statement of objectives.")
+    "Keep this short. Aim: combine the evidence on whether MBT reduces self-harm. Question: does MBT help more than "
+    "usual care or another comparison? What they expected: MBT would reduce self-harm and related symptoms. Explain "
+    "the technical point simply - because this reviews existing studies rather than running a new experiment, it "
+    "uses pre-set review questions instead of a classic hypothesis. Match wording to the paper.")
 
-print("slides through 13:", len(SLIDES))
-
-# ---------- SLIDE 14 : PICO ----------
 def slide_pico():
-    s, ytop = banner("Research Question in PICO Format", "FRAMING")
+    s, ytop = banner("The Question in PICO Form", "A SIMPLE FRAMEWORK")
     y=ytop+120000
+    s.append(textbox(CX_L, y, CONTENT_W, 360000, [para("PICO = a standard way to frame a clinical question: Population, Intervention, Comparison, Outcomes.", sz=1250, italic=True, color="6B6B75", space_after=0)]))
+    y2=y+380000
     cw=(CONTENT_W-3*220000)//4
-    ch=H-y-620000
-    cards=[("P \u2014 Population","Individuals with self-harm, BPD or emotional dysregulation (adolescents & adults).",BLUSH),
-           ("I \u2014 Intervention","Mentalization-based therapy (MBT / MBT-A), individual or group.",LAVENDER),
-           ("C \u2014 Comparison","Treatment as usual, structured clinical management, waiting list or another therapy.",POWDER),
-           ("O \u2014 Outcomes","Self-harm frequency/severity, suicidal behaviour, BPD symptoms, depression, functioning, retention.",MINT)]
+    ch=H-y2-620000
+    cards=[("P - Population","(who was studied) People who self-harm - including those with borderline traits or poor emotion control; teenagers and adults.",BLUSH),
+           ("I - Intervention","(the treatment) Mentalization-based therapy (MBT), including the teen version MBT-A; one-to-one or in a group.",LAVENDER),
+           ("C - Comparison","(compared against) Usual care, structured support, a waiting list, or another therapy.",POWDER),
+           ("O - Outcomes","(what was measured) Self-harm, suicidal behaviour, borderline symptoms, depression, functioning, and staying in treatment.",MINT)]
     cx=CX_L
     for head,txt,c in cards:
-        s.append(roundrect(cx, y, cw, ch, c, [
-            para(head, sz=1500, color=ACCENT, bold=True, space_after=300),
-            para(txt, sz=1200, space_after=0)], anchor="t"))
+        ps=[para(head, sz=SUB, color=ACCENT, bold=True, space_after=240), para(txt, sz=BODY, space_after=0)]
+        s.append(roundrect(cx, y2, cw, ch, c, ps, anchor="t"))
         cx+=cw+220000
     s += footer(14)
     return s
 add(slide_pico(),
-    "Structure the question with PICO. Population: people who self-harm, including those with BPD or emotional "
-    "dysregulation, spanning adolescents and adults. Intervention: MBT or its adolescent form MBT-A. Comparison: "
-    "usual care, structured clinical management, waiting list, or another active therapy. Outcomes: self-harm "
-    "frequency and severity as primary, with suicidal behaviour, BPD symptoms, depression, functioning and "
-    "treatment retention as secondary. This mapping mirrors the review's eligibility logic.")
+    "Introduce PICO as a simple recipe. Population: people who self-harm, including borderline traits, teens and "
+    "adults. Intervention: MBT (and teen MBT-A), one-to-one or group. Comparison: usual care, structured support, "
+    "waiting list, or another therapy. Outcomes: self-harm and suicidal behaviour first, then borderline symptoms, "
+    "depression, functioning and staying in treatment. Just a tidy way to see what was tested.")
 
-# ---------- SLIDE 15 : METHODOLOGY overview ----------
 def slide_method():
-    s, ytop = banner("Methodology Overview", "SYSTEMATIC REVIEW WORKFLOW")
+    s, ytop = banner("How the Review Was Done", "METHOD OVERVIEW")
     y=ytop+120000
-    stages=[("Protocol &\nsearch strategy",LAVENDER),("Screening &\nstudy selection",POWDER),
-            ("Data\nextraction",MINT),("Risk-of-bias\nassessment",PEACH),("Meta-analysis\n(random effects)",SAGE)]
-    bw=1950000; gap=280000; bh=1000000
+    stages=[("Plan &\nsearch",LAVENDER),("Screen &\nselect studies",POWDER),
+            ("Pull out\nthe data",MINT),("Judge study\nquality",PEACH),("Combine results\n(meta-analysis)",SAGE)]
+    bw=1950000; gap=280000; bh=980000
     total=len(stages)*bw+(len(stages)-1)*gap
-    sx=(W-total)//2; sy=y+120000
+    sx=(W-total)//2; sy=y+80000
     for i,(t,c) in enumerate(stages):
         lines=t.split("\n")
-        ps=[para(lines[0], sz=1250, bold=True, align="ctr", space_after=60)]
+        ps=[para(lines[0], sz=1300, bold=True, align="ctr", space_after=60)]
         for extra in lines[1:]:
-            ps.append(para(extra, sz=1250, bold=True, align="ctr", space_after=0))
+            ps.append(para(extra, sz=1300, bold=True, align="ctr", space_after=0))
         s.append(roundrect(sx, sy, bw, bh, c, ps, anchor="ctr", line=ACCENT))
         if i<len(stages)-1:
             s.append(arrow_right(sx+bw+30000, sy+bh/2-90000, gap-60000, 180000, ACCENT))
         sx+=bw+gap
-    s.append(roundrect(CX_L, sy+bh+280000, CONTENT_W, 1100000, CREAM, [
-        para("Analytic choices", sz=1350, color=ACCENT, bold=True, space_after=200),
-        multi_run_para([("Random-effects model \u2022 effect size = Hedges' g (standardized mean difference) \u2022 heterogeneity via I\u00B2 \u2022 sensitivity & subgroup checks \u2022 publication-bias assessment.",{"sz":1250})], space_after=0)], line=LILAC, anchor="t"))
+    s.append(caption(CX_L, sy+bh+150000, CONTENT_W, "Five steps: plan and search for studies, pick the ones that fit, extract their numbers, judge how trustworthy each is, then combine them into one result."))
+    s.append(roundrect(CX_L, sy+bh+820000, CONTENT_W, H-(sy+bh+820000)-560000, CREAM, [
+        multi_run_para([("Key terms: ",{"bold":True,"color":ACCENT,"sz":BODY}),
+                        ("effect size = a number showing how big the benefit is; random-effects model = a fair way to combine studies that differ; I\u00B2 = how much the studies disagree.",{"sz":BODY})], space_after=0)], line=LILAC, anchor="ctr"))
     s += footer(15)
     return s
 add(slide_method(),
-    "Walk the standard SR/MA pipeline left to right: register a protocol and run a systematic multi-database search; "
-    "screen titles/abstracts then full texts against eligibility criteria; extract data; assess risk of bias; and "
-    "pool with a random-effects meta-analysis. Highlight the analytic choices box: the effect metric is Hedges' g "
-    "(a standardized mean difference suited to different measurement scales), heterogeneity is quantified with I\u00B2, "
-    "and the authors used random effects because the trials differ. Note exact databases/dates should be taken from "
-    "the paper's methods.")
+    "Explain the method as five plain steps: plan and search databases; screen and select studies that fit; pull "
+    "out their numbers; judge how trustworthy each is; then combine them statistically. Read the key-terms box "
+    "slowly - effect size is how big the benefit is; random-effects is a fair way to combine non-identical studies; "
+    "I-squared measures how much they disagree. Say exact databases and dates come from the paper.")
 
-# ---------- SLIDE 16 : ELIGIBILITY ----------
 def slide_eligibility():
-    return two_col("Inclusion & Exclusion Criteria","ELIGIBILITY",
-        "Inclusion",
-        ["Participants with documented self-harm or a relevant clinical diagnosis (e.g., BPD)",
-         "Studies evaluating MBT / MBT-A",
-         "Report a self-harm or related clinical outcome",
-         "Controlled or eligible comparative designs",
-         "Sufficient quantitative data to compute an effect size",
-         "Published within the specified period & eligible language"],
+    return two_col("Which Studies Were Let In (and Kept Out)","ELIGIBILITY RULES",
+        "Included if...",
+        ["People had self-harm or a relevant diagnosis (e.g., borderline personality disorder)",
+         "The study tested MBT (or its teen version MBT-A)",
+         "It reported self-harm or a related result",
+         "It had a comparison group",
+         "It gave enough numbers to calculate a benefit",
+         "It was published in the set time period and language"],
         SAGE,
-        "Exclusion",
-        ["No mentalization-based intervention",
-         "No relevant self-harm / clinical outcome",
-         "Single-case reports or case series",
-         "Conference abstracts lacking extractable data",
-         "Duplicate publications",
-         "Studies without extractable outcome data"],
+        "Excluded if...",
+        ["No mentalization-based therapy was used",
+         "No relevant self-harm result was reported",
+         "It was a single case report (just one patient)",
+         "It was only a conference summary with too little data",
+         "It was a repeat publication of the same study",
+         "The numbers needed could not be extracted"],
         BLUSH, 16)
 add(slide_eligibility(),
-    "Present eligibility as the filter that defines the evidence base. Inclusion: participants who self-harm or "
-    "carry a relevant diagnosis, an MBT/MBT-A intervention, a self-harm or related outcome, a comparative design, "
-    "and enough numeric data to compute Hedges' g. Exclusion: anything without MBT, without a relevant outcome, or "
-    "without extractable data, plus case reports, bare abstracts and duplicates. Tell the audience to map these onto "
-    "the paper's exact wording, as small criterion differences change which trials qualify.")
+    "Explain these as the entry rules deciding which studies count. In: people who self-harm, tested MBT, reported "
+    "a relevant result, had a comparison group, and gave enough numbers. Out: no MBT, no relevant result, single "
+    "case, brief conference summary, duplicate, or unusable numbers. Small differences in these rules change which "
+    "studies qualify, so match them to the paper.")
 
-print("slides through 16:", len(SLIDES))
+print("content slides through 16:", len(SLIDES))
 
-# ---------- SLIDE 17 : SEARCH STRATEGY ----------
 def slide_search():
-    s, ytop = banner("Search Strategy", "IDENTIFYING STUDIES")
+    s, ytop = banner("How Studies Were Found", "SEARCH STRATEGY")
     y=ytop+120000
     lw=5400000
-    lp=[para("Databases (typical for this field)", sz=1400, color=ACCENT, bold=True, space_after=240)]
-    for d in ["PubMed / MEDLINE","PsycINFO","Embase","Cochrane CENTRAL","Reference-list & hand-searching"]:
-        lp.append(para(d, sz=1250, bullet=True, space_after=200))
-    lp.append(para("Confirm the exact databases, date range and final search date from the paper.", sz=1050, italic=True, color="9AA0A6", space_after=0))
-    s.append(roundrect(CX_L, y, lw, H-y-620000, POWDER, lp, anchor="t"))
+    lp=[para("Where they looked (research databases)", sz=SUB, color=ACCENT, bold=True, space_after=260)]
+    for d in ["PubMed / MEDLINE","PsycINFO","Embase","Cochrane CENTRAL","Checking reference lists of found papers"]:
+        lp.append(para(d, sz=BODY, bullet=True, space_after=220))
+    lp.append(para("Confirm the exact databases and dates from the paper.", sz=1150, italic=True, color="9AA0A6", space_after=0))
+    s.append(roundrect(CX_L, y, lw, H-y-720000, POWDER, lp, anchor="t"))
     rx=CX_L+lw+300000; rw=CONTENT_W-lw-300000
-    s.append(roundrect(rx, y, rw, H-y-620000, CREAM, [
-        para("Example concept blocks (Boolean)", sz=1350, color=ACCENT, bold=True, space_after=260),
+    s.append(roundrect(rx, y, rw, H-y-720000, CREAM, [
+        para("How search words were combined", sz=SUB, color=ACCENT, bold=True, space_after=240),
         multi_run_para([('"mentalization-based therapy" OR "MBT"',{"sz":1250,"bold":True})], space_after=120),
-        para("AND", sz=1250, color=ACCENT2, bold=True, align="ctr", space_after=120),
-        multi_run_para([('"self-harm" OR "self-injury" OR "suicidal behaviour"',{"sz":1250,"bold":True})], space_after=120),
-        para("AND", sz=1250, color=ACCENT2, bold=True, align="ctr", space_after=120),
-        multi_run_para([('"borderline personality disorder" OR "emotional dysregulation"',{"sz":1250,"bold":True})], space_after=200),
-        para("Illustrative only \u2014 not the verified search string.", sz=1000, italic=True, color="9AA0A6", space_after=0),
+        para("AND  (all groups must appear)", sz=1200, color=ACCENT2, bold=True, align="ctr", space_after=120),
+        multi_run_para([('"self-harm" OR "self-injury"',{"sz":1250,"bold":True})], space_after=120),
+        para("AND", sz=1200, color=ACCENT2, bold=True, align="ctr", space_after=120),
+        multi_run_para([('"borderline personality" OR "emotion dysregulation"',{"sz":1250,"bold":True})], space_after=0),
     ], line=LILAC, anchor="t"))
+    s.append(caption(CX_L, H-660000, CONTENT_W, "'OR' widens the search (any of these words); 'AND' narrows it (all groups must be present). This example is for illustration - use the paper's real search terms."))
     s += footer(17)
     return s
 add(slide_search(),
-    "Describe how studies were found: systematic searching of the major psychology/medicine databases (PubMed, "
-    "PsycINFO, Embase, Cochrane CENTRAL), supplemented by reference-list and hand-searching. Show the three Boolean "
-    "concept blocks \u2014 intervention terms AND self-harm terms AND diagnosis terms. Be explicit that this string is "
-    "illustrative; read the actual databases, date range and final-search date from the methods so nothing is "
-    "misattributed to the authors.")
+    "Describe searching plainly: they looked through the main research databases and checked reference lists of "
+    "found papers. Explain the logic using the caption - 'OR' widens by accepting any listed word, 'AND' narrows by "
+    "requiring all groups together. Stress this string is only an example; real terms and dates come from the paper.")
 
-# ---------- SLIDE 18 : PRISMA ----------
 def slide_prisma():
-    s, ytop = banner("PRISMA Study-Selection Flow", "TEMPLATE \u2014 INSERT VERIFIED NUMBERS")
+    s, ytop = banner("How Studies Were Narrowed Down", "PRISMA FLOW - ADD REAL NUMBERS")
     y=ytop+120000
-    # left column: identification -> screening -> eligibility -> included
-    lx=CX_L+300000; lw=5200000
-    stages=[("Records identified through database searching (n = __)",LAVENDER),
-            ("Records after duplicates removed (n = __)",POWDER),
-            ("Records screened by title/abstract (n = __)",MINT),
-            ("Full-text articles assessed for eligibility (n = __)",PEACH),
-            ("Studies included in qualitative synthesis (n = __)",SAGE),
-            ("Studies included in meta-analysis (n = __)",LAVENDER)]
-    bh=560000; gap=180000; sy=y
+    lx=CX_L+300000; lw=5000000
+    stages=[("Studies found in databases (n = __)",LAVENDER),
+            ("After removing duplicates (n = __)",POWDER),
+            ("Titles/abstracts screened (n = __)",MINT),
+            ("Full papers read in detail (n = __)",PEACH),
+            ("Studies used in the review (n = __)",SAGE),
+            ("Studies combined in the meta-analysis (n = __)",LAVENDER)]
+    bh=520000; gap=150000; sy=y
     for i,(t,c) in enumerate(stages):
-        s.append(roundrect(lx, sy, lw, bh, c, [para(t, sz=1200, bold=True, align="ctr", space_after=0)], line=ACCENT))
+        s.append(roundrect(lx, sy, lw, bh, c, [para(t, sz=1250, bold=True, align="ctr", space_after=0)], line=ACCENT))
         if i<len(stages)-1:
-            s.append(arrow_down(lx+lw/2-80000, sy+bh+4000, 160000, gap-16000, ACCENT))
+            s.append(arrow_down(lx+lw/2-80000, sy+bh+2000, 160000, gap-12000, ACCENT))
         sy+=bh+gap
-    # right column: exclusions
     ex=lx+lw+500000; ew=CONTENT_W-(lx-CX_L)-lw-500000
     s.append(roundrect(ex, y+2*(bh+gap), ew, bh, BLUSH,
-        [para("Excluded after screening (n = __)", sz=1150, bold=True, align="ctr", space_after=0)], line="D98B9E"))
+        [para("Removed at screening (n = __)", sz=1200, bold=True, align="ctr", space_after=0)], line="D98B9E"))
     s.append(arrow_right(ex-460000, y+2*(bh+gap)+bh/2-80000, 420000, 160000, "D98B9E"))
-    s.append(roundrect(ex, y+3*(bh+gap), ew, bh+120000, BLUSH,
-        [para("Full texts excluded, with reasons (n = __): no MBT / no relevant outcome / no extractable data / duplicate",
-              sz=1050, align="ctr", space_after=0)], line="D98B9E"))
+    s.append(roundrect(ex, y+3*(bh+gap), ew, bh+140000, BLUSH,
+        [para("Full papers removed, with reasons (n = __): no MBT / no relevant result / not enough data / duplicate",
+              sz=1150, align="ctr", space_after=0)], line="D98B9E"))
     s.append(arrow_right(ex-460000, y+3*(bh+gap)+bh/2-80000, 420000, 160000, "D98B9E"))
+    s.append(caption(ex-100000, y+4*(bh+gap)+bh, ew+200000, "PRISMA is a standard diagram showing how many studies started, how many were dropped and why, and how many were finally used."))
     s += footer(18)
     return s
 add(slide_prisma(),
-    "This is the PRISMA flow the review reports. Fill each 'n = __' from the paper's PRISMA diagram: records "
-    "identified, duplicates removed, records screened, full texts assessed, and studies included in the qualitative "
-    "and quantitative syntheses. The right-hand pink boxes capture exclusions with reasons. Do NOT invent these "
-    "counts \u2014 transcribe them exactly. Verbally note the funnel from many records down to the small number of "
-    "trials that were actually poolable.")
+    "Explain PRISMA: a standard picture showing how you go from thousands of studies down to the few actually used, "
+    "and why studies were dropped. Read the left column top to bottom - found, duplicates removed, screened, full "
+    "papers read, then included and combined. The pink boxes show exclusions and reasons. Fill every 'n = __' from "
+    "the paper's own diagram - do not guess.")
 
-# ---------- SLIDE 19 : PARTICIPANTS ----------
 def slide_participants():
-    s, ytop = banner("Participant Characteristics", "WHO WAS STUDIED")
+    s, ytop = banner("Who Were the People Studied?", "PARTICIPANTS")
     y=ytop+120000
     cw=(CONTENT_W-3*220000)//4
-    ch=1500000
-    cards=[("Age","Adolescents (MBT-A) & adults (MBT); confirm ranges from paper",POWDER),
-           ("Sex","Predominantly female in the constituent trials (e.g., ~85% in Rossouw & Fonagy 2012)",BLUSH),
-           ("Diagnosis","Self-harm \u00B1 BPD / emerging BPD traits; emotional dysregulation",LAVENDER),
-           ("Setting","Mostly outpatient mental-health services in high-income (largely European) countries",MINT)]
+    ch=1520000
+    cards=[("Age","Teenagers (MBT-A) and adults (MBT) - confirm exact ages from the paper",POWDER),
+           ("Sex","Mostly female (e.g., about 85% female in Rossouw & Fonagy, 2012)",BLUSH),
+           ("Diagnosis","Self-harm, often with borderline personality traits and poor emotion control",LAVENDER),
+           ("Setting","Mostly outpatient clinics (not admitted to hospital) in wealthy, mainly European countries",MINT)]
     cx=CX_L
     for h,t,c in cards:
-        s.append(roundrect(cx, y, cw, ch, c, [para(h, sz=1500, color=ACCENT, bold=True, space_after=240),
-                                              para(t, sz=1150, space_after=0)], anchor="t"))
+        s.append(roundrect(cx, y, cw, ch, c, [para(h, sz=SUB, color=ACCENT, bold=True, space_after=260),
+                                              para(t, sz=BODY, space_after=0)], anchor="t"))
         cx+=cw+220000
-    s.append(roundrect(CX_L, y+ch+220000, CONTENT_W, H-(y+ch+220000)-560000, CREAM, [
-        multi_run_para([("Total studies and pooled N: ",{"bold":True,"color":ACCENT,"sz":1300}),
-                        ("insert from the paper's characteristics table. Samples are small and skew female, adolescent/young-adult, and Western \u2014 note this for generalisability.",{"sz":1250})], space_after=0)], line=LILAC, anchor="ctr"))
+    s.append(caption(CX_L, y+ch+150000, CONTENT_W, "The people studied were mostly young, mostly female, and mostly from Western countries - so results may not apply equally to everyone. Insert the total studies and people from the paper."))
     s += footer(19)
     return s
 add(slide_participants(),
-    "Describe the pooled sample. Ages span adolescents (MBT-A trials) and adults (MBT trials). Samples are "
-    "predominantly female \u2014 for example about 85% female in Rossouw & Fonagy (2012). Most participants have "
-    "self-harm with BPD or emerging BPD traits, treated in outpatient services in high-income, largely European "
-    "settings. Insert the exact number of studies and total N from the characteristics table, and flag the female, "
-    "young, Western skew because it limits generalisability.")
+    "Describe the people plainly. They span teenagers (MBT-A) and adults (MBT). Most were female - about 85% in the "
+    "2012 trial. Most had self-harm with borderline traits and emotion-control difficulty, treated in outpatient "
+    "clinics in wealthy, mainly European countries. Use the caption to make the honest point about limited "
+    "generalisability. Insert the exact totals from the paper.")
 
-print("slides through 19:", len(SLIDES))
-
-# ---------- SLIDE 20 : MBT PROTOCOL + CORE PRINCIPLES ----------
 def slide_protocol():
-    s, ytop = banner("MBT Treatment Protocol & Core Principles", "THE INTERVENTION")
+    s, ytop = banner("What MBT Actually Involves", "THE TREATMENT")
     y=ytop+120000
     lw=5600000
-    lp=[para("Delivery (as reported across trials)", sz=1400, color=ACCENT, bold=True, space_after=240)]
-    for t in ["Individual and/or group MBT (MBT-A adds a parent/family strand)",
-              "Typically ~12 months in landmark adolescent trial; frequency varies",
-              "Delivered by trained therapists with supervision",
-              "Outpatient delivery; crisis management alongside therapy",
-              "Fidelity/adherence monitoring inconsistently reported"]:
-        lp.append(para(t, sz=1200, bullet=True, space_after=200))
-    lp.append(para("Confirm session number, duration and format from each included study.", sz=1000, italic=True, color="9AA0A6", space_after=0))
+    lp=[para("How it is delivered", sz=SUB, color=ACCENT, bold=True, space_after=260)]
+    for t in ["One-to-one and/or group sessions (teen MBT-A also involves parents/family)",
+              "Often about 12 months in the main teen study; session frequency varies",
+              "Given by trained therapists who receive supervision (guidance from a senior therapist)",
+              "Usually outpatient; safety/crisis support runs alongside the therapy",
+              "Whether the therapy was delivered exactly as intended (fidelity) was not always reported"]:
+        lp.append(para(t, sz=BODY, bullet=True, space_after=220))
     s.append(roundrect(CX_L, y, lw, H-y-620000, POWDER, lp, anchor="t"))
     rx=CX_L+lw+300000; rw=CONTENT_W-lw-300000
-    rp=[para("Core therapeutic stance", sz=1400, color=ACCENT, bold=True, space_after=240)]
-    for t in ["Curiosity & 'not-knowing' stance","Focus on current mental states & affect",
-              "Clarify, explore alternative perspectives","Regulate arousal; repair misunderstandings",
-              "Stay in the interpersonal context","Avoid premature interpretation"]:
-        rp.append(para(t, sz=1200, bullet=True, space_after=180))
+    rp=[para("The therapist's stance", sz=SUB, color=ACCENT, bold=True, space_after=260)]
+    for t in ["Curious, 'not-knowing' (asks, doesn't assume)","Stays on present feelings",
+              "Explores other ways to see a situation","Helps calm strong emotions",
+              "Repairs misunderstandings","Avoids jumping to conclusions"]:
+        rp.append(para(t, sz=BODY, bullet=True, space_after=210))
     s.append(roundrect(rx, y, rw, H-y-620000, MINT, rp, anchor="t"))
     s += footer(20)
     return s
 add(slide_protocol(),
-    "Describe what MBT actually involves. Delivery ranges across trials: individual and/or group sessions, with "
-    "MBT-A adding a family/parent component; the landmark adolescent trial ran about 12 months. Therapists are "
-    "trained and supervised, and treatment is usually outpatient with crisis management running alongside. Note that "
-    "fidelity reporting is patchy. On the right, summarise the core stance: curiosity, not-knowing, focus on present "
-    "affect and mental states, exploring alternatives, regulating arousal and repairing ruptures \u2014 deliberately "
-    "avoiding premature interpretation. Confirm session specifics per study.")
+    "Describe what happens in MBT. Given one-to-one and/or in groups; the teen version adds work with parents. In "
+    "the main teen study it ran about a year. Therapists are trained and supervised (guided by a senior colleague), "
+    "usually outpatient with crisis support alongside. Note honestly that fidelity - whether it was delivered as "
+    "designed - wasn't always reported. On the right, sum up the therapist's style: curious, not assuming, focused "
+    "on present feelings, exploring other viewpoints, calming emotions, repairing misunderstandings, not jumping to "
+    "conclusions.")
 
-# ---------- SLIDE 21 : CONTROL CONDITIONS ----------
 def slide_controls():
-    s, ytop = banner("Control / Comparison Conditions", "WHAT MBT WAS COMPARED AGAINST")
+    s, ytop = banner("What MBT Was Compared Against", "COMPARISON GROUPS")
     y=ytop+120000
-    headers=["Comparator","What it involves","Implication for interpretation"]
+    headers=["Comparison group","What it means","Why it matters"]
     cw=[3000000, 4200000, CONTENT_W-3000000-4200000]
     rows=[
-        ["Treatment as usual (TAU)","Routine care, often variable & non-specific","Most common comparator; effect may partly reflect TAU quality"],
-        ["Structured clinical management","Manualised generic support (active control)","Sterner test \u2014 smaller MBT advantage expected"],
-        ["Waiting list / no treatment","No active therapy","Tends to inflate apparent effect sizes"],
-        ["Another psychotherapy","e.g., DBT / supportive therapy","Head-to-head; rare in the MBT self-harm literature"],
+        ["Usual care (TAU)","The routine care people would normally get","Most common; if usual care is weak, MBT looks better than it is"],
+        ["Structured support","Organised general support (a fair, active comparison)","A tougher test - MBT's extra benefit looks smaller"],
+        ["Waiting list","No active therapy yet","Makes any therapy look better than it really is"],
+        ["Another therapy","e.g., DBT or supportive therapy","Direct comparison; rare in this area"],
     ]
-    s += table(CX_L, y, cw, 700000, headers, rows, head_fill=ACCENT, zebra=(CREAM, LAVENDER), font=1100, head_font=1200)
-    s.append(textbox(CX_L, y+700000*5+40000, CONTENT_W, 360000,
-        [para("Heterogeneous comparators are a key driver of between-study variance and complicate a single pooled estimate.",
-              sz=1050, italic=True, color="9AA0A6", space_after=0)]))
+    s += table(CX_L, y, cw, 720000, headers, rows, head_fill=ACCENT, zebra=(CREAM, LAVENDER), font=1200, head_font=1250)
+    s.append(caption(CX_L, y+720000*5+30000, CONTENT_W, "The result depends heavily on the comparison. Beating a waiting list is easy; beating real structured support is a much harder, more meaningful test."))
     s += footer(21)
     return s
 add(slide_controls(),
-    "Explain why the comparator matters. Most trials use treatment as usual, which is variable and non-specific, so "
-    "part of MBT's apparent benefit may reflect weak usual care. A structured-clinical-management control is a much "
-    "sterner test and typically shrinks the MBT advantage. Waiting-list/no-treatment controls tend to inflate effect "
-    "sizes. Head-to-head comparisons with DBT are rare. Because the control conditions differ so much across trials, "
-    "they are a major source of heterogeneity in the pooled estimate.")
+    "Explain that the comparison group changes the meaning of the result. Most studies compared MBT with usual "
+    "care, which is often weak - so part of MBT's apparent benefit may reflect poor usual care. Structured support "
+    "is a fairer, tougher test and shrinks MBT's advantage. A waiting list flatters any therapy. Direct DBT "
+    "comparisons are rare. Takeaway: beating a waiting list is easy; beating real structured support is the "
+    "meaningful test.")
 
-# ---------- SLIDE 22 : OUTCOME MEASURES ----------
 def slide_outcomes():
-    s, ytop = banner("Outcome Measures", "PRIMARY & SECONDARY")
+    s, ytop = banner("What Was Measured", "OUTCOMES")
     y=ytop+120000
     cw=(CONTENT_W-300000)//2; ch=H-y-620000
-    lp=[para("Primary", sz=1600, color=ACCENT, bold=True, space_after=300)]
-    for t in ["Frequency / number of self-harm episodes","Self-harm severity","Time to recurrence","Suicidal behaviour"]:
-        lp.append(para(t, sz=1300, bullet=True, space_after=240))
-    rp=[para("Secondary", sz=1600, color=ACCENT, bold=True, space_after=300)]
-    for t in ["BPD symptoms","Depression & anxiety","Emotion dysregulation & impulsivity","Global functioning / quality of life","Treatment retention & hospital use"]:
-        rp.append(para(t, sz=1300, bullet=True, space_after=210))
+    lp=[para("Main outcomes", sz=1650, color=ACCENT, bold=True, space_after=320),
+        para("How often self-harm happened (number of episodes)", sz=BODY, bullet=True, space_after=260),
+        para("How severe the self-harm was", sz=BODY, bullet=True, space_after=260),
+        para("How long until it happened again", sz=BODY, bullet=True, space_after=260),
+        para("Suicidal behaviour", sz=BODY, bullet=True, space_after=0)]
+    rp=[para("Other outcomes", sz=1650, color=ACCENT, bold=True, space_after=320),
+        para("Borderline personality symptoms", sz=BODY, bullet=True, space_after=240),
+        para("Depression and anxiety", sz=BODY, bullet=True, space_after=240),
+        para("Emotion control and impulsivity (acting without thinking)", sz=BODY, bullet=True, space_after=240),
+        para("General functioning / quality of life", sz=BODY, bullet=True, space_after=240),
+        para("Staying in treatment; use of hospital services", sz=BODY, bullet=True, space_after=0)]
     s.append(roundrect(CX_L, y, cw, ch, BLUSH, lp, anchor="t"))
     s.append(roundrect(CX_L+cw+300000, y, cw, ch, POWDER, rp, anchor="t"))
     s += footer(22)
     return s
 add(slide_outcomes(),
-    "Organise outcomes into primary and secondary. Primary: self-harm frequency/number of episodes, severity, time "
-    "to recurrence, and suicidal behaviour. Secondary: BPD symptoms, depression and anxiety, emotion dysregulation "
-    "and impulsivity, functioning/quality of life, and treatment retention or hospital use. Note that trials used "
-    "different instruments for the same construct \u2014 one reason a standardized effect size (Hedges' g) was needed "
-    "to pool them. List the specific scales the paper reports where available.")
+    "Split what was measured into main and other. Main: how often self-harm happened, how severe, how long until it "
+    "returned, and suicidal behaviour. Other: borderline symptoms, depression and anxiety, emotion control and "
+    "impulsivity, functioning and quality of life, and staying in treatment or needing hospital. Mention different "
+    "studies used different questionnaires for the same thing - why a common effect size was needed to combine them.")
 
-# ---------- SLIDE 23 : RISK OF BIAS (traffic light) ----------
+print("content slides through 22:", len(SLIDES))
+
 def tl_dot(x,y,d,color):
-    return oval(x,y,d,d,color,[],line="FFFFFF")
+    return oval(x,y,d,d,color,None,line="FFFFFF")
 def slide_rob():
-    s, ytop = banner("Risk-of-Bias Assessment", "TEMPLATE \u2014 CONFIRM RATINGS FROM PAPER")
-    y=ytop+160000
-    domains=["Random sequence generation","Allocation concealment","Blinding of outcome assessment",
-             "Incomplete outcome data","Selective reporting","Treatment fidelity"]
-    # illustrative pattern per study
+    s, ytop = banner("How Trustworthy Were the Studies?", "RISK OF BIAS - CONFIRM FROM PAPER")
+    y=ytop+180000
+    domains=["Fair random grouping","Group hidden from staff","Assessor didn't know the group",
+             "Few people dropped out","All results reported","Therapy given as intended"]
     GREEN="8FCB9B"; YELLOW="F2D479"; RED="E39B9B"
     studies=["Rossouw 2012","Bateman 2009","Laurenssen 2018","Beck 2020"]
     pattern={
@@ -858,493 +821,431 @@ def slide_rob():
       "Laurenssen 2018":[GREEN,GREEN,GREEN,YELLOW,GREEN,YELLOW],
       "Beck 2020":[GREEN,GREEN,YELLOW,GREEN,YELLOW,GREEN],
     }
-    x0=CX_L+2600000; colw=1500000; d=300000; rh=560000
-    # domain labels
+    x0=CX_L+3000000; colw=1350000; d=300000; rh=470000
     for i,dom in enumerate(domains):
-        s.append(textbox(CX_L, y+ (i+1)*rh-40000, 2500000, rh, [para(dom, sz=1050, align="r", space_after=0)], anchor="ctr"))
-    # study headers
+        s.append(textbox(CX_L, y+ (i+1)*rh-40000, 2900000, rh, [para(dom, sz=1200, align="r", space_after=0)], anchor="ctr"))
     for j,st in enumerate(studies):
-        s.append(textbox(x0+j*colw-200000, y-20000, colw, rh, [para(st, sz=1050, bold=True, align="ctr", space_after=0)], anchor="ctr"))
+        s.append(textbox(x0+j*colw-200000, y-20000, colw, rh, [para(st, sz=1150, bold=True, align="ctr", space_after=0)], anchor="ctr"))
     for i,dom in enumerate(domains):
         for j,st in enumerate(studies):
             c=pattern[st][i]
             s.append(tl_dot(x0+j*colw+colw/2-d/2-200000, y+(i+1)*rh+rh/2-d/2-40000, d, c))
-    # legend
-    ly=y+(len(domains)+1)*rh+40000
-    s.append(tl_dot(CX_L, ly, 260000, GREEN)); s.append(textbox(CX_L+320000, ly-30000, 1400000, 320000,[para("Low risk", sz=1100, space_after=0)],anchor="ctr"))
-    s.append(tl_dot(CX_L+1800000, ly, 260000, YELLOW)); s.append(textbox(CX_L+2120000, ly-30000, 1600000, 320000,[para("Some concerns", sz=1100, space_after=0)],anchor="ctr"))
-    s.append(tl_dot(CX_L+3800000, ly, 260000, RED)); s.append(textbox(CX_L+4120000, ly-30000, 1600000, 320000,[para("High risk", sz=1100, space_after=0)],anchor="ctr"))
-    s.append(textbox(CX_L+6000000, ly-30000, CONTENT_W-6000000, 320000, [para("Illustrative pattern \u2014 replace with the paper's actual RoB table.", sz=1000, italic=True, color="9AA0A6", space_after=0)], anchor="ctr"))
+    ly=y+(len(domains)+1)*rh+30000
+    s.append(tl_dot(CX_L, ly, 260000, GREEN)); s.append(textbox(CX_L+320000, ly-30000, 1500000, 320000,[para("Low risk (good)", sz=1150, space_after=0)],anchor="ctr"))
+    s.append(tl_dot(CX_L+2000000, ly, 260000, YELLOW)); s.append(textbox(CX_L+2320000, ly-30000, 1800000, 320000,[para("Some concerns", sz=1150, space_after=0)],anchor="ctr"))
+    s.append(tl_dot(CX_L+4200000, ly, 260000, RED)); s.append(textbox(CX_L+4520000, ly-30000, 1600000, 320000,[para("High risk (weak)", sz=1150, space_after=0)],anchor="ctr"))
+    s.append(caption(CX_L, ly+400000, CONTENT_W, "Green = well done, yellow = some doubts, red = weak. In talking-therapy trials, hiding which group a person is in is hard, so 'blinding' is often the weak spot. This grid is an example - use the paper's real ratings."))
     s += footer(23)
     return s
 add(slide_rob(),
-    "Explain the risk-of-bias appraisal. Domains follow the Cochrane approach: randomisation, allocation "
-    "concealment, blinding of outcome assessment, incomplete outcome data, selective reporting, and treatment "
-    "fidelity. The recurring weak spots in psychotherapy trials are blinding (you cannot blind participants to "
-    "talking therapy) and attrition. This traffic-light grid is illustrative \u2014 replace each dot with the paper's "
-    "actual rating. Use it to argue that even a strong pooled effect carries moderate risk of bias.")
+    "Explain risk of bias simply: how much can we trust each study? Each dot rates one quality check - green good, "
+    "yellow some doubts, red weak. Explain the checks plainly: was grouping truly random and fair, hidden from "
+    "staff and assessors, did few drop out, were all results reported, was the therapy delivered as intended. Point "
+    "out the common weak spot: in talking therapies you can't hide which treatment someone got, so blinding often "
+    "scores yellow. This grid is illustrative - replace with the paper's real ratings.")
 
-print("slides through 23:", len(SLIDES))
-
-# ---------- SLIDE 24 : STATISTICAL ANALYSIS ----------
 def slide_stats():
-    s, ytop = banner("Statistical Analysis (in Plain Language)", "HOW EFFECTS WERE POOLED")
+    s, ytop = banner("The Statistics, in Plain English", "HOW RESULTS WERE COMBINED")
     y=ytop+120000
-    cw=(CONTENT_W-300000)//2; ch=H-y-980000
-    lp=[para("Key concepts", sz=1450, color=ACCENT, bold=True, space_after=260)]
-    for t in ["Effect size = Hedges' g (a standardized mean difference); negative g favours MBT",
-              "Random-effects model \u2014 assumes true effects vary across trials",
-              "95% confidence interval shows the plausible range of the true effect",
-              "I\u00B2 quantifies heterogeneity (how much studies disagree)",
-              "Sensitivity / subgroup analyses & publication-bias checks"]:
-        lp.append(para(t, sz=1200, bullet=True, space_after=200))
+    cw=(CONTENT_W-300000)//2; ch=H-y-1080000
+    lp=[para("Key ideas", sz=1650, color=ACCENT, bold=True, space_after=280),
+        para("Effect size (Hedges' g) = one number for how big the benefit is; a negative number means self-harm went down (good).", sz=BODY, bullet=True, space_after=240),
+        para("Confidence interval (CI) = the range the true result probably sits in; a narrow range = more certain.", sz=BODY, bullet=True, space_after=240),
+        para("Random-effects model = a fair way to combine studies that are not identical.", sz=BODY, bullet=True, space_after=240),
+        para("I\u00B2 = how much the studies disagree (higher = more disagreement).", sz=BODY, bullet=True, space_after=0)]
     s.append(roundrect(CX_L, y, cw, ch, LGREY, lp, anchor="t"))
-    rp=[para("Interpreting Hedges' g", sz=1450, color=ACCENT, bold=True, space_after=260),
-        multi_run_para([("\u2248 0.2 small   \u2022   \u2248 0.5 medium   \u2022   \u2248 0.8 large",{"sz":1300,"bold":True})], space_after=220),
-        para("A pooled estimate summarises the average treatment effect across studies; high I\u00B2 warns that this average may hide real differences between trials.", sz=1200, space_after=0)]
+    rp=[para("How big is 'big'? (effect size g)", sz=1650, color=ACCENT, bold=True, space_after=280),
+        multi_run_para([("about 0.2 = small   \u2022   0.5 = medium   \u2022   0.8 = large",{"sz":BODY,"bold":True})], space_after=260),
+        para("A combined score summarises the average benefit across all studies. But if the studies disagree a lot (high I\u00B2), that single average can hide real differences between them.", sz=BODY, space_after=0)]
     s.append(roundrect(CX_L+cw+300000, y, cw, ch, CREAM, rp, anchor="t", line=LILAC))
-    s.append(roundrect(CX_L, y+ch+120000, CONTENT_W, 620000, LAVENDER, [
-        multi_run_para([("Reminder:  ",{"bold":True,"color":ACCENT,"sz":1300}),
-                        ("statistical significance (does the CI exclude 0?) is not the same as clinical meaningfulness \u2014 always report both.",{"sz":1250})], space_after=0)], line=LILAC, anchor="ctr"))
+    s.append(roundrect(CX_L, y+ch+120000, CONTENT_W, 720000, LAVENDER, [
+        multi_run_para([("Remember:  ",{"bold":True,"color":ACCENT,"sz":BODY}),
+                        ("'statistically significant' (unlikely to be chance) is not the same as 'clinically meaningful' (makes a real difference to the patient). Always mention both.",{"sz":BODY})], space_after=0)], line=LILAC, anchor="ctr"))
     s += footer(24)
     return s
 add(slide_stats(),
-    "Demystify the statistics for a clinical audience. The effect size is Hedges' g, a standardized mean difference "
-    "that lets us combine trials using different scales; a negative g means MBT reduced the outcome. A random-effects "
-    "model is used because the true effect probably varies across these heterogeneous trials. The confidence interval "
-    "gives the plausible range, and I\u00B2 tells us how much the trials disagree. Anchor g values: 0.2 small, 0.5 "
-    "medium, 0.8 large. Close by stressing that significance and clinical importance are different questions.")
-
-# ---------- SLIDE 25 : RESULTS - SELF-HARM (forest style) ----------
-def forest_row(x, y, w, label, g, lo, hi, gmin=-2.0, gmax=1.0, color=ACCENT):
-    """Draw a forest-plot style row. Scale g in [gmin,gmax] onto width w."""
-    shapes=[]
-    def sx(v): return x + int(w*(v-gmin)/(gmax-gmin))
-    # label
-    shapes.append(textbox(x-4200000, y-40000, 4100000, 420000, [para(label, sz=1150, align="r", space_after=0)], anchor="ctr"))
-    # CI line
-    x1=sx(lo); x2=sx(hi); cy=y+140000
-    shapes.append(line_shape(x1, cy, x2-x1, 0, color, 28575))
-    # point marker (square)
-    d=180000
-    shapes.append(rect(sx(g)-d//2, cy-d//2, d, d, color))
-    # value text
-    shapes.append(textbox(x+w+80000, y-40000, 2600000, 420000,
-        [para(f"g = {g:.2f}  [{lo:.2f}, {hi:.2f}]", sz=1100, bold=True, space_after=0)], anchor="ctr"))
-    return shapes, sx
+    "Demystify the numbers. Effect size (Hedges' g) is one number for how big the benefit is; here negative is good "
+    "(self-harm down). The confidence interval is the likely range - narrow means more certain. Random-effects is a "
+    "fair way to combine differing studies; I-squared measures disagreement. Anchor the scale: 0.2 small, 0.5 "
+    "medium, 0.8 large. Stress the difference between statistically significant (probably not chance) and clinically "
+    "meaningful (actually helps) - mention both.")
 
 def slide_res_selfharm():
-    s, ytop = banner("Results \u2014 Effect on Self-Harm", "PRIMARY OUTCOME (VERIFIED)")
-    y=ytop+240000
-    px=CX_L+4300000; pw=3600000
+    s, ytop = banner("Result 1 - Self-Harm", "MAIN OUTCOME (VERIFIED FROM THE PAPER)")
+    y=ytop+220000
+    px=CX_L+4300000; pw=3400000
     gmin,gmax=-2.0,1.0
     def sx(v): return px+int(pw*(v-gmin)/(gmax-gmin))
-    # axis
     s.append(line_shape(px, y+40000, pw, 0, "9AA0A6", 12700))
-    # zero line (no effect)
     zx=sx(0.0)
-    s.append(line_shape(zx, y+40000, 0, 1900000, "B0B4B8", 12700))
-    s.append(textbox(zx-500000, y+1950000, 1000000, 300000, [para("0 (no effect)", sz=950, color="9AA0A6", align="ctr", space_after=0)], anchor="ctr"))
-    s.append(textbox(px-500000, y-260000, 1000000, 260000, [para("\u2190 favours MBT", sz=1000, color=ACCENT2, bold=True, align="ctr", space_after=0)], anchor="ctr"))
-    rows=[("Self-harm (pooled, MBT & MBT-A)",-0.82,-1.15,-0.50,BLUSH),
-          ("Reference: medium effect (g=-0.5)",-0.50,-0.50,-0.50,"CFD3D8"),
-          ("Reference: large effect (g=-0.8)",-0.80,-0.80,-0.80,"CFD3D8")]
-    ry=y+320000
-    for lbl,g,lo,hi,c in rows[:1]:
-        sh,_=forest_row(px, ry, pw, lbl, g, lo, hi, gmin, gmax, "C25E7A"); s+=sh
-        ry+=520000
-    # interpretation card
-    s.append(roundrect(CX_L, y+2100000, CONTENT_W, H-(y+2100000)-560000, MINT, [
-        multi_run_para([("Pooled effect on self-harm:  ",{"bold":True,"color":ACCENT,"sz":1400}),
-                        ("Hedges' g = \u22120.82 (95% CI \u22121.15 to \u22120.50).",{"sz":1350,"bold":True})], space_after=180),
-        multi_run_para([("Interpretation:  ",{"bold":True,"color":ACCENT,"sz":1300}),
-                        ("A large reduction favouring MBT/MBT-A; the CI excludes 0, so the effect is statistically significant. Wide CImirrors small, heterogeneous trials \u2014 interpret with caution.",{"sz":1250})], space_after=0)], line=SAGE, anchor="ctr"))
+    s.append(line_shape(zx, y+40000, 0, 1450000, "B0B4B8", 12700))
+    s.append(textbox(zx-560000, y+1470000, 1120000, 300000, [para("0 = no effect", sz=1050, color="9AA0A6", align="ctr", space_after=0)], anchor="ctr"))
+    s.append(textbox(px-620000, y-300000, 1240000, 300000, [para("\u2190 favours MBT (better)", sz=1100, color=ACCENT2, bold=True, align="ctr", space_after=0)], anchor="ctr"))
+    g,lo,hi=-0.82,-1.15,-0.50
+    x1=sx(lo); x2=sx(hi); cy=y+300000
+    s.append(textbox(px-4200000, cy-90000, 4100000, 420000, [para("Self-harm (all MBT & MBT-A studies combined)", sz=1200, align="r", space_after=0)], anchor="ctr"))
+    s.append(line_shape(x1, cy, x2-x1, 0, "C25E7A", 28575))
+    d=180000
+    s.append(rect(sx(g)-d//2, cy-d//2, d, d, "C25E7A"))
+    s.append(textbox(px+pw+80000, cy-90000, 2600000, 420000, [para("g = -0.82  [-1.15, -0.50]", sz=1200, bold=True, space_after=0)], anchor="ctr"))
+    s.append(caption(CX_L, y+1900000, CONTENT_W, "The square is the average benefit; the line is the uncertainty range. Both sit fully on the 'better' side of 0, so MBT clearly lowered self-harm - a large effect (g = -0.82). The line is wide because the studies were few and small, so read it as 'a real but not exact benefit'."))
     s += footer(25)
     return s
 add(slide_res_selfharm(),
-    "This is the headline result. Pooled across MBT and MBT-A trials, self-harm fell with a Hedges' g of \u22120.82, "
-    "95% CI \u22121.15 to \u22120.50. The square is the point estimate and the line is the confidence interval; because it "
-    "sits entirely left of zero and left of the g=\u22120.8 reference, this is a large, statistically significant "
-    "reduction favouring MBT. Immediately temper it: the interval is wide, reflecting few, small, heterogeneous "
-    "trials, so the true effect could plausibly be medium rather than large. These numbers are verified from the "
-    "published abstract.")
+    "This is the headline. Combining all studies, self-harm went down with an effect size of g = -0.82 (likely range "
+    "-1.15 to -0.50). Explain the picture: the square is the average benefit, the line is the uncertainty range; "
+    "because both sit left of zero (the 'better' side), MBT clearly reduced self-harm, and by the scale this is a "
+    "large effect. Be honest: the line is wide because studies were few and small, so the true benefit could range "
+    "from medium to very large. Verified from the paper.")
 
-print("slides through 25:", len(SLIDES))
+print("content slides through 25:", len(SLIDES))
 
-# ---------- SLIDE 26 : RESULTS - SUICIDAL BEHAVIOUR ----------
 def slide_res_suicide():
-    s, ytop = banner("Results \u2014 Suicidal Behaviour", "DISTINGUISH FROM SELF-HARM")
+    s, ytop = banner("Result 2 - Suicidal Behaviour", "KEEP IT SEPARATE FROM SELF-HARM")
     y=ytop+120000
-    s.append(roundrect(CX_L, y, CONTENT_W, 900000, PEACH, [
-        multi_run_para([("Definitional care:  ",{"bold":True,"color":"B5651D","sz":1350}),
-                        ("self-harm \u2260 suicidal ideation \u2260 suicide attempt \u2260 suicide death. Many trials measured self-harm broadly rather than suicide-specific endpoints.",{"sz":1250})], space_after=0)], line="E0A96D", anchor="ctr"))
-    s.append(roundrect(CX_L, y+1020000, CONTENT_W, H-(y+1020000)-560000, CREAM, [
-        para("What the review can and cannot say", sz=1400, color=ACCENT, bold=True, space_after=260),
-        para("The abstract reports pooled effects for self-harm, BPD symptoms and depression \u2014 not a separate pooled estimate for suicide attempts or deaths.", sz=1250, bullet=True, space_after=220),
-        para("If the paper provides no pooled estimate for a suicide-specific outcome, state that explicitly: 'No pooled estimate was available for this outcome.'", sz=1250, bullet=True, space_after=220),
-        para("Absence of evidence for a suicide-specific effect is NOT evidence of no effect \u2014 avoid over-claiming on suicide prevention.", sz=1250, bullet=True, space_after=0),
+    s.append(roundrect(CX_L, y, CONTENT_W, 940000, PEACH, [
+        multi_run_para([("Be precise:  ",{"bold":True,"color":"B5651D","sz":BODY}),
+                        ("self-harm (may have no wish to die) is different from suicidal thoughts, a suicide attempt, and death by suicide. Many studies measured self-harm broadly, not suicide specifically.",{"sz":BODY})], space_after=0)], line="E0A96D", anchor="ctr"))
+    s.append(roundrect(CX_L, y+1060000, CONTENT_W, H-(y+1060000)-560000, CREAM, [
+        para("What the paper can and cannot say", sz=SUB, color=ACCENT, bold=True, space_after=280),
+        para("The paper gives combined results for self-harm, borderline symptoms and depression - not a separate combined number just for suicide attempts or deaths.", sz=BODY, bullet=True, space_after=240),
+        para("If there is no combined number for a suicide-specific outcome, say so plainly: 'No combined estimate was available for this.'", sz=BODY, bullet=True, space_after=240),
+        para("Important: no proof of a suicide-specific benefit does NOT mean there is none - it just wasn't measured well enough. So we should not claim MBT prevents suicide.", sz=BODY, bullet=True, space_after=0),
     ], line=LILAC, anchor="t"))
     s += footer(26)
     return s
 add(slide_res_suicide(),
-    "Handle suicidal behaviour carefully and honestly. Draw the ladder: self-harm, suicidal ideation, suicide "
-    "attempt, and suicide death are distinct. The verified pooled results cover self-harm, BPD symptoms and "
-    "depression \u2014 the abstract does not report a separate pooled effect for suicide attempts or deaths. If the full "
-    "paper gives no pooled suicide-specific estimate, say so plainly and do not extrapolate a self-harm effect into "
-    "a claim about suicide prevention. Remember: absence of evidence is not evidence of absence.")
+    "Handle suicide carefully. First separate the terms: self-harm (may have no wish to die) is not the same as "
+    "suicidal thoughts, a suicide attempt, or death by suicide. The verified combined results cover self-harm, "
+    "borderline symptoms and depression - the paper does not give a separate combined number just for suicide "
+    "attempts or deaths. If missing, say so directly. Make the logic clear: absence of a proven suicide-specific "
+    "benefit does not prove there is none. So do not overclaim that MBT prevents suicide.")
 
-# ---------- SLIDE 27 : RESULTS - BPD & DEPRESSION (bars with real g) ----------
 def slide_res_related():
-    s, ytop = banner("Results \u2014 BPD Symptoms & Depression", "SECONDARY OUTCOMES (VERIFIED)")
-    y=ytop+280000
-    # bars representing |g| on a 0..1.6 scale
+    s, ytop = banner("Result 3 - Personality Symptoms & Depression", "OTHER OUTCOMES (VERIFIED)")
+    y=ytop+240000
     def gbar(x,y,maxw,h,g,lo,hi,label,color):
         sh=[]
         scale=1.6
         bw=int(maxw*abs(g)/scale)
-        sh.append(textbox(x-3000000, y-30000, 2900000, h+60000, [para(label, sz=1200, align="r", space_after=0)], anchor="ctr"))
+        sh.append(textbox(x-3000000, y-30000, 2900000, h+60000, [para(label, sz=1250, align="r", space_after=0)], anchor="ctr"))
         sh.append(rect(x,y,maxw,h,WHITE,line="E0E4E8"))
-        sh.append(roundrect(x,y,max(bw,60000),h,color,[],rad=6000,shadow=False))
+        sh.append(roundrect(x,y,max(bw,60000),h,color,None,rad=6000,shadow=False))
         sh.append(textbox(x+max(bw,60000)+50000, y-30000, 3200000, h+60000,
-            [para(f"g = {g:.2f}  [{lo:.2f}, {hi:.2f}]", sz=1150, bold=True, space_after=0)], anchor="ctr"))
+            [para(f"g = {g:.2f}  [{lo:.2f}, {hi:.2f}]", sz=1250, bold=True, space_after=0)], anchor="ctr"))
         return sh
-    bx=CX_L+3100000; bmax=CONTENT_W-3100000-3400000; bh=620000
+    bx=CX_L+3100000; bmax=CONTENT_W-3100000-3400000; bh=560000
     s+=gbar(bx, y, bmax, bh, -0.82, -1.15, -0.50, "Self-harm", "C25E7A")
-    s+=gbar(bx, y+900000, bmax, bh, -1.08, -1.38, -0.77, "BPD symptoms", ACCENT)
-    s+=gbar(bx, y+1800000, bmax, bh, -1.10, -1.52, -0.68, "Depression", ACCENT2)
-    s.append(roundrect(CX_L, y+2700000, CONTENT_W, 760000, LAVENDER, [
-        multi_run_para([("All three pooled effects are large and statistically significant (CIs exclude 0). ",{"sz":1250,"bold":True}),
-                        ("Bar length = magnitude of |g|; longer = larger reduction favouring MBT.",{"sz":1200})], space_after=0)], line=LILAC, anchor="ctr"))
+    s+=gbar(bx, y+820000, bmax, bh, -1.08, -1.38, -0.77, "Borderline symptoms", ACCENT)
+    s+=gbar(bx, y+1640000, bmax, bh, -1.10, -1.52, -0.68, "Depression", ACCENT2)
+    s.append(caption(CX_L, y+2450000, CONTENT_W, "Longer bar = bigger improvement. MBT reduced self-harm, borderline personality symptoms and depression, all by a large amount. But these came from small studies, so treat the exact size cautiously."))
     s += footer(27)
     return s
 add(slide_res_related(),
-    "Present the two secondary outcomes alongside self-harm for context. BPD symptoms improved with g = \u22121.08 "
-    "(95% CI \u22121.38 to \u22120.77) and depression with g = \u22121.10 (\u22121.52 to \u22120.68). All three effects are large "
-    "and statistically significant. The bars show magnitude only. Note that these very large effect sizes from small "
-    "trials are somewhat implausibly large and may reflect small-study effects or optimistic early trials \u2014 a point "
-    "to develop in the appraisal. Numbers are verified from the published abstract.")
+    "Show the two other verified results next to self-harm. Borderline personality symptoms improved by g = -1.08 "
+    "(range -1.38 to -0.77) and depression by g = -1.10 (range -1.52 to -0.68). Explain the bars: longer means "
+    "bigger improvement, and all three are large. Add the balanced note - these very large numbers come from small "
+    "studies, which tend to produce bigger-looking effects, so treat the exact size cautiously. Verified from the "
+    "paper.")
 
-# ---------- SLIDE 28 : RETENTION / ACCEPTABILITY ----------
 def slide_retention():
     body=[
-        para("Report dropout, completion and attendance for MBT vs control in each trial (insert values from the paper).", sz=1300, bullet=True, space_after=280),
-        para("Feasibility trials (e.g., Griffiths et al., 2019) reported acceptable group attendance and safety.", sz=1300, bullet=True, space_after=280),
-        para("Consider reasons for dropout and any adverse events, if reported.", sz=1300, bullet=True, space_after=280),
-        para("Discuss whether MBT is feasible and acceptable for people with recurrent self-harm and emotional dysregulation.", sz=1300, bullet=True, space_after=280),
-        para("Retention data are often incompletely reported \u2014 note this as a limitation.", sz=1300, bullet=True, space_after=0),
+        para("Report how many people finished the therapy versus dropped out, for MBT and the comparison group (add the paper's numbers).", sz=BODY, bullet=True, space_after=300),
+        para("Small pilot studies (e.g., Griffiths et al., 2019) found group MBT was acceptable and safe, with reasonable attendance.", sz=BODY, bullet=True, space_after=300),
+        para("Look at why people dropped out, and whether there were any harms (adverse events).", sz=BODY, bullet=True, space_after=300),
+        para("The key question: is MBT practical and acceptable for people who repeatedly self-harm and struggle with emotions?", sz=BODY, bullet=True, space_after=300),
+        para("Drop-out and safety information was often incompletely reported - a real weakness to flag.", sz=BODY, bullet=True, space_after=0),
     ]
-    return content_slide("Treatment Retention & Acceptability","FEASIBILITY", body, 28, cardfill=LGREY)
+    return content_slide("Did People Stay in Treatment?","RETENTION & ACCEPTABILITY", body, 28, cardfill=LGREY)
 add(slide_retention(),
-    "Address feasibility, which matters as much as efficacy in this hard-to-engage group. Report the dropout and "
-    "completion rates for MBT versus control from the paper. Feasibility work such as Griffiths et al. (2019) found "
-    "group MBT acceptable and safe with reasonable attendance. Discuss reasons for dropout and any adverse events. "
-    "Conclude cautiously on acceptability and flag that retention and adverse-event reporting is often incomplete "
-    "across the trials.")
+    "Feasibility matters as much as effectiveness here. Report how many finished versus dropped out in each arm from "
+    "the paper. Small pilot work (Griffiths 2019) suggests group MBT is acceptable and safe with reasonable "
+    "attendance. Look at reasons for dropout and any harms. The real-world question is whether MBT is practical for "
+    "people who repeatedly self-harm - and flag honestly that dropout and safety reporting was often incomplete.")
 
-# ---------- SLIDE 29 : GRAPHICAL RESULTS SUMMARY ----------
 def slide_gfx_summary():
-    s, ytop = banner("Results at a Glance", "VERIFIED POOLED EFFECTS")
+    s, ytop = banner("Results at a Glance", "THE THREE VERIFIED NUMBERS")
     y=ytop+160000
-    cards=[("Self-harm","g = \u22120.82","95% CI \u22121.15, \u22120.50",BLUSH),
-           ("BPD symptoms","g = \u22121.08","95% CI \u22121.38, \u22120.77",LAVENDER),
-           ("Depression","g = \u22121.10","95% CI \u22121.52, \u22120.68",POWDER)]
-    cw=(CONTENT_W-2*300000)//3; ch=2000000
+    cards=[("Self-harm","g = -0.82","range -1.15 to -0.50",BLUSH),
+           ("Borderline symptoms","g = -1.08","range -1.38 to -0.77",LAVENDER),
+           ("Depression","g = -1.10","range -1.52 to -0.68",POWDER)]
+    cw=(CONTENT_W-2*300000)//3; ch=1980000
     cx=CX_L
     for h,g,ci,c in cards:
         s.append(roundrect(cx, y, cw, ch, c, [
-            para(h, sz=1500, color=ACCENT, bold=True, align="ctr", space_after=260),
+            para(h, sz=SUB, color=ACCENT, bold=True, align="ctr", space_after=240),
             para(g, sz=2600, color=CHARCOAL, bold=True, align="ctr", space_after=200),
-            para(ci, sz=1200, align="ctr", space_after=160),
-            para("large \u2022 significant", sz=1100, color=ACCENT2, bold=True, align="ctr", space_after=0)], anchor="ctr", line=LILAC))
+            para(ci, sz=1250, align="ctr", space_after=140),
+            para("large & unlikely to be chance", sz=1100, color=ACCENT2, bold=True, align="ctr", space_after=0)], anchor="ctr", line=LILAC))
         cx+=cw+300000
-    s.append(roundrect(CX_L, y+ch+220000, CONTENT_W, H-(y+ch+220000)-560000, CREAM, [
-        multi_run_para([("All effects favour MBT and are statistically significant, but derive from few, small trials with wide CIs and heterogeneous designs \u2014 ",{"sz":1250}),
-                        ("treat as promising, not definitive.",{"sz":1250,"bold":True,"color":ACCENT})], space_after=0)], line=LILAC, anchor="ctr"))
+    s.append(caption(CX_L, y+ch+150000, CONTENT_W, "All three point the same way: MBT helped, and by a large amount. But because the studies were few, small and different from each other, the honest summary is 'promising, not yet proven'."))
     s += footer(29)
     return s
 add(slide_gfx_summary(),
-    "A one-glance summary of the three verified pooled effects: self-harm g=\u22120.82, BPD symptoms g=\u22121.08, "
-    "depression g=\u22121.10, all large and significant. Use this as the pivot from results to discussion: the signal is "
-    "consistent and favourable, but it comes from a small, heterogeneous evidence base, so the honest headline is "
-    "'promising, not definitive.'")
+    "Give the one-glance summary: self-harm -0.82, borderline symptoms -1.08, depression -1.10 - all large, all "
+    "unlikely to be chance, all favouring MBT. Use it to bridge to the discussion: the signal is encouraging and "
+    "consistent, but rests on few, small, differing studies. So the honest, examiner-friendly summary is "
+    "'promising, not yet proven'.")
 
-print("slides through 29:", len(SLIDES))
+print("content slides through 29:", len(SLIDES))
 
-# ---------- SLIDE 30 : DISCUSSION - MAIN FINDINGS ----------
 def slide_disc_main():
     body=[
-        para("MBT / MBT-A was associated with large, statistically significant reductions in self-harm (g=\u22120.82).", sz=1300, bullet=True, space_after=260),
-        para("Parallel large improvements in BPD symptoms (g=\u22121.08) and depression (g=\u22121.10).", sz=1300, bullet=True, space_after=260),
-        para("Direction of effect was consistent across the pooled outcomes \u2014 all favour MBT.", sz=1300, bullet=True, space_after=260),
-        para("However, effects rest on a small number of small trials with heterogeneous designs and controls.", sz=1300, bullet=True, space_after=260),
-        para("Overall evidence quality is best described as promising but limited / moderate-to-low confidence.", sz=1300, bullet=True, space_after=0),
+        para("MBT reduced self-harm by a large amount (g = -0.82) - a real, unlikely-to-be-chance benefit.", sz=BODY, bullet=True, space_after=280),
+        para("It also improved borderline personality symptoms (g = -1.08) and depression (g = -1.10) by a large amount.", sz=BODY, bullet=True, space_after=280),
+        para("All the combined results pointed the same way - in favour of MBT.", sz=BODY, bullet=True, space_after=280),
+        para("But the results come from only a few small studies that differed from each other.", sz=BODY, bullet=True, space_after=280),
+        para("So the fairest verdict: the evidence is promising but limited - we can be only moderately confident.", sz=BODY, bullet=True, space_after=0),
     ]
-    return content_slide("Discussion \u2014 Main Findings","INTERPRETATION", body, 30, cardfill=MINT)
+    return content_slide("Discussion - What Did We Find?","INTERPRETATION", body, 30, cardfill=MINT)
 add(slide_disc_main(),
-    "Summarise what was found: consistent, large, significant reductions in self-harm, BPD symptoms and depression, "
-    "all favouring MBT. Then give the balanced verdict \u2014 the effects are encouraging and internally consistent, but "
-    "they come from few small trials with mixed designs and controls, so overall confidence in the effect size is "
-    "moderate at best. Avoid overselling.")
+    "Sum up plainly. MBT reduced self-harm by a large, real amount, and improved borderline symptoms and depression "
+    "a lot. Every combined result favoured MBT and was unlikely to be chance. Then the balanced verdict: because "
+    "results come from only a few small, differing studies, be only moderately confident - promising but not yet "
+    "solid. Don't oversell.")
 
-# ---------- SLIDE 31 : DISCUSSION - MECHANISMS ----------
 def slide_disc_mech():
-    s, ytop = banner("Discussion \u2014 How Might MBT Work?", "MECHANISMS (CAUTIOUS)")
+    s, ytop = banner("How Might MBT Work?", "LIKELY REASONS (SAID CAUTIOUSLY)")
     y=ytop+120000
-    mechs=[("Improved reflective functioning","Better reading of own & others' mental states",LAVENDER),
-           ("Reduced misinterpretation","Fewer catastrophic readings of interpersonal events",POWDER),
-           ("Better affect regulation","Tolerating arousal without acting on it",MINT),
-           ("Fewer impulsive responses","Pause between urge and action",PEACH),
-           ("Stronger therapeutic alliance","Engagement supports change",BLUSH),
-           ("Recognising triggers & alternatives","New coping instead of self-harm",SAGE)]
-    cw=(CONTENT_W-2*260000)//3; ch=(H-y-620000-260000)//2
+    mechs=[("Better 'mind-reading'","Understands own & others' feelings more accurately",LAVENDER),
+           ("Fewer misreadings","Less likely to assume the worst about others",POWDER),
+           ("Calmer emotions","Can sit with distress without acting on it",MINT),
+           ("Less impulsive","A pause between the urge and the action",PEACH),
+           ("Stronger bond with therapist","Feeling understood keeps people engaged",BLUSH),
+           ("Spots triggers early","Uses new coping instead of self-harm",SAGE)]
+    cw=(CONTENT_W-2*260000)//3; ch=(H-y-720000-260000)//2
     for i,(h,t,c) in enumerate(mechs):
         r=i//3; col=i%3
         s.append(roundrect(CX_L+col*(cw+260000), y+r*(ch+260000), cw, ch, c,
-            [para(h, sz=1300, color=ACCENT, bold=True, space_after=200), para(t, sz=1150, space_after=0)], anchor="t"))
+            [para(h, sz=SUB, color=ACCENT, bold=True, space_after=220), para(t, sz=BODY, space_after=0)], anchor="t"))
+    s.append(caption(CX_L, y+2*ch+260000+30000, CONTENT_W, "These are the likely reasons MBT helps. In the 2012 teen study, the benefit really did come from better 'mind-reading'. But a review of results cannot fully prove the reason - so we say 'may'."))
     s += footer(31)
     return s
 add(slide_disc_mech(),
-    "Offer plausible mechanisms, framed tentatively. MBT is theorised to work by rebuilding reflective functioning "
-    "so people read mental states more accurately, misinterpret interpersonal events less, regulate affect better, "
-    "and insert a pause between urge and action; a strong alliance and better trigger-recognition support new "
-    "coping. In Rossouw & Fonagy (2012) the effect was actually mediated by improved mentalizing and reduced "
-    "attachment avoidance, which supports this model. Stress that a meta-analysis of outcomes cannot by itself prove "
-    "mechanism \u2014 use 'may'.")
+    "Offer likely reasons, tentatively. MBT probably helps by improving mind-reading so people understand feelings "
+    "better and misjudge others less; by staying calmer and sitting with distress; by adding a pause between urge "
+    "and action; by building a bond that keeps them in therapy; and by spotting triggers and coping differently. "
+    "Supportive evidence: in the 2012 study the benefit flowed through improved mind-reading. But combining outcome "
+    "results can't fully prove mechanism - hence 'may'.")
 
-# ---------- SLIDE 32 : DISCUSSION - COMPARISON ----------
 def slide_disc_compare():
-    s, ytop = banner("Discussion \u2014 Comparison with Other Evidence", "CONTEXT")
+    s, ytop = banner("How Does MBT Compare With Other Therapies?", "CONTEXT")
     y=ytop+120000
     headers=["Therapy","Evidence for self-harm","Note"]
     cw=[2600000, 4600000, CONTENT_W-2600000-4600000]
     rows=[
-        ["MBT / MBT-A","Large pooled effects here; early positive, later mixed trials","This review's focus"],
-        ["DBT / DBT-A","Strongest evidence base; 'well-established' for adolescent self-harm","Common comparator/benchmark"],
-        ["CBT-based","Moderate evidence for reducing repetition","Widely available"],
-        ["TAU / SCM","Active controls shrink apparent MBT advantage","Comparator quality matters"],
+        ["MBT / MBT-A","Large combined benefit here; early studies positive, later ones mixed","This paper's focus"],
+        ["DBT (dialectical behaviour therapy)","Strongest, best-repeated evidence for teen self-harm","The main benchmark"],
+        ["CBT-based","Moderate evidence for reducing repeat self-harm","Widely available"],
+        ["Usual care / structured support","A fair comparison shrinks MBT's apparent lead","The comparison matters a lot"],
     ]
-    s+=table(CX_L, y, cw, 700000, headers, rows, head_fill=ACCENT, zebra=(CREAM, LAVENDER), font=1100, head_font=1200)
-    s.append(textbox(CX_L, y+700000*5+40000, CONTENT_W, 420000, [
-        para("Inconsistencies across MBT trials likely reflect differences in sample severity, treatment intensity, outcome measures and follow-up length.",
-             sz=1050, italic=True, color="9AA0A6", space_after=0)]))
+    s+=table(CX_L, y, cw, 720000, headers, rows, head_fill=ACCENT, zebra=(CREAM, LAVENDER), font=1200, head_font=1250)
+    s.append(caption(CX_L, y+720000*5+30000, CONTENT_W, "MBT looks helpful, but DBT still has the strongest, most repeated evidence. Differences between MBT studies are likely due to who was treated, how intense the therapy was, and how outcomes were measured."))
     s += footer(32)
     return s
 add(slide_disc_compare(),
-    "Place MBT among alternatives. DBT has the strongest, best-replicated evidence for adolescent self-harm and is "
-    "the natural benchmark; CBT-based approaches show moderate benefit for repetition. MBT's pooled effects here are "
-    "large but rest on fewer trials with mixed later results. Explain the inconsistencies by differences in sample "
-    "severity, treatment intensity, outcome measurement and follow-up. The clinical takeaway: MBT is a reasonable "
-    "option, but the comparative evidence does not yet establish superiority over DBT.")
+    "Place MBT among alternatives fairly. DBT has the strongest, best-replicated evidence for teen self-harm and is "
+    "the natural benchmark; CBT-based approaches show moderate benefit. MBT's combined benefit here looks large but "
+    "rests on fewer studies with mixed later results. Explain disagreements plainly: different patients, different "
+    "intensity, different outcome measures. Takeaway: MBT is a reasonable option, but this evidence doesn't yet show "
+    "it beats DBT.")
 
-# ---------- SLIDE 33 : CLINICAL MEANING ----------
 def slide_clinical():
     body=[
-        para("MBT may be considered for individuals with recurrent self-harm and BPD/emerging BPD features.", sz=1300, bullet=True, space_after=250),
-        para("Treatment should be individualized; ongoing risk assessment remains essential.", sz=1300, bullet=True, space_after=250),
-        para("MBT complements \u2014 does not replace \u2014 crisis planning and safety management.", sz=1300, bullet=True, space_after=250),
-        para("Medication may be needed for comorbid conditions; engagement & continuity of care matter.", sz=1300, bullet=True, space_after=250),
-        para("Therapists require appropriate training and supervision; match setting to risk level.", sz=1300, bullet=True, space_after=250),
-        para("Involve family/carers where appropriate (especially in adolescent MBT-A).", sz=1300, bullet=True, space_after=0),
+        para("MBT is worth considering for people who repeatedly self-harm and have borderline personality traits.", sz=BODY, bullet=True, space_after=270),
+        para("Tailor treatment to the person; keep assessing risk throughout.", sz=BODY, bullet=True, space_after=270),
+        para("MBT adds to - it does not replace - safety planning and crisis support.", sz=BODY, bullet=True, space_after=270),
+        para("Medication may still be needed for other conditions; keeping the person engaged and in continuous care matters a lot.", sz=BODY, bullet=True, space_after=270),
+        para("Therapists need proper training and supervision; match the setting to how high the risk is.", sz=BODY, bullet=True, space_after=270),
+        para("Involve family or carers where helpful (especially in the teen version, MBT-A).", sz=BODY, bullet=True, space_after=0),
     ]
-    return content_slide("Clinical Meaning","IMPLICATIONS FOR PRACTICE", body, 33, cardfill=POWDER)
+    return content_slide("What This Means for Practice","CLINICAL IMPLICATIONS", body, 33, cardfill=POWDER)
 add(slide_clinical(),
-    "Translate findings into practice. MBT is a reasonable, evidence-supported option for recurrent self-harm with "
-    "BPD features, but it must be individualized and sits within \u2014 never instead of \u2014 continuous risk assessment "
-    "and crisis planning. Comorbidities may need medication; engagement and continuity are decisive in this "
-    "population. Emphasise that MBT requires trained, supervised therapists and that setting should match risk. In "
-    "adolescents, involving family (MBT-A) is important.")
+    "Translate into practice. MBT is worth considering for people who repeatedly self-harm with borderline traits, "
+    "but tailor it and always keep it alongside - never instead of - ongoing risk assessment and crisis planning. "
+    "Other conditions may need medication, and keeping the person engaged in continuous care is decisive. Emphasise "
+    "trained, supervised therapists, matching setting to risk, and involving family, especially for teenagers.")
 
-print("slides through 33:", len(SLIDES))
+print("content slides through 33:", len(SLIDES))
 
-# ---------- SLIDE 34 : LIMITATIONS (matrix) ----------
 def slide_limits():
-    s, ytop = banner("Limitations of the Review","CRITICAL APPRAISAL")
+    s, ytop = banner("Weaknesses of the Review", "LIMITATIONS")
     y=ytop+120000
-    headers=["Limitation","Possible impact"]
+    headers=["Weakness","Why it matters"]
     cw=[5200000, CONTENT_W-5200000]
     rows=[
-        ["Few, small studies","Reduced power; wide confidence intervals"],
-        ["Heterogeneity (design, format, controls)","Lower confidence in the pooled estimate"],
-        ["Short / variable follow-up","Long-term durability of effects unclear"],
-        ["Different outcome measures","Harder to compare and combine"],
-        ["Attrition & incomplete reporting","Risk of attrition / reporting bias"],
-        ["Limited diversity (female, Western, young)","Restricted generalisability"],
-        ["Self-harm vs suicide not always separated","Ambiguity in what was reduced"],
+        ["Few, small studies","Less reliable; wider uncertainty range"],
+        ["Studies differed a lot (setup, format, comparison)","Harder to trust one combined number"],
+        ["Short or varied follow-up","We don't know if the benefit lasts"],
+        ["Different measuring tools","Harder to compare and combine fairly"],
+        ["People dropped out; gaps in reporting","Results may be skewed"],
+        ["Mostly female, young, Western","May not apply to everyone"],
+        ["Self-harm & suicide not always separated","Unclear exactly what improved"],
     ]
-    s+=table(CX_L, y, cw, 560000, headers, rows, head_fill=ACCENT, zebra=(CREAM, LAVENDER), font=1150, head_font=1250)
+    s+=table(CX_L, y, cw, 560000, headers, rows, head_fill=ACCENT, zebra=(CREAM, LAVENDER), font=1300, head_font=1350)
     s += footer(34)
     return s
 add(slide_limits(),
-    "Be explicit and balanced about limitations \u2014 examiners reward this. The evidence base is few small trials, so "
-    "power is low and CIs wide. Heterogeneity in design, MBT format and control conditions undermines a single "
-    "pooled number. Follow-up is short, outcome measures differ, and attrition/reporting is inconsistent. Samples "
-    "are predominantly female, young and Western, limiting generalisability, and self-harm and suicidal behaviour "
-    "are not always clearly separated. These caveats are why the large effect sizes should be read as promising "
-    "rather than conclusive.")
+    "Be open about weaknesses - examiners reward balance. Few, small studies mean a less reliable answer and wide "
+    "uncertainty. Studies differed a lot in setup, format and comparison, making one combined number harder to "
+    "trust. Follow-up was short or inconsistent, so we don't know if benefit lasts. Different tools, dropout, "
+    "reporting gaps, a mostly young/female/Western sample, and not always separating self-harm from suicide all "
+    "lower certainty. This is why the large effects are 'promising, not proven'.")
 
-# ---------- SLIDE 35 : SAMPLE & DESIGN LIMITATIONS ----------
 def slide_sample_design():
-    return two_col("Sample & Design Limitations","APPRAISAL",
-        "Sample",
-        ["Predominantly female participants","Under-representation of males & gender-diverse people",
-         "Limited older-adult representation","Largely Western / high-income settings",
-         "Diagnostic overlap; varying baseline severity"],
+    return two_col("Weaknesses in the People & the Study Design","LIMITATIONS (DETAIL)",
+        "The people (sample)",
+        ["Mostly female participants","Few males and gender-diverse people",
+         "Few older adults","Almost all from Western, wealthy countries",
+         "Different starting severity between studies"],
         BLUSH,
-        "Design",
-        ["Incomplete randomization in some trials","Lack of assessor blinding",
-         "Variable / non-specific TAU comparators","High or differential attrition",
-         "Limited fidelity monitoring & preregistration"],
+        "The study design",
+        ["Grouping not always fully random","Assessors often knew who got MBT",
+         "'Usual care' meant different things in different studies","High or uneven drop-out",
+         "Little checking that therapy was delivered as intended"],
         POWDER, 35)
 add(slide_sample_design(),
-    "Separate the appraisal into sample and design. Sample-side: participants are mostly female, young and Western, "
-    "with limited male, gender-diverse and older-adult representation and variable baseline severity \u2014 so who these "
-    "results apply to is narrow. Design-side: some trials had weak randomisation, no assessor blinding, "
-    "poorly specified TAU comparators, notable attrition, and little fidelity monitoring or preregistration. "
-    "Together these lower our certainty and point to what better trials must fix.")
+    "Split weaknesses into who was studied and how. People: mostly female, few males or gender-diverse people, few "
+    "older adults, almost all Western, differing severity - a fairly narrow group. Design: grouping not always fully "
+    "random, assessors often knew who got MBT (can bias ratings), 'usual care' varied, dropout high or uneven, and "
+    "rarely checked whether therapy was delivered properly. These show exactly what better trials must fix.")
 
-# ---------- SLIDE 36 : GENERALIZABILITY ----------
 def slide_general():
-    s, ytop = banner("Generalizability","TO WHOM DO RESULTS APPLY?")
+    s, ytop = banner("Who Do These Results Apply To?", "GENERALIZABILITY")
     y=ytop+120000
-    cw=(CONTENT_W-300000)//2; ch=H-y-620000
-    lp=[para("More applicable to", sz=1500, color=ACCENT, bold=True, space_after=300)]
-    for t in ["Outpatient mental-health services","Adolescents & adults with self-harm + BPD features","High-income / Western settings","Female-predominant clinical samples"]:
-        lp.append(para(t, sz=1300, bullet=True, space_after=240))
-    rp=[para("Caution / limited evidence", sz=1500, color=ACCENT, bold=True, space_after=300)]
-    for t in ["Emergency-department & inpatient settings","Low-resource / non-Western populations","Older adults; males & gender-diverse people","Self-harm without BPD; comorbid psychosis or severe cognitive impairment"]:
-        rp.append(para(t, sz=1300, bullet=True, space_after=210))
+    cw=(CONTENT_W-300000)//2; ch=H-y-720000
+    lp=[para("More likely to apply to", sz=1600, color=ACCENT, bold=True, space_after=320)]
+    for t in ["Outpatient clinics (people not admitted to hospital)","Teens & adults who self-harm with borderline traits","Western, higher-income settings","Groups that are mostly female"]:
+        lp.append(para(t, sz=BODY, bullet=True, space_after=270))
+    rp=[para("Apply with caution to", sz=1600, color=ACCENT, bold=True, space_after=320)]
+    for t in ["Emergency departments and hospital wards","Low-resource or non-Western settings","Older adults; males & gender-diverse people","Self-harm without borderline traits; people with psychosis or major memory/thinking problems"]:
+        rp.append(para(t, sz=BODY, bullet=True, space_after=250))
     s.append(roundrect(CX_L, y, cw, ch, SAGE, lp, anchor="t"))
     s.append(roundrect(CX_L+cw+300000, y, cw, ch, PEACH, rp, anchor="t"))
+    s.append(caption(CX_L, H-660000, CONTENT_W, "The findings fit the kind of people who were studied. For groups barely included (older adults, non-Western, males), we simply don't have enough evidence yet."))
     s += footer(36)
     return s
 add(slide_general(),
-    "State the boundaries of generalisation. The findings map best onto outpatient services treating "
-    "female-predominant adolescents and adults with self-harm and BPD features in Western settings. Be cautious "
-    "applying them to emergency or inpatient contexts, low-resource or non-Western populations, older adults, males "
-    "and gender-diverse people, or to self-harm without BPD and to comorbid psychosis or severe cognitive "
-    "impairment \u2014 groups the trials barely represent.")
+    "Explain generalisability as 'who can we safely apply this to?'. The findings fit the people studied: mostly "
+    "female teens and adults with self-harm and borderline traits, in outpatient clinics in Western countries. Be "
+    "cautious applying them to emergency or hospital settings, low-resource or non-Western populations, older "
+    "adults, males and gender-diverse people, or self-harm without borderline traits and people with psychosis - "
+    "these were barely included.")
 
-# ---------- SLIDE 37 : FUTURE APPLICATIONS ----------
 def slide_future():
-    s, ytop = banner("Future Applications & Implications","LOOKING FORWARD")
+    s, ytop = banner("What Next? Uses & Implications", "LOOKING FORWARD")
     y=ytop+120000
     cw=(CONTENT_W-3*220000)//4; ch=H-y-620000
-    cards=[("Clinical practice","Integrate mentalizing-informed principles; assess mentalizing in crises; collaborative formulation; individualized safety plans",LAVENDER),
-           ("Services","Structured MBT programmes; clinician training & supervision; stepped care; continuity after discharge",POWDER),
-           ("Relapse prevention","Identify early warning signs; build coping alternatives; plan for interpersonal crises; monitor recurrence",MINT),
-           ("Psychosocial","Involve family/carers; address trauma & attachment; support social functioning; multidisciplinary care",PEACH)]
+    cards=[("In the clinic","Use MBT ideas in everyday care; check 'mind-reading' during crises; build the picture together with the patient; make personal safety plans",LAVENDER),
+           ("In services","Set up proper MBT programmes; train and supervise therapists; step up care as needed; keep support going after discharge",POWDER),
+           ("Preventing relapse","Spot early warning signs; build coping alternatives; plan for relationship crises; track over time",MINT),
+           ("With family/society","Involve family or carers; address past trauma and attachment; support social life; coordinate the whole care team",PEACH)]
     cx=CX_L
     for h,t,c in cards:
-        s.append(roundrect(cx, y, cw, ch, c, [para(h, sz=1400, color=ACCENT, bold=True, space_after=240), para(t, sz=1150, space_after=0)], anchor="t"))
+        s.append(roundrect(cx, y, cw, ch, c, [para(h, sz=SUB, color=ACCENT, bold=True, space_after=260), para(t, sz=BODY, space_after=0)], anchor="t"))
         cx+=cw+220000
     s += footer(37)
     return s
 add(slide_future(),
-    "Lay out implications across four levels. Practice: embed mentalizing-informed principles, assess mentalizing "
-    "during crises, use collaborative formulation and individualized safety plans. Services: set up structured MBT "
-    "programmes with training, supervision, stepped care and post-discharge continuity. Relapse prevention: identify "
-    "early warning signs, rehearse coping alternatives, plan for interpersonal triggers and monitor recurrence. "
-    "Psychosocial: involve family/carers, address trauma and attachment, and coordinate multidisciplinary care.")
+    "Lay out implications at four levels. In the clinic: use MBT ideas day to day, check mind-reading during "
+    "crises, build the formulation with the patient, and make personal safety plans. In services: set up proper MBT "
+    "programmes with training and supervision, step care up when needed, and keep support going after discharge. "
+    "Relapse prevention: spot early warning signs, build coping alternatives, track over time. With family/society: "
+    "involve carers, address trauma and attachment, coordinate the team.")
 
-# ---------- SLIDE 38 : RESEARCHER REFLECTION ----------
 def slide_reflection():
-    s, ytop = banner("What Could I Have Done as a Researcher?","REFLECTIVE CRITICAL APPRAISAL")
+    s, ytop = banner("If I Were the Researcher, I Would...", "MY CRITICAL REFLECTION")
     y=ytop+120000
-    items=["Recruit a larger, more diverse sample (age, sex, culture)",
-           "Use longer, standardized follow-up",
+    items=["Study more people, and a more varied group (age, sex, culture)",
+           "Follow them for longer, using the same measures each time",
            "Clearly separate suicidal from non-suicidal self-harm",
-           "Employ rigorous randomization & assessor blinding",
-           "Include active psychotherapy comparators (e.g., DBT)",
-           "Monitor treatment fidelity; report therapist training",
-           "Examine mechanisms of change; run subgroup analyses",
-           "Preregister the protocol; report adverse events & dropout fully",
-           "Assess cost-effectiveness & post-discharge outcomes"]
+           "Group people truly randomly, and keep assessors 'blind' to the group",
+           "Compare MBT against another real therapy (like DBT), not just usual care",
+           "Check the therapy was delivered properly; report therapist training",
+           "Test how it works and for whom (subgroups)",
+           "Register the plan in advance; report all drop-outs and harms fully",
+           "Check whether it is good value for money; follow up after discharge"]
     cw=(CONTENT_W-260000)//2; ch=H-y-620000
     half=(len(items)+1)//2
-    lp=[para(t, sz=1250, bullet=True, space_after=250) for t in items[:half]]
-    rp=[para(t, sz=1250, bullet=True, space_after=250) for t in items[half:]]
+    lp=[para(t, sz=BODY, bullet=True, space_after=280) for t in items[:half]]
+    rp=[para(t, sz=BODY, bullet=True, space_after=280) for t in items[half:]]
     s.append(roundrect(CX_L, y, cw, ch, CREAM, lp, anchor="t", line=LILAC))
     s.append(roundrect(CX_L+cw+260000, y, cw, ch, CREAM, rp, anchor="t", line=LILAC))
     s += footer(38)
     return s
 add(slide_reflection(),
-    "Show independent critical thinking. If you had run this programme, you would recruit larger, more diverse "
-    "samples with longer standardized follow-up, cleanly separate suicidal from non-suicidal self-harm, use rigorous "
-    "randomisation and blinded outcome assessment, and include an active comparator like DBT rather than only TAU. "
-    "You would monitor fidelity, report therapist training, test mechanisms and subgroups, preregister the protocol, "
-    "and report adverse events, dropout and cost-effectiveness fully. This directly answers the review's own "
-    "limitations.")
+    "Show your own critical thinking. If you ran this, you would study more people and a more varied group, follow "
+    "them longer with consistent measures, and clearly separate suicidal from non-suicidal self-harm. You would "
+    "group people truly at random, keep assessors blind, and compare against a real therapy like DBT rather than "
+    "only usual care. You would check the therapy was delivered properly, report training, test how and for whom it "
+    "works, register the plan in advance, report all dropouts and harms, and look at value for money and "
+    "after-discharge outcomes. This answers the review's own weaknesses.")
 
-print("slides through 38:", len(SLIDES))
+print("content slides through 38:", len(SLIDES))
 
-# ---------- SLIDE 39 : KEY TAKEAWAYS ----------
 def slide_takeaways():
-    s, ytop = banner("Key Takeaways","HIGH-YIELD POINTS")
+    s, ytop = banner("Key Takeaways", "THE 6 THINGS TO REMEMBER")
     y=ytop+120000
-    pts=["Self-harm is recurrent and clinically complex \u2014 comprehensive risk assessment is essential.",
-         "MBT targets difficulties in understanding self and others during emotional arousal.",
-         "Pooled evidence shows large, significant reductions: self-harm g=\u22120.82, BPD g=\u22121.08, depression g=\u22121.10.",
-         "Small samples, heterogeneity and short follow-up limit confidence \u2014 promising, not definitive.",
-         "MBT is especially relevant for interpersonal sensitivity, emotional dysregulation & BPD features.",
-         "More rigorous, diverse, long-term trials (ideally vs active comparators) are needed."]
+    pts=["Self-harm keeps coming back - always assess safety and risk carefully.",
+         "MBT targets the breakdown in 'reading feelings' that happens when emotions run high.",
+         "Combined results show large benefits: self-harm g=-0.82, borderline symptoms g=-1.08, depression g=-1.10.",
+         "But few, small, differing studies with short follow-up mean: promising, not yet proven.",
+         "MBT fits best for people with relationship sensitivity, poor emotion control & borderline traits.",
+         "We need bigger, more varied, longer studies - ideally compared with other real therapies."]
     ch=(H-y-620000-5*140000)//6
     colors=[BLUSH,PEACH,SAGE,POWDER,LAVENDER,MINT]
     sy=y
     for i,(p,c) in enumerate(zip(pts,colors)):
         s.append(roundrect(CX_L, sy, CONTENT_W, ch, c, [
-            multi_run_para([(f"{i+1}.  ",{"bold":True,"color":ACCENT,"sz":1300}),(p,{"sz":1250})], space_after=0)], anchor="ctr"))
+            multi_run_para([(f"{i+1}.  ",{"bold":True,"color":ACCENT,"sz":BODY}),(p,{"sz":BODY})], space_after=0)], anchor="ctr"))
         sy+=ch+140000
     s += footer(39)
     return s
 add(slide_takeaways(),
-    "Deliver the six high-yield messages slowly. Self-harm is recurrent and needs thorough risk assessment. MBT "
-    "targets mentalizing failure under arousal. The verified pooled effects are large and significant across "
-    "self-harm, BPD symptoms and depression. But small, heterogeneous, short-follow-up trials mean the honest "
-    "verdict is 'promising, not definitive.' MBT fits patients with interpersonal sensitivity and BPD features "
-    "best. And the field needs bigger, more diverse, longer trials against active comparators. End on this balanced "
-    "note.")
+    "Deliver these six messages slowly and plainly. Self-harm keeps coming back, so safety assessment is essential. "
+    "MBT targets the 'can't read feelings' breakdown under stress. Combined results show large benefits across "
+    "self-harm, borderline symptoms and depression. But few, small, differing, short studies mean 'promising, not "
+    "yet proven'. MBT fits best for people with relationship sensitivity and borderline traits. And the field needs "
+    "bigger, more varied, longer studies against other real therapies. End balanced.")
 
-# ---------- SLIDE 40 : CRITICAL APPRAISAL SUMMARY ----------
 def slide_appraisal():
-    s, ytop = banner("Critical Appraisal Summary","OVERALL JUDGEMENT (template)")
+    s, ytop = banner("Overall Quality Check", "CRITICAL APPRAISAL (template)")
     y=ytop+120000
-    headers=["Appraisal domain","Judgement"]
+    headers=["Question","Answer"]
     cw=[6800000, CONTENT_W-6800000]
     rows=[
-        ["Clear research question","Yes"],
-        ["Appropriate design (SR & meta-analysis)","Yes"],
-        ["Comprehensive search","Confirm from paper"],
-        ["Appropriate inclusion criteria","Partly / Yes"],
-        ["Risk-of-bias assessment conducted","Confirm from paper"],
-        ["Appropriate statistical analysis (random effects, Hedges' g)","Yes"],
-        ["Heterogeneity addressed","Partly"],
-        ["Clinical relevance","Moderate\u2013High"],
-        ["Applicability / generalisability","Limited"],
-        ["Overall confidence in conclusions","Moderate\u2013Low"],
+        ["Was the question clear?","Yes"],
+        ["Was the study type right (review + meta-analysis)?","Yes"],
+        ["Was the search thorough?","Confirm from paper"],
+        ["Were the entry rules sensible?","Mostly yes"],
+        ["Was study quality checked?","Confirm from paper"],
+        ["Were the right statistics used?","Yes"],
+        ["Was disagreement between studies handled?","Partly"],
+        ["Is it useful for real patients?","Moderate-High"],
+        ["Does it apply widely?","Limited"],
+        ["Overall, how confident can we be?","Moderate-Low"],
     ]
-    s+=table(CX_L, y, cw, 430000, headers, rows, head_fill=ACCENT, zebra=(CREAM, LAVENDER), font=1150, head_font=1250)
+    s+=table(CX_L, y, cw, 430000, headers, rows, head_fill=ACCENT, zebra=(CREAM, LAVENDER), font=1300, head_font=1350)
     s += footer(40)
     return s
 add(slide_appraisal(),
-    "Give a structured verdict, like a CASP checklist. The question and design are appropriate and the statistics "
-    "(random effects, Hedges' g) are suitable. Confirm from the full paper whether the search was comprehensive and "
-    "whether risk of bias was formally assessed. Heterogeneity is only partly addressed. Clinical relevance is "
-    "moderate-to-high, but applicability is limited by the narrow samples, so overall confidence in the conclusions "
-    "is moderate-to-low. Adjust each judgement once you have read the full methods.")
+    "Give a simple structured verdict, like ticking a checklist. Question and study type were right; statistics "
+    "appropriate. Confirm from the full paper whether the search was thorough and study quality formally checked. "
+    "Disagreement between studies was only partly handled. Moderately-to-highly useful for patients, but applies to "
+    "a narrow group, so overall confidence is moderate-to-low. Adjust each answer after reading the full methods.")
 
-# ---------- SLIDE 41 & 42 : REFERENCES ----------
 def slide_refs(part, refs, page):
     body=[]
     for r in refs:
-        body.append(para(r, sz=1150, bullet=False, space_after=280))
-    s, ytop = banner("References" + (" (cont.)" if part==2 else ""), "APA 7th EDITION \u2014 VERIFY BEFORE USE")
+        body.append(para(r, sz=1250, bullet=False, space_after=300))
+    s, ytop = banner("References" + (" (cont.)" if part==2 else ""), "APA 7TH EDITION - VERIFY BEFORE USE")
     s.append(textbox(CX_L, ytop+120000, CONTENT_W, H-ytop-560000, body, anchor="t"))
     s += footer(page)
     return s
 refs1=[
- "Primary paper: (2024). Efficacy of mentalization-based therapy in treating self-harm: A systematic review and meta-analysis. Suicide and Life-Threatening Behavior. https://doi.org/10.1111/sltb.13044  [insert full author list from the paper]",
- "Rossouw, T. I., & Fonagy, P. (2012). Mentalization-based treatment for self-harm in adolescents: A randomized controlled trial. Journal of the American Academy of Child & Adolescent Psychiatry, 51(12), 1304\u20131313.",
- "Bateman, A., & Fonagy, P. (2009). Randomized controlled trial of outpatient mentalization-based treatment versus structured clinical management for borderline personality disorder. American Journal of Psychiatry, 166(12), 1355\u20131364.",
+ "Primary paper: (2024). Efficacy of mentalization-based therapy in treating self-harm: A systematic review and meta-analysis. Suicide and Life-Threatening Behavior. https://doi.org/10.1111/sltb.13044  [insert the full author list from the paper]",
+ "Rossouw, T. I., & Fonagy, P. (2012). Mentalization-based treatment for self-harm in adolescents: A randomized controlled trial. Journal of the American Academy of Child & Adolescent Psychiatry, 51(12), 1304-1313.",
+ "Bateman, A., & Fonagy, P. (2009). Randomized controlled trial of outpatient mentalization-based treatment versus structured clinical management for borderline personality disorder. American Journal of Psychiatry, 166(12), 1355-1364.",
  "Bateman, A., & Fonagy, P. (2016). Mentalization-based treatment for personality disorders: A practical guide. Oxford University Press.",
  "Laurenssen, E. M. P., et al. (2018). Day hospital mentalization-based treatment for adolescents (MBT-A). [confirm citation details].",
 ]
@@ -1355,39 +1256,36 @@ refs2=[
  "National Institute for Health and Care Excellence (NICE). Self-harm: assessment, management and preventing recurrence (NG225).",
  "World Health Organization. (2019). International Classification of Diseases (11th ed.).",
  "American Psychiatric Association. (2022). Diagnostic and statistical manual of mental disorders (5th ed., text rev.).",
- "Note: verify every citation against the paper's reference list before presenting; do not present unverified details as the authors' own.",
+ "Note: check every reference against the paper's own reference list before presenting; do not present unverified details as the authors' own.",
 ]
 add(slide_refs(1, refs1, 41),
-    "Present the key references. Lead with the primary paper (DOI 10.1111/sltb.13044) \u2014 insert the full author list "
-    "from the article. Then the landmark constituent trials (Rossouw & Fonagy 2012; Bateman & Fonagy 2009) and the "
-    "MBT manual. Tell the audience these are cross-checked but a few constituent-trial details are marked 'confirm' "
-    "and must be verified against the paper's reference list before the talk.")
+    "Present the key references. Lead with the primary paper (DOI 10.1111/sltb.13044) and insert its full author "
+    "list. Then the landmark studies (Rossouw & Fonagy 2012; Bateman & Fonagy 2009) and the MBT manual. These are "
+    "cross-checked, but a few details are marked 'confirm' and must be verified against the paper before the talk.")
 add(slide_refs(2, refs2, 42),
-    "Continue with the remaining trials, PRISMA reporting guidance, NICE self-harm guidance, and the diagnostic "
-    "systems (ICD-11, DSM-5-TR). Reiterate the accuracy rule: verify each citation against the paper before "
-    "presenting, and never attribute unverified specifics to the authors.")
+    "Continue with the other studies, the PRISMA guideline, NICE self-harm guidance, and the diagnostic manuals "
+    "(ICD-11, DSM-5-TR). Repeat the accuracy rule: verify each reference against the paper, and never attribute "
+    "unverified specifics to the authors.")
 
-# ---------- SLIDE 43 : QUESTIONS ----------
 def slide_questions():
     s=[]
     s.append(rect(0,0,W,H,ACCENT))
     s.append(oval(-600000,-600000,2400000,2400000,ACCENT2))
     s.append(oval(W-1800000,H-1800000,2400000,2400000,"5A4A8A"))
     s.append(textbox(1200000, 2400000, W-2400000, 1400000, [
-        para("Thank you \u2014 Questions & Discussion", sz=4000, color=WHITE, bold=True, align="ctr", space_after=260),
+        para("Thank You - Questions & Discussion", sz=4000, color=WHITE, bold=True, align="ctr", space_after=260),
         para("Efficacy of Mentalization-Based Therapy in Treating Self-Harm: A Systematic Review & Meta-Analysis",
              sz=1500, color=LAVENDER, italic=True, align="ctr", space_after=0)]))
     s.append(textbox(1200000, 4300000, W-2400000, 600000, [
         para("Sonal  \u2022  M.Phil. Clinical Psychology  \u2022  DOI: 10.1111/sltb.13044", sz=1300, color="D6C7EE", align="ctr", space_after=0)]))
     return s
 add(slide_questions(),
-    "Close and open the floor. Offer two or three prompts to seed discussion: (1) Given the large but uncertain "
-    "effects, would you offer MBT or DBT first for adolescent self-harm with BPD features, and why? (2) How should "
-    "we weigh a large pooled effect from small, heterogeneous trials in clinical decisions? (3) What would convince "
-    "us MBT reduces suicide-specific outcomes, not just self-harm? Thank the audience.")
+    "Close and open the floor with simple prompts: (1) For a teenager who self-harms with borderline traits, would "
+    "you choose MBT or DBT first, and why? (2) How much should a large benefit change practice when it comes from "
+    "small, differing studies? (3) What evidence would convince us MBT reduces suicide itself, not just self-harm? "
+    "Thank the audience.")
 
-print("TOTAL SLIDES:", len(SLIDES))
-
+print("TOTAL CONTENT SLIDES:", len(SLIDES))
 # ============================================================
 # OOXML PACKAGING
 # ============================================================
