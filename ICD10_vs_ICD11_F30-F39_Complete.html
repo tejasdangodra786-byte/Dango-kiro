@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ICD-10 &amp; ICD-11 Comparative Handbook — F30–F39 Mood (Affective) Disorders</title>
+<style>
+:root{
+  --deep:#0a2540;--accent:#0e6655;--icd10:#1a5276;--icd11:#1e8449;
+  --ks:#7d3c98;--other:#b9770e;--bg:#f4f6f9;--card:#ffffff;
+  --ink:#1c2833;--muted:#5d6d7e;--line:#d5dbdb;--soft:#eaf2f8;
+  --warn:#922b21;--uniq:#6c3483;--surface:#fdfefe;--psych:#1f6f8b;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.72;font-size:16px}
+.cover{background:linear-gradient(160deg,#0a2540 0%,#154360 40%,#0e6655 100%);color:#fff;padding:60px 30px 50px;text-align:center}
+.cover .subtitle{text-transform:uppercase;letter-spacing:.3em;font-size:.72rem;opacity:.7;margin-bottom:16px}
+.cover h1{font-size:2.05rem;font-weight:800;line-height:1.22;margin-bottom:12px;max-width:940px;display:inline-block}
+.cover .tagline{font-size:1.05rem;font-weight:400;opacity:.9;max-width:820px;margin:0 auto 22px}
+.cover .chips{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-bottom:18px}
+.cover .chip{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);border-radius:6px;padding:5px 14px;font-size:.82rem}
+.cover .srcline{font-size:.8rem;opacity:.65;max-width:760px;margin:0 auto}
+.wrap{max-width:1160px;margin:0 auto;padding:0 22px}
+.layout{display:flex;gap:28px;align-items:flex-start}
+nav.toc{position:sticky;top:0;max-height:100vh;overflow-y:auto;flex:0 0 272px;padding:20px 12px 60px;font-size:.83rem;border-right:1px solid var(--line);background:var(--surface)}
+nav.toc h4{margin:18px 0 6px;color:var(--accent);text-transform:uppercase;font-size:.68rem;letter-spacing:.08em;font-weight:700}
+nav.toc a{display:block;color:var(--muted);text-decoration:none;padding:4px 10px;border-radius:6px;border-left:3px solid transparent;transition:all .15s}
+nav.toc a:hover{background:var(--soft);color:var(--icd10);border-left-color:var(--icd10)}
+main{flex:1 1 auto;min-width:0;padding:28px 0 100px}
+section{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:28px 30px;margin:0 0 26px;scroll-margin-top:16px;box-shadow:0 1px 3px rgba(10,37,64,.04)}
+h2{font-size:1.45rem;color:var(--deep);border-bottom:3px solid var(--accent);padding-bottom:10px;margin-bottom:14px;font-weight:800}
+h3{font-size:1.1rem;color:var(--accent);margin:26px 0 8px;font-weight:700;padding-left:14px;border-left:4px solid var(--accent)}
+h4{font-size:.98rem;margin:16px 0 6px;font-weight:700;color:var(--deep)}
+p{margin:.55em 0}
+.tag{display:inline-block;font-size:.64rem;font-weight:700;padding:2px 9px;border-radius:4px;color:#fff;vertical-align:middle;letter-spacing:.02em}
+.t10{background:var(--icd10)}.t11{background:var(--icd11)}.tks{background:var(--ks)}.tother{background:var(--other)}
+b.cl{color:var(--deep);font-weight:700}
+i.si{color:var(--uniq);font-style:normal;font-weight:500}
+table{border-collapse:collapse;width:100%;margin:16px 0;font-size:.89rem;border-radius:10px;overflow:hidden;box-shadow:0 0 0 1px var(--line)}
+th,td{border:1px solid var(--line);padding:10px 12px;text-align:left;vertical-align:top}
+th{background:var(--deep);color:#fff;font-weight:600;font-size:.79rem;text-transform:uppercase;letter-spacing:.03em}
+tr:nth-child(even) td{background:#f8fafb}
+.c10{background:#eaf2f8!important}.c11{background:#eafaf1!important}
+.panel10{border-left:5px solid var(--icd10);background:#edf2f8;border-radius:0 10px 10px 0;padding:16px 20px;margin:14px 0}
+.panel11{border-left:5px solid var(--icd11);background:#edfaf1;border-radius:0 10px 10px 0;padding:16px 20px;margin:14px 0}
+.panel10 h4,.panel11 h4{margin:0 0 8px;padding-left:0;border-left:none}
+.note{border-left:5px solid var(--accent);background:var(--soft);padding:14px 18px;border-radius:0 10px 10px 0;margin:14px 0}
+.warn{border-left:5px solid var(--warn);background:#fdedec;padding:14px 18px;border-radius:0 10px 10px 0;margin:14px 0}
+.unique{border:2px solid var(--uniq);background:#f5eef8;border-radius:12px;padding:16px 20px;margin:16px 0}
+.unique h4{color:var(--uniq);margin:0 0 10px;border-left:none;padding-left:0}
+.assoc{border:2px solid var(--warn);background:#fdf0ee;border-radius:12px;padding:16px 20px;margin:16px 0}
+.assoc h4{color:var(--warn);margin:0 0 10px;border-left:none;padding-left:0}
+.psych{border:2px solid var(--psych);background:#eaf4f7;border-radius:12px;padding:16px 20px;margin:16px 0}
+.psych h4{color:var(--psych);margin:0 0 10px;border-left:none;padding-left:0}
+.ddx{border:2px dashed #0b6b5f;background:#e9f6f2;border-radius:10px;padding:12px 16px;margin:12px 0;font-size:.92rem}
+.ddx h5{color:#0b6b5f;margin:0 0 6px;font-size:.9rem;text-transform:uppercase;letter-spacing:.03em}
+.sig{background:var(--deep);color:#fff;padding:14px 20px;border-radius:10px;margin:14px 0;font-size:.96rem}
+.sig b{color:#f9e79f}
+.remember{border:2px dashed #d4ac0d;background:#fef9e7;border-radius:12px;padding:16px 20px;margin:14px 0}
+.remember h4{color:#7d6608;margin:0 0 8px;border-left:none;padding-left:0}
+.idcard{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin:14px 0}
+.idcard div{background:#f2f6fa;border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:.85rem}
+.idcard b{display:block;font-size:.62rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:3px}
+ul.t,ol.t{margin:.5em 0;padding-left:1.3em}
+ul.t li,ol.t li{margin:.3em 0}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.top{text-align:right;font-size:.78rem;margin-top:10px}.top a{color:var(--muted);text-decoration:none}
+footer{background:var(--deep);color:#aeb6bf;padding:30px 22px;font-size:.86rem;text-align:center}
+footer strong{color:#fff}
+@media(max-width:920px){.layout{display:block}nav.toc{position:static;border-right:none;border-bottom:1px solid var(--line);max-height:none;flex:none}.g2{grid-template-columns:1fr}.cover h1{font-size:1.5rem}}
+@media print{nav.toc{display:none}body{background:#fff}section{box-shadow:none;break-inside:avoid}footer{background:#fff;color:#333}}
+</style>
+</head>
+<body>
+<a id="top"></a>
+
+<div class="cover">
+  <p class="subtitle">M.Phil. Clinical Psychology &mdash; Complete Diagnostic, Clinical &amp; Treatment Reference</p>
+  <h1>ICD-10 &amp; ICD-11 Comparative Clinical Handbook<br>F30&ndash;F39: Mood (Affective) Disorders</h1>
+  <p class="tagline">A comprehensive examination reference covering introduction, an extensive etiology (biological, genetic, social, and the major psychological theories), detailed epidemiology, unique identifying symptoms and presentations, comorbidities, diagnostic criteria strictly from ICD-10 and ICD-11, memory aids, and treatment for every mood disorder in this block.</p>
+  <div class="chips">
+    <span class="chip">Criteria strictly from ICD-10 &amp; ICD-11</span>
+    <span class="chip">Extensive etiology + psychological theories</span>
+    <span class="chip">Detailed epidemiology</span>
+    <span class="chip">Unique presentations &amp; comorbidities</span>
+    <span class="chip">Mnemonics for every section</span>
+  </div>
+  <p class="srcline">Primary authorities: WHO ICD-10 Clinical Descriptions &amp; Diagnostic Guidelines and WHO ICD-11 Clinical Descriptions &amp; Diagnostic Requirements. Secondary: Kaplan &amp; Sadock's Synopsis/Comprehensive Textbook of Psychiatry; peer-reviewed literature.</p>
+</div>
+
+<div class="wrap layout">
+<nav class="toc">
+  <h4>Foundations</h4>
+  <a href="#overview">The F30&ndash;F39 block overview</a>
+  <a href="#buildingblocks">Building blocks (episodes)</a>
+  <a href="#compare">ICD-10 vs ICD-11 comparison</a>
+  <a href="#map">Master code map</a>
+  <h4>Causes &amp; distribution</h4>
+  <a href="#etiology">Etiology (incl. psychological theories)</a>
+  <a href="#epidemiology">Epidemiology</a>
+  <h4>Disorders</h4>
+  <a href="#f30">F30 &middot; Manic episode</a>
+  <a href="#f31">F31 &middot; Bipolar affective disorder</a>
+  <a href="#f32">F32 &middot; Depressive episode</a>
+  <a href="#f33">F33 &middot; Recurrent depressive disorder</a>
+  <a href="#f34">F34 &middot; Persistent mood disorders</a>
+  <a href="#f38">F38 &middot; Other mood disorders</a>
+  <a href="#f39">F39 &middot; Unspecified mood disorder</a>
+  <h4>Exam reference</h4>
+  <a href="#ddx">Differential diagnosis tables</a>
+  <a href="#mnemonics">Mnemonics master sheet</a>
+  <a href="#glossary">Terminology glossary</a>
+  <a href="#references">References</a>
+</nav>
+
+<main>
+
+<!-- ═══════════ OVERVIEW ═══════════ -->
+<section id="overview">
+  <h2>The F30&ndash;F39 Block &mdash; Overview</h2>
+  <p>The ICD-10 block <b class="cl">F30&ndash;F39</b> is titled <b>"Mood [affective] disorders"</b>. These are disorders in which the fundamental disturbance is a <b>change in <b class="cl">affect</b> <i class="si">(the outward, moment-to-moment expression of emotion)</i> or <b class="cl">mood</b> <i class="si">(the sustained, prevailing emotional state that colours the whole of mental life)</i></b> &mdash; usually to <b>depression</b> (with or without associated anxiety) or to <b>elation</b>. The mood change is normally accompanied by a change in the overall level of activity, and most of the other symptoms are secondary to, or easily understood in the context of, this change. Most of these disorders tend to be <b>recurrent</b>, and the onset of individual episodes is often related to stressful events or situations. <span class="tag t10">ICD-10</span></p>
+  <p>In ICD-11, the corresponding grouping is <b>"Mood disorders"</b>, divided into <b>bipolar or related disorders (6A60&ndash;6A62)</b> and <b>depressive disorders (6A70&ndash;6A73)</b>. ICD-11 organises mood disorders around defined <b>mood episodes</b> (depressive, manic, mixed, hypomanic) which are the building blocks for the disorder diagnoses. <span class="tag t11">ICD-11</span></p>
+  <div class="note"><b>The core clinical dichotomy of the whole block:</b> is the patient's history <b>unipolar</b> <i class="si">(only depressive episodes ever)</i> or <b>bipolar</b> <i class="si">(at least one manic, hypomanic, or mixed episode at some point)</i>? A single lifetime manic/hypomanic episode moves the diagnosis from the depressive to the bipolar side, which changes both prognosis and treatment.</div>
+</section>
+
+<!-- ═══════════ BUILDING BLOCKS ═══════════ -->
+<section id="buildingblocks">
+  <h2>The Building Blocks &mdash; Mood Episodes</h2>
+  <p>Before the disorders, learn the three episode types and the "somatic syndrome" &mdash; the disorders are then assembled from these.</p>
+
+  <div class="panel10">
+    <h4>Depressive episode &mdash; core and common symptoms <span class="tag t10">ICD-10</span></h4>
+    <p><b>Three typical (core) symptoms:</b> (1) <b>depressed mood</b>; (2) <b>loss of interest and enjoyment</b> (<b class="cl">anhedonia</b> &mdash; <i class="si">inability to feel pleasure</i>); (3) <b>reduced energy</b> leading to increased fatiguability and diminished activity.</p>
+    <p><b>Other common symptoms:</b> (a) reduced concentration and attention; (b) reduced self-esteem and self-confidence; (c) ideas of guilt and unworthiness; (d) bleak and pessimistic views of the future; (e) ideas or acts of self-harm or suicide; (f) disturbed sleep; (g) diminished appetite.</p>
+    <p>The lowered mood varies little from day to day, is often unresponsive to circumstances, and may show characteristic <b class="cl">diurnal variation</b> <i class="si">(a regular daily pattern &mdash; classically worse in the morning)</i>.</p>
+  </div>
+
+  <div class="panel10">
+    <h4>Manic / hypomanic episode &mdash; core symptoms <span class="tag t10">ICD-10</span></h4>
+    <p><b>Mania:</b> elevated, expansive, or irritable mood, out of keeping with circumstances, with increased energy and overactivity, pressure of speech, decreased need for sleep, grandiosity, distractibility, reckless behaviour, and loss of normal social inhibitions. In severe mania, <b>psychotic symptoms</b> (grandiose or persecutory delusions) may occur.</p>
+    <p><b class="cl">Hypomania</b> <i class="si">(a lesser degree of mania &mdash; persistent mild elevation of mood, energy and activity, without psychotic features and without severe disruption of work or social life)</i> is a milder form.</p>
+  </div>
+
+  <div class="panel10">
+    <h4>The "somatic syndrome" (ICD-10) &mdash; the biological/melancholic features <span class="tag t10">ICD-10</span></h4>
+    <p>A cluster used to specify depressive episodes as "with somatic syndrome": marked loss of interest/pleasure; lack of emotional reactivity to normally pleasurable surroundings; waking two or more hours early (<b class="cl">early-morning wakening</b>); depression worse in the morning; objective psychomotor retardation or agitation; marked loss of appetite; weight loss (5% or more in a month); and marked loss of libido. <b>Four or more</b> of these define the somatic syndrome. <i class="si">(These correspond broadly to what ICD-11 and clinicians call the "melancholic" pattern.)</i></p>
+  </div>
+  <div class="remember">
+    <h4>Mnemonic for depressive symptoms &mdash; "SIG E CAPS + core mood"</h4>
+    <p><b>S</b>leep disturbance &middot; <b>I</b>nterest lost (anhedonia) &middot; <b>G</b>uilt/worthlessness &middot; <b>E</b>nergy reduced &middot; <b>C</b>oncentration reduced &middot; <b>A</b>ppetite/weight change &middot; <b>P</b>sychomotor change &middot; <b>S</b>uicidal ideas &mdash; on a background of <b>depressed mood</b>. For mania &mdash; <b>"DIG FAST":</b> <b>D</b>istractibility, <b>I</b>rresponsibility/disinhibition, <b>G</b>randiosity, <b>F</b>light of ideas, <b>A</b>ctivity/energy up, <b>S</b>leep need reduced, <b>T</b>alkativeness (pressured speech).</p>
+  </div>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+<!-- ═══════════ COMPARE ═══════════ -->
+<section id="compare">
+  <h2>ICD-10 vs ICD-11 &mdash; General Comparison for this Block</h2>
+  <table>
+    <tr><th>Dimension</th><th class="c10">ICD-10</th><th class="c11">ICD-11</th></tr>
+    <tr><td>Block title</td><td class="c10">Mood [affective] disorders (F30&ndash;F39)</td><td class="c11">Mood disorders: bipolar or related disorders (6A60&ndash;6A62) and depressive disorders (6A70&ndash;6A73)</td></tr>
+    <tr><td>Organising principle</td><td class="c10">Episodes and disorders coded together (e.g. F32 depressive episode, F33 recurrent)</td><td class="c11">Mood <b>episodes</b> (depressive, manic, mixed, hypomanic) are defined first and used as building blocks for disorders</td></tr>
+    <tr><td>Bipolar subtypes</td><td class="c10">Single category "bipolar affective disorder" (F31) &mdash; no formal I / II split</td><td class="c11">Explicit <b>Bipolar type I</b> (6A60) and <b>Bipolar type II</b> (6A61) distinction</td></tr>
+    <tr><td>Mixed states</td><td class="c10">Mixed episode as a category (F31.6 / F38.00)</td><td class="c11">"With mixed features" is handled within episodes</td></tr>
+    <tr><td>Depression severity</td><td class="c10">Mild / moderate / severe, with / without somatic syndrome, with / without psychotic symptoms</td><td class="c11">Mild / moderate / severe, with / without psychotic symptoms, plus a "with melancholia" and "with prominent anxiety" specifier</td></tr>
+    <tr><td>Mixed depressive and anxiety</td><td class="c10">Placed in the neurotic block (F41.2)</td><td class="c11">Included among depressive disorders as <b>6A73 mixed depressive and anxiety disorder</b></td></tr>
+    <tr><td>Duration for depressive episode</td><td class="c10">At least 2 weeks</td><td class="c11">At least 2 weeks (most days, most of the day)</td></tr>
+  </table>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+<!-- ═══════════ MAP ═══════════ -->
+<section id="map">
+  <h2>Master Code Map &mdash; F30&ndash;F39 to ICD-11</h2>
+  <table>
+    <tr><th>ICD-10</th><th>Disorder</th><th>ICD-11</th><th>Note</th></tr>
+    <tr><td>F30 (.0&ndash;.9)</td><td>Manic episode (hypomania, mania &plusmn; psychosis)</td><td>Within 6A60 (as a manic episode)</td><td>ICD-11 treats mania as an episode; a single manic episode = bipolar type I</td></tr>
+    <tr><td>F31 (.0&ndash;.9)</td><td>Bipolar affective disorder</td><td>6A60 Bipolar type I; 6A61 Bipolar type II</td><td>ICD-11 splits into type I and type II</td></tr>
+    <tr><td>F32 (.0&ndash;.9)</td><td>Depressive episode</td><td>6A70 Single episode depressive disorder</td><td>Directly corresponds</td></tr>
+    <tr><td>F33 (.0&ndash;.9)</td><td>Recurrent depressive disorder</td><td>6A71 Recurrent depressive disorder</td><td>Directly corresponds</td></tr>
+    <tr><td>F34.0</td><td>Cyclothymia</td><td>6A62 Cyclothymic disorder</td><td>Directly corresponds</td></tr>
+    <tr><td>F34.1</td><td>Dysthymia</td><td>6A72 Dysthymic disorder</td><td>Directly corresponds</td></tr>
+    <tr><td>(F41.2 in ICD-10)</td><td>Mixed anxiety and depressive disorder</td><td>6A73 Mixed depressive and anxiety disorder</td><td>Moved into depressive disorders in ICD-11</td></tr>
+    <tr><td>F38</td><td>Other mood disorders</td><td>6A6Y / 6A7Y</td><td>Other specified categories</td></tr>
+    <tr><td>F39</td><td>Unspecified mood disorder</td><td>6A6Z / 6A7Z</td><td>Unspecified categories</td></tr>
+  </table>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+<!-- ═══════════════════════ ETIOLOGY ═══════════════════════ -->
+<section id="etiology">
+  <h2>Etiology of Mood Disorders (Comprehensive)</h2>
+  <p>Mood disorders are best understood through a <b class="cl">biopsychosocial model</b> <i class="si">(the view that biological, psychological, and social factors interact to cause the disorder)</i>, often expressed as a <b class="cl">diathesis&ndash;stress model</b> <i class="si">(an inherited or acquired vulnerability, the "diathesis", is activated by life stress to produce the illness)</i>. The biological factors are covered first, then the psychological theories (which are especially important for depression and for psychological treatment). <span class="tag tks">Kaplan &amp; Sadock</span></p>
+
+  <h3>A. Biological factors</h3>
+  <table>
+    <tr><th>Factor</th><th>Detail</th></tr>
+    <tr><td><b>Genetic</b></td><td>Mood disorders run strongly in families. Heritability is <b>higher for bipolar disorder (around 60&ndash;85%)</b> than for unipolar depression (around 35&ndash;40%). First-degree relatives have markedly increased risk; twin studies show much higher concordance in identical than in non-identical twins. Inheritance is <b>polygenic</b> <i class="si">(many genes each of small effect)</i>.</td></tr>
+    <tr><td><b>Monoamine hypothesis</b> <i class="si">(the classic biochemical theory of depression)</i></td><td>Depression is associated with a functional <b>deficiency of monoamine neurotransmitters</b> &mdash; <b class="cl">serotonin (5-HT)</b>, <b class="cl">noradrenaline</b>, and <b class="cl">dopamine</b> &mdash; at key brain synapses; mania is associated with a relative excess of catecholamine activity. This underpins the action of most antidepressants (which raise monoamine availability).</td></tr>
+    <tr><td><b>Neuroendocrine</b></td><td>Overactivity of the <b class="cl">hypothalamic&ndash;pituitary&ndash;adrenal (HPA) axis</b> <i class="si">(the body's stress-hormone system)</i> with raised <b>cortisol</b> and non-suppression on the dexamethasone suppression test; thyroid dysfunction can mimic or precipitate mood episodes.</td></tr>
+    <tr><td><b>Neuroplasticity / neurotrophic</b></td><td>Reduced <b class="cl">brain-derived neurotrophic factor (BDNF)</b> <i class="si">(a protein that supports the growth and survival of neurons)</i> and reduced hippocampal volume with chronic stress; antidepressants may act partly by restoring neuroplasticity.</td></tr>
+    <tr><td><b>Circadian &amp; sleep</b></td><td>Disrupted sleep architecture (reduced REM latency) and circadian rhythm disturbance; seasonal patterns in some depressions.</td></tr>
+  </table>
+
+  <h3>B. Psychological theories (highly relevant &mdash; especially for depression)</h3>
+  <div class="psych">
+    <h4>1. Beck's cognitive theory</h4>
+    <p>Aaron Beck proposed that depression is maintained by systematic <b>negative thinking</b>. Its components: <b class="cl">the cognitive triad</b> <i class="si">(persistent negative views of the self, the world, and the future &mdash; "I am worthless, the world is harsh, the future is hopeless")</i>; <b class="cl">negative schemas</b> <i class="si">(deep-seated, dysfunctional core beliefs, often laid down in childhood, that shape how information is interpreted)</i>; and <b class="cl">cognitive distortions / errors</b> <i class="si">(systematic biases in thinking, such as overgeneralisation, catastrophising, selective abstraction, and all-or-nothing thinking)</i>. This theory is the direct basis of <b>cognitive behavioural therapy (CBT)</b>.</p>
+  </div>
+  <div class="psych">
+    <h4>2. Learned helplessness and the reformulated hopelessness theory</h4>
+    <p><b class="cl">Learned helplessness</b> <i class="si">(Seligman's theory that after repeated exposure to uncontrollable aversive events, a person learns that their actions have no effect and gives up trying)</i> models depression as a state of perceived uncontrollability. The <b>reformulated (attributional) model</b> adds that vulnerability depends on the person's <b class="cl">explanatory style</b> <i class="si">(the habitual way of explaining bad events)</i> &mdash; a depressive style attributes negative events to <b>internal, stable, and global</b> causes ("it's my fault, it always happens, it affects everything"). The later <b class="cl">hopelessness theory</b> <i class="si">(Abramson, Metalsky &amp; Alloy)</i> holds that the expectation that desired outcomes will not occur, and that nothing can change this, is a proximal cause of a "hopelessness depression".</p>
+  </div>
+  <div class="psych">
+    <h4>3. Psychodynamic theories</h4>
+    <p>Freud (in <i>Mourning and Melancholia</i>) and Karl Abraham viewed depression as arising from <b>real or symbolic loss</b>, with anger toward the lost object being <b class="cl">turned inward against the self</b> <i class="si">(anger that cannot be expressed toward the lost person is redirected onto oneself, producing self-reproach and guilt)</i>. Later analysts emphasised low <b>self-esteem</b> and the failure to live up to a harsh ideal (the gap between the actual and the idealised self).</p>
+  </div>
+  <div class="psych">
+    <h4>4. Behavioural theory</h4>
+    <p>Lewinsohn proposed that depression results from a <b>loss of, or reduction in, positive reinforcement</b> <i class="si">(a fall in the rewarding, pleasurable experiences a person receives from their environment)</i>. Reduced activity leads to fewer rewards, which lowers mood and activity further &mdash; a vicious cycle. This is the rationale for <b class="cl">behavioural activation</b> <i class="si">(a therapy that systematically increases engagement in rewarding activities)</i>.</p>
+  </div>
+  <div class="psych">
+    <h4>5. Interpersonal theory</h4>
+    <p>Depression is understood in the context of <b>disturbed relationships and social roles</b> &mdash; grief, interpersonal disputes, role transitions, and interpersonal deficits. This is the basis of <b class="cl">interpersonal psychotherapy (IPT)</b> <i class="si">(a structured therapy that treats depression by addressing current relationship problems)</i>.</p>
+  </div>
+  <div class="psych">
+    <h4>6. Other relevant psychological concepts</h4>
+    <ul class="t">
+      <li><b class="cl">Rumination</b> <i class="si">(Nolen-Hoeksema: the tendency to dwell repetitively on distress and its causes, which prolongs and deepens depression)</i>.</li>
+      <li><b>Personality vulnerability:</b> traits of high <b>neuroticism</b>, dependency, and self-criticism increase risk.</li>
+      <li><b>Bipolar-specific:</b> the <b class="cl">behavioural activation system (BAS) dysregulation model</b> <i class="si">(the theory that an over-sensitive reward/goal-pursuit system drives manic responses to goal-attainment events)</i>.</li>
+    </ul>
+  </div>
+
+  <h3>C. Social factors</h3>
+  <ul class="t">
+    <li><b>Life events:</b> especially <b>loss events</b> (bereavement, separation, redundancy) commonly precede depression; goal-attainment and disruptive events can precede mania.</li>
+    <li><b>Brown and Harris's vulnerability model:</b> in a classic study, <b>vulnerability factors</b> (loss of mother in childhood, lack of a confiding relationship, three or more children under 15 at home, unemployment) increased the risk that a <b>provoking agent</b> (a severe life event) would trigger depression.</li>
+    <li>Chronic difficulties, poverty, social isolation, childhood adversity and abuse, and lack of social support.</li>
+  </ul>
+  <div class="remember">
+    <h4>Mnemonic for psychological theories of depression &mdash; "Big CLouds Bring Icy Rain"</h4>
+    <p><b>B</b>eck's cognitive triad &middot; <b>CL</b> = <b>C</b>ognitive/<b>L</b>earned helplessness (&amp; hopelessness) &middot; <b>B</b>ehavioural (loss of reinforcement) &middot; <b>I</b>nterpersonal &middot; <b>R</b> = psychodynamic (anger tuRned inward) &amp; Rumination.</p>
+  </div>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+<!-- ═══════════════════════ EPIDEMIOLOGY ═══════════════════════ -->
+<section id="epidemiology">
+  <h2>Epidemiology of Mood Disorders (Comprehensive)</h2>
+  <h3>Depressive disorders</h3>
+  <table>
+    <tr><th>Measure</th><th>Detail</th></tr>
+    <tr><td><b>Lifetime prevalence</b></td><td>Major depression is common: lifetime prevalence is commonly cited around <b>10&ndash;20%</b>, and it is a leading global cause of disability. <span class="tag tother">Other evidence</span></td></tr>
+    <tr><td><b>Point prevalence</b></td><td>Around 4&ndash;7% at any given time in community samples.</td></tr>
+    <tr><td><b>Sex ratio</b></td><td>Depression is about <b>twice as common in women</b> as in men (roughly 2:1), a finding consistent across most cultures. <span class="tag tks">Kaplan &amp; Sadock</span></td></tr>
+    <tr><td><b>Age of onset</b></td><td>Mean onset in the mid-20s to 30s, but it can occur at any age, including childhood and old age.</td></tr>
+    <tr><td><b>Course</b></td><td>Highly <b>recurrent</b>: after one episode, the risk of a further episode is high and rises with each subsequent episode; a substantial minority follow a chronic course.</td></tr>
+    <tr><td><b>Risk factors</b></td><td>Female sex, family history, prior episodes, chronic illness, adverse life events, low social support, postpartum period, and substance use.</td></tr>
+  </table>
+
+  <h3>Bipolar disorder</h3>
+  <table>
+    <tr><th>Measure</th><th>Detail</th></tr>
+    <tr><td><b>Lifetime prevalence</b></td><td>Bipolar I disorder affects roughly <b>1%</b> of the population; the broader bipolar spectrum (including bipolar II and subthreshold forms) is higher (around 2&ndash;4%). <span class="tag tks">Kaplan &amp; Sadock</span></td></tr>
+    <tr><td><b>Sex ratio</b></td><td>Bipolar I is <b>roughly equal in men and women</b> (unlike unipolar depression); rapid-cycling and bipolar II are somewhat more common in women.</td></tr>
+    <tr><td><b>Age of onset</b></td><td>Earlier than unipolar depression &mdash; typically <b>late teens to mid-20s</b>; onset of mania after age 40 should prompt a search for an organic/secondary cause.</td></tr>
+    <tr><td><b>Course</b></td><td>Recurrent and lifelong; depressive episodes usually dominate the long-term course of bipolar II.</td></tr>
+    <tr><td><b>Genetics</b></td><td>Among the most heritable of psychiatric disorders (heritability around 60&ndash;85%).</td></tr>
+  </table>
+
+  <h3>Suicide risk (whole block)</h3>
+  <p>Mood disorders carry the highest suicide risk of the common psychiatric disorders; a large proportion of people who die by suicide had a mood disorder. Risk is elevated in severe depression, in the mixed and depressive phases of bipolar disorder, early in treatment, and where there is comorbid substance use or hopelessness. <span class="tag tother">Other evidence</span></p>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+<!-- ═══════════════════════ F30 MANIC EPISODE ═══════════════════════ -->
+<section id="f30">
+  <h2>F30 &middot; Manic Episode &rarr; ICD-11 (manic episode within Bipolar type I, 6A60)</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> Mood (affective) disorders (F30&ndash;F39) &mdash; disorders whose fundamental disturbance is a change in mood/affect (to depression or elation), with a change in overall activity. See the block overview and building-blocks (mood episodes) above.</p>
+  <div class="idcard">
+    <div><b>ICD-10</b> F30 (.0 hypomania, .1 mania without psychotic symptoms, .2 mania with psychotic symptoms, .8/.9)</div>
+    <div><b>ICD-11</b> A manic episode; a single manic episode qualifies for Bipolar type I disorder (6A60)</div>
+    <div><b>Core</b> Pathologically elevated or irritable mood + increased energy/activity</div>
+    <div><b>Key point</b> A single manic episode is enough to diagnose bipolar disorder</div>
+  </div>
+
+  <h3>1. Introduction</h3>
+  <p>A manic episode is a distinct period of abnormally and persistently <b>elevated, expansive, or irritable mood</b> with a corresponding increase in energy and goal-directed activity. It ranges in severity from <b class="cl">hypomania</b> <i class="si">(a milder elevation without psychosis and without marked functional impairment)</i> through mania without psychosis to mania with psychotic symptoms. <span class="tag t10">ICD-10</span></p>
+
+  <h3>2. Etiology</h3>
+  <p>As per the shared etiology section &mdash; strongly genetic/biological (catecholamine excess; reward-system/BAS dysregulation), with episodes often triggered by goal-attainment events, sleep loss, or antidepressant treatment. <span class="tag tks">Kaplan &amp; Sadock</span></p>
+
+  <h3>3. Epidemiology</h3>
+  <p>See the bipolar epidemiology above &mdash; onset typically late teens to mid-20s; equal sex ratio; new-onset mania after 40 warrants exclusion of a secondary (organic/substance) cause.</p>
+
+  <h3>4. Clinical features &mdash; identifying symptoms and presentations</h3>
+  <div class="unique">
+    <h4>Unique identifying features of mania</h4>
+    <ul class="t">
+      <li><b>Decreased need for sleep</b> <i class="si">(feeling rested after only a few hours &mdash; different from insomnia, where the person wants to sleep but cannot)</i> &mdash; a highly characteristic early sign.</li>
+      <li><b class="cl">Pressure of speech</b> <i class="si">(rapid, loud, hard-to-interrupt speech)</i> and <b class="cl">flight of ideas</b> <i class="si">(thoughts and speech leaping rapidly from topic to topic on loose connections)</i>.</li>
+      <li><b class="cl">Grandiosity</b> <i class="si">(inflated self-esteem &mdash; from over-confidence to grandiose delusions of special powers or identity)</i>.</li>
+      <li><b>Increased goal-directed activity, disinhibition, and reckless behaviour</b> (over-spending, sexual indiscretion, risky driving, rash business ventures).</li>
+      <li><b>Distractibility</b>; irritability when thwarted.</li>
+      <li>In severe mania: <b>mood-congruent psychotic symptoms</b> (grandiose or persecutory delusions), and, at the extreme, <b class="cl">manic stupor</b>.</li>
+      <li>Insight is characteristically <b>lost</b>, so the person rarely presents voluntarily.</li>
+    </ul>
+  </div>
+  <div class="assoc">
+    <h4>Comorbidities and complications</h4>
+    <ul class="t">
+      <li><b>Substance use disorders</b> (very high comorbidity &mdash; especially alcohol and stimulants).</li>
+      <li><b>Anxiety disorders</b> and <b>ADHD</b> (particularly in early-onset bipolar).</li>
+      <li>Consequences of disinhibition: financial ruin, legal problems, relationship breakdown, sexually transmitted infections.</li>
+      <li>Physical: exhaustion and dehydration in severe mania; metabolic and cardiovascular risk over the course of the illness.</li>
+    </ul>
+  </div>
+
+  <h3>5. Diagnostic criteria (ICD-10 and ICD-11)</h3>
+  <div class="panel10">
+    <h4><span class="tag t10">ICD-10</span></h4>
+    <p><b>F30.0 Hypomania:</b> persistent mild elevation of mood, increased energy and activity, and usually marked feelings of well-being and physical/mental efficiency, for at least several days; without hallucinations or delusions and without severe disruption of work or social rejection.</p>
+    <p><b>F30.1 Mania without psychotic symptoms:</b> mood elevated out of keeping with circumstances; increased energy, overactivity, pressure of speech, decreased need for sleep, grandiosity, and reckless behaviour; the episode should last at least <b>one week</b> and be severe enough to disrupt work and social activity.</p>
+    <p><b>F30.2 Mania with psychotic symptoms:</b> as above, with delusions (usually grandiose) or hallucinations, or with such severe excitement/flight of ideas that the person is incomprehensible or inaccessible.</p>
+  </div>
+  <div class="panel11">
+    <h4><span class="tag t11">ICD-11</span> Manic episode</h4>
+    <p>An extreme mood state lasting <b>at least one week</b> (unless shortened by treatment) characterised by <b>euphoria, irritability, or expansiveness</b>, and <b>increased activity or a subjective experience of increased energy</b>, accompanied by several of: rapid/pressured speech; flight of ideas; increased self-esteem/grandiosity; decreased need for sleep; distractibility; impulsive/reckless behaviour; and increased sexual drive or sociability. A single manic (or mixed) episode is sufficient to diagnose <b>Bipolar type I disorder (6A60)</b>. Hypomanic episodes are less severe, last <b>at least several days</b>, and lack psychotic features and marked impairment.</p>
+  </div>
+  <div class="assoc" style="border-color:#1a5276;background:#eef3f8">
+    <h4 style="color:#1a5276">Detailed subtypes of F30 with their diagnostic thresholds</h4>
+    <ul class="t">
+      <li><b>F30.0 Hypomania:</b> mild, sustained (<b>at least several days</b>) elevation of mood, energy, and activity, with increased sociability, talkativeness, over-familiarity, increased sexual energy, and reduced need for sleep &mdash; but <b>not</b> to the degree that it severely disrupts work/social functioning, and <b>without</b> hallucinations or delusions.</li>
+      <li><b>F30.1 Mania without psychotic symptoms:</b> mood elevated/irritable and out of keeping with circumstances, lasting <b>at least 1 week</b>, with grandiosity, pressure of speech, flight of ideas, decreased sleep, distractibility, and reckless/disinhibited behaviour, severe enough to <b>disrupt ordinary work and social activities</b> &mdash; but no psychotic features.</li>
+      <li><b>F30.2 Mania with psychotic symptoms:</b> as F30.1 <b>plus</b> delusions (usually grandiose; may be persecutory) or hallucinations, or flight of ideas/excitement so severe the person is incomprehensible. Specify <b>mood-congruent</b> or <b>mood-incongruent</b> psychotic symptoms.</li>
+      <li><b>F30.8 other manic episodes; F30.9 manic episode, unspecified.</b></li>
+    </ul>
+  </div>
+
+  <h3>6. Easy way to remember</h3>
+  <div class="remember"><h4>Mnemonic &mdash; "DIG FAST"</h4><p><b>D</b>istractibility &middot; <b>I</b>rresponsibility / disinhibition &middot; <b>G</b>randiosity &middot; <b>F</b>light of ideas &middot; <b>A</b>ctivity/energy increased &middot; <b>S</b>leep need decreased &middot; <b>T</b>alkativeness (pressured speech). Mania &ge; 1 week; hypomania = milder, several days, no psychosis.</p></div>
+
+  <h3>7. Treatment</h3>
+  <ul class="t">
+    <li><b>Pharmacological (acute mania):</b> <b>mood stabilisers</b> (lithium, valproate) and/or <b>antipsychotics</b> (e.g. olanzapine, risperidone, quetiapine, aripiprazole); benzodiazepines for sedation; <b>stop any antidepressant</b>. <b class="cl">Lithium</b> <i class="si">(a mood-stabilising drug requiring regular blood-level monitoring because of a narrow safety margin)</i> also reduces suicide risk. ECT for severe/treatment-resistant mania. <span class="tag tks">Kaplan &amp; Sadock</span></li>
+    <li><b>Psychological:</b> psychoeducation (recognising early warning signs, sleep and routine regulation), family involvement, and adherence support.</li>
+  </ul>
+  <div class="ddx">
+    <h5>Differential diagnosis (F30 Manic episode)</h5>
+    <ul class="t">
+      <li><b>Bipolar affective disorder</b> &mdash; if there is a history of other mood episodes (a manic episode within a bipolar course is coded under F31).</li>
+      <li><b>Schizophrenia / schizoaffective disorder</b> &mdash; if psychotic symptoms are prominent and not confined to the mood disturbance; mania has mood-congruent grandiose delusions.</li>
+      <li><b>Secondary (organic) mania</b> &mdash; steroids, hyperthyroidism, frontal lesions, stimulant intoxication; suspect especially with first onset after 40.</li>
+      <li><b>ADHD / agitated states</b> &mdash; distinguish sustained elevated mood from chronic restlessness.</li>
+      <li><b>Cyclothymia</b> &mdash; chronic, sub-threshold mood elevation not reaching a manic episode.</li>
+    </ul>
+  </div>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+<!-- ═══════════════════════ F31 BIPOLAR ═══════════════════════ -->
+<section id="f31">
+  <h2>F31 &middot; Bipolar Affective Disorder &rarr; ICD-11 6A60 / 6A61</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> Mood (affective) disorders (F30&ndash;F39) &mdash; a "bipolar" course, defined by at least one manic/hypomanic/mixed episode (usually with depressive episodes too). See the block overview and building-blocks above.</p>
+  <div class="idcard">
+    <div><b>ICD-10</b> F31 (.0&ndash;.9: coded by current episode type and severity)</div>
+    <div><b>ICD-11</b> 6A60 Bipolar type I; 6A61 Bipolar type II</div>
+    <div><b>Core</b> Repeated episodes of disturbed mood &mdash; at least one being manic/hypomanic/mixed</div>
+    <div><b>Key change</b> ICD-11 formally distinguishes type I and type II</div>
+  </div>
+
+  <h3>1. Introduction</h3>
+  <p>A disorder of <b>repeated (at least two) episodes</b> in which mood and activity levels are significantly disturbed, with the disturbance being on some occasions an elevation (mania/hypomania) and on others a lowering (depression). Recovery between episodes is usually complete. <span class="tag t10">ICD-10</span></p>
+
+  <h3>2&ndash;3. Etiology and epidemiology</h3>
+  <p>Among the most heritable psychiatric disorders (see above); onset typically late teens&ndash;20s; equal sex ratio for type I.</p>
+
+  <h3>4. Clinical features, presentations, and comorbidities</h3>
+  <div class="unique">
+    <h4>Unique identifying features and the type I / type II distinction</h4>
+    <ul class="t">
+      <li><b>Bipolar type I (6A60):</b> at least one <b>full manic (or mixed) episode</b> (usually with depressive episodes too). One manic episode is sufficient.</li>
+      <li><b>Bipolar type II (6A61):</b> at least one <b>hypomanic</b> and at least one <b>depressive</b> episode, but <b>no full manic episode</b> &mdash; often misdiagnosed as unipolar depression because patients present in the depressed phase and do not recognise hypomania as abnormal.</li>
+      <li><b class="cl">Rapid cycling</b> <i class="si">(four or more mood episodes in a year)</i> &mdash; carries a poorer prognosis.</li>
+      <li><b>Mixed episode/features</b> &mdash; manic and depressive symptoms co-occurring (e.g. racing thoughts with despair) &mdash; a high-risk state for suicide.</li>
+      <li>Depressive episodes usually dominate the long-term course, especially in type II.</li>
+    </ul>
+  </div>
+  <div class="unique">
+    <h4>Unique and important additional features of bipolar disorder (high-yield)</h4>
+    <ul class="t">
+      <li><b class="cl">A single manic (or mixed) episode is sufficient</b> to diagnose bipolar I &mdash; a lifetime manic episode reclassifies a "depressive" illness as bipolar and changes treatment.</li>
+      <li><b class="cl">Decreased need for sleep</b> (feeling rested after little sleep) is a highly characteristic early marker of an emerging manic episode.</li>
+      <li><b class="cl">Psychotic features</b> may occur in severe mania or bipolar depression &mdash; typically <b>mood-congruent</b> (grandiose delusions in mania; guilt/poverty/nihilistic delusions in depression), which helps distinguish it from schizophrenia.</li>
+      <li><b class="cl">Rapid cycling</b> (four or more episodes in a year) and <b>mixed features</b> (manic and depressive symptoms together) carry higher suicide risk and poorer response.</li>
+      <li><b class="cl">Antidepressant-induced switching</b> &mdash; antidepressant monotherapy can precipitate mania or rapid cycling, so a mood stabiliser is used alongside.</li>
+      <li><b class="cl">Bipolar II is frequently misdiagnosed as unipolar depression</b> because patients present when depressed and do not recognise hypomania as abnormal &mdash; always screen for past highs.</li>
+      <li><b class="cl">Onset is earlier</b> than unipolar depression (teens&ndash;20s); new-onset mania after 40 should prompt a search for an organic/secondary cause.</li>
+    </ul>
+  </div>
+  <div class="assoc">
+    <h4>Comorbidities and complications</h4>
+    <ul class="t">
+      <li><b>Substance use disorders</b> and <b>anxiety disorders</b> (both very common).</li>
+      <li><b>ADHD</b> and personality disorders.</li>
+      <li>Elevated cardiovascular and metabolic disease; high <b>suicide risk</b> (especially mixed/depressive phases).</li>
+      <li>Antidepressant monotherapy can precipitate a switch into mania or rapid cycling.</li>
+    </ul>
+  </div>
+
+  <h3>5. Diagnostic criteria (ICD-10 and ICD-11)</h3>
+  <div class="panel10"><h4><span class="tag t10">ICD-10</span></h4><p>Requires <b>at least two episodes</b> in which mood and activity are significantly disturbed, at least one of which must be <b>manic or hypomanic</b>. The current episode is specified by the fourth character (F31.0 hypomanic; F31.1/.2 manic &plusmn; psychosis; F31.3&ndash;.5 depressive of varying severity &plusmn; psychosis; F31.6 mixed; F31.7 in remission).</p></div>
+  <div class="assoc" style="border-color:#1a5276;background:#eef3f8">
+    <h4 style="color:#1a5276">Detailed ICD-10 subtypes of F31 (coded by the current episode)</h4>
+    <p>The general requirement (two or more mood episodes, at least one manic/hypomanic) must be met; the fourth/fifth character then describes the <b>current</b> episode:</p>
+    <ul class="t">
+      <li><b>F31.0 &mdash; current episode hypomanic:</b> present episode meets criteria for hypomania (F30.0), with a past manic/hypomanic or depressive episode.</li>
+      <li><b>F31.1 &mdash; current episode manic without psychotic symptoms:</b> present episode meets F30.1.</li>
+      <li><b>F31.2 &mdash; current episode manic with psychotic symptoms:</b> present episode meets F30.2 (delusions/hallucinations).</li>
+      <li><b>F31.3 &mdash; current episode mild or moderate depression</b> (.30 without / .31 with somatic syndrome): present episode meets F32.0/F32.1.</li>
+      <li><b>F31.4 &mdash; current episode severe depression without psychotic symptoms:</b> present episode meets F32.2.</li>
+      <li><b>F31.5 &mdash; current episode severe depression with psychotic symptoms:</b> present episode meets F32.3.</li>
+      <li><b>F31.6 &mdash; current episode mixed:</b> a mixture, or rapid alternation (within a few hours), of manic and depressive symptoms, present for at least 2 weeks.</li>
+      <li><b>F31.7 &mdash; currently in remission:</b> past history of at least one manic/hypomanic and one other mood episode, but currently no significant mood disturbance.</li>
+      <li><b>F31.8 other (e.g. bipolar II, recurrent manic episodes); F31.9 unspecified.</b> <span class="mean" style="color:#5d6d7e"><i>(ICD-11 formalises the type I / type II split: 6A60 requires a manic/mixed episode; 6A61 requires hypomania + depression with no full mania.)</i></span></li>
+    </ul>
+  </div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11</span></h4><p><b>6A60 Bipolar type I:</b> at least one manic or mixed episode (a single such episode is sufficient). <b>6A61 Bipolar type II:</b> at least one hypomanic episode and at least one depressive episode, with no history of a manic or mixed episode. The current episode and its severity are specified.</p></div>
+
+  <h3>6. Easy way to remember</h3>
+  <div class="remember"><h4>Mnemonics</h4><p><b>Type I = "one full mania is enough"</b> (I = mania). <b>Type II = "hypomania + depression, never full mania"</b> (II = two milder poles). Rapid cycling = <b>4+ episodes in a year</b>.</p></div>
+
+  <h3>7. Treatment</h3>
+  <ul class="t">
+    <li><b>Pharmacological:</b> <b>mood stabilisers</b> (lithium &mdash; first-line for long-term prophylaxis and suicide-risk reduction; valproate, lamotrigine &mdash; especially for bipolar depression), and <b>atypical antipsychotics</b>. Manage bipolar depression carefully &mdash; antidepressants are used cautiously and usually with a mood stabiliser to avoid manic switch. <span class="tag tks">Kaplan &amp; Sadock</span></li>
+    <li><b>Psychological:</b> psychoeducation, <b>CBT</b>, family-focused therapy, <b class="cl">interpersonal and social rhythm therapy</b> <i class="si">(a therapy that stabilises daily routines and sleep&ndash;wake cycles to prevent episodes)</i>, and relapse-prevention/early-warning-sign planning.</li>
+  </ul>
+  <div class="ddx">
+    <h5>Differential diagnosis (F31 Bipolar affective disorder)</h5>
+    <ul class="t">
+      <li><b>Recurrent depressive disorder (unipolar)</b> &mdash; no history of any manic/hypomanic episode; always screen depressed patients for past highs (bipolar II is easily missed).</li>
+      <li><b>Schizoaffective disorder / schizophrenia</b> &mdash; prominent, mood-incongruent psychosis persisting outside mood episodes.</li>
+      <li><b>Cyclothymia</b> &mdash; chronic sub-threshold mood swings never reaching full episodes.</li>
+      <li><b>Secondary (organic) mood syndrome</b> &mdash; medical/drug cause (steroids, thyroid).</li>
+      <li><b>ADHD, borderline personality disorder</b> &mdash; chronic instability vs distinct episodes; can co-occur.</li>
+    </ul>
+  </div>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+<!-- ═══════════════════════ F32 DEPRESSIVE EPISODE ═══════════════════════ -->
+<section id="f32">
+  <h2>F32 &middot; Depressive Episode &rarr; ICD-11 6A70 (Single Episode Depressive Disorder)</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> Mood (affective) disorders (F30&ndash;F39) &mdash; a "unipolar" depressive episode (no history of mood elevation). See the block overview and building-blocks above.</p>
+  <div class="idcard">
+    <div><b>ICD-10</b> F32 (.0 mild, .1 moderate, .2 severe without psychosis, .3 severe with psychosis; .00/.01 etc. specify somatic syndrome)</div>
+    <div><b>ICD-11</b> 6A70 Single episode depressive disorder (severity specified; with/without psychotic symptoms; with melancholia)</div>
+    <div><b>Core</b> A single episode of clinically significant low mood and related symptoms</div>
+    <div><b>Duration</b> At least 2 weeks</div>
+  </div>
+
+  <h3>1. Introduction</h3>
+  <p>A depressive episode is a period of at least two weeks of <b>pervasive low mood, loss of interest/pleasure, and reduced energy</b>, accompanied by cognitive and physical symptoms, causing distress and functional impairment. Severity (mild, moderate, severe) is judged from the number and intensity of symptoms and the degree of functional impairment. <span class="tag t10">ICD-10</span></p>
+
+  <h3>2&ndash;3. Etiology and epidemiology</h3>
+  <p>See the comprehensive shared sections above (monoamine deficiency, HPA-axis overactivity, and the psychological theories &mdash; Beck's cognitive triad, learned helplessness/hopelessness, behavioural loss of reinforcement, interpersonal, and psychodynamic models; social loss events). Lifetime prevalence around 10&ndash;20%, about twice as common in women.</p>
+
+  <h3>4. Clinical features, presentations, and comorbidities</h3>
+  <div class="unique">
+    <h4>Unique identifying features and presentations</h4>
+    <ul class="t">
+      <li>Core triad: <b>depressed mood + anhedonia + reduced energy</b>, persistent for at least 2 weeks, varying little from day to day.</li>
+      <li><b>Melancholic / somatic features:</b> <b>early-morning wakening</b>, <b>diurnal variation</b> (worse in the morning), marked <b class="cl">psychomotor retardation</b> <i class="si">(slowed movements, speech, and thinking)</i> or agitation, loss of appetite, weight loss, loss of libido, and lack of emotional reactivity.</li>
+      <li><b>Psychotic depression</b>: mood-congruent delusions (of guilt, poverty, nihilism &mdash; e.g. <b class="cl">Cotard syndrome</b> <i class="si">(the nihilistic delusion that one is dead or that one's body/organs are rotting or do not exist)</i>) or hallucinations (derogatory voices).</li>
+      <li><b>Atypical depression</b>: mood reactivity, over-eating, over-sleeping (hypersomnia), and rejection sensitivity.</li>
+      <li><b>Masked / somatic presentations</b>: presenting with unexplained physical complaints (pain, fatigue) rather than reported sadness &mdash; common in some cultures and in the elderly.</li>
+      <li><b>"Depression without sadness" in the elderly</b>: prominent apathy, cognitive complaints (<b class="cl">pseudodementia</b> &mdash; <i class="si">depression mimicking dementia</i>), and somatic symptoms.</li>
+    </ul>
+  </div>
+  <div class="assoc">
+    <h4>Comorbidities and complications</h4>
+    <ul class="t">
+      <li><b>Anxiety disorders</b> (the commonest comorbidity), <b>substance use disorders</b>, and <b>personality disorders</b>.</li>
+      <li>Chronic physical illness (diabetes, cardiovascular disease, chronic pain) &mdash; a bidirectional relationship that worsens both.</li>
+      <li><b>Suicide</b> &mdash; the most serious complication; assess risk in every case.</li>
+      <li>Occupational and relationship impairment; in the perinatal period, <b>postnatal depression</b> with risks to mother&ndash;infant bonding.</li>
+    </ul>
+  </div>
+
+  <h3>5. Diagnostic criteria (ICD-10 and ICD-11)</h3>
+  <div class="panel10">
+    <h4><span class="tag t10">ICD-10</span></h4>
+    <p>The episode must last <b>at least 2 weeks</b>. Using the typical (core) symptoms (depressed mood, loss of interest, reduced energy) and the common symptoms (reduced concentration, low self-esteem, guilt, pessimism, self-harm ideas, disturbed sleep, reduced appetite): <b>Mild (F32.0)</b> = at least two core + at least two other symptoms; <b>Moderate (F32.1)</b> = at least two core + at least three (preferably four) others; <b>Severe (F32.2/.3)</b> = all three core + at least four others, some severe, with or without psychotic symptoms. The <b>somatic syndrome</b> is specified by a fifth character (four or more somatic features).</p>
+    <div class="assoc" style="border-color:#1a5276;background:#eef3f8;margin-top:14px">
+      <h4 style="color:#1a5276">Detailed ICD-10 subtypes of the depressive episode (with symptom thresholds)</h4>
+      <ul class="t">
+        <li><b>F32.0 &mdash; Mild depressive episode</b> (.00 without / .01 with somatic syndrome): at least <b>two</b> of the three core symptoms + at least <b>two</b> of the other common symptoms; the person is distressed but usually able to continue most activities.</li>
+        <li><b>F32.1 &mdash; Moderate depressive episode</b> (.10 without / .11 with somatic syndrome): at least <b>two</b> core + at least <b>three (preferably four)</b> other symptoms; considerable difficulty continuing ordinary activities.</li>
+        <li><b>F32.2 &mdash; Severe depressive episode without psychotic symptoms:</b> <b>all three</b> core symptoms + at least <b>four</b> others, several of marked intensity; agitation or retardation prominent; substantial distress and functional loss; suicidal ideas/acts common.</li>
+        <li><b>F32.3 &mdash; Severe depressive episode with psychotic symptoms:</b> as F32.2 <b>plus</b> delusions (guilt, poverty, nihilistic/Cotard, persecutory), hallucinations (derogatory/accusatory voices, smells of decay), or <b>depressive stupor</b>. Specify mood-congruent or mood-incongruent.</li>
+        <li><b>The somatic ("melancholic/biological") syndrome</b> (fifth character): four or more of &mdash; marked anhedonia; lack of emotional reactivity; early-morning wakening (&ge;2 h early); diurnal variation (worse in the morning); marked psychomotor retardation/agitation; marked appetite loss; weight loss (&ge;5% in a month); marked loss of libido.</li>
+        <li><b>F32.8 other; F32.9 unspecified.</b></li>
+      </ul>
+    </div>
+  </div>
+  <div class="panel11">
+    <h4><span class="tag t11">ICD-11</span> (6A70)</h4>
+    <p>A single episode lasting <b>at least 2 weeks</b> during most of the day, nearly every day, with the presence of <b>affective</b> (depressed mood or reduced interest/pleasure), <b>cognitive-behavioural</b> (reduced concentration, worthlessness/guilt, hopelessness, suicidal ideation, indecisiveness), and <b>neurovegetative</b> (sleep disturbance, appetite/weight change, psychomotor change, reduced energy) symptoms. Severity (mild/moderate/severe), presence of psychotic symptoms, and a "<b>with melancholia</b>" specifier are recorded. No history of manic, hypomanic, or mixed episodes.</p>
+  </div>
+
+  <h3>6. Easy way to remember</h3>
+  <div class="remember"><h4>Mnemonic &mdash; "SIG E CAPS" (plus core low mood)</h4><p><b>S</b>leep &middot; <b>I</b>nterest (anhedonia) &middot; <b>G</b>uilt &middot; <b>E</b>nergy &middot; <b>C</b>oncentration &middot; <b>A</b>ppetite/weight &middot; <b>P</b>sychomotor change &middot; <b>S</b>uicidality &mdash; over &ge;2 weeks of low mood. Somatic/melancholic clue: <b>early-morning wakening + worse in the morning</b>.</p></div>
+
+  <h3>7. Treatment</h3>
+  <ul class="t">
+    <li><b>Pharmacological:</b> <b class="cl">antidepressants</b> &mdash; <b>SSRIs</b> <i class="si">(selective serotonin reuptake inhibitors, e.g. fluoxetine, sertraline &mdash; usual first line)</i>, SNRIs, tricyclics, and others; combine with an antipsychotic for psychotic depression; <b>ECT</b> for severe, psychotic, or treatment-resistant depression or where a rapid response is needed (e.g. high suicide risk, refusal to eat/drink). <span class="tag tks">Kaplan &amp; Sadock</span></li>
+    <li><b>Psychological (directly derived from the theories above):</b> <b>CBT</b> (Beck), <b>behavioural activation</b> (Lewinsohn), <b>interpersonal psychotherapy</b>, and mindfulness-based cognitive therapy for relapse prevention; problem-solving and supportive approaches for milder cases.</li>
+  </ul>
+  <div class="ddx">
+    <h5>Differential diagnosis (F32 Depressive episode)</h5>
+    <ul class="t">
+      <li><b>Bipolar depression</b> &mdash; screen for any past manic/hypomanic episode (changes treatment).</li>
+      <li><b>Normal grief / adjustment disorder</b> &mdash; tied to a stressor, less pervasive worthlessness, comes in waves; distinguished by severity, duration, and impairment.</li>
+      <li><b>Dysthymia</b> &mdash; chronic sub-threshold low mood (a full episode superimposed = "double depression").</li>
+      <li><b>Secondary (organic) mood syndrome</b> &mdash; hypothyroidism, anaemia, medication, or substance cause.</li>
+      <li><b>Dementia ("pseudodementia" overlap)</b> in older adults; anxiety disorders; and schizophrenia with depressive features.</li>
+    </ul>
+  </div>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+<!-- ═══════════════════════ F33 RECURRENT ═══════════════════════ -->
+<section id="f33">
+  <h2>F33 &middot; Recurrent Depressive Disorder &rarr; ICD-11 6A71</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> Mood (affective) disorders (F30&ndash;F39) &mdash; repeated depressive episodes with no history of mania/hypomania (unipolar). See the block overview and building-blocks above.</p>
+  <div class="idcard">
+    <div><b>ICD-10</b> F33 (current episode specified by severity, &plusmn; somatic/psychotic features; F33.4 in remission)</div>
+    <div><b>ICD-11</b> 6A71 Recurrent depressive disorder</div>
+    <div><b>Core</b> Repeated depressive episodes with no history of mania/hypomania</div>
+    <div><b>Key point</b> "Unipolar" recurrent depression &mdash; the absence of any manic/hypomanic episode is essential</div>
+  </div>
+  <h3>1. Introduction</h3>
+  <p>A disorder of <b>repeated depressive episodes</b> (as in F32) with <b>no history of independent episodes of mood elevation</b> (mania or hypomania). If a manic episode ever occurs, the diagnosis changes to bipolar disorder. <span class="tag t10">ICD-10</span></p>
+  <h3>2&ndash;3. Etiology and epidemiology</h3>
+  <p>As for depressive episode; recurrence risk rises with each episode, and residual symptoms between episodes predict relapse. Onset often in the mid-30s to 40s for the recurrent pattern; strong female preponderance.</p>
+  <h3>4. Clinical features and comorbidities</h3>
+  <div class="unique"><h4>Identifying features</h4><ul class="t">
+    <li>Two or more depressive episodes separated by <b>several months of relative freedom</b> from significant mood symptoms.</li>
+    <li>Individual episodes resemble F32; between episodes recovery is usually complete, but some have residual symptoms.</li>
+    <li><b>Never</b> a manic or hypomanic episode (the single fact that separates this from bipolar disorder).</li>
+    <li><b>Seasonal pattern</b> in some (recurrent winter depression).</li>
+  </ul></div>
+  <div class="assoc"><h4>Comorbidities and complications</h4><ul class="t">
+    <li>Anxiety disorders, substance use, and chronic physical illness, as for single-episode depression.</li>
+    <li>Higher cumulative <b>suicide risk</b> and greater chronicity with more episodes.</li>
+  </ul></div>
+  <h3>5. Diagnostic criteria</h3>
+  <div class="panel10"><h4><span class="tag t10">ICD-10</span></h4><p>Repeated episodes of depression (each meeting the criteria for a depressive episode, F32), with <b>no history of independent episodes of elevated mood and increased energy (mania)</b>. Episodes usually last 3&ndash;12 months, separated by usually symptom-free periods of a few months.</p></div>
+  <div class="assoc" style="border-color:#1a5276;background:#eef3f8">
+    <h4 style="color:#1a5276">Detailed ICD-10 subtypes of F33 (coded by the current episode)</h4>
+    <ul class="t">
+      <li><b>F33.0 &mdash; current episode mild</b> (.00 without / .01 with somatic syndrome): present episode meets F32.0.</li>
+      <li><b>F33.1 &mdash; current episode moderate</b> (.10 without / .11 with somatic syndrome): present episode meets F32.1.</li>
+      <li><b>F33.2 &mdash; current episode severe without psychotic symptoms:</b> present episode meets F32.2.</li>
+      <li><b>F33.3 &mdash; current episode severe with psychotic symptoms:</b> present episode meets F32.3.</li>
+      <li><b>F33.4 &mdash; currently in remission:</b> criteria for recurrent depressive disorder have been met in the past but the current state is free of significant depressive symptoms.</li>
+      <li><b>F33.8 other; F33.9 unspecified.</b> <span class="mean" style="color:#5d6d7e"><i>(A single lifetime manic/hypomanic episode would reclassify the disorder as bipolar, F31.)</i></span></li>
+    </ul>
+  </div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11 (6A71)</span></h4><p>A history of <b>at least two depressive episodes</b> separated by at least several months without significant mood disturbance, in the <b>absence of any history of manic, hypomanic, or mixed episodes</b>. Current episode severity and features are specified.</p></div>
+  <h3>6&ndash;7. Remember and treatment</h3>
+  <div class="remember"><h4>Mnemonic</h4><p><b>"Depression again and again, but the mood never swings up."</b> One lifetime manic/hypomanic episode &rarr; reclassify as bipolar.</p></div>
+  <p><b>Treatment:</b> acute treatment as for a depressive episode (antidepressants + psychotherapy); <b>continuation and maintenance antidepressant treatment</b> is emphasised to prevent relapse, especially after multiple episodes; mindfulness-based cognitive therapy and CBT reduce relapse. <span class="tag tks">Kaplan &amp; Sadock</span></p>
+  <div class="ddx">
+    <h5>Differential diagnosis (F33 Recurrent depressive disorder)</h5>
+    <ul class="t">
+      <li><b>Bipolar affective disorder</b> &mdash; a single lifetime manic/hypomanic episode reclassifies it as bipolar (F31).</li>
+      <li><b>Single depressive episode (F32)</b> &mdash; only one episode so far.</li>
+      <li><b>Dysthymia / persistent depressive disorder</b> &mdash; chronic sub-threshold course rather than discrete episodes with recovery between.</li>
+      <li><b>Recurrent brief depressive disorder (F38.1)</b> &mdash; frequent very short episodes.</li>
+      <li><b>Secondary (organic) mood syndrome</b> &mdash; exclude a medical/drug cause.</li>
+    </ul>
+  </div>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+<!-- ═══════════════════════ F34 PERSISTENT ═══════════════════════ -->
+<section id="f34">
+  <h2>F34 &middot; Persistent Mood (Affective) Disorders &rarr; ICD-11 6A62 / 6A72</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> Mood (affective) disorders (F30&ndash;F39) &mdash; persistent, usually fluctuating, sub-threshold mood disturbance lasting years (cyclothymia, dysthymia). See the block overview and building-blocks above.</p>
+  <div class="idcard">
+    <div><b>ICD-10</b> F34 (.0 cyclothymia, .1 dysthymia, .8/.9)</div>
+    <div><b>ICD-11</b> 6A62 Cyclothymic disorder; 6A72 Dysthymic disorder</div>
+    <div><b>Core</b> Persistent, fluctuating, but usually sub-threshold mood disturbance lasting years</div>
+    <div><b>Key point</b> Chronic and low-grade &mdash; rarely severe enough to be called an "episode"</div>
+  </div>
+  <h3>1. Introduction</h3>
+  <p>Persistent and usually fluctuating disorders of mood in which <b>individual episodes are rarely, if ever, severe enough to be described as hypomanic or even mild depressive episodes</b>. Because they last for years at a time (sometimes for the greater part of adult life), they cause considerable distress and disability. <span class="tag t10">ICD-10</span></p>
+
+  <h3>2&ndash;3. Etiology and epidemiology</h3>
+  <p>Genetically related to the mood disorders (cyclothymia to bipolar disorder; dysthymia to depressive disorder); temperament and early adversity contribute. Often begins insidiously in adolescence or early adult life and runs a chronic course. <span class="tag tks">Kaplan &amp; Sadock</span></p>
+
+  <h3>4. The two disorders &mdash; identifying features and comorbidities</h3>
+  <div class="unique">
+    <h4>Cyclothymia (F34.0 / 6A62)</h4>
+    <ul class="t">
+      <li>Persistent <b>instability of mood</b> over at least two years, with numerous periods of mild depression and mild elation (hypomania-like), <b>none severe or long enough</b> to meet the criteria for bipolar disorder or recurrent depressive disorder.</li>
+      <li>Considered a mild, chronic form on the <b>bipolar spectrum</b>; a proportion later develop bipolar disorder.</li>
+    </ul>
+    <h4>Dysthymia (F34.1 / 6A72)</h4>
+    <ul class="t">
+      <li>A <b>chronic depression of mood</b> lasting at least two years that does not currently fulfil the criteria for recurrent depressive disorder in terms of severity or duration of individual episodes ("depression that never quite lifts").</li>
+      <li>Sufferers often have periods of days or weeks when they feel well, but most of the time (often for months) they are tired and depressed.</li>
+      <li><b class="cl">Double depression</b> <i class="si">(a full major depressive episode superimposed on pre-existing dysthymia)</i> is a common and important presentation.</li>
+    </ul>
+  </div>
+  <div class="assoc"><h4>Comorbidities</h4><ul class="t">
+    <li>Dysthymia: frequent comorbid major depression (double depression), anxiety disorders, and personality disorders.</li>
+    <li>Cyclothymia: substance use and later progression to bipolar disorder.</li>
+  </ul></div>
+
+  <h3>5. Diagnostic criteria</h3>
+  <div class="panel10"><h4><span class="tag t10">ICD-10</span></h4><p><b>Cyclothymia:</b> persistent mood instability with numerous periods of mild depression and mild elation, none sufficiently severe or prolonged to meet criteria for bipolar affective disorder or recurrent depressive disorder, present for at least <b>2 years</b>. <b>Dysthymia:</b> chronic depression of mood lasting at least <b>several years</b> that does not meet the criteria (in severity or episode duration) for mild, moderate, or severe recurrent depressive disorder.</p></div>
+  <div class="assoc" style="border-color:#1a5276;background:#eef3f8">
+    <h4 style="color:#1a5276">Detailed ICD-10 subtypes of F34 (persistent mood disorders) with criteria</h4>
+    <ul class="t">
+      <li><b>F34.0 &mdash; Cyclothymia:</b> a persistent instability of mood over at least <b>2 years</b>, involving <b>numerous periods of mild depression and mild elation (hypomania-like)</b>, none of which is sufficiently severe or long to meet the criteria for bipolar affective disorder (F31) or recurrent depressive disorder (F33). Onset usually early adult life; considered part of the bipolar spectrum.</li>
+      <li><b>F34.1 &mdash; Dysthymia:</b> a chronic depression of mood lasting at least <b>2 years (several years)</b>, present for most of the time, in which individual episodes are <b>not severe or long enough</b> to meet the criteria for even a mild recurrent depressive episode. There may be brief periods of feeling well. Superimposition of a full depressive episode produces "<b>double depression</b>".</li>
+      <li><b>F34.8 other persistent mood disorders; F34.9 unspecified.</b></li>
+    </ul>
+  </div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11</span></h4><p><b>6A62 Cyclothymic disorder:</b> persistent (&ge;2 years) mood instability involving numerous hypomanic and depressive periods that are sub-threshold for a manic, mixed, or depressive episode. <b>6A72 Dysthymic disorder:</b> persistent depressed mood lasting <b>&ge;2 years</b>, for most of the day, more days than not, without a period of full remission lasting longer than a couple of months, and not meeting the requirements for a depressive episode during the first two years.</p></div>
+
+  <h3>6&ndash;7. Remember and treatment</h3>
+  <div class="remember"><h4>Mnemonics</h4><p><b>Dysthymia = "chronic low-grade depression &ge; 2 years"</b> (the depressive spectrum). <b>Cyclothymia = "chronic mood swings, both mild, &ge; 2 years"</b> (the bipolar spectrum). Watch for <b>double depression</b> in dysthymia.</p></div>
+  <p><b>Treatment:</b> dysthymia &mdash; antidepressants (SSRIs) plus psychotherapy (CBT, IPT); cyclothymia &mdash; mood stabilisers and psychoeducation, avoiding antidepressant-induced switching; both benefit from long-term support and monitoring. <span class="tag tks">Kaplan &amp; Sadock</span></p>
+  <div class="ddx">
+    <h5>Differential diagnosis (F34 Persistent mood disorders)</h5>
+    <ul class="t">
+      <li><b>Dysthymia vs recurrent depressive disorder</b> &mdash; dysthymia is chronic and sub-threshold; a superimposed full episode = "double depression".</li>
+      <li><b>Cyclothymia vs bipolar disorder</b> &mdash; cyclothymic mood swings never reach a full hypomanic/manic or depressive episode; a proportion progress to bipolar.</li>
+      <li><b>Personality disorder (esp. borderline, emotionally unstable)</b> &mdash; longstanding affective instability without discrete mood periods.</li>
+      <li><b>Secondary (organic) mood syndrome</b> and normal temperamental variation.</li>
+    </ul>
+  </div>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+<!-- ═══════════════════════ F38 / F39 ═══════════════════════ -->
+<section id="f38">
+  <h2>F38 &middot; Other Mood (Affective) Disorders &rarr; ICD-11 6A6Y / 6A7Y</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> Mood (affective) disorders (F30&ndash;F39) &mdash; "other specified" residual mood disorders (e.g. mixed affective episode, recurrent brief depressive disorder). See the block overview above.</p>
+  <div class="idcard">
+    <div><b>ICD-10</b> F38 (.00 mixed affective episode; .10 recurrent brief depressive disorder; .8 other)</div>
+    <div><b>ICD-11</b> Other specified bipolar/depressive disorder</div>
+    <div><b>Type</b> Residual "other specified" categories</div>
+  </div>
+  <p>Used for mood disorders that do not fit the specific categories above. <span class="tag t10">ICD-10</span></p>
+  <div class="assoc" style="border-color:#1a5276;background:#eef3f8">
+    <h4 style="color:#1a5276">Detailed ICD-10 subtypes of F38 with criteria</h4>
+    <ul class="t">
+      <li><b>F38.00 &mdash; Mixed affective episode:</b> a single mood episode lasting at least <b>2 weeks</b> characterised by either a <b>mixture</b> of, or a <b>rapid alternation</b> (usually within a few hours) between, hypomanic/manic and depressive symptoms.</li>
+      <li><b>F38.10 &mdash; Recurrent brief depressive disorder:</b> recurrent brief depressive episodes that have occurred about <b>once a month over the past year</b>, each lasting <b>less than 2 weeks</b> (typically 2&ndash;3 days) but meeting the symptom criteria for a depressive episode, and not occurring only in relation to the menstrual cycle.</li>
+      <li><b>F38.8 &mdash; Other specified mood disorders:</b> a residual category for mood disorders not classifiable elsewhere.</li>
+    </ul>
+  </div>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+<section id="f39">
+  <h2>F39 &middot; Unspecified Mood (Affective) Disorder &rarr; ICD-11 6A6Z / 6A7Z</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> Mood (affective) disorders (F30&ndash;F39) &mdash; an "unspecified" residual mood-disorder category. See the block overview above.</p>
+  <div class="idcard">
+    <div><b>ICD-10</b> F39</div><div><b>ICD-11</b> Mood disorder, unspecified</div>
+    <div><b>Type</b> Residual "unspecified" category</div>
+  </div>
+  <p>A catch-all used only when no other specific mood-disorder term applies (e.g. "affective psychosis not otherwise specified"), typically as a provisional label pending further information. <span class="tag t10">ICD-10</span> <span class="tag t11">ICD-11</span></p>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+<!-- ═══════════════════════ DIFFERENTIALS ═══════════════════════ -->
+<section id="ddx">
+  <h2>Differential Diagnosis Tables</h2>
+
+  <h3>The mood disorders distinguished by pole, severity, and duration</h3>
+  <table>
+    <tr><th>Disorder</th><th>Mood pole(s)</th><th>Duration / threshold</th></tr>
+    <tr><td>Depressive episode (F32)</td><td>Depression only</td><td>&ge; 2 weeks; full episode</td></tr>
+    <tr><td>Recurrent depressive disorder (F33)</td><td>Depression only (recurrent)</td><td>&ge; 2 episodes; no mania ever</td></tr>
+    <tr><td>Bipolar I (F31 / 6A60)</td><td>Mania (&plusmn; depression)</td><td>&ge; 1 manic/mixed episode</td></tr>
+    <tr><td>Bipolar II (6A61)</td><td>Hypomania + depression</td><td>Hypomania + depressive episode; no full mania</td></tr>
+    <tr><td>Cyclothymia (F34.0 / 6A62)</td><td>Both, mild</td><td>&ge; 2 years, sub-threshold swings</td></tr>
+    <tr><td>Dysthymia (F34.1 / 6A72)</td><td>Depression, mild-chronic</td><td>&ge; 2 years, sub-threshold low mood</td></tr>
+  </table>
+
+  <h3>Unipolar depression vs Bipolar depression (a common trap)</h3>
+  <table>
+    <tr><th>Feature</th><th>Unipolar depression</th><th>Bipolar depression</th></tr>
+    <tr><td>Any past mania/hypomania</td><td>No</td><td>Yes (defining)</td></tr>
+    <tr><td>Age of onset</td><td>Later (mid-20s&ndash;30s+)</td><td>Earlier (teens&ndash;20s)</td></tr>
+    <tr><td>Episodes</td><td>Fewer, longer</td><td>More frequent, shorter</td></tr>
+    <tr><td>Atypical features (hypersomnia, over-eating)</td><td>Less common</td><td>More common</td></tr>
+    <tr><td>Family history of bipolar</td><td>Less</td><td>More</td></tr>
+    <tr><td>Antidepressant response</td><td>Usually helpful</td><td>May trigger a switch to mania</td></tr>
+  </table>
+
+  <h3>Primary mood disorder vs Secondary (organic/substance) mood syndrome</h3>
+  <table>
+    <tr><th>Feature</th><th>Primary mood disorder (F30&ndash;F39)</th><th>Secondary mood syndrome (F06 / F1x)</th></tr>
+    <tr><td>Cause</td><td>No medical/substance cause</td><td>Medical condition or substance identified</td></tr>
+    <tr><td>Age/context</td><td>Typical age; family history</td><td>Atypical age; tied to illness or drug (e.g. steroids, hypothyroidism)</td></tr>
+    <tr><td>Course</td><td>Independent of physical illness</td><td>Tracks and improves when the cause is treated</td></tr>
+  </table>
+
+  <h3>Depression vs Grief vs Adjustment disorder</h3>
+  <table>
+    <tr><th>Feature</th><th>Depressive episode</th><th>Normal grief</th><th>Adjustment disorder</th></tr>
+    <tr><td>Trigger</td><td>May be none</td><td>Bereavement</td><td>Identifiable stressor</td></tr>
+    <tr><td>Self-worth</td><td>Worthlessness common</td><td>Usually preserved</td><td>Usually preserved</td></tr>
+    <tr><td>Course</td><td>Persistent &ge;2 weeks</td><td>Comes in waves, eases over time</td><td>Resolves as person adapts (within months)</td></tr>
+  </table>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+<!-- ═══════════════════════ MNEMONICS MASTER SHEET ═══════════════════════ -->
+<section id="mnemonics">
+  <h2>Mnemonics Master Sheet (all in one place)</h2>
+  <table>
+    <tr><th>Topic</th><th>Mnemonic</th><th>Expansion</th></tr>
+    <tr><td>Depressive symptoms</td><td><b>SIG E CAPS</b></td><td><b>S</b>leep &middot; <b>I</b>nterest (anhedonia) &middot; <b>G</b>uilt &middot; <b>E</b>nergy &middot; <b>C</b>oncentration &middot; <b>A</b>ppetite/weight &middot; <b>P</b>sychomotor change &middot; <b>S</b>uicidality &mdash; plus depressed mood</td></tr>
+    <tr><td>Manic symptoms</td><td><b>DIG FAST</b></td><td><b>D</b>istractibility &middot; <b>I</b>rresponsibility/disinhibition &middot; <b>G</b>randiosity &middot; <b>F</b>light of ideas &middot; <b>A</b>ctivity/energy up &middot; <b>S</b>leep need down &middot; <b>T</b>alkativeness</td></tr>
+    <tr><td>Psychological theories of depression</td><td><b>Big CLouds Bring Icy Rain</b></td><td><b>B</b>eck's triad &middot; <b>C</b>ognitive/<b>L</b>earned helplessness &amp; hopelessness &middot; <b>B</b>ehavioural (loss of reinforcement) &middot; <b>I</b>nterpersonal &middot; <b>R</b> = psychodynamic (anger tuRned inward) + Rumination</td></tr>
+    <tr><td>Somatic/melancholic clue</td><td><b>Early &amp; Morning</b></td><td><b>Early</b>-morning wakening + mood worse in the <b>Morning</b> (diurnal variation)</td></tr>
+    <tr><td>Bipolar I vs II</td><td><b>I = one full mania; II = two milder poles</b></td><td>Type I needs one full manic episode; Type II = hypomania + depression, never full mania</td></tr>
+    <tr><td>Rapid cycling</td><td><b>4 in a year</b></td><td>Four or more mood episodes within 12 months</td></tr>
+    <tr><td>Persistent disorders</td><td><b>Dysthymia = chronic low; Cyclothymia = chronic swings</b></td><td>Both &ge; 2 years and sub-threshold</td></tr>
+  </table>
+  <div class="remember">
+    <h4>Two golden rules for the block</h4>
+    <p><b>Rule 1 &mdash; always ask about past highs:</b> screen every depressed patient for any past manic/hypomanic episode &mdash; a single one makes the diagnosis bipolar and changes treatment (mood stabiliser, cautious antidepressant use).</p>
+    <p><b>Rule 2 &mdash; assess suicide risk in every mood disorder;</b> risk is highest in severe/psychotic depression and in mixed and depressive bipolar states.</p>
+  </div>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+<!-- ═══════════════════════ GLOSSARY ═══════════════════════ -->
+<section id="glossary">
+  <h2>Clinical Terminology Glossary</h2>
+  <table>
+    <tr><th>Term</th><th>Plain-language meaning</th></tr>
+    <tr><td>Mood</td><td>The sustained, prevailing emotional state that colours mental life.</td></tr>
+    <tr><td>Affect</td><td>The moment-to-moment outward expression of emotion.</td></tr>
+    <tr><td>Unipolar / Bipolar</td><td>Only depressive episodes / at least one manic, hypomanic, or mixed episode.</td></tr>
+    <tr><td>Anhedonia</td><td>Inability to experience pleasure.</td></tr>
+    <tr><td>Diurnal variation</td><td>A regular daily pattern of mood (classically worse in the morning in melancholic depression).</td></tr>
+    <tr><td>Early-morning wakening</td><td>Waking two or more hours before the usual time, unable to return to sleep.</td></tr>
+    <tr><td>Psychomotor retardation / agitation</td><td>Marked slowing / restless over-activity of movement, speech, and thinking.</td></tr>
+    <tr><td>Somatic (melancholic) syndrome</td><td>A cluster of biological depressive features (early wakening, diurnal variation, weight/appetite loss, loss of reactivity and libido).</td></tr>
+    <tr><td>Cotard syndrome</td><td>The nihilistic delusion that one is dead or that body parts do not exist (in severe psychotic depression).</td></tr>
+    <tr><td>Hypomania</td><td>A milder elevation of mood without psychosis or severe functional disruption.</td></tr>
+    <tr><td>Mania</td><td>Severe, sustained elevated or irritable mood with increased energy, sometimes with psychosis.</td></tr>
+    <tr><td>Flight of ideas</td><td>Thoughts and speech leaping rapidly between loosely connected topics.</td></tr>
+    <tr><td>Pressure of speech</td><td>Rapid, loud, hard-to-interrupt speech (typical of mania).</td></tr>
+    <tr><td>Grandiosity</td><td>Inflated sense of self-importance, ability, or identity.</td></tr>
+    <tr><td>Mixed episode / features</td><td>Manic and depressive symptoms occurring together or in rapid alternation.</td></tr>
+    <tr><td>Rapid cycling</td><td>Four or more mood episodes within one year.</td></tr>
+    <tr><td>Double depression</td><td>A full depressive episode superimposed on chronic dysthymia.</td></tr>
+    <tr><td>Cognitive triad (Beck)</td><td>Negative views of self, world, and future that maintain depression.</td></tr>
+    <tr><td>Schema</td><td>A deep-seated core belief that shapes how a person interprets experience.</td></tr>
+    <tr><td>Cognitive distortion</td><td>A systematic thinking error (e.g. catastrophising, overgeneralisation).</td></tr>
+    <tr><td>Learned helplessness</td><td>Giving up after repeated exposure to events perceived as uncontrollable.</td></tr>
+    <tr><td>Explanatory (attributional) style</td><td>The habitual way of explaining events; a depressive style is internal, stable, global for bad events.</td></tr>
+    <tr><td>Hopelessness theory</td><td>The expectation that desired outcomes will not occur and cannot be changed, as a cause of depression.</td></tr>
+    <tr><td>Behavioural activation</td><td>A therapy that increases engagement in rewarding activities to lift mood.</td></tr>
+    <tr><td>Interpersonal psychotherapy (IPT)</td><td>A therapy that treats depression by addressing current relationship problems and roles.</td></tr>
+    <tr><td>Rumination</td><td>Repetitively dwelling on distress and its causes, which prolongs depression.</td></tr>
+    <tr><td>HPA axis</td><td>The hypothalamic&ndash;pituitary&ndash;adrenal stress-hormone system, overactive in depression.</td></tr>
+    <tr><td>Monoamines</td><td>Serotonin, noradrenaline, and dopamine &mdash; neurotransmitters implicated in mood.</td></tr>
+    <tr><td>Mood stabiliser</td><td>A drug that treats and prevents mood episodes (e.g. lithium, valproate, lamotrigine).</td></tr>
+    <tr><td>Lithium</td><td>A mood stabiliser (needs blood-level monitoring) that also reduces suicide risk.</td></tr>
+    <tr><td>SSRI</td><td>Selective serotonin reuptake inhibitor &mdash; a common first-line antidepressant.</td></tr>
+    <tr><td>ECT</td><td>Electroconvulsive therapy &mdash; for severe, psychotic, or treatment-resistant mood episodes.</td></tr>
+    <tr><td>Pseudodementia</td><td>Depression in older adults mimicking dementia; improves with antidepressant treatment.</td></tr>
+  </table>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+<!-- ═══════════════════════ REFERENCES ═══════════════════════ -->
+<section id="references">
+  <h2>References and Source Attribution</h2>
+  <p>Diagnostic terminology and criteria are drawn strictly from the two official WHO classifications; clinical elaboration and psychological theories are drawn from standard psychiatric and psychological texts and peer-reviewed literature, each labelled inline with a source tag.</p>
+  <ul class="t">
+    <li><span class="tag t10">ICD-10</span> World Health Organization. <i>The ICD-10 Classification of Mental and Behavioural Disorders: Clinical Descriptions and Diagnostic Guidelines.</i> Geneva: World Health Organization, 1992.</li>
+    <li><span class="tag t11">ICD-11</span> World Health Organization. <i>Clinical Descriptions and Diagnostic Requirements for ICD-11 Mental, Behavioural and Neurodevelopmental Disorders.</i> Geneva: World Health Organization.</li>
+    <li><span class="tag tks">Kaplan &amp; Sadock</span> Sadock BJ, Sadock VA, Ruiz P. <i>Kaplan &amp; Sadock's Synopsis of Psychiatry</i> and <i>Comprehensive Textbook of Psychiatry</i> (etiology, psychological theories, clinical features, and treatment; content paraphrased).</li>
+    <li><span class="tag tother">Other evidence</span> Foundational psychological sources (Beck's cognitive theory of depression; Seligman's learned helplessness; Abramson, Metalsky &amp; Alloy's hopelessness theory; Lewinsohn's behavioural model; Brown &amp; Harris's social origins of depression) and peer-reviewed epidemiological reviews.</li>
+  </ul>
+  <div class="warn"><b>Note on use.</b> This is an educational study reference for M.Phil. Clinical Psychology. Diagnostic criteria are paraphrased from the ICD sources without reproducing copyrighted text at length; secondary-source content has been rephrased for compliance with licensing restrictions. It is not a substitute for the full official classifications or for individual clinical and medical judgement, and it is not a prescribing guide.</div>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+</main>
+</div>
+
+<footer>
+  <p><strong>ICD-10 &amp; ICD-11 Comparative Clinical Handbook &mdash; F30&ndash;F39 Mood (Affective) Disorders</strong></p>
+  <p>Comprehensive examination reference &middot; extensive etiology (including psychological theories) and epidemiology &middot; unique presentations, comorbidities and mnemonics &middot; diagnostic criteria strictly from ICD-10 and ICD-11 &middot; terminology explained in plain language.</p>
+  <p style="margin-top:14px;font-size:1rem;color:#fff;letter-spacing:.04em">Made by <strong>Tejas Dangodra</strong></p>
+</footer>
+
+</body>
+</html>

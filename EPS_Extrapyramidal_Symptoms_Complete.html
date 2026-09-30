@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Extrapyramidal Symptoms (EPS) in Psychiatry — Comprehensive Handbook</title>
+<style>
+:root{
+  --deep:#0a2540;--accent:#0e6655;--icd10:#1a5276;--icd11:#1e8449;
+  --ks:#7d3c98;--other:#b9770e;--bg:#f4f6f9;--card:#ffffff;
+  --ink:#1c2833;--muted:#5d6d7e;--line:#d5dbdb;--soft:#eaf2f8;
+  --warn:#922b21;--uniq:#6c3483;--surface:#fdfefe;--psych:#1f6f8b;--ddx:#0b6b5f;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.72;font-size:16px}
+.cover{background:linear-gradient(160deg,#0a2540 0%,#154360 40%,#0e6655 100%);color:#fff;padding:60px 30px 50px;text-align:center}
+.cover .subtitle{text-transform:uppercase;letter-spacing:.3em;font-size:.72rem;opacity:.7;margin-bottom:16px}
+.cover h1{font-size:2.05rem;font-weight:800;line-height:1.22;margin-bottom:12px;max-width:940px;display:inline-block}
+.cover .tagline{font-size:1.05rem;font-weight:400;opacity:.9;max-width:820px;margin:0 auto 22px}
+.cover .chips{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-bottom:18px}
+.cover .chip{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);border-radius:6px;padding:5px 14px;font-size:.82rem}
+.cover .srcline{font-size:.8rem;opacity:.65;max-width:760px;margin:0 auto}
+.wrap{max-width:1160px;margin:0 auto;padding:0 22px}
+.layout{display:flex;gap:28px;align-items:flex-start}
+nav.toc{position:sticky;top:0;max-height:100vh;overflow-y:auto;flex:0 0 288px;padding:20px 12px 60px;font-size:.82rem;border-right:1px solid var(--line);background:var(--surface)}
+nav.toc h4{margin:18px 0 6px;color:var(--accent);text-transform:uppercase;font-size:.68rem;letter-spacing:.08em;font-weight:700}
+nav.toc a{display:block;color:var(--muted);text-decoration:none;padding:4px 10px;border-radius:6px;border-left:3px solid transparent;transition:all .15s}
+nav.toc a:hover{background:var(--soft);color:var(--icd10);border-left-color:var(--icd10)}
+nav.toc a.sub{padding-left:22px;font-size:.79rem}
+main{flex:1 1 auto;min-width:0;padding:28px 0 100px}
+section{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:28px 30px;margin:0 0 26px;scroll-margin-top:16px;box-shadow:0 1px 3px rgba(10,37,64,.04)}
+h2{font-size:1.45rem;color:var(--deep);border-bottom:3px solid var(--accent);padding-bottom:10px;margin-bottom:14px;font-weight:800}
+h3{font-size:1.1rem;color:var(--accent);margin:26px 0 8px;font-weight:700;padding-left:14px;border-left:4px solid var(--accent)}
+h4{font-size:.98rem;margin:16px 0 6px;font-weight:700;color:var(--deep)}
+p{margin:.55em 0}
+.tag{display:inline-block;font-size:.64rem;font-weight:700;padding:2px 9px;border-radius:4px;color:#fff;vertical-align:middle;letter-spacing:.02em}
+.t10{background:var(--icd10)}.t11{background:var(--icd11)}.tks{background:var(--ks)}.tother{background:var(--other)}
+b.cl{color:var(--deep);font-weight:700}
+i.si{color:var(--uniq);font-style:normal;font-weight:500}
+table{border-collapse:collapse;width:100%;margin:16px 0;font-size:.89rem;border-radius:10px;overflow:hidden;box-shadow:0 0 0 1px var(--line)}
+th,td{border:1px solid var(--line);padding:10px 12px;text-align:left;vertical-align:top}
+th{background:var(--deep);color:#fff;font-weight:600;font-size:.79rem;text-transform:uppercase;letter-spacing:.03em}
+tr:nth-child(even) td{background:#f8fafb}
+.c10{background:#eaf2f8!important}.c11{background:#eafaf1!important}
+.panel10{border-left:5px solid var(--icd10);background:#edf2f8;border-radius:0 10px 10px 0;padding:16px 20px;margin:14px 0}
+.panel11{border-left:5px solid var(--icd11);background:#edfaf1;border-radius:0 10px 10px 0;padding:16px 20px;margin:14px 0}
+.panel10 h4,.panel11 h4{margin:0 0 8px;padding-left:0;border-left:none}
+.note{border-left:5px solid var(--accent);background:var(--soft);padding:14px 18px;border-radius:0 10px 10px 0;margin:14px 0}
+.warn{border-left:5px solid var(--warn);background:#fdedec;padding:14px 18px;border-radius:0 10px 10px 0;margin:14px 0}
+.incl{border-left:5px solid var(--icd11);background:#eefaf2;padding:12px 16px;border-radius:0 8px 8px 0;margin:10px 0;font-size:.9rem}
+.excl{border-left:5px solid var(--warn);background:#fdf0ee;padding:12px 16px;border-radius:0 8px 8px 0;margin:10px 0;font-size:.9rem}
+.unique{border:2px solid var(--uniq);background:#f5eef8;border-radius:12px;padding:16px 20px;margin:16px 0}
+.unique h4{color:var(--uniq);margin:0 0 10px;border-left:none;padding-left:0}
+.assoc{border:2px solid var(--warn);background:#fdf0ee;border-radius:12px;padding:16px 20px;margin:16px 0}
+.assoc h4{color:var(--warn);margin:0 0 10px;border-left:none;padding-left:0}
+.psych{border:2px solid var(--psych);background:#eaf4f7;border-radius:12px;padding:16px 20px;margin:16px 0}
+.psych h4{color:var(--psych);margin:0 0 10px;border-left:none;padding-left:0}
+.subtype{border:2px solid #1a5276;background:#eef3f8;border-radius:12px;padding:18px 22px;margin:18px 0}
+.subtype h4{color:#1a5276;margin:0 0 10px;border-left:none;padding-left:0;font-size:1.04rem}
+.ddx{border:2px dashed var(--ddx);background:#e9f6f2;border-radius:10px;padding:12px 16px;margin:12px 0;font-size:.9rem}
+.ddx h5{color:var(--ddx);margin:0 0 6px;font-size:.9rem;text-transform:uppercase;letter-spacing:.03em}
+.sig{background:var(--deep);color:#fff;padding:14px 20px;border-radius:10px;margin:14px 0;font-size:.96rem}
+.sig b{color:#f9e79f}
+.remember{border:2px dashed #d4ac0d;background:#fef9e7;border-radius:12px;padding:16px 20px;margin:14px 0}
+.remember h4{color:#7d6608;margin:0 0 8px;border-left:none;padding-left:0}
+.idcard{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin:14px 0}
+.idcard div{background:#f2f6fa;border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:.85rem}
+.idcard b{display:block;font-size:.62rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:3px}
+ul.t,ol.t{margin:.5em 0;padding-left:1.3em}
+ul.t li,ol.t li{margin:.3em 0}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.top{text-align:right;font-size:.78rem;margin-top:10px}.top a{color:var(--muted);text-decoration:none}
+footer{background:var(--deep);color:#aeb6bf;padding:30px 22px;font-size:.86rem;text-align:center}
+footer strong{color:#fff}
+@media(max-width:920px){.layout{display:block}nav.toc{position:static;border-right:none;border-bottom:1px solid var(--line);max-height:none;flex:none}.g2{grid-template-columns:1fr}.cover h1{font-size:1.5rem}}
+@media print{nav.toc{display:none}body{background:#fff}section{box-shadow:none;break-inside:avoid}footer{background:#fff;color:#333}}
+</style>
+</head>
+<body>
+<a id="top"></a>
+
+<div class="cover">
+  <p class="subtitle">M.Phil. Clinical Psychology &mdash; Clinical Psychopharmacology Reference</p>
+  <h1>Extrapyramidal Symptoms (EPS) in Psychiatry<br>Comprehensive Handbook</h1>
+  <p class="tagline">Every drug-induced movement disorder set out in full: the acute reactions (dystonias including oculogyric crisis and forced upward &ldquo;eyes-to-the-ceiling&rdquo; gaze, fixed staring and gaze deviations, torticollis, opisthotonus, laryngospasm), akathisia, drug-induced parkinsonism, and the tardive syndromes (tardive dyskinesia and tardive dystonia) &mdash; plus neuroleptic malignant syndrome. For each: what it looks like, when it appears, which drugs and mechanisms cause it, which disorders it is seen in, how to tell them apart, and how each is treated.</p>
+  <div class="chips">
+    <span class="chip">Mechanism: dopamine&ndash;acetylcholine balance</span>
+    <span class="chip">Every EPS type detailed</span>
+    <span class="chip">Timing: 4 hours / 4 days / 4 weeks / 4 months</span>
+    <span class="chip">Drug-risk table</span>
+    <span class="chip">Differential diagnosis + treatment</span>
+  </div>
+  <p class="srcline">Sources: Kaplan &amp; Sadock's Synopsis/Comprehensive Textbook of Psychiatry; Stahl's Essential Psychopharmacology; Maudsley Prescribing Guidelines; standard neurology/movement-disorder references and peer-reviewed literature.</p>
+</div>
+
+<div class="wrap layout">
+<nav class="toc">
+  <h4>Foundations</h4>
+  <a href="#overview">What EPS are</a>
+  <a href="#mechanism">Mechanism &amp; why they happen</a>
+  <a href="#classification">Classification &amp; timeline</a>
+  <h4>Acute / early EPS</h4>
+  <a href="#dystonia">1. Acute dystonia</a>
+  <a class="sub" href="#oculogyric">&middot; Oculogyric crisis (eyes to ceiling)</a>
+  <a class="sub" href="#gaze">&middot; Staring / gaze deviations</a>
+  <a class="sub" href="#neck">&middot; Torticollis / retrocollis / anterocollis</a>
+  <a class="sub" href="#trunk">&middot; Opisthotonus / truncal</a>
+  <a class="sub" href="#orofacial">&middot; Tongue / jaw / buccolingual</a>
+  <a class="sub" href="#airway">&middot; Laryngospasm (emergency)</a>
+  <a href="#akathisia">2. Akathisia</a>
+  <a href="#parkinsonism">3. Drug-induced parkinsonism</a>
+  <h4>Tardive / late EPS</h4>
+  <a href="#td">4. Tardive dyskinesia</a>
+  <a href="#tardive-other">5. Tardive dystonia &amp; other tardive</a>
+  <h4>Emergency</h4>
+  <a href="#nms">Neuroleptic malignant syndrome</a>
+  <h4>Cross-cutting</h4>
+  <a href="#drugs">Which drugs cause EPS</a>
+  <a href="#disorders">In which disorders EPS occur</a>
+  <a href="#treatment">Treatment principles</a>
+  <a href="#mnemonics">Mnemonics &amp; quick recall</a>
+  <a href="#references">References</a>
+</nav>
+<main>
+
+
+<!-- ═══════════════════════ OVERVIEW ═══════════════════════ -->
+<section id="overview">
+  <h2>What EPS are</h2>
+  <p><b class="cl">Extrapyramidal symptoms (EPS)</b> are drug-induced disturbances of movement caused mainly by medicines that <b>block dopamine</b> in the brain's motor control system. The <b>extrapyramidal system</b> is the network (chiefly the <b>basal ganglia</b> and their connections) that runs alongside the &ldquo;pyramidal&rdquo; (direct voluntary) motor pathway and <b>fine-tunes movement</b> &mdash; smoothing it, setting muscle tone, and suppressing unwanted movements. When drugs interfere with it, movement becomes either <b>too little and stiff</b> (parkinsonism), <b>fixed in abnormal postures</b> (dystonia), <b>restless</b> (akathisia), or <b>excessive and involuntary</b> (dyskinesia).</p>
+  <p>EPS are the classic and most troublesome side effects of <b>antipsychotic (neuroleptic) drugs</b>, but they can be caused by any dopamine-blocking drug &mdash; including common anti-sickness (antiemetic) medicines. They matter clinically because they are <b>distressing, stigmatising, a major cause of patients stopping treatment</b>, sometimes <b>dangerous</b> (airway dystonia, neuroleptic malignant syndrome) and, in the tardive form, sometimes <b>permanent.</b></p>
+  <div class="note"><b>Terms in plain language.</b> <i>Extrapyramidal</i> = the movement-regulating system outside the main voluntary motor pathway; <i>dopamine (D2) blockade</i> = the drug plugs the dopamine receptor so dopamine can't act; <i>dystonia</i> = sustained muscle contraction pulling the body into an abnormal posture; <i>akathisia</i> = an inner restlessness with a need to move; <i>parkinsonism</i> = slowness + stiffness + tremor like Parkinson's disease; <i>dyskinesia</i> = involuntary repetitive movements; <i>tardive</i> = late-appearing; <i>acute</i> = early/sudden; <i>anticholinergic</i> = a drug that blocks acetylcholine (relieves most acute EPS).</p></div>
+</section>
+
+<!-- ═══════════════════════ MECHANISM ═══════════════════════ -->
+<section id="mechanism">
+  <h2>Mechanism &mdash; why EPS happen</h2>
+  <div class="psych"><h4>The dopamine&ndash;acetylcholine balance in the striatum</h4>
+    <p><span class="tag tks">Kaplan &amp; Sadock</span> The key pathway is the <b>nigrostriatal dopamine pathway</b> (from the substantia nigra to the striatum). Normally dopamine and <b>acetylcholine</b> are held in balance there. Antipsychotics <b>block striatal dopamine D2 receptors</b>; this removes dopamine's braking effect and leaves a relative <b>cholinergic excess</b>, which produces the acute EPS. This is why <b>anticholinergic drugs (benztropine, procyclidine, trihexyphenidyl) relieve acute dystonia and parkinsonism</b> &mdash; they restore the balance.</p>
+  </div>
+  <ul class="t">
+    <li><b>The ~80% threshold.</b> Clinically significant EPS typically appear once striatal D2 receptor occupancy exceeds roughly <b>80%</b>. Drugs and doses that push occupancy above this line cause EPS; the therapeutic &ldquo;window&rdquo; for antipsychotic effect sits just below it (~65&ndash;80%).</li>
+    <li><b>Four dopamine pathways &mdash; why antipsychotics have these effects.</b> Blocking the <b>mesolimbic</b> pathway gives the antipsychotic benefit; blocking the <b>nigrostriatal</b> pathway causes EPS; blocking the <b>tuberoinfundibular</b> pathway raises prolactin; the <b>mesocortical</b> pathway relates to negative/cognitive symptoms.</li>
+    <li><b>Why atypicals cause fewer EPS.</b> Second-generation (atypical) antipsychotics combine D2 blockade with strong <b>serotonin 5-HT2A blockade</b> (and, for some, looser/&ldquo;fast-off&rdquo; D2 binding or partial agonism). 5-HT2A blockade <b>disinhibits dopamine release in the nigrostriatal pathway</b>, protecting motor function &mdash; hence lower EPS risk.</li>
+    <li><b>Why tardive dyskinesia is different.</b> The leading theory is <b>dopamine-receptor supersensitivity / up-regulation</b>: after months to years of blockade, striatal D2 receptors increase in number and sensitivity, so dopamine (or a fall in blockade) now produces excess movement. This explains why TD may <b>worsen when the drug is reduced</b> and why <b>anticholinergics worsen it</b>.</li>
+  </ul>
+  <div class="unique"><h4>The single most useful rule</h4><p><b>Acute EPS = too much acetylcholine relative to dopamine &rarr; anticholinergics help.</b> <b>Tardive dyskinesia = dopamine supersensitivity &rarr; anticholinergics HARM; use a VMAT2 inhibitor.</b> Getting this the wrong way round is a classic and dangerous error.</p></div>
+</section>
+
+<!-- ═══════════════════════ CLASSIFICATION ═══════════════════════ -->
+<section id="classification">
+  <h2>Classification &amp; timeline of EPS</h2>
+  <p>EPS are grouped into <b>acute/early</b> (dose-related, usually reversible if caught) and <b>tardive/late</b> (delayed, potentially persistent). A widely used memory aid is the &ldquo;<b>4 hours &ndash; 4 days &ndash; 4 weeks &ndash; 4 months</b>&rdquo; sequence.</p>
+  <table>
+    <tr><th>EPS type</th><th>Typical onset</th><th>Core feature</th><th>Reversible?</th><th>Responds to anticholinergic?</th></tr>
+    <tr><td><b>Acute dystonia</b></td><td>Hours to ~5 days (often &lt;48 h)</td><td>Sustained abnormal posture (e.g. eyes to ceiling, neck twist)</td><td>Yes &mdash; rapidly</td><td>Yes (dramatic)</td></tr>
+    <tr><td><b>Akathisia</b></td><td>Days to weeks</td><td>Inner restlessness, can't sit still</td><td>Yes</td><td>Poorly &mdash; use propranolol</td></tr>
+    <tr><td><b>Parkinsonism</b></td><td>Days to ~3 months</td><td>Bradykinesia, rigidity, tremor</td><td>Yes</td><td>Yes</td></tr>
+    <tr><td><b>Tardive dyskinesia</b></td><td>Months to years (&ge;3&ndash;6 months)</td><td>Involuntary orofacial/limb movements</td><td>Often persistent / may be permanent</td><td>NO &mdash; can worsen it</td></tr>
+    <tr><td><b>Neuroleptic malignant syndrome</b></td><td>Any time, esp. first 1&ndash;2 weeks</td><td>Fever + rigidity + autonomic + altered mind (emergency)</td><td>With treatment; fatal if missed</td><td>Not the treatment (see NMS)</td></tr>
+  </table>
+  <div class="note"><b>Two families of movement.</b> <b>Hypokinetic</b> (too little movement) = parkinsonism. <b>Hyperkinetic</b> (too much/abnormal movement) = dystonia, akathisia (subjective + motor), dyskinesia. Recognising which family you are looking at points quickly to the diagnosis.</p></div>
+</section>
+
+
+<!-- ═══════════════════════ ACUTE DYSTONIA ═══════════════════════ -->
+<section id="dystonia">
+  <h2>1. Acute dystonia (acute dystonic reaction)</h2>
+  <p><b class="cl">Acute dystonia</b> is a <b>sudden, sustained, involuntary contraction of muscle groups</b> that pulls part of the body into an abnormal, often twisted, fixed posture. It is frequently <b>dramatic, painful and frightening</b> for the patient and family, and can be mistaken for a seizure, tetany, hysteria, or even &ldquo;attention-seeking&rdquo; &mdash; but it is a genuine, treatable drug reaction that usually reverses within minutes of the right injection.</p>
+  <div class="idcard">
+    <div><b>Onset</b>Hours to ~5 days; often within 24&ndash;48 h of starting or increasing the drug, or after a depot injection</div>
+    <div><b>Highest risk</b>Young males; high-potency typicals; high dose / rapid loading; dystonia-prone individuals; antipsychotic-na&iuml;ve patients</div>
+    <div><b>Mechanism</b>Acute striatal D2 blockade &rarr; relative cholinergic excess</div>
+    <div><b>Treatment</b>IM/IV anticholinergic (benztropine, procyclidine) or antihistamine (diphenhydramine, promethazine) &mdash; rapid relief</div>
+  </div>
+  <div class="warn"><b>Why young men?</b> Acute dystonia is <b>most common in young males</b> (and in the antipsychotic-na&iuml;ve, and after rapid high-potency dosing). Always <b>warn</b> such patients and consider prophylactic anticholinergic cover when starting a high-potency typical.</p></div>
+  <p>Acute dystonia can affect almost any voluntary muscle group. The named forms below are all variants of the same reaction &mdash; a patient may show one or several at once.</p>
+</section>
+
+<section id="oculogyric">
+  <h2>&middot; Oculogyric crisis (the &ldquo;eyes rolled up to the ceiling&rdquo; dystonia)</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Type:</b> Acute dystonia affecting the <b>extraocular muscles</b> &mdash; the classic and most-asked-about EPS presentation.</p>
+  <div class="subtype"><h4>What it looks like</h4>
+    <ul class="t">
+      <li>A <b>forced, sustained, involuntary deviation of both eyes</b> &mdash; classically <b>upward and to one side, so the person appears to be staring at the ceiling</b> and cannot bring the eyes back down voluntarily.</li>
+      <li>The eyes may instead deviate <b>laterally</b> or, less often, <b>downward</b>; the head is often <b>tilted back (retrocollis)</b> to accompany the upward gaze.</li>
+      <li>The episode is <b>painful, distressing and terrifying</b>; the patient is <b>fully conscious and aware</b> throughout (which distinguishes it from a seizure).</li>
+      <li>Often accompanied by <b>blepharospasm</b> (forced eyelid closure), <b>widened palpebral fissures/staring</b>, tongue protrusion, jaw or neck dystonia, and marked anxiety/agitation.</li>
+      <li>May be <b>episodic and recurrent</b>, sometimes precipitated or worsened by stress or fatigue; between episodes eye movements can be normal.</li>
+    </ul>
+  </div>
+  <div class="idcard">
+    <div><b>Onset</b>Early &mdash; hours to days after starting/increasing a dopamine blocker; can recur if the drug continues</div>
+    <div><b>Due to</b>High-potency typicals (haloperidol, fluphenazine, trifluoperazine); antiemetics (metoclopramide, prochlorperazine); occasionally atypicals</div>
+    <div><b>Note</b>Oculogyric crises also occurred in post-encephalitic parkinsonism historically &mdash; but today the commonest cause is medication</div>
+    <div><b>Treatment</b>IM/IV anticholinergic (benztropine/procyclidine) or diphenhydramine &mdash; eyes usually normalise within minutes</div>
+  </div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>From an <b>epileptic seizure / gaze deviation of a seizure</b> (there consciousness is impaired, with post-ictal confusion &mdash; oculogyric crisis has preserved awareness); from a <b>tonic gaze from a stroke/brainstem lesion</b> (other neurological signs); from <b>conversion/functional</b> presentations; from <b>tics</b> (brief, suppressible, not sustained). The key clue: <b>recent start of a dopamine-blocking drug + sustained forced upgaze + full awareness</b>.</p></div>
+  <div class="remember"><h4>Remember</h4><p>&ldquo;<b>Eyes forced up to the ceiling, can't look down, fully awake, just started an antipsychotic/metoclopramide</b>&rdquo; &mdash; oculogyric crisis (acute ocular dystonia). Give an anticholinergic injection.</p></div>
+</section>
+
+<section id="gaze">
+  <h2>&middot; Fixed staring, gaze deviation and eyelid dystonias</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Type:</b> Acute (and sometimes tardive) dystonia of the eye and eyelid muscles &mdash; the &ldquo;staring / eyes-fixed&rdquo; presentations.</p>
+  <div class="subtype"><h4>Forms of abnormal gaze/eyelid posture</h4>
+    <ul class="t">
+      <li><b>Sustained lateral or upward gaze deviation</b> &mdash; the eyes are pulled and held to one side or up, giving a fixed &ldquo;staring&rdquo; appearance the person cannot overcome.</li>
+      <li><b>Blepharospasm</b> &mdash; involuntary forced closure/squeezing of the eyelids.</li>
+      <li><b>Widened palpebral fissures with a fixed stare</b> &mdash; a &ldquo;wide-eyed staring&rdquo; look, sometimes with reduced blinking; also seen as part of drug-induced parkinsonism (the &ldquo;reptilian&rdquo; stare with reduced blink rate).</li>
+      <li>A general <b>reduced blink rate and masked, staring face</b> is a feature of <b>drug-induced parkinsonism</b> (see below) rather than dystonia &mdash; useful to distinguish the two &ldquo;staring&rdquo; pictures.</li>
+    </ul>
+  </div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>The <b>staring in parkinsonism</b> (reduced blinking, masked face, slowness &mdash; hypokinetic) versus the <b>staring/forced gaze of ocular dystonia</b> (sustained forced eye deviation, often painful &mdash; hyperkinetic). Also from thyroid eye disease and neurological gaze palsies.</p></div>
+  <div class="remember"><h4>Remember</h4><p>&ldquo;<b>Fixed forced gaze/blink-squeeze</b>&rdquo; = dystonia; &ldquo;<b>wide unblinking mask-like stare + slowness</b>&rdquo; = parkinsonism.</p></div>
+</section>
+
+<section id="neck">
+  <h2>&middot; Neck dystonias &mdash; torticollis, retrocollis, anterocollis, laterocollis</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Type:</b> Acute dystonia of the neck muscles &mdash; among the commonest acute dystonic presentations.</p>
+  <div class="subtype"><h4>Forms</h4>
+    <ul class="t">
+      <li><b>Torticollis</b> &mdash; the neck twists so the head turns/tilts to one side (&ldquo;wry neck&rdquo;).</li>
+      <li><b>Retrocollis</b> &mdash; the head is pulled <b>backward</b> (often accompanying an oculogyric crisis).</li>
+      <li><b>Anterocollis</b> &mdash; the head is pulled <b>forward/down</b> onto the chest.</li>
+      <li><b>Laterocollis</b> &mdash; the head is pulled <b>sideways</b> toward the shoulder.</li>
+    </ul>
+    <p>These are sustained, often painful, and the patient cannot straighten the neck voluntarily.</p>
+  </div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>From <b>musculoskeletal &ldquo;crick&rdquo; / spasmodic torticollis</b> (no drug trigger, no other dystonic features); from <b>tardive dystonia</b> (late onset, more fixed and treatment-resistant); from meningism/neck stiffness (fever, infection signs).</p></div>
+  <div class="remember"><h4>Remember</h4><p><b>-collis = neck.</b> Torti (twist) / Retro (back) / Antero (forward) / Latero (side). Sudden, drug-triggered, painful &rarr; acute dystonia.</p></div>
+</section>
+
+<section id="trunk">
+  <h2>&middot; Truncal dystonias &mdash; opisthotonus and axial arching</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Type:</b> Acute dystonia of the trunk/axial muscles &mdash; the most dramatic-looking form.</p>
+  <div class="subtype"><h4>Forms</h4>
+    <ul class="t">
+      <li><b>Opisthotonus</b> &mdash; a strong backward arching of the whole spine and neck, so the body bows backward (can resemble the arching seen in tetanus or severe seizures).</li>
+      <li><b>Axial/truncal twisting and scoliotic posturing</b> &mdash; the trunk is pulled and held to one side or into a twisted posture.</li>
+      <li><b>Pisa syndrome (pleurothotonus)</b> &mdash; a sustained lateral bending of the trunk (leaning like the Leaning Tower of Pisa), which may be acute or tardive.</li>
+    </ul>
+  </div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>From a <b>tonic seizure</b> or <b>tetanus</b> (opisthotonus with trismus, but with a wound/infection history) and from <b>strychnine poisoning</b>; the drug history and preserved awareness point to acute dystonia.</p></div>
+  <div class="remember"><h4>Remember</h4><p>&ldquo;<b>Whole-body backward arch after an antipsychotic</b>&rdquo; = opisthotonic acute dystonia. <b>Pisa</b> = leaning to one side.</p></div>
+</section>
+
+<section id="orofacial">
+  <h2>&middot; Orofacial dystonias &mdash; tongue, jaw and mouth</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Type:</b> Acute dystonia of the tongue, jaw and facial muscles.</p>
+  <div class="subtype"><h4>Forms</h4>
+    <ul class="t">
+      <li><b>Tongue protrusion / buccolingual dystonia</b> &mdash; the tongue is forced out or twisted; difficulty speaking or swallowing.</li>
+      <li><b>Trismus</b> &mdash; forced jaw clenching (lockjaw), or the opposite, a forced-open jaw dislocation.</li>
+      <li><b>Grimacing and facial contortion</b> &mdash; sustained abnormal facial postures.</li>
+      <li><b>Dysarthria / dysphagia</b> &mdash; speech and swallowing impaired by the tongue/jaw contraction.</li>
+    </ul>
+  </div>
+  <div class="warn"><b>Watch for airway involvement.</b> Tongue and jaw dystonia can shade into <b>pharyngeal/laryngeal dystonia</b> &mdash; see the next section &mdash; which is an emergency.</p></div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>From the <b>orofacial movements of tardive dyskinesia</b> (late, repetitive lip-smacking/chewing rather than a sustained fixed posture); from a focal seizure; from a temporomandibular joint problem.</p></div>
+  <div class="remember"><h4>Remember</h4><p>&ldquo;<b>Tongue forced out / jaw locked, just started a dopamine blocker</b>&rdquo; = acute orofacial dystonia (not tardive dyskinesia, which is later and repetitive).</p></div>
+</section>
+
+<section id="airway">
+  <h2>&middot; Laryngospasm / pharyngeal dystonia &mdash; the airway EMERGENCY</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Type:</b> Acute dystonia of the laryngeal/pharyngeal muscles &mdash; rare but <b>life-threatening</b>.</p>
+  <div class="warn"><b>Medical emergency.</b> Dystonic contraction of the <b>larynx and pharynx</b> can cause <b>stridor, difficulty breathing and airway obstruction</b>, with risk of asphyxiation. It requires <b>immediate parenteral anticholinergic/antihistamine</b> (IM or IV), airway support, and urgent medical attention. Never dismiss breathing difficulty in a patient on antipsychotics as anxiety.</p></div>
+  <div class="subtype"><h4>What it looks like</h4>
+    <ul class="t">
+      <li>Sudden <b>throat tightness, difficulty swallowing, a choking sensation, stridor (noisy breathing)</b> and respiratory distress.</li>
+      <li>May accompany tongue/jaw dystonia; the patient is frightened and struggling to breathe.</li>
+    </ul>
+  </div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>From <b>anaphylaxis</b> (urticaria, hypotension, allergen exposure), from a <b>foreign body</b>, and from a <b>panic attack</b> (no true stridor/obstruction). The drug history and rapid response to IV anticholinergic confirm dystonia.</p></div>
+  <div class="remember"><h4>Remember</h4><p>&ldquo;<b>Can't breathe/stridor after an antipsychotic</b>&rdquo; = laryngeal dystonia &mdash; <b>treat immediately</b> with parenteral anticholinergic and secure the airway.</p></div>
+</section>
+
+
+<!-- ═══════════════════════ AKATHISIA ═══════════════════════ -->
+<section id="akathisia">
+  <h2>2. Akathisia</h2>
+  <p><b class="cl">Akathisia</b> (from the Greek for &ldquo;inability to sit&rdquo;) is a distressing <b>subjective inner restlessness</b> coupled with a <b>compelling urge to move</b>. It is felt as much as it is seen &mdash; and this is what makes it dangerous, because the inner torment can be mistaken for worsening psychosis, anxiety or agitation, leading to the harmful error of <b>increasing</b> the antipsychotic (which worsens the akathisia).</p>
+  <div class="subtype"><h4>What it looks like &amp; feels like</h4>
+    <ul class="t">
+      <li><b>Subjective:</b> a feeling of inner restlessness, tension or unease, an inability to relax, &ldquo;jumping out of my skin&rdquo;, being &ldquo;driven to move&rdquo;.</li>
+      <li><b>Objective (motor):</b> pacing, inability to sit or stand still, rocking from foot to foot, shifting weight, marching on the spot, crossing/uncrossing legs, shuffling, rubbing the face or scalp.</li>
+      <li>Often worse when required to be still (waiting rooms, meals, at night).</li>
+    </ul>
+  </div>
+  <div class="idcard">
+    <div><b>Onset</b>Early to intermediate &mdash; days to weeks of starting/increasing (acute); a persistent tardive form can appear later</div>
+    <div><b>Due to</b>High-potency typicals; aripiprazole and other atypicals; metoclopramide; also SSRIs/SNRIs (akathisia-like restlessness)</div>
+    <div><b>Danger</b>Strongly linked to distress, dysphoria, aggression and increased SUICIDALITY; often misread as worsening illness</div>
+    <div><b>Treatment</b>Reduce dose / switch; PROPRANOLOL (beta-blocker) first-line; benzodiazepines; anticholinergics work poorly here</div>
+  </div>
+  <div class="warn"><b>The critical trap.</b> Akathisia is frequently <b>mistaken for agitation, anxiety, or a psychotic relapse</b>. If the antipsychotic dose is raised in response, the akathisia (and the risk) gets worse. Always ask specifically about <b>inner restlessness</b> after starting/increasing an antipsychotic.</p></div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>From <b>psychotic agitation / psychomotor agitation</b> (driven by psychiatric symptoms, not a subjective urge to move the legs); from an <b>anxiety disorder</b>; from <b>drug-induced parkinsonism with restlessness</b>; from <b>restless legs syndrome</b> (worse at night/rest, relieved by movement, often with dysaesthesia); from stimulant/withdrawal states. The clue: onset closely tied to starting/increasing a dopamine-blocking drug, with an intolerable urge to move.</p></div>
+  <div class="remember"><h4>Remember</h4><p>&ldquo;<b>Can't sit still, feels tormented inside, just started/increased an antipsychotic</b>&rdquo; &mdash; akathisia. <b>Propranolol, not anticholinergic.</b> Don't raise the antipsychotic.</p></div>
+</section>
+
+<!-- ═══════════════════════ PARKINSONISM ═══════════════════════ -->
+<section id="parkinsonism">
+  <h2>3. Drug-induced parkinsonism (pseudoparkinsonism)</h2>
+  <p><b class="cl">Drug-induced parkinsonism</b> is a <b>reversible mimic of Parkinson's disease</b> caused by dopamine blockade. It is the <b>hypokinetic</b> EPS &mdash; too little movement &mdash; and typically comes on more gradually than dystonia or akathisia.</p>
+  <div class="subtype"><h4>Core features (the parkinsonian picture)</h4>
+    <ul class="t">
+      <li><b>Bradykinesia / akinesia</b> &mdash; slowness and poverty of movement; the cardinal feature.</li>
+      <li><b>Rigidity</b> &mdash; increased muscle tone: <b>&ldquo;cogwheel&rdquo;</b> (ratchety) and <b>&ldquo;lead-pipe&rdquo;</b> (smooth, sustained) rigidity.</li>
+      <li><b>Tremor</b> &mdash; a resting, ~4&ndash;6 Hz <b>&ldquo;pill-rolling&rdquo;</b> tremor.</li>
+      <li><b>Postural instability</b>, <b>shuffling festinant gait</b>, reduced arm swing, <b>stooped posture</b>.</li>
+      <li><b>Masked, expressionless face (hypomimia)</b> with a <b>reduced blink rate and fixed stare</b>, <b>hypersalivation/drooling</b>, soft monotonous speech, and small handwriting (<b>micrographia</b>).</li>
+      <li><b>Rabbit syndrome</b> &mdash; a fine, rapid, rhythmic perioral (lip) tremor, a specific late variant of drug-induced parkinsonism (responds to anticholinergics, unlike tardive dyskinesia).</li>
+    </ul>
+  </div>
+  <div class="idcard">
+    <div><b>Onset</b>Intermediate &mdash; usually days to weeks, up to ~3 months after starting/increasing</div>
+    <div><b>Highest risk</b>Elderly, female, higher doses, high-potency typicals; also higher-dose risperidone/olanzapine; metoclopramide</div>
+    <div><b>Mechanism</b>Nigrostriatal D2 blockade mimicking the dopamine deficiency of Parkinson's disease</div>
+    <div><b>Treatment</b>Reduce dose / switch to lower-potency or atypical (quetiapine, clozapine); anticholinergics (benztropine, trihexyphenidyl); amantadine</div>
+  </div>
+  <div class="warn"><b>Bilateral &amp; symptom-linked.</b> Drug-induced parkinsonism is typically <b>more symmetrical</b> and clearly <b>time-linked to the drug</b>, whereas idiopathic Parkinson's disease usually starts <b>asymmetrically</b>. But the two can be hard to separate, especially in the elderly, and a drug can unmask early true Parkinson's disease.</p></div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>From <b>idiopathic Parkinson's disease</b> (asymmetrical onset, progressive, not drug-linked, may respond to levodopa); from <b>depression / negative symptoms of schizophrenia</b> (which also produce slowing and reduced expression &mdash; but without rigidity/cogwheeling); from <b>catatonia</b>; from hypothyroidism; from other causes of tremor (essential tremor is postural/action, not resting).</p></div>
+  <div class="remember"><h4>Remember &mdash; parkinsonism &ldquo;TRAP&rdquo;</h4><p><b>T</b>remor (resting, pill-rolling) &middot; <b>R</b>igidity (cogwheel/lead-pipe) &middot; <b>A</b>kinesia/bradykinesia &middot; <b>P</b>ostural instability. Plus masked face, drooling, shuffling gait, micrographia. Reversible; anticholinergics/amantadine help.</p></div>
+</section>
+
+
+<!-- ═══════════════════════ TARDIVE DYSKINESIA ═══════════════════════ -->
+<section id="td">
+  <h2>4. Tardive dyskinesia (TD)</h2>
+  <p><b class="cl">Tardive dyskinesia</b> is the <b>late-onset, involuntary, repetitive movement disorder</b> caused by long-term dopamine-blocking drugs. It is the <b>most feared EPS</b> because it may be <b>persistent or irreversible</b>. &ldquo;Tardive&rdquo; means late &mdash; it appears after prolonged exposure, not at the start.</p>
+  <div class="subtype"><h4>What it looks like</h4>
+    <ul class="t">
+      <li><b>Orofacial / buccolingual-masticatory (classic):</b> <b>lip-smacking, puckering and pursing</b>, <b>chewing</b> movements, <b>tongue-thrusting and rolling</b> (the &ldquo;fly-catcher&rdquo; tongue), grimacing, and cheek-puffing.</li>
+      <li><b>Limbs:</b> <b>choreoathetoid</b> (dance-like, writhing) finger, hand and foot movements; piano-playing finger movements.</li>
+      <li><b>Trunk:</b> rocking, twisting, pelvic thrusting, shoulder shrugging.</li>
+      <li><b>Respiratory dyskinesia:</b> irregular breathing, grunting.</li>
+      <li>Movements <b>lessen or disappear during sleep</b>, worsen with stress, and can be briefly suppressed voluntarily &mdash; but return.</li>
+    </ul>
+  </div>
+  <div class="idcard">
+    <div><b>Onset</b>Late &mdash; after months to years (usually &ge;3&ndash;6 months) of dopamine-blocker exposure</div>
+    <div><b>Highest risk</b>ELDERLY WOMEN; longer duration &amp; higher cumulative dose; typicals &gt;&gt; atypicals; diabetes; early EPS; affective disorder</div>
+    <div><b>Mechanism</b>Dopamine-receptor supersensitivity / up-regulation after chronic blockade</div>
+    <div><b>Prognosis</b>May be PERSISTENT or IRREVERSIBLE, especially if not caught early</div>
+  </div>
+  <div class="warn"><b>The paradoxes that give TD away.</b> TD <b>worsens transiently when the drug is reduced or stopped</b> (&ldquo;withdrawal-emergent dyskinesia&rdquo;) and may be <b>temporarily masked by raising the dose</b> &mdash; the opposite of acute EPS. And crucially: <b>anticholinergics WORSEN tardive dyskinesia</b> (whereas they help acute dystonia/parkinsonism). Withdraw anticholinergics if TD appears.</p></div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>From <b>acute orofacial dystonia</b> (early, sustained fixed posture &mdash; TD is late and repetitive); from <b>spontaneous dyskinesias</b> of elderly/edentulous patients and long-standing schizophrenia; from <b>Huntington's disease</b> and other choreas (family history, cognitive decline); from <b>ill-fitting dentures</b>; from stereotypies. Establish the <b>long dopamine-blocker exposure</b> and the classic orofacial pattern.</p></div>
+  <div class="remember"><h4>Remember</h4><p>&ldquo;<b>Late, repetitive lip-smacking / chewing / tongue-rolling / choreoathetoid limbs after long-term antipsychotics</b>&rdquo; = tardive dyskinesia. <b>Stop anticholinergics; use a VMAT2 inhibitor.</b></p></div>
+  <h3>Treatment</h3>
+  <ul class="t">
+    <li><b>Prevent:</b> use the lowest effective antipsychotic dose, prefer atypicals, review regularly (e.g. AIMS &mdash; Abnormal Involuntary Movement Scale).</li>
+    <li><b>Reduce/stop or switch</b> the offending drug where clinically possible; consider switching toward <b>clozapine</b> (lowest TD liability).</li>
+    <li><b>Specific treatment: VMAT2 inhibitors</b> &mdash; <b>valbenazine</b> and <b>deutetrabenazine</b> (also tetrabenazine) are the evidence-based drugs for TD.</li>
+    <li><b>Stop anticholinergics</b> (they worsen TD). Ginkgo biloba and clonazepam have limited supporting evidence.</li>
+  </ul>
+</section>
+
+<!-- ═══════════════════════ TARDIVE OTHER ═══════════════════════ -->
+<section id="tardive-other">
+  <h2>5. Tardive dystonia and other tardive syndromes</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Type:</b> The broader &ldquo;tardive&rdquo; spectrum &mdash; late-onset, often persistent movement disorders beyond classic TD.</p>
+  <div class="subtype"><h4>Tardive dystonia</h4>
+    <p>Sustained twisting/posturing appearing <b>late</b> in treatment (unlike the acute dystonia of the first days). It is often <b>more fixed, more disabling and more treatment-resistant</b> than acute dystonia. <b>Retrocollis, truncal arching (opisthotonic posturing) and Pisa syndrome</b> are characteristic. Can coexist with tardive dyskinesia.</p>
+  </div>
+  <div class="subtype"><h4>Other tardive syndromes</h4>
+    <ul class="t">
+      <li><b>Tardive akathisia</b> &mdash; late-onset, persistent restlessness (the tardive counterpart of acute akathisia).</li>
+      <li><b>Tardive tremor</b> &mdash; a late, often postural/action tremor.</li>
+      <li><b>Tardive tics / tardive myoclonus</b> &mdash; less common late movement phenomena.</li>
+      <li><b>Tardive pain / oral (burning mouth) syndromes</b> &mdash; occasionally described.</li>
+    </ul>
+  </div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>Tardive dystonia from <b>acute dystonia</b> (timing: late vs first days; fixedness) and from <b>primary/idiopathic dystonias</b>; tardive akathisia from acute akathisia and from an agitated depression.</p></div>
+  <div class="remember"><h4>Remember</h4><p>&ldquo;<b>Tardive = late &amp; stubborn.</b>&rdquo; Tardive dystonia (fixed twisting, retrocollis/arching), tardive akathisia (persistent restlessness), plus tardive tremor/tics. Treat as for TD: reduce/switch drug, consider VMAT2 inhibitor; anticholinergics may help tardive <i>dystonia</i> (unlike TD).</p></div>
+</section>
+
+<!-- ═══════════════════════ NMS ═══════════════════════ -->
+<section id="nms">
+  <h2>Neuroleptic malignant syndrome (NMS) &mdash; the life-threatening extreme</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Type:</b> A rare, <b>life-threatening emergency</b> from dopamine blockade. Discussed with EPS because of the shared mechanism, but it is a <b>distinct medical emergency</b>, not a simple EPS.</p>
+  <div class="warn"><b>Emergency.</b> NMS is fatal if unrecognised. Suspect it in any patient on a dopamine blocker who develops <b>fever + rigidity + confusion + autonomic instability</b>. Stop the drug and get urgent medical/critical-care help.</p></div>
+  <div class="subtype"><h4>The NMS tetrad</h4>
+    <ul class="t">
+      <li><b>Hyperthermia</b> &mdash; high fever.</li>
+      <li><b>Severe &ldquo;lead-pipe&rdquo; muscular rigidity</b> (generalised).</li>
+      <li><b>Autonomic instability</b> &mdash; labile/high blood pressure, tachycardia, profuse sweating, tachypnoea.</li>
+      <li><b>Altered mental status</b> &mdash; fluctuating consciousness, confusion, stupor.</li>
+    </ul>
+    <p><b>Investigations:</b> markedly <b>raised creatine kinase (CK)</b> (from muscle breakdown), leukocytosis, deranged electrolytes; risk of <b>rhabdomyolysis and acute renal failure</b>.</p>
+  </div>
+  <div class="idcard">
+    <div><b>Onset</b>Any time, but classically within the first 1&ndash;2 weeks of starting/increasing, or with rapid escalation</div>
+    <div><b>Due to</b>Any dopamine blocker (high-potency typicals highest); also ABRUPT WITHDRAWAL of dopaminergic (anti-Parkinson) drugs; dehydration a risk factor</div>
+    <div><b>Mechanism</b>Profound central dopamine blockade &rarr; thermoregulatory &amp; motor failure</div>
+    <div><b>Treatment</b>STOP the antipsychotic; supportive care + cooling + fluids; DANTROLENE; bromocriptine/amantadine (dopamine agonists); benzodiazepines; ICU; ECT if refractory</div>
+  </div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>From <b>serotonin syndrome</b> (serotonergic drugs, with <b>hyperreflexia, clonus, myoclonus</b> &mdash; NMS has lead-pipe rigidity and hyporeflexia, and evolves more slowly); from <b>malignant catatonia</b> (overlapping; may precede NMS); from <b>malignant hyperthermia</b> (anaesthetic trigger); from <b>heat stroke</b>, <b>CNS infection (meningitis/encephalitis)</b>, and <b>anticholinergic toxicity</b>.</p></div>
+  <div class="remember"><h4>Remember &mdash; NMS &ldquo;FEVER&rdquo;</h4><p><b>F</b>ever &middot; <b>E</b>ncephalopathy (altered mind) &middot; <b>V</b>itals unstable (autonomic) &middot; <b>E</b>levated CK/enzymes &middot; <b>R</b>igidity (lead-pipe). Stop the drug; dantrolene + dopamine agonist; ICU.</p></div>
+</section>
+
+
+<!-- ═══════════════════════ DRUGS ═══════════════════════ -->
+<section id="drugs">
+  <h2>Which drugs cause EPS (and why some cause more than others)</h2>
+  <p>Any drug that <b>blocks dopamine D2 receptors</b> can cause EPS. Risk tracks with <b>D2 potency</b>, <b>dose</b>, and <b>speed of titration</b>. The general rule: <b>typical (first-generation) &gt;&gt; atypical (second-generation); high-potency &gt;&gt; low-potency.</b></p>
+  <table>
+    <tr><th>Drug / class</th><th>EPS risk</th><th>Notes</th></tr>
+    <tr><td><b>High-potency typicals</b> &mdash; haloperidol, fluphenazine, trifluoperazine, pimozide, flupentixol</td><td>Very high</td><td>Most acute dystonia, parkinsonism, akathisia and TD</td></tr>
+    <tr><td><b>Low-potency typicals</b> &mdash; chlorpromazine, thioridazine, levomepromazine</td><td>Lower EPS</td><td>More sedation, anticholinergic and hypotensive effects instead</td></tr>
+    <tr><td><b>Risperidone / paliperidone</b> (esp. higher doses), <b>amisulpride</b></td><td>Moderate, dose-dependent</td><td>Atypicals but with strong D2 action; also raise prolactin</td></tr>
+    <tr><td><b>Aripiprazole</b> (D2 partial agonist)</td><td>Notable akathisia</td><td>Overall low parkinsonism/TD, but akathisia prominent</td></tr>
+    <tr><td><b>Olanzapine</b></td><td>Low (dose-dependent)</td><td>More metabolic side effects</td></tr>
+    <tr><td><b>Quetiapine</b></td><td>Very low</td><td>Preferred in Parkinson's disease / Lewy body dementia</td></tr>
+    <tr><td><b>Clozapine</b></td><td>Lowest EPS/TD</td><td>But agranulocytosis, seizures, myocarditis, sedation &mdash; reserved for treatment-resistant cases</td></tr>
+    <tr><td><b>Non-antipsychotic dopamine blockers</b> &mdash; <b>metoclopramide, prochlorperazine, promethazine</b> (antiemetics), tetrabenazine</td><td>Can cause ALL EPS incl. TD</td><td>Frequently overlooked, non-psychiatric cause &mdash; especially metoclopramide dystonia in the young and TD with chronic use</td></tr>
+    <tr><td><b>Other agents</b> &mdash; SSRIs/SNRIs, lithium, some calcium-channel blockers (flunarizine, cinnarizine), stimulants (withdrawal)</td><td>Occasional</td><td>SSRIs/lithium &rarr; tremor, akathisia; flunarizine/cinnarizine &rarr; parkinsonism</td></tr>
+  </table>
+  <div class="unique"><h4>Non-drug and reversible causes to keep in mind</h4><p>EPS-like pictures can also arise from <b>abrupt withdrawal of dopaminergic drugs</b> (parkinsonism/NMS-like states in Parkinson's disease), <b>dehydration</b> and <b>high fever</b> (NMS risk), and rapid IM/depot loading. Always review the full drug list &mdash; including antiemetics &mdash; before attributing movements to the primary psychiatric illness.</p></div>
+</section>
+
+<!-- ═══════════════════════ DISORDERS ═══════════════════════ -->
+<section id="disorders">
+  <h2>In which disorders / situations EPS occur</h2>
+  <p>EPS are a <b>drug side effect</b>, so they occur in any condition treated with dopamine-blocking drugs. The commonest settings:</p>
+  <ul class="t">
+    <li><b>Schizophrenia, schizoaffective and other psychotic disorders</b> &mdash; the largest group, on long-term antipsychotics (highest cumulative TD risk).</li>
+    <li><b>Bipolar disorder</b> &mdash; antipsychotics for mania and maintenance.</li>
+    <li><b>Severe / psychotic depression</b> &mdash; antipsychotic augmentation.</li>
+    <li><b>Delirium and agitation, and behavioural symptoms of dementia</b> &mdash; antipsychotics in the elderly (high parkinsonism/TD risk). <b>Avoid antipsychotics in Lewy body dementia and Parkinson's disease dementia</b>, which show extreme &ldquo;neuroleptic sensitivity&rdquo; (severe, sometimes fatal reactions).</li>
+    <li><b>Tourette syndrome and tic disorders</b> &mdash; antipsychotics (haloperidol, aripiprazole, risperidone).</li>
+    <li><b>Autism spectrum disorder and intellectual disability</b> with severe behavioural disturbance &mdash; risperidone, aripiprazole.</li>
+    <li><b>Nausea, vomiting, gastroparesis, migraine</b> &mdash; <b>metoclopramide, prochlorperazine</b>: a very common, frequently missed cause of EPS (including acute dystonia in young patients and TD with chronic use), often outside psychiatry.</li>
+    <li><b>Postoperative / palliative and general-medical settings</b> &mdash; antiemetic and sedative dopamine blockers.</li>
+  </ul>
+  <div class="warn"><b>Special-population cautions.</b> <b>Young men</b> &rarr; acute dystonia; <b>elderly, especially women</b> &rarr; parkinsonism and tardive dyskinesia; <b>Parkinson's/Lewy body</b> &rarr; avoid dopamine blockers; use quetiapine or clozapine if antipsychotic is unavoidable.</p></div>
+</section>
+
+<!-- ═══════════════════════ TREATMENT ═══════════════════════ -->
+<section id="treatment">
+  <h2>Treatment principles across EPS</h2>
+  <div class="g2">
+    <div class="panel11"><h4>Acute EPS (dystonia, parkinsonism)</h4>
+      <ul class="t">
+        <li><b>Acute dystonia:</b> parenteral <b>anticholinergic</b> (IM/IV benztropine or procyclidine) or <b>antihistamine</b> (diphenhydramine, promethazine) &mdash; rapid relief; secure the airway if laryngeal.</li>
+        <li><b>Parkinsonism:</b> reduce dose / switch to lower-potency or atypical (quetiapine, clozapine); <b>anticholinergics</b> (benztropine, trihexyphenidyl); <b>amantadine</b>.</li>
+        <li><b>Prophylaxis:</b> consider anticholinergic cover when starting a high-potency typical in a high-risk (young, na&iuml;ve) patient.</li>
+      </ul>
+    </div>
+    <div class="panel11"><h4>Akathisia</h4>
+      <ul class="t">
+        <li>Reduce dose / switch to a lower-liability drug.</li>
+        <li><b>Propranolol</b> (beta-blocker) first-line; <b>benzodiazepines</b> (e.g. clonazepam); mirtazapine has some evidence.</li>
+        <li><b>Anticholinergics are relatively ineffective</b> for akathisia.</li>
+      </ul>
+    </div>
+    <div class="panel11"><h4>Tardive dyskinesia</h4>
+      <ul class="t">
+        <li>Prevent (lowest dose, prefer atypicals, monitor with AIMS).</li>
+        <li>Reduce/stop or switch (toward clozapine); <b>VMAT2 inhibitors: valbenazine, deutetrabenazine</b>.</li>
+        <li><b>STOP anticholinergics</b> (they worsen TD).</li>
+      </ul>
+    </div>
+    <div class="panel11"><h4>Neuroleptic malignant syndrome</h4>
+      <ul class="t">
+        <li><b>Stop</b> the antipsychotic; supportive care, cooling, IV fluids; monitor CK/renal function.</li>
+        <li><b>Dantrolene</b>; <b>bromocriptine/amantadine</b> (dopamine agonists); benzodiazepines; ICU; <b>ECT</b> if refractory.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="note"><b>The anticholinergic response rule (memorise this).</b> Anticholinergics <b>help</b> acute dystonia and drug-induced parkinsonism; are <b>relatively unhelpful</b> for akathisia (use propranolol); and <b>worsen</b> tardive dyskinesia. NMS is treated with dantrolene + dopamine agonists, not anticholinergics.</p></div>
+</section>
+
+<!-- ═══════════════════════ MNEMONICS ═══════════════════════ -->
+<section id="mnemonics">
+  <h2>Mnemonics &amp; quick recall</h2>
+  <div class="remember"><h4>Timeline &mdash; &ldquo;4 hours, 4 days, 4 weeks, 4 months&rdquo;</h4>
+    <ul class="t">
+      <li><b>~4 hours&ndash;days</b> &rarr; acute <b>Dystonia</b> (incl. oculogyric crisis)</li>
+      <li><b>~4 days&ndash;weeks</b> &rarr; <b>Akathisia</b></li>
+      <li><b>~4 weeks&ndash;months</b> &rarr; <b>Parkinsonism</b></li>
+      <li><b>~4 months&ndash;years</b> &rarr; <b>Tardive dyskinesia</b></li>
+    </ul>
+  </div>
+  <div class="remember"><h4>Recognise each at a glance</h4>
+    <ul class="t">
+      <li><b>Dystonia</b> = fixed abnormal posture (eyes to ceiling / neck twist / arched back).</li>
+      <li><b>Akathisia</b> = can't sit still, inner torment.</li>
+      <li><b>Parkinsonism</b> = slow, stiff, tremulous, masked staring face.</li>
+      <li><b>Tardive dyskinesia</b> = late, repetitive lip-smacking / chewing / tongue-rolling.</li>
+      <li><b>NMS</b> = fever + lead-pipe rigidity + autonomic + confusion + raised CK (emergency).</li>
+    </ul>
+  </div>
+  <div class="remember"><h4>Treatment at a glance</h4>
+    <p>Dystonia &rarr; <b>anticholinergic injection</b>. Akathisia &rarr; <b>propranolol</b>. Parkinsonism &rarr; <b>anticholinergic/amantadine</b> + dose cut. Tardive dyskinesia &rarr; <b>VMAT2 inhibitor</b>, stop anticholinergics. NMS &rarr; <b>stop drug + dantrolene + dopamine agonist + ICU</b>.</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════ REFERENCES ═══════════════════════ -->
+<section id="references">
+  <h2>References and Source Attribution</h2>
+  <p>Clinical descriptions, mechanisms, drug-risk profiles and treatments are drawn from standard psychopharmacology and psychiatry references and peer-reviewed literature, each labelled inline with a source tag. Content has been paraphrased and rephrased for compliance with licensing restrictions.</p>
+  <ul class="t">
+    <li><span class="tag tks">Kaplan &amp; Sadock</span> Sadock BJ, Sadock VA, Ruiz P. <i>Kaplan &amp; Sadock's Synopsis of Psychiatry</i> and <i>Comprehensive Textbook of Psychiatry</i> (medication-induced movement disorders; mechanisms and management).</li>
+    <li><span class="tag tother">Stahl</span> Stahl SM. <i>Stahl's Essential Psychopharmacology</i> (dopamine pathways, D2 occupancy, 5-HT2A mechanism of atypicals).</li>
+    <li><span class="tag tother">Maudsley</span> Taylor D, Barnes TRE, Young AH. <i>The Maudsley Prescribing Guidelines in Psychiatry</i> (recognition and management of EPS, akathisia, TD and NMS).</li>
+    <li><span class="tag tother">Other evidence</span> Standard neurology / movement-disorder texts and peer-reviewed reviews on drug-induced movement disorders, VMAT2 inhibitors for tardive dyskinesia, and neuroleptic malignant syndrome. Content was rephrased for compliance with licensing restrictions.</li>
+  </ul>
+  <div class="warn"><b>Note on use.</b> This is an educational study reference for M.Phil. Clinical Psychology. It summarises drug-induced movement disorders and their management; it is not a substitute for full pharmacology references or for individual clinical and medical judgement, and it is not a prescribing guide. Suspected NMS, laryngeal dystonia and severe reactions are medical emergencies requiring immediate in-person medical care.</div>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+</main>
+</div>
+
+<footer>
+  <p><strong>Extrapyramidal Symptoms (EPS) in Psychiatry &mdash; Comprehensive Handbook</strong></p>
+  <p>Every drug-induced movement disorder in detail &middot; acute dystonias (oculogyric crisis / eyes-to-ceiling, staring &amp; gaze deviations, torticollis, opisthotonus, laryngospasm, tongue &amp; jaw), akathisia, drug-induced parkinsonism, tardive dyskinesia &amp; tardive dystonia, and neuroleptic malignant syndrome &middot; mechanism, timing, causative drugs, disorders, differential diagnosis and treatment &middot; terminology explained in plain language.</p>
+  <p style="margin-top:14px;font-size:1rem;color:#fff;letter-spacing:.04em">Made by <strong>Tejas Dangodra</strong></p>
+</footer>
+
+</body>
+</html>

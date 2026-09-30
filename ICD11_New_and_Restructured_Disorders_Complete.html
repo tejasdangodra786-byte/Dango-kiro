@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ICD-11 New &amp; Restructured Disorders — Comprehensive Handbook (no ICD-10 F-block equivalent)</title>
+<style>
+:root{
+  --deep:#0a2540;--accent:#0e6655;--icd10:#1a5276;--icd11:#1e8449;
+  --ks:#7d3c98;--other:#b9770e;--bg:#f4f6f9;--card:#ffffff;
+  --ink:#1c2833;--muted:#5d6d7e;--line:#d5dbdb;--soft:#eaf2f8;
+  --warn:#922b21;--uniq:#6c3483;--surface:#fdfefe;--psych:#1f6f8b;--ddx:#0b6b5f;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.72;font-size:16px}
+.cover{background:linear-gradient(160deg,#0a2540 0%,#154360 40%,#0e6655 100%);color:#fff;padding:60px 30px 50px;text-align:center}
+.cover .subtitle{text-transform:uppercase;letter-spacing:.3em;font-size:.72rem;opacity:.7;margin-bottom:16px}
+.cover h1{font-size:2.05rem;font-weight:800;line-height:1.22;margin-bottom:12px;max-width:940px;display:inline-block}
+.cover .tagline{font-size:1.05rem;font-weight:400;opacity:.9;max-width:820px;margin:0 auto 22px}
+.cover .chips{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-bottom:18px}
+.cover .chip{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);border-radius:6px;padding:5px 14px;font-size:.82rem}
+.cover .srcline{font-size:.8rem;opacity:.65;max-width:760px;margin:0 auto}
+.wrap{max-width:1160px;margin:0 auto;padding:0 22px}
+.layout{display:flex;gap:28px;align-items:flex-start}
+nav.toc{position:sticky;top:0;max-height:100vh;overflow-y:auto;flex:0 0 288px;padding:20px 12px 60px;font-size:.82rem;border-right:1px solid var(--line);background:var(--surface)}
+nav.toc h4{margin:18px 0 6px;color:var(--accent);text-transform:uppercase;font-size:.68rem;letter-spacing:.08em;font-weight:700}
+nav.toc a{display:block;color:var(--muted);text-decoration:none;padding:4px 10px;border-radius:6px;border-left:3px solid transparent;transition:all .15s}
+nav.toc a:hover{background:var(--soft);color:var(--icd10);border-left-color:var(--icd10)}
+nav.toc a.sub{padding-left:22px;font-size:.79rem}
+main{flex:1 1 auto;min-width:0;padding:28px 0 100px}
+section{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:28px 30px;margin:0 0 26px;scroll-margin-top:16px;box-shadow:0 1px 3px rgba(10,37,64,.04)}
+h2{font-size:1.45rem;color:var(--deep);border-bottom:3px solid var(--accent);padding-bottom:10px;margin-bottom:14px;font-weight:800}
+h3{font-size:1.1rem;color:var(--accent);margin:26px 0 8px;font-weight:700;padding-left:14px;border-left:4px solid var(--accent)}
+h4{font-size:.98rem;margin:16px 0 6px;font-weight:700;color:var(--deep)}
+p{margin:.55em 0}
+.tag{display:inline-block;font-size:.64rem;font-weight:700;padding:2px 9px;border-radius:4px;color:#fff;vertical-align:middle;letter-spacing:.02em}
+.t10{background:var(--icd10)}.t11{background:var(--icd11)}.tks{background:var(--ks)}.tother{background:var(--other)}
+b.cl{color:var(--deep);font-weight:700}
+i.si{color:var(--uniq);font-style:normal;font-weight:500}
+table{border-collapse:collapse;width:100%;margin:16px 0;font-size:.89rem;border-radius:10px;overflow:hidden;box-shadow:0 0 0 1px var(--line)}
+th,td{border:1px solid var(--line);padding:10px 12px;text-align:left;vertical-align:top}
+th{background:var(--deep);color:#fff;font-weight:600;font-size:.79rem;text-transform:uppercase;letter-spacing:.03em}
+tr:nth-child(even) td{background:#f8fafb}
+.c10{background:#eaf2f8!important}.c11{background:#eafaf1!important}
+.panel10{border-left:5px solid var(--icd10);background:#edf2f8;border-radius:0 10px 10px 0;padding:16px 20px;margin:14px 0}
+.panel11{border-left:5px solid var(--icd11);background:#edfaf1;border-radius:0 10px 10px 0;padding:16px 20px;margin:14px 0}
+.panel10 h4,.panel11 h4{margin:0 0 8px;padding-left:0;border-left:none}
+.note{border-left:5px solid var(--accent);background:var(--soft);padding:14px 18px;border-radius:0 10px 10px 0;margin:14px 0}
+.warn{border-left:5px solid var(--warn);background:#fdedec;padding:14px 18px;border-radius:0 10px 10px 0;margin:14px 0}
+.incl{border-left:5px solid var(--icd11);background:#eefaf2;padding:12px 16px;border-radius:0 8px 8px 0;margin:10px 0;font-size:.9rem}
+.excl{border-left:5px solid var(--warn);background:#fdf0ee;padding:12px 16px;border-radius:0 8px 8px 0;margin:10px 0;font-size:.9rem}
+.unique{border:2px solid var(--uniq);background:#f5eef8;border-radius:12px;padding:16px 20px;margin:16px 0}
+.unique h4{color:var(--uniq);margin:0 0 10px;border-left:none;padding-left:0}
+.assoc{border:2px solid var(--warn);background:#fdf0ee;border-radius:12px;padding:16px 20px;margin:16px 0}
+.assoc h4{color:var(--warn);margin:0 0 10px;border-left:none;padding-left:0}
+.psych{border:2px solid var(--psych);background:#eaf4f7;border-radius:12px;padding:16px 20px;margin:16px 0}
+.psych h4{color:var(--psych);margin:0 0 10px;border-left:none;padding-left:0}
+.subtype{border:2px solid #1a5276;background:#eef3f8;border-radius:12px;padding:18px 22px;margin:18px 0}
+.subtype h4{color:#1a5276;margin:0 0 10px;border-left:none;padding-left:0;font-size:1.04rem}
+.ddx{border:2px dashed var(--ddx);background:#e9f6f2;border-radius:10px;padding:12px 16px;margin:12px 0;font-size:.9rem}
+.ddx h5{color:var(--ddx);margin:0 0 6px;font-size:.9rem;text-transform:uppercase;letter-spacing:.03em}
+.sig{background:var(--deep);color:#fff;padding:14px 20px;border-radius:10px;margin:14px 0;font-size:.96rem}
+.sig b{color:#f9e79f}
+.remember{border:2px dashed #d4ac0d;background:#fef9e7;border-radius:12px;padding:16px 20px;margin:14px 0}
+.remember h4{color:#7d6608;margin:0 0 8px;border-left:none;padding-left:0}
+.idcard{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin:14px 0}
+.idcard div{background:#f2f6fa;border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:.85rem}
+.idcard b{display:block;font-size:.62rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:3px}
+ul.t,ol.t{margin:.5em 0;padding-left:1.3em}
+ul.t li,ol.t li{margin:.3em 0}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.top{text-align:right;font-size:.78rem;margin-top:10px}.top a{color:var(--muted);text-decoration:none}
+footer{background:var(--deep);color:#aeb6bf;padding:30px 22px;font-size:.86rem;text-align:center}
+footer strong{color:#fff}
+@media(max-width:920px){.layout{display:block}nav.toc{position:static;border-right:none;border-bottom:1px solid var(--line);max-height:none;flex:none}.g2{grid-template-columns:1fr}.cover h1{font-size:1.5rem}}
+@media print{nav.toc{display:none}body{background:#fff}section{box-shadow:none;break-inside:avoid}footer{background:#fff;color:#333}}
+</style>
+</head>
+<body>
+<a id="top"></a>
+
+<div class="cover">
+  <p class="subtitle">M.Phil. Clinical Psychology &mdash; Complete Diagnostic, Clinical &amp; Treatment Reference</p>
+  <h1>ICD-11 New &amp; Restructured Disorders<br>Comprehensive Handbook &mdash; the groupings with no ICD-10 F-block equivalent</h1>
+  <p class="tagline">The companion volume to the F00&ndash;F98 series: every disorder that ICD-11 <b>newly created</b> or <b>pulled into a new grouping</b> &mdash; catatonia as its own grouping; obsessive-compulsive and related disorders (with body dysmorphic, olfactory reference, hypochondriasis, hoarding and body-focused repetitive behaviours); disorders specifically associated with stress (including the brand-new complex PTSD and prolonged grief disorder); bodily distress; impulse control disorders (including compulsive sexual behaviour); disorders due to addictive behaviours (gambling and the new gaming disorder); factitious disorders; and the relocation of gender incongruence. Each with full ICD-11 requirements, includes/excludes, dedicated differential diagnosis, etiology, epidemiology, comorbidities, memory aids and treatment.</p>
+  <div class="chips">
+    <span class="chip">Criteria strictly from ICD-11 (CDDR)</span>
+    <span class="chip">Every new diagnosis flagged</span>
+    <span class="chip">What moved from ICD-10 &mdash; and where</span>
+    <span class="chip">Differential diagnosis for every disorder</span>
+    <span class="chip">Etiology, epidemiology, comorbidities, mnemonics, treatment</span>
+  </div>
+  <p class="srcline">Primary authority: WHO ICD-11 Clinical Descriptions &amp; Diagnostic Requirements (CDDR); comparison to the WHO ICD-10 Clinical Descriptions &amp; Diagnostic Guidelines. Secondary: Kaplan &amp; Sadock's Synopsis/Comprehensive Textbook of Psychiatry; peer-reviewed literature.</p>
+</div>
+
+<div class="wrap layout">
+<nav class="toc">
+  <h4>Foundations</h4>
+  <a href="#overview">Why this handbook exists</a>
+  <a href="#whatsnew">What ICD-11 added &amp; what moved</a>
+  <a href="#map">Master map</a>
+  <h4>Catatonia (6A40)</h4>
+  <a href="#cat">Catatonia grouping</a>
+  <h4>OCD &amp; related (6B20&ndash;6B2Z)</h4>
+  <a href="#ocd">Overview</a>
+  <a class="sub" href="#ocd-6b20">6B20 OCD</a>
+  <a class="sub" href="#ocd-6b21">6B21 Body dysmorphic</a>
+  <a class="sub" href="#ocd-6b22">6B22 Olfactory reference</a>
+  <a class="sub" href="#ocd-6b23">6B23 Hypochondriasis</a>
+  <a class="sub" href="#ocd-6b24">6B24 Hoarding</a>
+  <a class="sub" href="#ocd-6b25">6B25 Body-focused repetitive</a>
+  <h4>Stress-associated (6B40&ndash;6B4Z)</h4>
+  <a href="#stress">Overview</a>
+  <a class="sub" href="#st-6b40">6B40 PTSD</a>
+  <a class="sub" href="#st-6b41">6B41 Complex PTSD</a>
+  <a class="sub" href="#st-6b42">6B42 Prolonged grief</a>
+  <a class="sub" href="#st-6b43">6B43 Adjustment disorder</a>
+  <h4>Bodily distress (6C20&ndash;6C21)</h4>
+  <a href="#bodily">6C20 / 6C21</a>
+  <h4>Impulse control (6C70&ndash;6C7Z)</h4>
+  <a href="#impulse">Overview</a>
+  <a class="sub" href="#imp-6c72">6C72 Compulsive sexual behaviour</a>
+  <a class="sub" href="#imp-6c73">6C73 Intermittent explosive</a>
+  <h4>Addictive behaviours (6C50&ndash;6C51)</h4>
+  <a href="#addict">Overview</a>
+  <a class="sub" href="#ad-6c50">6C50 Gambling</a>
+  <a class="sub" href="#ad-6c51">6C51 Gaming</a>
+  <h4>Factitious (6D50&ndash;6D51)</h4>
+  <a href="#fact">Factitious disorders</a>
+  <h4>Relocated out of psychiatry</h4>
+  <a href="#gender">Gender incongruence</a>
+  <h4>Reference</h4>
+  <a href="#references">References</a>
+</nav>
+<main>
+
+
+<!-- ═══════════════════════ OVERVIEW ═══════════════════════ -->
+<section id="overview">
+  <h2>Why this handbook exists</h2>
+  <p>The F00&ndash;F98 series worked through ICD-10's chapter block by block, noting where each disorder went in ICD-11. But ICD-11 did not simply rename ICD-10's blocks &mdash; it <b class="cl">created new groupings and new diagnoses that have no ICD-10 F-block of their own</b>. This handbook collects all of that &ldquo;left-over&rdquo; ICD-11 material in one place: the disorders that were <b>newly invented</b>, and the ones that were <b>pulled together into a new grouping</b> from scattered ICD-10 categories.</p>
+  <p>The organising principle behind every change here is the same one that runs through ICD-11: <b>group disorders by their shared phenomenology (their nature), not by tradition or by age of onset</b>. That is why obsessive-compulsive-type conditions were gathered from all over ICD-10 into one grouping, why catatonia was given its own home, and why stress-response conditions were expanded with two brand-new diagnoses.</p>
+  <div class="note"><b>Terms in plain language.</b> <i>Grouping</i> = ICD-11's word for a family of related disorders (its version of an ICD-10 &ldquo;block&rdquo;); <i>CDDR</i> = the Clinical Descriptions and Diagnostic Requirements, ICD-11's diagnostic manual; <i>insight</i> = the degree to which the person recognises their belief/behaviour is a symptom; <i>egodystonic</i> = experienced as unwanted/intrusive; <i>egosyntonic</i> = experienced as acceptable/part of oneself; <i>obsession</i> = intrusive unwanted thought; <i>compulsion</i> = repetitive act done to relieve distress.</p></div>
+</section>
+
+<!-- ═══════════════════════ WHATS NEW ═══════════════════════ -->
+<section id="whatsnew">
+  <h2>What ICD-11 added, and what it moved</h2>
+  <h3>Genuinely NEW diagnoses (no ICD-10 code at all)</h3>
+  <div class="unique"><h4>The headline &ldquo;new to ICD-11&rdquo; list</h4>
+    <ul class="t">
+      <li><b>Complex PTSD (6B41)</b> &mdash; PTSD plus enduring disturbances of self-organisation, after prolonged/repeated trauma.</li>
+      <li><b>Prolonged grief disorder (6B42)</b> &mdash; persistent, disabling grief beyond the expected period.</li>
+      <li><b>Gaming disorder (6C51)</b> &mdash; a behavioural addiction to digital/video gaming.</li>
+      <li><b>Compulsive sexual behaviour disorder (6C72)</b> &mdash; failure to control intense, repetitive sexual impulses.</li>
+      <li><b>Hoarding disorder (6B24)</b> &mdash; accumulation of possessions and distress at discarding.</li>
+      <li><b>Body integrity dysphoria (6C21)</b> &mdash; a desire for a major physical disability (e.g. amputation) with intense discomfort at being able-bodied.</li>
+      <li><b>Olfactory reference disorder (6B22)</b> &mdash; preoccupation with emitting a foul body odour that others notice.</li>
+    </ul>
+  </div>
+  <h3>Restructured groupings (assembled from scattered ICD-10 categories)</h3>
+  <ul class="t">
+    <li><b>Catatonia (6A40&ndash;6A4Z)</b> &mdash; ICD-10 split it between catatonic schizophrenia (F20.2) and organic catatonic disorder (F06.1); ICD-11 makes it a <b>standalone grouping</b> that can apply across many disorders.</li>
+    <li><b>Obsessive-compulsive &amp; related disorders (6B20&ndash;6B2Z)</b> &mdash; ICD-10 kept OCD inside the &ldquo;neurotic&rdquo; F40&ndash;F48 block; ICD-11 makes a <b>dedicated grouping</b> and brings in body dysmorphic disorder, olfactory reference disorder, hypochondriasis, hoarding, trichotillomania and skin-picking (which ICD-10 scattered across somatoform, habit-and-impulse and other blocks).</li>
+    <li><b>Disorders specifically associated with stress (6B40&ndash;6B4Z)</b> &mdash; a grouping requiring an <b>identifiable stressor</b>, expanded with complex PTSD and prolonged grief.</li>
+    <li><b>Bodily distress / bodily experience (6C20&ndash;6C21)</b> &mdash; replaces the ICD-10 somatoform disorders concept.</li>
+    <li><b>Impulse control disorders (6C70&ndash;6C7Z)</b> &mdash; gathers pyromania, kleptomania, intermittent explosive disorder and the new compulsive sexual behaviour disorder.</li>
+    <li><b>Disorders due to addictive behaviours (6C50&ndash;6C5Z)</b> &mdash; gambling (moved from ICD-10 impulse disorders) plus the new gaming disorder.</li>
+    <li><b>Factitious disorders (6D50&ndash;6D51)</b> &mdash; given explicit codes for imposed on self / on another.</li>
+  </ul>
+  <h3>Moved out of the mental-disorders chapter entirely</h3>
+  <ul class="t">
+    <li><b>Gender incongruence</b> &rarr; a new chapter, <b>Conditions related to sexual health</b> (destigmatised; no longer a mental disorder).</li>
+    <li><b>Tic disorders</b> &rarr; the nervous-system chapter (covered in the F90&ndash;F98 handbook).</li>
+    <li><b>Sleep-wake disorders</b> and <b>sexual dysfunctions</b> &rarr; their own chapters (covered in the F50&ndash;F59 handbook).</li>
+  </ul>
+</section>
+
+<!-- ═══════════════════════ MAP ═══════════════════════ -->
+<section id="map">
+  <h2>Master map (ICD-11 grouping &rarr; where it came from in ICD-10)</h2>
+  <table>
+    <tr><th>ICD-11 grouping / disorder</th><th>Code</th><th>ICD-10 origin</th><th>New?</th></tr>
+    <tr><td>Catatonia (own grouping)</td><td class="c11">6A40&ndash;6A4Z</td><td class="c10">F20.2 catatonic schizophrenia / F06.1 organic catatonic</td><td>Restructured</td></tr>
+    <tr><td>Obsessive-compulsive disorder</td><td class="c11">6B20</td><td class="c10">F42 (in neurotic block)</td><td>Moved</td></tr>
+    <tr><td>Body dysmorphic disorder</td><td class="c11">6B21</td><td class="c10">F45.2 hypochondriacal disorder (subsumed)</td><td>Reframed</td></tr>
+    <tr><td>Olfactory reference disorder</td><td class="c11">6B22</td><td class="c10">&mdash;</td><td><b>NEW</b></td></tr>
+    <tr><td>Hypochondriasis (health anxiety)</td><td class="c11">6B23</td><td class="c10">F45.2 (moved into OCD-related)</td><td>Moved</td></tr>
+    <tr><td>Hoarding disorder</td><td class="c11">6B24</td><td class="c10">&mdash;</td><td><b>NEW</b></td></tr>
+    <tr><td>Body-focused repetitive (trichotillomania, skin-picking)</td><td class="c11">6B25</td><td class="c10">F63.3 trichotillomania (from habit/impulse); skin-picking new</td><td>Moved + NEW</td></tr>
+    <tr><td>Post-traumatic stress disorder</td><td class="c11">6B40</td><td class="c10">F43.1</td><td>Refined</td></tr>
+    <tr><td>Complex PTSD</td><td class="c11">6B41</td><td class="c10">&mdash; (partly F62.0 enduring change)</td><td><b>NEW</b></td></tr>
+    <tr><td>Prolonged grief disorder</td><td class="c11">6B42</td><td class="c10">&mdash;</td><td><b>NEW</b></td></tr>
+    <tr><td>Adjustment disorder</td><td class="c11">6B43</td><td class="c10">F43.2</td><td>Refined</td></tr>
+    <tr><td>Reactive attachment / disinhibited social engagement</td><td class="c11">6B44 / 6B45</td><td class="c10">F94.1 / F94.2</td><td>Moved</td></tr>
+    <tr><td>Bodily distress disorder</td><td class="c11">6C20</td><td class="c10">F45 somatoform disorders</td><td>Replaced</td></tr>
+    <tr><td>Body integrity dysphoria</td><td class="c11">6C21</td><td class="c10">&mdash;</td><td><b>NEW</b></td></tr>
+    <tr><td>Pyromania / kleptomania / intermittent explosive</td><td class="c11">6C70 / 6C71 / 6C73</td><td class="c10">F63.1 / F63.2 / F63.8</td><td>Regrouped</td></tr>
+    <tr><td>Compulsive sexual behaviour disorder</td><td class="c11">6C72</td><td class="c10">&mdash; (partly F52.7 excessive drive)</td><td><b>NEW</b></td></tr>
+    <tr><td>Gambling disorder</td><td class="c11">6C50</td><td class="c10">F63.0 (from habit/impulse)</td><td>Moved</td></tr>
+    <tr><td>Gaming disorder</td><td class="c11">6C51</td><td class="c10">&mdash;</td><td><b>NEW</b></td></tr>
+    <tr><td>Factitious disorder (self / another)</td><td class="c11">6D50 / 6D51</td><td class="c10">F68.1 (self only)</td><td>Expanded</td></tr>
+    <tr><td>Gender incongruence</td><td class="c11">HA60 / HA61</td><td class="c10">F64 gender identity disorders</td><td>Moved out of psychiatry</td></tr>
+  </table>
+  <div class="warn"><b>Read this the right way.</b> &ldquo;NEW&rdquo; means there was no equivalent ICD-10 diagnosis; &ldquo;Moved/Regrouped&rdquo; means the concept existed but was relocated into a phenomenology-based grouping; &ldquo;Replaced&rdquo; means the whole ICD-10 concept (somatoform) was rebuilt (bodily distress). Below, each disorder gives the ICD-11 requirements and its differential diagnosis in full.</p></div>
+</section>
+
+
+<!-- ═══════════════════════ CATATONIA ═══════════════════════ -->
+<section id="cat">
+  <h2>Catatonia (6A40&ndash;6A4Z)</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> Catatonia is a <b>standalone ICD-11 grouping</b> &mdash; a syndrome of marked psychomotor disturbance that can occur across many disorders. This is the big structural change: ICD-10 had no independent catatonia category.</p>
+  <p>Catatonia is a syndrome of <b class="cl">disturbed psychomotor activity</b> and reduced/altered responsiveness, arising in the context of another mental disorder, a medical condition, or substances/medications. It can present with too little movement (stupor, mutism, negativism) or too much (excitement, stereotypies), and with characteristic phenomena.</p>
+  <div class="g2">
+    <div class="panel10"><h4><span class="tag t10">ICD-10 &mdash; scattered</h4>
+      <ul class="t">
+        <li>Catatonic phenomena were split between <b>catatonic schizophrenia (F20.2)</b> and <b>organic catatonic disorder (F06.1)</b>.</li>
+        <li>There was <b>no way to code catatonia</b> occurring with a mood disorder, autism, or a medical illness as a distinct syndrome.</li>
+      </ul>
+    </div>
+    <div class="panel11"><h4><span class="tag t11">ICD-11 (6A40&ndash;6A4Z)</h4>
+      <p>A dedicated grouping. Diagnosis requires <b>several (typically &ge;3)</b> of a cluster of features, such as: <b>stupor</b> (unresponsiveness), <b>catalepsy</b> (holding imposed postures), <b>waxy flexibility</b>, <b>mutism</b>, <b>negativism</b> (resisting/opposing instructions), <b>posturing</b>, <b>mannerisms</b>, <b>stereotypies</b>, <b>psychomotor agitation</b>, <b>grimacing</b>, <b>echolalia</b> and <b>echopraxia</b>. Coded by cause:</p>
+      <ul class="t">
+        <li><b>6A40 Catatonia associated with another mental disorder</b> (e.g. schizophrenia, bipolar disorder, depression, autism).</li>
+        <li><b>6A41 Catatonia induced by substances or medications</b> (including antipsychotics).</li>
+        <li><b>6A4Z Catatonia, unspecified.</b></li>
+        <li>(Catatonia due to a medical condition is coded in the secondary mental-syndromes grouping, 6E69.)</li>
+      </ul>
+    </div>
+  </div>
+  <div class="unique"><h4>Unique / identifying features</h4><p><b>Waxy flexibility</b> (limbs stay where placed, like bending a candle), <b>negativism</b>, and <b>echophenomena</b> (echolalia/echopraxia) are the classic signs. A <b>lorazepam challenge</b> (rapid response to a benzodiazepine) supports the diagnosis and is both diagnostic and therapeutic. Malignant catatonia (with fever and autonomic instability) is a medical emergency overlapping with neuroleptic malignant syndrome.</p></div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>From the <b>underlying disorder</b> itself (catatonia is coded in addition, naming its cause); from <b>neuroleptic malignant syndrome</b> (drug-induced, with rigidity, fever, raised creatine kinase); from a <b>medical/neurological cause</b> (encephalitis, non-convulsive status epilepticus &mdash; always exclude); from <b>dissociative stupor</b> and severe <b>depressive/psychomotor retardation</b>.</p></div>
+  <div class="remember"><h4>Remember &mdash; catatonia signs &ldquo;WM-NEP&rdquo;</h4><p><b>W</b>axy flexibility &middot; <b>M</b>utism &middot; <b>N</b>egativism &middot; <b>E</b>cholalia/echopraxia &middot; <b>P</b>osturing/stupor. ICD-11 makes catatonia its <b>own grouping</b> that names the cause (mental disorder / substance).</p></div>
+  <h3>Treatment</h3>
+  <ul class="t"><li><b>First-line: benzodiazepines</b> (lorazepam) &mdash; often dramatic response; <b>ECT</b> for benzodiazepine-non-response or malignant catatonia.</li><li>Treat the underlying disorder; stop the offending drug in medication-induced catatonia; supportive medical care.</li></ul>
+</section>
+
+
+<!-- ═══════════════════════ OCD & RELATED ═══════════════════════ -->
+<section id="ocd">
+  <h2>Obsessive-compulsive and related disorders (6B20&ndash;6B2Z)</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> A <b>dedicated ICD-11 grouping</b> bound together by <b>repetitive thoughts and behaviours</b>. ICD-10 kept OCD inside the &ldquo;neurotic, stress-related and somatoform&rdquo; block (F42) and scattered the related conditions elsewhere; ICD-11 gathers them by their shared phenomenology.</p>
+  <p>Members: <b>OCD (6B20)</b>, <b>body dysmorphic disorder (6B21)</b>, <b>olfactory reference disorder (6B22)</b>, <b>hypochondriasis / health anxiety (6B23)</b>, <b>hoarding disorder (6B24)</b>, and <b>body-focused repetitive behaviour disorders (6B25)</b>. Most carry an <b>insight qualifier</b>: <i>with fair to good insight</i> (.0) or <i>with poor to absent insight</i> (.1).</p>
+  <div class="psych"><h4>Etiology &amp; psychological model</h4><p><span class="tag tks">Kaplan &amp; Sadock</span> Strong heritability and cortico-striato-thalamo-cortical circuit dysfunction; serotonergic involvement (hence SSRI response). <span class="tag tother">Other evidence</span> The <b>cognitive-behavioural model</b> (Salkovskis, Rachman): intrusive thoughts are normal, but catastrophic <b>appraisal</b> ("having this thought means I am dangerous") drives neutralising compulsions that provide short-term relief and maintain the cycle &mdash; the basis of exposure and response prevention (ERP).</p></div>
+  <div class="assoc"><h4>Comorbidities across the grouping</h4><p>Depression and anxiety disorders are very common; tic disorders and Tourette (with OCD); eating disorders and social anxiety (with body dysmorphic disorder). Suicide risk is notably raised in body dysmorphic disorder.</p></div>
+  <div class="ddx"><h5>Differential diagnosis (whole grouping)</h5><p>From <b>anankastic personality disorder (ego-syntonic perfectionism, no true obsessions/compulsions)</b>; from a <b>delusional disorder</b> when insight is absent and the belief is held with delusional conviction (ICD-11's &ldquo;poor to absent insight&rdquo; qualifier keeps such cases within the OCD-related grouping rather than reclassifying them as psychosis); from normal habits and worries.</p></div>
+</section>
+
+<section id="ocd-6b20">
+  <h2>6B20 &middot; Obsessive-compulsive disorder</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> OCD &amp; related &rarr; the prototype. ICD-10 origin: F42 (was inside the neurotic block).</p>
+  <div class="panel11"><h4><span class="tag t11">ICD-11 requirements (6B20)</h4>
+    <ul class="t">
+      <li>Persistent <b>obsessions</b> (recurrent, intrusive, unwanted thoughts, images or urges that are distressing) and/or <b>compulsions</b> (repetitive behaviours or mental acts the person feels driven to perform, often to a rigid rule or to neutralise an obsession).</li>
+      <li>The obsessions/compulsions are <b>time-consuming</b> (e.g. more than an hour a day) or cause significant distress or impairment.</li>
+      <li>Insight qualifiers: <b>6B20.0 with fair to good insight</b>, <b>6B20.1 with poor to absent insight</b>.</li>
+    </ul>
+  </div>
+  <div class="panel10"><h4><span class="tag t10">ICD-10 (F42) contrast</h4><p>ICD-10 required obsessions/compulsions on most days for at least 2 weeks, and subtyped by <b>predominantly thoughts (F42.0)</b>, <b>predominantly acts (F42.1)</b>, or <b>mixed (F42.2)</b>. ICD-11 drops those subtypes in favour of the <b>insight qualifier</b>.</p></div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>From <b>anankastic/obsessive-compulsive personality disorder</b> (ego-syntonic style, no intrusive obsessions); from <b>generalized anxiety</b> (real-life worries, not intrusive/neutralised); from the repetitive behaviour of <b>autism</b>; from body dysmorphic/hoarding disorders (focus differs); from a <b>psychotic disorder</b> if a belief is truly delusional.</p></div>
+  <div class="remember"><h4>Remember</h4><p>&ldquo;<b>Obsessions (intrusive thoughts) + compulsions (neutralising acts), egodystonic, time-consuming</b>&rdquo; &mdash; ICD-11 rates insight instead of thought/act subtypes.</p></div>
+  <p><b>Treatment:</b> ERP (exposure and response prevention) first-line; SSRIs (often higher doses); clomipramine; combine for severe cases.</p>
+</section>
+
+<section id="ocd-6b21">
+  <h2>6B21 &middot; Body dysmorphic disorder</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> OCD &amp; related &rarr; preoccupation with appearance. ICD-10 origin: largely subsumed under hypochondriacal disorder F45.2.</p>
+  <div class="panel11"><h4><span class="tag t11">ICD-11 requirements (6B21)</h4>
+    <ul class="t">
+      <li>Persistent <b>preoccupation with one or more perceived defects or flaws in appearance</b> that are unnoticeable or only slight to others.</li>
+      <li>Excessive <b>self-consciousness</b>, often with ideas of reference (belief that others notice/judge the flaw).</li>
+      <li>Repetitive behaviours (mirror-checking, comparing, camouflaging, skin-picking, reassurance-seeking) or avoidance.</li>
+      <li>Significant distress or impairment. Insight qualifiers (.0 fair-good / .1 poor-absent).</li>
+    </ul>
+  </div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>From <b>an eating disorder</b> (there the concern is weight/shape specifically); from <b>normal appearance concern</b>; from <b>a real, noticeable deformity</b>; from <b>OCD</b> (focus is appearance here); from a <b>delusional disorder</b> when insight is absent (kept in this grouping via the qualifier).</p></div>
+  <div class="unique"><h4>Unique features</h4><p>High rates of cosmetic-procedure seeking (rarely satisfying), high suicidality. &ldquo;Muscle dysmorphia&rdquo; is a recognised presentation.</p></div>
+  <div class="remember"><h4>Remember</h4><p>&ldquo;<b>Obsessed with an unnoticeable appearance flaw + mirror-checking</b>&rdquo; &mdash; body dysmorphic disorder.</p></div>
+  <p><b>Treatment:</b> CBT (with ERP tailored to appearance rituals); SSRIs. Avoid cosmetic procedures.</p>
+</section>
+
+<section id="ocd-6b22">
+  <h2>6B22 &middot; Olfactory reference disorder <span class="tag t11">NEW</span></h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> OCD &amp; related &rarr; a <b>brand-new ICD-11 diagnosis</b>. No ICD-10 equivalent.</p>
+  <div class="panel11"><h4><span class="tag t11">ICD-11 requirements (6B22)</h4>
+    <ul class="t">
+      <li>Persistent <b>preoccupation with the belief that one is emitting a foul or offensive body odour or breath</b> that is unnoticeable or only slight to others.</li>
+      <li>Excessive <b>self-consciousness</b>, often with ideas of reference (others are noticing, judging, or talking about the odour).</li>
+      <li>Repetitive behaviours: checking for body odour, excessive washing/grooming, changing clothes, using perfume/gum, seeking reassurance, or avoidance of social situations.</li>
+      <li>Significant distress or impairment. Insight qualifiers apply.</li>
+    </ul>
+  </div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>From a <b>real detectable odour</b> or medical cause (e.g. trimethylaminuria); from <b>social anxiety disorder</b> (fear of scrutiny generally, not a specific odour belief); from <b>body dysmorphic disorder</b> (appearance, not smell); from an <b>olfactory hallucination</b> or a <b>delusional disorder</b> when insight is absent.</p></div>
+  <div class="remember"><h4>Remember</h4><p>&ldquo;<b>Convinced they smell bad when they don't + washing/checking</b>&rdquo; &mdash; olfactory reference disorder (NEW in ICD-11).</p></div>
+  <p><b>Treatment:</b> CBT/ERP and SSRIs, as for the OCD-related grouping.</p>
+</section>
+
+<section id="ocd-6b23">
+  <h2>6B23 &middot; Hypochondriasis (health anxiety disorder)</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> OCD &amp; related &rarr; ICD-11 moved health anxiety <b>here</b> (out of the somatoform block), because its checking/reassurance-seeking is phenomenologically OCD-like. ICD-10 origin: F45.2.</p>
+  <div class="panel11"><h4><span class="tag t11">ICD-11 requirements (6B23)</h4>
+    <ul class="t">
+      <li>Persistent <b>preoccupation with, or fear of, having one or more serious, progressive or life-threatening illnesses</b>.</li>
+      <li>Catastrophic <b>misinterpretation of bodily signs/symptoms</b> (including normal sensations).</li>
+      <li>Repetitive, excessive <b>health-related behaviours</b> (checking the body, seeking reassurance, repeated medical consultations) <b>or</b> maladaptive avoidance (avoiding doctors/hospitals).</li>
+      <li>Persists despite appropriate medical evaluation and reassurance; significant distress/impairment. Insight qualifiers apply.</li>
+    </ul>
+  </div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>From <b>bodily distress disorder (6C20)</b> &mdash; there the focus is <i>distress about the symptoms themselves</i>, whereas hypochondriasis is <i>fear of having a disease</i>; from a genuine <b>medical illness</b>; from <b>OCD</b> (health is one of several themes there); from <b>panic disorder</b> (acute fear of imminent catastrophe) and from a <b>delusional</b> disease conviction when insight is absent.</p></div>
+  <div class="remember"><h4>Remember</h4><p>&ldquo;<b>Fear of HAVING a disease + checking/reassurance</b>&rdquo; &mdash; hypochondriasis; contrast with bodily distress disorder (distress about the <b>symptoms</b>).</p></div>
+  <p><b>Treatment:</b> CBT for health anxiety; SSRIs; a consistent single clinician limiting unnecessary investigations.</p>
+</section>
+
+<section id="ocd-6b24">
+  <h2>6B24 &middot; Hoarding disorder <span class="tag t11">NEW</span></h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> OCD &amp; related &rarr; a <b>brand-new ICD-11 diagnosis</b>. No ICD-10 equivalent.</p>
+  <div class="panel11"><h4><span class="tag t11">ICD-11 requirements (6B24)</h4>
+    <ul class="t">
+      <li><b>Accumulation of possessions</b> due to excessive acquisition and/or difficulty discarding them, regardless of actual value.</li>
+      <li>Accumulation results in <b>cluttered living spaces</b> so that their use or safety is compromised.</li>
+      <li>Marked <b>distress at, or difficulty with, discarding</b> (a strong urge to save, distress at the idea of getting rid of things).</li>
+      <li>Significant distress or impairment (including risk to health/safety, e.g. fire, falls, sanitation). Insight qualifiers apply.</li>
+    </ul>
+  </div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>From <b>normal collecting</b> (organised, not impairing); from hoarding secondary to <b>OCD</b> (there driven by an obsession, e.g. contamination), <b>depression</b> (loss of energy), <b>psychosis</b>, or a <b>neurocognitive/organic</b> disorder (dementia, brain injury); from poverty.</p></div>
+  <div class="remember"><h4>Remember</h4><p>&ldquo;<b>Can't discard + cluttered unusable rooms</b>&rdquo; &mdash; hoarding disorder (NEW in ICD-11).</p></div>
+  <p><b>Treatment:</b> specialised CBT for hoarding (motivational work, sorting/discarding skills, reducing acquisition); SSRIs have limited effect.</p>
+</section>
+
+<section id="ocd-6b25">
+  <h2>6B25 &middot; Body-focused repetitive behaviour disorders</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> OCD &amp; related &rarr; repetitive self-grooming behaviours. ICD-10 origin: trichotillomania was F63.3 (habit &amp; impulse); skin-picking had no code.</p>
+  <div class="panel11"><h4><span class="tag t11">ICD-11 requirements (6B25)</h4>
+    <ul class="t">
+      <li><b>6B25.0 Trichotillomania (hair-pulling disorder):</b> recurrent pulling out of one's hair leading to hair loss, with repeated attempts to stop.</li>
+      <li><b>6B25.1 Excoriation (skin-picking) disorder:</b> recurrent picking of one's skin leading to skin lesions, with repeated attempts to stop.</li>
+      <li>Both: the behaviour is preceded by tension or an urge and followed by relief/gratification; causes distress or impairment; not better explained by another disorder or a substance.</li>
+    </ul>
+  </div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>From <b>OCD</b> (there the behaviour neutralises an obsession); from <b>stereotyped movement disorder</b> (rhythmic, in intellectual disability/autism); from hair loss/skin lesions due to a <b>dermatological or medical</b> cause; from picking/pulling in response to a <b>delusion or hallucination</b>; from tics.</p></div>
+  <div class="remember"><h4>Remember</h4><p>&ldquo;<b>Pull hair / pick skin &rarr; relief, tries to stop</b>&rdquo; &mdash; body-focused repetitive behaviours; ICD-11 added skin-picking and moved trichotillomania here from habit-and-impulse.</p></div>
+  <p><b>Treatment:</b> habit-reversal training (first-line behavioural treatment); SSRIs or N-acetylcysteine may be tried.</p>
+</section>
+
+
+<!-- ═══════════════════════ STRESS-ASSOCIATED ═══════════════════════ -->
+<section id="stress">
+  <h2>Disorders specifically associated with stress (6B40&ndash;6B4Z)</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> An ICD-11 grouping defined by the requirement of an <b>identifiable stressor or traumatic event</b>. It is home to the two most examinable NEW ICD-11 diagnoses: <b>complex PTSD</b> and <b>prolonged grief disorder</b>.</p>
+  <p>Members: <b>PTSD (6B40)</b>, <b>complex PTSD (6B41)</b>, <b>prolonged grief disorder (6B42)</b>, <b>adjustment disorder (6B43)</b>, <b>reactive attachment disorder (6B44)</b> and <b>disinhibited social engagement disorder (6B45)</b>. Every diagnosis requires a <b>stressor</b> &mdash; the disorder is understood as an abnormal <i>response</i> to it.</p>
+  <div class="psych"><h4>Etiology &amp; psychological model</h4><p><span class="tag tother">Other evidence</span> Ehlers &amp; Clark's cognitive model of PTSD: the trauma memory is poorly elaborated and time-anchored, producing a sense of <b>current threat</b>; negative appraisals and avoidance/safety behaviours maintain it. For grief, the <b>dual-process model</b> (oscillating between loss- and restoration-focused coping) frames prolonged grief as a failure of adaptive oscillation.</p></div>
+  <div class="ddx"><h5>Differential diagnosis (whole grouping)</h5><p>From <b>normal, adaptive stress/grief responses</b> (which resolve and do not disable); from <b>depression and anxiety disorders</b> without the trauma-linked re-experiencing; from <b>acute stress reactions</b> (a normal transient response, coded as a non-disorder Z/QE code in ICD-11).</p></div>
+</section>
+
+<section id="st-6b40">
+  <h2>6B40 &middot; Post-traumatic stress disorder (PTSD)</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> Stress-associated &rarr; refined in ICD-11 to a tighter 3-cluster definition. ICD-10 origin: F43.1.</p>
+  <div class="panel11"><h4><span class="tag t11">ICD-11 requirements (6B40) &mdash; three clusters</h4>
+    <p>Following exposure to an extremely threatening or horrific event/situation:</p>
+    <ul class="t">
+      <li><b>(1) Re-experiencing</b> the trauma in the here-and-now &mdash; vivid intrusive memories, flashbacks or nightmares, accompanied by fear/horror (not merely recalling it).</li>
+      <li><b>(2) Avoidance</b> of reminders (thoughts, activities, situations, people).</li>
+      <li><b>(3) Persistent sense of current threat</b> &mdash; hypervigilance, exaggerated startle.</li>
+    </ul>
+    <p style="margin-top:6px">Symptoms persist for several weeks and cause significant impairment. ICD-11 deliberately made PTSD <b>narrower and more specific</b> than DSM.</p>
+  </div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>From <b>complex PTSD (6B41)</b> (adds self-organisation disturbances); from <b>adjustment disorder (6B43)</b> (stressor not necessarily traumatic; no re-experiencing/current-threat cluster); from <b>acute stress reaction</b> (transient, normal); from <b>depression/anxiety</b>; from a <b>specific phobia</b>.</p></div>
+  <div class="remember"><h4>Remember &mdash; PTSD &ldquo;R-A-T&rdquo;</h4><p><b>R</b>e-experiencing (in the here-and-now) &middot; <b>A</b>voidance &middot; <b>T</b>hreat (persistent sense of current threat). ICD-11's PTSD is the <b>tight 3-cluster</b> version.</p></div>
+  <p><b>Treatment:</b> trauma-focused CBT and EMDR (eye-movement desensitisation and reprocessing) first-line; SSRIs/SNRIs where medication is used.</p>
+</section>
+
+<section id="st-6b41">
+  <h2>6B41 &middot; Complex PTSD <span class="tag t11">NEW</span></h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> Stress-associated &rarr; a <b>brand-new ICD-11 diagnosis</b>. Partly captures what ICD-10 called &ldquo;enduring personality change after catastrophe (F62.0)&rdquo;, but is a distinct trauma diagnosis.</p>
+  <div class="panel11"><h4><span class="tag t11">ICD-11 requirements (6B41)</h4>
+    <p>Arises after <b>prolonged or repeated trauma from which escape is difficult or impossible</b> (e.g. torture, prolonged domestic violence, repeated childhood abuse). Requires <b>all three PTSD clusters</b> (re-experiencing, avoidance, current threat) <b>PLUS</b> three persistent <b>&ldquo;disturbances in self-organisation&rdquo;</b>:</p>
+    <ul class="t">
+      <li><b>(1) Affect dysregulation</b> &mdash; heightened emotional reactivity, or emotional numbing/dissociation.</li>
+      <li><b>(2) Negative self-concept</b> &mdash; persistent beliefs of being diminished, defeated or worthless, with shame/guilt.</li>
+      <li><b>(3) Disturbances in relationships</b> &mdash; difficulty feeling close to others, avoidance of relationships.</li>
+    </ul>
+  </div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>From <b>PTSD (6B40)</b> (no self-organisation disturbances); from <b>borderline pattern personality disorder</b> &mdash; overlapping but complex PTSD has a stable negative self-concept and avoidance of relationships rather than the frantic abandonment-fear/idealisation-devaluation instability of borderline; from <b>depression</b>; from <b>ICD-10's F62.0 enduring personality change</b> (complex PTSD is the modern successor for trauma-related change).</p></div>
+  <div class="remember"><h4>Remember &mdash; complex PTSD = &ldquo;PTSD + D-S-O&rdquo;</h4><p>All of PTSD (R-A-T) <b>plus</b> <b>D</b>isturbances in <b>S</b>elf-<b>O</b>rganisation: affect dysregulation + negative self-concept + relationship difficulties. Follows <b>prolonged, inescapable</b> trauma.</p></div>
+  <p><b>Treatment:</b> phased trauma-focused therapy (stabilisation/affect-regulation skills, then trauma processing, then reconnection); longer course than single-incident PTSD.</p>
+</section>
+
+<section id="st-6b42">
+  <h2>6B42 &middot; Prolonged grief disorder <span class="tag t11">NEW</span></h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> Stress-associated &rarr; a <b>brand-new ICD-11 diagnosis</b>. No ICD-10 equivalent.</p>
+  <div class="panel11"><h4><span class="tag t11">ICD-11 requirements (6B42)</h4>
+    <ul class="t">
+      <li>After the death of a partner, parent, child or other close person, a <b>persistent and pervasive grief response</b> characterised by <b>longing/yearning for the deceased</b> or persistent <b>preoccupation</b> with them, accompanied by intense emotional pain (sadness, guilt, anger, denial, difficulty accepting the death, feeling part of oneself is lost, inability to experience positive mood, emotional numbness, difficulty engaging with life).</li>
+      <li>Persists for an <b>atypically long period</b> after the loss &mdash; markedly beyond expected social/cultural/religious norms (as a guide, <b>at least ~6 months</b>).</li>
+      <li>Causes significant impairment; the response clearly exceeds cultural/religious mourning norms.</li>
+    </ul>
+  </div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>From <b>normal/culturally-normative grief</b> (which softens over time and does not disable); from a <b>depressive episode</b> (pervasive low mood/anhedonia across all domains, not centred on yearning for the deceased &mdash; the two can coexist); from <b>PTSD</b> when the death was traumatic (re-experiencing of the death itself); from adjustment disorder.</p></div>
+  <div class="remember"><h4>Remember</h4><p>&ldquo;<b>Yearning/preoccupation with the deceased, disabling, well beyond ~6 months &amp; cultural norms</b>&rdquo; &mdash; prolonged grief disorder (NEW in ICD-11).</p></div>
+  <p><b>Treatment:</b> grief-focused CBT/complicated-grief therapy; treat comorbid depression.</p>
+</section>
+
+<section id="st-6b43">
+  <h2>6B43 &middot; Adjustment disorder</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> Stress-associated &rarr; refined in ICD-11. ICD-10 origin: F43.2.</p>
+  <div class="panel11"><h4><span class="tag t11">ICD-11 requirements (6B43)</h4>
+    <ul class="t">
+      <li>A maladaptive reaction to an <b>identifiable psychosocial stressor</b> (or multiple stressors, e.g. divorce, illness, job loss), usually emerging within a month.</li>
+      <li>Characterised by <b>preoccupation with the stressor</b> (excessive worry, recurrent distressing thoughts, rumination about its implications) and <b>failure to adapt</b> (symptoms interfering with functioning).</li>
+      <li>Symptoms typically <b>resolve within about 6 months</b> unless the stressor persists; do not meet criteria for another disorder.</li>
+    </ul>
+    <p style="margin-top:6px">ICD-11 gives adjustment disorder a <b>positive definition</b> (preoccupation + failure to adapt), unlike ICD-10's residual &ldquo;doesn't fit elsewhere&rdquo; framing.</p>
+  </div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>From a full <b>depressive or anxiety disorder</b> (if criteria are met, code that instead); from <b>PTSD/acute stress</b> (traumatic stressor, re-experiencing); from a <b>normal adaptive stress reaction</b> (not impairing); from prolonged grief (bereavement-specific).</p></div>
+  <div class="remember"><h4>Remember</h4><p>&ldquo;<b>Preoccupation with a stressor + failure to adapt, resolves &lt;6 months</b>&rdquo; &mdash; ICD-11 defines it positively, not as a leftover.</p></div>
+  <p><b>Treatment:</b> problem-solving and supportive/brief CBT; resolve or reduce the stressor; short-term symptomatic help.</p>
+  <div class="note"><b>Also in this grouping (covered in the F90&ndash;F98 handbook):</b> <b>reactive attachment disorder (6B44)</b> and <b>disinhibited social engagement disorder (6B45)</b> &mdash; ICD-11 places the childhood attachment disorders here because they require a stressor of grossly inadequate care.</p></div>
+</section>
+
+
+<!-- ═══════════════════════ BODILY DISTRESS ═══════════════════════ -->
+<section id="bodily">
+  <h2>Bodily distress &amp; bodily experience (6C20&ndash;6C21)</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> An ICD-11 grouping that <b>replaces the ICD-10 somatoform disorders (F45)</b> concept with a single positive diagnosis, and adds a brand-new body-experience disorder.</p>
+  <div class="subtype"><h4>6C20 Bodily distress disorder <span class="tag t11">(replaces somatoform)</span></h4>
+    <div class="panel11"><h4><span class="tag t11">ICD-11 requirements (6C20)</h4>
+      <ul class="t">
+        <li>Presence of <b>bodily symptoms that are distressing</b> to the person and to which <b>excessive attention</b> is directed.</li>
+        <li><b>Repeated contact with health-care providers</b> and excessive health-related behaviour; the attention is not relieved by appropriate clinical examination/reassurance.</li>
+        <li>Symptoms are <b>persistent</b> (most days for several months) and cause significant impairment. Graded <b>mild / moderate / severe</b> by degree of preoccupation and impairment.</li>
+        <li>Crucially, the symptoms <b>may or may not have a medical explanation</b> &mdash; the diagnosis rests on the <b>disproportionate distress and preoccupation</b>, not on whether a disease is present.</li>
+      </ul>
+    </div>
+    <div class="panel10"><h4><span class="tag t10">ICD-10 contrast (F45)</h4><p>ICD-10 required symptoms to be <b>medically unexplained</b> and split them into somatisation disorder, undifferentiated somatoform, hypochondriacal disorder, autonomic dysfunction, and pain disorder. ICD-11 collapses these into <b>one</b> bodily distress disorder graded by severity, and drops the &ldquo;medically unexplained&rdquo; requirement (which was unreliable and stigmatising). <b>Hypochondriasis moves to the OCD-related grouping (6B23).</b></p></div>
+    <div class="ddx"><h5>Differential diagnosis</h5><p>From <b>hypochondriasis (6B23)</b> (fear of <i>having a disease</i> vs distress about the <i>symptoms</i>); from a purely <b>medical illness</b> with proportionate concern; from <b>depression/anxiety</b> with somatic symptoms; from <b>panic disorder</b>; from <b>factitious disorder</b> (symptoms intentionally produced).</p></div>
+    <div class="remember"><h4>Remember</h4><p>&ldquo;<b>Distressing bodily symptoms + excessive attention/health-seeking, disproportionate</b>&rdquo; &mdash; one disorder graded mild/mod/severe; no &ldquo;medically unexplained&rdquo; requirement.</p></div>
+  </div>
+  <div class="subtype"><h4>6C21 Body integrity dysphoria <span class="tag t11">NEW</span></h4>
+    <div class="panel11"><h4><span class="tag t11">ICD-11 requirements (6C21)</h4>
+      <ul class="t">
+        <li>An <b>intense and persistent desire to become physically disabled in a major way</b> (e.g. amputation of a limb, paraplegia, blindness), beginning by early adolescence.</li>
+        <li>Persistent <b>discomfort or intense feelings of inappropriateness</b> concerning the person's current non-disabled body configuration.</li>
+        <li>The desire results in harmful consequences &mdash; e.g. attempts to actually bring about the disability, or the preoccupation significantly impairs functioning.</li>
+      </ul>
+    </div>
+    <div class="ddx"><h5>Differential diagnosis</h5><p>From <b>body dysmorphic disorder</b> (concern with appearance, not a wish for disability); from a <b>psychotic/delusional</b> belief; from <b>gender incongruence</b> (concerns experienced gender, not disability); from factitious disorder.</p></div>
+    <div class="remember"><h4>Remember</h4><p>&ldquo;<b>Wants to be disabled / mismatch with an able body</b>&rdquo; &mdash; body integrity dysphoria (NEW in ICD-11).</p></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ IMPULSE CONTROL ═══════════════════════ -->
+<section id="impulse">
+  <h2>Impulse control disorders (6C70&ndash;6C7Z)</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> An ICD-11 grouping for <b>repeated failure to resist an impulse</b> to perform an act that is rewarding in the short term but harmful. Gathers pyromania, kleptomania and intermittent explosive disorder (from ICD-10's habit-and-impulse block) and adds a NEW member.</p>
+  <p>Members: <b>pyromania (6C70)</b>, <b>kleptomania (6C71)</b>, <b>compulsive sexual behaviour disorder (6C72, NEW)</b>, and <b>intermittent explosive disorder (6C73)</b>. Shared pattern: mounting tension before the act, and pleasure/relief/gratification during or after it. <i>(Pyromania and kleptomania are detailed in the F60&ndash;F69 handbook; the two most examinable ICD-11 points are below.)</i></p>
+</section>
+
+<section id="imp-6c72">
+  <h2>6C72 &middot; Compulsive sexual behaviour disorder <span class="tag t11">NEW</span></h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> Impulse control &rarr; a <b>brand-new ICD-11 diagnosis</b>. Partly captures what ICD-10 loosely called &ldquo;excessive sexual drive (F52.7)&rdquo; but is defined by loss of control, not high drive.</p>
+  <div class="panel11"><h4><span class="tag t11">ICD-11 requirements (6C72)</h4>
+    <ul class="t">
+      <li>A persistent pattern of <b>failure to control intense, repetitive sexual impulses or urges</b>, resulting in repetitive sexual behaviour over an extended period (e.g. &ge;6 months).</li>
+      <li>Sexual activity becomes a <b>central focus of life</b> to the neglect of health/personal care or other interests, activities and responsibilities.</li>
+      <li>Numerous <b>unsuccessful efforts to reduce</b> the behaviour; continuing it despite adverse consequences or deriving little satisfaction from it.</li>
+      <li>Marked distress or impairment. <b>Distress arising purely from moral judgement/disapproval</b> of sexual impulses is <b>not</b> sufficient.</li>
+    </ul>
+  </div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>From <b>increased libido in a manic/hypomanic episode</b> (code the mood disorder); from a <b>paraphilic disorder</b> (defined by the atypical <i>focus</i> of arousal, not loss of control); from behaviour that is distressing only because of <b>moral/religious conflict</b> (explicitly excluded); from substance effects.</p></div>
+  <div class="remember"><h4>Remember</h4><p>&ldquo;<b>Can't control repetitive sexual urges, life-dominating, tried to stop</b>&rdquo; &mdash; compulsive sexual behaviour disorder (NEW; an impulse-control, not a paraphilic, disorder). Moral distress alone doesn't count.</p></div>
+  <p><b>Treatment:</b> CBT/relapse-prevention, motivational work; treat comorbid mood/substance disorders; SSRIs may help.</p>
+</section>
+
+<section id="imp-6c73">
+  <h2>6C73 &middot; Intermittent explosive disorder</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> Impulse control &rarr; recurrent failure to control aggressive impulses. ICD-10 origin: F63.8 (other habit &amp; impulse).</p>
+  <div class="panel11"><h4><span class="tag t11">ICD-11 requirements (6C73)</h4>
+    <ul class="t">
+      <li>Repeated brief episodes of <b>failure to control aggressive impulses</b>, resulting in verbal or physical aggression (e.g. tantrums, tirades, assaults, property damage).</li>
+      <li>The <b>degree of aggression is grossly out of proportion</b> to any provocation or precipitating stressor.</li>
+      <li>Not better explained by another mental/behavioural disorder; causes distress or impairment.</li>
+    </ul>
+  </div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>From aggression within <b>conduct-dissocial disorder</b> or an <b>antisocial personality</b> (pervasive pattern, not discrete disproportionate outbursts); from aggression in <b>mania</b>, <b>intoxication</b>, or an <b>organic/neurological</b> disorder; from oppositional defiant disorder.</p></div>
+  <div class="remember"><h4>Remember</h4><p>&ldquo;<b>Explosive outbursts out of all proportion to the trigger</b>&rdquo; &mdash; intermittent explosive disorder.</p></div>
+</section>
+
+<!-- ═══════════════════════ ADDICTIVE BEHAVIOURS ═══════════════════════ -->
+<section id="addict">
+  <h2>Disorders due to addictive behaviours (6C50&ndash;6C5Z)</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> A new ICD-11 grouping recognising <b>behavioural addictions</b> &mdash; addictions <i>without</i> a substance. It sits alongside the substance-use disorders.</p>
+  <p>Members: <b>gambling disorder (6C50)</b> and <b>gaming disorder (6C51, NEW)</b>. Both are defined by the addiction triad of <b>impaired control, increasing priority over other interests, and continuation/escalation despite harm</b>, each specified as <b>predominantly online</b> or <b>predominantly offline</b>.</p>
+</section>
+
+<section id="ad-6c50">
+  <h2>6C50 &middot; Gambling disorder</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> Addictive behaviours &rarr; moved here from ICD-10's habit-and-impulse block (F63.0) &mdash; reconceptualised as a behavioural <b>addiction</b>.</p>
+  <div class="panel11"><h4><span class="tag t11">ICD-11 requirements (6C50)</h4>
+    <ul class="t">
+      <li><b>Impaired control</b> over gambling (onset, frequency, intensity, duration, context).</li>
+      <li>Gambling given <b>increasing priority</b> over other life interests and daily activities.</li>
+      <li><b>Continuation or escalation despite negative consequences</b> (debt, relationship, occupational harm).</li>
+      <li>Pattern is sustained (usually &ge;12 months) with significant impairment; specified <b>online</b> or <b>offline</b>.</li>
+    </ul>
+  </div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>From <b>recreational/social gambling</b> (controlled, curbed on losses); from excessive gambling during a <b>manic episode</b>; from gambling within an <b>antisocial personality</b> pattern.</p></div>
+  <div class="remember"><h4>Remember</h4><p>&ldquo;<b>Impaired control + priority + persists despite harm</b>&rdquo; &mdash; the behavioural-addiction triad; ICD-11 moved gambling out of impulse control.</p></div>
+</section>
+
+<section id="ad-6c51">
+  <h2>6C51 &middot; Gaming disorder <span class="tag t11">NEW</span></h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> Addictive behaviours &rarr; a <b>brand-new, high-profile ICD-11 diagnosis</b>. No ICD-10 equivalent.</p>
+  <div class="panel11"><h4><span class="tag t11">ICD-11 requirements (6C51)</h4>
+    <ul class="t">
+      <li><b>Impaired control</b> over gaming (digital or video gaming).</li>
+      <li>Gaming given <b>increasing priority</b> over other interests and daily activities.</li>
+      <li><b>Continuation or escalation despite negative consequences</b>.</li>
+      <li>Sufficient severity to cause significant impairment; normally evident for <b>at least 12 months</b> (may be shorter if severe). Specified <b>predominantly online (6C51.0)</b> or <b>predominantly offline (6C51.1)</b>.</li>
+    </ul>
+  </div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>From <b>normal heavy/hobbyist gaming</b> (no impaired control or functional harm); from gaming used to avoid an underlying <b>depression or anxiety</b> disorder (code that); from <b>gambling disorder</b> (money-staking); from ADHD-related over-engagement.</p></div>
+  <div class="remember"><h4>Remember</h4><p>&ldquo;<b>Gaming: impaired control + priority + persists despite harm, ~12 months</b>&rdquo; &mdash; gaming disorder (NEW in ICD-11); online vs offline.</p></div>
+  <p><b>Treatment (both):</b> CBT-based interventions, structured limits, treat comorbidity (depression, anxiety, ADHD); family involvement for adolescents.</p>
+</section>
+
+<!-- ═══════════════════════ FACTITIOUS ═══════════════════════ -->
+<section id="fact">
+  <h2>Factitious disorders (6D50&ndash;6D51)</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> ICD-11 gives factitious disorders explicit codes for the self and the &ldquo;another person&rdquo; forms. ICD-10 had only the self form (F68.1).</p>
+  <div class="g2">
+    <div class="panel11"><h4><span class="tag t11">6D50 Factitious disorder imposed on self</h4>
+      <p>Intentional <b>feigning, falsifying or inducing</b> of medical, psychological or behavioural signs/symptoms <b>in oneself</b>, associated with identified deception. The motivation is <b>internal</b> (to adopt the sick role/obtain care), <b>not</b> an obvious external reward.</p>
+    </div>
+    <div class="panel11"><h4><span class="tag t11">6D51 Factitious disorder imposed on another</h4>
+      <p>Intentional feigning/falsifying/inducing of signs/symptoms <b>in another person</b> (typically a dependent, e.g. a child), with deception. Formerly &ldquo;factitious disorder by proxy&rdquo; / &ldquo;Munchausen by proxy&rdquo;. It is <b>a diagnosis of the perpetrator</b>; the victim is recorded separately (as maltreatment/abuse) &mdash; and it is a <b>child-protection emergency</b>.</p>
+    </div>
+  </div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>From <b>malingering</b> &mdash; also intentional, but motivated by an <b>obvious external gain</b> (money, avoiding work/prosecution); malingering is <b>not</b> a mental disorder (a Z/QE code). From <b>bodily distress / somatoform</b> presentations &mdash; there symptoms are <b>not</b> intentionally produced. From a genuine <b>medical or mental disorder</b>.</p></div>
+  <div class="remember"><h4>Remember &mdash; the illness-behaviour trio</h4><p><b>Factitious:</b> intentional, motive <b>internal</b> (sick role). <b>Malingering:</b> intentional, motive <b>external/obvious</b> (not a disorder). <b>Bodily distress:</b> <b>not</b> intentional. ICD-11 adds the &ldquo;imposed on another&rdquo; code (6D51).</p></div>
+  <p><b>Management:</b> careful, non-confrontational; safeguard the victim in 6D51 (mandatory child-protection); avoid unnecessary investigations; treat comorbidity.</p>
+</section>
+
+<!-- ═══════════════════════ GENDER INCONGRUENCE ═══════════════════════ -->
+<section id="gender">
+  <h2>Relocated out of psychiatry: Gender incongruence (HA60 / HA61)</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> Included here for completeness because it is one of ICD-11's most significant structural moves: the ICD-10 &ldquo;gender identity disorders (F64)&rdquo; were <b>removed from the mental-disorders chapter altogether</b>.</p>
+  <div class="g2">
+    <div class="panel10"><h4><span class="tag t10">ICD-10 (F64)</h4><p>Classified <b>within mental and behavioural disorders</b>: transsexualism (F64.0), dual-role transvestism (F64.1), gender identity disorder of childhood (F64.2) &mdash; framing gender variance as a psychiatric condition.</p></div>
+    <div class="panel11"><h4><span class="tag t11">ICD-11 (HA60 / HA61)</h4>
+      <p>Renamed <b>Gender incongruence</b> and moved to a new chapter, <b>Conditions related to sexual health</b> &mdash; it is <b>no longer a mental disorder</b>. A marked and persistent incongruence between experienced gender and assigned sex; <b>distress is not required</b>. Coded <b>HA60 (adolescence/adulthood)</b> and <b>HA61 (childhood)</b>. The category is retained chiefly to enable access to gender-affirming health care, deliberately depsychiatrising and destigmatising.</p></div>
+  </div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>From <b>body dysmorphic disorder</b> and <b>body integrity dysphoria</b> (concern with appearance/disability, not gender); from a transient identity questioning; from an identity disturbance within a psychotic disorder. In ICD-11 this is not diagnosed as a mental disorder at all.</p></div>
+  <div class="remember"><h4>Remember</h4><p>&ldquo;<b>F64 gender identity disorder &rarr; ICD-11 gender incongruence, out of psychiatry, distress not required</b>&rdquo; &mdash; the headline destigmatising move.</p></div>
+</section>
+
+<!-- ═══════════════════════ REFERENCES ═══════════════════════ -->
+<section id="references">
+  <h2>References and Source Attribution</h2>
+  <p>Diagnostic terminology and requirements are drawn strictly from the WHO ICD-11 Clinical Descriptions and Diagnostic Requirements (CDDR), with structural comparison to the WHO ICD-10 Clinical Descriptions and Diagnostic Guidelines; clinical elaboration and psychological theories are drawn from standard psychiatric and psychological texts and peer-reviewed literature, each labelled inline with a source tag. The central purpose of this handbook is to document the ICD-11 groupings and diagnoses that have <b>no ICD-10 F-block equivalent</b> &mdash; those newly created and those assembled into phenomenology-based groupings.</p>
+  <ul class="t">
+    <li><span class="tag t11">ICD-11</span> World Health Organization. <i>Clinical Descriptions and Diagnostic Requirements for ICD-11 Mental, Behavioural and Neurodevelopmental Disorders</i>, and (for gender incongruence) the ICD-11 chapter on Conditions related to sexual health. Geneva: World Health Organization.</li>
+    <li><span class="tag t10">ICD-10</span> World Health Organization. <i>The ICD-10 Classification of Mental and Behavioural Disorders: Clinical Descriptions and Diagnostic Guidelines.</i> Geneva: World Health Organization, 1992.</li>
+    <li><span class="tag tks">Kaplan &amp; Sadock</span> Sadock BJ, Sadock VA, Ruiz P. <i>Kaplan &amp; Sadock's Synopsis of Psychiatry</i> and <i>Comprehensive Textbook of Psychiatry</i> (etiology, epidemiology, clinical features and treatment; content paraphrased).</li>
+    <li><span class="tag tother">Other evidence</span> Foundational models cited inline (Salkovskis &amp; Rachman cognitive model of OCD; Ehlers &amp; Clark cognitive model of PTSD; the dual-process model of grief) and peer-reviewed literature on the ICD-11 revisions. Content was rephrased for compliance with licensing restrictions.</li>
+  </ul>
+  <div class="warn"><b>Note on use.</b> This is an educational study reference for M.Phil. Clinical Psychology. Diagnostic requirements are paraphrased from the ICD-11 CDDR without reproducing copyrighted text at length; secondary-source content has been rephrased for compliance with licensing restrictions. It is not a substitute for the full official classifications or for individual clinical and medical judgement, and it is not a prescribing guide.</div>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+</main>
+</div>
+
+<footer>
+  <p><strong>ICD-11 New &amp; Restructured Disorders &mdash; Comprehensive Handbook (no ICD-10 F-block equivalent)</strong></p>
+  <p>Companion to the F00&ndash;F98 series &middot; catatonia; obsessive-compulsive &amp; related; disorders specifically associated with stress (incl. complex PTSD &amp; prolonged grief); bodily distress; impulse control (incl. compulsive sexual behaviour); disorders due to addictive behaviours (gambling &amp; gaming); factitious disorders; and the relocation of gender incongruence &middot; full ICD-11 requirements, differential diagnosis, etiology, epidemiology, comorbidities, mnemonics and treatment &middot; every new diagnosis flagged &middot; terminology explained in plain language.</p>
+  <p style="margin-top:14px;font-size:1rem;color:#fff;letter-spacing:.04em">Made by <strong>Tejas Dangodra</strong></p>
+</footer>
+
+</body>
+</html>

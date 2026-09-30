@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ICD-10 &amp; ICD-11 Comparative Handbook — F60–F69 Disorders of Adult Personality and Behaviour</title>
+<style>
+:root{
+  --deep:#0a2540;--accent:#0e6655;--icd10:#1a5276;--icd11:#1e8449;
+  --ks:#7d3c98;--other:#b9770e;--bg:#f4f6f9;--card:#ffffff;
+  --ink:#1c2833;--muted:#5d6d7e;--line:#d5dbdb;--soft:#eaf2f8;
+  --warn:#922b21;--uniq:#6c3483;--surface:#fdfefe;--psych:#1f6f8b;--ddx:#0b6b5f;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.72;font-size:16px}
+.cover{background:linear-gradient(160deg,#0a2540 0%,#154360 40%,#0e6655 100%);color:#fff;padding:60px 30px 50px;text-align:center}
+.cover .subtitle{text-transform:uppercase;letter-spacing:.3em;font-size:.72rem;opacity:.7;margin-bottom:16px}
+.cover h1{font-size:2.05rem;font-weight:800;line-height:1.22;margin-bottom:12px;max-width:940px;display:inline-block}
+.cover .tagline{font-size:1.05rem;font-weight:400;opacity:.9;max-width:820px;margin:0 auto 22px}
+.cover .chips{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-bottom:18px}
+.cover .chip{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);border-radius:6px;padding:5px 14px;font-size:.82rem}
+.cover .srcline{font-size:.8rem;opacity:.65;max-width:760px;margin:0 auto}
+.wrap{max-width:1160px;margin:0 auto;padding:0 22px}
+.layout{display:flex;gap:28px;align-items:flex-start}
+nav.toc{position:sticky;top:0;max-height:100vh;overflow-y:auto;flex:0 0 288px;padding:20px 12px 60px;font-size:.82rem;border-right:1px solid var(--line);background:var(--surface)}
+nav.toc h4{margin:18px 0 6px;color:var(--accent);text-transform:uppercase;font-size:.68rem;letter-spacing:.08em;font-weight:700}
+nav.toc a{display:block;color:var(--muted);text-decoration:none;padding:4px 10px;border-radius:6px;border-left:3px solid transparent;transition:all .15s}
+nav.toc a:hover{background:var(--soft);color:var(--icd10);border-left-color:var(--icd10)}
+nav.toc a.sub{padding-left:22px;font-size:.79rem}
+main{flex:1 1 auto;min-width:0;padding:28px 0 100px}
+section{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:28px 30px;margin:0 0 26px;scroll-margin-top:16px;box-shadow:0 1px 3px rgba(10,37,64,.04)}
+h2{font-size:1.45rem;color:var(--deep);border-bottom:3px solid var(--accent);padding-bottom:10px;margin-bottom:14px;font-weight:800}
+h3{font-size:1.1rem;color:var(--accent);margin:26px 0 8px;font-weight:700;padding-left:14px;border-left:4px solid var(--accent)}
+h4{font-size:.98rem;margin:16px 0 6px;font-weight:700;color:var(--deep)}
+p{margin:.55em 0}
+.tag{display:inline-block;font-size:.64rem;font-weight:700;padding:2px 9px;border-radius:4px;color:#fff;vertical-align:middle;letter-spacing:.02em}
+.t10{background:var(--icd10)}.t11{background:var(--icd11)}.tks{background:var(--ks)}.tother{background:var(--other)}
+b.cl{color:var(--deep);font-weight:700}
+i.si{color:var(--uniq);font-style:normal;font-weight:500}
+table{border-collapse:collapse;width:100%;margin:16px 0;font-size:.89rem;border-radius:10px;overflow:hidden;box-shadow:0 0 0 1px var(--line)}
+th,td{border:1px solid var(--line);padding:10px 12px;text-align:left;vertical-align:top}
+th{background:var(--deep);color:#fff;font-weight:600;font-size:.79rem;text-transform:uppercase;letter-spacing:.03em}
+tr:nth-child(even) td{background:#f8fafb}
+.c10{background:#eaf2f8!important}.c11{background:#eafaf1!important}
+.panel10{border-left:5px solid var(--icd10);background:#edf2f8;border-radius:0 10px 10px 0;padding:16px 20px;margin:14px 0}
+.panel11{border-left:5px solid var(--icd11);background:#edfaf1;border-radius:0 10px 10px 0;padding:16px 20px;margin:14px 0}
+.panel10 h4,.panel11 h4{margin:0 0 8px;padding-left:0;border-left:none}
+.note{border-left:5px solid var(--accent);background:var(--soft);padding:14px 18px;border-radius:0 10px 10px 0;margin:14px 0}
+.warn{border-left:5px solid var(--warn);background:#fdedec;padding:14px 18px;border-radius:0 10px 10px 0;margin:14px 0}
+.incl{border-left:5px solid var(--icd11);background:#eefaf2;padding:12px 16px;border-radius:0 8px 8px 0;margin:10px 0;font-size:.9rem}
+.excl{border-left:5px solid var(--warn);background:#fdf0ee;padding:12px 16px;border-radius:0 8px 8px 0;margin:10px 0;font-size:.9rem}
+.unique{border:2px solid var(--uniq);background:#f5eef8;border-radius:12px;padding:16px 20px;margin:16px 0}
+.unique h4{color:var(--uniq);margin:0 0 10px;border-left:none;padding-left:0}
+.assoc{border:2px solid var(--warn);background:#fdf0ee;border-radius:12px;padding:16px 20px;margin:16px 0}
+.assoc h4{color:var(--warn);margin:0 0 10px;border-left:none;padding-left:0}
+.psych{border:2px solid var(--psych);background:#eaf4f7;border-radius:12px;padding:16px 20px;margin:16px 0}
+.psych h4{color:var(--psych);margin:0 0 10px;border-left:none;padding-left:0}
+.subtype{border:2px solid #1a5276;background:#eef3f8;border-radius:12px;padding:18px 22px;margin:18px 0}
+.subtype h4{color:#1a5276;margin:0 0 10px;border-left:none;padding-left:0;font-size:1.04rem}
+.ddx{border:2px dashed var(--ddx);background:#e9f6f2;border-radius:10px;padding:12px 16px;margin:12px 0;font-size:.9rem}
+.ddx h5{color:var(--ddx);margin:0 0 6px;font-size:.9rem;text-transform:uppercase;letter-spacing:.03em}
+.sig{background:var(--deep);color:#fff;padding:14px 20px;border-radius:10px;margin:14px 0;font-size:.96rem}
+.sig b{color:#f9e79f}
+.remember{border:2px dashed #d4ac0d;background:#fef9e7;border-radius:12px;padding:16px 20px;margin:14px 0}
+.remember h4{color:#7d6608;margin:0 0 8px;border-left:none;padding-left:0}
+.idcard{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin:14px 0}
+.idcard div{background:#f2f6fa;border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:.85rem}
+.idcard b{display:block;font-size:.62rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:3px}
+ul.t,ol.t{margin:.5em 0;padding-left:1.3em}
+ul.t li,ol.t li{margin:.3em 0}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.top{text-align:right;font-size:.78rem;margin-top:10px}.top a{color:var(--muted);text-decoration:none}
+footer{background:var(--deep);color:#aeb6bf;padding:30px 22px;font-size:.86rem;text-align:center}
+footer strong{color:#fff}
+@media(max-width:920px){.layout{display:block}nav.toc{position:static;border-right:none;border-bottom:1px solid var(--line);max-height:none;flex:none}.g2{grid-template-columns:1fr}.cover h1{font-size:1.5rem}}
+@media print{nav.toc{display:none}body{background:#fff}section{box-shadow:none;break-inside:avoid}footer{background:#fff;color:#333}}
+</style>
+</head>
+<body>
+<a id="top"></a>
+
+<div class="cover">
+  <p class="subtitle">M.Phil. Clinical Psychology &mdash; Complete Diagnostic, Clinical &amp; Treatment Reference</p>
+  <h1>ICD-10 &amp; ICD-11 Comparative Clinical Handbook<br>F60&ndash;F69: Disorders of Adult Personality and Behaviour</h1>
+  <p class="tagline">The fully comprehensive edition: personality disorders and every subtype, enduring personality change, habit and impulse disorders, gender identity, disorders of sexual preference, and other adult behavioural disorders &mdash; each set out with its own ICD-10 criteria and its ICD-11 counterpart, includes/excludes and dedicated differential diagnosis, plus etiology (with psychological theories), epidemiology, unique presentations, comorbidities, memory aids and treatment. Centred on the biggest change in the whole classification: the move from categorical personality-disorder types to the ICD-11 dimensional model.</p>
+  <div class="chips">
+    <span class="chip">Criteria strictly from ICD-10 &amp; ICD-11</span>
+    <span class="chip">Every PD subtype detailed + its own differential diagnosis</span>
+    <span class="chip">Categorical &rarr; dimensional personality model</span>
+    <span class="chip">Etiology incl. psychological theories</span>
+    <span class="chip">Epidemiology, comorbidities, mnemonics, treatment</span>
+    <span class="chip">Where ICD-11 relocated gambling, trichotillomania &amp; gender identity</span>
+  </div>
+  <p class="srcline">Primary authorities: WHO ICD-10 Clinical Descriptions &amp; Diagnostic Guidelines and WHO ICD-11 Clinical Descriptions &amp; Diagnostic Requirements. Secondary: Kaplan &amp; Sadock's Synopsis/Comprehensive Textbook of Psychiatry; foundational psychological theory; peer-reviewed literature.</p>
+</div>
+
+<div class="wrap layout">
+<nav class="toc">
+  <h4>Foundations</h4>
+  <a href="#overview">The F60&ndash;F69 block overview</a>
+  <a href="#compare">ICD-10 categorical vs ICD-11 dimensional &mdash; the big change</a>
+  <a href="#map">Master code map</a>
+  <h4>F60 Specific personality disorders</h4>
+  <a href="#f60">F60 &middot; General criteria</a>
+  <a class="sub" href="#f60-0">F60.0 Paranoid</a>
+  <a class="sub" href="#f60-1">F60.1 Schizoid</a>
+  <a class="sub" href="#f60-2">F60.2 Dissocial</a>
+  <a class="sub" href="#f60-3">F60.3 Emotionally unstable</a>
+  <a class="sub" href="#f60-4">F60.4 Histrionic</a>
+  <a class="sub" href="#f60-5">F60.5 Anankastic</a>
+  <a class="sub" href="#f60-6">F60.6 Anxious (avoidant)</a>
+  <a class="sub" href="#f60-7">F60.7 Dependent</a>
+  <a class="sub" href="#f60-8">F60.8 / F60.9 Other &amp; unspecified</a>
+  <h4>F61 Mixed personality disorders</h4>
+  <a href="#f61">F61 &middot; Mixed &amp; other</a>
+  <h4>F62 Enduring personality change</h4>
+  <a href="#f62">F62 &middot; Overview</a>
+  <a class="sub" href="#f62-0">F62.0 After catastrophic experience</a>
+  <a class="sub" href="#f62-1">F62.1 After psychiatric illness</a>
+  <h4>F63 Habit and impulse disorders</h4>
+  <a href="#f63">F63 &middot; Overview</a>
+  <a class="sub" href="#f63-0">F63.0 Pathological gambling</a>
+  <a class="sub" href="#f63-1">F63.1 Pyromania</a>
+  <a class="sub" href="#f63-2">F63.2 Kleptomania</a>
+  <a class="sub" href="#f63-3">F63.3 Trichotillomania</a>
+  <h4>F64 Gender identity disorders</h4>
+  <a href="#f64">F64 &middot; Overview</a>
+  <a class="sub" href="#f64-0">F64.0 Transsexualism</a>
+  <a class="sub" href="#f64-1">F64.1 Dual-role transvestism</a>
+  <a class="sub" href="#f64-2">F64.2 Of childhood</a>
+  <h4>F65 Disorders of sexual preference</h4>
+  <a href="#f65">F65 &middot; Overview + all paraphilias</a>
+  <h4>F66 Psychosexual development</h4>
+  <a href="#f66">F66 &middot; Overview</a>
+  <h4>F68 / F69 Other &amp; unspecified</h4>
+  <a href="#f68">F68 &middot; Factitious &amp; symptom elaboration</a>
+  <a href="#f69">F69 &middot; Unspecified</a>
+  <h4>Reference</h4>
+  <a href="#references">References</a>
+</nav>
+<main>
+
+
+<!-- ═══════════════════════ OVERVIEW ═══════════════════════ -->
+<section id="overview">
+  <h2>The F60&ndash;F69 block: what holds it together</h2>
+  <p><span class="tag t10">ICD-10</span> gathers under &ldquo;disorders of adult personality and behaviour&rdquo; a broad set of conditions in which the problem lies not in a discrete illness episode but in <b class="cl">enduring patterns of the person's character, impulses, identity or sexual behaviour</b>. The block runs from F60 to F69.</p>
+  <p>The territories are: <b>F60</b> specific personality disorders (with nine subtypes); <b>F61</b> mixed and other personality disorders; <b>F62</b> enduring personality change <i>not</i> due to brain damage (acquired after catastrophe or after psychiatric illness); <b>F63</b> habit and impulse disorders (gambling, fire-setting, stealing, hair-pulling); <b>F64</b> gender identity disorders; <b>F65</b> disorders of sexual preference (the paraphilias); <b>F66</b> psychological and behavioural disorders associated with sexual development and orientation; <b>F68</b> other disorders of adult personality/behaviour (symptom elaboration, factitious disorder); and <b>F69</b> unspecified.</p>
+
+  <div class="note"><b>Terms in plain language.</b> <i>Personality disorder</i> = a long-standing, pervasive, inflexible pattern of relating and behaving that deviates from cultural expectation and causes distress or dysfunction; <i>ego-syntonic</i> = the person sees the trait as part of themselves and not a problem (typical of personality disorder); <i>ego-dystonic</i> = the person experiences the symptom as alien/unwanted; <i>anankastic</i> = obsessional/perfectionistic; <i>dissocial</i> = antisocial; <i>paraphilia</i> = a disorder of sexual preference; <i>egodystonic</i> here also names an old ICD-10 category; <i>trait</i> = a stable dimension of personality.</p></div>
+</section>
+
+<!-- ═══════════════════════ COMPARE ═══════════════════════ -->
+<section id="compare">
+  <h2>ICD-10 categorical vs ICD-11 dimensional &mdash; the biggest change in the classification</h2>
+  <p>Personality disorders are where ICD-11 made its most radical break with ICD-10. This is the single most examinable point in the block, so state it plainly:</p>
+  <div class="g2">
+    <div class="panel10"><h4><span class="tag t10">ICD-10 &mdash; categorical &ldquo;types&rdquo;</h4>
+      <ul class="t">
+        <li>Personality disorder is diagnosed by matching the person to one of <b>nine named subtypes</b> (paranoid, schizoid, dissocial, emotionally unstable, histrionic, anankastic, anxious, dependent, plus &ldquo;other&rdquo;).</li>
+        <li>Each subtype has its own list of descriptive criteria; a person either &ldquo;is&rdquo; or &ldquo;is not&rdquo; that type.</li>
+        <li>Problem in practice: heavy overlap, most patients meet several types, and &ldquo;mixed&rdquo; (F61) is over-used.</li>
+      </ul>
+    </div>
+    <div class="panel11"><h4><span class="tag t11">ICD-11 &mdash; one diagnosis, graded by severity + traits</h4>
+      <ul class="t">
+        <li>There is a <b>single diagnosis: Personality Disorder (6D10)</b>, first graded by <b>severity</b> &mdash; <b>6D10.0 mild</b>, <b>6D10.1 moderate</b>, <b>6D10.2 severe</b> (plus &ldquo;personality difficulty&rdquo; as a sub-threshold Z-code).</li>
+        <li>It is then described by <b>prominent trait domains (6D11)</b>: <b>6D11.0 Negative affectivity</b>, <b>6D11.1 Detachment</b>, <b>6D11.2 Dissociality</b>, <b>6D11.3 Disinhibition</b>, <b>6D11.4 Anankastia</b>, and a <b>6D11.5 Borderline pattern</b> qualifier.</li>
+        <li>The <b>nine categorical subtypes are abolished.</b> Severity (how much dysfunction) matters more than the label.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="unique"><h4>The one-line exam answer</h4><p>ICD-10 classifies personality disorder into <b>nine categorical subtypes</b>; ICD-11 replaces them with a <b>single dimensional diagnosis graded by severity (mild/moderate/severe) and described by five trait domains plus a borderline pattern qualifier</b>. The shift is from &ldquo;which type?&rdquo; to &ldquo;how severe, and which traits?&rdquo; &mdash; because severity predicts outcome better than the old categories, which overlapped too much.</p></div>
+  <p>ICD-11 also <b>relocated several F60&ndash;F69 conditions out of this block entirely</b> (mirroring what it did to sleep and sexual disorders in F50&ndash;F59):</p>
+  <ul class="t">
+    <li><b>Pathological gambling (F63.0)</b> &rarr; <b>6C50 Gambling disorder</b>, now grouped with <b>Disorders due to addictive behaviours</b> (alongside the brand-new <b>6C51 Gaming disorder</b>), not with impulse disorders.</li>
+    <li><b>Trichotillomania (F63.3)</b> &rarr; <b>6B25.0</b>, now a <b>body-focused repetitive behaviour</b> within <b>Obsessive-compulsive and related disorders</b> (with the new <b>6B25.1 excoriation / skin-picking disorder</b>).</li>
+    <li><b>Gender identity disorders (F64)</b> &rarr; recast as <b>Gender incongruence</b> and moved to a chapter on <b>conditions related to sexual health</b> &mdash; deliberately depsychiatrised (no longer a mental disorder).</li>
+    <li><b>Egodystonic sexual orientation (F66.1)</b> is <b>deleted</b>: sexual orientation is not a disorder.</li>
+    <li><b>Pyromania, kleptomania, intermittent explosive disorder, compulsive sexual behaviour</b> &rarr; a coherent new grouping, <b>Impulse control disorders (6C70&ndash;6C73)</b>.</li>
+    <li><b>Paraphilic disorders</b> are retained but reframed around <b>risk/harm to others or to self</b> rather than mere non-normative arousal.</li>
+  </ul>
+</section>
+
+<!-- ═══════════════════════ MAP ═══════════════════════ -->
+<section id="map">
+  <h2>Master code map (ICD-10 &rarr; ICD-11)</h2>
+  <table>
+    <tr><th>ICD-10</th><th>Disorder</th><th>ICD-11 destination</th></tr>
+    <tr><td class="c10">F60.0&ndash;F60.9</td><td>Nine categorical personality-disorder subtypes</td><td class="c11">6D10 Personality disorder (severity 6D10.0/.1/.2) + 6D11 trait domains</td></tr>
+    <tr><td class="c10">F61</td><td>Mixed personality disorder</td><td class="c11">Subsumed &mdash; dimensional model needs no &ldquo;mixed&rdquo; code</td></tr>
+    <tr><td class="c10">F62</td><td>Enduring personality change (not organic)</td><td class="c11">Concept largely absorbed into personality disorder / sequelae of stress; e.g. complex PTSD (6B41) for post-trauma change</td></tr>
+    <tr><td class="c10">F63.0</td><td>Pathological gambling</td><td class="c11">6C50 Gambling disorder (Disorders due to addictive behaviours)</td></tr>
+    <tr><td class="c10">&mdash;</td><td>(new) Gaming disorder</td><td class="c11">6C51 Gaming disorder (online/offline)</td></tr>
+    <tr><td class="c10">F63.1</td><td>Pyromania</td><td class="c11">6C70 Pyromania (Impulse control disorders)</td></tr>
+    <tr><td class="c10">F63.2</td><td>Kleptomania</td><td class="c11">6C71 Kleptomania</td></tr>
+    <tr><td class="c10">F63.3</td><td>Trichotillomania</td><td class="c11">6B25.0 (body-focused repetitive; OCD-related grouping)</td></tr>
+    <tr><td class="c10">F63.8</td><td>Intermittent explosive disorder</td><td class="c11">6C73 Intermittent explosive disorder</td></tr>
+    <tr><td class="c10">F64.0&ndash;F64.2</td><td>Gender identity disorders</td><td class="c11">Gender incongruence (Conditions related to sexual health &mdash; out of mental disorders)</td></tr>
+    <tr><td class="c10">F65.0&ndash;F65.9</td><td>Disorders of sexual preference</td><td class="c11">6C50-range Paraphilic disorders (reframed around risk/harm)</td></tr>
+    <tr><td class="c10">F66.1</td><td>Egodystonic sexual orientation</td><td class="c11">Deleted &mdash; orientation is not a disorder</td></tr>
+    <tr><td class="c10">F68.1</td><td>Factitious disorder</td><td class="c11">6D50 Factitious disorder imposed on self / 6D51 imposed on another</td></tr>
+    <tr><td class="c10">F69</td><td>Unspecified</td><td class="c11">Residual codes within each destination</td></tr>
+  </table>
+  <div class="warn"><b>Read this the right way.</b> An arrow means &ldquo;the nearest ICD-11 home&rdquo;, not identical criteria. The paraphilic disorder codes are shown in-range; ICD-11 renamed and re-thresholded most of them. Below, each disorder gives the ICD-10 guidelines in full and the ICD-11 approach where a comparable diagnosis exists.</p></div>
+</section>
+
+
+<!-- ═══════════════════════ F60 GENERAL ═══════════════════════ -->
+<section id="f60">
+  <h2>F60 &middot; Specific personality disorders &mdash; the general criteria</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F60 is the personality-disorder group within F60&ndash;F69. In ICD-11 the whole of F60 collapses into the single dimensional diagnosis <b>6D10 Personality disorder</b> graded by severity and described by trait domains (6D11).</p>
+  <p>A specific personality disorder is a <b>severe disturbance in the characterological constitution and behavioural tendencies</b> of the individual, usually involving several areas of the personality, and nearly always associated with considerable personal and social disruption. It tends to appear in late childhood or adolescence and continues into adulthood; the diagnosis is therefore unlikely to be appropriate before age 16&ndash;17.</p>
+
+  <div class="panel10"><h4><span class="tag t10">ICD-10 general diagnostic guidelines (apply to all F60 subtypes)</span></h4>
+    <p>Conditions not directly attributable to gross brain damage or disease, or to another psychiatric disorder, meeting the following:</p>
+    <ul class="t">
+      <li><b>(a)</b> markedly <b>disharmonious attitudes and behaviour</b>, usually involving several areas of functioning (affectivity, arousal, impulse control, ways of perceiving and thinking, and style of relating to others);</li>
+      <li><b>(b)</b> the abnormal behaviour pattern is <b>enduring</b>, of long standing, and not limited to episodes of mental illness;</li>
+      <li><b>(c)</b> the abnormal pattern is <b>pervasive</b> and clearly maladaptive to a broad range of personal and social situations;</li>
+      <li><b>(d)</b> the manifestations always appear during <b>childhood or adolescence</b> and continue into adulthood;</li>
+      <li><b>(e)</b> the disorder leads to considerable <b>personal distress</b>, but this may become apparent only late in its course;</li>
+      <li><b>(f)</b> the disorder is usually, but not always, associated with significant problems in <b>occupational and social performance</b>.</li>
+    </ul>
+    <p style="margin-top:6px">Cyclothymia and schizotypal disorder were formerly classed here but are now placed elsewhere (F34 and F21 respectively).</p>
+  </div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11 approach (6D10 + 6D11)</span></h4>
+    <p>ICD-11 requires an <b>enduring disturbance in how a person experiences and thinks about themselves, others and the world</b>, manifest in maladaptive patterns of cognition, emotional experience/expression and behaviour, sustained over time (&ge;2 years) and across situations, causing significant distress or impairment in relationships, work or other areas. Then:</p>
+    <ul class="t">
+      <li><b>Grade severity:</b> 6D10.0 mild, 6D10.1 moderate, 6D10.2 severe (based on extent of dysfunction, risk to self/others, and pervasiveness).</li>
+      <li><b>Add trait qualifiers (6D11):</b> negative affectivity, detachment, dissociality, disinhibition, anankastia, and/or a borderline pattern.</li>
+    </ul>
+    <p style="margin-top:6px">ICD-11 also permits <b>&ldquo;personality difficulty&rdquo;</b> as a sub-diagnostic descriptor (a QE-range code) for problems that do not reach disorder threshold.</p>
+  </div>
+
+  <h3>Etiology (with psychological theories)</h3>
+  <p><span class="tag tks">Kaplan &amp; Sadock</span> Personality disorders arise from an interaction of <b>genetic/temperamental</b> vulnerability (heritable traits, emotional reactivity), <b>early adversity</b> (abuse, neglect, invalidating environments, insecure attachment), and <b>developmental/social</b> factors.</p>
+  <div class="psych"><h4>Psychological theories</h4>
+    <ul class="t">
+      <li><b>Psychodynamic / object-relations (Kernberg).</b> <span class="tag tother">Other evidence</span> Immature defences such as <b>splitting</b> (seeing people as all-good or all-bad) and projective identification produce the unstable relationships and identity diffusion central to borderline organisation.</li>
+      <li><b>Attachment theory (Bowlby).</b> Disorganised/insecure early attachment shapes later patterns of fearful dependence, avoidance of intimacy, or hostile mistrust.</li>
+      <li><b>Biosocial theory (Linehan).</b> Borderline patterns arise from a biological tendency to emotional dysregulation meeting a chronically <b>invalidating environment</b> &mdash; the rationale for dialectical behaviour therapy (DBT).</li>
+      <li><b>Cognitive theory (Beck &amp; Young).</b> Early <b>maladaptive schemas</b> (e.g. abandonment, mistrust, defectiveness) and dysfunctional core beliefs drive the rigid interpersonal patterns; basis for schema therapy.</li>
+      <li><b>Trait / dimensional models (Five-Factor).</b> Personality pathology is the extreme of normal trait dimensions &mdash; the empirical foundation of the ICD-11 trait model.</li>
+    </ul>
+  </div>
+
+  <h3>Epidemiology</h3>
+  <ul class="t">
+    <li>Personality disorders (any) affect roughly <b>6&ndash;10%</b> of the general population; higher in clinical and forensic settings.</li>
+    <li>Borderline pattern is prevalent in clinical samples and more often diagnosed in women; dissocial/antisocial is more common in men and in forensic populations.</li>
+    <li>Onset by adolescence/early adulthood; some patterns (especially borderline, antisocial) tend to attenuate with age.</li>
+  </ul>
+  <div class="assoc"><h4>Common comorbidities</h4><p>High rates of coexisting mood, anxiety, substance-use, eating and psychotic disorders. Personality disorder worsens the course and treatment response of these Axis-I conditions. Self-harm and suicide risk is markedly raised, especially with the borderline pattern.</p></div>
+
+  <div class="remember"><h4>Remember the F60 &ldquo;PD&rdquo; core &mdash; &ldquo;PERSON&rdquo;</h4>
+    <ul class="t">
+      <li><b>P</b> &mdash; Pervasive across situations</li>
+      <li><b>E</b> &mdash; Enduring / early onset (adolescence)</li>
+      <li><b>R</b> &mdash; Relationships and functioning impaired</li>
+      <li><b>S</b> &mdash; Stable and inflexible pattern</li>
+      <li><b>O</b> &mdash; Own distress (may appear late) / ego-syntonic traits</li>
+      <li><b>N</b> &mdash; Not due to another disorder or brain disease</li>
+    </ul>
+  </div>
+
+  <h3>Treatment (applies across the personality disorders)</h3>
+  <ul class="t">
+    <li><b>Psychological (mainstay):</b> structured, longer-term psychotherapies &mdash; <b>DBT</b>, <b>mentalization-based treatment (MBT)</b>, <b>schema therapy</b>, transference-focused therapy, and structured clinical management, especially for the borderline pattern.</li>
+    <li><b>Pharmacological (adjunctive only):</b> no drug is licensed to &ldquo;treat&rdquo; personality disorder; medication targets comorbidity and specific symptom domains (e.g. mood instability, transient psychotic-like symptoms, impulsivity). Avoid polypharmacy and long-term sedatives.</li>
+    <li><b>General principles:</b> consistency, clear boundaries, treating comorbid disorders, managing crises and self-harm risk, and a long-term therapeutic relationship.</li>
+  </ul>
+  <div class="ddx"><h5>Differential diagnosis (general)</h5><p>From <b>enduring personality change (F62)</b> &mdash; acquired in adult life after catastrophe/illness, not developmental; from <b>organic personality disorder (F07.0)</b> &mdash; due to brain disease/injury; from <b>mood, anxiety and psychotic disorders</b> whose symptoms are episodic rather than lifelong traits; and from <b>normal personality variation / accentuation of traits (Z73.1)</b> that does not cause the required distress or dysfunction.</p></div>
+</section>
+
+
+<section id="f60-0">
+  <h2>F60.0 &middot; Paranoid personality disorder</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F60 Specific personality disorders &rarr; the suspicious/mistrustful pattern. ICD-11 maps this mainly onto the <b>Detachment</b> and <b>Negative affectivity</b> trait domains.</p>
+  <div class="panel10"><h4><span class="tag t10">ICD-10 (F60.0)</span> &mdash; personality disorder characterised by:</h4>
+    <ul class="t">
+      <li><b>(a)</b> excessive sensitivity to setbacks and rebuffs;</li>
+      <li><b>(b)</b> tendency to bear grudges persistently (refusal to forgive insults, injuries or slights);</li>
+      <li><b>(c)</b> suspiciousness and a pervasive tendency to distort experience by misconstruing neutral or friendly actions of others as hostile or contemptuous;</li>
+      <li><b>(d)</b> a combative and tenacious sense of personal rights out of keeping with the actual situation;</li>
+      <li><b>(e)</b> recurrent unjustified suspicions regarding the sexual fidelity of a spouse or partner;</li>
+      <li><b>(f)</b> tendency to excessive self-importance (persistent self-referential attitude);</li>
+      <li><b>(g)</b> preoccupation with unsubstantiated &ldquo;conspiratorial&rdquo; explanations of events.</li>
+    </ul>
+    <div class="incl" style="margin-top:8px"><b>Includes:</b> expansive paranoid, fanatic, querulant and sensitive paranoid personality. <b>Excludes:</b> delusional disorder (F22.-); schizophrenia (F20.-).</div>
+  </div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11</span></h4><p>No separate code: diagnosed as <b>Personality disorder (6D10)</b> at the appropriate severity, with prominent <b>Detachment (6D11.1)</b> and <b>Negative affectivity (6D11.0)</b> traits (mistrust, suspiciousness, hostility).</p></div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>From <b>delusional disorder (F22)</b> and <b>paranoid schizophrenia (F20)</b> &mdash; there the beliefs reach delusional intensity and there may be hallucinations; in paranoid PD the suspiciousness is an over-valued trait, not a fixed delusion. From <b>schizotypal disorder (F21)</b>. From reactive suspiciousness in the context of substance use or a mood/psychotic episode.</p></div>
+  <div class="remember"><h4>Remember</h4><p>&ldquo;<b>Suspicious, sensitive, holds grudges, self-important, conspiratorial</b>&rdquo; &mdash; trait-level mistrust that never quite becomes delusional.</p></div>
+</section>
+
+<section id="f60-1">
+  <h2>F60.1 &middot; Schizoid personality disorder</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F60 Specific personality disorders &rarr; the emotionally detached, solitary pattern. ICD-11 maps this onto the <b>Detachment</b> trait domain.</p>
+  <div class="panel10"><h4><span class="tag t10">ICD-10 (F60.1)</span> &mdash; meeting the following:</h4>
+    <ul class="t">
+      <li><b>(a)</b> few, if any, activities provide pleasure;</li>
+      <li><b>(b)</b> emotional coldness, detachment or flattened affect;</li>
+      <li><b>(c)</b> limited capacity to express warm, tender feelings or anger towards others;</li>
+      <li><b>(d)</b> apparent indifference to praise or criticism;</li>
+      <li><b>(e)</b> little interest in sexual experiences with another person (allowing for age);</li>
+      <li><b>(f)</b> almost invariable preference for solitary activities;</li>
+      <li><b>(g)</b> excessive preoccupation with fantasy and introspection;</li>
+      <li><b>(h)</b> lack of close friends or confiding relationships (or only one), and no desire for such;</li>
+      <li><b>(i)</b> marked insensitivity to prevailing social norms and conventions.</li>
+    </ul>
+    <div class="excl" style="margin-top:8px"><b>Excludes:</b> Asperger's syndrome (F84.5); delusional disorder (F22.0); schizoid disorder of childhood (F84.5); schizophrenia (F20.-); schizotypal disorder (F21).</div>
+  </div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11</span></h4><p>Diagnosed as <b>Personality disorder (6D10)</b> with prominent <b>Detachment (6D11.1)</b> traits (social withdrawal, emotional coldness, reduced capacity for close relationships and for experiencing pleasure).</p></div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>From <b>autism spectrum / Asperger's (F84.5)</b> &mdash; onset in early childhood with communication and stereotyped-interest features; from <b>schizotypal disorder (F21)</b> &mdash; which adds odd beliefs/perceptual distortions; from the <b>negative symptoms of schizophrenia (F20)</b>; from <b>avoidant PD (F60.6)</b> &mdash; where the person <i>desires</i> closeness but avoids it through fear, unlike the schizoid person who lacks the desire.</p></div>
+  <div class="remember"><h4>Remember &mdash; schizoid vs avoidant</h4><p><b>Schizoid:</b> alone and content (no desire for closeness). <b>Avoidant:</b> alone and lonely (wants closeness but fears rejection).</p></div>
+</section>
+
+<section id="f60-2">
+  <h2>F60.2 &middot; Dissocial (antisocial) personality disorder</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F60 Specific personality disorders &rarr; the callous, norm-violating pattern. ICD-11 maps this onto the <b>Dissociality</b> (and often <b>Disinhibition</b>) trait domains.</p>
+  <p>Usually comes to attention because of a <b>gross disparity between behaviour and prevailing social norms.</b></p>
+  <div class="panel10"><h4><span class="tag t10">ICD-10 (F60.2)</span> &mdash; characterised by:</h4>
+    <ul class="t">
+      <li><b>(a)</b> callous unconcern for the feelings of others;</li>
+      <li><b>(b)</b> gross and persistent irresponsibility and disregard for social norms, rules and obligations;</li>
+      <li><b>(c)</b> incapacity to maintain enduring relationships, though with no difficulty in establishing them;</li>
+      <li><b>(d)</b> very low tolerance to frustration and a low threshold for discharge of aggression, including violence;</li>
+      <li><b>(e)</b> incapacity to experience guilt or to profit from experience, particularly punishment;</li>
+      <li><b>(f)</b> marked proneness to blame others, or to offer plausible rationalisations, for the behaviour bringing the person into conflict with society.</li>
+    </ul>
+    <p style="margin-top:6px">Persistent irritability may be associated. Conduct disorder in childhood/adolescence, though not always present, supports the diagnosis.</p>
+    <div class="incl" style="margin-top:8px"><b>Includes:</b> amoral, antisocial, asocial, psychopathic and sociopathic personality (disorder). <b>Excludes:</b> conduct disorders (F91.-); emotionally unstable PD (F60.3).</div>
+  </div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11</span></h4><p>Diagnosed as <b>Personality disorder (6D10)</b> with prominent <b>Dissociality (6D11.2)</b> (self-centredness, lack of empathy, callousness, exploitativeness) commonly combined with <b>Disinhibition (6D11.3)</b> (impulsivity, irresponsibility, risk-taking).</p></div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>From <b>conduct disorder (F91)</b> &mdash; the childhood/adolescent precursor; from <b>emotionally unstable PD (F60.3)</b> &mdash; where aggression is driven by affective instability rather than callous exploitation; from offending behaviour occurring only in <b>mania</b> or <b>substance intoxication/use</b>; from criminality without personality disorder (motivated, situational).</p></div>
+  <div class="remember"><h4>Remember &mdash; &ldquo;CORRUPT&rdquo;</h4><p><b>C</b>allous &middot; <b>O</b>bligations ignored &middot; <b>R</b>emorseless (no guilt) &middot; <b>R</b>elationships not sustained &middot; <b>U</b>nlawful/norm-breaking &middot; <b>P</b>lanning poor (impulsive, low frustration tolerance) &middot; <b>T</b>ends to blame others.</p></div>
+</section>
+
+
+<section id="f60-3">
+  <h2>F60.3 &middot; Emotionally unstable personality disorder (EUPD)</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F60 Specific personality disorders &rarr; the impulsive/affectively unstable pattern; the only F60 subtype with its own coded sub-subtypes. ICD-11 retains its essence as the <b>Borderline pattern qualifier (6D11.5)</b>.</p>
+  <p>A personality disorder with a marked tendency to <b>act impulsively without considering consequences</b>, together with affective instability. The ability to plan ahead may be minimal, and outbursts of intense anger may lead to violence or &ldquo;behavioural explosions&rdquo;, easily precipitated when impulsive acts are criticised or thwarted. Two variants share this theme of impulsiveness and lack of self-control.</p>
+  <div class="subtype"><h4>F60.30 Impulsive type</h4>
+    <div class="panel10"><h4><span class="tag t10">ICD-10 (F60.30)</span></h4>
+      <p>The predominant characteristics are <b>emotional instability and lack of impulse control</b>. Outbursts of violence or threatening behaviour are common, particularly in response to criticism by others.</p>
+      <div class="incl" style="margin-top:8px"><b>Includes:</b> explosive and aggressive personality (disorder). <b>Excludes:</b> dissocial PD (F60.2).</div>
+    </div>
+    <div class="ddx"><h5>Differential diagnosis</h5><p>From <b>dissocial PD (F60.2)</b> &mdash; aggression here is reactive/affective, not coldly exploitative; from <b>intermittent explosive disorder (F63.8)</b> &mdash; episodic aggression without the broader personality pattern; from mania and substance-related aggression.</p></div>
+  </div>
+  <div class="subtype"><h4>F60.31 Borderline type</h4>
+    <div class="panel10"><h4><span class="tag t10">ICD-10 (F60.31)</span></h4>
+      <p>Several characteristics of emotional instability are present; in addition:</p>
+      <ul class="t">
+        <li>the person's own <b>self-image, aims and internal preferences (including sexual) are often unclear or disturbed</b>;</li>
+        <li>usually chronic <b>feelings of emptiness</b>;</li>
+        <li>a liability to become involved in <b>intense and unstable relationships</b>, which may cause repeated emotional crises;</li>
+        <li>excessive efforts to <b>avoid abandonment</b> and a series of <b>suicidal threats or acts of self-harm</b> (which may occur without obvious precipitants).</li>
+      </ul>
+      <div class="incl" style="margin-top:8px"><b>Includes:</b> borderline personality (disorder).</div>
+    </div>
+    <div class="panel11"><h4><span class="tag t11">ICD-11</span></h4><p>Captured by the <b>Borderline pattern qualifier (6D11.5)</b> added to a Personality disorder diagnosis: instability of self-image, affect and relationships; frantic efforts to avoid abandonment; impulsivity; recurrent self-harm/suicidal behaviour; chronic emptiness; and transient dissociative or paranoid states under stress.</p></div>
+    <div class="unique"><h4>Unique / high-risk features</h4><p>Recurrent self-harm and suicidal behaviour, frantic efforts to avoid real or imagined abandonment, splitting (idealisation/devaluation of others), chronic emptiness, and stress-related transient paranoid or dissociative experiences. The highest-risk personality pattern for completed suicide.</p></div>
+    <div class="ddx"><h5>Differential diagnosis</h5><p>From <b>bipolar disorder</b> &mdash; mood shifts in EUPD are rapid, reactive and interpersonal, not sustained days-long episodes; from <b>histrionic PD (F60.4)</b>; from <b>PTSD / complex PTSD (6B41)</b> after chronic trauma; from depression with self-harm.</p></div>
+  </div>
+  <div class="remember"><h4>Remember borderline &mdash; &ldquo;AM SUICIDE&rdquo;</h4><p><b>A</b>bandonment fears &middot; <b>M</b>ood instability &middot; <b>S</b>elf-image disturbance &middot; <b>U</b>nstable intense relationships &middot; <b>I</b>mpulsivity &middot; <b>C</b>hronic emptiness &middot; <b>I</b>dentity/dissociative-paranoid under stress &middot; <b>D</b>eliberate self-harm &middot; <b>E</b>xplosive anger.</p></div>
+  <h3>Treatment</h3>
+  <ul class="t"><li><b>Psychological (first-line):</b> DBT, MBT, schema therapy, or structured clinical management; crisis and safety planning.</li><li><b>Pharmacological:</b> adjunctive only, targeting specific symptoms (mood instability, transient psychotic-like symptoms); avoid long-term benzodiazepines.</li></ul>
+</section>
+
+<section id="f60-4">
+  <h2>F60.4 &middot; Histrionic personality disorder</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F60 Specific personality disorders &rarr; the attention-seeking, dramatic pattern. ICD-11 maps this partly onto <b>Negative affectivity</b> and <b>Dissociality</b> (attention-seeking) traits.</p>
+  <div class="panel10"><h4><span class="tag t10">ICD-10 (F60.4)</span> &mdash; characterised by:</h4>
+    <ul class="t">
+      <li><b>(a)</b> self-dramatisation, theatricality, exaggerated expression of emotions;</li>
+      <li><b>(b)</b> suggestibility (easily influenced by others or by circumstances);</li>
+      <li><b>(c)</b> shallow and labile affect;</li>
+      <li><b>(d)</b> continual seeking for excitement and activities in which the person is the centre of attention;</li>
+      <li><b>(e)</b> inappropriate seductiveness in appearance or behaviour;</li>
+      <li><b>(f)</b> over-concern with physical attractiveness.</li>
+    </ul>
+    <p style="margin-top:6px">Associated: egocentricity, self-indulgence, continuous longing for appreciation, easily hurt feelings, and persistent manipulative behaviour.</p>
+    <div class="incl" style="margin-top:8px"><b>Includes:</b> hysterical and psychoinfantile personality (disorder).</div>
+  </div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11</span></h4><p>Diagnosed as <b>Personality disorder (6D10)</b>; attention-seeking, dramatic and manipulative features are represented within the trait qualifiers rather than as a named subtype.</p></div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>From <b>borderline pattern (F60.31)</b> &mdash; which adds self-harm, emptiness and abandonment terror; from <b>narcissistic</b> presentations (coded F60.8 in ICD-10); from normal expressiveness within cultural norms; from mania (episodic, with other manic features).</p></div>
+  <div class="remember"><h4>Remember &mdash; &ldquo;PRAISE&rdquo;</h4><p><b>P</b>rovocative/seductive &middot; <b>R</b>elationships seen as more intimate than they are / suggestible &middot; <b>A</b>ttention (must be centre of it) &middot; <b>I</b>nfluenced easily &middot; <b>S</b>hallow, shifting emotions &middot; <b>E</b>xaggerated, theatrical expression.</p></div>
+</section>
+
+<section id="f60-5">
+  <h2>F60.5 &middot; Anankastic (obsessive-compulsive) personality disorder</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F60 Specific personality disorders &rarr; the perfectionistic, controlling pattern. ICD-11 maps this directly onto the <b>Anankastia</b> trait domain.</p>
+  <div class="panel10"><h4><span class="tag t10">ICD-10 (F60.5)</span> &mdash; characterised by:</h4>
+    <ul class="t">
+      <li><b>(a)</b> feelings of excessive doubt and caution;</li>
+      <li><b>(b)</b> preoccupation with details, rules, lists, order, organisation or schedule;</li>
+      <li><b>(c)</b> perfectionism that interferes with task completion;</li>
+      <li><b>(d)</b> excessive conscientiousness and scrupulousness, and undue preoccupation with productivity to the exclusion of pleasure and relationships;</li>
+      <li><b>(e)</b> excessive pedantry and adherence to social conventions;</li>
+      <li><b>(f)</b> rigidity and stubbornness;</li>
+      <li><b>(g)</b> unreasonable insistence that others submit to exactly his or her way of doing things, or unreasonable reluctance to let others do things;</li>
+      <li><b>(h)</b> intrusion of insistent and unwelcome thoughts or impulses.</li>
+    </ul>
+    <div class="incl" style="margin-top:8px"><b>Includes:</b> compulsive and obsessional personality; obsessive-compulsive personality disorder. <b>Excludes:</b> obsessive-compulsive disorder (F42.-).</div>
+  </div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11</span></h4><p>Diagnosed as <b>Personality disorder (6D10)</b> with prominent <b>Anankastia (6D11.4)</b> traits (perfectionism, rigid control of behaviour, need for order, over-conscientiousness).</p></div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>Crucially from <b>obsessive-compulsive disorder (F42)</b> &mdash; OCD has <b>ego-dystonic</b> obsessions and compulsions (unwanted, resisted rituals), whereas anankastic PD is an <b>ego-syntonic</b> perfectionistic <i>character</i> style the person sees as correct. Also from normal conscientiousness and from autism-related rigidity.</p></div>
+  <div class="remember"><h4>Remember &mdash; &ldquo;LAW FIRMS&rdquo; (and the OCD contrast)</h4><p><b>L</b>ists/order &middot; <b>A</b>dherence to rules &middot; <b>W</b>on't delegate &middot; <b>F</b>rugal/rigid &middot; <b>I</b>nflexible morally &middot; <b>R</b>eluctant to discard &middot; <b>M</b>iserly control &middot; <b>S</b>tubborn perfectionism. Key: anankastic PD is <b>ego-syntonic</b>; OCD is <b>ego-dystonic</b>.</p></div>
+</section>
+
+
+<section id="f60-6">
+  <h2>F60.6 &middot; Anxious (avoidant) personality disorder</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F60 Specific personality disorders &rarr; the socially inhibited, rejection-sensitive pattern. ICD-11 maps this onto <b>Negative affectivity</b> and <b>Detachment</b> traits.</p>
+  <div class="panel10"><h4><span class="tag t10">ICD-10 (F60.6)</span> &mdash; characterised by:</h4>
+    <ul class="t">
+      <li><b>(a)</b> persistent and pervasive feelings of tension and apprehension;</li>
+      <li><b>(b)</b> belief that one is socially inept, personally unappealing, or inferior to others;</li>
+      <li><b>(c)</b> excessive preoccupation with being criticised or rejected in social situations;</li>
+      <li><b>(d)</b> unwillingness to become involved with people unless certain of being liked;</li>
+      <li><b>(e)</b> restrictions in lifestyle because of a need to have physical security;</li>
+      <li><b>(f)</b> avoidance of social or occupational activities involving significant interpersonal contact, for fear of criticism, disapproval or rejection.</li>
+    </ul>
+    <p style="margin-top:6px">Associated: hypersensitivity to rejection and criticism.</p>
+  </div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11</span></h4><p>Diagnosed as <b>Personality disorder (6D10)</b> with prominent <b>Negative affectivity (6D11.0)</b> (anxiousness, low self-worth) and <b>Detachment (6D11.1)</b> (social withdrawal) traits.</p></div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>From <b>social anxiety disorder (F40.1)</b> &mdash; overlapping but situational/episodic rather than a lifelong pervasive character; from <b>schizoid PD (F60.1)</b> &mdash; schizoid people <i>lack</i> the desire for closeness, avoidant people <i>want</i> it but fear rejection; from <b>dependent PD (F60.7)</b>.</p></div>
+  <div class="remember"><h4>Remember</h4><p>&ldquo;<b>Wants closeness, fears rejection, feels inferior, avoids contact</b>&rdquo; &mdash; the lonely opposite of the content-to-be-alone schizoid.</p></div>
+</section>
+
+<section id="f60-7">
+  <h2>F60.7 &middot; Dependent personality disorder</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F60 Specific personality disorders &rarr; the clinging, submissive, reassurance-seeking pattern. ICD-11 maps this onto the <b>Negative affectivity</b> (dependency) trait.</p>
+  <div class="panel10"><h4><span class="tag t10">ICD-10 (F60.7)</span> &mdash; characterised by:</h4>
+    <ul class="t">
+      <li><b>(a)</b> encouraging or allowing others to make most of one's important life decisions;</li>
+      <li><b>(b)</b> subordination of one's own needs to those of others on whom one is dependent, and undue compliance with their wishes;</li>
+      <li><b>(c)</b> unwillingness to make even reasonable demands on the people one depends on;</li>
+      <li><b>(d)</b> feeling uncomfortable or helpless when alone, because of exaggerated fears of inability to care for oneself;</li>
+      <li><b>(e)</b> preoccupation with fears of being abandoned by a person with whom one has a close relationship, and of being left to care for oneself;</li>
+      <li><b>(f)</b> limited capacity to make everyday decisions without an excessive amount of advice and reassurance from others.</li>
+    </ul>
+    <p style="margin-top:6px">Associated: perceiving oneself as helpless, incompetent and lacking stamina.</p>
+    <div class="incl" style="margin-top:8px"><b>Includes:</b> asthenic, inadequate, passive and self-defeating personality (disorder).</div>
+  </div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11</span></h4><p>Diagnosed as <b>Personality disorder (6D10)</b> with prominent <b>Negative affectivity (6D11.0)</b> traits, especially dependency, submissiveness and separation insecurity.</p></div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>From <b>avoidant PD (F60.6)</b> &mdash; both fear being alone, but the dependent person seeks others to take over, while the avoidant person withdraws through fear of criticism; from <b>borderline pattern</b> (abandonment fear there is more turbulent, with self-harm); from dependency that is culturally normative or arises during a depressive episode.</p></div>
+  <div class="remember"><h4>Remember &mdash; &ldquo;RELIANCE&rdquo;</h4><p><b>R</b>eassurance needed for decisions &middot; <b>E</b>xcessive lengths to obtain support &middot; <b>L</b>acks initiative &middot; <b>I</b>nability to be alone (feels helpless) &middot; <b>A</b>bandonment preoccupation &middot; <b>N</b>eeds others to take responsibility &middot; <b>C</b>ompliant/submissive &middot; <b>E</b>asily hurt by disapproval.</p></div>
+</section>
+
+<section id="f60-8">
+  <h2>F60.8 / F60.9 &middot; Other and unspecified specific personality disorders</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F60 Specific personality disorders &rarr; the &ldquo;other&rdquo; and residual categories.</p>
+  <div class="panel10"><h4><span class="tag t10">ICD-10</span></h4>
+    <ul class="t">
+      <li><b>F60.8 Other specific personality disorders</b> &mdash; a personality disorder fitting none of F60.0&ndash;F60.7. <b>Includes:</b> eccentric, &ldquo;haltlose&rdquo; type, immature, <b>narcissistic</b>, passive-aggressive and psychoneurotic personality (disorder). (Note: ICD-10 has no separate narcissistic PD code &mdash; it sits here.)</li>
+      <li><b>F60.9 Personality disorder, unspecified.</b> <b>Includes:</b> character neurosis NOS; pathological personality NOS.</li>
+    </ul>
+  </div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11</span></h4><p>All of these are handled by <b>6D10 Personality disorder</b> at the appropriate severity with trait qualifiers &mdash; e.g. narcissistic features fall largely under <b>Dissociality (6D11.2)</b> (grandiosity, attention-seeking).</p></div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>Use F60.8/F60.9 only after the eight specific patterns have been excluded; distinguish from enduring personality change (F62), organic personality disorder (F07.0), and accentuation of normal traits (Z73.1).</p></div>
+</section>
+
+<!-- ═══════════════════════ F61 ═══════════════════════ -->
+<section id="f61">
+  <h2>F61 &middot; Mixed and other personality disorders</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F61 sits alongside F60 for personality problems that do not fit a single specific pattern. ICD-11's dimensional model makes a separate &ldquo;mixed&rdquo; code unnecessary.</p>
+  <div class="panel10"><h4><span class="tag t10">ICD-10 (F61)</span></h4>
+    <ul class="t">
+      <li><b>F61.0 Mixed personality disorders</b> &mdash; features of several of the F60 disorders but without a predominant set of symptoms that would allow a more specific diagnosis.</li>
+      <li><b>F61.1 Troublesome personality changes</b> &mdash; not classifiable in F60 or F62 and regarded as secondary to a main diagnosis of a coexisting affective or anxiety disorder. <b>Excludes:</b> accentuation of personality traits (Z73.1).</li>
+    </ul>
+    <p style="margin-top:6px">This category is often more difficult to diagnose than the specific F60 patterns.</p>
+  </div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11</span></h4><p>No equivalent needed: because ICD-11 describes personality disorder by <b>severity + as many trait domains as apply</b>, a person with mixed features simply receives <b>6D10</b> with several trait qualifiers. This is one of the clearest practical advantages of the dimensional model.</p></div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>From a specific F60 disorder (where one pattern predominates), from accentuation of normal traits (Z73.1), and from personality change that is acquired (F62) or organic (F07.0).</p></div>
+  <div class="remember"><h4>Remember</h4><p>&ldquo;<b>Several patterns, no clear winner &rarr; F61</b>&rdquo; &mdash; the very problem ICD-11's trait model was designed to dissolve.</p></div>
+</section>
+
+
+<!-- ═══════════════════════ F62 ═══════════════════════ -->
+<section id="f62">
+  <h2>F62 &middot; Enduring personality changes, not attributable to brain damage and disease</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F62 covers <b>acquired</b> personality change &mdash; developing in an adult with no previous personality disorder, after catastrophe or after severe psychiatric illness. This distinguishes it from developmental personality disorder (F60) and from organic personality change (F07.0).</p>
+  <div class="panel10"><h4><span class="tag t10">ICD-10 (F62) general requirements</span></h4>
+    <p>Disorders of adult personality and behaviour developing following <b>catastrophic or excessive prolonged stress</b>, or following a <b>severe psychiatric illness</b>, in people with no previous personality disorder. Diagnose only when there is evidence of a <b>definite and enduring change</b> in the person's pattern of perceiving, relating to, or thinking about the environment and self. The change must be significant, associated with inflexible and maladaptive behaviour not present before, must not be a manifestation of another mental disorder or a residual symptom of an antecedent disorder, and must not be due to brain damage/disease (use F07.0 instead).</p>
+    <div class="excl" style="margin-top:8px"><b>Excludes:</b> personality and behavioural disorder due to brain disease, damage and dysfunction (F07.-).</div>
+  </div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11</span></h4><p>ICD-11 has <b>no direct equivalent</b>; the concept is largely absorbed elsewhere. Enduring change after prolonged, inescapable trauma is now captured chiefly by <b>Complex PTSD (6B41)</b> &mdash; which explicitly includes lasting disturbances in self-organisation, affect regulation and relationships &mdash; or by a personality-disorder diagnosis where the criteria are met.</p></div>
+
+  <section id="f62-0" style="border:none;box-shadow:none;padding:0;margin:0">
+  <h3>F62.0 Enduring personality change after catastrophic experience</h3>
+  <div class="panel10"><h4><span class="tag t10">ICD-10 (F62.0)</span></h4>
+    <p>Follows the experience of catastrophic stress so extreme that vulnerability of the person need not be considered (e.g. concentration-camp experiences, torture, disaster, prolonged captivity with imminent threat of death). Features include a <b>hostile or mistrustful attitude to the world</b>, <b>social withdrawal</b>, feelings of <b>emptiness or hopelessness</b>, a chronic feeling of being &ldquo;on edge&rdquo; as if constantly threatened, and estrangement. PTSD (F43.1) may precede it; this change may be a chronic, irreversible sequel. Present for at least 2 years.</p>
+  </div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>From <b>PTSD (F43.1)</b> &mdash; which is a syndrome of re-experiencing/avoidance/hyperarousal rather than an enduring personality shift (though it may precede F62.0); from a <b>pre-existing personality disorder</b> unmasked by stress; from <b>depressive disorder</b>. In ICD-11, most such presentations are coded as <b>complex PTSD (6B41)</b>.</p></div>
+  </section>
+
+  <section id="f62-1" style="border:none;box-shadow:none;padding:0;margin:0">
+  <h3>F62.1 Enduring personality change after psychiatric illness</h3>
+  <div class="panel10"><h4><span class="tag t10">ICD-10 (F62.1)</span></h4>
+    <p>Personality change attributable to the traumatic experience of suffering from a <b>severe psychiatric illness</b>. The change cannot be explained by a previous personality disorder and should be distinguished from residual schizophrenia. Features include excessive dependence on others, demandingness, conviction of being changed or stigmatised by the illness, reduced ability to form and maintain close relationships, social isolation, passivity, reduced interests, and persistent complaints of being ill. Present for at least 2 years.</p>
+    <div class="excl" style="margin-top:8px"><b>Excludes:</b> residual schizophrenia (F20.5).</div>
+  </div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>From <b>residual schizophrenia (F20.5)</b> and the negative-symptom aftermath of psychosis; from a <b>relapse</b> of the original disorder; from a pre-existing personality disorder; from organic personality change (F07.0).</p></div>
+  </section>
+  <div class="remember"><h4>Remember F62 &mdash; &ldquo;changed <b>after</b>&rdquo;</h4><p>Personality that <b>changed after</b> a catastrophe (F62.0) or after a severe illness (F62.1), lasting &ge;2 years, in someone previously without a PD, and <b>not</b> from brain disease (that is F07.0). ICD-11 largely folds F62.0 into complex PTSD (6B41).</p></div>
+</section>
+
+<!-- ═══════════════════════ F63 ═══════════════════════ -->
+<section id="f63">
+  <h2>F63 &middot; Habit and impulse disorders</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F63 covers repeated acts with no clear rational motive, driven by an impulse the person cannot control, harming the person or others. In ICD-11 this group is <b>split up</b>: some become Impulse control disorders (6C70&ndash;6C73), gambling becomes an addictive-behaviour disorder (6C50), and trichotillomania becomes an OCD-related body-focused behaviour (6B25.0).</p>
+  <p>The shared pattern: repeated actions with no clear rational motive, generally harming the person's own and others' interests, with reported <b>mounting tension before the act and a sense of relief or gratification during/after</b> it.</p>
+  <div class="psych"><h4>Psychological understanding</h4><p><span class="tag tother">Other evidence</span> These behaviours are conceptualised on a spectrum between <b>impulsivity</b> (acting to gain arousal/gratification) and <b>compulsivity</b> (acting to relieve tension/anxiety). ICD-11 reorganised the group accordingly &mdash; gambling toward the addiction model (reward-driven), trichotillomania toward the OCD-related model (tension-relief).</p></div>
+
+  <section id="f63-0" style="border:none;box-shadow:none;padding:0;margin:0">
+  <h3>F63.0 Pathological gambling</h3>
+  <div class="panel10"><h4><span class="tag t10">ICD-10 (F63.0)</span></h4>
+    <p>Frequent, repeated episodes of gambling that <b>dominate the person's life</b> to the detriment of social, occupational, material and family values and commitments. There is an intense urge to gamble, difficult to control, with preoccupation with ideas and images of gambling; these urges often increase at times of stress. The essential feature is persistently repeated gambling that continues and often increases <b>despite adverse social consequences</b> (impoverishment, impaired family relationships, disruption of personal life). ICD-10 notes the term &ldquo;compulsive gambling&rdquo; is less appropriate as the behaviour is not compulsive in the technical sense.</p>
+    <div class="incl" style="margin-top:8px"><b>Includes:</b> compulsive gambling.</div>
+  </div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11 (6C50)</span></h4><p><b>Gambling disorder</b>, now grouped under <b>Disorders due to addictive behaviours</b> (with online/offline qualifiers) &mdash; recognising it as a behavioural addiction with impaired control, increasing priority over other interests, and continuation despite harm. The new sibling diagnosis <b>6C51 Gaming disorder</b> was added here.</p></div>
+  <div class="ddx"><h5>Differential diagnosis (from ICD-10)</h5><p>From <b>social/habitual gambling and betting (Z72.6)</b> &mdash; done for excitement or money, curbed when losses mount; from <b>excessive gambling by manic patients (F30)</b>; from <b>gambling by dissocial personalities (F60.2)</b> &mdash; part of a wider persistent disturbance of social behaviour.</p></div>
+  <div class="remember"><h4>Remember</h4><p>&ldquo;<b>Can't stop despite ruin</b>&rdquo; &mdash; the marker is continuation despite mounting harm. ICD-11 reclassifies it as a behavioural <b>addiction</b> (6C50), next to gaming disorder (6C51).</p></div>
+  </section>
+
+  <section id="f63-1" style="border:none;box-shadow:none;padding:0;margin:0">
+  <h3>F63.1 Pathological fire-setting (pyromania)</h3>
+  <div class="panel10"><h4><span class="tag t10">ICD-10 (F63.1)</span> &mdash; essential features:</h4>
+    <ul class="t">
+      <li><b>(a)</b> repeated fire-setting without any obvious motive (such as monetary gain, revenge, or political extremism);</li>
+      <li><b>(b)</b> an intense interest in watching fires burn;</li>
+      <li><b>(c)</b> reported feelings of increasing tension before the act, and intense excitement immediately after it.</li>
+    </ul>
+    <p style="margin-top:6px">Often with abnormal interest in fire-engines, fire-fighting equipment, and calling out the fire service.</p>
+  </div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11 (6C70)</span></h4><p><b>Pyromania</b>, within the new <b>Impulse control disorders</b> grouping: recurrent failure to control strong impulses to set fires, with tension beforehand and gratification/relief afterwards, not better explained by another motive or disorder.</p></div>
+  <div class="ddx"><h5>Differential diagnosis (from ICD-10)</h5><p>From <b>deliberate fire-setting with an obvious motive</b> (Z03.2); from fire-setting by a young person with <b>conduct disorder (F91.1)</b> (other disordered behaviour present); by an adult with <b>dissocial PD (F60.2)</b>; in <b>schizophrenia (F20)</b> (in response to delusions/command hallucinations); and in <b>organic states (F00&ndash;F09)</b> or intoxication (confusion, accidental).</p></div>
+  <div class="remember"><h4>Remember</h4><p>&ldquo;<b>Fire for its own sake</b>&rdquo; &mdash; fascination + tension-then-thrill, <b>no</b> external motive (money, revenge, politics rule it out).</p></div>
+  </section>
+
+  <section id="f63-2" style="border:none;box-shadow:none;padding:0;margin:0">
+  <h3>F63.2 Pathological stealing (kleptomania)</h3>
+  <div class="panel10"><h4><span class="tag t10">ICD-10 (F63.2)</span></h4>
+    <p>Repeated failure to resist impulses to <b>steal objects that are not acquired for personal use or monetary gain</b> &mdash; the objects may be discarded, given away or hoarded. There is an increasing sense of <b>tension before</b>, and a sense of <b>gratification during and immediately after</b>, the act. Some effort at concealment is usually made.</p>
+  </div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11 (6C71)</span></h4><p><b>Kleptomania</b>, within Impulse control disorders: recurrent failure to control impulses to steal objects not needed for use or value, with the characteristic pre-act tension and post-act relief/gratification.</p></div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>From <b>ordinary shoplifting/theft</b> (goods wanted for use or gain, planned); from stealing in <b>dissocial PD (F60.2)</b> or <b>conduct disorder (F91)</b>; from theft during a <b>manic</b> episode; from stealing driven by <b>organic disorder</b> or poverty.</p></div>
+  <div class="remember"><h4>Remember</h4><p>&ldquo;<b>Steals things it doesn't even want</b>&rdquo; &mdash; no gain motive, driven by the tension-relief cycle.</p></div>
+  </section>
+
+  <section id="f63-3" style="border:none;box-shadow:none;padding:0;margin:0">
+  <h3>F63.3 Trichotillomania</h3>
+  <div class="panel10"><h4><span class="tag t10">ICD-10 (F63.3)</span></h4>
+    <p>Noticeable <b>hair loss due to a recurrent failure to resist impulses to pull out hairs</b>. The hair-pulling is usually preceded by mounting tension and followed by a sense of relief or gratification. This diagnosis should <b>not</b> be made if there is a pre-existing skin inflammation, or if the hair-pulling is in response to a delusion or a hallucination.</p>
+    <div class="excl" style="margin-top:8px"><b>Excludes:</b> stereotyped movement disorder with hair-plucking (F98.4).</div>
+  </div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11 (6B25.0)</span></h4><p><b>Trichotillomania (hair-pulling disorder)</b> is reclassified as a <b>body-focused repetitive behaviour</b> within <b>Obsessive-compulsive and related disorders</b> &mdash; not with the impulse disorders. Its new sibling is <b>6B25.1 Excoriation (skin-picking) disorder</b>.</p></div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>From <b>stereotyped movement disorder with hair-plucking (F98.4)</b>; from hair-pulling secondary to a <b>delusion or hallucination</b> (do not code here); from dermatological causes of hair loss; from <b>OCD</b> (where pulling would be a ritual to neutralise an obsession).</p></div>
+  <div class="remember"><h4>Remember</h4><p>&ldquo;<b>Pull &rarr; relief</b>&rdquo; &mdash; and note ICD-11 moved it to the <b>OCD-related</b> body-focused group with skin-picking.</p></div>
+  </section>
+
+  <div class="assoc"><h4>Comorbidities across F63</h4><p>Depression and anxiety are common; gambling disorder strongly co-occurs with substance use and mood disorders; trichotillomania and skin-picking co-occur with OCD-spectrum and anxiety disorders.</p></div>
+  <h3>Treatment across F63</h3>
+  <ul class="t"><li><b>Gambling:</b> CBT, motivational work, self-exclusion/financial measures, gambling-specific support; treat comorbid mood/substance disorders.</li><li><b>Pyromania/kleptomania:</b> CBT (impulse-control strategies, covert sensitisation); an SSRI may help, especially with comorbidity.</li><li><b>Trichotillomania:</b> <b>habit-reversal training</b> (the best-evidenced behavioural treatment); an SSRI or N-acetylcysteine may be tried.</li></ul>
+</section>
+
+
+<!-- ═══════════════════════ F64 ═══════════════════════ -->
+<section id="f64">
+  <h2>F64 &middot; Gender identity disorders</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F64 covers persistent distress/incongruence between experienced gender and assigned sex. A major ICD-11 change: this was <b>removed from the mental-disorders chapter</b> and recast as <b>Gender incongruence</b> under conditions related to sexual health &mdash; a deliberate depsychiatrisation.</p>
+  <div class="note"><b>Framing note.</b> ICD-11 renamed and relocated these categories specifically to reduce stigma: being transgender is no longer classified as a mental disorder. The retained category (gender incongruence) exists chiefly to enable access to health care, not to label a mental illness.</p></div>
+
+  <section id="f64-0" style="border:none;box-shadow:none;padding:0;margin:0">
+  <h3>F64.0 Transsexualism</h3>
+  <div class="panel10"><h4><span class="tag t10">ICD-10 (F64.0)</span></h4>
+    <p>A desire to live and be accepted as a member of the opposite sex, usually accompanied by a sense of discomfort with, or inappropriateness of, one's anatomic sex, and a wish to have hormonal treatment and surgery to make one's body as congruent as possible with the preferred sex. <b>For diagnosis, the transsexual identity should have been present persistently for at least 2 years</b>, and must not be a symptom of another mental disorder (such as schizophrenia) or associated with any intersex, genetic or sex-chromosome abnormality.</p>
+  </div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11</span></h4><p>Recast as <b>Gender incongruence of adolescence and adulthood</b> in the sexual-health chapter: a marked and persistent incongruence between experienced gender and assigned sex. Notably, <b>distress is not required</b> and it is no longer a mental disorder.</p></div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>From <b>dual-role transvestism (F64.1)</b> (no desire for permanent change); from <b>fetishistic transvestism (F65.1)</b> (cross-dressing for sexual arousal); from transient identity questioning; from an identity disturbance occurring only within <b>schizophrenia</b> or an <b>intersex/chromosomal</b> condition (excluded).</p></div>
+  </section>
+
+  <section id="f64-1" style="border:none;box-shadow:none;padding:0;margin:0">
+  <h3>F64.1 Dual-role transvestism</h3>
+  <div class="panel10"><h4><span class="tag t10">ICD-10 (F64.1)</span></h4>
+    <p>The wearing of clothes of the opposite sex for part of the individual's existence, to enjoy the temporary experience of membership of the opposite sex, but <b>without any desire for a more permanent sex change</b> or surgical reassignment, and <b>without sexual excitement</b> accompanying the cross-dressing (which distinguishes it from fetishistic transvestism, F65.1).</p>
+    <div class="incl" style="margin-top:8px"><b>Includes:</b> gender identity disorder of adolescence/adulthood, non-transsexual type. <b>Excludes:</b> fetishistic transvestism (F65.1).</div>
+  </div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>From <b>fetishistic transvestism (F65.1)</b> &mdash; there cross-dressing produces sexual arousal; from <b>transsexualism (F64.0)</b> &mdash; there a permanent change is desired.</p></div>
+  </section>
+
+  <section id="f64-2" style="border:none;box-shadow:none;padding:0;margin:0">
+  <h3>F64.2 Gender identity disorder of childhood</h3>
+  <div class="panel10"><h4><span class="tag t10">ICD-10 (F64.2)</span></h4>
+    <p>Usually first manifest in early childhood (always well before puberty), characterised by <b>persistent and intense distress about assigned sex</b>, together with a desire to be (or insistence that one is) of the other sex, and preoccupation with the dress and/or activities of the other sex and/or repudiation of one's own sex. It requires a <b>profound disturbance of the normal sense of maleness/femaleness</b> &mdash; mere &ldquo;tomboyishness&rdquo; in girls or &ldquo;girlish&rdquo; behaviour in boys is <b>not</b> sufficient. The diagnosis cannot be made once the individual has reached puberty.</p>
+  </div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11</span></h4><p>Recast as <b>Gender incongruence of childhood</b> in the sexual-health chapter.</p></div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>From normal <b>gender non-conformity</b> (much commoner; not a disorder); from an identity disturbance within another disorder. Note ICD-11 removes it from the mental-disorders classification.</p></div>
+  </section>
+  <div class="remember"><h4>Remember F64</h4><p>&ldquo;<b>Persistent incongruence, &ge;2 years for transsexualism, arousal-free cross-dressing = dual-role</b>&rdquo; &mdash; and the big change: ICD-11 renames the block <b>gender incongruence</b> and moves it <b>out of mental disorders</b>.</p></div>
+</section>
+
+<!-- ═══════════════════════ F65 ═══════════════════════ -->
+<section id="f65">
+  <h2>F65 &middot; Disorders of sexual preference (the paraphilias)</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F65 covers persistent, intense atypical patterns of sexual arousal. ICD-11 reframes these as <b>Paraphilic disorders</b>, diagnosed only when the arousal pattern involves <b>non-consenting others or substantial risk of harm/distress</b> &mdash; private, consensual atypical interests are no longer disorders.</p>
+  <div class="warn"><b>The key ICD-10 vs ICD-11 shift.</b> ICD-10 diagnoses on the basis of the <b>preference pattern</b> itself being the main/necessary source of arousal. ICD-11 requires <b>action on the urges with a non-consenting person, or marked distress/impairment or risk</b>. So consensual, non-harmful sadomasochism or fetishism is <b>not</b> a disorder in ICD-11.</p></div>
+
+  <div class="subtype"><h4>F65.0 Fetishism &nbsp;|&nbsp; F65.1 Fetishistic transvestism</h4>
+    <div class="panel10"><h4><span class="tag t10">ICD-10</span></h4>
+      <ul class="t">
+        <li><b>F65.0 Fetishism:</b> reliance on a non-living object as a stimulus for sexual arousal and gratification (e.g. clothing, rubber, leather). Diagnosed only if the fetish is the most important source of stimulation or is essential for satisfactory sexual response; fantasies alone are not a disorder. Almost exclusively in males.</li>
+        <li><b>F65.1 Fetishistic transvestism:</b> wearing clothes of the opposite sex principally to obtain sexual excitement, creating the appearance of the opposite sex. Distinguished from dual-role transvestism (F64.1) by the clear association with sexual arousal and the desire to remove the clothing once orgasm occurs. <b>Includes:</b> transvestic fetishism.</li>
+      </ul>
+    </div>
+    <div class="ddx"><h5>Differential diagnosis</h5><p>Fetishism from ordinary use of objects to enhance normal sex (only a disorder if the fetish is essential/dominant). Fetishistic transvestism from <b>dual-role transvestism (F64.1)</b> (no arousal) and from <b>transsexualism (F64.0)</b> (desire for permanent change).</p></div>
+  </div>
+
+  <div class="subtype"><h4>F65.2 Exhibitionism &nbsp;|&nbsp; F65.3 Voyeurism</h4>
+    <div class="panel10"><h4><span class="tag t10">ICD-10</span></h4>
+      <ul class="t">
+        <li><b>F65.2 Exhibitionism:</b> a recurrent or persistent tendency to expose the genitalia to strangers (usually of the opposite sex) or to people in public places, without inviting or intending closer contact, usually with sexual excitement and often followed by masturbation. Almost entirely limited to heterosexual males exposing to females. Urges are typically difficult to control and ego-alien.</li>
+        <li><b>F65.3 Voyeurism:</b> a recurrent or persistent tendency to look at people engaging in sexual or intimate behaviour (e.g. undressing) without their knowledge, leading to sexual excitement and masturbation.</li>
+      </ul>
+    </div>
+    <div class="panel11"><h4><span class="tag t11">ICD-11</span></h4><p><b>Exhibitionistic disorder</b> and <b>Voyeuristic disorder</b> are retained as paraphilic disorders because they inherently involve <b>non-consenting people</b>.</p></div>
+    <div class="ddx"><h5>Differential diagnosis</h5><p>From exposure/observation occurring within mania, intoxication, dementia or psychosis; from consensual activity; from public urination or nudity without sexual intent.</p></div>
+  </div>
+
+  <div class="subtype"><h4>F65.4 Paedophilia</h4>
+    <div class="panel10"><h4><span class="tag t10">ICD-10 (F65.4)</span></h4>
+      <p>A sexual preference for children, usually of prepubertal or early pubertal age. An isolated incident (especially by an adolescent) does not establish the persistent or predominant tendency required for the diagnosis. Rarely identified in women.</p>
+    </div>
+    <div class="panel11"><h4><span class="tag t11">ICD-11</span></h4><p><b>Pedophilic disorder</b> is retained as a paraphilic disorder (involves non-consenting minors).</p></div>
+    <div class="ddx"><h5>Differential diagnosis</h5><p>From isolated offending without a persistent preference; from offending within an <b>organic disorder</b> or <b>dissocial PD (F60.2)</b>; from contact with sexually mature adolescents (socially disapproved but not necessarily paedophilia).</p></div>
+  </div>
+
+  <div class="subtype"><h4>F65.5 Sadomasochism &nbsp;|&nbsp; F65.6 Multiple &nbsp;|&nbsp; F65.8 Other (incl. frotteurism)</h4>
+    <div class="panel10"><h4><span class="tag t10">ICD-10</span></h4>
+      <ul class="t">
+        <li><b>F65.5 Sadomasochism:</b> a preference for sexual activity involving bondage or the infliction of pain or humiliation. <b>Masochism</b> = preferring to receive; <b>sadism</b> = preferring to provide. Coded only if sadomasochistic activity is the most important source of stimulation or is necessary for gratification. <b>Includes:</b> masochism, sadism.</li>
+        <li><b>F65.6 Multiple disorders of sexual preference:</b> more than one paraphilia in one person with none predominating; the commonest combination is fetishism, transvestism and sadomasochism.</li>
+        <li><b>F65.8 Other disorders of sexual preference:</b> e.g. making obscene telephone calls, <b>frotteurism</b> (rubbing against people in crowds for stimulation), sexual activity with animals, use of strangulation/anoxia to intensify arousal, and preference for a partner with a particular anatomical abnormality.</li>
+      </ul>
+    </div>
+    <div class="panel11"><h4><span class="tag t11">ICD-11</span></h4><p>Retains <b>Frotteuristic disorder</b> and <b>Coercive sexual sadism disorder</b> (non-consenting others), plus &ldquo;other paraphilic disorder involving non-consenting individuals&rdquo; and &ldquo;involving solitary behaviour or consenting individuals&rdquo; only where there is marked distress or risk. <b>Consensual sadomasochism is not a disorder.</b></p></div>
+    <div class="ddx"><h5>Differential diagnosis</h5><p>Consensual, non-harmful practices (not a disorder in ICD-11); mild sadomasochistic elements enhancing otherwise normal sex; behaviour better explained by another disorder. Distinguish sexual sadism from non-erotic cruelty/anger.</p></div>
+  </div>
+  <div class="remember"><h4>Remember F65 &mdash; the ICD-11 test</h4><p>&ldquo;<b>Consent + no harm = not a disorder</b> (ICD-11).&rdquo; The paraphilic disorders retained are essentially those involving <b>non-consenting people</b> (exhibitionistic, voyeuristic, pedophilic, frotteuristic, coercive sadism) or marked distress/risk.</p></div>
+  <h3>Treatment (F65)</h3>
+  <ul class="t"><li><b>Psychological:</b> CBT (cognitive restructuring, relapse prevention, victim empathy), especially where there is risk to others.</li><li><b>Pharmacological:</b> SSRIs to reduce urges; anti-androgen/hormonal treatments in high-risk cases with specialist oversight.</li></ul>
+</section>
+
+<!-- ═══════════════════════ F66 ═══════════════════════ -->
+<section id="f66">
+  <h2>F66 &middot; Psychological and behavioural disorders associated with sexual development and orientation</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F66 concerns difficulties around sexual development, orientation and relationships. ICD-11 <b>deleted the orientation-related categories</b>, because sexual orientation is not a disorder.</p>
+  <div class="panel10"><h4><span class="tag t10">ICD-10 (F66)</span></h4>
+    <p>ICD-10 stressed that <b>sexual orientation alone is not a disorder</b>. The subtypes were:</p>
+    <ul class="t">
+      <li><b>F66.0 Sexual maturation disorder:</b> the person suffers from <b>uncertainty about gender identity or sexual orientation</b>, causing anxiety or depression.</li>
+      <li><b>F66.1 Egodystonic sexual orientation:</b> the gender identity or sexual orientation is <b>not in doubt</b>, but the person <b>wishes it were different</b> because of associated psychological and behavioural disorders, and may seek treatment to change it.</li>
+      <li><b>F66.2 Sexual relationship disorder:</b> the gender identity or sexual preference is responsible for difficulties in forming or maintaining a relationship with a sexual partner.</li>
+    </ul>
+    <p style="margin-top:6px">A fifth character indicated association with heterosexuality, homosexuality, bisexuality, or other/prepubertal.</p>
+  </div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11</span></h4><p><b>Egodystonic sexual orientation (F66.1) and sexual maturation disorder are removed.</b> ICD-11 rejects any classification that frames a sexual orientation as pathological. Any genuine associated distress is coded through the relevant mood/anxiety diagnosis instead.</p></div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>From a primary <b>depressive or anxiety disorder</b> (which should be coded directly); from <b>gender incongruence</b> (F64/ICD-11 sexual-health chapter). Note that in ICD-11 these F66 orientation categories no longer exist.</p></div>
+  <div class="remember"><h4>Remember</h4><p>&ldquo;<b>Orientation is never the disorder</b>&rdquo; &mdash; ICD-10 already said so, and ICD-11 removed the egodystonic-orientation category entirely.</p></div>
+</section>
+
+<!-- ═══════════════════════ F68 / F69 ═══════════════════════ -->
+<section id="f68">
+  <h2>F68 &middot; Other disorders of adult personality and behaviour</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F68 gathers disorders of illness behaviour &mdash; producing or exaggerating symptoms. In ICD-11, factitious disorder gains its own codes (6D50/6D51).</p>
+  <div class="panel10"><h4><span class="tag t10">ICD-10 (F68)</span></h4>
+    <ul class="t">
+      <li><b>F68.0 Elaboration of physical symptoms for psychological reasons:</b> physical symptoms compatible with, and originally due to, a confirmed physical disorder become exaggerated or prolonged owing to the psychological state of the patient (seeking attention, or dissatisfaction).</li>
+      <li><b>F68.1 Factitious disorder:</b> intentional production or feigning of symptoms or disabilities, either physical or psychological. The person feigns symptoms <b>without an obvious external motive</b> (to adopt the sick role). This distinguishes it from <b>malingering (Z76.5)</b>, where the motivation is obvious and external (avoiding danger, criminal sentencing, or money).</li>
+    </ul>
+  </div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11</span></h4><p><b>6D50 Factitious disorder imposed on self</b> and <b>6D51 Factitious disorder imposed on another</b> (the latter formerly &ldquo;by proxy&rdquo;) are now explicit diagnoses.</p></div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>From <b>malingering (Z76.5)</b> &mdash; intentional feigning for an <b>obvious external gain</b> (not a mental disorder); from <b>somatoform / bodily distress disorder</b> &mdash; symptoms are <b>not</b> intentionally produced; from a genuine physical disorder. In factitious disorder the deception is intentional but the motive is internal (the sick role).</p></div>
+  <div class="remember"><h4>Remember &mdash; the illness-behaviour trio</h4><p><b>Factitious:</b> symptoms intentional, motive internal (sick role). <b>Malingering:</b> symptoms intentional, motive external/obvious. <b>Somatoform/bodily distress:</b> symptoms not intentional.</p></div>
+</section>
+
+<section id="f69">
+  <h2>F69 &middot; Unspecified disorder of adult personality and behaviour</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F69 is the residual code closing the F60&ndash;F69 block.</p>
+  <div class="panel10"><h4><span class="tag t10">ICD-10 (F69)</span></h4><p>The residual category, used when a disorder of adult personality and behaviour is present but cannot be assigned to F60&ndash;F68.</p></div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11</span></h4><p>No single equivalent; each ICD-11 destination grouping has its own &ldquo;other specified&rdquo; and &ldquo;unspecified&rdquo; residual codes.</p></div>
+  <p><i>As a purely residual, unspecified category, F69 has no meaningful stand-alone differential diagnosis; the task is to identify a more specific category wherever possible.</i></p>
+</section>
+
+<!-- ═══════════════════════ REFERENCES ═══════════════════════ -->
+<section id="references">
+  <h2>References and Source Attribution</h2>
+  <p>Diagnostic terminology and criteria (including includes/excludes and differential-diagnosis notes) are drawn strictly from the two official WHO classifications; clinical elaboration and psychological theories are drawn from standard psychiatric and psychological texts and peer-reviewed literature, each labelled inline with a source tag. A central teaching point of this block is the shift from ICD-10's categorical personality-disorder subtypes to the ICD-11 dimensional (severity + trait) model, and the relocation of gambling, trichotillomania, gender identity and orientation categories out of this block.</p>
+  <ul class="t">
+    <li><span class="tag t10">ICD-10</span> World Health Organization. <i>The ICD-10 Classification of Mental and Behavioural Disorders: Clinical Descriptions and Diagnostic Guidelines.</i> Geneva: World Health Organization, 1992.</li>
+    <li><span class="tag t11">ICD-11</span> World Health Organization. <i>Clinical Descriptions and Diagnostic Requirements for ICD-11 Mental, Behavioural and Neurodevelopmental Disorders</i>, and the ICD-11 chapter on conditions related to sexual health (gender incongruence). Geneva: World Health Organization.</li>
+    <li><span class="tag tks">Kaplan &amp; Sadock</span> Sadock BJ, Sadock VA, Ruiz P. <i>Kaplan &amp; Sadock's Synopsis of Psychiatry</i> and <i>Comprehensive Textbook of Psychiatry</i> (etiology, epidemiology, clinical features and treatment; content paraphrased).</li>
+    <li><span class="tag tother">Other evidence</span> Foundational psychological theory (Kernberg's object-relations; Bowlby's attachment; Linehan's biosocial model; Beck and Young's schema/cognitive models; Five-Factor trait theory) and peer-reviewed literature. Content was rephrased for compliance with licensing restrictions.</li>
+  </ul>
+  <div class="warn"><b>Note on use.</b> This is an educational study reference for M.Phil. Clinical Psychology. Diagnostic criteria are paraphrased from the ICD sources without reproducing copyrighted text at length; secondary-source content has been rephrased for compliance with licensing restrictions. It is not a substitute for the full official classifications or for individual clinical and medical judgement, and it is not a prescribing guide.</div>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+</main>
+</div>
+
+<footer>
+  <p><strong>ICD-10 &amp; ICD-11 Comparative Clinical Handbook &mdash; F60&ndash;F69 Disorders of Adult Personality and Behaviour</strong></p>
+  <p>Fully comprehensive edition &middot; every personality-disorder subtype detailed with its own ICD-10 criteria and ICD-11 counterpart, includes/excludes and differential diagnosis &middot; the categorical-to-dimensional shift &middot; habit/impulse, gender identity, sexual preference and other adult behavioural disorders &middot; etiology (with psychological theories), epidemiology, comorbidities, mnemonics and treatment &middot; terminology explained in plain language.</p>
+  <p style="margin-top:14px;font-size:1rem;color:#fff;letter-spacing:.04em">Made by <strong>Tejas Dangodra</strong></p>
+</footer>
+
+</body>
+</html>
