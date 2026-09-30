@@ -242,23 +242,39 @@ def slide_title():
               sz=3200, color=ACCENT, bold=True, align="ctr", space_after=200),
          para("A Systematic Review and Meta-Analysis", sz=2200, color=CHARCOAL, italic=True, align="ctr", space_after=0)],
         line=LILAC, anchor="ctr"))
-    s.append(textbox(900000, 3320000, W-1800000, 1000000, [
-        multi_run_para([("Journal: ",{"bold":True,"color":ACCENT2,"sz":1400}),
-                        ("Suicide and Life-Threatening Behavior (2024)  \u2022  DOI: 10.1111/sltb.13044",{"sz":1400})], align="ctr", space_after=200),
-        multi_run_para([("What kind of study: ",{"bold":True,"color":ACCENT2,"sz":1400}),
-                        ("a systematic review + meta-analysis (a study that gathers all good earlier studies and combines their results into one overall answer).",{"sz":1400})], align="ctr", space_after=0),
+    s.append(textbox(900000, 3180000, W-1800000, 640000, [
+        multi_run_para([("Journal: ",{"bold":True,"color":ACCENT2,"sz":1300}),
+                        ("Suicide and Life-Threatening Behavior (2024)  \u2022  DOI: 10.1111/sltb.13044",{"sz":1300}),
+                        ("      What kind of study: ",{"bold":True,"color":ACCENT2,"sz":1300}),
+                        ("systematic review + meta-analysis (combines earlier studies into one overall answer).",{"sz":1300})], align="ctr", space_after=0),
     ]))
-    s.append(roundrect(2400000, 4650000, W-4800000, 1150000, LAVENDER, [
-        multi_run_para([("Presented by: ",{"bold":True,"sz":1500,"color":ACCENT}),("Sonal ______________",{"sz":1500})], align="ctr", space_after=160),
-        multi_run_para([("M.Phil. Clinical Psychology  \u2022  Institution: ______________",{"sz":1400})], align="ctr", space_after=160),
-        multi_run_para([("Journal Club Date: ______________",{"sz":1400})], align="ctr", space_after=0),
-    ], line=LILAC))
+    cardw = (W-1800000-300000)//2
+    cardx = 900000
+    cardy = 3900000
+    cardh = 2350000
+    s.append(roundrect(cardx, cardy, cardw, cardh, LAVENDER, [
+        para("Presented by", sz=1500, color=ACCENT, bold=True, align="ctr", space_after=200),
+        para("Ms. Sonal Tripathi", sz=1400, bold=True, align="ctr", space_after=140),
+        para("M.Phil. Year II Trainee", sz=1400, align="ctr", space_after=140),
+        para("Department of Clinical Psychology", sz=1400, align="ctr", space_after=140),
+        para("MAN College of Special Education and Psychological Studies, Guna, M.P.", sz=1400, align="ctr", space_after=0),
+    ], line=LILAC, anchor="ctr"))
+    s.append(roundrect(cardx+cardw+300000, cardy, cardw, cardh, MINT, [
+        para("Supervised by", sz=1500, color=ACCENT, bold=True, align="ctr", space_after=200),
+        para("Dr. Ajay Sharma", sz=1400, bold=True, align="ctr", space_after=140),
+        para("Professor & Head of Department", sz=1400, align="ctr", space_after=140),
+        para("Department of Clinical Psychology", sz=1400, align="ctr", space_after=140),
+        para("MAN College of Special Education and Psychological Studies, Guna, M.P.", sz=1400, align="ctr", space_after=0),
+    ], line=SAGE, anchor="ctr"))
+    s.append(textbox(900000, cardy+cardh+120000, W-1800000, 320000, [
+        para("Journal Club Date: ______________", sz=1300, color="6B6B75", align="ctr", space_after=0)]))
     notes = ("Open simply: 'Today I am presenting a 2024 paper that asks one clear question - does mentalization-based "
              "therapy (a talking therapy that helps people understand thoughts and feelings) actually reduce self-harm?' "
              "Explain it is a systematic review and meta-analysis: the authors did not run a new experiment; they "
-             "collected earlier good-quality studies and combined them to get one overall result. Fill in your name, "
-             "institution and date. Give the plan: the problem, why this therapy, how the review was done, what it "
-             "found, and how strong the evidence really is.")
+             "collected earlier good-quality studies and combined them to get one overall result. Introduce yourself "
+             "(Ms. Sonal Tripathi, M.Phil. Year II) and acknowledge your supervisor (Dr. Ajay Sharma, Professor & "
+             "HoD). Give the plan: the problem, why this therapy, how the review was done, what it found, and how "
+             "strong the evidence really is.")
     return s, notes
 s,n = slide_title(); add(s,n)
 
