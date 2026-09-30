@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Child Clinical Case History — Detailed Interview Questions | M.Phil. Clinical Psychology</title>
+<meta name="description" content="Detailed case-history questions to ask the child and parents, organized by the Clinical Case History - Child proforma. Made by Tejas Dangodra.">
+<style>
+:root{
+  --lavender:#e9e4f5; --lilac:#d9cff0; --lilac-deep:#b9a7e0;
+  --powder:#dbeafe; --sage:#dcecdc; --mint:#dbf3ec; --peach:#ffe6d6; --blush:#fbe0e6;
+  --cream:#fbf9f4; --grey:#eef0f3; --ink:#3a3550; --ink-soft:#5c5670;
+  --line:#e2ddf0; --white:#ffffff;
+  --parent:#3a6ea5; --child:#3f7a5e; --both:#8a4a6b;
+  --shadow:0 6px 22px rgba(90,70,140,.10); --shadow-sm:0 3px 10px rgba(90,70,140,.08);
+  --radius:18px; --radius-sm:12px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);line-height:1.6;
+  background:linear-gradient(135deg,var(--lavender),var(--powder) 45%,var(--mint));background-attachment:fixed}
+a{color:var(--lilac-deep);text-decoration:none}a:hover{text-decoration:underline}
+.wrap{max-width:1060px;margin:0 auto;padding:0 18px}
+header.cover{text-align:center;padding:58px 20px 42px;background:linear-gradient(160deg,#efe9fb,#dfeafc 60%,#e0f4ec);border-bottom:1px solid var(--line)}
+.badge{display:inline-block;background:var(--white);color:var(--lilac-deep);border:1px solid var(--lilac);border-radius:999px;padding:6px 16px;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:18px;box-shadow:var(--shadow-sm)}
+header.cover h1{font-size:2.05rem;margin:.2em 0;line-height:1.25}
+header.cover .sub{font-size:1.02rem;color:var(--ink-soft);max-width:720px;margin:12px auto}
+.byline{margin-top:18px;font-size:1.12rem;font-weight:600;color:var(--lilac-deep)}
+.legend{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:20px}
+.legend .who{font-size:.8rem;border-radius:999px;padding:4px 14px;font-weight:700;border:1px solid var(--line);background:#fff}
+.who.p{color:var(--parent)} .who.c{color:var(--child)} .who.b{color:var(--both)}
+
+.toolbar{position:sticky;top:0;z-index:40;background:rgba(251,249,244,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding:10px 0;box-shadow:var(--shadow-sm)}
+.toolbar .wrap{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+#search{flex:1;min-width:220px;padding:11px 16px;border-radius:999px;border:1px solid var(--lilac);font-size:1rem;background:#fff;outline:none}
+#search:focus{border-color:var(--lilac-deep);box-shadow:0 0 0 3px var(--lavender)}
+#searchInfo{font-size:.85rem;color:var(--ink-soft);width:100%}
+
+nav.toc{background:#fff;border:1px solid var(--line);border-radius:var(--radius);margin:24px 0;padding:20px 24px;box-shadow:var(--shadow)}
+nav.toc h2{margin:0 0 10px;font-size:1.05rem;color:var(--lilac-deep)}
+nav.toc ol{columns:2;column-gap:34px;margin:0;padding-left:20px;font-size:.93rem}
+nav.toc li{margin:3px 0;break-inside:avoid}
+@media(max-width:640px){nav.toc ol{columns:1}}
+
+section{background:#fff;border:1px solid var(--line);border-radius:var(--radius);margin:20px 0;padding:24px 28px;box-shadow:var(--shadow);scroll-margin-top:78px}
+section>h2{margin-top:0;font-size:1.4rem;border-bottom:3px solid var(--lilac);padding-bottom:9px;display:flex;align-items:center;gap:10px}
+section>h2 .num{background:var(--lilac);color:#fff;border-radius:10px;font-size:.85rem;padding:3px 10px;font-weight:700}
+h3{color:var(--lilac-deep);margin:22px 0 6px;font-size:1.12rem}
+.lead{color:var(--ink-soft)}
+.qgroup{margin:10px 0 4px}
+ul.q{list-style:none;margin:6px 0;padding:0}
+ul.q li{position:relative;padding:7px 10px 7px 40px;border-left:3px solid var(--line);margin:6px 0;background:var(--cream);border-radius:0 10px 10px 0}
+ul.q li:before{content:"Q";position:absolute;left:10px;top:7px;font-size:.7rem;font-weight:700;color:#fff;background:var(--lilac-deep);border-radius:6px;padding:1px 6px}
+.tag{display:inline-block;font-size:.66rem;text-transform:uppercase;letter-spacing:.05em;border-radius:6px;padding:1px 8px;margin-left:6px;font-weight:700;vertical-align:middle}
+.tag.p{background:#e7f0fb;color:var(--parent)} .tag.c{background:#e3f3ea;color:var(--child)} .tag.b{background:#f4e6ee;color:var(--both)}
+.note{background:var(--mint);border:1px solid var(--sage);border-radius:var(--radius-sm);padding:12px 16px;margin:14px 0}
+.note.warn{background:var(--blush);border-color:#f0c0cd}
+.note b{color:var(--lilac-deep)}
+footer{text-align:center;padding:36px 20px 56px;color:var(--ink-soft)}
+footer .made{font-size:1.3rem;font-weight:700;color:var(--lilac-deep);margin:8px 0}
+.backtop{position:fixed;right:18px;bottom:18px;z-index:50;background:var(--lilac-deep);color:#fff;border:none;border-radius:50%;width:46px;height:46px;font-size:1.2rem;cursor:pointer;box-shadow:var(--shadow);display:none}
+.backtop.show{display:block}
+.hidden{display:none!important}
+mark{background:#fff2a8;padding:0 2px;border-radius:3px}
+@media print{
+  body{background:#fff;color:#000}.toolbar,.backtop,nav.toc{display:none!important}
+  section{box-shadow:none;border:1px solid #ccc;break-inside:avoid;page-break-inside:avoid}
+  ul.q li{break-inside:avoid;background:#fff;border-left:2px solid #999}
+  header.cover{background:#fff}a{color:#000}
+}
+@media(max-width:640px){header.cover h1{font-size:1.5rem}section{padding:18px 16px}}
+</style>
+</head>
+<body>
+<a id="top"></a>
+<header class="cover">
+  <div class="wrap">
+    <span class="badge">M.Phil. Clinical Psychology</span>
+    <h1>Clinical Case History – Child<br>Detailed Interview Questions</h1>
+    <p class="sub">A section-by-section bank of questions to ask the <strong>child</strong> and the <strong>parents / informant</strong> while taking a detailed child case history. Organized in the exact order of the <em>Clinical Case History – Child</em> proforma.</p>
+    <div class="legend">
+      <span class="who p">Ask the Parent / Informant</span>
+      <span class="who c">Ask the Child</span>
+      <span class="who b">Ask Both</span>
+    </div>
+    <div class="byline">Made by Tejas Dangodra</div>
+  </div>
+</header>
+
+<div class="toolbar">
+  <div class="wrap">
+    <input id="search" type="search" placeholder="Search questions: milestones, school, sleep, mood, family…" aria-label="Search questions">
+    <div id="searchInfo"></div>
+  </div>
+</div>
+
+<div class="wrap">
+
+<nav class="toc" aria-label="Contents">
+  <h2>Sections (proforma order)</h2>
+  <ol>
+    <li><a href="#sociodemo">Socio-Demographic Data</a></li>
+    <li><a href="#complaints">Chief Complaints</a></li>
+    <li><a href="#family">Family History</a></li>
+    <li><a href="#personal">Personal History</a></li>
+    <li><a href="#school">Schooling History</a></li>
+    <li><a href="#temperament">General Temperament &amp; Personality</a></li>
+    <li><a href="#hopi">History of Present Illness</a></li>
+    <li><a href="#treatment">Treatment &amp; Negative History</a></li>
+    <li><a href="#functioning">Family Perception &amp; Functional Impairment</a></li>
+    <li><a href="#mse">Mental Status Examination (child)</a></li>
+    <li><a href="#gpe">General Physical Examination</a></li>
+  </ol>
+</nav>
+
+<div class="note"><b>How to use.</b> Ask open questions first, then probe for detail (when it started, how often, where, what makes it better/worse, how it affects daily life). Colour tags show <strong>who</strong> to direct each question to. Not every question is needed in every case — select by the child's age and presenting problem.</div>
+
+<section id="sociodemo">
+  <h2><span class="num">1</span>Socio-Demographic Data</h2>
+  <p class="lead">Basic identifying details as listed on the proforma. Confirm with records where available.</p>
+  <ul class="q">
+    <li>What is the child's full name? <span class="tag p">Parent</span></li>
+    <li>What are the parents' names? <span class="tag p">Parent</span></li>
+    <li>What is the child's date of birth, and current age? <span class="tag p">Parent</span></li>
+    <li>What is the child's gender (as registered in the clinical setting)? <span class="tag p">Parent</span></li>
+    <li>What is the child's religion / cultural background (if relevant)? <span class="tag p">Parent</span></li>
+    <li>What is the child's educational status — is the child in school, and in which class? <span class="tag p">Parent</span></li>
+    <li>What is the family's socio-economic status / main source of income? <span class="tag p">Parent</span></li>
+    <li>What is the place of residence (urban / rural) and full address? <span class="tag p">Parent</span></li>
+    <li>What are the contact number, UHID number, and Aadhar number (for records)? <span class="tag p">Parent</span></li>
+    <li>What is the date of admission / assessment? <span class="tag p">Parent</span></li>
+    <li>Who has accompanied the child today, and what is the source of referral (self / school / doctor / other)? <span class="tag p">Parent</span></li>
+  </ul>
+
+  <h3>Informant &amp; reliability</h3>
+  <ul class="q">
+    <li>What is your relationship with the child? <span class="tag p">Informant</span></li>
+    <li>Do you live with the child? <span class="tag p">Informant</span></li>
+    <li>How much time do you spend with the child each day? <span class="tag p">Informant</span></li>
+    <li>How long have you known the child (duration of acquaintance)? <span class="tag p">Informant</span></li>
+    <li>How well do you know the child's developmental, behavioural and school history? <span class="tag p">Informant</span></li>
+    <li>Is there another caregiver (other parent, grandparent, teacher) who could add to or confirm this history? <span class="tag p">Informant</span></li>
+  </ul>
+</section>
+
+<section id="complaints">
+  <h2><span class="num">2</span>Chief Complaints</h2>
+  <p class="lead">Elicit the presenting problems in the informant's own words, then probe each for onset and duration.</p>
+  <ul class="q">
+    <li>What brought you here today? <span class="tag p">Parent</span></li>
+    <li>What problems or changes have you noticed in the child? <span class="tag p">Parent</span></li>
+    <li>Which of these concerns you the most? <span class="tag p">Parent</span></li>
+    <li>When did you first notice this problem? <span class="tag p">Parent</span></li>
+    <li>How long has each problem been present? <span class="tag p">Parent</span></li>
+    <li>In what order did the problems appear (which came first)? <span class="tag p">Parent</span></li>
+    <li>What is the reason you decided to seek consultation now? <span class="tag p">Parent</span></li>
+    <li>(To the child, age-appropriately) Do you know why you have come here today? Is there anything that is bothering you? <span class="tag c">Child</span></li>
+  </ul>
+</section>
+
+<section id="family">
+  <h2><span class="num">3</span>Family History</h2>
+  <p class="lead">Covers the genogram, family history of illness, living arrangements, caregivers, parents, home and neighbourhood, family relationships, and child-rearing practices.</p>
+
+  <h3>Family history of illness</h3>
+  <ul class="q">
+    <li>Has anyone in the family (parents, siblings, grandparents, uncles/aunts) had any psychiatric or mental illness? <span class="tag p">Parent</span></li>
+    <li>Is there any family history of epilepsy or fits? <span class="tag p">Parent</span></li>
+    <li>Is there any family history of developmental problems, intellectual disability, or learning difficulties? <span class="tag p">Parent</span></li>
+    <li>Has anyone in the family had a substance-use problem (alcohol, tobacco, drugs)? <span class="tag p">Parent</span></li>
+    <li>Is there any family history of suicide or attempted suicide? <span class="tag p">Parent</span></li>
+    <li>Is there any significant chronic medical or genetic illness in the family? <span class="tag p">Parent</span></li>
+    <li>Are the parents related by blood (consanguinity)? <span class="tag p">Parent</span></li>
+  </ul>
+
+  <h3>Family structure &amp; living arrangements</h3>
+  <ul class="q">
+    <li>Who all live at home with the child? <span class="tag p">Parent</span></li>
+    <li>Is it a nuclear, joint, or extended family? <span class="tag p">Parent</span></li>
+    <li>How many siblings does the child have, and what is the child's birth order? <span class="tag p">Parent</span></li>
+    <li>Who is the child's primary caregiver? <span class="tag p">Parent</span></li>
+    <li>Has the child ever lived away from the parents or with other relatives? <span class="tag p">Parent</span></li>
+  </ul>
+
+  <h3>Parents, home &amp; relationships</h3>
+  <ul class="q">
+    <li>Can you describe each parent — age, education, occupation, health, and personality? <span class="tag p">Parent</span></li>
+    <li>How would you describe the relationship between the parents? <span class="tag p">Parent</span></li>
+    <li>How does the child get along with each parent and with siblings? <span class="tag c">Both</span></li>
+    <li>What is the home atmosphere generally like — calm, tense, supportive? <span class="tag p">Parent</span></li>
+    <li>What is the neighbourhood like where the family lives? <span class="tag p">Parent</span></li>
+    <li>Have there been any recent family stressors — separation, loss, illness, financial difficulty, or major conflict? <span class="tag p">Parent</span></li>
+  </ul>
+
+  <h3>Child-rearing practices</h3>
+  <ul class="q">
+    <li>Who mainly looks after the child's daily needs? <span class="tag p">Parent</span></li>
+    <li>How is the child usually disciplined when he/she misbehaves? <span class="tag p">Parent</span></li>
+    <li>Do the caregivers agree on how to raise and discipline the child? <span class="tag p">Parent</span></li>
+    <li>How affectionate and involved are the parents in the child's daily life? <span class="tag p">Parent</span></li>
+    <li>Is there any other information about the family that you feel is important? <span class="tag p">Parent</span></li>
+  </ul>
+</section>
+
+<section id="personal">
+  <h2><span class="num">4</span>Personal History</h2>
+  <p class="lead">Prenatal, perinatal, postnatal, birth and early development, developmental milestones, current developmental status, behaviour, and physical illness. Ask the mother where possible.</p>
+
+  <h3>Prenatal (pregnancy) history</h3>
+  <ul class="q">
+    <li>Was the pregnancy planned? <span class="tag p">Mother</span></li>
+    <li>How old were you (mother) at the time of this pregnancy? <span class="tag p">Mother</span></li>
+    <li>Did you have regular antenatal check-ups? <span class="tag p">Mother</span></li>
+    <li>Did you have any illness during pregnancy — fever, infections, high blood pressure, diabetes, thyroid problems, or fits? <span class="tag p">Mother</span></li>
+    <li>Did you take any medicines during pregnancy? If so, which? <span class="tag p">Mother</span></li>
+    <li>Was there any exposure to tobacco, alcohol, or other substances during pregnancy? <span class="tag p">Mother</span></li>
+    <li>Were there any nutritional problems or significant weight issues during pregnancy? <span class="tag p">Mother</span></li>
+    <li>Was there any significant emotional stress, injury, or trauma during pregnancy? <span class="tag p">Mother</span></li>
+    <li>Was there any bleeding or threatened abortion during the pregnancy? <span class="tag p">Mother</span></li>
+    <li>Was there any exposure to radiation or toxins (where relevant)? <span class="tag p">Mother</span></li>
+  </ul>
+
+  <h3>Perinatal &amp; neonatal (birth) history</h3>
+  <ul class="q">
+    <li>Was the baby born on time (full-term) or early (preterm)? <span class="tag p">Mother</span></li>
+    <li>Was it a normal delivery or a caesarean? If assisted, what was the reason? <span class="tag p">Mother</span></li>
+    <li>What was the baby's birth weight? <span class="tag p">Mother</span></li>
+    <li>Did the baby cry immediately after birth (birth cry present or absent)? <span class="tag p">Mother</span></li>
+    <li>Was any resuscitation, oxygen, or special care needed at birth? <span class="tag p">Mother</span></li>
+    <li>Was the baby admitted to the NICU? If so, why and for how long? <span class="tag p">Mother</span></li>
+    <li>Were there any fits, yellowness (jaundice), bluish colour, or breathing problems in the first days? <span class="tag p">Mother</span></li>
+    <li>Were there any feeding problems or infections in the newborn period? <span class="tag p">Mother</span></li>
+  </ul>
+
+  <h3>Postnatal &amp; early development</h3>
+  <ul class="q">
+    <li>How was the baby's health in the first months of life? <span class="tag p">Parent</span></li>
+    <li>Was breastfeeding established, and were there any feeding difficulties? <span class="tag p">Parent</span></li>
+    <li>Was the baby easy to soothe, or unusually irritable / difficult to settle? <span class="tag p">Parent</span></li>
+  </ul>
+
+  <h3>Developmental milestones — motor</h3>
+  <ul class="q">
+    <li>At what age did the child gain head control? <span class="tag p">Parent</span></li>
+    <li>At what age did the child sit without support? <span class="tag p">Parent</span></li>
+    <li>At what age did the child crawl and stand? <span class="tag p">Parent</span></li>
+    <li>At what age did the child start walking independently? <span class="tag p">Parent</span></li>
+    <li>At what age did the child start using hands to pick up small objects (fine motor)? <span class="tag p">Parent</span></li>
+  </ul>
+
+  <h3>Developmental milestones — language</h3>
+  <ul class="q">
+    <li>At what age did the child start babbling? <span class="tag p">Parent</span></li>
+    <li>At what age did the child say his/her first meaningful word? <span class="tag p">Parent</span></li>
+    <li>At what age did the child join two words together? <span class="tag p">Parent</span></li>
+    <li>At what age did the child speak in short sentences and hold a conversation? <span class="tag p">Parent</span></li>
+    <li>Is the child's speech clear and understandable for the age? <span class="tag p">Parent</span></li>
+  </ul>
+
+  <h3>Developmental milestones — social &amp; adaptive</h3>
+  <ul class="q">
+    <li>At what age did the child first smile back at people (social smile)? <span class="tag p">Parent</span></li>
+    <li>Did the child point to show you things and share attention? At what age? <span class="tag p">Parent</span></li>
+    <li>At what age did the child start playing pretend games and playing with other children? <span class="tag p">Parent</span></li>
+    <li>At what age could the child feed himself/herself? <span class="tag p">Parent</span></li>
+    <li>At what age was the child toilet-trained (day and night)? <span class="tag p">Parent</span></li>
+    <li>At what age could the child dress and manage self-care with / without help? <span class="tag p">Parent</span></li>
+  </ul>
+
+  <h3>Developmental regression</h3>
+  <ul class="q">
+    <li>Did the child ever learn a skill and then lose it (words, play, social interaction, toileting, or school skills)? <span class="tag p">Parent</span></li>
+    <li>If yes, which skill was lost, at what age, and how quickly? <span class="tag p">Parent</span></li>
+    <li>Was there any illness, fever, or fit around the time the skill was lost? <span class="tag p">Parent</span></li>
+  </ul>
+
+  <h3>Current developmental status &amp; behaviour</h3>
+  <ul class="q">
+    <li>Compared with other children of the same age, how is the child's overall development? <span class="tag p">Parent</span></li>
+    <li>How is the child's general intelligence, speech, and language now? <span class="tag p">Parent</span></li>
+    <li>How independent is the child in self-help skills (eating, dressing, toileting, bathing)? <span class="tag p">Parent</span></li>
+    <li>How would you describe the child's behaviour — generally easy-going, or with frequent temper tantrums? <span class="tag p">Parent</span></li>
+    <li>Has the child had any significant physical illness, hospitalization, injury, or surgery? <span class="tag p">Parent</span></li>
+    <li>Does the child have any long-term medical condition, allergy, or regular medication? <span class="tag p">Parent</span></li>
+    <li>Are the child's hearing and vision normal? <span class="tag p">Parent</span></li>
+  </ul>
+</section>
+
+<section id="school">
+  <h2><span class="num">5</span>Schooling History</h2>
+  <p class="lead">Follows the proforma's detailed schooling items (a–n) plus habits/interests and sexual history. Combine parent, child, and teacher accounts where possible.</p>
+
+  <h3>School entry &amp; adjustment</h3>
+  <ul class="q">
+    <li>At what age did the child start school? <span class="tag p">Parent</span></li>
+    <li>How did the child adjust when starting school? <span class="tag p">Parent</span></li>
+    <li>Has there been any change of school, medium of instruction, or syllabus? Why? <span class="tag p">Parent</span></li>
+    <li>Do you like going to school? What do you like and dislike about it? <span class="tag c">Child</span></li>
+  </ul>
+
+  <h3>Academic performance</h3>
+  <ul class="q">
+    <li>How has the child performed academically overall? <span class="tag p">Parent</span></li>
+    <li>How is the child doing in reading, writing, and arithmetic specifically? <span class="tag b">Both</span></li>
+    <li>Which subjects are easy for you, and which are difficult? <span class="tag c">Child</span></li>
+    <li>What are your (the parents') expectations about the child's performance? <span class="tag p">Parent</span></li>
+    <li>Are you satisfied with the child's current performance? <span class="tag p">Parent</span></li>
+    <li>How does the child manage homework and examinations? <span class="tag p">Parent</span></li>
+    <li>Has the child ever repeated a class? <span class="tag p">Parent</span></li>
+  </ul>
+
+  <h3>Behaviour, peers &amp; teacher's view</h3>
+  <ul class="q">
+    <li>How does the child behave in the classroom? <span class="tag p">Parent</span></li>
+    <li>How is the child's attention and concentration in class? <span class="tag b">Both</span></li>
+    <li>How does the child get along with classmates and friends at school? <span class="tag c">Child</span></li>
+    <li>Does the child take part in extra-curricular activities? <span class="tag b">Both</span></li>
+    <li>What does the teacher say about the child (perceptions and concerns)? <span class="tag p">Parent</span></li>
+    <li>Has the child been bullied, or bullied others? <span class="tag c">Child</span></li>
+    <li>Does the child ever refuse to go to school? If so, why? <span class="tag p">Parent</span></li>
+    <li>Are there any other school-related problems? <span class="tag p">Parent</span></li>
+    <li>If schooling was discontinued, when and why? <span class="tag p">Parent</span></li>
+    <li>Is a school report available, and what does it show? <span class="tag p">Parent</span></li>
+  </ul>
+
+  <h3>Habits, interests &amp; sexual history</h3>
+  <ul class="q">
+    <li>What are the child's habits, interests, hobbies, and talents? <span class="tag b">Both</span></li>
+    <li>What do you enjoy doing in your free time? <span class="tag c">Child</span></li>
+    <li>(Where age-appropriate) Has puberty started — any body changes? For girls, has menstruation begun and is it regular? <span class="tag p">Parent</span></li>
+    <li>(Only where clinically indicated, privately) Is there any concern about age-inappropriate sexual behaviour or exposure to sexual content? <span class="tag p">Parent</span></li>
+  </ul>
+</section>
+
+<section id="temperament">
+  <h2><span class="num">6</span>General Temperament &amp; Personality Attributes</h2>
+  <p class="lead">Captures the child's usual style — emotionality, attention, activity, aggression, sociability, rhythmicity, motivation, dependability, moral standards, adaptability, and strengths.</p>
+  <ul class="q">
+    <li>How would you describe the child's usual emotional nature? <span class="tag p">Parent</span></li>
+    <li>How is the child's attention and concentration in daily activities? <span class="tag p">Parent</span></li>
+    <li>Is the child generally very active, average, or calm? <span class="tag p">Parent</span></li>
+    <li>How does the child show anger — is there any aggression? <span class="tag p">Parent</span></li>
+    <li>Is the child sociable and outgoing, or shy and withdrawn? <span class="tag p">Parent</span></li>
+    <li>Are the child's sleep and meal routines regular (rhythmicity)? <span class="tag p">Parent</span></li>
+    <li>How motivated is the child to try and complete tasks? <span class="tag p">Parent</span></li>
+    <li>Is the child trustworthy and dependable for age-appropriate responsibilities? <span class="tag p">Parent</span></li>
+    <li>How would you describe the child's sense of right and wrong (moral standards)? <span class="tag p">Parent</span></li>
+    <li>How does the child cope with change or new situations (adaptability)? <span class="tag p">Parent</span></li>
+    <li>What are the child's particular strengths or good qualities? <span class="tag p">Parent</span></li>
+  </ul>
+</section>
+
+<section id="hopi">
+  <h2><span class="num">7</span>History of Present Illness</h2>
+  <p class="lead">Establishes total duration, onset, course, progress, and predisposing / precipitating / perpetuating factors, plus biological and occupational functioning. Open with the anchor: <em>"The child was apparently well until…"</em></p>
+
+  <h3>Onset, course &amp; progression</h3>
+  <ul class="q">
+    <li>Until when was the child apparently well and behaving as expected? <span class="tag p">Parent</span></li>
+    <li>What was the very first change you noticed? <span class="tag p">Parent</span></li>
+    <li>How old was the child when it started? <span class="tag p">Parent</span></li>
+    <li>Did the problem start suddenly or gradually (abrupt / acute / subacute / insidious)? <span class="tag p">Parent</span></li>
+    <li>Was anything happening in the child's life around that time (a possible trigger)? <span class="tag p">Parent</span></li>
+    <li>Since it began, does it come and go, or is it present all the time (episodic / chronic / chronic with fluctuation)? <span class="tag p">Parent</span></li>
+    <li>Overall, is the problem staying the same, getting worse, or improving (static / deteriorating / improved)? <span class="tag p">Parent</span></li>
+    <li>How often does it happen, and how severe is it? <span class="tag p">Parent</span></li>
+  </ul>
+
+  <h3>Detailed probing (for each main complaint)</h3>
+  <ul class="q">
+    <li>What usually happens immediately before the problem/episode? <span class="tag p">Parent</span></li>
+    <li>What exactly happens during it? <span class="tag p">Parent</span></li>
+    <li>How does the child behave afterward? <span class="tag p">Parent</span></li>
+    <li>Does it happen at home, at school, or in both places? <span class="tag p">Parent</span></li>
+    <li>Does anything make it better or worse? <span class="tag p">Parent</span></li>
+    <li>Are there any other symptoms that occur along with it? <span class="tag p">Parent</span></li>
+    <li>(To the child, age-appropriately) Can you tell me what happens when this occurs? How do you feel? <span class="tag c">Child</span></li>
+  </ul>
+
+  <h3>Predisposing / precipitating / perpetuating factors</h3>
+  <ul class="q">
+    <li>Was there anything about the child or the family that may have made this more likely (predisposing)? <span class="tag p">Parent</span></li>
+    <li>Was there a specific event that seemed to trigger it (precipitating)? <span class="tag p">Parent</span></li>
+    <li>Is anything keeping the problem going or making it continue (perpetuating)? <span class="tag p">Parent</span></li>
+  </ul>
+
+  <h3>Biological &amp; occupational functioning</h3>
+  <ul class="q">
+    <li>Since the problem began, how has the child's sleep been? <span class="tag p">Parent</span></li>
+    <li>How has the child's appetite and eating been? <span class="tag p">Parent</span></li>
+    <li>How is the child managing self-care since the problem started? <span class="tag p">Parent</span></li>
+    <li>Is there any change in bowel or bladder control? <span class="tag p">Parent</span></li>
+    <li>How has school attendance and daily routine been affected (occupational functioning)? <span class="tag p">Parent</span></li>
+  </ul>
+
+  <h3>Associated symptom screen (ask as relevant)</h3>
+  <ul class="q">
+    <li>Is the child overactive, restless, or unable to sit still? <span class="tag p">Parent</span></li>
+    <li>Does the child have difficulty paying attention, listening, or finishing tasks? <span class="tag p">Parent</span></li>
+    <li>Is the child impulsive — interrupting, unable to wait, acting without thinking? <span class="tag p">Parent</span></li>
+    <li>Is the child argumentative, defiant, or having temper outbursts? <span class="tag p">Parent</span></li>
+    <li>Have there been problems like aggression, lying, stealing, or staying away from home/school? <span class="tag p">Parent</span></li>
+    <li>Does the child worry a lot, have specific fears, or become very distressed on separation? <span class="tag b">Both</span></li>
+    <li>Has the child seemed sad, irritable, or lost interest in play and activities? <span class="tag b">Both</span></li>
+    <li>Are there repetitive thoughts the child can't stop, or actions the child feels must be done a certain way? <span class="tag c">Child</span></li>
+    <li>(Gently, age-appropriately) Does the child ever hear or see things others don't, or hold unusual beliefs? <span class="tag b">Both</span></li>
+    <li>How is the child's sleep — bedtime, night awakenings, nightmares, snoring, daytime sleepiness? <span class="tag p">Parent</span></li>
+    <li>Any unusual eating, very restricted eating, or eating of non-food items? <span class="tag p">Parent</span></li>
+    <li>Any bedwetting, soiling, or constipation? <span class="tag p">Parent</span></li>
+    <li>Is the child unusually sensitive to sounds, textures, lights, smells, or tastes? <span class="tag p">Parent</span></li>
+    <li>How much screen time does the child have, and is it affecting sleep or schoolwork? <span class="tag p">Parent</span></li>
+    <li>(Adolescents, privately) Have you come across or tried tobacco, alcohol, or any other substances? <span class="tag c">Child</span></li>
+    <li>Has the child been through any frightening or very upsetting experience (only ask sensitively)? <span class="tag b">Both</span></li>
+    <li>(Screen for safety) Does the child ever talk about not wanting to live, or about hurting himself/herself or others? <span class="tag b">Both</span></li>
+  </ul>
+</section>
+
+<section id="treatment">
+  <h2><span class="num">8</span>Treatment History &amp; Negative History</h2>
+
+  <h3>Treatment history (till date)</h3>
+  <ul class="q">
+    <li>Have you consulted anyone for this problem before (doctor, psychologist, special educator, therapist)? <span class="tag p">Parent</span></li>
+    <li>Was any diagnosis given to you earlier? <span class="tag p">Parent</span></li>
+    <li>Was any medication started? If so, which, at what dose, and for how long? <span class="tag p">Parent</span></li>
+    <li>Did the child take the treatment regularly (adherence)? <span class="tag p">Parent</span></li>
+    <li>Were there any side effects? <span class="tag p">Parent</span></li>
+    <li>Has the child received any psychological therapy, counselling, special education, occupational therapy, speech therapy, or behavioural intervention? <span class="tag p">Parent</span></li>
+    <li>Did any of these treatments help — and in what way? <span class="tag p">Parent</span></li>
+  </ul>
+
+  <h3>Negative history (points to check and rule out)</h3>
+  <ul class="q">
+    <li>Has the child ever had seizures/fits, fainting, or loss of consciousness? <span class="tag p">Parent</span></li>
+    <li>Has there been any significant head injury or brain infection? <span class="tag p">Parent</span></li>
+    <li>Any staring spells, unusual movements, self-talk, or self-smiling? <span class="tag p">Parent</span></li>
+    <li>Any history suggesting elevated mood, over-talkativeness, or excessive energy? <span class="tag p">Parent</span></li>
+    <li>Any suggestion of hearing or seeing things that are not there? <span class="tag p">Parent</span></li>
+    <li>Any previous self-harm or suicide attempts? <span class="tag p">Parent</span></li>
+    <li>Any substance use by the child? <span class="tag p">Parent</span></li>
+  </ul>
+  <div class="note"><b>Reminder.</b> Only record a negative finding for items you have actually asked about — do not assume absence.</div>
+</section>
+
+<section id="functioning">
+  <h2><span class="num">9</span>Family Perception &amp; Functional Impairment</h2>
+  <ul class="q">
+    <li>What do you (the family) think is causing the child's problem? <span class="tag p">Parent</span></li>
+    <li>How has the family been responding to the problem? <span class="tag p">Parent</span></li>
+    <li>How has the problem affected the child's daily life at home? <span class="tag p">Parent</span></li>
+    <li>How has it affected the child's academic and school activities? <span class="tag p">Parent</span></li>
+    <li>How has it affected the child's friendships and social life? <span class="tag b">Both</span></li>
+    <li>Is the child able to manage age-appropriate self-care and routine? <span class="tag p">Parent</span></li>
+    <li>Compared with before the problem started, what can the child no longer do as well? <span class="tag p">Parent</span></li>
+  </ul>
+</section>
+
+<section id="mse">
+  <h2><span class="num">10</span>Mental Status Examination (child)</h2>
+  <p class="lead">Questions to put directly to the child during the interview, adapted to age. General appearance and behaviour are observed; the items below are the ones you actually <em>ask</em>.</p>
+
+  <h3>Orientation &amp; general</h3>
+  <ul class="q">
+    <li>What is your name and how old are you? <span class="tag c">Child</span></li>
+    <li>Do you know where we are right now? <span class="tag c">Child</span></li>
+    <li>Who came with you here today? <span class="tag c">Child</span></li>
+    <li>Do you know what day / time of day it is? (older child) <span class="tag c">Child</span></li>
+  </ul>
+
+  <h3>Attention, memory &amp; thinking</h3>
+  <ul class="q">
+    <li>Can you repeat these words / numbers after me? (immediate attention) <span class="tag c">Child</span></li>
+    <li>A little later — do you remember the words I told you earlier? (delayed recall) <span class="tag c">Child</span></li>
+    <li>Can you count / say the days of the week? (age-appropriate) <span class="tag c">Child</span></li>
+    <li>How are an apple and a banana alike? (abstract thinking, older child) <span class="tag c">Child</span></li>
+  </ul>
+
+  <h3>Mood, feelings &amp; worries</h3>
+  <ul class="q">
+    <li>How have you been feeling lately — happy, okay, or sad most days? <span class="tag c">Child</span></li>
+    <li>Are the things you used to enjoy still fun for you? <span class="tag c">Child</span></li>
+    <li>Is there anything that makes you feel scared or worried a lot? <span class="tag c">Child</span></li>
+    <li>Do you ever feel angry or upset — and what happens then? <span class="tag c">Child</span></li>
+  </ul>
+
+  <h3>Child's own view &amp; projective questions</h3>
+  <ul class="q">
+    <li>Why do you think you came to see me today (child's version of the problem)? <span class="tag c">Child</span></li>
+    <li>If you could have any three wishes, what would they be? (3-wish test) <span class="tag c">Child</span></li>
+    <li>Who do you like to spend time with, and who do you not like being with? <span class="tag c">Child</span></li>
+    <li>(Gently, age-appropriately) Do you ever hear voices or see things when no one is around? <span class="tag c">Child</span></li>
+  </ul>
+  <div class="note"><b>Also observe (not asked):</b> appearance, hygiene, eye contact, rapport, behaviour during interview, response to separation, parent–child interaction, activity level, motor behaviour (tics/mannerisms), speech &amp; language, affect, and play-room behaviour.</div>
+</section>
+
+<section id="gpe">
+  <h2><span class="num">11</span>General Physical Examination</h2>
+  <p class="lead">Recorded by the clinician / staff nurse. Ask/confirm the following before or alongside examination.</p>
+  <ul class="q">
+    <li>Has the child's height and weight been measured recently, and are they appropriate for age? <span class="tag p">Parent</span></li>
+    <li>Any concern with the child's hearing? <span class="tag p">Parent</span></li>
+    <li>Any birth marks or skin patches present since birth? <span class="tag p">Parent</span></li>
+    <li>What is the child's pubertal status (where age-appropriate)? <span class="tag p">Parent</span></li>
+    <li>Confirm consent for examination of vitals, thyroid, lymph nodes, eyes (retinal), chest, heart, abdomen, and nervous system. <span class="tag p">Parent</span></li>
+  </ul>
+</section>
+
+</div><!-- /.wrap -->
+
+<footer>
+  <div class="wrap">
+    <div class="note warn" style="text-align:left"><b>Educational use.</b> This is a clinical-interviewing question bank for M.Phil. Clinical Psychology trainees, organized on the Clinical Case History – Child proforma. Select questions by the child's age and presenting problem; sensitive topics (trauma, self-harm, sexuality, substance use) must be asked only in a safe, private and developmentally suitable way.</div>
+    <p>Clinical Case History – Child — Detailed Interview Questions</p>
+    <div class="made">Made by Tejas Dangodra</div>
+  </div>
+</footer>
+
+<button class="backtop" id="backtop" aria-label="Back to top">↑</button>
+
+<script>
+(function(){
+  var search=document.getElementById('search');
+  var info=document.getElementById('searchInfo');
+  var sections=Array.prototype.slice.call(document.querySelectorAll('section'));
+  var toc=document.querySelector('nav.toc');
+  function clearMarks(root){root.querySelectorAll('mark').forEach(function(m){var t=document.createTextNode(m.textContent);m.parentNode.replaceChild(t,m);});root.normalize();}
+  function highlight(el,term){
+    var rx=new RegExp('('+term.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','gi');
+    var walker=document.createTreeWalker(el,NodeFilter.SHOW_TEXT,null,false);var nodes=[],n;
+    while(n=walker.nextNode()){if(n.parentNode&&!/^(SCRIPT|STYLE|MARK)$/.test(n.parentNode.nodeName))nodes.push(n);}
+    nodes.forEach(function(node){if(rx.test(node.nodeValue)){var span=document.createElement('span');span.innerHTML=node.nodeValue.replace(rx,'<mark>$1</mark>');node.parentNode.replaceChild(span,node);}});
+  }
+  function doSearch(q){
+    q=(q||'').trim();sections.forEach(clearMarks);
+    if(!q){sections.forEach(function(s){s.classList.remove('hidden');});if(toc)toc.classList.remove('hidden');info.textContent='';return;}
+    if(toc)toc.classList.add('hidden');
+    var lower=q.toLowerCase(),count=0;
+    sections.forEach(function(s){var m=s.textContent.toLowerCase().indexOf(lower)>-1;s.classList.toggle('hidden',!m);if(m){count++;highlight(s,q);}});
+    info.textContent=count?('Showing '+count+' section'+(count>1?'s':'')+' with "'+q+'". Clear to see all.'):('No sections match "'+q+'".');
+  }
+  var t;search.addEventListener('input',function(){clearTimeout(t);t=setTimeout(function(){doSearch(search.value);},180);});
+  var bt=document.getElementById('backtop');
+  window.addEventListener('scroll',function(){bt.classList.toggle('show',window.scrollY>500);});
+  bt.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+})();
+</script>
+</body>
+</html>
