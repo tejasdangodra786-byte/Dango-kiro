@@ -1,0 +1,1196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Journal Club — Efficacy of MBT in Treating Self-Harm (Hajek Gross et al., 2024)</title>
+<style>
+  :root{
+    --lavender:#e6e1f2; --lilac:#d9cef0; --powder:#d6e6f2; --sage:#dbe9db;
+    --mint:#d8efe6; --peach:#f7e3d3; --blush:#f6dde2; --cream:#faf6ee;
+    --grey:#eef0f3; --charcoal:#2f2b3a; --accent:#6a5aa5; --accent2:#3f7a8c;
+    --pos:#7fae7f; --warn:#e6c56b; --neg:#d99a9a; --ink:#38343f;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html,body{height:100%;}
+  body{
+    font-family:"Times New Roman", Times, Georgia, serif;
+    font-size:17px;                     /* base sub-topic / body text = 17px */
+    background:#3a3550; color:var(--ink);
+    display:flex; align-items:center; justify-content:center;
+    overflow:hidden;
+  }
+  #deck{width:100vw;height:100vh;position:relative;}
+  .slide{
+    position:absolute; inset:0; display:none;
+    flex-direction:column; padding:26px 42px 40px;
+    background:linear-gradient(135deg,var(--cream) 0%, #ffffff 55%, var(--grey) 100%);
+    animation:fade .45s ease; overflow:auto;
+  }
+  .slide.active{display:flex;}
+  @keyframes fade{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:none;}}
+
+  /* HEADINGS unchanged (large) */
+  h1{font-size:38px;line-height:1.12;color:var(--accent);margin-bottom:10px;}
+  h2{font-size:30px;color:var(--accent);border-bottom:3px solid var(--lilac);
+     padding-bottom:6px;margin-bottom:16px;letter-spacing:.3px;}
+  h3{font-size:19px;color:var(--accent2);margin-bottom:6px;}
+
+  /* BODY / SUB-TOPIC INFO = 14px */
+  p,li,.fbox,.badge,.callout,.keymsg,.flabel,.fval,.barname,.pill{font-size:17px;line-height:1.5;}
+  td,th{font-size:15px;line-height:1.45;}
+  .lead{font-size:18px;line-height:1.55;}
+  small,.src,.note{font-size:13.5px;color:#7a7488;font-style:italic;}
+  .src{margin-top:auto;padding-top:12px;}
+  ul{margin-left:20px;} li{margin-bottom:6px;}
+  b,strong{color:var(--charcoal);}
+  .accent{color:var(--accent);font-weight:bold;}
+  .neg{color:#b06767;font-weight:bold;}
+  .pos{color:#4e8a4e;font-weight:bold;}
+  .plain{background:#fff7ec;border:1px dashed #e0b877;border-radius:8px;
+         padding:7px 10px;font-size:15px;color:#6b5a34;margin-top:8px;}
+  .plain b{color:#6b5a34;}
+
+  /* cards */
+  .cards{display:flex;gap:18px;flex-wrap:wrap;}
+  .card{background:#fff;border-radius:16px;padding:14px 16px;
+        box-shadow:0 6px 18px rgba(80,70,120,.13);flex:1;min-width:0;
+        border-top:6px solid var(--lilac);}
+  .card.lav{border-color:var(--lilac);background:var(--lavender);}
+  .card.pow{border-color:#a9c9e0;background:var(--powder);}
+  .card.sag{border-color:#a9cca9;background:var(--sage);}
+  .card.mint{border-color:#a5ddc9;background:var(--mint);}
+  .card.pch{border-color:#e9c09a;background:var(--peach);}
+  .card.bl{border-color:#e7aab3;background:var(--blush);}
+  .card h3{margin-bottom:5px;}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+  .grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:15px;}
+  .fill{flex:1;display:flex;flex-direction:column;justify-content:center;}
+
+  /* flow chart */
+  .flow{display:flex;flex-direction:column;align-items:center;gap:3px;}
+  .flowrow{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;}
+  .fbox{background:var(--powder);border-radius:12px;padding:8px 14px;
+        text-align:center;box-shadow:0 3px 9px rgba(80,70,120,.12);
+        border:2px solid #b9d3e6;max-width:340px;}
+  .fbox.a{background:var(--lavender);border-color:#c3b6e0;}
+  .fbox.b{background:var(--blush);border-color:#e7aab3;}
+  .fbox.c{background:var(--mint);border-color:#a5ddc9;}
+  .fbox.d{background:var(--peach);border-color:#e9c09a;}
+  .arrow{font-size:22px;color:var(--accent);line-height:1;}
+  .arrowr{font-size:20px;color:var(--accent);}
+
+  /* table */
+  table{border-collapse:collapse;width:100%;background:#fff;border-radius:10px;overflow:hidden;
+        box-shadow:0 5px 15px rgba(80,70,120,.12);}
+  th{background:var(--lilac);color:var(--charcoal);padding:7px 8px;text-align:left;font-weight:bold;}
+  td{padding:6px 8px;border-top:1px solid #ece7f4;vertical-align:top;}
+  tr:nth-child(even) td{background:#faf8fd;}
+
+  /* forest plot */
+  .forest{display:flex;flex-direction:column;gap:9px;width:100%;}
+  .fline{display:grid;grid-template-columns:210px 1fr 200px;align-items:center;gap:12px;}
+  .flabel{font-weight:bold;color:var(--charcoal);}
+  .ftrack{position:relative;height:26px;background:linear-gradient(90deg,#f0e9f7,#eef4f8);
+          border-radius:8px;}
+  .fzero{position:absolute;top:-5px;bottom:-5px;width:2px;background:#b0a8c4;}
+  .fci{position:absolute;height:8px;top:9px;background:#b9a9dd;border-radius:6px;}
+  .fdot{position:absolute;width:14px;height:14px;border-radius:50%;top:6px;
+        background:var(--accent);box-shadow:0 0 0 3px #fff;}
+  .fdot.g{background:#4e8a4e;} .fci.g{background:#a9cca9;}
+  .fdot.gr{background:#b0a8c4;} .fci.gr{background:#d7d1e2;}
+  .fval{color:var(--charcoal);text-align:right;}
+  .scaleax{display:grid;grid-template-columns:210px 1fr 200px;gap:12px;font-size:12px;color:#8a839c;}
+
+  /* traffic light */
+  .tl{display:inline-block;width:16px;height:16px;border-radius:50%;margin:0 3px;vertical-align:middle;}
+  .tl.g{background:var(--pos);} .tl.y{background:var(--warn);} .tl.r{background:var(--neg);}
+
+  /* bars */
+  .bar{height:22px;border-radius:6px;background:var(--accent);display:flex;align-items:center;
+       justify-content:flex-end;color:#fff;font-size:12px;padding-right:6px;}
+  .barwrap{display:flex;align-items:center;gap:12px;margin-bottom:9px;}
+  .barname{width:210px;}
+
+  .kicker{font-size:14px;color:var(--accent2);font-weight:bold;letter-spacing:2px;text-transform:uppercase;}
+  .badge{display:inline-block;background:var(--lilac);color:var(--charcoal);border-radius:20px;
+         padding:3px 10px;margin:2px 3px;}
+  .callout{background:var(--peach);border-left:8px solid #e0a066;border-radius:0 12px 12px 0;
+           padding:12px 14px;}
+  .callout.warn{background:#fbeecf;border-color:#dcae4c;}
+  .keymsg{background:var(--lavender);border-radius:14px;padding:11px 14px;
+          box-shadow:0 4px 12px rgba(80,70,120,.1);margin-bottom:8px;}
+
+  /* graph explanation box under charts */
+  .explain{background:#eef3ff;border-left:6px solid #8aa0d8;border-radius:0 10px 10px 0;
+           padding:9px 12px;margin-top:12px;font-size:15px;color:#3a4260;}
+  .explain b{color:#2f3550;}
+
+  /* progress + nav */
+  #bar{position:fixed;bottom:0;left:0;height:6px;background:var(--accent);transition:width .3s;z-index:50;}
+  #pg{position:fixed;bottom:10px;right:16px;font-size:12px;color:#6a6280;z-index:50;}
+  #hint{position:fixed;bottom:10px;left:16px;font-size:11px;color:#8a8398;z-index:50;}
+  .title-wrap{flex:1;display:flex;flex-direction:column;justify-content:center;}
+  .title-wrap .journal{font-size:15px;color:var(--accent2);margin:10px 0;}
+  .meta-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:16px;}
+  .pico{display:grid;grid-template-columns:auto 1fr;gap:8px 14px;align-items:center;}
+  .pill{background:var(--accent);color:#fff;border-radius:20px;padding:5px 14px;
+        font-weight:bold;text-align:center;}
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:20px;flex:1;}
+  .legend{display:flex;gap:16px;flex-wrap:wrap;font-size:13px;margin-top:8px;}
+  .legend span{display:flex;align-items:center;gap:5px;}
+
+  /* ---- extra graphics ---- */
+  /* icon stat tiles */
+  .stats{display:flex;gap:16px;flex-wrap:wrap;}
+  .stat{flex:1;min-width:120px;background:#fff;border-radius:14px;padding:12px;text-align:center;
+        box-shadow:0 5px 14px rgba(80,70,120,.12);border-bottom:5px solid var(--lilac);}
+  .stat .ico{font-size:30px;line-height:1;}
+  .stat .num{font-size:26px;font-weight:bold;color:var(--accent);margin:4px 0;}
+  .stat .lbl{font-size:14px;color:#5c556e;}
+  .stat.p1{border-color:#c3b6e0;} .stat.p2{border-color:#a9c9e0;}
+  .stat.p3{border-color:#a9cca9;} .stat.p4{border-color:#e9c09a;}
+  .stat.p5{border-color:#e7aab3;} .stat.p6{border-color:#a5ddc9;}
+
+  /* donut (conic-gradient) */
+  .donutwrap{display:flex;gap:26px;flex-wrap:wrap;justify-content:center;align-items:center;}
+  .donut{width:150px;height:150px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+         box-shadow:0 6px 16px rgba(80,70,120,.15);}
+  .donut::after{content:attr(data-label);width:96px;height:96px;background:#fff;border-radius:50%;
+        display:flex;align-items:center;justify-content:center;text-align:center;font-size:13.5px;
+        color:#4a4460;font-weight:bold;padding:6px;}
+  .donutcap{text-align:center;font-size:14px;color:#5c556e;margin-top:6px;font-weight:bold;}
+
+  /* horizontal proportion bar */
+  .propbar{display:flex;height:34px;border-radius:9px;overflow:hidden;box-shadow:0 3px 9px rgba(80,70,120,.12);}
+  .propbar div{display:flex;align-items:center;justify-content:center;color:#3a3550;font-size:14px;font-weight:bold;}
+
+  /* comparison effect-size bars (adults vs teens) */
+  .cmp{display:grid;grid-template-columns:130px 1fr;gap:8px 12px;align-items:center;}
+  .cmp .g{height:20px;border-radius:5px;display:flex;align-items:center;justify-content:flex-end;
+          color:#fff;font-size:11.5px;padding-right:5px;}
+  .gteen{background:#9a86cf;} .gadult{background:#5aa0b8;}
+
+  .vs-legend{display:flex;gap:18px;font-size:12.5px;margin-top:6px;}
+  .vs-legend span{display:flex;align-items:center;gap:5px;}
+  .swatch{width:14px;height:14px;border-radius:3px;display:inline-block;}
+  .verdict{display:flex;gap:14px;flex-wrap:wrap;margin-top:10px;}
+  .vcard{flex:1;min-width:150px;border-radius:12px;padding:10px 12px;text-align:center;font-weight:bold;}
+  .vgood{background:#daf0e4;color:#2f6a44;} .vbad{background:#f6dde2;color:#8a4550;}
+</style>
+</head>
+<body>
+<div id="deck">
+
+<!-- ============ SLIDE 1: TITLE ============ -->
+<section class="slide active">
+  <div class="title-wrap">
+    <div class="kicker">M.Phil. Clinical Psychology &nbsp;•&nbsp; Journal Club Presentation</div>
+    <h1>Efficacy of Mentalization-Based Therapy in Treating Self-Harm</h1>
+    <p class="lead"><b>A Systematic Review and Meta-Analysis</b></p>
+    <div class="journal">
+      Hajek Gross, C., Oehlke, S.-M., Prillinger, K., Goreis, A., Plener, P. L., &amp; Kothgassner, O. D. (2024).<br>
+      <i>Suicide and Life-Threatening Behavior,</i> <b>54</b>(2), 317–337. &nbsp; https://doi.org/10.1111/sltb.13044
+    </div>
+    <div class="meta-row">
+      <div class="card lav" style="flex:1;">
+        <h3>Presented by</h3>
+        <p><b>Ms. Sonal Tripathi</b><br>
+        M.Phil. Year II Trainee, Department of Clinical Psychology<br>
+        MAN College of Special Education and Psychological Studies, Guna, M.P.</p>
+      </div>
+      <div class="card pow" style="flex:1;">
+        <h3>Supervised by</h3>
+        <p><b>Dr. Ajay Sharma</b><br>
+        Professor &amp; Head, Department of Clinical Psychology<br>
+        MAN College of Special Education and Psychological Studies, Guna, M.P.</p>
+      </div>
+    </div>
+    <div class="meta-row" style="margin-top:12px;">
+      <span class="badge">Journal club date: 1 October 2026</span>
+      <span class="badge">Open access • Wiley / American Association of Suicidology</span>
+    </div>
+  </div>
+  <div class="src">Source: Hajek Gross et al. (2024), Suicide and Life-Threatening Behavior, 54(2), 317–337.</div>
+</section>
+
+<!-- ============ SLIDE 2: WHY THIS PAPER ============ -->
+<section class="slide">
+  <h2>Why This Paper Matters</h2>
+  <div class="two-col">
+    <div>
+      <div class="card bl">
+        <h3>A serious, widespread problem</h3>
+        <ul>
+          <li>Self-harm usually <b>starts and is at its worst during the teenage years</b>.</li>
+          <li>About <b>22.9% of adolescents</b> and <b>5.5% of adults</b> have self-harmed at some point.</li>
+          <li>Self-harm is a <b>major warning sign for later death by suicide</b> — even when the person did not intend to die.</li>
+          <li>It is very common in borderline personality disorder <span class="plain" style="display:inline-block;margin:0;padding:2px 6px;">(BPD = a condition with intense mood swings, unstable relationships and self-image)</span>: up to <b>90–95%</b> have a history of self-harm.</li>
+        </ul>
+      </div>
+    </div>
+    <div>
+      <div class="card mint">
+        <h3>Why review the evidence now?</h3>
+        <ul>
+          <li>MBT is often called a <b>promising treatment</b> for self-harm.</li>
+          <li>But earlier reviews gave <b>mixed, disagreeing results</b>.</li>
+          <li>No earlier review looked <b>only at MBT for self-harm</b>.</li>
+          <li>No one had clearly compared the <b>adult version (MBT)</b> with the <b>teenage version (MBT-A)</b>.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="stats" style="margin-top:12px;">
+    <div class="stat p1"><div class="ico">🧑‍🤝‍🧑</div><div class="num">22.9%</div><div class="lbl">of adolescents have self-harmed</div></div>
+    <div class="stat p2"><div class="ico">👤</div><div class="num">5.5%</div><div class="lbl">of adults have self-harmed</div></div>
+    <div class="stat p5"><div class="ico">💔</div><div class="num">90–95%</div><div class="lbl">of BPD patients have a self-harm history</div></div>
+    <div class="stat p4"><div class="ico">⚠️</div><div class="num">Major</div><div class="lbl">risk factor for later suicide</div></div>
+  </div>
+  <div class="flow" style="margin-top:10px;">
+    <div class="flowrow">
+      <div class="fbox b">Self-harm</div><span class="arrowr">→</span>
+      <div class="fbox b">Keeps repeating</div><span class="arrowr">→</span>
+      <div class="fbox d">Higher suicide risk</div><span class="arrowr">→</span>
+      <div class="fbox a">Need for a treatment that works</div><span class="arrowr">→</span>
+      <div class="fbox c">Check the evidence (this paper)</div>
+    </div>
+  </div>
+  <div class="src">Source: Hajek Gross et al. (2024) — Introduction (prevalence figures from Gillies et al., 2018; Swannell et al., 2014; Goodman et al., 2017).</div>
+</section>
+
+<!-- ============ SLIDE 3: CLINICAL PROBLEM ============ -->
+<section class="slide">
+  <h2>The Clinical Problem: What Is Self-Harm?</h2>
+  <div class="cards">
+    <div class="card lav">
+      <h3>Definition used in this paper</h3>
+      <p>Following Hawton et al. (2012), self-harm means <b>deliberately poisoning or injuring oneself</b>, <b>whatever the reason and whether or not the person meant to die</b>.</p>
+      <p style="margin-top:8px;">So it covers acts done <b>with</b> a wish to die and acts done <b>without</b> a wish to die.</p>
+      <div class="plain"><b>In simple words:</b> any act where a person purposely hurts their own body — the paper counts it as self-harm regardless of the motive.</div>
+    </div>
+    <div class="card pow">
+      <h3>Common forms</h3>
+      <p>
+        <span class="badge">Cutting</span><span class="badge">Burning</span>
+        <span class="badge">Hitting oneself</span><span class="badge">Scratching</span>
+        <span class="badge">Self-poisoning</span><span class="badge">Stopping wounds from healing</span>
+      </p>
+      <h3 style="margin-top:10px;">What it does for the person</h3>
+      <p>It often works as a way to <b>escape unbearable feelings</b>, or to <b>feel connected again</b> when the person feels alone or numb.</p>
+    </div>
+  </div>
+  <div class="grid2" style="margin-top:12px;">
+    <div class="card mint">
+      <h3>Non-suicidal self-injury (NSSI)</h3>
+      <p>Hurting the body <b>without</b> a wish to die — usually to <b>relieve</b> unbearable emotion. Often repeated, lower immediate lethality.</p>
+    </div>
+    <div class="card bl">
+      <h3>Suicidal self-injury</h3>
+      <p>Self-harm carried out <b>with</b> some wish to die. Higher risk; may escalate. These two <b>overlap</b> and can be hard to tell apart.</p>
+    </div>
+  </div>
+  <div class="callout warn" style="margin-top:12px;">
+    <b>Clinical caution:</b> Always assess self-harm for <b>suicidal intent (wish to die), lethality (how dangerous the method is), frequency, triggers, function (what it does for the person), and current safety</b> — even when it is called "non-suicidal". This paper's definition deliberately <b>combines both</b>, which is itself a limitation (discussed later).
+  </div>
+  <div class="src">Source: Hajek Gross et al. (2024) — Introduction; definition based on Hawton et al. (2012).</div>
+</section>
+
+<!-- ============ SLIDE 4: SELF-HARM & RECURRENCE ============ -->
+<section class="slide">
+  <h2>Self-Harm and Repetition (Recurrence)</h2>
+  <div class="two-col">
+    <div class="fill">
+      <div class="card sag">
+        <h3>Why it keeps coming back</h3>
+        <p>Self-harm gives <b>quick, short-lived relief</b> from distress. That relief acts as a reward, making the person more likely to do it again — a cycle that is hard to stop.</p>
+        <p style="margin-top:8px;">Among BPD inpatients, <b>51–65%</b> have self-harmed <b>25 or more times</b> in their lives (Goodman et al., 2017).</p>
+      </div>
+      <div class="callout" style="margin-top:12px;">
+        MBT tries to break this cycle by working on the <b>drop in "mentalizing"</b> (the ability to think clearly about feelings) that happens under stress — not just the behaviour itself.
+      </div>
+    </div>
+    <div class="fill">
+      <h3 style="text-align:center;">The self-harm cycle</h3>
+      <div class="flow">
+        <div class="fbox a">A relationship trigger / fear of being abandoned</div><span class="arrow">↓</span>
+        <div class="fbox">Emotions become overwhelming</div><span class="arrow">↓</span>
+        <div class="fbox b">Clear thinking about feelings drops</div><span class="arrow">↓</span>
+        <div class="fbox b">Urge to self-harm</div><span class="arrow">↓</span>
+        <div class="fbox d">Self-harm → short relief</div><span class="arrow">↓</span>
+        <div class="fbox b">Shame &amp; distress → it repeats</div>
+      </div>
+    </div>
+  </div>
+  <div class="src">Source: Hajek Gross et al. (2024); cycle built from the paper's mentalizing model (Rossouw &amp; Fonagy, 2012).</div>
+</section>
+
+<!-- ============ SLIDE 5: TREATMENT GAP ============ -->
+<section class="slide">
+  <h2>The Gap in Current Treatment</h2>
+  <div class="grid3">
+    <div class="card pch"><h3>Disagreeing evidence</h3><p>Earlier reviews of MBT for BPD gave <b>inconsistent</b> results for self-harm.</p></div>
+    <div class="card bl"><h3>Small effects overall</h3><p>Treatments for self-harm in general show only <b>small</b> average benefits (Fox et al., 2020).</p></div>
+    <div class="card lav"><h3>People drop out</h3><p>Patients with strong emotional swings are <b>hard to keep in therapy</b>; many leave early.</p></div>
+    <div class="card pow"><h3>No focused review</h3><p>No earlier review looked <b>specifically at MBT for self-harm</b>.</p></div>
+    <div class="card sag"><h3>Age may matter</h3><p>Results may <b>differ</b> for teenagers and adults — never directly compared before.</p></div>
+    <div class="card mint"><h3>Which format?</h3><p>Unclear if <b>individual vs. group</b> MBT and different lengths work equally well.</p></div>
+  </div>
+  <div class="callout" style="margin-top:14px;">
+    <b>What this paper adds:</b> one review that combines <b>both "before–after" studies and randomized controlled trials</b> <span class="plain" style="display:inline-block;margin:0;padding:2px 6px;">(RCT = a fair test where people are split into treatment vs. comparison groups by chance)</span>, and directly compares <b>MBT (adults)</b> with <b>MBT-A (teenagers)</b>.
+  </div>
+  <div class="src">Source: Hajek Gross et al. (2024) — Introduction.</div>
+</section>
+
+<!-- ============ SLIDE 6: WHY MBT ============ -->
+<section class="slide">
+  <h2>Why Mentalization-Based Therapy Is Relevant</h2>
+  <div class="two-col">
+    <div class="fill">
+      <div class="card lav">
+        <h3>Mentalizing</h3>
+        <p>The ability to understand <b>oneself and others</b> through <b>mental states</b> — thoughts, feelings, wishes, beliefs and intentions.</p>
+        <div class="plain"><b>In simple words:</b> "reading" what is going on inside your own mind and other people's minds, instead of jumping to conclusions.</div>
+      </div>
+      <div class="card bl" style="margin-top:12px;">
+        <h3>When it breaks down</h3>
+        <p>Mentalizing fails under <b>strong emotion, conflict, feeling rejected, or fear about a close relationship</b> — the very situations that come just before self-harm.</p>
+      </div>
+    </div>
+    <div class="fill">
+      <h3 style="text-align:center;">The idea in one picture</h3>
+      <div class="flow">
+        <div class="fbox a">Threat to a close relationship</div><span class="arrow">↓</span>
+        <div class="fbox">Mentalizing fails (can't think clearly)</div><span class="arrow">↓</span>
+        <div class="fbox">Misreads self &amp; others</div><span class="arrow">↓</span>
+        <div class="fbox b">Emotions become uncontrollable</div><span class="arrow">↓</span>
+        <div class="fbox d">Self-harm</div>
+      </div>
+      <p style="margin-top:10px;text-align:center;"><small>MBT's goal: <b>rebuild mentalizing → calmer emotions → less impulsive self-harm.</b></small></p>
+    </div>
+  </div>
+  <div class="src">Source: Hajek Gross et al. (2024) — Introduction (Fonagy et al., 2018; Bateman &amp; Fonagy, 1999).</div>
+</section>
+
+<!-- ============ SLIDE 7: INTRODUCTION / KEY CONCEPTS ============ -->
+<section class="slide">
+  <h2>Introduction: Three Key Ideas</h2>
+  <div class="grid3">
+    <div class="card lav">
+      <h3>Self-harm</h3>
+      <p>Deliberate self-poisoning or self-injury, <b>with or without</b> a wish to die (Hawton et al., 2012). Strongly linked to mental illness, especially BPD.</p>
+    </div>
+    <div class="card pow">
+      <h3>MBT &amp; MBT-A</h3>
+      <p>A <b>manual-based</b> therapy <span class="plain" style="display:inline-block;margin:0;padding:2px 6px;">(follows a written treatment guide)</span> built from psychoanalysis, attachment theory and cognitive theory (Bateman &amp; Fonagy, 1999). Main aim: <b>strengthen mentalizing</b>. MBT-A is the version adapted for adolescents.</p>
+    </div>
+    <div class="card sag">
+      <h3>Review + meta-analysis</h3>
+      <p>A method that <b>gathers all studies</b> and <b>combines their results</b> into one average number, while checking how much studies disagree and how trustworthy they are.</p>
+    </div>
+  </div>
+  <div class="callout" style="margin-top:14px;">
+    <b>Forms of MBT:</b> it began as an intensive day-hospital program (5 days a week, 18 months); a shorter <b>outpatient</b> form was made later (individual + group, 18 months); <b>MBT-G</b> is a cheaper group-only version (12–36 months); and <b>MBT-A</b> (for teenagers) usually lasts 12 months and adds family sessions.
+  </div>
+  <div class="src">Source: Hajek Gross et al. (2024) — Introduction (Bateman &amp; Fonagy, 1999, 2006; Karterud, 2015; Taubner &amp; Sevecke, 2015).</div>
+</section>
+
+<!-- ============ SLIDE 8: CONCEPTUAL FRAMEWORK ============ -->
+<section class="slide">
+  <h2>Conceptual Framework (the theory in steps)</h2>
+  <div class="flow" style="flex:1;justify-content:center;">
+    <div class="fbox a">Insecure attachment / stress in relationships</div><span class="arrow">↓</span>
+    <div class="fbox">Mentalizing drops when emotions run high</div><span class="arrow">↓</span>
+    <div class="fbox">Misreads own and others' intentions</div><span class="arrow">↓</span>
+    <div class="fbox b">Emotions become uncontrollable + impulsive</div><span class="arrow">↓</span>
+    <div class="fbox b">Self-harm behaviour</div><span class="arrow">↓</span>
+    <div class="fbox d">Short-term emotional relief</div><span class="arrow">↓</span>
+    <div class="fbox b">Later: distress, shame, relationship problems</div><span class="arrow">↓</span>
+    <div class="fbox c">MBT works on mentalizing, emotion control &amp; understanding others</div><span class="arrow">↓</span>
+    <div class="fbox c">Hoped result: less self-harm &amp; better functioning</div>
+  </div>
+  <div class="explain"><b>How to read this chart:</b> read it top to bottom like a story. Each box leads to the next. The pink boxes are the problem building up; the green boxes at the bottom show where the therapy tries to step in and turn things around.</div>
+  <div class="src">Source: Framework built from Hajek Gross et al. (2024) and its cited model (Rossouw &amp; Fonagy, 2012; Fonagy et al., 2018).</div>
+</section>
+
+<!-- ============ SLIDE 9: LITERATURE / BACKGROUND STUDIES ============ -->
+<section class="slide">
+  <h2>Background Studies the Authors Build On</h2>
+  <table>
+    <tr><th>Study</th><th>What it looked at</th><th>Main point (simple)</th></tr>
+    <tr><td>Rossouw &amp; Fonagy (2012)</td><td>Fair test (RCT): MBT-A vs. usual care, teenagers</td><td>MBT-A lowered self-harm &amp; depression; the improvement worked <b>through better mentalizing</b>.</td></tr>
+    <tr><td>Bateman &amp; Fonagy (2009)</td><td>RCT: MBT vs. structured care, adults with BPD</td><td>A landmark trial showing MBT helps adults with BPD.</td></tr>
+    <tr><td>Malda-Castillo et al. (2019)</td><td>Review of MBT studies</td><td>Early evidence that MBT helps across BPD problems.</td></tr>
+    <tr><td>Storebø et al. (2020) — Cochrane</td><td>Review of therapies for BPD</td><td>Evidence for MBT is <b>mixed and uncertain</b>.</td></tr>
+    <tr><td>Kothgassner et al. (2021)</td><td>Meta-analysis of DBT-A</td><td>DBT-A <span class="plain" style="display:inline-block;margin:0;padding:2px 6px;">(a skills-based therapy)</span> gives small-to-moderate benefit — a key rival to MBT-A.</td></tr>
+  </table>
+  <div class="callout" style="margin-top:14px;">
+    Put together, the evidence for MBT reducing self-harm was <b>hopeful but not consistent</b> — which is exactly why a focused review was needed.
+  </div>
+  <div class="src">Source: Hajek Gross et al. (2024) — Introduction &amp; Discussion; references as cited.</div>
+</section>
+
+<!-- ============ SLIDE 10: RESEARCH GAP + RATIONALE ============ -->
+<section class="slide">
+  <h2>Research Gap &amp; Why the Study Was Done</h2>
+  <div class="two-col">
+    <div class="card bl">
+      <h3>Gaps in earlier research</h3>
+      <ul>
+        <li>Studies had <b>few participants</b>; few were fair trials (RCTs).</li>
+        <li>MBT was given in <b>different forms and lengths</b>.</li>
+        <li>Comparison groups and outcome measures <b>varied a lot</b>.</li>
+        <li>Little <b>direct comparison of adults vs. teenagers</b>.</li>
+        <li>Unclear <b>how</b> MBT actually helps.</li>
+      </ul>
+    </div>
+    <div class="card mint">
+      <h3>Why this study was needed</h3>
+      <ul>
+        <li>To <b>combine</b> all the MBT self-harm evidence in one place.</li>
+        <li>To estimate the <b>overall benefit</b> on self-harm, BPD &amp; depression.</li>
+        <li>To test whether MBT is <b>better than usual care</b>.</li>
+        <li>To check what <b>changes the size of the benefit</b> (length, dropout, age).</li>
+        <li>To help clinicians <b>choose treatments</b>.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="src">Source: Hajek Gross et al. (2024) — Introduction.</div>
+</section>
+
+<!-- ============ SLIDE 11: AIM / QUESTION / HYPOTHESIS ============ -->
+<section class="slide">
+  <h2>Aim, Question &amp; Review Objective</h2>
+  <div class="card lav">
+    <h3>Aim (as stated in the paper)</h3>
+    <p>To <b>separate out the findings for teenagers and adults</b> on how well MBT(-A) reduces <b>self-harm</b> (the main outcome) and symptoms of <b>BPD and depression</b> (the secondary outcomes).</p>
+  </div>
+  <div class="grid2" style="margin-top:14px;">
+    <div class="card pow">
+      <h3>Research question</h3>
+      <p>Does MBT(-A) reduce self-harm and improve BPD &amp; depression — and is it <b>better than comparison treatments</b> (usual care / structured care)?</p>
+    </div>
+    <div class="card sag">
+      <h3>Objective vs. hypothesis</h3>
+      <p>Because this is a <b>pre-registered</b> review <span class="plain" style="display:inline-block;margin:0;padding:2px 6px;">(the plan was published before the work started, which prevents cherry-picking)</span>, it used <b>set review questions</b> rather than one experimental hypothesis. (OSF plan: OSF.IO/26JVF)</p>
+    </div>
+  </div>
+  <div class="src">Source: Hajek Gross et al. (2024) — Abstract &amp; Methods.</div>
+</section>
+
+<!-- ============ SLIDE 12: PICO ============ -->
+<section class="slide">
+  <h2>Framing the Question — PICO</h2>
+  <p class="note">PICO is a standard way to build a clear research question: Population, Intervention, Comparison, Outcome.</p>
+  <div class="pico" style="margin-top:8px;">
+    <div class="pill">P</div><div class="card pow" style="border-top:none;"><b>Population (who):</b> clinical patients who self-harm; most had BPD or personality difficulties; teenagers (MBT-A) and adults (MBT).</div>
+    <div class="pill">I</div><div class="card lav" style="border-top:none;"><b>Intervention (the treatment):</b> mentalization-based therapy — MBT (adults) or MBT-A (teenagers), including individual, group (MBT-G) and day-hospital forms.</div>
+    <div class="pill">C</div><div class="card sag" style="border-top:none;"><b>Comparison (compared against):</b> Treatment-as-Usual (TAU = the normal care people would get anyway) or Structured Clinical Management (SCM = organised, non-specialist psychiatric support). Note: "before–after" analyses have no comparison group.</div>
+    <div class="pill">O</div><div class="card mint" style="border-top:none;"><b>Outcomes (what was measured):</b> main = <b>how often self-harm happened</b>; secondary = <b>BPD symptoms</b> and <b>depression</b>.</div>
+  </div>
+  <div class="src">Source: Hajek Gross et al. (2024) — Methods (inclusion criteria &amp; outcomes).</div>
+</section>
+
+<!-- ============ SLIDE 13: METHODOLOGY OVERVIEW ============ -->
+<section class="slide">
+  <h2>Methodology at a Glance</h2>
+  <div class="grid3">
+    <div class="card lav"><h3>Design</h3><p>Pre-registered systematic review &amp; meta-analysis. Included both <b>fair trials (RCTs)</b> and <b>before–after</b> studies.</p></div>
+    <div class="card pow"><h3>Databases searched</h3><p>Web of Science, Scopus, Embase, PubMed/Medline, Cochrane — plus a Google Scholar alert and checking reference lists.</p></div>
+    <div class="card sag"><h3>Search window</h3><p>All studies published <b>up to 30 September 2022</b>.</p></div>
+    <div class="card mint"><h3>Effect size</h3><p><b>Hedges' g</b> <span class="plain" style="display:inline-block;margin:0;padding:2px 6px;">(a standard number showing how big a change is)</span>, using <b>random-effects</b> models in R.</p></div>
+    <div class="card pch"><h3>Heterogeneity (I²)</h3><p>How much studies disagree: 25% = low, 50% = moderate, 75% = high (Higgins et al., 2003).</p></div>
+    <div class="card bl"><h3>Quality &amp; extras</h3><p><b>RoB 2</b> tool for bias; meta-regression (does length/dropout/age change results?); sensitivity &amp; subgroup checks.</p></div>
+  </div>
+  <div class="callout warn" style="margin-top:12px;">
+    Because most analyses had <b>fewer than 10 studies</b>, the authors did <b>not report a formal publication-bias test</b> <span class="plain" style="display:inline-block;margin:0;padding:2px 6px;">(a check for missing negative studies)</span> — it needs more studies to be reliable.
+  </div>
+  <div class="src">Source: Hajek Gross et al. (2024) — Methods.</div>
+</section>
+
+<!-- ============ SLIDE 14: SEARCH TERMS & ELIGIBILITY ============ -->
+<section class="slide">
+  <h2>Search Strategy &amp; Which Studies Counted</h2>
+  <div class="two-col">
+    <div>
+      <div class="card lav">
+        <h3>Exact search terms</h3>
+        <p style="font-family:monospace;font-size:13px;line-height:1.7;">
+          ("MBT*" OR "Mentalization-based" OR "Mentalisation-based")<br>
+          <b>AND</b><br>
+          ("self harm" OR "self-harm" OR "NSSI" OR "self-injury" OR "self injury")
+        </p>
+        <div class="plain"><b>What this means:</b> the database had to mention MBT <b>and</b> self-harm. "OR" widens the net; "AND" links the two topics. NSSI = non-suicidal self-injury.</div>
+      </div>
+    </div>
+    <div>
+      <div class="card sag">
+        <h3>Included if…</h3>
+        <ul>
+          <li>It was an RCT <b>or</b> a before–after study of MBT / MBT-A</li>
+          <li>It reported <b>self-harm scores</b> before and after treatment</li>
+          <li>It used a <b>clinical</b> (patient) sample</li>
+        </ul>
+      </div>
+      <div class="card bl" style="margin-top:12px;">
+        <h3>Excluded (12 reports)</h3>
+        <p>No self-harm result (3) · A repeat/extension of an already-included study (5) · Mixed with other treatments (3) · No usable data (1).</p>
+      </div>
+    </div>
+  </div>
+  <div class="src">Source: Hajek Gross et al. (2024) — Methods &amp; Figure 1.</div>
+</section>
+
+<!-- ============ SLIDE 15: PRISMA ============ -->
+<section class="slide">
+  <h2>PRISMA Flowchart — How 14 Studies Were Chosen</h2>
+  <div class="flow" style="flex:1;justify-content:center;">
+    <div class="flowrow">
+      <div class="fbox a">Records found — <b>369</b><br><small>WoS 96 · PubMed 96 · Embase 86 · Scopus 79 · Cochrane 9 · Other 3</small></div>
+      <span class="arrowr">→</span>
+      <div class="fbox b">Duplicates removed — <b>255</b></div>
+    </div>
+    <span class="arrow">↓</span>
+    <div class="flowrow">
+      <div class="fbox">Titles/abstracts screened — <b>114</b></div><span class="arrowr">→</span>
+      <div class="fbox b">Removed at screening — <b>89</b></div>
+    </div>
+    <span class="arrow">↓</span>
+    <div class="flowrow">
+      <div class="fbox">Full papers checked — <b>25</b></div><span class="arrowr">→</span>
+      <div class="fbox b">Removed with reasons — <b>12</b></div>
+    </div>
+    <span class="arrow">↓</span>
+    <div class="fbox c" style="max-width:520px;"><b>Studies included — 14</b> (14 samples) · <b>612 participants</b></div>
+  </div>
+  <div class="explain"><b>How to read this chart:</b> a PRISMA flowchart is like a funnel. It starts with everything the search found (369) at the top, and at each step some records are thrown out (duplicates, off-topic, unusable) until only the studies that truly fit remain (14). It shows the selection was systematic and honest.</div>
+  <div class="src">Source: Hajek Gross et al. (2024) — Figure 1 (PRISMA flowchart).</div>
+</section>
+
+<!-- ============ SLIDE 16: PARTICIPANTS ============ -->
+<section class="slide">
+  <h2>Participants &amp; Included Studies</h2>
+  <div class="grid3">
+    <div class="card lav"><h3>14 samples</h3><p><b>9 MBT</b> (adults): 6 before–after + 3 RCTs<br><b>5 MBT-A</b> (teenagers): 2 before–after + 3 RCTs</p></div>
+    <div class="card pow"><h3>612 participants</h3><p>MBT <b>257</b> · MBT-A <b>193</b> · Comparison <b>162</b><br>(278 teenagers, 334 adults)</p></div>
+    <div class="card sag"><h3>Comparison groups</h3><p>Treatment-as-Usual (<b>TAU</b>) or Structured Clinical Management (<b>SCM</b>)</p></div>
+  </div>
+  <div style="margin-top:12px;">
+    <h3>How the 612 participants split</h3>
+    <div class="propbar">
+      <div style="width:42%;background:#c3b6e0;">MBT (adults) — 257</div>
+      <div style="width:31.5%;background:#a5ddc9;">MBT-A (teens) — 193</div>
+      <div style="width:26.5%;background:#e9c09a;">Comparison — 162</div>
+    </div>
+  </div>
+  <div class="grid2" style="margin-top:14px;align-items:center;">
+    <div class="card mint">
+      <h3>MBT-A (teenagers)</h3>
+      <p>Average age <b>16.1 years</b> · dropout <b>31.4%</b> (range 8–56%)</p>
+    </div>
+    <div class="card pch">
+      <h3>MBT (adults)</h3>
+      <p>Average age <b>31.1 years</b> · dropout <b>35.1%</b> (range 0–71%)</p>
+    </div>
+  </div>
+  <div class="donutwrap" style="margin-top:12px;">
+    <div>
+      <div class="donut" data-label="88% female" style="background:conic-gradient(#c98aa8 0 88%, #e6e1f2 88% 100%);"></div>
+      <div class="donutcap">MBT-A: 88% female</div>
+    </div>
+    <div>
+      <div class="donut" data-label="79% female" style="background:conic-gradient(#6a8fb0 0 79%, #e6e1f2 79% 100%);"></div>
+      <div class="donutcap">MBT: 79% female</div>
+    </div>
+    <div class="callout warn" style="flex:1;min-width:220px;">Nearly everyone had <b>BPD / personality difficulties</b>, and the samples were <b>mostly female</b> (pink slice) — keep this in mind when judging how widely the results apply.</div>
+  </div>
+  <div class="explain"><b>Reading the donuts:</b> the coloured slice = the share who were female. Both groups are heavily female, so results may apply less well to men and boys.</div>
+  <div class="src">Source: Hajek Gross et al. (2024) — Results: Study characteristics &amp; Table 1.</div>
+</section>
+
+<!-- ============ SLIDE 17: STUDY-COMPARISON TABLE ============ -->
+<section class="slide">
+  <h2>Study Comparison (from Table 1 — selected)</h2>
+  <table>
+    <tr><th>Study</th><th>Group</th><th>Format / Setting</th><th>Comparison</th><th>Length</th></tr>
+    <tr><td>Griffiths et al. 2019 (RCT)</td><td>MBT-Ai (brief)</td><td>Group / CAMHS (youth service)</td><td>TAU</td><td>12 weeks</td></tr>
+    <tr><td>Beck et al. 2020 (RCT)</td><td>MBT-G</td><td>Group / outpatient</td><td>TAU</td><td>12 months</td></tr>
+    <tr><td>Rossouw &amp; Fonagy 2012 (RCT)</td><td>MBT-A</td><td>Individual / outpatient</td><td>TAU</td><td>12 months</td></tr>
+    <tr><td>Bo et al. 2017</td><td>MBT-G</td><td>Group / outpatient</td><td>—</td><td>8.3 months</td></tr>
+    <tr><td>Tromp et al. 2021</td><td>MBT-A</td><td>Group / inpatient</td><td>—</td><td>12 months</td></tr>
+    <tr><td>Bateman &amp; Fonagy 2009 (RCT)</td><td>MBT</td><td>Indiv.+group / outpatient</td><td>SCM</td><td>18 months</td></tr>
+    <tr><td>Philips et al. 2018 (RCT)</td><td>MBT+SUD</td><td>Indiv.+group / addiction service</td><td>SUD care</td><td>18 months</td></tr>
+    <tr><td>Bateman &amp; Fonagy 1999</td><td>MBT</td><td>Indiv.+group / day hospital</td><td>—</td><td>18 months</td></tr>
+    <tr><td>Kvarstein et al. 2015</td><td>MBT</td><td>Indiv.+group / day hospital</td><td>—</td><td>36 months</td></tr>
+    <tr><td>Smits et al. 2020 (A &amp; B)</td><td>MBT-DH / MBT-IOP</td><td>Day hospital / outpatient</td><td>—</td><td>18 months</td></tr>
+  </table>
+  <div class="explain"><b>What this table tells us:</b> the studies are very different from each other — from a short 12-week group to a 3-year day-hospital program, and from teenagers to adults. This variety is important later, because it makes the studies harder to combine fairly.</div>
+  <div class="src">Source: Hajek Gross et al. (2024) — Table 1 (selected rows; also includes Löf 2018, Bales 2012, Barnicot &amp; Crawford 2019).</div>
+</section>
+
+<!-- ============ SLIDE 18: MBT PROTOCOL ============ -->
+<section class="slide">
+  <h2>How MBT Was Actually Delivered</h2>
+  <div class="grid3">
+    <div class="card lav"><h3>Adult MBT</h3><p>Weekly <b>individual + group</b> therapy; often <b>18 months</b>; in a day hospital or outpatient clinic. Some added education about the illness and crisis planning.</p></div>
+    <div class="card pow"><h3>MBT-A (teenagers)</h3><p>Usually <b>12 months</b>; weekly individual sessions <b>plus monthly family</b> sessions (Rossouw &amp; Fonagy, 2012).</p></div>
+    <div class="card sag"><h3>MBT-G (group)</h3><p>Group + parent sessions <b>without</b> individual therapy; cheaper option; used by Beck 2020, Bo 2017, Tromp 2021.</p></div>
+  </div>
+  <div class="callout warn" style="margin-top:14px;">
+    <b>Wide variation:</b> from a 12-week brief starter group (Griffiths) to a 36-month day-hospital program (Kvarstein). This range is a big reason the studies "disagree" (high heterogeneity) and are hard to pool.
+  </div>
+  <div class="src">Source: Hajek Gross et al. (2024) — Table 1 &amp; Discussion. Details reported per included study.</div>
+</section>
+
+<!-- ============ SLIDE 19: MBT CORE PRINCIPLES ============ -->
+<section class="slide">
+  <h2>MBT Core Therapeutic Principles</h2>
+  <div class="two-col">
+    <div class="fill">
+      <p class="lead">MBT works <b>indirectly</b>: instead of attacking the self-harm behaviour head-on, it builds the patient's ability to <b>reflect on feelings and thoughts</b> — especially when relationships feel stressful.</p>
+      <p style="margin-top:12px;">
+        <span class="badge">Curiosity</span><span class="badge">"Not-knowing" stance</span>
+        <span class="badge">Working together</span><span class="badge">Focus on present feelings</span>
+        <span class="badge">Attention to emotion</span><span class="badge">Calming arousal</span>
+        <span class="badge">Exploring other views</span><span class="badge">Repairing misunderstandings</span>
+      </p>
+      <div class="plain"><b>"Not-knowing" stance:</b> the therapist stays genuinely curious and does not assume they already know what the patient feels — this models good mentalizing.</div>
+    </div>
+    <div class="fill">
+      <h3 style="text-align:center;">The mentalizing loop in a session</h3>
+      <div class="flow">
+        <div class="flowrow">
+          <div class="fbox c">Feeling</div><span class="arrowr">→</span>
+          <div class="fbox">What's the mental state?</div><span class="arrowr">→</span>
+          <div class="fbox a">What does it mean for the relationship?</div>
+        </div>
+        <span class="arrow">↓</span>
+        <div class="flowrow">
+          <div class="fbox c">Calmer, regulated</div><span class="arrowr">←</span>
+          <div class="fbox a">Consider another point of view</div>
+        </div>
+      </div>
+      <p style="margin-top:10px;text-align:center;"><small>A repeating, curious cycle — not rushing to interpret.</small></p>
+    </div>
+  </div>
+  <div class="src">Source: Hajek Gross et al. (2024) — Introduction &amp; Discussion (Bateman &amp; Fonagy; Karterud, 2015).</div>
+</section>
+
+<!-- ============ SLIDE 20: OUTCOME MEASURES ============ -->
+<section class="slide">
+  <h2>What Was Measured (Outcome Measures)</h2>
+  <div class="grid2">
+    <div class="card lav">
+      <h3>Main outcome — Self-harm</h3>
+      <p><b>How often and how severe self-harm was.</b></p>
+      <p>Different questionnaires were used: <b>RTSHI(-A)</b>, DSHI-9, SSHI, SASII, DAPP-SF, plus simple episode counts. <span class="plain" style="display:inline-block;margin:0;padding:2px 6px;">(these are all validated self-harm rating scales)</span></p>
+    </div>
+    <div class="card pow">
+      <h3>Secondary — BPD &amp; Depression</h3>
+      <p><b>BPD symptoms:</b> BPFS-C, BPDSI, GSI, BEST, PAI-BOR, KABOSS-S.</p>
+      <p><b>Depression:</b> BDI, BDI-Y, MFQ, RCADS.</p>
+    </div>
+  </div>
+  <div class="callout warn" style="margin-top:14px;">
+    <b>Notice the many different tools.</b> This is both good and bad: it covers a lot, but it makes studies <b>harder to compare</b> (a limitation the authors mention). Also, MBT's core target — <b>mentalizing itself</b> — was <b>not</b> measured as an outcome.
+  </div>
+  <div class="src">Source: Hajek Gross et al. (2024) — Table 1 (outcome measures) &amp; Limitations.</div>
+</section>
+
+<!-- ============ SLIDE 21: RISK OF BIAS ============ -->
+<section class="slide">
+  <h2>Risk of Bias (How Trustworthy Are the Studies?)</h2>
+  <p class="note">"Bias" means anything in how a study was run that could push the result in the wrong direction.</p>
+  <div class="two-col" style="margin-top:8px;">
+    <div class="fill">
+      <div class="card bl">
+        <h3>Headline finding</h3>
+        <p>Of the <b>6 RCTs</b> checked: <b>4 (66.7%)</b> had a <b>high</b> risk of bias; <b>2 (33.3%)</b> had a <b>moderate</b> risk (some concerns).</p>
+        <p style="margin-top:8px;">Bias was worst in the <b>teenage (MBT-A) trials</b>, especially in <b>"measurement of the outcome"</b> (how self-harm was recorded). <b>All MBT-A studies</b> had overall high risk of bias.</p>
+      </div>
+    </div>
+    <div class="fill">
+      <h3>The 5 areas checked (RoB 2 tool)</h3>
+      <ul>
+        <li>Randomization (was the group split truly by chance?)</li>
+        <li>Sticking to the intended treatment</li>
+        <li>Missing outcome data</li>
+        <li>How the outcome was measured</li>
+        <li>Selective reporting (only reporting good results)</li>
+      </ul>
+      <div class="legend">
+        <span><span class="tl g"></span> Low risk</span>
+        <span><span class="tl y"></span> Some concerns</span>
+        <span><span class="tl r"></span> High risk</span>
+      </div>
+    </div>
+  </div>
+  <h3 style="margin-top:12px;">Overall verdict on the 6 RCTs (traffic-light view)</h3>
+  <div class="propbar" style="margin-top:4px;">
+    <div style="width:66.7%;background:#d99a9a;">High risk — 4 trials (66.7%)</div>
+    <div style="width:33.3%;background:#e6c56b;">Some concerns — 2 trials (33.3%)</div>
+  </div>
+  <div class="legend">
+    <span><span class="tl r"></span> High risk of bias</span>
+    <span><span class="tl y"></span> Some concerns</span>
+    <span><span class="tl g"></span> Low risk (none of the RCTs reached this)</span>
+  </div>
+  <div class="explain"><b>Why this matters:</b> the "traffic-light" system rates each study green/yellow/red on each area. Here the bar is <b>mostly red/yellow and no green</b> — so we must read even the positive findings <b>with caution</b>, as the studies may over- or under-state the true effect.</div>
+  <div class="src">Source: Hajek Gross et al. (2024) — Risk of bias &amp; Figure 4.</div>
+</section>
+
+<!-- ============ SLIDE 22: STATISTICAL ANALYSIS ============ -->
+<section class="slide">
+  <h2>Statistical Analysis — In Plain Words</h2>
+  <div class="grid2">
+    <div class="card lav">
+      <h3>Effect size (Hedges' g)</h3>
+      <p>A single number showing how big the change is: <b>0.20 = small, 0.50 = medium, 0.80 = large</b> (Cohen, 1988). A <b>negative g means improvement</b> (fewer symptoms).</p>
+    </div>
+    <div class="card pow">
+      <h3>Two kinds of comparison</h3>
+      <p><b>Before–after:</b> change within the MBT group over time.<br><b>Vs. comparison:</b> MBT(-A) against usual/structured care — this is the <b>real test</b> of whether MBT truly helps.</p>
+    </div>
+    <div class="card sag">
+      <h3>Heterogeneity (I²)</h3>
+      <p>How much the studies <b>disagree</b> with each other. 25% low · 50% moderate · 75% high. High I² = be careful trusting the combined number.</p>
+    </div>
+    <div class="card mint">
+      <h3>Extra checks</h3>
+      <p>Random-effects model (assumes true effects differ across studies); meta-regression; sensitivity check (removing the odd brief pilot study).</p>
+    </div>
+  </div>
+  <div class="callout" style="margin-top:12px;"><b>The key idea to remember:</b> a big <b>before–after</b> change can look impressive, but only a <b>controlled comparison</b> shows whether MBT does better than the care people already get.</div>
+  <div class="src">Source: Hajek Gross et al. (2024) — Data extraction &amp; analysis.</div>
+</section>
+
+<!-- ============ SLIDE 23: RESULTS — PRE-POST (headline) ============ -->
+<section class="slide">
+  <h2>Results 1 — Before vs. After: Big Improvements</h2>
+  <p class="lead">Looking only at change over time (no comparison group), patients improved a lot on all three outcomes.</p>
+  <div class="forest" style="margin-top:14px;">
+    <div class="fline">
+      <div class="flabel">Self-harm (14 studies)</div>
+      <div class="ftrack"><div class="fzero" style="left:78%;"></div>
+        <div class="fci g" style="left:33%;width:33.5%;"></div><div class="fdot g" style="left:47%;"></div></div>
+      <div class="fval"><b>g = −0.82</b><br><small>95% CI −1.15 to −0.50 · I²=78.6%</small></div>
+    </div>
+    <div class="fline">
+      <div class="flabel">BPD symptoms (12 studies)</div>
+      <div class="ftrack"><div class="fzero" style="left:78%;"></div>
+        <div class="fci g" style="left:20%;width:33%;"></div><div class="fdot g" style="left:34%;"></div></div>
+      <div class="fval"><b>g = −1.08</b><br><small>95% CI −1.38 to −0.77 · I²=59.9%</small></div>
+    </div>
+    <div class="fline">
+      <div class="flabel">Depression (7 studies)</div>
+      <div class="ftrack"><div class="fzero" style="left:78%;"></div>
+        <div class="fci g" style="left:16%;width:40%;"></div><div class="fdot g" style="left:33%;"></div></div>
+      <div class="fval"><b>g = −1.10</b><br><small>95% CI −1.52 to −0.68 · I²=62.9%</small></div>
+    </div>
+    <div class="scaleax"><div></div><div>← favours MBT (improvement) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0 = no change →</div><div></div></div>
+  </div>
+  <div class="explain"><b>How to read this forest plot:</b> each <b>dot</b> is the average result; the <b>bar</b> around it (the "95% CI", or confidence interval) shows the range the true value is likely to lie in. The vertical line marks "no change (0)". All three dots sit well to the <b>left</b> of that line and the bars do not touch it — meaning a <b>real, large improvement</b>. <b>But</b> there is no comparison group here, so we cannot say MBT alone caused it.</div>
+  <div class="src">Source: Hajek Gross et al. (2024) — Figure 2. Bars are drawn to scale to represent the reported values.</div>
+</section>
+
+<!-- ============ SLIDE 24: RESULTS — PRE-POST subgroups ============ -->
+<section class="slide">
+  <h2>Results 2 — Before vs. After, by Age Group</h2>
+  <table>
+    <tr><th>Outcome</th><th>MBT-A (teenagers)</th><th>MBT (adults)</th></tr>
+    <tr><td><b>Self-harm</b></td><td>g = −0.56 (−1.05, −0.07), 5 studies · <i>medium</i> · I²=74.4%</td><td>g = −0.96 (−1.37, −0.56), 9 studies · <i>large</i> · I²=74.4%</td></tr>
+    <tr><td><b>BPD symptoms</b></td><td>g = −0.90 (−1.37, −0.42), 4 studies · <i>large</i> · I²=45.3%</td><td>g = −1.16 (−1.55, −0.76), 8 studies · <i>large</i> · I²=65.8%</td></tr>
+    <tr><td><b>Depression</b></td><td>g = −0.81 (−1.32, −0.30), 4 studies · <i>large</i> · I²=55.5%</td><td>g = −1.45 (−1.93, −0.96), 3 studies · <i>large</i> · I²=36.7%</td></tr>
+  </table>
+  <h3 style="margin-top:14px;">Same results as a bar chart (bigger bar = bigger improvement)</h3>
+  <div class="cmp">
+    <div>Self-harm</div>
+    <div>
+      <div class="g gteen" style="width:37%;">teens −0.56</div>
+      <div class="g gadult" style="width:64%;margin-top:3px;">adults −0.96</div>
+    </div>
+    <div>BPD symptoms</div>
+    <div>
+      <div class="g gteen" style="width:60%;">teens −0.90</div>
+      <div class="g gadult" style="width:77%;margin-top:3px;">adults −1.16</div>
+    </div>
+    <div>Depression</div>
+    <div>
+      <div class="g gteen" style="width:54%;">teens −0.81</div>
+      <div class="g gadult" style="width:97%;margin-top:3px;">adults −1.45</div>
+    </div>
+  </div>
+  <div class="vs-legend">
+    <span><span class="swatch gteen"></span> MBT-A (teenagers)</span>
+    <span><span class="swatch gadult"></span> MBT (adults)</span>
+  </div>
+  <div class="explain"><b>What this shows:</b> both age groups improved over time, and every result was statistically significant (the CI does not cross 0). Across all three outcomes the <b>adult bars are longer than the teen bars</b> — the improvement was consistently bigger in adults. But the I² for self-harm is high (74%), so the studies varied a lot and we read these with some caution.</div>
+  <div class="src">Source: Hajek Gross et al. (2024) — Results: before–after comparisons (subgroup analyses).</div>
+</section>
+
+<!-- ============ SLIDE 25: RESULTS — VS CONTROL (the key result) ============ -->
+<section class="slide">
+  <h2>Results 3 — vs. Comparison Care: The Crucial Test</h2>
+  <p class="lead">When MBT is compared against real comparison care (TAU / SCM), the picture changes sharply.</p>
+  <div class="forest" style="margin-top:10px;">
+    <div class="fline">
+      <div class="flabel">Self-harm (6 studies, n=312)</div>
+      <div class="ftrack"><div class="fzero" style="left:60%;"></div>
+        <div class="fci gr" style="left:40%;width:35%;"></div><div class="fdot gr" style="left:55%;"></div></div>
+      <div class="fval"><b>No real difference</b><br><small>I²=68.2%</small></div>
+    </div>
+    <div class="fline">
+      <div class="flabel">BPD — everyone (6 studies)</div>
+      <div class="ftrack"><div class="fzero" style="left:60%;"></div>
+        <div class="fci gr" style="left:42%;width:30%;"></div><div class="fdot gr" style="left:54%;"></div></div>
+      <div class="fval"><b>No real difference</b><br><small>I²=48.0%</small></div>
+    </div>
+    <div class="fline">
+      <div class="flabel">BPD — adults only (MBT)</div>
+      <div class="ftrack"><div class="fzero" style="left:60%;"></div>
+        <div class="fci g" style="left:38%;width:22%;"></div><div class="fdot g" style="left:47%;"></div></div>
+      <div class="fval"><b class="pos">g = −0.56 *</b><br><small>95% CI −0.88 to −0.24</small></div>
+    </div>
+    <div class="fline">
+      <div class="flabel">Depression (5 studies, n=288)</div>
+      <div class="ftrack"><div class="fzero" style="left:60%;"></div>
+        <div class="fci gr" style="left:44%;width:28%;"></div><div class="fdot gr" style="left:56%;"></div></div>
+      <div class="fval"><b>No real difference</b><br><small>I²=89.3%</small></div>
+    </div>
+    <div class="scaleax"><div></div><div>← favours MBT &nbsp;&nbsp;&nbsp; 0 = equal &nbsp;&nbsp;&nbsp; favours comparison →</div><div></div></div>
+  </div>
+  <div class="explain"><b>How to read this:</b> here "0" means "MBT and comparison care are equal". A <b>grey dot sitting on/near the line</b> = no real difference (its CI crosses 0). Only the <b>green</b> line — adults' BPD symptoms — clearly sits left of 0, so it is the one real MBT advantage. The <b>*</b> marks this significant result.</div>
+  <div class="verdict">
+    <div class="vcard vbad">Self-harm<br>✗ not better</div>
+    <div class="vcard vbad">Depression<br>✗ not better</div>
+    <div class="vcard vbad">BPD (teens)<br>✗ not better</div>
+    <div class="vcard vgood">BPD (adults)<br>✓ better (g=−0.56)</div>
+  </div>
+  <div class="src">Source: Hajek Gross et al. (2024) — Figure 3 &amp; Results: comparisons with control interventions.</div>
+</section>
+
+<!-- ============ SLIDE 26: SENSITIVITY / MODERATORS ============ -->
+<section class="slide">
+  <h2>Results 4 — What Changes the Benefit? (Moderators)</h2>
+  <div class="grid2">
+    <div class="card lav">
+      <h3>Meta-regression (what affects the result)</h3>
+      <ul>
+        <li><b>Longer treatment → more self-harm reduction</b> (before–after b=−0.07, p=.002; vs. comparison b=−0.22, p=.005).</li>
+        <li>Older <b>average age</b> (b=0.10, p=.045) &amp; higher <b>dropout</b> (b=0.06, p=.015) → <b>smaller</b> self-harm benefit.</li>
+        <li>No such effects on BPD or depression.</li>
+      </ul>
+      <div class="plain"><b>p-value:</b> smaller than 0.05 means the finding is unlikely to be due to chance.</div>
+    </div>
+    <div class="card sag">
+      <h3>Sensitivity &amp; format checks</h3>
+      <ul>
+        <li>Removing the brief 12-week pilot (Griffiths 2019) <b>did not change</b> the main conclusions.</li>
+        <li>After removing it, MBT(-A) vs. comparison on BPD became significant (g=−0.38).</li>
+        <li><b>Individual</b> MBT-A (1 study, 20 teens) showed a much bigger self-harm effect (g=−1.79) than <b>group</b> MBT-A (g=−0.43) — but it is only <b>one small study</b>, so treat with caution.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="explain"><b>What this tells us:</b> a moderator is a factor that makes the treatment work better or worse. Here, <b>giving MBT for longer</b> helped most, while <b>older age and dropping out</b> weakened the benefit. The individual-format hint is interesting but rests on a single tiny study.</div>
+  <div class="src">Source: Hajek Gross et al. (2024) — Meta-regressions &amp; exploratory sensitivity analyses (Appendix S1–S3).</div>
+</section>
+
+<!-- ============ SLIDE 27: RETENTION ============ -->
+<section class="slide">
+  <h2>Results 5 — Staying in Treatment (Dropout)</h2>
+  <div class="two-col">
+    <div class="fill">
+      <h3>Average dropout rate</h3>
+      <div class="barwrap"><div class="barname">MBT-A (teenagers)</div>
+        <div class="bar" style="width:31%;background:#8a76c4;">31.4%</div></div>
+      <div class="barwrap"><div class="barname">MBT (adults)</div>
+        <div class="bar" style="width:35%;background:#7a9fb8;">35.1%</div></div>
+      <p><small>Ranges were very wide: teenagers 8–56%; adults 0–71%.</small></p>
+      <div class="explain" style="margin-top:8px;"><b>Reading the bars:</b> longer bar = more people left before finishing. Roughly <b>1 in 3</b> people dropped out in both groups — that is a lot.</div>
+    </div>
+    <div class="fill">
+      <div class="callout warn">
+        High dropout is a problem because it:
+        <ul style="margin-top:6px;">
+          <li>Reduces how sure we can be of results, and can <b>bias</b> them.</li>
+          <li>Predicted a <b>smaller</b> self-harm benefit (see previous slide).</li>
+          <li>Raises doubts about how <b>acceptable</b> long MBT programs are — especially for teenagers who may find 12–18 months hard to complete.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="src">Source: Hajek Gross et al. (2024) — Results: study characteristics; Table 1 (dropout means).</div>
+</section>
+
+<!-- ============ SLIDE 28: DISCUSSION — MAIN FINDINGS ============ -->
+<section class="slide">
+  <h2>Discussion — Main Findings</h2>
+  <div class="grid2">
+    <div class="card mint">
+      <h3>What looked promising</h3>
+      <ul>
+        <li>Big <b>before–after</b> improvements in self-harm, BPD &amp; depression (g = −0.82 to −1.1).</li>
+        <li>Fits with earlier reviews suggesting MBT is <b>effective</b>.</li>
+      </ul>
+    </div>
+    <div class="card bl">
+      <h3>What the fair trials (RCTs) showed</h3>
+      <ul>
+        <li><b>Not better</b> than usual/structured care for self-harm or depression.</li>
+        <li>Only <b>adults' BPD symptoms</b> improved more with MBT (g = −0.56).</li>
+        <li>MBT-A's effects were <b>smaller</b> than typical DBT-A effects.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="keymsg" style="margin-top:14px;">
+    <b>Main take-home message:</b> the before–after results look encouraging, but the stronger controlled evidence <b>does not support using MBT(-A) as a first-choice treatment for self-harm.</b>
+  </div>
+  <div class="src">Source: Hajek Gross et al. (2024) — Discussion &amp; Conclusions.</div>
+</section>
+
+<!-- ============ SLIDE 29: DISCUSSION — INTERPRETATION ============ -->
+<section class="slide">
+  <h2>Discussion — Why No Extra Benefit Over Usual Care?</h2>
+  <div class="grid3">
+    <div class="card lav"><h3>Mentalizing is common</h3><p>Better mentalizing may happen in <b>many</b> good therapies, not just MBT — so the comparison groups improved too (Fonagy &amp; Allison, 2014).</p></div>
+    <div class="card pow"><h3>Group format limits</h3><p>In group MBT, distress can <b>spread between members</b>; teenagers are very sensitive to peers, which may reduce benefit.</p></div>
+    <div class="card sag"><h3>Indirect approach</h3><p>MBT does <b>not</b> directly teach coping/emotion-control skills (unlike DBT), which may limit self-harm reduction.</p></div>
+    <div class="card pch"><h3>The teenage brain</h3><p>A normal dip in "social thinking" during puberty may make <b>high-mentalizing</b> demands harder for teenagers.</p></div>
+    <div class="card bl"><h3>Longer helps</h3><p>Longer treatment predicted more self-harm reduction — the <b>dose/length</b> may matter.</p></div>
+    <div class="card mint"><h3>Be careful about "why"</h3><p>Mentalizing itself was <b>not measured</b>, so the mechanism <b>cannot be confirmed</b> from this data.</p></div>
+  </div>
+  <div class="src">Source: Hajek Gross et al. (2024) — Discussion.</div>
+</section>
+
+<!-- ============ SLIDE 30: CLINICAL MEANING ============ -->
+<section class="slide">
+  <h2>What This Means for Clinical Practice</h2>
+  <div class="two-col">
+    <div class="card mint">
+      <h3>Reasonable to do</h3>
+      <ul>
+        <li>Consider MBT as <b>one option</b>, especially for <b>adults with BPD</b>.</li>
+        <li>Keep <b>risk assessment &amp; safety/crisis planning</b> central — MBT does not replace them.</li>
+        <li>Make sure therapists have proper <b>training and supervision</b>.</li>
+        <li>Match the <b>setting to the risk level</b>; tailor to the individual.</li>
+      </ul>
+    </div>
+    <div class="card bl">
+      <h3>Be cautious about</h3>
+      <ul>
+        <li>Do <b>not</b> make MBT(-A) the <b>first-choice</b> treatment for self-harm.</li>
+        <li>For teenagers, weigh <b>shorter, skills-based</b> options (e.g., DBT-A).</li>
+        <li>Long (12–36 month) programs may <b>disrupt school and social life</b>.</li>
+        <li>Consider other conditions and medication where needed.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="src">Source: Hajek Gross et al. (2024) — Discussion &amp; Conclusions. (This is general guidance, not advice for an individual patient.)</div>
+</section>
+
+<!-- ============ SLIDE 31: LIMITATIONS ============ -->
+<section class="slide">
+  <h2>Limitations of the Review</h2>
+  <table>
+    <tr><th>Limitation</th><th>Why it matters (simple)</th></tr>
+    <tr><td>Studies often <b>disagreed a lot</b> (I² up to 89%)</td><td>Less confidence in the combined numbers</td></tr>
+    <tr><td>Only studies that <b>reported self-harm</b> were included</td><td>The BPD/depression results may miss some available data</td></tr>
+    <tr><td><b>Mentalizing was not measured</b> as an outcome</td><td>Can't prove MBT works the way it claims to</td></tr>
+    <tr><td>Comparison groups were <b>poorly described</b>, sometimes overlapping (e.g. DBT bits)</td><td>Hard to isolate MBT's own effect</td></tr>
+    <tr><td>Many studies <b>did not separate</b> suicidal from non-suicidal self-harm</td><td>These have different causes and risks; mixing them blurs the picture</td></tr>
+    <tr><td><b>Low study quality</b>; all teenage (MBT-A) studies were high risk of bias</td><td>Results must be read carefully</td></tr>
+    <tr><td>Small samples; mostly female; mostly BPD</td><td>May not apply to everyone</td></tr>
+  </table>
+  <div class="src">Source: Hajek Gross et al. (2024) — Limitations.</div>
+</section>
+
+<!-- ============ SLIDE 32: GENERALIZABILITY ============ -->
+<section class="slide">
+  <h2>Can We Apply These Results Widely? (Generalizability)</h2>
+  <div class="two-col">
+    <div class="card sag">
+      <h3>Applies best to…</h3>
+      <ul>
+        <li>Clinical samples <b>with a lot of BPD</b></li>
+        <li>Mostly <b>female</b> patients</li>
+        <li>Specialist outpatient / day-hospital settings</li>
+        <li>Adults, for the BPD-symptom benefit</li>
+      </ul>
+    </div>
+    <div class="card bl">
+      <h3>Uncertain for…</h3>
+      <ul>
+        <li>Males &amp; gender-diverse people</li>
+        <li>Non-Western / low-resource settings (e.g., much of India)</li>
+        <li>Community, emergency, or brief-contact services</li>
+        <li>People <b>without</b> BPD, or with psychosis / serious cognitive problems</li>
+      </ul>
+    </div>
+  </div>
+  <div class="callout warn" style="margin-top:14px;">The evidence comes mostly from <b>European</b> settings and <b>mostly female</b> samples — so be cautious before assuming the same results in Indian clinical settings.</div>
+  <div class="src">Source: Interpretation of Hajek Gross et al. (2024) sample characteristics &amp; Limitations.</div>
+</section>
+
+<!-- ============ SLIDE 33: FUTURE IMPLICATIONS ============ -->
+<section class="slide">
+  <h2>Future Applications &amp; Implications</h2>
+  <div class="grid2">
+    <div class="card lav"><h3>For research</h3><ul>
+      <li><b>Standardise</b> MBT format, length &amp; comparison groups</li>
+      <li>Separate <b>suicidal vs. non-suicidal</b> self-harm</li>
+      <li>Measure <b>mentalizing</b> to test how MBT works</li>
+      <li>Larger, more diverse trials with <b>longer follow-up</b></li>
+    </ul></div>
+    <div class="card pow"><h3>For services</h3><ul>
+      <li>Offer MBT within <b>stepped care</b> <span class="plain" style="display:inline-block;margin:0;padding:2px 6px;">(start simple, step up if needed)</span>, not by default</li>
+      <li>Invest in <b>training &amp; supervision</b></li>
+      <li>Weigh the <b>cost</b> of long programs</li>
+      <li>Improve <b>follow-up after discharge</b></li>
+    </ul></div>
+    <div class="card sag"><h3>For relapse prevention</h3><ul>
+      <li>Spot <b>early warning signs</b> &amp; relationship triggers</li>
+      <li>Build alternative <b>coping strategies</b></li>
+      <li>Strengthen support; monitor for recurrence</li>
+    </ul></div>
+    <div class="card mint"><h3>For psychosocial care</h3><ul>
+      <li>Involve <b>family/caregivers</b> (especially for teenagers)</li>
+      <li>Address <b>trauma &amp; attachment</b> difficulties</li>
+      <li>Coordinate <b>team-based</b> care</li>
+    </ul></div>
+  </div>
+  <div class="src">Source: Extends Hajek Gross et al. (2024) — Discussion &amp; Conclusions.</div>
+</section>
+
+<!-- ============ SLIDE 34: RESEARCHER REFLECTION ============ -->
+<section class="slide">
+  <h2>What Could I Have Done as a Researcher?</h2>
+  <p class="note">A reflective, critical-appraisal slide — how the study could be made stronger.</p>
+  <div class="grid2" style="margin-top:8px;">
+    <div class="card pch">
+      <ul>
+        <li>Recruit <b>larger, more diverse</b> samples (males, non-Western, community).</li>
+        <li>Use <b>proper randomization</b> and blinded (independent) outcome raters.</li>
+        <li>Include <b>active</b> comparison therapies (e.g., DBT), not just usual care.</li>
+        <li>Clearly <b>separate</b> suicidal from non-suicidal self-harm.</li>
+        <li>Add <b>longer follow-up</b> to see if benefits last.</li>
+      </ul>
+    </div>
+    <div class="card bl">
+      <ul>
+        <li>Standardise the <b>format and length</b>; check <b>treatment fidelity</b> <span class="plain" style="display:inline-block;margin:0;padding:2px 6px;">(that MBT was delivered as intended)</span>.</li>
+        <li>Measure <b>mentalizing</b> to test the mechanism.</li>
+        <li>Report <b>training, supervision, side-effects and dropout</b> fully.</li>
+        <li>Add <b>patient experience</b> and <b>cost-effectiveness</b> data.</li>
+        <li>Pre-register and follow PRISMA (this study did pre-register — a real strength).</li>
+      </ul>
+    </div>
+  </div>
+  <div class="src">Reflective critical appraisal based on Hajek Gross et al. (2024) — Limitations.</div>
+</section>
+
+<!-- ============ SLIDE 35: KEY TAKEAWAYS ============ -->
+<section class="slide">
+  <h2>Key Takeaways</h2>
+  <div class="cards" style="flex-direction:column;gap:9px;">
+    <div class="keymsg"><b>1.</b> Self-harm is common, repeats often, and is strongly linked to BPD and suicide risk — effective treatment really matters.</div>
+    <div class="keymsg"><b>2.</b> In <b>before–after</b> results, MBT(-A) showed <b>large improvements</b> (g = −0.82 to −1.1) in self-harm, BPD &amp; depression.</div>
+    <div class="keymsg"><b>3.</b> But in <b>fair trials (RCTs)</b>, MBT(-A) was <b>not better</b> than usual/structured care for self-harm or depression.</div>
+    <div class="keymsg"><b>4.</b> The <b>only</b> real advantage: MBT reduced <b>BPD symptoms in adults</b> (g = −0.56, medium effect).</div>
+    <div class="keymsg"><b>5.</b> Studies disagreed a lot, were small, had high dropout and high risk of bias — so <b>confidence is limited</b>, especially for teenagers.</div>
+    <div class="keymsg"><b>6.</b> MBT(-A) should <b>not</b> be a first-choice self-harm treatment; adult BPD is where more MBT research is most worthwhile.</div>
+  </div>
+  <div class="src">Source: Hajek Gross et al. (2024) — Abstract, Results &amp; Conclusions.</div>
+</section>
+
+<!-- ============ SLIDE 36: CRITICAL APPRAISAL ============ -->
+<section class="slide">
+  <h2>Critical Appraisal Summary</h2>
+  <table>
+    <tr><th>Question</th><th>Judgement</th></tr>
+    <tr><td>Clear research question?</td><td><b class="pos">Yes</b> — focused PICO, pre-registered on OSF</td></tr>
+    <tr><td>Appropriate design?</td><td><b class="pos">Yes</b> — systematic review + meta-analysis</td></tr>
+    <tr><td>Thorough search?</td><td><b class="pos">Yes</b> — 5 databases + reference checking</td></tr>
+    <tr><td>Suitable inclusion criteria?</td><td><b>Partly</b> — including only self-harm studies may bias secondary outcomes</td></tr>
+    <tr><td>Risk-of-bias assessed?</td><td><b class="pos">Yes</b> — RoB 2, 3 independent raters</td></tr>
+    <tr><td>Appropriate statistics?</td><td><b class="pos">Yes</b> — random-effects, I², meta-regression, sensitivity checks</td></tr>
+    <tr><td>Disagreement (heterogeneity) handled?</td><td><b>Partly</b> — reported &amp; explored, but stayed high</td></tr>
+    <tr><td>Clinically relevant?</td><td><b class="accent">High</b> — directly guides treatment choice</td></tr>
+    <tr><td>Widely applicable?</td><td><b>Moderate</b> — narrow, mostly female / BPD / European samples</td></tr>
+    <tr><td>Overall confidence in conclusions?</td><td><b>Moderate</b> (held back by the quality of the original studies)</td></tr>
+  </table>
+  <div class="src">Appraisal by the presenter, based on Hajek Gross et al. (2024).</div>
+</section>
+
+<!-- ============ SLIDE 37: REFERENCES ============ -->
+<section class="slide">
+  <h2>References (APA 7th edition)</h2>
+  <div style="font-size:13.5px;line-height:1.5;column-count:2;column-gap:34px;">
+    <p style="text-indent:-22px;margin-left:22px;margin-bottom:8px;">Bateman, A., &amp; Fonagy, P. (1999). Effectiveness of partial hospitalization in the treatment of borderline personality disorder: A randomized controlled trial. <i>American Journal of Psychiatry, 156</i>(10), 1563–1569. https://doi.org/10.1176/ajp.156.10.1563</p>
+    <p style="text-indent:-22px;margin-left:22px;margin-bottom:8px;">Bateman, A., &amp; Fonagy, P. (2009). Randomized controlled trial of outpatient mentalization-based treatment versus structured clinical management for borderline personality disorder. <i>American Journal of Psychiatry, 166</i>(12), 1355–1364. https://doi.org/10.1176/appi.ajp.2009.09040539</p>
+    <p style="text-indent:-22px;margin-left:22px;margin-bottom:8px;">Beck, E., Bo, S., Jørgensen, M. S., Gondan, M., Poulsen, S., Storebø, O. J., … Simonsen, E. (2020). Mentalization-based treatment in groups for adolescents with borderline personality disorder: A randomized controlled trial. <i>Journal of Child Psychology and Psychiatry, 61</i>(5), 594–604. https://doi.org/10.1111/jcpp.13152</p>
+    <p style="text-indent:-22px;margin-left:22px;margin-bottom:8px;">Fonagy, P., &amp; Allison, E. (2014). The role of mentalizing and epistemic trust in the therapeutic relationship. <i>Psychotherapy, 51</i>(3), 372–380. https://doi.org/10.1037/a0036505</p>
+    <p style="text-indent:-22px;margin-left:22px;margin-bottom:8px;">Fonagy, P., Gergely, G., Jurist, E. L., &amp; Target, M. (2018). <i>Affect regulation, mentalization, and the development of the self.</i> Routledge. https://doi.org/10.4324/9780429471643</p>
+    <p style="text-indent:-22px;margin-left:22px;margin-bottom:8px;">Fox, K. R., Huang, X., Guzmán, E. M., Funsch, K. M., Cha, C. B., Ribeiro, J. D., &amp; Franklin, J. C. (2020). Interventions for suicide and self-injury: A meta-analysis of randomized controlled trials across nearly 50 years of research. <i>Psychological Bulletin, 146</i>(12), 1117–1145. https://doi.org/10.1037/bul0000305</p>
+    <p style="text-indent:-22px;margin-left:22px;margin-bottom:8px;">Gillies, D., Christou, M. A., Dixon, A. C., Featherston, O. J., Rapti, I., Garcia-Anguita, A., … Christou, P. A. (2018). Prevalence and characteristics of self-harm in adolescents: Meta-analyses of community-based studies 1990–2015. <i>Journal of the American Academy of Child &amp; Adolescent Psychiatry, 57</i>(10), 733–741. https://doi.org/10.1016/j.jaac.2018.06.018</p>
+    <p style="text-indent:-22px;margin-left:22px;margin-bottom:8px;">Goodman, M., Tomas, I. A., Temes, C. M., Fitzmaurice, G. M., Aguirre, B. A., &amp; Zanarini, M. C. (2017). Suicide attempts and self-injurious behaviours in adolescent and adult patients with borderline personality disorder. <i>Personality and Mental Health, 11</i>(3), 157–163. https://doi.org/10.1002/pmh.1375</p>
+    <p style="text-indent:-22px;margin-left:22px;margin-bottom:8px;"><b>Hajek Gross, C., Oehlke, S.-M., Prillinger, K., Goreis, A., Plener, P. L., &amp; Kothgassner, O. D. (2024). Efficacy of mentalization-based therapy in treating self-harm: A systematic review and meta-analysis. <i>Suicide and Life-Threatening Behavior, 54</i>(2), 317–337. https://doi.org/10.1111/sltb.13044</b></p>
+    <p style="text-indent:-22px;margin-left:22px;margin-bottom:8px;">Hawton, K., Saunders, K. E. A., &amp; O'Connor, R. C. (2012). Self-harm and suicide in adolescents. <i>The Lancet, 379</i>(9834), 2373–2382. https://doi.org/10.1016/S0140-6736(12)60322-5</p>
+    <p style="text-indent:-22px;margin-left:22px;margin-bottom:8px;">Higgins, J. P. T., Thompson, S. G., Deeks, J. J., &amp; Altman, D. G. (2003). Measuring inconsistency in meta-analyses. <i>BMJ, 327</i>(7414), 557–560. https://doi.org/10.1136/bmj.327.7414.557</p>
+    <p style="text-indent:-22px;margin-left:22px;margin-bottom:8px;">Kothgassner, O. D., Goreis, A., Robinson, K., Huscsava, M. M., Schmahl, C., &amp; Plener, P. L. (2021). Efficacy of dialectical behavior therapy for adolescent self-harm and suicidal ideation: A systematic review and meta-analysis. <i>Psychological Medicine, 51</i>(7), 1057–1067. https://doi.org/10.1017/S0033291721001355</p>
+    <p style="text-indent:-22px;margin-left:22px;margin-bottom:8px;">Malda-Castillo, J., Browne, C., &amp; Perez-Algorta, G. (2019). Mentalization-based treatment and its evidence-base status: A systematic literature review. <i>Psychology and Psychotherapy: Theory, Research and Practice, 92</i>(4), 465–498. https://doi.org/10.1111/papt.12195</p>
+    <p style="text-indent:-22px;margin-left:22px;margin-bottom:8px;">Rossouw, T. I., &amp; Fonagy, P. (2012). Mentalization-based treatment for self-harm in adolescents: A randomized controlled trial. <i>Journal of the American Academy of Child &amp; Adolescent Psychiatry, 51</i>(12), 1304–1313. https://doi.org/10.1016/j.jaac.2012.09.018</p>
+    <p style="text-indent:-22px;margin-left:22px;margin-bottom:8px;">Sterne, J. A. C., Savović, J., Page, M. J., Elbers, R. G., Blencowe, N. S., Boutron, I., … Higgins, J. P. T. (2019). RoB 2: A revised tool for assessing risk of bias in randomised trials. <i>BMJ, 366</i>, l4898. https://doi.org/10.1136/bmj.l4898</p>
+    <p style="text-indent:-22px;margin-left:22px;margin-bottom:8px;">Storebø, O. J., Stoffers-Winterling, J. M., Völlm, B. A., Kongerslev, M. T., Mattivi, J. T., Jørgensen, M. S., … Simonsen, E. (2020). Psychological therapies for people with borderline personality disorder. <i>Cochrane Database of Systematic Reviews, 2020</i>(5), CD012955. https://doi.org/10.1002/14651858.CD012955.pub2</p>
+    <p style="text-indent:-22px;margin-left:22px;margin-bottom:8px;">Swannell, S. V., Martin, G. E., Page, A., Hasking, P., &amp; St John, N. J. (2014). Prevalence of nonsuicidal self-injury in nonclinical samples: Systematic review, meta-analysis and meta-regression. <i>Suicide and Life-Threatening Behavior, 44</i>(3), 273–303. https://doi.org/10.1111/sltb.12070</p>
+  </div>
+  <div class="src">The primary paper's full reference list (54 sources) appears on pp. 334–337 of Hajek Gross et al. (2024).</div>
+</section>
+
+<!-- ============ SLIDE 38: QUESTIONS ============ -->
+<section class="slide">
+  <div class="title-wrap" style="align-items:center;text-align:center;">
+    <div class="kicker">Thank you</div>
+    <h1 style="font-size:48px;">Questions &amp; Discussion</h1>
+    <p class="lead" style="max-width:760px;margin:16px auto;">
+      Does MBT's failure to beat usual care reflect a <b>weakness of MBT</b>, or the fact that <b>mentalizing improves in many therapies</b>? And should teenagers be offered shorter, skills-based treatments first?
+    </p>
+    <div class="card lav" style="max-width:640px;">
+      <p>Hajek Gross, C., Oehlke, S.-M., Prillinger, K., Goreis, A., Plener, P. L., &amp; Kothgassner, O. D. (2024). <i>Suicide and Life-Threatening Behavior, 54</i>(2), 317–337. https://doi.org/10.1111/sltb.13044</p>
+    </div>
+  </div>
+  <div class="src">Presented for the M.Phil. Clinical Psychology Journal Club — Ms. Sonal Tripathi (supervised by Dr. Ajay Sharma).</div>
+</section>
+
+<div id="bar"></div>
+<div id="pg"></div>
+<div id="hint">← / → or Space to navigate · F for fullscreen</div>
+</div>
+
+<script>
+  const slides = Array.from(document.querySelectorAll('.slide'));
+  let i = 0;
+  function show(n){
+    i = Math.max(0, Math.min(slides.length-1, n));
+    slides.forEach((s,k)=>s.classList.toggle('active',k===i));
+    document.getElementById('bar').style.width = ((i+1)/slides.length*100)+'%';
+    document.getElementById('pg').textContent = (i+1)+' / '+slides.length;
+    slides[i].scrollTop = 0;
+  }
+  document.addEventListener('keydown',e=>{
+    if(e.key==='ArrowRight'||e.key===' '||e.key==='PageDown'){show(i+1);e.preventDefault();}
+    else if(e.key==='ArrowLeft'||e.key==='PageUp'){show(i-1);}
+    else if(e.key==='Home'){show(0);}
+    else if(e.key==='End'){show(slides.length-1);}
+    else if(e.key.toLowerCase()==='f'){
+      if(!document.fullscreenElement)document.documentElement.requestFullscreen();
+      else document.exitFullscreen();
+    }
+  });
+  document.addEventListener('click',e=>{
+    if(e.target.closest('a'))return;
+    if(e.clientX > window.innerWidth*0.5) show(i+1); else show(i-1);
+  });
+  show(0);
+</script>
+</body>
+</html>
