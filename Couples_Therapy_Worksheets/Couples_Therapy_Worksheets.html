@@ -1,0 +1,1382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Couples Therapy Worksheets</title>
+<style>
+:root{
+  --ink:#1f2933; --muted:#52606d; --line:#cbd2d9; --accent:#5a4a7a;
+  --accent-soft:#efeaf6; --th-bg:#5a4a7a; --quote-bg:#f6f4fb;
+}
+*{box-sizing:border-box;}
+html{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+body{
+  font-family:"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  color:var(--ink); margin:0; background:#e9ecf1; line-height:1.5;
+  font-size:14px;
+}
+.toolbar{
+  position:sticky; top:0; z-index:50; background:var(--accent); color:#fff;
+  padding:12px 20px; display:flex; align-items:center; gap:14px; flex-wrap:wrap;
+  box-shadow:0 2px 6px rgba(0,0,0,.2);
+}
+.toolbar h1{font-size:16px;margin:0;font-weight:600;flex:1;min-width:220px;}
+.toolbar button, .wk-print{
+  cursor:pointer; border:none; border-radius:6px; padding:8px 16px;
+  font-size:13px; font-weight:600;
+}
+.toolbar button{background:#fff;color:var(--accent);}
+.toolbar button:hover{background:var(--accent-soft);}
+.toolbar .toc-link{color:#fff;text-decoration:none;font-size:13px;opacity:.9;}
+.toolbar .toc-link:hover{opacity:1;text-decoration:underline;}
+.wrap{max-width:900px;margin:24px auto;padding:0 16px;}
+.worksheet{
+  background:#fff; margin:0 auto 28px; padding:40px 46px; border-radius:4px;
+  box-shadow:0 1px 4px rgba(0,0,0,.12); position:relative;
+}
+.wk-head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;
+  border-bottom:3px solid var(--accent); padding-bottom:10px; margin-bottom:18px;}
+.wk-head .num{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:700;}
+.wk-print{background:var(--accent);color:#fff;white-space:nowrap;}
+.wk-print:hover{background:#473a63;}
+h1{font-size:22px;margin:.2em 0 .4em;color:var(--accent);line-height:1.25;}
+h2{font-size:17px;margin:1.3em 0 .5em;color:var(--accent);border-bottom:1px solid var(--line);padding-bottom:4px;}
+h3{font-size:15px;margin:1.1em 0 .4em;color:var(--muted);}
+h4{font-size:13.5px;margin:1em 0 .3em;color:var(--muted);font-weight:700;}
+p{margin:.5em 0;}
+strong{color:var(--ink);}
+code{background:#f0eef5;padding:1px 5px;border-radius:4px;font-size:.9em;color:#6b4e9e;font-family:Consolas,Menlo,monospace;}
+pre{background:#2d2a3a;color:#e8e6f0;padding:14px 16px;border-radius:6px;overflow:auto;font-size:12px;line-height:1.45;}
+pre code{background:none;color:inherit;padding:0;}
+blockquote{background:var(--quote-bg);border-left:4px solid var(--accent);
+  margin:.8em 0;padding:10px 16px;color:var(--muted);border-radius:0 4px 4px 0;}
+hr{border:none;border-top:1px solid var(--line);margin:1.4em 0;}
+ul,ol{margin:.5em 0 .8em;padding-left:1.4em;}
+li{margin:.25em 0;}
+li.checkbox{list-style:none;margin-left:-1.2em;}
+table{border-collapse:collapse;width:100%;margin:1em 0;font-size:12.5px;}
+th{background:var(--th-bg);color:#fff;text-align:left;padding:8px 10px;font-weight:600;border:1px solid var(--th-bg);}
+td{border:1px solid var(--line);padding:7px 10px;vertical-align:top;}
+tbody tr:nth-child(even){background:#f7f6fa;}
+.toc{background:#fff;border-radius:4px;padding:28px 40px;margin:0 auto 28px;box-shadow:0 1px 4px rgba(0,0,0,.12);}
+.toc h2{margin-top:0;}
+.toc ol{counter-reset:none;}
+.toc a{color:var(--accent);text-decoration:none;}
+.toc a:hover{text-decoration:underline;}
+
+@media print{
+  body{background:#fff;font-size:11.5px;}
+  .toolbar,.wk-print,.no-print{display:none !important;}
+  .wrap{margin:0;max-width:none;padding:0;}
+  .worksheet,.toc{box-shadow:none;margin:0;padding:0 0 0 0;border-radius:0;
+    page-break-after:always;break-after:page;}
+  .worksheet:last-child{page-break-after:auto;break-after:auto;}
+  h1,h2,h3,h4{page-break-after:avoid;break-after:avoid;}
+  table,blockquote,pre,tr,img{page-break-inside:avoid;break-inside:avoid;}
+  thead{display:table-header-group;}
+  a{color:inherit;text-decoration:none;}
+  /* when printing a single worksheet, hide the others */
+  body.printing-one .worksheet:not(.print-target),
+  body.printing-one .toc{display:none !important;}
+  body.printing-one .worksheet.print-target{page-break-after:auto;}
+}
+@page{margin:14mm 14mm;}
+</style>
+</head>
+<body>
+<div class="toolbar no-print">
+  <h1>&#128188; Couples Therapy Worksheets</h1>
+  <a class="toc-link" href="#toc">Contents</a>
+  <button onclick="printAll()">&#128424; Print all worksheets</button>
+</div>
+<div class="wrap">
+
+<section class="toc no-print-break" id="toc">
+  <h2>Couples Therapy Worksheets</h2>
+  <p>A print-ready, session-by-session worksheet package based on the <em>Handbook of Couples Therapy</em> (Harway, Ed., 2005). Use the toolbar above to print the whole packet, or the button on each worksheet to print just that one.</p>
+  <ol>
+    <li><a href="#wk00">Couples Therapy Worksheets — Clinician's Guide (How to Use)</a></li><li><a href="#wk01">Worksheet 01 — First Session: Joint Intake, Safety Screen &amp; Alliance</a></li><li><a href="#wk02">Worksheet 02 — Individual History Sessions</a></li><li><a href="#wk03">Worksheet 03 — Formulation, Feedback &amp; Treatment Plan</a></li><li><a href="#wk04">Worksheet 04 — Communication &amp; De-escalation Skills</a></li><li><a href="#wk05">Worksheet 05 — Emotion &amp; Attachment Restructuring (EFT-informed)</a></li><li><a href="#wk06">Worksheet 06 — Cognitive Restructuring, Problem-Solving &amp; Behavior Exchange (CBCT)</a></li><li><a href="#wk07">Worksheet 07 — Special Issues Modules</a></li><li><a href="#wk08">Worksheet 08 — Consolidation, Relapse Prevention &amp; Termination</a></li><li><a href="#wk09">Worksheet 09 — Weekly Session Tracking &amp; Homework Log</a></li>
+  </ol>
+</section>
+
+<section class="worksheet" id="wk00">
+  <div class="wk-head">
+    <div>
+      <div class="num">Worksheet 00</div>
+      <h1>Couples Therapy Worksheets — Clinician's Guide (How to Use)</h1>
+    </div>
+    <button class="wk-print" onclick="printOne('wk00')">&#128424; Print this worksheet</button>
+  </div>
+  <p><strong>Based on:</strong> <em>Handbook of Couples Therapy</em>, edited by Michele Harway (John Wiley &amp; Sons, 2005).</p>
+<blockquote>This worksheet series translates the clinical frameworks described across the <em>Handbook of Couples Therapy</em> into a usable session-by-session toolkit. It integrates the book's three organizing perspectives — the <strong>developmental</strong> (life-cycle stages), the <strong>theoretical</strong> (CBCT, EFT, Narrative, Strategic/Solution-Focused, Object Relations, PAIRS, Bowen, Feminist/Contextual), and the <strong>situational</strong> (illness, abuse, aggression, addiction, infidelity, divorce). Content paraphrased and reorganized from the source for clinical use; it is not a verbatim reproduction.</blockquote>
+<hr>
+<h2>1. Who this is for</h2>
+<p>Licensed or supervised mental-health professionals (MFTs, psychologists, counselors, social workers) conducting conjoint couples therapy. The worksheets assume the clinician holds the clinical judgment described in Harway's Chapter 1 ("Setting the Stage"): couples work requires specific training beyond generalist practice, because partners arrive with different family-of-origin "daily living habits," expectations, values, and cultural backgrounds that must be actively bridged.</p>
+<h2>2. The arc of treatment at a glance</h2>
+<p>The <em>Handbook</em> does not prescribe a single rigid session count. Instead it describes a recognizable <strong>arc</strong> that recurs across every chapter's approach. These worksheets map that arc into a phased sequence. A typical course runs <strong>12–20 sessions</strong>; brief/solution-focused work compresses it, EFT and object-relations work may extend it.</p>
+<table>
+<thead><tr><th>Phase</th><th>Sessions (typical)</th><th>Core task</th><th>Worksheet file</th></tr></thead>
+<tbody>
+<tr><td><strong>Phase 0 — Pre-work / Screening</strong></td><td>Before or at Session 1</td><td>Screen for safety, suitability, and crisis issues</td><td><code>01<em>Session1</em>Intake<em>and</em>Alliance.md</code> (Part A)</td></tr>
+<tr><td><strong>Phase 1 — Assessment &amp; Alliance</strong></td><td>Sessions 1–3</td><td>Joint + individual history, functional assessment, cycle mapping</td><td><code>01</code> and <code>02</code></td></tr>
+<tr><td><strong>Phase 2 — Formulation &amp; Goals</strong></td><td>Session 3–4</td><td>Share the formulation, agree on goals and treatment plan</td><td><code>03<em>Formulation</em>and<em>Treatment</em>Plan.md</code></td></tr>
+<tr><td><strong>Phase 3 — De-escalation &amp; Communication</strong></td><td>Sessions 4–8</td><td>Interrupt the negative cycle; build communication &amp; listening skills</td><td><code>04<em>Communication</em>and_Deescalation.md</code></td></tr>
+<tr><td><strong>Phase 4 — Restructuring the bond</strong></td><td>Sessions 8–14</td><td>Emotional restructuring, attachment/enactments, cognitive restructuring, problem-solving</td><td><code>05<em>Emotion</em>and<em>Attachment</em>Restructuring.md</code>, <code>06<em>Cognitive</em>Restructuring<em>and</em>Problem_Solving.md</code></td></tr>
+<tr><td><strong>Phase 5 — Special issues (as indicated)</strong></td><td>Interwoven</td><td>Infidelity, illness, addiction, aggression, sexual-abuse history</td><td><code>07<em>Special</em>Issues_Modules.md</code></td></tr>
+<tr><td><strong>Phase 6 — Consolidation &amp; Termination</strong></td><td>Final 2–3 sessions</td><td>Relapse prevention, rituals, review, ending</td><td><code>08<em>Consolidation</em>and_Termination.md</code></td></tr>
+<tr><td><strong>Ongoing</strong></td><td>Every session</td><td>Session-rating, between-session practice</td><td><code>09<em>Weekly</em>Tracking<em>and</em>Homework.md</code></td></tr>
+</tbody></table>
+<h2>3. How to use the worksheets with couples</h2>
+<p><strong>General principles (synthesized from the book):</strong></p>
+<ol>
+<li><strong>Lead with the alliance, not the forms.</strong> Harway and the PAIRS chapter both warn that the standard "50-minute hour simply cannot build the trust, connectedness, and collaboration needed" at the start. Use longer early sessions where possible and let the worksheet serve the conversation — never read it like a questionnaire.</li>
+<li><strong>Stay non-blaming and multidirectionally partial.</strong> Across chapters (PAIRS, EFT, Strategic, Feminist/Contextual) the stance is that the therapist does not take sides; the therapist reframes blame as a cycle both partners are caught in, and holds "goodwill and positive intent."</li>
+<li><strong>Assess before you intervene.</strong> Every theoretical chapter opens with assessment. The CBCT chapter is explicit: "Before any clinical theory or technique is applied, a functional assessment should be conducted to guide treatment planning." Do not hand out a skills worksheet (Phase 3+) before completing Phase 1–2.</li>
+<li><strong>Screen for safety first.</strong> Chapters 16 (sexual abuse) and 17 (physical aggression) require that you rule out or assess violence and trauma early; conjoint communication work can be contraindicated or must be sequenced carefully when aggression is present. See <code>07</code>.</li>
+<li><strong>Weave culture and context through everything.</strong> Per Chapter 1 and the Feminist/Contextual chapter, cultural, gender, socioeconomic, and spiritual differences are woven into each worksheet rather than isolated — prompts invite these explicitly.</li>
+<li><strong>Match the worksheet to the model you practice.</strong> The worksheets are modular. A CBCT clinician will lean on <code>06</code>; an EFT clinician on <code>05</code>; a solution-focused clinician will use the "exception/miracle/scaling" prompts in <code>03</code> and <code>09</code>. Pick what fits your orientation and the couple.</li>
+</ol>
+<p><strong>Practical mechanics:</strong></p>
+<ul>
+<li>Give each partner their <strong>own copy</strong> of worksheets that ask for individual reflection (so neither sees the other's answers until invited).</li>
+<li>Use the joint worksheets as a shared, in-session artifact you fill in together on a shared surface.</li>
+<li>Assign between-session practice from <code>09</code> at the end of every session and review it at the start of the next.</li>
+<li>Keep completed worksheets in the clinical file; they become the progress record and the material for the termination review (<code>08</code>).</li>
+</ul>
+<h2>4. Sequencing map (session-by-session)</h2>
+<pre><code>Session 1   → Joint intake + alliance + safety screen           [01]
+Session 2   → Individual histories (one partner each, or split)  [02]
+Session 3   → Feedback/formulation + goals + treatment plan      [03]
+Sessions 4–6 → Cycle de-escalation + communication skills        [04]
+Sessions 6–8 → Begin cognitive restructuring / problem solving   [06]
+Sessions 8–12 → Emotion &amp; attachment restructuring, enactments   [05]
+(as needed)  → Special-issue module(s) interwoven               [07]
+Sessions 12–16 → Deepen, generalize, caring behaviors            [04/05/06]
+Final 2–3    → Consolidation, rituals, relapse prevention, end    [08]
+Every session → Tracking sheet + homework                        [09]</code></pre>
+<h2>5. Important clinical notes &amp; limitations</h2>
+<ul>
+<li>These are <strong>clinical tools, not a treatment manual or a substitute for training/supervision.</strong> Use within your scope of practice.</li>
+<li><strong>Safety overrides sequence.</strong> If screening reveals ongoing intimate-partner violence, active addiction, acute risk, or untreated trauma, pause the standard arc and follow the relevant module in <code>07</code> and your jurisdiction's standards.</li>
+<li>The <em>Handbook</em> is a 2005 multi-author text. Where you use a specific model (EFT, PAIRS, Gottman-informed CBCT, etc.), consult that model's current primary manuals for fidelity.</li>
+<li>Document informed consent, no-secrets policy (how you handle individually disclosed information), and limits of confidentiality <strong>before</strong> the individual sessions in <code>02</code>.</li>
+</ul>
+<hr>
+<h3>File index</h3>
+<table>
+<thead><tr><th>File</th><th>Contents</th></tr></thead>
+<tbody>
+<tr><td><code>00<em>Clinician</em>Guide<em>How</em>To_Use.md</code></td><td>This guide</td></tr>
+<tr><td><code>01<em>Session1</em>Intake<em>and</em>Alliance.md</code></td><td>First session: joint intake, relationship history, safety screen, alliance</td></tr>
+<tr><td><code>02<em>Individual</em>History_Sessions.md</code></td><td>Individual-session worksheet: family of origin, attachment history, expectations</td></tr>
+<tr><td><code>03<em>Formulation</em>and<em>Treatment</em>Plan.md</code></td><td>Feedback session: shared formulation, cycle map, goals, miracle/scaling</td></tr>
+<tr><td><code>04<em>Communication</em>and_Deescalation.md</code></td><td>Speaker–listener, Dialogue Guide, complaint-without-blame, time-outs</td></tr>
+<tr><td><code>05<em>Emotion</em>and<em>Attachment</em>Restructuring.md</code></td><td>EFT-style: primary/secondary emotion, attachment needs, enactments, injuries</td></tr>
+<tr><td><code>06<em>Cognitive</em>Restructuring<em>and</em>Problem_Solving.md</code></td><td>CBCT: thought records, attributions, behavior exchange, problem-solving, caring days</td></tr>
+<tr><td><code>07<em>Special</em>Issues_Modules.md</code></td><td>Infidelity, illness, addiction, aggression, sexual-abuse history, divorce</td></tr>
+<tr><td><code>08<em>Consolidation</em>and_Termination.md</code></td><td>Relapse prevention, rituals, review, ending</td></tr>
+<tr><td><code>09<em>Weekly</em>Tracking<em>and</em>Homework.md</code></td><td>Per-session rating, homework log, positives tracker</td></tr>
+</tbody></table>
+<p><em>Attribution: Frameworks drawn from Harway, M. (Ed.). (2005). <em>Handbook of Couples Therapy</em>. John Wiley &amp; Sons. Content was paraphrased and reorganized for clinical worksheet use.</em></p>
+</section>
+<section class="worksheet" id="wk01">
+  <div class="wk-head">
+    <div>
+      <div class="num">Worksheet 01</div>
+      <h1>Worksheet 01 — First Session: Joint Intake, Safety Screen &amp; Alliance</h1>
+    </div>
+    <button class="wk-print" onclick="printOne('wk01')">&#128424; Print this worksheet</button>
+  </div>
+  <p><strong>Phase 1 — Assessment &amp; Alliance · Session 1</strong> <em>Source basis: Harway (Ed.), Handbook of Couples Therapy — Ch. 1 (Setting the Stage), Ch. 2 (PAIRS premarital assessment), Ch. 8 (CBCT functional assessment), Ch. 16–17 (safety screening).</em></p>
+<hr>
+<h2>How to use this worksheet (clinician instructions)</h2>
+<ul>
+<li><strong>Purpose of Session 1:</strong> establish the alliance, understand the couple's shared story, run a safety screen, and set the frame — <em>not</em> to solve problems or assign skills yet.</li>
+<li><strong>Format:</strong> Conjoint (both partners present). If your setting allows, book a <strong>longer first session</strong> (90–120 min). The PAIRS chapter stresses that the standard 50-minute hour "cannot build the trust, connectedness, and collaboration" an initial inquiry needs.</li>
+<li><strong>Stance:</strong> Warm, curious, multidirectionally partial (both partners feel joined). Reframe "who's at fault" into "what's the pattern." Keep a non-blaming attitude throughout.</li>
+<li><strong>Fill it in together</strong> on a shared surface for Parts B–D; complete Part A (safety) using your clinical interview and, if needed, brief separate check-ins.</li>
+<li><strong>End the session</strong> by setting up the individual sessions (Worksheet 02) and explaining your no-secrets / confidentiality policy.</li>
+</ul>
+<hr>
+<h2>Part A — Safety &amp; Suitability Screen (clinician completes)</h2>
+<blockquote>Complete this early. If any item flags, follow the relevant module in Worksheet 07 and your jurisdiction's standards <strong>before</strong> proceeding to conjoint skills work. Conjoint communication work can be contraindicated when active intimate-partner violence is present.</blockquote>
+<table>
+<thead><tr><th>Screen</th><th>Finding / notes</th><th>Flag?</th></tr></thead>
+<tbody>
+<tr><td>Current physical aggression / fear of partner</td><td></td><td>☐</td></tr>
+<tr><td>History of physical aggression (type, recency, severity)</td><td></td><td>☐</td></tr>
+<tr><td>Does either partner feel unsafe speaking freely today?</td><td></td><td>☐</td></tr>
+<tr><td>Active substance use / addiction affecting safety or participation</td><td></td><td>☐</td></tr>
+<tr><td>Acute risk: suicidal / homicidal ideation</td><td></td><td>☐</td></tr>
+<tr><td>Child-safety concerns / mandated-report issues</td><td></td><td>☐</td></tr>
+<tr><td>Known sexual-abuse history relevant to the couple's functioning</td><td></td><td>☐</td></tr>
+<tr><td>Is one partner here only to arrange separation/divorce? (changes goals)</td><td></td><td>☐</td></tr>
+</tbody></table>
+<p><strong>Decision:</strong> ☐ Proceed with standard arc ☐ Proceed with modifications ☐ Pause for safety/individual work (specify): ___________________</p>
+<p><strong>Informed consent &amp; frame discussed:</strong> ☐ Confidentiality &amp; limits ☐ No-secrets policy ☐ Fees/cancellation ☐ Telehealth safety plan (if applicable)</p>
+<hr>
+<h2>Part B — The Relationship Story (joint)</h2>
+<p>Ask the couple to tell their story together. These prompts are adapted from the PAIRS premarital joint-interview questions and apply to committed couples at any life-cycle stage.</p>
+<ol>
+<li><strong>How did you meet?</strong> _______________________________________________</li>
+<li><strong>What drew you to each other?</strong> ______________________________________</li>
+<li><strong>What made you decide to commit to this relationship?</strong> ________________</li>
+<li><strong>What have been the high points of your relationship so far?</strong> __________</li>
+<li><strong>What life-cycle stage are you in?</strong> (circle) premarital · newly committed · young children · adolescents at home · older/"empty nest" · later life</li>
+<li><strong>What major transitions or stressors are you facing now?</strong> (work, finances, health, children, extended family, moves) _______________________</li>
+<li><strong>What are family responses to your relationship — and how do you each react to the other's family?</strong> _______________________________________</li>
+</ol>
+<hr>
+<h2>Part C — Why Now? Presenting Concerns (joint)</h2>
+<table>
+<thead><tr><th></th><th>Partner A</th><th>Partner B</th></tr></thead>
+<tbody>
+<tr><td>In your own words, what brings you here?</td><td></td><td></td></tr>
+<tr><td>How long has this been a problem?</td><td></td><td></td></tr>
+<tr><td>What have you already tried?</td><td></td><td></td></tr>
+<tr><td>On a 0–10 scale, how distressed are you about the relationship?</td><td></td><td></td></tr>
+<tr><td>On a 0–10 scale, how committed are you to working on it right now?</td><td></td><td></td></tr>
+</tbody></table>
+<p><strong>The presenting problem may arrive three ways</strong> (Strategic/Haley, Ch. 12): through <em>an individual's symptom</em>, through <em>a child's problem</em>, or through <em>a direct request for couples work</em>. Note which: ______________________</p>
+<hr>
+<h2>Part D — Goals of Therapy (joint — first pass)</h2>
+<ul>
+<li><strong>What are you each seeking from this counseling?</strong></li>
+<li>Partner A: _______________________________________________________</li>
+<li>Partner B: _______________________________________________________</li>
+<li><strong>What are your questions for me (the therapist)?</strong> ____________________</li>
+<li><strong>If therapy worked, what would be different?</strong> (first look at the "miracle" question — developed further in Worksheet 03) ________________________</li>
+</ul>
+<hr>
+<h2>Part E — Alliance &amp; Observation (clinician notes)</h2>
+<p>Observe and note — do <strong>not</strong> share interpretations yet:</p>
+<ul>
+<li>Communication style under stress (Satir roles: placating · blaming · distracting · "computing"/over-rational · leveling): _________________</li>
+<li>Typical negative cycle you can already see (e.g., pursue–withdraw, criticize–defend): _________________________________________________</li>
+<li>Each partner's apparent strengths / what's still working: ______________</li>
+<li>Cultural, spiritual, gender, and socioeconomic context to hold in mind: __________________________________________________________</li>
+</ul>
+<hr>
+<h2>Session 1 close-out</h2>
+<ul>
+<li class="checkbox">&#9744; Safety screen completed and decision recorded</li>
+<li class="checkbox">&#9744; Relationship story and presenting concerns captured</li>
+<li class="checkbox">&#9744; First-pass goals noted</li>
+<li class="checkbox">&#9744; Individual sessions scheduled (Worksheet 02); no-secrets policy explained</li>
+<li class="checkbox">&#9744; Homework assigned from Worksheet 09 (e.g., each partner notices one thing they appreciate this week)</li>
+<li class="checkbox">&#9744; Session rating (Worksheet 09)</li>
+</ul>
+<blockquote><strong>Next:</strong> Worksheet 02 — Individual History Sessions.</blockquote>
+</section>
+<section class="worksheet" id="wk02">
+  <div class="wk-head">
+    <div>
+      <div class="num">Worksheet 02</div>
+      <h1>Worksheet 02 — Individual History Sessions</h1>
+    </div>
+    <button class="wk-print" onclick="printOne('wk02')">&#128424; Print this worksheet</button>
+  </div>
+  <p><strong>Phase 1 — Assessment &amp; Alliance · Sessions 2–3 (one per partner)</strong> <em>Source basis: Harway (Ed.), Handbook of Couples Therapy — Ch. 2 (PAIRS individual-interview format), Ch. 7 (Bowen: family-of-origin, differentiation), Ch. 9 (Object Relations: attachment patterns), Ch. 11 (EFT: attachment fears/needs), Ch. 14 (Feminist/Contextual: gendered expectations).</em></p>
+<hr>
+<h2>How to use this worksheet (clinician instructions)</h2>
+<ul>
+<li><strong>Purpose:</strong> Gather each partner's individual social and emotional history without the other's presence. The PAIRS chapter describes two-hour individual interviews that "open windows to new understandings that have not previously been realized or considered."</li>
+<li><strong>Format:</strong> Individual session, one partner at a time. Aim for 60–120 min.</li>
+<li><strong>Stance:</strong> Empathic, curious, non-judgmental. This is an opportunity for the individual to disclose what might be uncomfortable to share in a joint session.</li>
+<li><strong>Confidentiality:</strong> Begin by <strong>restating your no-secrets policy</strong> (decided in Session 1). Make clear how information shared here will and won't be used in conjoint sessions.</li>
+<li><strong>What you're assessing:</strong> Family conditioning, attachment styles, models from the parental marriage, invisible loyalties, expectations of the relationship, sexual/abuse history, personal hopes and fears, and individual contributing factors.</li>
+<li><strong>Give each partner their own copy.</strong> They may fill in some answers before the session or you may complete it interview-style.</li>
+<li><strong>Safety check:</strong> This is the best time to check for domestic violence indicators privately — ask directly.</li>
+</ul>
+<hr>
+<h2>Part A — Identifying Information</h2>
+<p><strong>Name:</strong> ___________________________ <strong>Date:</strong> _____________ <strong>Age:</strong> _____ <strong>Occupation:</strong> ___________________ <strong>Cultural / ethnic background:</strong> __________________ <strong>Spiritual/religious affiliation:</strong> ___________________</p>
+<hr>
+<h2>Part B — Family of Origin (Bowen / PAIRS)</h2>
+<p>The Bowen family-systems chapter (Ch. 7) and the PAIRS chapter (Ch. 2) both emphasize that each partner's family conditioning shapes expectations and interactional style.</p>
+<ol>
+<li><strong>Growing up, describe your family. Who was in it? What was the atmosphere?</strong></li>
+</ol>
+<p>_______________________________________________________________</p>
+<ol>
+<li><strong>What was your parents' / caregivers' relationship like?</strong></li>
+</ol>
+<p>_______________________________________________________________</p>
+<ol>
+<li><strong>How did your family handle conflict?</strong> (avoided it · yelled · shut down · worked it through · violence was present · other: _____)</li>
+</ol>
+<ol>
+<li><strong>How was affection expressed in your family?</strong> (openly · rarely · conditionally · inconsistently · not at all · other: _____)</li>
+</ol>
+<ol>
+<li><strong>Describe your relationship with each parent/caregiver:</strong></li>
+<li>Parent/Caregiver 1: _______________________________________</li>
+<li>Parent/Caregiver 2: _______________________________________</li>
+</ol>
+<ol>
+<li><strong>Sibling relationships (including competition, closeness, alliances):</strong></li>
+</ol>
+<p>_______________________________________________________________</p>
+<ol>
+<li><strong>Were there losses, traumas, or family secrets that shaped you?</strong></li>
+</ol>
+<p>_______________________________________________________________</p>
+<ol>
+<li><strong>What invisible loyalties or unspoken rules did you absorb?</strong> (e.g., "In our family, you never show weakness" or "You must always put family first")</li>
+</ol>
+<p>_______________________________________________________________</p>
+<ol>
+<li><strong>How differentiated do you feel from your family of origin?</strong> (Bowen concept: can you hold your own position while staying emotionally connected?) 1 (very fused) ————— 5 (well differentiated) 10 (completely cut off)</li>
+</ol>
+<hr>
+<h2>Part C — Attachment History &amp; Patterns (EFT / Object Relations)</h2>
+<p>The EFT chapter describes how attachment needs and fears organize couple interactions. Object Relations (Ch. 9) explores how internalized relationship models are projected into the couple bond.</p>
+<ol>
+<li><strong>As a child, when you were upset, who comforted you? How?</strong></li>
+</ol>
+<p>_______________________________________________________________</p>
+<ol>
+<li><strong>Did you feel safe and secure growing up?</strong> ☐ Yes ☐ Somewhat ☐ No — explain: _____</li>
+</ol>
+<ol>
+<li><strong>When you are upset in your current relationship, what do you typically do?</strong> (reach out · withdraw · get angry · shut down · placate · other: _____)</li>
+</ol>
+<ol>
+<li><strong>What do you most need from your partner when you're hurting?</strong> _______________</li>
+</ol>
+<ol>
+<li><strong>What are you most afraid of in close relationships?</strong> (abandonment · engulfment/losing self · rejection · not being enough · betrayal · other: _____)</li>
+</ol>
+<ol>
+<li><strong>Previous significant relationships and what led to their ending:</strong></li>
+</ol>
+<p>_______________________________________________________________</p>
+<ol>
+<li><strong>Describe your attachment style as you understand it:</strong> ☐ Secure ☐ Anxious/preoccupied ☐ Avoidant/dismissing ☐ Disorganized/fearful ☐ Unsure</li>
+</ol>
+<hr>
+<h2>Part D — Expectations &amp; Roles in This Relationship (Feminist/Contextual)</h2>
+<p>The Feminist/Contextual chapter (Ch. 14) highlights that gendered, cultural, and socioeconomic expectations powerfully shape couple interaction.</p>
+<ol>
+<li><strong>What roles do you each play in the relationship?</strong> (breadwinner, caretaker, organiser, emotional manager, disciplinarian, etc.)</li>
+</ol>
+<p>_______________________________________________________________</p>
+<ol>
+<li><strong>Are those roles fair? How do you feel about them?</strong></li>
+</ol>
+<p>_______________________________________________________________</p>
+<ol>
+<li><strong>What did your family teach you about gender roles in relationships?</strong></li>
+</ol>
+<p>_______________________________________________________________</p>
+<ol>
+<li><strong>What are your expectations around work/finances, parenting, household, sex/intimacy, and emotional support?</strong></li>
+</ol>
+<table>
+<thead><tr><th>Domain</th><th>My expectation</th><th>What I think my partner expects</th></tr></thead>
+<tbody>
+<tr><td>Work / finances</td><td></td><td></td></tr>
+<tr><td>Household</td><td></td><td></td></tr>
+<tr><td>Parenting</td><td></td><td></td></tr>
+<tr><td>Sex / intimacy</td><td></td><td></td></tr>
+<tr><td>Emotional support</td><td></td><td></td></tr>
+<tr><td>Leisure / social life</td><td></td><td></td></tr>
+</tbody></table>
+<ol>
+<li><strong>Cultural, spiritual, or religious values that are important to you in this relationship:</strong></li>
+</ol>
+<p>_______________________________________________________________</p>
+<hr>
+<h2>Part E — Strengths, Resources &amp; Hopes</h2>
+<ol>
+<li><strong>What do you love or value about your partner?</strong> ________________________</li>
+<li><strong>What are your personal strengths that you bring to this relationship?</strong> _______________</li>
+<li><strong>What are your hopes and dreams for this relationship?</strong> __________________</li>
+<li><strong>On a scale of 0–10, how hopeful are you that therapy can help?</strong> _____</li>
+<li><strong>What would need to happen for you to feel satisfied with the relationship?</strong> __________</li>
+</ol>
+<hr>
+<h2>Part F — Private Safety Check (clinician completes)</h2>
+<blockquote>Ask directly and sensitively. Record observations.</blockquote>
+<ul>
+<li>Do you ever feel afraid of your partner? ☐ Yes ☐ No</li>
+<li>Has your partner ever hurt you physically, sexually, emotionally, or financially? ☐ Y ☐ N — details: ___</li>
+<li>Have you ever hurt your partner? ☐ Y ☐ N — details: ___</li>
+<li>Is there anything you feel you cannot say in a joint session? ☐ Y ☐ N — details: ___</li>
+<li>Any current substance use affecting the relationship? ☐ Y ☐ N</li>
+<li>Any concerns about your own mental health? ☐ Y ☐ N</li>
+</ul>
+<p><strong>Clinician notes / safety decision:</strong> _______________________________________________________________</p>
+<hr>
+<h2>Session close-out</h2>
+<ul>
+<li class="checkbox">&#9744; Family-of-origin history completed</li>
+<li class="checkbox">&#9744; Attachment patterns and relationship expectations explored</li>
+<li class="checkbox">&#9744; Private safety screen completed</li>
+<li class="checkbox">&#9744; Feedback session scheduled (Worksheet 03) — both partners will return together</li>
+<li class="checkbox">&#9744; Brief homework assigned from Worksheet 09</li>
+</ul>
+<blockquote><strong>Next:</strong> Complete this worksheet with the other partner; then move to Worksheet 03 — Formulation &amp; Treatment Plan (joint feedback session).</blockquote>
+</section>
+<section class="worksheet" id="wk03">
+  <div class="wk-head">
+    <div>
+      <div class="num">Worksheet 03</div>
+      <h1>Worksheet 03 — Formulation, Feedback &amp; Treatment Plan</h1>
+    </div>
+    <button class="wk-print" onclick="printOne('wk03')">&#128424; Print this worksheet</button>
+  </div>
+  <p><strong>Phase 2 — Formulation &amp; Goals · Session 3–4 (joint feedback session)</strong> <em>Source basis: Harway (Ed.), Handbook of Couples Therapy — Ch. 2 (PAIRS feedback session), Ch. 8 (CBCT functional assessment ➜ treatment plan), Ch. 11 (EFT cycle de-escalation formulation), Ch. 12 (Strategic/Solution-Focused: miracle question &amp; scaling).</em></p>
+<hr>
+<h2>How to use this worksheet (clinician instructions)</h2>
+<ul>
+<li><strong>Purpose:</strong> Share with the couple your understanding of their pattern ("the cycle"), set collaborative goals, and establish the treatment plan. This is the bridge between assessment and active intervention.</li>
+<li><strong>Format:</strong> Joint session, ideally 90 min.</li>
+<li><strong>Stance:</strong> Present the formulation as a <strong>shared cycle — not either partner's fault.</strong> The PAIRS chapter models "relabeling and reframing many past behaviors and intentions, pointing out how blame is often not the issue." The EFT chapter describes mapping the negative cycle so both partners can "see through the smoke" and recognize they are each caught in it.</li>
+<li><strong>How to deliver:</strong> Walk through each section aloud; write or draw the cycle diagram together on paper or whiteboard. Ask the couple to correct, add, or adjust — this is collaborative, not the therapist "announcing a verdict."</li>
+<li><strong>Important:</strong> Only share individual-session material that a partner has agreed may be shared (per your no-secrets policy). Summarize themes, not verbatim disclosures.</li>
+</ul>
+<hr>
+<h2>Part A — Summary of What We've Learned</h2>
+<h3>The Couple's Strengths &amp; Resources</h3>
+<p><em>(Name what's still working — start here to build hope before describing the cycle.)</em></p>
+<ol>
+<li>_______________________________________________________________</li>
+<li>_______________________________________________________________</li>
+<li>_______________________________________________________________</li>
+</ol>
+<h3>Key Themes from Assessment</h3>
+<ul>
+<li>Life-cycle stage and related stressors: _____________________________</li>
+<li>Expectations that mesh: _________________________________________</li>
+<li>Expectations that clash: _________________________________________</li>
+<li>Cultural/spiritual/contextual factors to keep in mind: _________________</li>
+</ul>
+<hr>
+<h2>Part B — The Negative Cycle Map</h2>
+<h3>Draw or describe the cycle (EFT / CBCT)</h3>
+<p>Use this template to map the negative interaction pattern:</p>
+<pre><code>          ┌──────────────────────────────────────────────────────┐
+          │              THE TRIGGER / CONFLICT TOPIC             │
+          └──────────────────────┬───────────────────────────────┘
+                                 │
+    ┌────────────────────────────┼────────────────────────────────┐
+    │                            │                                │
+    ▼                            │                                ▼
+┌─────────────────┐              │              ┌─────────────────┐
+│   PARTNER A     │              │              │   PARTNER B     │
+│                 │              │              │                 │
+│ Surface emotion:│              │              │ Surface emotion:│
+│ _______________│              │              │ _______________│
+│                 │              │              │                 │
+│ Surface action: │   THE CYCLE  │              │ Surface action: │
+│ _______________│◄────────────►│              │ _______________│
+│                 │              │              │                 │
+│ Underlying      │              │              │ Underlying      │
+│ feeling:        │              │              │ feeling:        │
+│ _______________│              │              │ _______________│
+│                 │              │              │                 │
+│ Attachment need:│              │              │ Attachment need:│
+│ _______________│              │              │ _______________│
+└─────────────────┘                             └─────────────────┘</code></pre>
+<p><strong>Name the cycle:</strong> (e.g., "pursue–withdraw," "attack–defend," "blame–shut down") _______________________________________________________________</p>
+<p><strong>This cycle protects each of you from:</strong> _______________________________________________________________</p>
+<p><strong>But it also keeps you from getting what you both actually need, which is:</strong> _______________________________________________________________</p>
+<hr>
+<h2>Part C — Collaborative Goal-Setting</h2>
+<h3>Miracle Question (Solution-Focused — Ch. 12)</h3>
+<p><em>Invite each partner:</em> "If you woke up tomorrow and a miracle happened overnight — the problem that brought you here was solved — what would be different? How would you know?"</p>
+<table>
+<thead><tr><th></th><th>Partner A</th><th>Partner B</th></tr></thead>
+<tbody>
+<tr><td>What would be different?</td><td></td><td></td></tr>
+<tr><td>What would your partner notice first?</td><td></td><td></td></tr>
+</tbody></table>
+<h3>Scaling Questions</h3>
+<table>
+<thead><tr><th></th><th>Partner A</th><th>Partner B</th></tr></thead>
+<tbody>
+<tr><td>On a 0–10 scale, where is the relationship now?</td><td></td><td></td></tr>
+<tr><td>What would one point higher look like?</td><td></td><td></td></tr>
+<tr><td>What would it take to get there?</td><td></td><td></td></tr>
+</tbody></table>
+<h3>Shared Goals (negotiate together — list 3–5)</h3>
+<table>
+<thead><tr><th>#</th><th>Goal (specific, behavioral where possible)</th><th>Priority (H/M/L)</th></tr></thead>
+<tbody>
+<tr><td>1</td><td></td><td></td></tr>
+<tr><td>2</td><td></td><td></td></tr>
+<tr><td>3</td><td></td><td></td></tr>
+<tr><td>4</td><td></td><td></td></tr>
+<tr><td>5</td><td></td><td></td></tr>
+</tbody></table>
+<hr>
+<h2>Part D — Treatment Plan</h2>
+<h3>Approach and rationale</h3>
+<p>Based on the assessment, the therapeutic approach(es) that best fit this couple include (clinician selects and explains):</p>
+<ul>
+<li class="checkbox">&#9744; Cognitive Behavioral Couple Therapy (CBCT) — Ch. 8</li>
+<li class="checkbox">&#9744; Emotionally Focused Therapy (EFT) — Ch. 11</li>
+<li class="checkbox">&#9744; Solution-Focused / Strategic — Ch. 12</li>
+<li class="checkbox">&#9744; Narrative Therapy — Ch. 10</li>
+<li class="checkbox">&#9744; Object Relations — Ch. 9</li>
+<li class="checkbox">&#9744; PAIRS skills framework — Ch. 2</li>
+<li class="checkbox">&#9744; Bowen Systems — Ch. 7</li>
+<li class="checkbox">&#9744; Integrative/eclectic</li>
+</ul>
+<h3>Estimated treatment length: ________ sessions</h3>
+<h3>Session frequency: ☐ Weekly ☐ Bi-weekly ☐ Other: _____</h3>
+<h3>Special modules indicated (see Worksheet 07):</h3>
+<ul>
+<li class="checkbox">&#9744; Illness / medical concerns</li>
+<li class="checkbox">&#9744; Sexual-abuse history</li>
+<li class="checkbox">&#9744; Physical aggression</li>
+<li class="checkbox">&#9744; Addiction</li>
+<li class="checkbox">&#9744; Infidelity</li>
+<li class="checkbox">&#9744; Divorce facilitation</li>
+<li class="checkbox">&#9744; Religious/spiritual differences</li>
+<li class="checkbox">&#9744; Same-sex couple issues</li>
+<li class="checkbox">&#9744; Socioeconomic stressors</li>
+</ul>
+<h3>Between-session expectations</h3>
+<ul>
+<li>Each partner commits to: ________________________________________</li>
+<li>Homework will be assigned each session (Worksheet 09)</li>
+<li>How will we handle crises between sessions? ________________________</li>
+</ul>
+<hr>
+<h2>Part E — Couple's Reaction &amp; Commitment</h2>
+<table>
+<thead><tr><th></th><th>Partner A</th><th>Partner B</th></tr></thead>
+<tbody>
+<tr><td>Does this formulation / cycle map feel accurate?</td><td></td><td></td></tr>
+<tr><td>What would you add or change?</td><td></td><td></td></tr>
+<tr><td>Are you willing to commit to this plan?</td><td></td><td></td></tr>
+<tr><td>Anything that worries you about the plan?</td><td></td><td></td></tr>
+</tbody></table>
+<p><strong>Clinician notes:</strong> _______________________________________________________________</p>
+<hr>
+<h2>Session close-out</h2>
+<ul>
+<li class="checkbox">&#9744; Formulation shared and validated by both partners</li>
+<li class="checkbox">&#9744; Goals agreed upon and documented</li>
+<li class="checkbox">&#9744; Treatment plan recorded</li>
+<li class="checkbox">&#9744; Homework assigned from Worksheet 09</li>
+<li class="checkbox">&#9744; Session rating (Worksheet 09)</li>
+</ul>
+<blockquote><strong>Next:</strong> Worksheet 04 — Communication &amp; De-escalation Skills.</blockquote>
+</section>
+<section class="worksheet" id="wk04">
+  <div class="wk-head">
+    <div>
+      <div class="num">Worksheet 04</div>
+      <h1>Worksheet 04 — Communication &amp; De-escalation Skills</h1>
+    </div>
+    <button class="wk-print" onclick="printOne('wk04')">&#128424; Print this worksheet</button>
+  </div>
+  <p><strong>Phase 3 — De-escalation &amp; Communication · Sessions 4–8 (and reinforced throughout)</strong> <em>Source basis: Harway (Ed.), Handbook of Couples Therapy — Ch. 2 (PAIRS Dialogue Guide, "complaining without blaming," I-messages), Ch. 8 (CBCT communication: Satir's placator/blamer/distractor/computer; Gordon's I-messages; speaker–listener), Ch. 11 (EFT de-escalation of the negative cycle), Ch. 15 (managing emotional reactivity).</em></p>
+<hr>
+<h2>How to use this worksheet (clinician instructions)</h2>
+<ul>
+<li><strong>Purpose:</strong> First active-change phase. Interrupt the negative cycle and build core communication skills: speaking without blame, listening with empathy, and de-escalating reactivity. The CBCT chapter names communication, problem-solving, and behavior exchange as the "lynchpins" of effective couples intervention — this worksheet covers communication.</li>
+<li><strong>Format:</strong> Joint sessions. Teach a skill, then <strong>have the couple practice it live in the room (enactment)</strong> while you coach. Do not just explain — the EFT and Strategic chapters both emphasize in-session enactments over didactics.</li>
+<li><strong>Prerequisite:</strong> Complete Phase 1–2 and the safety screen. If physical aggression is present, see Worksheet 07 <strong>before</strong> doing hot-topic communication work; teach the Time-Out tool first and keep topics low-intensity.</li>
+<li><strong>Pacing:</strong> Start with low-conflict topics; raise intensity only as the couple demonstrates skill. The therapist uses "shifts in intensity" (slowing tone, volume, pacing) to keep the room workable (Minuchin/EFT principle).</li>
+</ul>
+<hr>
+<h2>Tool 1 — Identify Your Communication Style Under Stress (Satir)</h2>
+<p>Each partner circles the style they fall into most under stress (CBCT, Ch. 8, citing Satir):</p>
+<table>
+<thead><tr><th>Style</th><th>What it sounds like</th></tr></thead>
+<tbody>
+<tr><td><strong>Placator</strong></td><td>"It's fine, whatever you want, I'm sorry" — appeasing, self-erasing</td></tr>
+<tr><td><strong>Blamer</strong></td><td>"You always… you never…" — accusing, fault-finding</td></tr>
+<tr><td><strong>Distractor</strong></td><td>Changes subject, jokes, goes off-topic to avoid</td></tr>
+<tr><td><strong>Computer</strong></td><td>Over-rational, cold, detached, "just the facts"</td></tr>
+<tr><td><strong>Leveler</strong> (goal)</td><td>Honest, direct, congruent — words match feelings</td></tr>
+</tbody></table>
+<ul>
+<li>Partner A's usual style: ___________ Partner B's usual style: ___________</li>
+<li><strong>Goal:</strong> move toward <em>leveling</em> — congruent, honest, non-blaming communication.</li>
+</ul>
+<hr>
+<h2>Tool 2 — I-Messages / Complaining Without Blaming (PAIRS Dialogue Guide)</h2>
+<p>The PAIRS Dialogue Guide is "a communication tool for complaining without blaming." Convert blame-statements into I-messages.</p>
+<p><strong>Formula:</strong></p>
+<blockquote>"When ______ (specific situation/behavior), I felt ______ (emotion), because ______ (meaning/need). What I'd like is ______ (request)."</blockquote>
+<p><strong>Practice conversions:</strong></p>
+<table>
+<thead><tr><th>Blame statement ("you" message)</th><th>I-message rewrite</th></tr></thead>
+<tbody>
+<tr><td>"You never help around here."</td><td></td></tr>
+<tr><td>"You always ignore me."</td><td></td></tr>
+<tr><td>"You're so controlling."</td><td></td></tr>
+<tr><td><em>(couple's own example)</em></td><td></td></tr>
+</tbody></table>
+<p><strong>Rule from PAIRS:</strong> "Express important hurt, fear, or irritation directly to each other in words, asking to be heard and understood with empathy. What is left unsaid is often more harmful than what is said."</p>
+<hr>
+<h2>Tool 3 — Speaker–Listener Technique (CBCT)</h2>
+<p>A structured turn-taking format that slows reactivity.</p>
+<p><strong>Speaker rules:</strong></p>
+<ul>
+<li>Speak for yourself (use I-messages)</li>
+<li>Keep it brief — a few sentences, then pause</li>
+<li>Don't mind-read or accuse</li>
+</ul>
+<p><strong>Listener rules:</strong></p>
+<ul>
+<li>Don't rebut, defend, or problem-solve</li>
+<li>Paraphrase back what you heard: <em>"What I hear you saying is…"</em></li>
+<li>Check: <em>"Did I get that right?"</em></li>
+<li>Only then does the Speaker continue or hand over the floor</li>
+</ul>
+<p><strong>In-session practice log:</strong></p>
+<table>
+<thead><tr><th>Round</th><th>Topic (start low-intensity)</th><th>Did Speaker use I-messages?</th><th>Did Listener paraphrase accurately?</th><th>Coaching notes</th></tr></thead>
+<tbody>
+<tr><td>1</td><td></td><td>☐</td><td>☐</td><td></td></tr>
+<tr><td>2</td><td></td><td>☐</td><td>☐</td><td></td></tr>
+</tbody></table>
+<hr>
+<h2>Tool 4 — Empathic Listening Checklist</h2>
+<p>For the Listener (adapted from PAIRS listening skills):</p>
+<ul>
+<li class="checkbox">&#9744; I made eye contact / turned toward my partner</li>
+<li class="checkbox">&#9744; I did not interrupt</li>
+<li class="checkbox">&#9744; I paraphrased what I heard before responding</li>
+<li class="checkbox">&#9744; I checked whether I understood correctly</li>
+<li class="checkbox">&#9744; I acknowledged my partner's feeling, even if I disagree with the content</li>
+<li class="checkbox">&#9744; I set aside my rebuttal to truly hear them first</li>
+</ul>
+<blockquote><strong>PAIRS competency:</strong> "Give up being right. Invite and express diversity. Welcome differences as sources of vigor, perspective, and healthy growth."</blockquote>
+<hr>
+<h2>Tool 5 — Uncovering "Love Knots" / Hidden Expectations (PAIRS)</h2>
+<p>"Love Knots" are hidden expectations and mind-reading assumptions — e.g., <em>"If you really loved me, you would know…"</em></p>
+<p>Each partner lists hidden expectations they've been holding:</p>
+<table>
+<thead><tr><th>"If you really loved me, you would…"</th><th>Have you actually told your partner this?</th></tr></thead>
+<tbody>
+<tr><td></td><td>☐ Y ☐ N</td></tr>
+<tr><td></td><td>☐ Y ☐ N</td></tr>
+<tr><td></td><td>☐ Y ☐ N</td></tr>
+</tbody></table>
+<p><strong>Discussion:</strong> How might unspoken expectations be fueling disappointment? Practice stating the expectation directly as a request.</p>
+<hr>
+<h2>Tool 6 — The Time-Out / De-escalation Plan (managing emotional reactivity, Ch. 15)</h2>
+<p>When reactivity spikes, the couple needs an agreed exit ramp. (Essential when aggression history is present — see Worksheet 07.)</p>
+<p><strong>Our Time-Out agreement:</strong></p>
+<ul>
+<li>Our signal word/gesture to call a time-out: __________________</li>
+<li>Either partner can call it — no questions asked.</li>
+<li>During a time-out we will: (go to separate rooms · take a walk · breathe · no following/pursuing)</li>
+<li>We will come back and resume within ______ minutes/hours.</li>
+<li>Self-soothing I will do during the break (Partner A): __________________</li>
+<li>Self-soothing I will do during the break (Partner B): __________________</li>
+</ul>
+<p><strong>Physiological self-regulation:</strong> notice the body's early warning signs (racing heart, heat, tight chest). Name them before escalation: Partner A's signs ____________ Partner B's signs ____________</p>
+<hr>
+<h2>Between-session practice (assign in Worksheet 09)</h2>
+<ul>
+<li class="checkbox">&#9744; Daily 15-minute Speaker–Listener "appreciation" check-in on a <em>positive</em> topic</li>
+<li class="checkbox">&#9744; Each partner converts 3 blame-thoughts into I-messages and brings them to next session</li>
+<li class="checkbox">&#9744; Practice one time-out if reactivity rises; report how it went</li>
+</ul>
+<h2>Session close-out</h2>
+<ul>
+<li class="checkbox">&#9744; Skill(s) taught and practiced in-session with coaching</li>
+<li class="checkbox">&#9744; Time-out plan agreed</li>
+<li class="checkbox">&#9744; Homework assigned (Worksheet 09)</li>
+<li class="checkbox">&#9744; Session rating (Worksheet 09)</li>
+</ul>
+<blockquote><strong>Next:</strong> Worksheet 05 (emotion/attachment restructuring) and/or Worksheet 06 (cognitive restructuring &amp; problem-solving) depending on your treatment plan.</blockquote>
+</section>
+<section class="worksheet" id="wk05">
+  <div class="wk-head">
+    <div>
+      <div class="num">Worksheet 05</div>
+      <h1>Worksheet 05 — Emotion &amp; Attachment Restructuring (EFT-informed)</h1>
+    </div>
+    <button class="wk-print" onclick="printOne('wk05')">&#128424; Print this worksheet</button>
+  </div>
+  <p><strong>Phase 4 — Restructuring the Bond · Sessions 8–14</strong> <em>Source basis: Harway (Ed.), Handbook of Couples Therapy — Ch. 11 (EFT: emotion, attachment, enactments, softening, attachment injuries), Ch. 9 (Object Relations: projective identification, internalized models), Ch. 15 (emotional reactivity).</em></p>
+<hr>
+<h2>How to use this worksheet (clinician instructions)</h2>
+<ul>
+<li><strong>Purpose:</strong> Move from <em>de-escalating</em> the cycle (Phase 3) to <em>restructuring the emotional bond.</em> EFT frames couple distress as insecurity in the attachment bond: rigid interaction patterns organized by "absorbing affect states." The task is to access the softer, underlying emotions and attachment needs that drive the surface behavior, and to create new bonding interactions.</li>
+<li><strong>When to use:</strong> After the couple has achieved some de-escalation (they can talk about the cycle without the cycle taking over). EFT describes this as moving beyond "critical pursuit followed by distance and defensiveness."</li>
+<li><strong>Format:</strong> Joint sessions. Heavy use of <strong>in-session enactments</strong> — you direct partners to turn and speak the newly accessed emotion <em>to each other</em>, not to you.</li>
+<li><strong>Stance:</strong> Clients are the experts on their own experience; do not pathologize or label. "They are viewed as struggling with problems arising from a particular social context." Validate, reflect, and heighten emotion gently.</li>
+<li><strong>Caution:</strong> Deep emotional work can surface trauma or attachment injuries (including infidelity or abuse). Have Worksheet 07 ready; pace to the couple's window of tolerance.</li>
+</ul>
+<hr>
+<h2>Tool 1 — Secondary vs. Primary Emotion Map</h2>
+<p>Surface (secondary/reactive) emotions protect us but drive the negative cycle. Underneath are primary (vulnerable) emotions and attachment needs.</p>
+<table>
+<thead><tr><th></th><th>Partner A</th><th>Partner B</th></tr></thead>
+<tbody>
+<tr><td><strong>Secondary emotion</strong> (what shows on the surface — often anger, criticism, numbness, withdrawal)</td><td></td><td></td></tr>
+<tr><td><strong>Primary emotion</strong> (underneath — hurt, fear, loneliness, shame, longing)</td><td></td><td></td></tr>
+<tr><td><strong>The attachment question underneath</strong> (e.g., <em>"Are you there for me? Do I matter to you? Will you leave?"</em>)</td><td></td><td></td></tr>
+</tbody></table>
+<p><strong>Clinician prompt to access primary emotion:</strong> "When you [withdraw/criticize] in that moment… just underneath the [anger/silence], what's the softer feeling? What are you afraid of?"</p>
+<hr>
+<h2>Tool 2 — Attachment Needs &amp; Fears</h2>
+<p>Each partner names their core attachment needs and fears (built from Worksheet 02, Part C).</p>
+<table>
+<thead><tr><th></th><th>Partner A</th><th>Partner B</th></tr></thead>
+<tbody>
+<tr><td>My deepest need in this relationship is…</td><td></td><td></td></tr>
+<tr><td>My biggest fear in this relationship is…</td><td></td><td></td></tr>
+<tr><td>When I don't get my need met, I tend to…</td><td></td><td></td></tr>
+<tr><td>What would help me feel safe/secure is…</td><td></td><td></td></tr>
+</tbody></table>
+<blockquote>EFT goal: help each partner express needs <em>from a vulnerable place</em> and the other respond with accessibility, responsiveness, and engagement.</blockquote>
+<hr>
+<h2>Tool 3 — Enactment Script (the heart of EFT change events)</h2>
+<p>Direct the couple to turn toward each other and speak the newly accessed emotion. Use this as a scaffold:</p>
+<p><strong>Pursuer softening / Withdrawer re-engaging:</strong></p>
+<ol>
+<li>Partner, turn to [name]. Can you tell them: <em>"When this happens, underneath I feel ______ (primary emotion)."</em></li>
+<li><em>"What I really need from you in those moments is ______."</em></li>
+<li><em>"It's hard for me to say this because ______."</em></li>
+</ol>
+<p><strong>Listener's response (coach them):</strong></p>
+<ul>
+<li><em>"When I hear you say that, I feel ______."</em></li>
+<li><em>"What I want you to know is ______."</em></li>
+<li><em>"I want to be there for you by ______."</em></li>
+</ul>
+<p><strong>Enactment log:</strong></p>
+<table>
+<thead><tr><th>Date</th><th>What was accessed / expressed</th><th>How partner responded</th><th>Shift observed?</th></tr></thead>
+<tbody>
+<tr><td></td><td></td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td></tr>
+</tbody></table>
+<hr>
+<h2>Tool 4 — Attachment Injury Repair</h2>
+<p>An "attachment injury" is a moment of betrayal or abandonment at a critical time (e.g., not being there during a loss, an affair, a broken promise) that becomes a recurring wound blocking trust. EFT describes specific work on these injuries.</p>
+<p><strong>Identify the injury:</strong></p>
+<ul>
+<li>What happened, and when? _______________________________________</li>
+<li>Why was this moment so critical for the injured partner? ________________</li>
+<li>What did it come to <em>mean</em> about the relationship / your safety? ___________</li>
+</ul>
+<p><strong>Repair steps (guide the couple through, in order):</strong></p>
+<ol>
+<li><strong>Injured partner</strong> stays with and expresses the pain and its attachment meaning (not just the facts).</li>
+<li><strong>Other partner</strong> stays present, hears the impact without defending, and acknowledges the hurt they caused.</li>
+<li><strong>Other partner</strong> expresses genuine remorse and understanding of the injury's significance.</li>
+<li><strong>Injured partner</strong> begins to risk asking for what they need now to feel safe.</li>
+<li>The couple creates a new, corrective bonding moment.</li>
+</ol>
+<blockquote>Links to PAIRS competency: "Seek forgiveness for hurts by taking responsibility, repairing damages, and expressing regret. Let go of grudges and choose to forgive."</blockquote>
+<p><strong>Repair tracking:</strong></p>
+<table>
+<thead><tr><th>Step</th><th>Done?</th><th>Notes</th></tr></thead>
+<tbody>
+<tr><td>Injury named &amp; its meaning expressed</td><td>☐</td><td></td></tr>
+<tr><td>Impact heard without defensiveness</td><td>☐</td><td></td></tr>
+<tr><td>Genuine remorse expressed</td><td>☐</td><td></td></tr>
+<tr><td>Needs for safety now articulated</td><td>☐</td><td></td></tr>
+<tr><td>New bonding moment created</td><td>☐</td><td></td></tr>
+</tbody></table>
+<hr>
+<h2>Tool 5 — Object Relations Reflection (optional, Ch. 9)</h2>
+<p>For couples where old internalized relationship "templates" are being projected onto the partner:</p>
+<ul>
+<li>"Who does your partner remind you of when you're triggered?" ______________</li>
+<li>"What old relationship pattern might be getting replayed here?" _____________</li>
+<li>"Is the feeling the size of <em>this</em> moment, or does it carry something older?" _____________</li>
+</ul>
+<p>Use to help partners separate the present partner from historical figures (de-projection).</p>
+<hr>
+<h2>Tool 6 — Creating New Bonding Rituals (PAIRS)</h2>
+<p>Restructuring isn't complete without positive bonding. From PAIRS competencies:</p>
+<ul>
+<li><strong>Regular bonding</strong> with "an abundance of physical closeness and emotional openness."</li>
+<li><strong>Play, pleasure, recreation, humor</strong> to balance the hard work.</li>
+<li><strong>Daily/weekly rituals</strong> we will build: ________________________________</li>
+<li><strong>Expressions of gratitude and appreciation</strong> we will practice: __________________</li>
+</ul>
+<hr>
+<h2>Between-session practice (assign in Worksheet 09)</h2>
+<ul>
+<li class="checkbox">&#9744; One "vulnerability conversation" at home using the enactment script</li>
+<li class="checkbox">&#9744; Each partner performs one specific act that meets the other's stated attachment need</li>
+<li class="checkbox">&#9744; Daily bonding ritual (hug ≥ 20s, check-in, gratitude)</li>
+</ul>
+<h2>Session close-out</h2>
+<ul>
+<li class="checkbox">&#9744; Primary emotions accessed and expressed in-session</li>
+<li class="checkbox">&#9744; Attachment needs named by both partners</li>
+<li class="checkbox">&#9744; Enactment(s) completed with coaching</li>
+<li class="checkbox">&#9744; Homework assigned (Worksheet 09)</li>
+<li class="checkbox">&#9744; Session rating (Worksheet 09)</li>
+</ul>
+<blockquote><strong>Next:</strong> Worksheet 06 (cognitive restructuring &amp; problem-solving) for concrete issues, and interweave Worksheet 07 modules as indicated.</blockquote>
+</section>
+<section class="worksheet" id="wk06">
+  <div class="wk-head">
+    <div>
+      <div class="num">Worksheet 06</div>
+      <h1>Worksheet 06 — Cognitive Restructuring, Problem-Solving &amp; Behavior Exchange (CBCT)</h1>
+    </div>
+    <button class="wk-print" onclick="printOne('wk06')">&#128424; Print this worksheet</button>
+  </div>
+  <p><strong>Phase 4 — Restructuring the Bond · Sessions 6–14 (interwoven)</strong> <em>Source basis: Harway (Ed.), Handbook of Couples Therapy — Ch. 8 (Cognitive Behavioral Couple Therapy: functional assessment, communication, problem-solving, behavior exchange, attributions, caring days/acceptance &amp; commitment), Ch. 12 (solution-focused exceptions).</em></p>
+<hr>
+<h2>How to use this worksheet (clinician instructions)</h2>
+<ul>
+<li><strong>Purpose:</strong> The CBCT chapter identifies three "lynchpins" of effective couples intervention: <strong>communication</strong> (Worksheet 04), <strong>problem-solving</strong>, and <strong>behavior exchange</strong> — plus the cognitive layer of <strong>attributions and beliefs.</strong> This worksheet covers the cognitive and problem-solving/behavioral components.</li>
+<li><strong>Grounding principle:</strong> "Before any clinical theory or technique is applied, a functional assessment should be conducted to guide treatment planning." Make sure Phase 1–2 is complete.</li>
+<li><strong>Format:</strong> Joint sessions; teach, model, and practice in-session, then assign as homework. CBCT is explicitly skills- and practice-oriented.</li>
+<li><strong>Balance:</strong> The chapter warns that behavioral work alone has been stereotyped as "cold and sterile." Pair these tools with the emotional and relationship focus of Worksheet 05 so the couple experiences warmth, not mechanics. Enhanced CBCT encompasses "personal characteristics, past history, and the total context of the couple's environment."</li>
+<li><strong>Match to orientation:</strong> This worksheet is the core toolkit for CBCT-oriented clinicians and a useful supplement for others.</li>
+</ul>
+<hr>
+<h2>Tool 1 — Thought Record (Cognitive Restructuring)</h2>
+<p>Distressing couple interactions are often driven by automatic thoughts and interpretations, not just the event itself.</p>
+<table>
+<thead><tr><th>Situation (what happened)</th><th>Automatic thought / interpretation</th><th>Emotion (0–100)</th><th>Behavior that followed</th><th>Evidence for the thought</th><th>Evidence against</th><th>Balanced / alternative thought</th><th>New emotion (0–100)</th></tr></thead>
+<tbody>
+<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+</tbody></table>
+<p><strong>Clinician note:</strong> Have each partner complete their own. Then compare: often the same event produced very different interpretations.</p>
+<hr>
+<h2>Tool 2 — Attribution Check (CBCT)</h2>
+<p>The chapter cautions that excessive focus on attributions can crowd out needed behavior-exchange skills — so use this as a brief, targeted tool. Distressed couples tend to attribute negative behavior to the partner's <strong>stable, global, intentional</strong> character ("he's selfish") rather than to situation.</p>
+<p>For a recent upsetting event, each partner answers:</p>
+<table>
+<thead><tr><th>Question</th><th>Partner A</th><th>Partner B</th></tr></thead>
+<tbody>
+<tr><td>What did your partner do?</td><td></td><td></td></tr>
+<tr><td>Why do you think they did it? (your explanation)</td><td></td><td></td></tr>
+<tr><td>Is your explanation about their <em>character</em> ("they always, they're the kind of person who…") or the <em>situation</em>?</td><td></td><td></td></tr>
+<tr><td>What's a more charitable or situational explanation?</td><td></td><td></td></tr>
+</tbody></table>
+<blockquote>PAIRS link: "Extend goodwill and positive intent." Reattributing toward benign/situational explanations reduces reactivity.</blockquote>
+<hr>
+<h2>Tool 3 — Identifying &amp; Testing Relationship Beliefs/Standards</h2>
+<p>Unrealistic standards fuel conflict (CBCT; cf. "Love Knots" in Worksheet 04).</p>
+<table>
+<thead><tr><th>My belief / standard about relationships</th><th>Realistic? Flexible?</th><th>Revised, more flexible version</th></tr></thead>
+<tbody>
+<tr><td>"A good partner should always know what I need."</td><td></td><td></td></tr>
+<tr><td>"Disagreement means we're incompatible."</td><td></td><td></td></tr>
+<tr><td><em>(couple's own)</em></td><td></td><td></td></tr>
+</tbody></table>
+<hr>
+<h2>Tool 4 — Structured Problem-Solving (CBCT)</h2>
+<p>A step-by-step format for a specific, solvable issue (keep emotionally charged relational wounds for Worksheet 05).</p>
+<ol>
+<li><strong>Define the problem specifically</strong> (one issue, behavioral terms): _______________________</li>
+<li><strong>Each partner states their perspective</strong> (I-messages, Worksheet 04): _______________________</li>
+<li><strong>Brainstorm solutions</strong> — all ideas welcome, no judging yet:</li>
+<li>_______________________________________________________________</li>
+<li>_______________________________________________________________</li>
+<li>_______________________________________________________________</li>
+<li><strong>Evaluate options together</strong> (pros/cons):</li>
+</ol>
+<table>
+<thead><tr><th>Option</th><th>Pros</th><th>Cons</th></tr></thead>
+<tbody>
+<tr><td></td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td></tr>
+</tbody></table>
+<ol>
+<li><strong>Choose a solution to try</strong> (compromise acceptable to both): _______________________</li>
+<li><strong>Agree on specifics:</strong> who does what, by when? _______________________</li>
+<li><strong>Set a review date</strong> to evaluate how it worked: _______________________</li>
+</ol>
+<hr>
+<h2>Tool 5 — Behavior Exchange &amp; "Caring Days" (CBCT / Stuart)</h2>
+<p>Stuart's "caring days": each partner devotes days to doing specific activities requested by the other.</p>
+<p><strong>Each partner lists small, specific, positive behaviors they would appreciate</strong> (concrete and doable — e.g., "bring me coffee in the morning," "ask about my day and listen," "text me a nice note"):</p>
+<table>
+<thead><tr><th>Partner A would appreciate…</th><th>Partner B would appreciate…</th></tr></thead>
+<tbody>
+<tr><td>1.</td><td>1.</td></tr>
+<tr><td>2.</td><td>2.</td></tr>
+<tr><td>3.</td><td>3.</td></tr>
+<tr><td>4.</td><td>4.</td></tr>
+<tr><td>5.</td><td>5.</td></tr>
+</tbody></table>
+<p><strong>Agreement:</strong> This week, each partner will do <strong>at least ____ caring behaviors per day</strong> from the other's list — <em>independent of whether the partner reciprocates</em> (no scorekeeping). The emphasis is on positive exchange, not tit-for-tat.</p>
+<hr>
+<h2>Tool 6 — Acceptance vs. Change (Integrative Behavioral CBCT)</h2>
+<p>Not every difference can or should be changed. The chapter describes facilitating "acceptance by one partner of the other's specific behavior, rather than attempting to change it."</p>
+<table>
+<thead><tr><th>Issue</th><th>Can realistically change?</th><th>Needs acceptance?</th><th>Our approach</th></tr></thead>
+<tbody>
+<tr><td></td><td>☐</td><td>☐</td><td></td></tr>
+<tr><td></td><td>☐</td><td>☐</td><td></td></tr>
+</tbody></table>
+<p><strong>Commitment</strong> (the other half of acceptance &amp; commitment): <em>"Willingness to put forth the necessary effort to make the relationship succeed."</em> Each partner names one commitment: ______________________</p>
+<hr>
+<h2>Tool 7 — Exceptions / What's Already Working (Solution-Focused, Ch. 12)</h2>
+<ul>
+<li>"Tell me about a recent time the problem <em>could</em> have happened but didn't — what was different?" ______________________</li>
+<li>"What were you each doing differently during that exception?" ______________________</li>
+<li>"How can you do more of that?" ______________________</li>
+</ul>
+<hr>
+<h2>Between-session practice (assign in Worksheet 09)</h2>
+<ul>
+<li class="checkbox">&#9744; Each partner completes 2 thought records on upsetting moments</li>
+<li class="checkbox">&#9744; Daily caring behaviors from the partner's list (no scorekeeping)</li>
+<li class="checkbox">&#9744; Try the agreed problem-solving solution; note results for review</li>
+</ul>
+<h2>Session close-out</h2>
+<ul>
+<li class="checkbox">&#9744; Cognitive/attribution tool practiced</li>
+<li class="checkbox">&#9744; Problem-solving or behavior-exchange agreement reached</li>
+<li class="checkbox">&#9744; Homework assigned (Worksheet 09)</li>
+<li class="checkbox">&#9744; Session rating (Worksheet 09)</li>
+</ul>
+<blockquote><strong>Next:</strong> Interweave Worksheet 07 (special issues) as indicated; progress toward Worksheet 08 (consolidation &amp; termination).</blockquote>
+</section>
+<section class="worksheet" id="wk07">
+  <div class="wk-head">
+    <div>
+      <div class="num">Worksheet 07</div>
+      <h1>Worksheet 07 — Special Issues Modules</h1>
+    </div>
+    <button class="wk-print" onclick="printOne('wk07')">&#128424; Print this worksheet</button>
+  </div>
+  <p><strong>Phase 5 — Special Issues (interwoven as indicated)</strong> <em>Source basis: Harway (Ed.), Handbook of Couples Therapy — Ch. 15 (Illness/medical), Ch. 16 (Sexual abuse history), Ch. 17 (Physical aggression), Ch. 18 (Addiction), Ch. 19 (Infidelity), Ch. 20 (Religious/spiritual), Ch. 21 (Same-sex couples), Ch. 22 (Socioeconomic factors), Ch. 23 (Divorce).</em></p>
+<hr>
+<h2>How to use this worksheet (clinician instructions)</h2>
+<ul>
+<li><strong>Purpose:</strong> The <em>Handbook</em> devotes all of Section III to special presentations that require specific clinical adaptations. These modules are <strong>not</strong> meant to replace the session arc — they are <strong>add-ons</strong> or <strong>sequence modifiers</strong> to Worksheets 01–06.</li>
+<li><strong>When to use:</strong> When the safety screen (Worksheet 01, Part A) or individual sessions (Worksheet 02) identify any of these issues.</li>
+<li><strong>Format:</strong> Select the relevant module(s); integrate its assessment and intervention prompts into the treatment plan (Worksheet 03, Part D). Some modules (aggression, addiction) alter the standard sequence — follow the sequencing notes carefully.</li>
+<li><strong>Scope:</strong> These modules are brief assessment-and-planning aids, not comprehensive treatments. Consult the corresponding <em>Handbook</em> chapter and the relevant primary clinical literature for depth.</li>
+</ul>
+<hr>
+<h2>Module A — Couples Facing Illness / Medical Concerns (Ch. 15)</h2>
+<p><strong>Core framework:</strong> The interaction between biological and emotional — illness disrupts the couple's roles, intimacy, and emotional regulation.</p>
+<p><strong>Assessment questions:</strong></p>
+<ol>
+<li>What is the medical condition / diagnosis? ___________________________</li>
+<li>Who is the patient and who is the caregiver? ________________________</li>
+<li>How has illness changed your daily roles and routines? _________________</li>
+<li>How has illness affected your emotional connection and intimacy? _______</li>
+<li>On a 0–10 scale, how well are you managing the emotional roller coaster? Partner A: ___ Partner B: ___</li>
+</ol>
+<p><strong>Intervention prompts:</strong></p>
+<ul>
+<li>Help the couple develop shared understanding of the illness and its practical demands</li>
+<li>Address caregiver burnout and the patient's guilt/loss of autonomy</li>
+<li>Use emotional reactivity management techniques (Worksheet 04, Tool 6)</li>
+<li>Normalize grief for the "lost" relationship/life before the illness</li>
+<li>Support practical problem-solving for medical demands (Worksheet 06)</li>
+</ul>
+<hr>
+<h2>Module B — Sexual-Abuse History (Ch. 16)</h2>
+<p><strong>Core framework:</strong> A history of sexual abuse in one partner "may affect the overall couple's functioning and may lead to difficult therapeutic concerns."</p>
+<p><strong>Safety-first sequencing:</strong></p>
+<blockquote>"If sexual abuse is ruled out at intake, the standard clinical assessment protocol for couples may be implemented." If abuse IS present: individual trauma assessment and stabilization come first or alongside.</blockquote>
+<p><strong>Assessment questions (with the individual partner — Worksheet 02):</strong></p>
+<ol>
+<li>Has the survivor received or is currently in individual trauma therapy? ☐ Y ☐ N</li>
+<li>Is the partner aware of the abuse history? ☐ Y ☐ N ☐ Partially</li>
+<li>How does the abuse history show up in the couple's dynamic? (triggers, avoidance, sexual difficulties, trust issues) __________</li>
+<li>Does the partner feel they "walk on eggshells" or feel shut out? __________</li>
+</ol>
+<p><strong>Intervention focus:</strong></p>
+<ul>
+<li>Psychoeducation: both partners learn how trauma affects the nervous system and relational behavior</li>
+<li>Pacing: go slow with emotional vulnerability (Worksheet 05) — stay within the survivor's window of tolerance</li>
+<li>Address the non-abused partner's feelings (helplessness, frustration) without centering them</li>
+<li>Refer for individual trauma work if not already in place</li>
+<li>Build a safety plan for triggered moments (link to Worksheet 04, Time-Out)</li>
+</ul>
+<hr>
+<h2>Module C — Physical Aggression / Domestic Violence (Ch. 17)</h2>
+<p><strong>Safety-first sequencing:</strong></p>
+<blockquote>Conjoint communication work can be <strong>contraindicated</strong> when active violence is present. This decision must be made at intake and revisited.</blockquote>
+<p><strong>Level-of-risk assessment (clinician completes):</strong></p>
+<table>
+<thead><tr><th>Factor</th><th>Partner A → B</th><th>Partner B → A</th></tr></thead>
+<tbody>
+<tr><td>Type of aggression (physical, psychological, sexual, financial, technology)</td><td></td><td></td></tr>
+<tr><td>Frequency and recency</td><td></td><td></td></tr>
+<tr><td>Severity / injury</td><td></td><td></td></tr>
+<tr><td>Fear level of the partner (scale 0–10)</td><td></td><td></td></tr>
+<tr><td>Use of coercive control?</td><td>☐ Y ☐ N</td><td>☐ Y ☐ N</td></tr>
+<tr><td>History of escalation?</td><td>☐ Y ☐ N</td><td>☐ Y ☐ N</td></tr>
+<tr><td>Weapons involvement?</td><td>☐ Y ☐ N</td><td>☐ Y ☐ N</td></tr>
+</tbody></table>
+<p><strong>Decision tree:</strong></p>
+<ul>
+<li><strong>Active high-risk violence or coercive control →</strong> Conjoint therapy is not appropriate at this time. Individual safety planning, refer to DV services, potentially batterer-intervention program.</li>
+<li><strong>Situational couple violence (low severity, mutual, no fear/coercion) →</strong> Conjoint may proceed with modifications: Time-Out plan (Worksheet 04) must be in place first; topics are carefully titrated; aggression is monitored every session.</li>
+</ul>
+<p><strong>Safety plan (always complete when any aggression history):</strong></p>
+<ul>
+<li>Emergency numbers (local DV hotline, crisis line): ________________________</li>
+<li>Safe person to call: __________</li>
+<li>Safe place to go: __________</li>
+<li>How to signal the therapist between sessions: __________</li>
+</ul>
+<hr>
+<h2>Module D — Addiction (Ch. 18)</h2>
+<p><strong>Core framework:</strong> Key elements of couples therapy integrated with treatment of addictive behaviors.</p>
+<p><strong>Assessment:</strong></p>
+<ol>
+<li>Substance(s) or behavior(s) of concern: _____________________________</li>
+<li>Current use level and pattern: _____________________________________</li>
+<li>Is the individual currently in treatment for the addiction? ☐ Y ☐ N</li>
+<li>Stage of change (precontemplation / contemplation / preparation / action / maintenance): _____</li>
+<li>How does the addiction affect the couple's functioning? __________________</li>
+<li>Enabling / co-dependent patterns? __________________________________</li>
+</ol>
+<p><strong>Sequencing note:</strong> Active untreated addiction may need to be addressed (at minimum harm-reduction or individual addiction treatment) before deep couples work can be effective — the cycle cannot be interrupted if substances are fueling it.</p>
+<p><strong>Intervention focus:</strong></p>
+<ul>
+<li>Psychoeducation: addiction as a biopsychosocial pattern affecting the couple system</li>
+<li>Map the cycle with addiction included (who uses when, what triggers it, how partner responds, how that response feeds the cycle)</li>
+<li>Rebuild trust (overlaps with Module F)</li>
+<li>Relapse-prevention planning that includes the couple (Worksheet 08)</li>
+</ul>
+<hr>
+<h2>Module E — Infidelity (Ch. 19)</h2>
+<p><strong>Core framework:</strong> Infidelity "affects a large number of couples and presents particular challenges." Ch. 19 proposes an effective model for intervention.</p>
+<p><strong>Assessment:</strong></p>
+<ol>
+<li>Nature of the infidelity (emotional, physical, online, ongoing/ended): __________________</li>
+<li>How was it discovered? __________</li>
+<li>When? __________ How recently? __________</li>
+<li>Has the affair/contact ended? ☐ Y ☐ N ☐ Unclear</li>
+<li>Disclosure status: ☐ Full disclosure ☐ Partial ☐ Still emerging</li>
+<li>Impact on the betrayed partner (0–10 distress): _____</li>
+<li>Remorse level of the involved partner (0–10): _____</li>
+</ol>
+<p><strong>Phase-specific work:</strong></p>
+<ul>
+<li><strong>Phase 1 — Crisis stabilization:</strong> Contain the acute emotional flooding. No major decisions yet. Rule out safety concerns.</li>
+<li><strong>Phase 2 — Understanding:</strong> Why did it happen? (not to excuse, but to understand the relational context). Map it onto the cycle (Worksheet 03).</li>
+<li><strong>Phase 3 — Rebuilding trust:</strong> Transparency, accountability, addressing the attachment injury (Worksheet 05, Tool 4). "Taking responsibility for transgressions, repairing damages, and expressing regret" (PAIRS).</li>
+<li><strong>Phase 4 — Decision:</strong> Can the relationship be repaired? New commitment or transition to divorce (Module G)?</li>
+</ul>
+<hr>
+<h2>Module F — Religious / Spiritual Issues (Ch. 20)</h2>
+<p><strong>Assessment:</strong></p>
+<ol>
+<li>Spiritual/religious affiliation of each partner: Partner A _________ Partner B _________</li>
+<li>Importance of spirituality to each (0–10): A ____ B ____</li>
+<li>Points of harmony: __________</li>
+<li>Points of conflict: __________</li>
+<li>Are spiritual differences contributing to couple distress? __________</li>
+</ol>
+<p><strong>Intervention focus:</strong></p>
+<ul>
+<li>Create a safe space to discuss spiritual beliefs without judgment</li>
+<li>Acknowledge spiritual differences as one form of cultural difference</li>
+<li>Explore how spiritual values can be a resource for healing</li>
+<li>Respect that therapy should not impose the therapist's beliefs</li>
+</ul>
+<hr>
+<h2>Module G — Divorce / Dissolution (Ch. 23)</h2>
+<p><strong>Decision check-in:</strong></p>
+<ul>
+<li>Is one or both partners here to end the relationship rather than repair it? ☐ A ☐ B ☐ Both ☐ Neither</li>
+<li>Are they open to exploring the relationship first? ☐ Y ☐ N</li>
+</ul>
+<p><strong>If proceeding toward dissolution:</strong></p>
+<ul>
+<li>Shift goals to a smooth, respectful transition</li>
+<li>Address co-parenting plan if children are involved</li>
+<li>Manage the emotional process of grief and loss</li>
+<li>Refer for legal/financial resources as needed</li>
+<li>Prevent adversarial dynamics that harm children or each other</li>
+</ul>
+<hr>
+<h2>Module H — Same-Sex Couples (Ch. 21)</h2>
+<p><strong>Assessment of unique stressors:</strong></p>
+<ul>
+<li>Degree of openness about the relationship (out to family, work, community): __________</li>
+<li>Internalized stigma / minority stress affecting the relationship: __________</li>
+<li>Legal protections / lack thereof: __________</li>
+<li>Role-negotiation without default gendered scripts: __________</li>
+<li>Family-of-origin acceptance: __________</li>
+</ul>
+<blockquote>Worksheets 01–06 apply to all couples. This module adds the lens of specific stressors that same-sex couples navigate that are unique to their context.</blockquote>
+<hr>
+<h2>Module I — Socioeconomic Stressors (Ch. 22)</h2>
+<p><strong>Assessment:</strong></p>
+<ul>
+<li>Financial stress level (0–10): Partner A ___ Partner B ___</li>
+<li>Employment stability: __________</li>
+<li>Housing stability: __________</li>
+<li>Access to healthcare/childcare: __________</li>
+<li>How do money issues show up in the couple's cycle? __________</li>
+</ul>
+<p><strong>Intervention focus:</strong></p>
+<ul>
+<li>Practical financial problem-solving (Worksheet 06)</li>
+<li>Addressing power dynamics related to income/earning</li>
+<li>Normalizing the impact of economic stress on the relationship</li>
+</ul>
+<hr>
+<h2>Clinician notes</h2>
+<p>After reviewing relevant modules, update the Treatment Plan (Worksheet 03, Part D) to reflect:</p>
+<ul>
+<li>Which modules are active: ________________________________________</li>
+<li>Sequencing changes needed: ______________________________________</li>
+<li>External referrals made: __________________________________________</li>
+</ul>
+<blockquote><strong>Next:</strong> Continue standard arc (Worksheets 04–06); progress toward Worksheet 08 (consolidation &amp; termination).</blockquote>
+</section>
+<section class="worksheet" id="wk08">
+  <div class="wk-head">
+    <div>
+      <div class="num">Worksheet 08</div>
+      <h1>Worksheet 08 — Consolidation, Relapse Prevention &amp; Termination</h1>
+    </div>
+    <button class="wk-print" onclick="printOne('wk08')">&#128424; Print this worksheet</button>
+  </div>
+  <p><strong>Phase 6 — Consolidation &amp; Termination · Final 2–3 Sessions</strong> <em>Source basis: Harway (Ed.), Handbook of Couples Therapy — Ch. 2 (PAIRS: rituals, sustaining relationships, gratitude), Ch. 11 (EFT: consolidation stage, new positions), Ch. 24 (What the research tells us), Ch. 25 (concluding thoughts).</em></p>
+<hr>
+<h2>How to use this worksheet (clinician instructions)</h2>
+<ul>
+<li><strong>Purpose:</strong> Consolidate gains, help the couple internalize new patterns, build relapse prevention, and end the therapy relationship well. In EFT terms, this is the consolidation stage where new, more secure interactional positions are stabilized and the couple's new "story" of their relationship is reinforced.</li>
+<li><strong>Format:</strong> Joint sessions, usually the final 2–3. Spread termination over more than one session so it isn't abrupt.</li>
+<li><strong>Stance:</strong> Shift authority back to the couple — they are now the experts on their own relationship. Highlight what <em>they</em> did, not what you did.</li>
+<li><strong>Review material:</strong> Pull out the goals (Worksheet 03), the cycle map, and completed tracking sheets (Worksheet 09) to review progress concretely.</li>
+</ul>
+<hr>
+<h2>Part A — Reviewing the Journey</h2>
+<h3>Progress on original goals (from Worksheet 03)</h3>
+<table>
+<thead><tr><th>Goal</th><th>Where we started (0–10)</th><th>Where we are now (0–10)</th><th>Still working on?</th></tr></thead>
+<tbody>
+<tr><td>1</td><td></td><td></td><td></td></tr>
+<tr><td>2</td><td></td><td></td><td></td></tr>
+<tr><td>3</td><td></td><td></td><td></td></tr>
+<tr><td>4</td><td></td><td></td><td></td></tr>
+<tr><td>5</td><td></td><td></td><td></td></tr>
+</tbody></table>
+<h3>What changed</h3>
+<table>
+<thead><tr><th></th><th>Partner A</th><th>Partner B</th></tr></thead>
+<tbody>
+<tr><td>The biggest change I notice in myself</td><td></td><td></td></tr>
+<tr><td>The biggest change I notice in you</td><td></td><td></td></tr>
+<tr><td>The biggest change in us as a couple</td><td></td><td></td></tr>
+<tr><td>What I'm most proud of</td><td></td><td></td></tr>
+</tbody></table>
+<hr>
+<h2>Part B — Understanding Our Cycle (then vs. now)</h2>
+<ul>
+<li><strong>Our old negative cycle was:</strong> ___________________________________</li>
+<li><strong>How we catch it now, early:</strong> ___________________________________</li>
+<li><strong>Our new, more secure pattern looks like:</strong> _________________________</li>
+<li><strong>Our signal to each other when we're slipping into the old cycle:</strong> ___________</li>
+</ul>
+<hr>
+<h2>Part C — Relapse Prevention Plan</h2>
+<p>Distress will recur — the goal is that the couple can recover on their own.</p>
+<ol>
+<li><strong>Our early-warning signs that we're drifting back into the old pattern:</strong></li>
+</ol>
+<p>   _______________________________________________________________</p>
+<ol>
+<li><strong>High-risk situations / triggers to watch for</strong> (stress, holidays, transitions, illness, in-laws):</li>
+</ol>
+<p>   _______________________________________________________________</p>
+<ol>
+<li><strong>Our toolkit — what we'll do when the cycle shows up:</strong></li>
+<li class="checkbox">&#9744; Call a time-out (Worksheet 04)</li>
+<li class="checkbox">&#9744; Use I-messages / Speaker–Listener (Worksheet 04)</li>
+<li class="checkbox">&#9744; Name the primary emotion and attachment need (Worksheet 05)</li>
+<li class="checkbox">&#9744; Return to a thought record / problem-solving steps (Worksheet 06)</li>
+<li class="checkbox">&#9744; Reconnect with a bonding ritual</li>
+<li>Other: _______________________________________________________</li>
+</ol>
+<ol>
+<li><strong>When would we come back to therapy?</strong> (agree on criteria for a "tune-up" session)</li>
+</ol>
+<p>   _______________________________________________________________</p>
+<hr>
+<h2>Part D — Sustaining the Relationship (PAIRS competencies)</h2>
+<p>Build durable habits from the PAIRS "Attitudes and Strategies for Successful Long-Term Relationships":</p>
+<ul>
+<li><strong>Regular bonding ritual</strong> (physical closeness + emotional openness): ___________</li>
+<li><strong>Play / recreation / humor</strong> we commit to: ___________</li>
+<li><strong>Expressing hurt/fear directly</strong> rather than leaving it unsaid: our practice is ___________</li>
+<li><strong>Repair ritual</strong> when we hurt each other (seek forgiveness, take responsibility): ___________</li>
+<li><strong>"Give up being right"</strong> — welcome differences: our reminder is ___________</li>
+<li><strong>Weekly gratitude / appreciation ritual:</strong> ___________</li>
+<li><strong>A unique relationship identity / rituals / customs we're building:</strong> ___________</li>
+<li><strong>Connection to friends, community, extended family</strong> for support: ___________</li>
+</ul>
+<hr>
+<h2>Part E — Letters / Appreciations (optional closing exercise)</h2>
+<p>Each partner writes or speaks aloud to the other:</p>
+<ul>
+<li>"What I appreciate most about going through this with you is…" ______________</li>
+<li>"What I'm committing to going forward is…" ______________</li>
+<li>"What I hope for us is…" ______________</li>
+</ul>
+<hr>
+<h2>Part F — Ending the Therapy Relationship</h2>
+<ul>
+<li><strong>Acknowledge the work and the ending.</strong> Name what the couple accomplished.</li>
+<li><strong>Normalize mixed feelings</strong> about ending.</li>
+<li><strong>Confirm the door is open</strong> for future tune-up sessions.</li>
+<li><strong>Provide resources:</strong> books, PAIRS or skills courses, support resources relevant to any special-issue modules used.</li>
+<li><strong>Clinician reflection / discharge summary:</strong></li>
+<li>Presenting problem: _________________________________________</li>
+<li>Approach used: ____________________________________________</li>
+<li>Goals met / partially met / not met: ___________________________</li>
+<li>Recommendations / referrals: _________________________________</li>
+<li>Follow-up plan: ____________________________________________</li>
+</ul>
+<hr>
+<h2>Session close-out</h2>
+<ul>
+<li class="checkbox">&#9744; Goals reviewed with concrete before/after ratings</li>
+<li class="checkbox">&#9744; Relapse-prevention plan written and given to the couple</li>
+<li class="checkbox">&#9744; Sustaining rituals committed to</li>
+<li class="checkbox">&#9744; Resources and tune-up criteria provided</li>
+<li class="checkbox">&#9744; Discharge summary documented</li>
+<li class="checkbox">&#9744; Final session rating (Worksheet 09)</li>
+</ul>
+<blockquote><strong>Research reminder (Ch. 24):</strong> Positive gains from effective couples work (especially EFT) tend to be stable with relatively low relapse; a clear relapse-prevention plan supports maintenance. Reinforce the couple's own agency in sustaining change.</blockquote>
+</section>
+<section class="worksheet" id="wk09">
+  <div class="wk-head">
+    <div>
+      <div class="num">Worksheet 09</div>
+      <h1>Worksheet 09 — Weekly Session Tracking &amp; Homework Log</h1>
+    </div>
+    <button class="wk-print" onclick="printOne('wk09')">&#128424; Print this worksheet</button>
+  </div>
+  <p><strong>Ongoing · Every Session</strong> <em>Source basis: Harway (Ed.), Handbook of Couples Therapy — Ch. 8 (CBCT between-session practice), Ch. 12 (solution-focused scaling), Ch. 2 (PAIRS exercises &amp; practice between sessions), Ch. 24 (process tracking).</em></p>
+<hr>
+<h2>How to use this worksheet (clinician instructions)</h2>
+<ul>
+<li><strong>Purpose:</strong> Keep a continuous record of session-by-session progress and between-session practice. The <em>Handbook</em>'s skills-based chapters (CBCT, PAIRS) depend on practice between sessions; the solution-focused chapter uses scaling to track movement.</li>
+<li><strong>Format:</strong> Photocopy/duplicate the tracking table for each session. Review the previous week's homework at the <strong>start</strong> of each session; assign new homework at the <strong>end</strong>.</li>
+<li><strong>Why it matters:</strong> Reviewing homework communicates that the real work happens between sessions, reinforces accountability, and gives you process data to adjust the plan.</li>
+<li><strong>Keep both:</strong> a per-session rating (quick scale) and a homework log.</li>
+</ul>
+<hr>
+<h2>A — Per-Session Rating (complete each session)</h2>
+<p>Duplicate this block for every session.</p>
+<p><strong>Session #: _____ Date: _____________</strong></p>
+<table>
+<thead><tr><th>Rating (0–10)</th><th>Partner A</th><th>Partner B</th></tr></thead>
+<tbody>
+<tr><td>How is the relationship this week?</td><td></td><td></td></tr>
+<tr><td>How connected did you feel this week?</td><td></td><td></td></tr>
+<tr><td>How well did we use our new skills?</td><td></td><td></td></tr>
+<tr><td>How safe/respected did you feel?</td><td></td><td></td></tr>
+<tr><td>Hope for the relationship</td><td></td><td></td></tr>
+</tbody></table>
+<p><strong>What went well this week:</strong> _______________________________________</p>
+<p><strong>What was hard this week:</strong> _______________________________________</p>
+<p><strong>Clinician observations (cycle present/absent, skills used, affect):</strong> _______________________________________________________________</p>
+<p><strong>Focus of today's session:</strong> ______________________________________</p>
+<hr>
+<h2>B — Homework Review (start of session)</h2>
+<table>
+<thead><tr><th>Homework assigned last week</th><th>Did you do it?</th><th>How did it go?</th><th>Barriers</th></tr></thead>
+<tbody>
+<tr><td></td><td>☐ Y ☐ Partial ☐ N</td><td></td><td></td></tr>
+<tr><td></td><td>☐ Y ☐ Partial ☐ N</td><td></td><td></td></tr>
+<tr><td></td><td>☐ Y ☐ Partial ☐ N</td><td></td><td></td></tr>
+</tbody></table>
+<blockquote>If homework wasn't done, explore barriers non-judgmentally and adjust (make it smaller, clearer, or address resistance) rather than scolding.</blockquote>
+<hr>
+<h2>C — Homework Assigned (end of session)</h2>
+<table>
+<thead><tr><th>New homework</th><th>Who does it</th><th>By when</th></tr></thead>
+<tbody>
+<tr><td></td><td>☐ A ☐ B ☐ Both</td><td></td></tr>
+<tr><td></td><td>☐ A ☐ B ☐ Both</td><td></td></tr>
+<tr><td></td><td>☐ A ☐ B ☐ Both</td><td></td></tr>
+</tbody></table>
+<hr>
+<h2>D — Homework Menu (pick from these by phase)</h2>
+<p><strong>Phase 1–2 (Assessment/Formulation):</strong></p>
+<ul>
+<li>Each partner notices and records one thing they appreciate about the other daily</li>
+<li>Observe (don't change) when the negative cycle shows up; note the trigger</li>
+</ul>
+<p><strong>Phase 3 (Communication/De-escalation):</strong></p>
+<ul>
+<li>Daily 15-min Speaker–Listener check-in on a positive topic (Worksheet 04)</li>
+<li>Convert 3 blame-thoughts into I-messages</li>
+<li>Practice the agreed Time-Out once if reactivity rises</li>
+</ul>
+<p><strong>Phase 4 (Restructuring):</strong></p>
+<ul>
+<li>One "vulnerability conversation" using the enactment script (Worksheet 05)</li>
+<li>Each partner performs ≥ _____ caring behaviors/day from partner's list (Worksheet 06)</li>
+<li>Complete 2 thought records (Worksheet 06)</li>
+<li>Daily bonding ritual (20-sec hug, check-in, gratitude)</li>
+</ul>
+<p><strong>Phase 5 (Special issues):</strong></p>
+<ul>
+<li>Module-specific practice (e.g., transparency check-ins for infidelity; trigger log for trauma; relapse-prevention steps for addiction)</li>
+</ul>
+<p><strong>Phase 6 (Consolidation):</strong></p>
+<ul>
+<li>Practice recovering from the cycle on your own and report back</li>
+<li>Implement the sustaining rituals from Worksheet 08</li>
+</ul>
+<hr>
+<h2>E — Positives Tracker (ongoing — Gottman-informed / CBCT)</h2>
+<p>Research across the <em>Handbook</em> emphasizes the ratio of positive to negative interactions. Have the couple log positives to counteract negativity bias.</p>
+<table>
+<thead><tr><th>Date</th><th>Positive interaction / appreciation noticed</th><th>Who initiated</th></tr></thead>
+<tbody>
+<tr><td></td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td></tr>
+</tbody></table>
+<hr>
+<h2>F — Overall Progress Graph (optional)</h2>
+<p>Plot the "How is the relationship this week?" scaling score (0–10) across sessions to visualize the trajectory:</p>
+<pre><code>10 |
+ 9 |
+ 8 |
+ 7 |
+ 6 |
+ 5 |
+ 4 |
+ 3 |
+ 2 |
+ 1 |
+ 0 |________________________________________________
+    S1  S2  S3  S4  S5  S6  S7  S8  S9  S10 S11 S12 ...</code></pre>
+<blockquote>Use the graph in the termination review (Worksheet 08) to show the couple their progress concretely.</blockquote>
+</section>
+</div>
+<script>
+function printAll(){
+  document.body.classList.remove('printing-one');
+  document.querySelectorAll('.worksheet').forEach(function(w){w.classList.remove('print-target');});
+  window.print();
+}
+function printOne(id){
+  document.body.classList.add('printing-one');
+  document.querySelectorAll('.worksheet').forEach(function(w){w.classList.remove('print-target');});
+  var el=document.getElementById(id);
+  if(el){el.classList.add('print-target');}
+  window.print();
+}
+window.addEventListener('afterprint',function(){
+  document.body.classList.remove('printing-one');
+  document.querySelectorAll('.worksheet').forEach(function(w){w.classList.remove('print-target');});
+});
+</script>
+</body>
+</html>
