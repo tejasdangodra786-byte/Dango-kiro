@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comprehensive Psychiatric Case History Format</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; background-color: #f5f7fa; padding: 20px; }
+        .container { max-width: 900px; margin: 0 auto; background: #fff; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); overflow: hidden; }
+        .header { background: linear-gradient(135deg, #2c3e50, #3498db); color: white; padding: 30px 40px; text-align: center; }
+        .header h1 { font-size: 1.8em; margin-bottom: 8px; letter-spacing: 1px; }
+        .header p { opacity: 0.9; font-size: 0.95em; }
+        .content { padding: 30px 40px; }
+        .section { margin-bottom: 30px; border: 1px solid #e0e6ed; border-radius: 8px; overflow: hidden; }
+        .section-header { background: #ecf0f5; padding: 12px 20px; border-bottom: 1px solid #e0e6ed; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: background 0.3s; }
+        .section-header:hover { background: #dfe6ee; }
+        .section-header h2 { font-size: 1.1em; color: #2c3e50; text-transform: uppercase; letter-spacing: 0.5px; }
+        .section-header .toggle { font-size: 1.2em; color: #3498db; font-weight: bold; }
+        .section-body { padding: 20px; }
+        .subsection { margin-bottom: 20px; padding-left: 15px; border-left: 3px solid #3498db; }
+        .subsection:last-child { margin-bottom: 0; }
+        .subsection h3 { font-size: 0.95em; color: #2980b9; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.3px; }
+        .subsection h4 { font-size: 0.9em; color: #555; margin: 10px 0 5px; font-weight: 600; }
+        .field-group { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 12px; margin-bottom: 10px; }
+        .field { display: flex; flex-direction: column; }
+        .field label { font-size: 0.82em; color: #666; margin-bottom: 4px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.3px; }
+        .field input, .field textarea, .field select { padding: 8px 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 0.9em; transition: border-color 0.3s, box-shadow 0.3s; background: #fafbfc; }
+        .field input:focus, .field textarea:focus, .field select:focus { outline: none; border-color: #3498db; box-shadow: 0 0 0 3px rgba(52,152,219,0.1); background: #fff; }
+        .field textarea { min-height: 60px; resize: vertical; }
+        .checkbox-group { display: flex; flex-wrap: wrap; gap: 12px; margin: 8px 0; }
+        .checkbox-item { display: flex; align-items: center; gap: 6px; font-size: 0.88em; }
+        .checkbox-item input[type="checkbox"] { width: 16px; height: 16px; accent-color: #3498db; }
+        .note { background: #fff3cd; border: 1px solid #ffc107; border-radius: 6px; padding: 10px 14px; font-size: 0.85em; margin: 10px 0; color: #856404; }
+        .info-box { background: #e8f4fd; border: 1px solid #bee5eb; border-radius: 6px; padding: 10px 14px; font-size: 0.85em; margin: 10px 0; color: #0c5460; }
+        .table-format { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 0.88em; }
+        .table-format th, .table-format td { border: 1px solid #ddd; padding: 8px 12px; text-align: left; }
+        .table-format th { background: #ecf0f5; font-weight: 600; color: #2c3e50; }
+        .btn-print { display: block; margin: 20px auto; padding: 12px 30px; background: linear-gradient(135deg, #2c3e50, #3498db); color: white; border: none; border-radius: 8px; font-size: 1em; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; }
+        .btn-print:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(52,152,219,0.4); }
+        @media print { body { background: white; padding: 0; } .container { box-shadow: none; border-radius: 0; } .btn-print { display: none; } .section { break-inside: avoid; } }
+        @media (max-width: 600px) { .content { padding: 15px; } .header { padding: 20px; } .field-group { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h1>Comprehensive Psychiatric Case History</h1>
+        <p>Structured Format for Clinical Assessment &amp; Documentation</p>
+    </div>
+    <div class="content">
+
+
+        <!-- SECTION 1: IDENTIFICATION DATA -->
+        <div class="section">
+            <div class="section-header" onclick="toggleSection(this)">
+                <h2>1. Identification Data</h2>
+                <span class="toggle">&minus;</span>
+            </div>
+            <div class="section-body">
+                <div class="field-group">
+                    <div class="field"><label>Patient Name</label><input type="text" placeholder="Full name"></div>
+                    <div class="field"><label>Age / Date of Birth</label><input type="text" placeholder="Age or DOB"></div>
+                    <div class="field"><label>Sex / Gender</label>
+                        <select><option value="">Select</option><option>Male</option><option>Female</option><option>Transgender</option><option>Other</option></select>
+                    </div>
+                    <div class="field"><label>Marital Status</label>
+                        <select><option value="">Select</option><option>Single</option><option>Married</option><option>Divorced</option><option>Widowed</option><option>Separated</option></select>
+                    </div>
+                    <div class="field"><label>Religion</label><input type="text" placeholder="Religion"></div>
+                    <div class="field"><label>Education</label><input type="text" placeholder="Educational qualification"></div>
+                    <div class="field"><label>Occupation</label><input type="text" placeholder="Current occupation"></div>
+                    <div class="field"><label>Socioeconomic Status</label>
+                        <select><option value="">Select</option><option>Upper</option><option>Upper-Middle</option><option>Middle</option><option>Lower-Middle</option><option>Lower</option></select>
+                    </div>
+                    <div class="field"><label>Residence</label>
+                        <select><option value="">Select</option><option>Urban</option><option>Semi-Urban</option><option>Rural</option></select>
+                    </div>
+                    <div class="field"><label>Address</label><input type="text" placeholder="Current address"></div>
+                    <div class="field"><label>Informant &amp; Relationship</label><input type="text" placeholder="Name and relationship to patient"></div>
+                    <div class="field"><label>Reliability of Information</label>
+                        <select><option value="">Select</option><option>Reliable</option><option>Partially Reliable</option><option>Unreliable</option></select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- SECTION 2: CHIEF COMPLAINTS -->
+        <div class="section">
+            <div class="section-header" onclick="toggleSection(this)">
+                <h2>2. Chief Complaints</h2>
+                <span class="toggle">&minus;</span>
+            </div>
+            <div class="section-body">
+                <div class="info-box">Record complaints in the patient's/informant's own words with duration for each. List in chronological order.</div>
+                <table class="table-format">
+                    <thead><tr><th style="width:10%">S.No.</th><th style="width:60%">Complaint (in patient's own words)</th><th style="width:30%">Duration</th></tr></thead>
+                    <tbody>
+                        <tr><td>1</td><td><input type="text" style="width:100%;border:none;background:transparent;"></td><td><input type="text" style="width:100%;border:none;background:transparent;"></td></tr>
+                        <tr><td>2</td><td><input type="text" style="width:100%;border:none;background:transparent;"></td><td><input type="text" style="width:100%;border:none;background:transparent;"></td></tr>
+                        <tr><td>3</td><td><input type="text" style="width:100%;border:none;background:transparent;"></td><td><input type="text" style="width:100%;border:none;background:transparent;"></td></tr>
+                        <tr><td>4</td><td><input type="text" style="width:100%;border:none;background:transparent;"></td><td><input type="text" style="width:100%;border:none;background:transparent;"></td></tr>
+                        <tr><td>5</td><td><input type="text" style="width:100%;border:none;background:transparent;"></td><td><input type="text" style="width:100%;border:none;background:transparent;"></td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+        <!-- SECTION 3: HISTORY OF PRESENT ILLNESS -->
+        <div class="section">
+            <div class="section-header" onclick="toggleSection(this)">
+                <h2>3. History of Present Illness (HOPI)</h2>
+                <span class="toggle">&minus;</span>
+            </div>
+            <div class="section-body">
+                <div class="info-box">Describe in chronological order. Include onset, duration, course, progression, precipitating factors, and impact on functioning.</div>
+                <div class="subsection">
+                    <h3>Onset &amp; Circumstances</h3>
+                    <div class="field-group">
+                        <div class="field"><label>Onset Type</label>
+                            <select><option value="">Select</option><option>Acute (days)</option><option>Subacute (weeks)</option><option>Gradual/Insidious (months)</option></select>
+                        </div>
+                        <div class="field"><label>Total Duration of Illness</label><input type="text" placeholder="e.g., 6 months"></div>
+                    </div>
+                    <div class="field"><label>Precipitating Factors / Life Events</label>
+                        <textarea placeholder="Any identifiable stressors, life events, or triggers preceding the illness"></textarea>
+                    </div>
+                </div>
+                <div class="subsection">
+                    <h3>Symptom Narrative (Chronological)</h3>
+                    <div class="field"><label>Detailed description of symptoms evolution</label>
+                        <textarea style="min-height:120px" placeholder="Describe symptoms in chronological order - what appeared first, progression, worsening/improving factors, associated symptoms."></textarea>
+                    </div>
+                </div>
+                <div class="subsection">
+                    <h3>Symptom Domains</h3>
+                    <h4>Mood &amp; Affect Symptoms</h4>
+                    <div class="checkbox-group">
+                        <label class="checkbox-item"><input type="checkbox"> Depressed mood</label>
+                        <label class="checkbox-item"><input type="checkbox"> Elevated mood</label>
+                        <label class="checkbox-item"><input type="checkbox"> Irritability</label>
+                        <label class="checkbox-item"><input type="checkbox"> Anxiety</label>
+                        <label class="checkbox-item"><input type="checkbox"> Anhedonia</label>
+                        <label class="checkbox-item"><input type="checkbox"> Emotional lability</label>
+                        <label class="checkbox-item"><input type="checkbox"> Apathy</label>
+                    </div>
+                    <h4>Thought &amp; Perception</h4>
+                    <div class="checkbox-group">
+                        <label class="checkbox-item"><input type="checkbox"> Delusions</label>
+                        <label class="checkbox-item"><input type="checkbox"> Hallucinations (auditory)</label>
+                        <label class="checkbox-item"><input type="checkbox"> Hallucinations (visual)</label>
+                        <label class="checkbox-item"><input type="checkbox"> Suspiciousness</label>
+                        <label class="checkbox-item"><input type="checkbox"> Ideas of reference</label>
+                        <label class="checkbox-item"><input type="checkbox"> Thought broadcasting/insertion/withdrawal</label>
+                        <label class="checkbox-item"><input type="checkbox"> Obsessions</label>
+                        <label class="checkbox-item"><input type="checkbox"> Compulsions</label>
+                    </div>
+                    <h4>Biological Functions</h4>
+                    <div class="checkbox-group">
+                        <label class="checkbox-item"><input type="checkbox"> Sleep disturbance</label>
+                        <label class="checkbox-item"><input type="checkbox"> Appetite change</label>
+                        <label class="checkbox-item"><input type="checkbox"> Weight change</label>
+                        <label class="checkbox-item"><input type="checkbox"> Libido change</label>
+                        <label class="checkbox-item"><input type="checkbox"> Fatigue/Energy loss</label>
+                        <label class="checkbox-item"><input type="checkbox"> Psychomotor retardation</label>
+                        <label class="checkbox-item"><input type="checkbox"> Psychomotor agitation</label>
+                        <label class="checkbox-item"><input type="checkbox"> Diurnal variation</label>
+                    </div>
+                    <h4>Cognitive Symptoms</h4>
+                    <div class="checkbox-group">
+                        <label class="checkbox-item"><input type="checkbox"> Poor concentration</label>
+                        <label class="checkbox-item"><input type="checkbox"> Memory impairment</label>
+                        <label class="checkbox-item"><input type="checkbox"> Confusion</label>
+                        <label class="checkbox-item"><input type="checkbox"> Disorientation</label>
+                    </div>
+                    <h4>Behavioral Symptoms</h4>
+                    <div class="checkbox-group">
+                        <label class="checkbox-item"><input type="checkbox"> Aggression</label>
+                        <label class="checkbox-item"><input type="checkbox"> Self-harm</label>
+                        <label class="checkbox-item"><input type="checkbox"> Suicidal ideation/attempts</label>
+                        <label class="checkbox-item"><input type="checkbox"> Social withdrawal</label>
+                        <label class="checkbox-item"><input type="checkbox"> Substance use</label>
+                        <label class="checkbox-item"><input type="checkbox"> Wandering</label>
+                        <label class="checkbox-item"><input type="checkbox"> Bizarre behavior</label>
+                        <label class="checkbox-item"><input type="checkbox"> Decreased self-care</label>
+                    </div>
+                </div>
+                <div class="subsection">
+                    <h3>Course &amp; Progression</h3>
+                    <div class="field-group">
+                        <div class="field"><label>Course Type</label>
+                            <select><option value="">Select</option><option>Continuous</option><option>Episodic with inter-episode recovery</option><option>Episodic without inter-episode recovery</option><option>Deteriorating</option><option>Fluctuating</option></select>
+                        </div>
+                        <div class="field"><label>Progression</label>
+                            <select><option value="">Select</option><option>Improving</option><option>Static</option><option>Worsening</option></select>
+                        </div>
+                    </div>
+                </div>
+                <div class="subsection">
+                    <h3>Impact on Functioning</h3>
+                    <div class="checkbox-group">
+                        <label class="checkbox-item"><input type="checkbox"> Occupational impairment</label>
+                        <label class="checkbox-item"><input type="checkbox"> Social impairment</label>
+                        <label class="checkbox-item"><input type="checkbox"> Self-care affected</label>
+                        <label class="checkbox-item"><input type="checkbox"> Interpersonal relationships affected</label>
+                        <label class="checkbox-item"><input type="checkbox"> Academic impairment</label>
+                    </div>
+                    <div class="field"><label>Details of functional impact</label>
+                        <textarea placeholder="Describe how symptoms have affected daily functioning"></textarea>
+                    </div>
+                </div>
+                <div class="subsection">
+                    <h3>Treatment History for Current Episode</h3>
+                    <div class="field"><label>Previous treatments received</label>
+                        <textarea placeholder="Medications tried, dosages, duration, response, side effects, ECT, psychotherapy, hospitalizations"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- SECTION 4: PAST PSYCHIATRIC HISTORY -->
+        <div class="section">
+            <div class="section-header" onclick="toggleSection(this)">
+                <h2>4. Past Psychiatric History</h2>
+                <span class="toggle">&minus;</span>
+            </div>
+            <div class="section-body">
+                <div class="field"><label>Number of previous episodes</label><input type="text" placeholder="Number and nature of episodes"></div>
+                <div class="field"><label>Details of previous episodes</label>
+                    <textarea style="min-height:100px" placeholder="For each episode: Year, symptoms, diagnosis, treatment received, duration, hospitalization, response to treatment, inter-episode functioning"></textarea>
+                </div>
+                <div class="field"><label>Past suicidal attempts</label>
+                    <textarea placeholder="Details of any past attempts: method, intent, lethality, circumstances"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 5: PAST MEDICAL & SURGICAL HISTORY -->
+        <div class="section">
+            <div class="section-header" onclick="toggleSection(this)">
+                <h2>5. Past Medical &amp; Surgical History</h2>
+                <span class="toggle">&minus;</span>
+            </div>
+            <div class="section-body">
+                <div class="field"><label>Medical illnesses</label>
+                    <textarea placeholder="Diabetes, hypertension, thyroid disorders, epilepsy, head injury, CVA, HIV, hepatitis, etc."></textarea>
+                </div>
+                <div class="field"><label>Surgical history</label>
+                    <textarea placeholder="Any surgeries with year and details"></textarea>
+                </div>
+                <div class="field"><label>Current medications for medical conditions</label>
+                    <textarea placeholder="Drug name, dose, duration"></textarea>
+                </div>
+                <div class="field"><label>Drug allergies</label><input type="text" placeholder="Any known drug allergies"></div>
+            </div>
+        </div>
+
+
+        <!-- SECTION 6: SUBSTANCE USE HISTORY -->
+        <div class="section">
+            <div class="section-header" onclick="toggleSection(this)">
+                <h2>6. Substance Use History</h2>
+                <span class="toggle">&minus;</span>
+            </div>
+            <div class="section-body">
+                <div class="info-box">For each substance: Age of initiation, pattern of use, amount, frequency, route, last use, dependence features, withdrawal symptoms, complications.</div>
+                <table class="table-format">
+                    <thead><tr><th>Substance</th><th>Age of Onset</th><th>Amount/Frequency</th><th>Duration</th><th>Last Use</th><th>Dependence</th></tr></thead>
+                    <tbody>
+                        <tr><td>Tobacco</td><td><input type="text" style="width:100%;border:none;background:transparent;"></td><td><input type="text" style="width:100%;border:none;background:transparent;"></td><td><input type="text" style="width:100%;border:none;background:transparent;"></td><td><input type="text" style="width:100%;border:none;background:transparent;"></td><td><input type="text" style="width:100%;border:none;background:transparent;"></td></tr>
+                        <tr><td>Alcohol</td><td><input type="text" style="width:100%;border:none;background:transparent;"></td><td><input type="text" style="width:100%;border:none;background:transparent;"></td><td><input type="text" style="width:100%;border:none;background:transparent;"></td><td><input type="text" style="width:100%;border:none;background:transparent;"></td><td><input type="text" style="width:100%;border:none;background:transparent;"></td></tr>
+                        <tr><td>Cannabis</td><td><input type="text" style="width:100%;border:none;background:transparent;"></td><td><input type="text" style="width:100%;border:none;background:transparent;"></td><td><input type="text" style="width:100%;border:none;background:transparent;"></td><td><input type="text" style="width:100%;border:none;background:transparent;"></td><td><input type="text" style="width:100%;border:none;background:transparent;"></td></tr>
+                        <tr><td>Opioids</td><td><input type="text" style="width:100%;border:none;background:transparent;"></td><td><input type="text" style="width:100%;border:none;background:transparent;"></td><td><input type="text" style="width:100%;border:none;background:transparent;"></td><td><input type="text" style="width:100%;border:none;background:transparent;"></td><td><input type="text" style="width:100%;border:none;background:transparent;"></td></tr>
+                        <tr><td>Other</td><td><input type="text" style="width:100%;border:none;background:transparent;"></td><td><input type="text" style="width:100%;border:none;background:transparent;"></td><td><input type="text" style="width:100%;border:none;background:transparent;"></td><td><input type="text" style="width:100%;border:none;background:transparent;"></td><td><input type="text" style="width:100%;border:none;background:transparent;"></td></tr>
+                    </tbody>
+                </table>
+                <div class="field" style="margin-top:15px"><label>Dependence features &amp; complications</label>
+                    <textarea placeholder="Tolerance, withdrawal, compulsive use, narrowing of repertoire, salience, continued use despite harm, complications"></textarea>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- SECTION 7: FAMILY HISTORY -->
+        <div class="section">
+            <div class="section-header" onclick="toggleSection(this)">
+                <h2>7. Family History</h2>
+                <span class="toggle">&minus;</span>
+            </div>
+            <div class="section-body">
+                <div class="subsection">
+                    <h3>Family Composition</h3>
+                    <div class="field-group">
+                        <div class="field"><label>Type of Family</label>
+                            <select><option value="">Select</option><option>Nuclear</option><option>Joint</option><option>Extended</option><option>Single Parent</option></select>
+                        </div>
+                        <div class="field"><label>Number of Members</label><input type="text" placeholder="Total family members"></div>
+                    </div>
+                    <div class="field"><label>Family Members Details</label>
+                        <textarea style="min-height:80px" placeholder="Father, Mother, Siblings - age, education, occupation, health status, relationship with patient"></textarea>
+                    </div>
+                </div>
+                <div class="subsection">
+                    <h3>Family History of Psychiatric Illness</h3>
+                    <div class="checkbox-group">
+                        <label class="checkbox-item"><input type="checkbox"> Mood disorders</label>
+                        <label class="checkbox-item"><input type="checkbox"> Psychotic disorders</label>
+                        <label class="checkbox-item"><input type="checkbox"> Substance use disorders</label>
+                        <label class="checkbox-item"><input type="checkbox"> Suicide/Attempted suicide</label>
+                        <label class="checkbox-item"><input type="checkbox"> Intellectual disability</label>
+                        <label class="checkbox-item"><input type="checkbox"> Epilepsy</label>
+                        <label class="checkbox-item"><input type="checkbox"> Anxiety disorders</label>
+                        <label class="checkbox-item"><input type="checkbox"> Personality disorders</label>
+                    </div>
+                    <div class="field"><label>Details of family psychiatric history</label>
+                        <textarea placeholder="Which family member, diagnosis, treatment, outcome"></textarea>
+                    </div>
+                </div>
+                <div class="subsection">
+                    <h3>Family Dynamics</h3>
+                    <div class="field"><label>Family atmosphere &amp; relationships</label>
+                        <textarea placeholder="Interpersonal relationships, conflicts, support system, communication patterns, expressed emotions"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- SECTION 8: PERSONAL HISTORY -->
+        <div class="section">
+            <div class="section-header" onclick="toggleSection(this)">
+                <h2>8. Personal History</h2>
+                <span class="toggle">&minus;</span>
+            </div>
+            <div class="section-body">
+                <div class="subsection">
+                    <h3>Birth &amp; Early Development</h3>
+                    <div class="field"><label>Prenatal &amp; perinatal history</label>
+                        <textarea placeholder="Wanted/unwanted pregnancy, complications during pregnancy/delivery, birth cry, birth weight, type of delivery"></textarea>
+                    </div>
+                    <div class="field"><label>Developmental milestones</label>
+                        <textarea placeholder="Motor, language, social milestones - normal/delayed. Toilet training, feeding habits"></textarea>
+                    </div>
+                    <div class="field"><label>Childhood behavioral problems</label>
+                        <textarea placeholder="Thumb sucking, nail biting, bed wetting, temper tantrums, night terrors, separation anxiety, school refusal"></textarea>
+                    </div>
+                </div>
+                <div class="subsection">
+                    <h3>Educational History</h3>
+                    <div class="field"><label>Academic performance &amp; school adjustment</label>
+                        <textarea placeholder="Schools attended, academic performance, peer relationships, extracurricular activities, disciplinary issues, learning difficulties"></textarea>
+                    </div>
+                </div>
+                <div class="subsection">
+                    <h3>Occupational History</h3>
+                    <div class="field"><label>Work history</label>
+                        <textarea placeholder="Jobs held, duration, reasons for change, work relationships, performance, current work status, financial status"></textarea>
+                    </div>
+                </div>
+                <div class="subsection">
+                    <h3>Sexual &amp; Marital History</h3>
+                    <div class="field"><label>Psychosexual development</label>
+                        <textarea placeholder="Sex education, puberty, sexual orientation, premarital relationships, marital history, marital adjustment, sexual problems, children"></textarea>
+                    </div>
+                </div>
+                <div class="subsection">
+                    <h3>Menstrual &amp; Reproductive History (if applicable)</h3>
+                    <div class="field-group">
+                        <div class="field"><label>Menarche Age</label><input type="text" placeholder="Age at menarche"></div>
+                        <div class="field"><label>Cycles</label><input type="text" placeholder="Regular/Irregular"></div>
+                        <div class="field"><label>LMP</label><input type="text" placeholder="Last menstrual period"></div>
+                    </div>
+                    <div class="field"><label>Obstetric history</label>
+                        <textarea placeholder="Pregnancies, deliveries, abortions, complications, postpartum psychiatric episodes"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- SECTION 9: PREMORBID PERSONALITY -->
+        <div class="section">
+            <div class="section-header" onclick="toggleSection(this)">
+                <h2>9. Premorbid Personality</h2>
+                <span class="toggle">&minus;</span>
+            </div>
+            <div class="section-body">
+                <div class="info-box">Describe the patient's personality BEFORE the onset of illness - their usual self when well.</div>
+                <div class="subsection">
+                    <h3>Personality Traits</h3>
+                    <div class="field"><label>Temperament &amp; general disposition</label>
+                        <textarea placeholder="Introverted/extroverted, mood, energy levels, optimistic/pessimistic"></textarea>
+                    </div>
+                    <div class="field"><label>Interpersonal relationships</label>
+                        <textarea placeholder="Quality of relationships, number of friends, depth of bonds, trust issues, social skills"></textarea>
+                    </div>
+                    <div class="field"><label>Interests &amp; hobbies</label>
+                        <textarea placeholder="Leisure activities, hobbies, social participation"></textarea>
+                    </div>
+                    <div class="field"><label>Moral &amp; religious attitudes</label>
+                        <textarea placeholder="Moral standards, religious beliefs, rigidity/flexibility of attitudes"></textarea>
+                    </div>
+                    <div class="field"><label>Predominant mood</label>
+                        <textarea placeholder="Usual mood state, reaction to stress, coping mechanisms, frustration tolerance"></textarea>
+                    </div>
+                    <div class="field"><label>Character traits</label>
+                        <textarea placeholder="Responsibility, reliability, self-confidence, dependence/independence, impulsivity, risk-taking"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 10: MENTAL STATUS EXAMINATION -->
+        <div class="section">
+            <div class="section-header" onclick="toggleSection(this)">
+                <h2>10. Mental Status Examination (MSE)</h2>
+                <span class="toggle">&minus;</span>
+            </div>
+            <div class="section-body">
+                <div class="subsection">
+                    <h3>General Appearance &amp; Behavior</h3>
+                    <div class="field"><label>Appearance</label>
+                        <textarea placeholder="Build, nourishment, hygiene, grooming, attire, apparent age vs stated age, physical abnormalities"></textarea>
+                    </div>
+                    <div class="field"><label>Psychomotor Activity</label>
+                        <textarea placeholder="Gait, posture, mannerisms, tics, stereotypies, agitation, retardation, catatonic features"></textarea>
+                    </div>
+                    <div class="field"><label>Attitude towards examiner</label>
+                        <select><option value="">Select</option><option>Cooperative</option><option>Uncooperative</option><option>Hostile</option><option>Suspicious</option><option>Guarded</option><option>Seductive</option><option>Apathetic</option></select>
+                    </div>
+                    <div class="field"><label>Eye contact</label>
+                        <select><option value="">Select</option><option>Maintained</option><option>Fleeting</option><option>Avoidant</option><option>Staring</option></select>
+                    </div>
+                    <div class="field"><label>Rapport</label>
+                        <select><option value="">Select</option><option>Easily established</option><option>Difficult to establish</option><option>Not established</option></select>
+                    </div>
+                </div>
+                <div class="subsection">
+                    <h3>Speech</h3>
+                    <div class="field-group">
+                        <div class="field"><label>Rate</label>
+                            <select><option value="">Select</option><option>Normal</option><option>Increased (pressure of speech)</option><option>Decreased (poverty of speech)</option><option>Mute</option></select>
+                        </div>
+                        <div class="field"><label>Volume</label>
+                            <select><option value="">Select</option><option>Normal</option><option>Loud</option><option>Soft/Whispered</option></select>
+                        </div>
+                        <div class="field"><label>Tone</label>
+                            <select><option value="">Select</option><option>Normal</option><option>Monotonous</option><option>High-pitched</option></select>
+                        </div>
+                        <div class="field"><label>Fluency</label>
+                            <select><option value="">Select</option><option>Fluent</option><option>Hesitant</option><option>Stuttering</option><option>Dysarthric</option></select>
+                        </div>
+                    </div>
+                    <div class="field"><label>Spontaneity &amp; relevance</label>
+                        <textarea placeholder="Spontaneous/only in response to questions, relevant/irrelevant, coherent/incoherent"></textarea>
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h3>Mood &amp; Affect</h3>
+                    <div class="field-group">
+                        <div class="field"><label>Mood (subjective)</label><input type="text" placeholder="Patient's own description of mood"></div>
+                        <div class="field"><label>Affect (objective)</label>
+                            <select><option value="">Select</option><option>Euthymic</option><option>Depressed</option><option>Elated</option><option>Anxious</option><option>Irritable</option><option>Flat/Blunted</option><option>Labile</option></select>
+                        </div>
+                    </div>
+                    <div class="field-group">
+                        <div class="field"><label>Range</label>
+                            <select><option value="">Select</option><option>Full range</option><option>Restricted</option><option>Blunted</option><option>Flat</option></select>
+                        </div>
+                        <div class="field"><label>Reactivity</label>
+                            <select><option value="">Select</option><option>Reactive</option><option>Non-reactive</option></select>
+                        </div>
+                        <div class="field"><label>Congruence</label>
+                            <select><option value="">Select</option><option>Congruent with mood</option><option>Incongruent with mood</option></select>
+                        </div>
+                    </div>
+                </div>
+                <div class="subsection">
+                    <h3>Thought</h3>
+                    <h4>Form of Thought (Stream &amp; Flow)</h4>
+                    <div class="checkbox-group">
+                        <label class="checkbox-item"><input type="checkbox"> Normal</label>
+                        <label class="checkbox-item"><input type="checkbox"> Flight of ideas</label>
+                        <label class="checkbox-item"><input type="checkbox"> Loosening of associations</label>
+                        <label class="checkbox-item"><input type="checkbox"> Tangentiality</label>
+                        <label class="checkbox-item"><input type="checkbox"> Circumstantiality</label>
+                        <label class="checkbox-item"><input type="checkbox"> Thought blocking</label>
+                        <label class="checkbox-item"><input type="checkbox"> Perseveration</label>
+                        <label class="checkbox-item"><input type="checkbox"> Neologisms</label>
+                        <label class="checkbox-item"><input type="checkbox"> Word salad</label>
+                        <label class="checkbox-item"><input type="checkbox"> Clang associations</label>
+                    </div>
+                    <h4>Content of Thought</h4>
+                    <div class="checkbox-group">
+                        <label class="checkbox-item"><input type="checkbox"> Delusions of persecution</label>
+                        <label class="checkbox-item"><input type="checkbox"> Delusions of reference</label>
+                        <label class="checkbox-item"><input type="checkbox"> Delusions of grandeur</label>
+                        <label class="checkbox-item"><input type="checkbox"> Delusions of guilt</label>
+                        <label class="checkbox-item"><input type="checkbox"> Somatic delusions</label>
+                        <label class="checkbox-item"><input type="checkbox"> Nihilistic delusions</label>
+                        <label class="checkbox-item"><input type="checkbox"> Erotomanic delusions</label>
+                        <label class="checkbox-item"><input type="checkbox"> Jealousy delusions</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <label class="checkbox-item"><input type="checkbox"> Obsessions</label>
+                        <label class="checkbox-item"><input type="checkbox"> Phobias</label>
+                        <label class="checkbox-item"><input type="checkbox"> Overvalued ideas</label>
+                        <label class="checkbox-item"><input type="checkbox"> Suicidal ideation</label>
+                        <label class="checkbox-item"><input type="checkbox"> Homicidal ideation</label>
+                    </div>
+                    <div class="field"><label>Details of thought content</label>
+                        <textarea placeholder="Describe delusions in detail - onset, content, systematization, conviction, impact on behavior"></textarea>
+                    </div>
+                    <h4>Possession of Thought</h4>
+                    <div class="checkbox-group">
+                        <label class="checkbox-item"><input type="checkbox"> Thought insertion</label>
+                        <label class="checkbox-item"><input type="checkbox"> Thought withdrawal</label>
+                        <label class="checkbox-item"><input type="checkbox"> Thought broadcasting</label>
+                        <label class="checkbox-item"><input type="checkbox"> Thought echo</label>
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h3>Perception</h3>
+                    <div class="checkbox-group">
+                        <label class="checkbox-item"><input type="checkbox"> Auditory hallucinations</label>
+                        <label class="checkbox-item"><input type="checkbox"> Visual hallucinations</label>
+                        <label class="checkbox-item"><input type="checkbox"> Tactile hallucinations</label>
+                        <label class="checkbox-item"><input type="checkbox"> Olfactory hallucinations</label>
+                        <label class="checkbox-item"><input type="checkbox"> Gustatory hallucinations</label>
+                        <label class="checkbox-item"><input type="checkbox"> Illusions</label>
+                        <label class="checkbox-item"><input type="checkbox"> Depersonalization</label>
+                        <label class="checkbox-item"><input type="checkbox"> Derealization</label>
+                    </div>
+                    <div class="field"><label>Details of perceptual abnormalities</label>
+                        <textarea placeholder="Type, modality, content, timing, frequency, associated behavior, insight into hallucinations"></textarea>
+                    </div>
+                </div>
+                <div class="subsection">
+                    <h3>Cognition</h3>
+                    <div class="field-group">
+                        <div class="field"><label>Consciousness</label>
+                            <select><option value="">Select</option><option>Alert</option><option>Clouded</option><option>Drowsy</option><option>Stupor</option></select>
+                        </div>
+                        <div class="field"><label>Orientation - Time</label>
+                            <select><option value="">Select</option><option>Intact</option><option>Impaired</option></select>
+                        </div>
+                        <div class="field"><label>Orientation - Place</label>
+                            <select><option value="">Select</option><option>Intact</option><option>Impaired</option></select>
+                        </div>
+                        <div class="field"><label>Orientation - Person</label>
+                            <select><option value="">Select</option><option>Intact</option><option>Impaired</option></select>
+                        </div>
+                    </div>
+                    <div class="field-group">
+                        <div class="field"><label>Attention &amp; Concentration</label>
+                            <select><option value="">Select</option><option>Normal</option><option>Impaired</option></select>
+                        </div>
+                        <div class="field"><label>Memory - Immediate</label>
+                            <select><option value="">Select</option><option>Intact</option><option>Impaired</option></select>
+                        </div>
+                        <div class="field"><label>Memory - Recent</label>
+                            <select><option value="">Select</option><option>Intact</option><option>Impaired</option></select>
+                        </div>
+                        <div class="field"><label>Memory - Remote</label>
+                            <select><option value="">Select</option><option>Intact</option><option>Impaired</option></select>
+                        </div>
+                    </div>
+                    <div class="field"><label>Intelligence (clinical estimate)</label>
+                        <select><option value="">Select</option><option>Above average</option><option>Average</option><option>Below average</option><option>Borderline</option><option>Intellectual disability</option></select>
+                    </div>
+                    <div class="field"><label>Abstract thinking</label>
+                        <textarea placeholder="Proverb interpretation, similarities - concrete/abstract"></textarea>
+                    </div>
+                </div>
+                <div class="subsection">
+                    <h3>Judgment &amp; Insight</h3>
+                    <div class="field-group">
+                        <div class="field"><label>Judgment</label>
+                            <select><option value="">Select</option><option>Intact</option><option>Impaired - Social</option><option>Impaired - Test</option><option>Impaired - Both</option></select>
+                        </div>
+                        <div class="field"><label>Insight (Grade)</label>
+                            <select><option value="">Select</option><option>Grade 1 - Complete denial</option><option>Grade 2 - Slight awareness, but denied</option><option>Grade 3 - Aware but blames external factors</option><option>Grade 4 - Aware something is wrong</option><option>Grade 5 - Intellectual insight</option><option>Grade 6 - True emotional insight</option></select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- SECTION 11: DIAGNOSIS -->
+        <div class="section">
+            <div class="section-header" onclick="toggleSection(this)">
+                <h2>11. Diagnosis &amp; Formulation</h2>
+                <span class="toggle">&minus;</span>
+            </div>
+            <div class="section-body">
+                <div class="subsection">
+                    <h3>Provisional Diagnosis</h3>
+                    <div class="field"><label>ICD-10 / DSM-5 Diagnosis</label>
+                        <textarea placeholder="Primary diagnosis with ICD/DSM code"></textarea>
+                    </div>
+                    <div class="field"><label>Differential Diagnoses</label>
+                        <textarea placeholder="List differential diagnoses with reasoning"></textarea>
+                    </div>
+                </div>
+                <div class="subsection">
+                    <h3>Case Formulation</h3>
+                    <div class="field"><label>Predisposing factors</label>
+                        <textarea placeholder="Genetic, developmental, personality factors that made the patient vulnerable"></textarea>
+                    </div>
+                    <div class="field"><label>Precipitating factors</label>
+                        <textarea placeholder="Events or stressors that triggered the current episode"></textarea>
+                    </div>
+                    <div class="field"><label>Perpetuating factors</label>
+                        <textarea placeholder="Factors maintaining the illness"></textarea>
+                    </div>
+                    <div class="field"><label>Protective factors</label>
+                        <textarea placeholder="Strengths, support systems, coping resources"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 12: TREATMENT PLAN -->
+        <div class="section">
+            <div class="section-header" onclick="toggleSection(this)">
+                <h2>12. Treatment Plan</h2>
+                <span class="toggle">&minus;</span>
+            </div>
+            <div class="section-body">
+                <div class="subsection">
+                    <h3>Biological</h3>
+                    <div class="field"><label>Pharmacotherapy</label>
+                        <textarea placeholder="Medications: drug name, dose, frequency, rationale"></textarea>
+                    </div>
+                    <div class="field"><label>Other biological treatments</label>
+                        <textarea placeholder="ECT, rTMS, light therapy, etc. if indicated"></textarea>
+                    </div>
+                </div>
+                <div class="subsection">
+                    <h3>Psychological</h3>
+                    <div class="field"><label>Psychotherapy plan</label>
+                        <textarea placeholder="Type of therapy (CBT, IPT, psychodynamic, supportive), frequency, goals"></textarea>
+                    </div>
+                </div>
+                <div class="subsection">
+                    <h3>Social</h3>
+                    <div class="field"><label>Social interventions</label>
+                        <textarea placeholder="Family psychoeducation, rehabilitation, occupational therapy, support groups, social skills training"></textarea>
+                    </div>
+                </div>
+                <div class="subsection">
+                    <h3>Investigations Planned</h3>
+                    <div class="field"><label>Lab/Imaging/Psychological tests</label>
+                        <textarea placeholder="Blood work, imaging, EEG, psychological testing as required"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PRINT BUTTON -->
+        <button class="btn-print" onclick="window.print()">Print / Save as PDF</button>
+
+    </div><!-- end content -->
+</div><!-- end container -->
+
+<script>
+function toggleSection(header) {
+    const body = header.nextElementSibling;
+    const toggle = header.querySelector('.toggle');
+    if (body.style.display === 'none') {
+        body.style.display = 'block';
+        toggle.innerHTML = '&minus;';
+    } else {
+        body.style.display = 'none';
+        toggle.innerHTML = '+';
+    }
+}
+</script>
+</body>
+</html>
