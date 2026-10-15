@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rorschach (Exner CS) — In-Depth Coding Guide</title>
+<style>
+  :root{--ink:#16202c;--mut:#5b6b7e;--acc:#1f6feb;--acc2:#0b7a4b;--line:#d3dbe4;--soft:#f3f6fa;--warn:#c98a00;}
+  *{box-sizing:border-box;}
+  body{font-family:"Segoe UI",Roboto,Arial,sans-serif;color:var(--ink);margin:0;font-size:13px;line-height:1.5;}
+  .wrap{max-width:1000px;margin:0 auto;padding:28px 24px 60px;}
+  h1{font-size:24px;margin:0 0 4px;}
+  h2{font-size:17px;margin:24px 0 8px;color:#fff;background:var(--acc);padding:5px 10px;border-radius:5px;}
+  h2.g{background:var(--acc2);}
+  .lead{color:var(--mut);font-size:12px;}
+  .v{border:1px solid var(--line);border-left:4px solid var(--acc);border-radius:6px;padding:8px 12px;margin:9px 0;}
+  .v h3{margin:0 0 4px;font-size:14.5px;color:var(--acc2);}
+  .v p{margin:3px 0;}
+  .lab{font-weight:700;color:#0f1722;}
+  .ex{background:var(--soft);border-radius:5px;padding:5px 9px;margin-top:5px;font-size:12.3px;}
+  code{background:var(--soft);padding:1px 5px;border-radius:4px;}
+  .box{background:var(--soft);border:1px solid var(--line);border-left:4px solid var(--warn);border-radius:6px;padding:9px 13px;margin:12px 0;font-size:12.3px;}
+  .small{font-size:11.3px;color:var(--mut);}
+  @media print{body{font-size:10.4px;}.wrap{padding:0 6mm;max-width:none;}h2{page-break-after:avoid;}.v{page-break-inside:avoid;}@page{size:A4;margin:10mm;}.noprint{display:none;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>Rorschach — In-Depth Coding Guide (Exner Comprehensive System)</h1>
+<p class="lead">For every coding variable: what it is, how it is calculated, what it tells about thinking / perception / personality, and an example response with its meaning. Study notes in original wording; confirm exact cut-offs against the current manual.</p>
+<div class="box noprint"><b>PDF:</b> open in a browser, then Print, then Save as PDF (A4). Print styling included.</div>
+
+<h2 id="R">0. R — Total Responses</h2>
+<div class="v">
+<h3>R (Total number of responses)</h3>
+<p><span class="lab">Definition:</span> the count of all answers the person gives across the 10 cards.</p>
+<p><span class="lab">How to calculate:</span> simply tally every scorable response; norm is roughly 17 to 27 in adults.</p>
+<p><span class="lab">What it tells:</span> overall productivity, engagement and energy available to the task; it is the denominator for most percentages, so it must always be considered first.</p>
+<p><span class="lab">Thinking / perception:</span> a guarded or depressed person constricts output, while an obsessive or manic person may over-produce; many distortions can be hidden in a long record or exaggerated in a short one.</p>
+<p class="ex"><span class="lab">Example:</span> a record of only 13 responses (R&lt;14) is treated as invalid and re-administered, because too few answers cannot reliably represent the personality.</p>
+</div>
+
+<h2 id="loc">1. LOCATION — where the response was seen</h2>
+
+<div class="v">
+<h3>W — Whole response</h3>
+<p><span class="lab">Definition:</span> the entire blot is used to form the percept.</p>
+<p><span class="lab">How to calculate:</span> coded whenever essentially the whole inkblot is incorporated; tallied as a frequency and entered into the W:D:Dd ratio.</p>
+<p><span class="lab">What it tells:</span> the drive to organize the whole field, to integrate and to reach for the big picture; it reflects ambition and the wish to make complete sense of things.</p>
+<p><span class="lab">Thinking / perception:</span> accurate W answers indicate strong synthetic / integrative capacity, while many W with poor form quality suggest over-reaching, grandiosity, or aiming beyond actual ability.</p>
+<p class="ex"><span class="lab">Example:</span> "the whole thing is a bat" (Card I) is an economical, accurate W; a strained "the entire blot is one giant complicated machine" with minus form shows over-ambitious, inaccurate integration.</p>
+</div>
+
+<div class="v">
+<h3>D — Common Detail</h3>
+<p><span class="lab">Definition:</span> a frequently used, obvious portion of the blot is used.</p>
+<p><span class="lab">How to calculate:</span> coded when the area chosen is one statistically common in normative data; entered in W:D:Dd.</p>
+<p><span class="lab">What it tells:</span> a practical, economical, conventional way of engaging the environment; the person attends to the obvious and manageable.</p>
+<p><span class="lab">Thinking / perception:</span> a healthy predominance of D reflects everyday, reality-oriented, efficient processing that most people share.</p>
+<p class="ex"><span class="lab">Example:</span> "two people" on the common D area of Card III is a typical, grounded use of an obvious detail.</p>
+</div>
+
+<div class="v">
+<h3>Dd — Unusual Detail</h3>
+<p><span class="lab">Definition:</span> a small, rarely used, or unusual portion of the blot is used.</p>
+<p><span class="lab">How to calculate:</span> coded when the area is statistically uncommon; high frequency (e.g., &gt;3) is interpretively notable.</p>
+<p><span class="lab">What it tells:</span> an idiosyncratic, peripheral focus; attention drawn to small or odd features rather than the whole or the obvious.</p>
+<p><span class="lab">Thinking / perception:</span> elevations suggest unusual scanning, perfectionistic over-attention to minor detail, guardedness, or avoidance of the larger, more demanding stimulus.</p>
+<p class="ex"><span class="lab">Example:</span> picking a tiny edge projection and calling it "a little hook" while ignoring the obvious figure signals a fussy, peripheral, possibly avoidant approach.</p>
+</div>
+
+<div class="v">
+<h3>S — White Space</h3>
+<p><span class="lab">Definition:</span> the white background / space is used, alone or combined with a blot area.</p>
+<p><span class="lab">How to calculate:</span> coded as S added to the location (e.g., WS, DS, DdS); the count and any S- are noted.</p>
+<p><span class="lab">What it tells:</span> oppositionality, negativism, autonomy striving, or anger; a tendency to look at things in a contrary, back-to-front way.</p>
+<p><span class="lab">Thinking / perception:</span> a little S = independence / assertiveness; much S = entrenched anger and defiance; S- ties the negativism directly to misperception (anger distorting reality).</p>
+<p class="ex"><span class="lab">Example:</span> seeing "a jet plane" in the white center of Card II uses space adaptively; a record full of space answers points to a chronically oppositional stance.</p>
+</div>
+
+<h2 id="dq">2. DEVELOPMENTAL QUALITY (DQ) — sophistication of the percept</h2>
+
+<div class="v">
+<h3>DQ+ — Synthesized</h3>
+<p><span class="lab">Definition:</span> two or more objects are seen in a meaningful relationship, and at least one has a specific form demand.</p>
+<p><span class="lab">How to calculate:</span> coded on the response when separate form-demanding objects are integrated; counted toward DQ+ frequency.</p>
+<p><span class="lab">What it tells:</span> mature, analytic-synthetic processing — the capacity to relate parts into organized, meaningful wholes.</p>
+<p><span class="lab">Thinking / perception:</span> higher DQ+ indicates complexity, abstraction and higher-order conceptual organization of experience.</p>
+<p class="ex"><span class="lab">Example:</span> "two people leaning over a pot, lifting it together" (Card III) integrates figures + object in a relationship = sophisticated processing.</p>
+</div>
+
+<div class="v">
+<h3>DQo — Ordinary</h3>
+<p><span class="lab">Definition:</span> a single object with a definite form is reported.</p>
+<p><span class="lab">How to calculate:</span> coded when one form-demanding object is seen without integration; the most common DQ code.</p>
+<p><span class="lab">What it tells:</span> standard, economical, adequate processing — neither sophisticated nor impoverished.</p>
+<p><span class="lab">Thinking / perception:</span> a normal predominance of DQo reflects ordinary, workable perception of discrete objects.</p>
+<p class="ex"><span class="lab">Example:</span> "a bat" (Card V) — one clearly formed object = ordinary developmental quality.</p>
+</div>
+
+<div class="v">
+<h3>DQv/+ — Synthesized but Vague</h3>
+<p><span class="lab">Definition:</span> objects are related to one another but at least one has no specific form demand.</p>
+<p><span class="lab">How to calculate:</span> coded when integration occurs but a component is formless.</p>
+<p><span class="lab">What it tells:</span> a mix of effort to integrate with imprecise, diffuse perceptual quality.</p>
+<p><span class="lab">Thinking / perception:</span> shows organizing intent that is undercut by vagueness — partial maturity.</p>
+<p class="ex"><span class="lab">Example:</span> "clouds gathering over some hills" relates elements but the clouds carry no firm form = DQv/+.</p>
+</div>
+
+<div class="v">
+<h3>DQv — Vague</h3>
+<p><span class="lab">Definition:</span> an object with no specific form demand is reported.</p>
+<p><span class="lab">How to calculate:</span> coded when the percept lacks definite shape; counted toward DQv frequency.</p>
+<p><span class="lab">What it tells:</span> immature, impressionistic, diffuse processing; a low-effort or low-capacity way of handling the stimulus.</p>
+<p><span class="lab">Thinking / perception:</span> elevated DQv is common in young children, in cognitively limited records, and in distressed or constricted states.</p>
+<p class="ex"><span class="lab">Example:</span> "just some smoke" or "a stain" — no form demand = vague developmental quality.</p>
+</div>
+
+
+
+<h2 id="det">3. DETERMINANTS — what about the blot made it look that way</h2>
+
+<div class="v">
+<h3>F — Pure Form</h3>
+<p><span class="lab">Definition:</span> the response is based only on the shape/outline of the area, with no colour, movement, or shading.</p>
+<p><span class="lab">How to calculate:</span> count pure-F responses; they drive Lambda = F / (R - F).</p>
+<p><span class="lab">What it tells:</span> reliance on logic, structure and a matter-of-fact, affect-distancing way of dealing with the world; a control/economy device.</p>
+<p><span class="lab">Thinking / perception:</span> moderate F = healthy controlled processing; very high F (high Lambda) = avoidant simplification that screens out emotion and complexity; very low F = over-involvement and vulnerability to flooding.</p>
+<p class="ex"><span class="lab">Example:</span> "a bat, just from the shape" is pure form; a record dominated by such answers signals a person who keeps things simple and keeps feelings at arm's length.</p>
+</div>
+
+<div class="v">
+<h3>M — Human Movement</h3>
+<p><span class="lab">Definition:</span> human activity, or animal/object carrying out a human-like action, is attributed to the percept.</p>
+<p><span class="lab">How to calculate:</span> count M; enter into EB (Sum M : WSumC) and examine its form quality and active/passive coding.</p>
+<p><span class="lab">What it tells:</span> deliberate ideation, imagination, reasoning, planning and the capacity to delay and think things through; the richness of inner mental life.</p>
+<p><span class="lab">Thinking / perception:</span> good-form M = sound, flexible reasoning; M- = thinking that loses touch with reality; many passive M = retreat into fantasy; M with no form = serious cognitive slippage.</p>
+<p class="ex"><span class="lab">Example:</span> "two people lifting a basket" (Card III) is well-formed M (healthy ideation); "a man whose body is melting into the sky" with poor form is M- (distorted thinking).</p>
+</div>
+
+<div class="v">
+<h3>FM — Animal Movement</h3>
+<p><span class="lab">Definition:</span> an animal is seen in a natural, species-appropriate movement.</p>
+<p><span class="lab">How to calculate:</span> count FM; enter into the left side of eb (FM + m).</p>
+<p><span class="lab">What it tells:</span> instinctual, need-driven ideation — the "background chatter" of urges, appetites and unmet needs pressing on the mind.</p>
+<p><span class="lab">Thinking / perception:</span> ordinary FM = needs felt and managed normally; elevated FM = need states intruding on attention/concentration and disrupting goal-directed thought, often experienced as distractibility.</p>
+<p class="ex"><span class="lab">Example:</span> "a bear climbing a rock" (Card VIII) is typical FM; a flood of such answers suggests a mind repeatedly pulled off-task by inner urges.</p>
+</div>
+
+<div class="v">
+<h3>m — Inanimate Movement</h3>
+<p><span class="lab">Definition:</span> movement of inanimate, non-living forces or objects is reported.</p>
+<p><span class="lab">How to calculate:</span> count m; enters eb and es, but excess m is removed when computing Adj es (treated as situational).</p>
+<p><span class="lab">What it tells:</span> situational stress, tension and a sense of being acted upon by forces outside one's control.</p>
+<p><span class="lab">Thinking / perception:</span> elevated m = current, often transient, pressure and helplessness that can intrude on concentration and lower momentary control.</p>
+<p class="ex"><span class="lab">Example:</span> "an explosion blowing apart" or "smoke being blown by wind" = m; a spike suggests the person currently feels under external pressure.</p>
+</div>
+
+<div class="v">
+<h3>a / p — Active vs Passive Movement</h3>
+<p><span class="lab">Definition:</span> every movement (M, FM, m) is also coded as active (a) or passive (p).</p>
+<p><span class="lab">How to calculate:</span> tally to form a:p (all movement) and Ma:Mp (human movement only).</p>
+<p><span class="lab">What it tells:</span> a:p reflects flexibility of attitudes/ideas; Ma:Mp reflects whether thinking is action-oriented or escapist.</p>
+<p><span class="lab">Thinking / perception:</span> a markedly one-sided a:p = rigid, fixed values hard to change; Mp dominant = a "Snow White" pattern of passive daydreaming and waiting rather than acting.</p>
+<p class="ex"><span class="lab">Example:</span> "a person resting / lying back" (passive) vs "a person running / fighting" (active); many passive answers point to avoidance of active problem-solving.</p>
+</div>
+
+<div class="v">
+<h3>FC — Form-Colour</h3>
+<p><span class="lab">Definition:</span> chromatic colour is used but form is the dominant element of the response.</p>
+<p><span class="lab">How to calculate:</span> count FC; weighted 0.5 in WSumC; enters FC:CF+C.</p>
+<p><span class="lab">What it tells:</span> modulated, controlled emotional expression — feelings released in a socially appropriate, form-bound way.</p>
+<p><span class="lab">Thinking / perception:</span> a healthy predominance of FC indicates mature affect regulation, emotion guided by reason and context.</p>
+<p class="ex"><span class="lab">Example:</span> "a pink flower with clearly shaped petals" (Card X) uses colour within firm form = well-controlled emotion.</p>
+</div>
+
+<div class="v">
+<h3>CF — Colour-Form</h3>
+<p><span class="lab">Definition:</span> chromatic colour is the dominant element and form is secondary.</p>
+<p><span class="lab">How to calculate:</span> count CF; weighted 1.0 in WSumC; enters FC:CF+C.</p>
+<p><span class="lab">What it tells:</span> less-modulated, more reactive emotionality — feelings expressed more freely and with less restraint.</p>
+<p><span class="lab">Thinking / perception:</span> some CF is normal spontaneity; a CF/C predominance over FC signals emotion that frequently outruns control.</p>
+<p class="ex"><span class="lab">Example:</span> "blood, just a big red splash with a vague edge" emphasizes colour over shape = under-modulated affect.</p>
+</div>
+
+<div class="v">
+<h3>C — Pure Colour</h3>
+<p><span class="lab">Definition:</span> the response is based on colour alone, with no form.</p>
+<p><span class="lab">How to calculate:</span> count Pure C; weighted 1.5 in WSumC; a key affect-control marker.</p>
+<p><span class="lab">What it tells:</span> raw, unmodulated emotional discharge that bypasses cognitive control — the affective equivalent of impulsivity.</p>
+<p><span class="lab">Thinking / perception:</span> one or more Pure C, especially with weak controls, indicates a proneness to emotional outbursts or being flooded by feeling.</p>
+<p class="ex"><span class="lab">Example:</span> "it's just red — fire" or "all this colour is blood" with no shape = raw emotional discharge.</p>
+</div>
+
+<div class="v">
+<h3>Cn — Colour Naming</h3>
+<p><span class="lab">Definition:</span> the person names the colours as the response itself ("that's red, that's blue").</p>
+<p><span class="lab">How to calculate:</span> rare; counted within the colour determinants.</p>
+<p><span class="lab">What it tells:</span> a severe failure to integrate affect into any meaningful percept.</p>
+<p><span class="lab">Thinking / perception:</span> typically associated with serious disturbance, organicity, or marked regression.</p>
+<p class="ex"><span class="lab">Example:</span> on Card X, "red, yellow, green" given as the answer rather than seeing an object = colour naming.</p>
+</div>
+
+<div class="v">
+<h3>FC', C'F, C' — Achromatic Colour</h3>
+<p><span class="lab">Definition:</span> the black, grey or white is used as colour (not as shape), e.g., "black like coal."</p>
+<p><span class="lab">How to calculate:</span> count toward SumC'; enters the right side of eb and the SumC':WSumC constriction ratio.</p>
+<p><span class="lab">What it tells:</span> emotion that is suppressed and held inside rather than expressed — painful internalization of feeling.</p>
+<p><span class="lab">Thinking / perception:</span> SumC' &gt; 2 signals notable constriction that breeds tension, dysphoria or low mood, since affect is bottled up.</p>
+<p class="ex"><span class="lab">Example:</span> "a dark, black bat — it looks gloomy and heavy" uses the blackness as mood = internalized, dampened affect.</p>
+</div>
+
+<div class="v">
+<h3>FT, TF, T — Texture (Shading)</h3>
+<p><span class="lab">Definition:</span> shading is interpreted as a tactile quality (furry, soft, rough, smooth).</p>
+<p><span class="lab">How to calculate:</span> count toward SumT; enters eb and the interpersonal cluster.</p>
+<p><span class="lab">What it tells:</span> needs for emotional closeness, attachment and contact with others.</p>
+<p><span class="lab">Thinking / perception:</span> SumT = 1 is expected/healthy; T = 0 = guardedness, emotional distance, denial of need for closeness; T &gt; 1 = strong unmet loneliness / longing for contact.</p>
+<p class="ex"><span class="lab">Example:</span> "a furry animal skin, looks soft to touch" (Card VI) = texture; absence of any texture across the record suggests a person who keeps others at a distance.</p>
+</div>
+
+<div class="v">
+<h3>FV, VF, V — Vista (Shading)</h3>
+<p><span class="lab">Definition:</span> shading is used to convey depth, distance or dimensionality ("looking down into it").</p>
+<p><span class="lab">How to calculate:</span> count toward SumV; loads on the Suicide Constellation and self-perception cluster.</p>
+<p><span class="lab">What it tells:</span> painful self-examination — looking inward and finding fault; guilt, shame, self-critical rumination.</p>
+<p><span class="lab">Thinking / perception:</span> any V is noteworthy; it marks introspection that hurts rather than helps, often tied to depressive self-evaluation.</p>
+<p class="ex"><span class="lab">Example:</span> "a deep canyon seen from above, dropping far down" = vista; in context it reflects distressing self-scrutiny.</p>
+</div>
+
+<div class="v">
+<h3>FY, YF, Y — Diffuse Shading</h3>
+<p><span class="lab">Definition:</span> shading is seen as haze, smoke, X-ray, or light/dark gradation without texture or depth.</p>
+<p><span class="lab">How to calculate:</span> count toward SumY; excess Y is removed for Adj es (situational).</p>
+<p><span class="lab">What it tells:</span> anxiety, apprehension and a sense of helplessness — distress that is felt but not easily acted upon.</p>
+<p><span class="lab">Thinking / perception:</span> elevated Y indicates free-floating anxiety and a passive, paralysed quality under stress.</p>
+<p class="ex"><span class="lab">Example:</span> "hazy smoke, you can't see clearly through it" = diffuse shading, reflecting anxious uncertainty.</p>
+</div>
+
+<div class="v">
+<h3>FD — Form Dimension</h3>
+<p><span class="lab">Definition:</span> depth or dimensionality is conveyed by the shape/contour (not shading), e.g., perspective.</p>
+<p><span class="lab">How to calculate:</span> count FD; used in self-perception and the Suicide Constellation.</p>
+<p><span class="lab">What it tells:</span> the capacity for self-inspection and introspective awareness — stepping back to view oneself.</p>
+<p><span class="lab">Thinking / perception:</span> one or two FD is adaptive (healthy reflection); absence suggests little capacity for self-examination; excess can reflect uncomfortable self-focus.</p>
+<p class="ex"><span class="lab">Example:</span> "a person seen from far below, so they look towering" conveys dimension by form = introspective awareness.</p>
+</div>
+
+<div class="v">
+<h3>(2) — Pair</h3>
+<p><span class="lab">Definition:</span> two identical objects are reported based on the blot's symmetry.</p>
+<p><span class="lab">How to calculate:</span> count pairs; feeds the Egocentricity Index [3(Fr+rF) + Sum(2)] / R.</p>
+<p><span class="lab">What it tells:</span> a component of self-focus / self-attention.</p>
+<p><span class="lab">Thinking / perception:</span> high pair counts contribute to elevated egocentricity (heightened self-preoccupation).</p>
+<p class="ex"><span class="lab">Example:</span> "two identical bears, one on each side" (Card VIII) is a pair; many pairs raise the self-focus index.</p>
+</div>
+
+<div class="v">
+<h3>Fr, rF — Reflections</h3>
+<p><span class="lab">Definition:</span> part of the blot is seen as a mirror image / reflection because of symmetry.</p>
+<p><span class="lab">How to calculate:</span> count Fr + rF; weighted heavily (x3) in the Egocentricity Index.</p>
+<p><span class="lab">What it tells:</span> narcissistic self-focus, inflated or defensive self-regard, and a sense of entitlement.</p>
+<p><span class="lab">Thinking / perception:</span> any reflection is significant; it points to an externalizing, self-admiring stance that resists self-criticism.</p>
+<p class="ex"><span class="lab">Example:</span> "a bear looking at its own reflection in the water" = reflection, reflecting an over-valued self-image.</p>
+</div>
+
+<div class="v">
+<h3>Blends</h3>
+<p><span class="lab">Definition:</span> a single response containing two or more determinants (e.g., M.CF).</p>
+<p><span class="lab">How to calculate:</span> count blends; examine Blends:R for proportion of complex responses.</p>
+<p><span class="lab">What it tells:</span> psychological complexity — the richness and layeredness of inner experience.</p>
+<p><span class="lab">Thinking / perception:</span> too few blends = psychologically simple / constricted; very many = complex and possibly overwhelmed; the specific mix reveals how thought and feeling combine.</p>
+<p class="ex"><span class="lab">Example:</span> "two people dancing joyfully in red costumes" (M + FC) is a blend integrating ideation and modulated affect.</p>
+</div>
+
+<div class="v">
+<h3>Colour-Shading Blend</h3>
+<p><span class="lab">Definition:</span> a blend combining chromatic colour with shading or achromatic colour.</p>
+<p><span class="lab">How to calculate:</span> flagged among blends; loads on the Suicide Constellation.</p>
+<p><span class="lab">What it tells:</span> ambivalent, confused or painful emotion — pleasant and unpleasant feelings fused together.</p>
+<p><span class="lab">Thinking / perception:</span> marks emotional experiences that are hard to resolve, often felt as bittersweet, conflicted, or distressingly mixed.</p>
+<p class="ex"><span class="lab">Example:</span> "a bright sunset, but it looks sad and hazy" combines colour with diffuse shading = ambivalent affect.</p>
+</div>
+
+<div class="v">
+<h3>Shading Blend</h3>
+<p><span class="lab">Definition:</span> a blend containing more than one type of shading determinant.</p>
+<p><span class="lab">How to calculate:</span> noted among blends.</p>
+<p><span class="lab">What it tells:</span> intense, complex and painful distress with several negative affects at once.</p>
+<p><span class="lab">Thinking / perception:</span> suggests a person simultaneously contending with anxiety, loneliness and/or self-criticism.</p>
+<p class="ex"><span class="lab">Example:</span> "a cold, misty, deep cave that feels lonely" mixes diffuse shading, vista and texture-like distress.</p>
+</div>
+
+
+
+<h2 id="fq">4. FORM QUALITY (FQ) — accuracy of perception / reality testing</h2>
+
+<div class="v">
+<h3>FQ+ (Superior-Overelaborated)</h3>
+<p><span class="lab">Definition:</span> form is used precisely and is enriched with accurate, well-articulated detail.</p>
+<p><span class="lab">How to calculate:</span> assigned per response from the form-quality tables; relatively rare.</p>
+<p><span class="lab">What it tells:</span> exact, high-quality perception with care and precision (also a key OBS-index variable).</p>
+<p><span class="lab">Thinking / perception:</span> indicates demanding accuracy; in excess (with other signs) it can reflect perfectionism.</p>
+<p class="ex"><span class="lab">Example:</span> a carefully specified, accurately matched "two figures in detailed costume" can earn FQ+.</p>
+</div>
+
+<div class="v">
+<h3>FQo (Ordinary)</h3>
+<p><span class="lab">Definition:</span> a common, easily-seen object whose form fits the area well.</p>
+<p><span class="lab">How to calculate:</span> assigned when the percept matches the area conventionally and accurately.</p>
+<p><span class="lab">What it tells:</span> sound, conventional reality testing — the person sees what is really there as most people do.</p>
+<p><span class="lab">Thinking / perception:</span> a healthy share of FQo anchors perception to consensual reality.</p>
+<p class="ex"><span class="lab">Example:</span> "a butterfly" on Card I = ordinary, accurate form quality.</p>
+</div>
+
+<div class="v">
+<h3>FQu (Unusual)</h3>
+<p><span class="lab">Definition:</span> an uncommon response whose contours nevertheless fit the area reasonably.</p>
+<p><span class="lab">How to calculate:</span> assigned for low-frequency but not contour-violating percepts; feeds Xu%.</p>
+<p><span class="lab">What it tells:</span> an individualistic, unconventional way of seeing — different, but not distorted.</p>
+<p><span class="lab">Thinking / perception:</span> moderate Xu% = creativity / nonconformity; high Xu% = a person who often departs from convention without losing reality contact.</p>
+<p class="ex"><span class="lab">Example:</span> seeing a specific, plausible-but-rare object where most people see the popular = unusual form quality.</p>
+</div>
+
+<div class="v">
+<h3>FQ- (Minus)</h3>
+<p><span class="lab">Definition:</span> the form imposed does not fit the contours of the area; the percept distorts the blot.</p>
+<p><span class="lab">How to calculate:</span> assigned when contours are violated; feeds X-% and many indices.</p>
+<p><span class="lab">What it tells:</span> the central marker of impaired reality testing — seeing what is not really supported by the stimulus.</p>
+<p><span class="lab">Thinking / perception:</span> elevated FQ- / X-% indicates misperception and faulty judgement; very high levels suggest psychotic-range reality testing.</p>
+<p class="ex"><span class="lab">Example:</span> insisting "this whole side is a clear human face" where the outline does not support it = minus.</p>
+</div>
+
+<div class="v">
+<h3>FQnone</h3>
+<p><span class="lab">Definition:</span> no form is involved in the response.</p>
+<p><span class="lab">How to calculate:</span> assigned to pure colour / pure shading answers with no shape.</p>
+<p><span class="lab">What it tells:</span> response governed entirely by colour or shading with no formal control.</p>
+<p><span class="lab">Thinking / perception:</span> associated with affective discharge or distress overriding structured perception.</p>
+<p class="ex"><span class="lab">Example:</span> "just blackness, darkness" with no object = form quality none.</p>
+</div>
+
+<div class="v">
+<h3>XA% / WDA% / X-% / X+% / Xu% (the form-quality percentages)</h3>
+<p><span class="lab">Definitions &amp; formulas:</span> <code>XA% = (FQ+, o, u) / R</code> (overall appropriate form); <code>WDA% = appropriate-form W+D / (W+D)</code>; <code>X-% = FQ- / R</code>; <code>X+% = (FQ+ , o) / R</code>; <code>Xu% = FQu / R</code>.</p>
+<p><span class="lab">Norms:</span> XA% &gt; ~.89; WDA% &gt; ~.85; X-% &lt; ~.15; P about 5 to 7.</p>
+<p><span class="lab">What they tell:</span> together they quantify reality testing and conventionality — how accurately and how conventionally the person perceives.</p>
+<p><span class="lab">Thinking / perception:</span> low WDA% means distortion even in obvious areas (pervasive, serious); high Xu% with low X-% means unconventional but intact; low X+% means reduced conventional perception.</p>
+<p class="ex"><span class="lab">Example:</span> XA% .57, WDA% .60, X-% .43 describes someone misreading nearly half of reality, including obvious cues = severe impairment.</p>
+</div>
+
+<div class="v">
+<h3>S- (Space minus)</h3>
+<p><span class="lab">Definition:</span> a white-space response that also has minus form quality.</p>
+<p><span class="lab">How to calculate:</span> tally S responses that are FQ-.</p>
+<p><span class="lab">What it tells:</span> negativism / anger that is specifically linked to misperception.</p>
+<p><span class="lab">Thinking / perception:</span> indicates that when the person becomes oppositional or angry, their reality testing degrades.</p>
+<p class="ex"><span class="lab">Example:</span> an angry, contour-violating space percept shows affect (anger) driving distortion.</p>
+</div>
+
+<h2 id="con">5. CONTENTS — what was actually seen</h2>
+
+<div class="v">
+<h3>H, (H), Hd, (Hd), Hx — Human contents</h3>
+<p><span class="lab">Definition:</span> whole real humans (H), fictional/mythical humans ((H)), human parts (Hd), fictional parts ((Hd)), and human experience/emotion (Hx).</p>
+<p><span class="lab">How to calculate:</span> tally each; combine for total human content and the H:(H)+Hd+(Hd) ratio; Pure H counted separately.</p>
+<p><span class="lab">What it tells:</span> interest in people and the realism of one's view of self and others.</p>
+<p><span class="lab">Thinking / perception:</span> good Pure H = realistic, whole-person understanding; predominance of (H)/Hd/(Hd) = self/other concept built on fantasy or fragments; Hx = intellectualized handling of emotion.</p>
+<p class="ex"><span class="lab">Example:</span> "two whole people talking" (Pure H) reflects realistic social perception; only "a mask" and "a giant monster" indicates an unreal, part-based view of people.</p>
+</div>
+
+<div class="v">
+<h3>A, (A), Ad, (Ad) — Animal contents</h3>
+<p><span class="lab">Definition:</span> whole real animals, fictional animals, animal parts, fictional animal parts.</p>
+<p><span class="lab">How to calculate:</span> tally; A% (animal content / R) is examined.</p>
+<p><span class="lab">What it tells:</span> animal content is the easiest, most common content; its proportion indexes conventionality and cognitive economy.</p>
+<p><span class="lab">Thinking / perception:</span> very high A% = stereotyped, guarded, simple, economical thinking; very low = unusual or strained processing.</p>
+<p class="ex"><span class="lab">Example:</span> a record that is almost all "bat, butterfly, bug, dog" shows a constricted, stereotyped cognitive style.</p>
+</div>
+
+<div class="v">
+<h3>An, Xy — Anatomy / X-ray</h3>
+<p><span class="lab">Definition:</span> internal anatomy (An) or X-ray/skeletal imagery (Xy).</p>
+<p><span class="lab">How to calculate:</span> tally; combine as An+Xy for the self-perception cluster.</p>
+<p><span class="lab">What it tells:</span> bodily / somatic preoccupation and concern about physical integrity, illness or being damaged inside.</p>
+<p><span class="lab">Thinking / perception:</span> elevated An+Xy points to body-focused worry, somatic anxiety, or a sense of internal vulnerability.</p>
+<p class="ex"><span class="lab">Example:</span> repeated "ribs, lungs, a damaged spine" answers reflect a preoccupation with bodily harm or illness.</p>
+</div>
+
+<div class="v">
+<h3>Bl, Fi, Ex — Blood, Fire, Explosion</h3>
+<p><span class="lab">Definition:</span> blood, fire, or explosion contents.</p>
+<p><span class="lab">How to calculate:</span> tally individually.</p>
+<p><span class="lab">What it tells:</span> strong, often poorly controlled affect, aggression, or trauma-linked imagery.</p>
+<p><span class="lab">Thinking / perception:</span> when frequent or affect-laden, they signal emotional intensity that may overwhelm controls.</p>
+<p class="ex"><span class="lab">Example:</span> "blood everywhere" and "a huge explosion" together suggest intense, eruptive emotional themes.</p>
+</div>
+
+<div class="v">
+<h3>Fd — Food</h3>
+<p><span class="lab">Definition:</span> edible food content.</p>
+<p><span class="lab">How to calculate:</span> tally; used in CDI and interpersonal cluster.</p>
+<p><span class="lab">What it tells:</span> dependency needs — a wish to be nurtured, cared for, or looked after.</p>
+<p><span class="lab">Thinking / perception:</span> presence of Fd suggests reliance on others and a more dependent interpersonal stance.</p>
+<p class="ex"><span class="lab">Example:</span> "ice cream" or "a piece of chicken" = food content, hinting at underlying dependency wishes.</p>
+</div>
+
+<div class="v">
+<h3>Bt, Cl, Ge, Ls, Na — Isolation-Index contents</h3>
+<p><span class="lab">Definition:</span> Botany, Clouds, Geography, Landscape, Nature.</p>
+<p><span class="lab">How to calculate:</span> feed the Isolation Index = (Bt + 2Cl + Ge + Ls + 2Na) / R.</p>
+<p><span class="lab">What it tells:</span> a preponderance is associated with social withdrawal and reduced interpersonal involvement.</p>
+<p><span class="lab">Thinking / perception:</span> an elevated index (&gt;.24, and especially .33+) reflects detachment from people and retreat into impersonal imagery.</p>
+<p class="ex"><span class="lab">Example:</span> a record heavy on "clouds, mountains, islands, plants" yields a high Isolation Index = withdrawn.</p>
+</div>
+
+<div class="v">
+<h3>Art, Ay, Cg, Hh, Sc, Sx, Id, etc. — Other contents</h3>
+<p><span class="lab">Definition:</span> Art and Anthropology (Ay) feed intellectualization; Clothing (Cg), Household (Hh), Science (Sc), Sex (Sx), Idiographic (Id) and others are tallied as present.</p>
+<p><span class="lab">How to calculate:</span> tally each; 2AB+Art+Ay forms the Intellectualization Index, and Cg is an HVI variable.</p>
+<p><span class="lab">What it tells:</span> content themes flag preoccupations (e.g., Art/Ay = intellectual distancing; Sx = sexual preoccupation; Sc = mechanical/impersonal focus).</p>
+<p><span class="lab">Thinking / perception:</span> elevations in a category point to a specific area of concern or defensive style rather than to a single fixed meaning.</p>
+<p class="ex"><span class="lab">Example:</span> many "paintings, statues, ancient masks" (Art/Ay) suggest intellectualization as a way to neutralize feeling.</p>
+</div>
+
+<h2 id="pop">6. POPULAR RESPONSES (P)</h2>
+<div class="v">
+<h3>P — Popular</h3>
+<p><span class="lab">Definition:</span> one of the conventional answers that occurs in at least 1 of every 3 records.</p>
+<p><span class="lab">How to calculate:</span> count responses matching the 13 CS Populars; norm about 5 to 7.</p>
+<p><span class="lab">What it tells:</span> the ability and willingness to perceive the world as others conventionally do.</p>
+<p><span class="lab">Thinking / perception:</span> low P = idiosyncratic, possibly impaired or oppositional perception; very high P = over-conventional, conforming, plays it safe.</p>
+<p class="ex"><span class="lab">Example:</span> "a bat" (I/V), "two people" (III), "an animal skin" (VI) are Populars; producing very few signals a departure from shared reality.</p>
+</div>
+
+
+
+<h2 id="z">7. ORGANIZATIONAL ACTIVITY (Z scores)</h2>
+
+<div class="v">
+<h3>Zf — Z Frequency</h3>
+<p><span class="lab">Definition:</span> the number of responses that earn a Z score (i.e., that involve organizing the blot — wholes, or meaningfully relating separate details, or integrating space).</p>
+<p><span class="lab">How to calculate:</span> count every response assigned any Z value.</p>
+<p><span class="lab">What it tells:</span> the amount of cognitive effort the person invests in organizing and making sense of the field.</p>
+<p><span class="lab">Thinking / perception:</span> high Zf = effortful, motivated (or driven) processing; low Zf = an avoidant, economizing, or low-capacity style that skips organizing work.</p>
+<p class="ex"><span class="lab">Example:</span> a person who repeatedly integrates "two figures doing X with an object" earns many Z scores = high processing effort.</p>
+</div>
+
+<div class="v">
+<h3>ZSum and Zest</h3>
+<p><span class="lab">Definition:</span> ZSum is the total of the weighted Z values actually earned; Zest is the value expected for that Zf (from a standard table).</p>
+<p><span class="lab">How to calculate:</span> sum the Z weights for ZSum; look up Zest for the given Zf.</p>
+<p><span class="lab">What it tells:</span> together they allow comparison of how much organizing was achieved versus what is expected.</p>
+<p><span class="lab">Thinking / perception:</span> they are intermediate values whose real meaning emerges in the Zd difference score.</p>
+<p class="ex"><span class="lab">Example:</span> Zf 14 with ZSum 42 and Zest 45.5 yields Zd = -3.5 (slightly underincorporative).</p>
+</div>
+
+<div class="v">
+<h3>Zd — Processing Efficiency</h3>
+<p><span class="lab">Definition:</span> the difference score <code>Zd = ZSum - Zest</code>, indexing scanning efficiency.</p>
+<p><span class="lab">How to calculate:</span> subtract Zest from ZSum; norm is about -3.0 to +3.0.</p>
+<p><span class="lab">What it tells:</span> whether the person takes in too much, too little, or about the right amount of information before responding.</p>
+<p><span class="lab">Thinking / perception:</span> <b>Zd &gt; +3.0 = overincorporation</b> (cautious, thorough, effortful, can be slow/inefficient, perfectionistic); <b>Zd &lt; -3.0 = underincorporation</b> (hasty, careless scanning that misses cues, leading to faulty input and impulsive errors).</p>
+<p class="ex"><span class="lab">Example:</span> Zd +5.0 describes someone who over-scans and double-checks; Zd -6.0 describes someone who glances and jumps to conclusions, often misreading situations.</p>
+</div>
+
+<div class="v">
+<h3>PSV — Perseveration</h3>
+<p><span class="lab">Definition:</span> repetition of the same response in a way that signals an inability to shift set (within-card, content, or mechanical).</p>
+<p><span class="lab">How to calculate:</span> count PSV occurrences.</p>
+<p><span class="lab">What it tells:</span> cognitive rigidity / inflexibility, or, in some records, a neuropsychological processing difficulty.</p>
+<p><span class="lab">Thinking / perception:</span> elevated PSV = difficulty changing mental set, getting "stuck," reduced flexibility of attention and thought.</p>
+<p class="ex"><span class="lab">Example:</span> giving "a bat" to several cards in a row, unable to move on, suggests perseverative rigidity.</p>
+</div>
+
+<h2 id="ss">8. SPECIAL SCORES — in depth</h2>
+<p class="small">The first six ("Critical Special Scores") capture disturbances in thinking/logic and are weighted into WSum6; each has a Level 1 (mild) and Level 2 (serious) form except ALOG and CONTAM.</p>
+
+<div class="v">
+<h3>DV — Deviant Verbalization (Levels 1 / 2; weight 1 / 2)</h3>
+<p><span class="lab">Definition:</span> odd, distorted, or redundant language — a neologism or a needless repetition that conveys faulty word usage.</p>
+<p><span class="lab">How to calculate:</span> code DV1 or DV2; add weight (1 or 2) to WSum6.</p>
+<p><span class="lab">What it tells:</span> mild slippage at the level of words/expression rather than logic.</p>
+<p><span class="lab">Thinking / perception:</span> occasional DV1 is common and benign; DV2 or several DVs suggest looser verbal control.</p>
+<p class="ex"><span class="lab">Example:</span> calling something "a flying-bird-airplane" (neologistic) or "a dead corpse" (redundancy) = DV.</p>
+</div>
+
+<div class="v">
+<h3>INCOM — Incongruous Combination (1 / 2; weight 2 / 4)</h3>
+<p><span class="lab">Definition:</span> incompatible features are condensed into a single impossible object.</p>
+<p><span class="lab">How to calculate:</span> code INCOM1/2; add weight to WSum6.</p>
+<p><span class="lab">What it tells:</span> a condensation error in which perception fuses details that cannot belong together.</p>
+<p><span class="lab">Thinking / perception:</span> reflects illogical merging of percept elements; Level 2 indicates more serious cognitive slippage.</p>
+<p class="ex"><span class="lab">Example:</span> "a person with the head of a chicken" or "a pink bear" (wrong colour fused with object) = incongruous combination.</p>
+</div>
+
+<div class="v">
+<h3>DR — Deviant Response (1 / 2; weight 3 / 6)</h3>
+<p><span class="lab">Definition:</span> inappropriate phrases or rambling, circumstantial elaboration that drifts from the task.</p>
+<p><span class="lab">How to calculate:</span> code DR1/2; add weight to WSum6.</p>
+<p><span class="lab">What it tells:</span> loosened, derailing, or self-referential communication and difficulty staying on track.</p>
+<p><span class="lab">Thinking / perception:</span> indicates fluid, poorly bounded thinking; DR2 (marked derailment) is a serious sign.</p>
+<p class="ex"><span class="lab">Example:</span> "it's a bat — my uncle once caught a bat, that was the year we moved house..." drifting away = deviant response.</p>
+</div>
+
+<div class="v">
+<h3>FABCOM — Fabulized Combination (1 / 2; weight 4 / 7)</h3>
+<p><span class="lab">Definition:</span> an implausible or impossible relationship is asserted between two clearly perceived objects.</p>
+<p><span class="lab">How to calculate:</span> code FAB1/2; add weight to WSum6; FAB2 also feeds PTI.</p>
+<p><span class="lab">What it tells:</span> illogical linkage of accurately seen parts — reasoning that connects things that cannot be connected.</p>
+<p><span class="lab">Thinking / perception:</span> a robust marker of disordered thought; FAB2 is among the more serious cognitive special scores.</p>
+<p class="ex"><span class="lab">Example:</span> "two ants holding hands and praying" or "a butterfly attacking an elephant" = fabulized combination.</p>
+</div>
+
+<div class="v">
+<h3>ALOG — Inappropriate Logic (weight 5)</h3>
+<p><span class="lab">Definition:</span> the person uses strained, idiosyncratic reasoning to justify a response, unprompted.</p>
+<p><span class="lab">How to calculate:</span> code ALOG; add weight 5 to WSum6.</p>
+<p><span class="lab">What it tells:</span> autistic / illogical reasoning in which conclusions follow from faulty premises.</p>
+<p><span class="lab">Thinking / perception:</span> indicates a breakdown in the logic of thought, not just its expression.</p>
+<p class="ex"><span class="lab">Example:</span> "it must be the North Pole because it's at the top of the card" = inappropriate logic.</p>
+</div>
+
+<div class="v">
+<h3>CONTAM — Contamination (weight 7)</h3>
+<p><span class="lab">Definition:</span> two separate percepts are fused into a single impossible image occupying the same area.</p>
+<p><span class="lab">How to calculate:</span> code CONTAM; add weight 7 (the heaviest) to WSum6.</p>
+<p><span class="lab">What it tells:</span> the most serious cognitive special score — a breakdown of the boundaries between ideas/percepts.</p>
+<p><span class="lab">Thinking / perception:</span> strongly associated with psychotic-level thought disturbance; even a single CONTAM is clinically weighty.</p>
+<p class="ex"><span class="lab">Example:</span> seeing "a bloody island" by fusing "blood" and "island" into one inseparable thing, or a "butterfly-face," = contamination.</p>
+</div>
+
+<div class="v">
+<h3>Raw Sum6 and WSum6</h3>
+<p><span class="lab">Definition:</span> Raw Sum6 = the count of the six critical special scores; WSum6 = the sum of (each score's weight x its frequency).</p>
+<p><span class="lab">How to calculate:</span> weights are DV 1/2, INCOM 2/4, DR 3/6, FABCOM 4/7, ALOG 5, CONTAM 7.</p>
+<p><span class="lab">What it tells:</span> the overall amount and severity of disordered/illogical thinking in the record.</p>
+<p><span class="lab">Thinking / perception:</span> nonpatient WSum6 averages roughly 5; markedly elevated WSum6 (and any Level-2 / CONTAM) signals serious thought disturbance.</p>
+<p class="ex"><span class="lab">Example:</span> WSum6 = 15 driven by 2 INCOM + 1 FABCOM + 1 CONTAM indicates genuine, clinically important thinking problems.</p>
+</div>
+
+<div class="v">
+<h3>AB — Abstraction</h3>
+<p><span class="lab">Definition:</span> a clear symbolic or abstract representation is given (e.g., a percept stands for an emotion/idea).</p>
+<p><span class="lab">How to calculate:</span> count AB; weighted double in the Intellectualization Index (2AB+Art+Ay).</p>
+<p><span class="lab">What it tells:</span> use of intellectualization — turning feelings into ideas/symbols to keep them at a distance.</p>
+<p><span class="lab">Thinking / perception:</span> moderate AB can reflect capacity for abstraction; high contributes to a defensive, distancing style.</p>
+<p class="ex"><span class="lab">Example:</span> "this red shape represents anger / the conflict between good and evil" = abstraction.</p>
+</div>
+
+<div class="v">
+<h3>AG — Aggressive Movement</h3>
+<p><span class="lab">Definition:</span> a movement response in which the action is aggressive (fighting, attacking, threatening).</p>
+<p><span class="lab">How to calculate:</span> count AG; used in interpersonal cluster, CDI, HVI logic.</p>
+<p><span class="lab">What it tells:</span> a tendency to perceive relationships and interactions as hostile, competitive, or threatening.</p>
+<p><span class="lab">Thinking / perception:</span> elevated AG = an aggressive/forceful interpersonal set, expecting or projecting hostility.</p>
+<p class="ex"><span class="lab">Example:</span> "two animals fighting / tearing at each other" (Card II) = aggressive movement.</p>
+</div>
+
+<div class="v">
+<h3>COP — Cooperative Movement</h3>
+<p><span class="lab">Definition:</span> a movement response in which two or more objects interact in a clearly positive, cooperative way.</p>
+<p><span class="lab">How to calculate:</span> count COP; used in interpersonal cluster, CDI, DEPI.</p>
+<p><span class="lab">What it tells:</span> the expectation of positive, collaborative, harmonious interaction with others.</p>
+<p><span class="lab">Thinking / perception:</span> presence of COP is generally adaptive (people are seen as approachable); absence suggests reduced expectation of cooperation.</p>
+<p class="ex"><span class="lab">Example:</span> "two people lifting a basket together" or "dancing" = cooperative movement.</p>
+</div>
+
+<div class="v">
+<h3>CP — Colour Projection</h3>
+<p><span class="lab">Definition:</span> the person reports chromatic colour on an achromatic (grey/black) area — sees colour that is not there.</p>
+<p><span class="lab">How to calculate:</span> count CP; reviewed in the affect cluster.</p>
+<p><span class="lab">What it tells:</span> a denial-based defence — replacing unpleasant reality/affect with an artificially pleasant one.</p>
+<p><span class="lab">Thinking / perception:</span> reflects a hysteroid tendency to gloss over distress and impose positive feeling, a mild reality-bending in the emotional domain.</p>
+<p class="ex"><span class="lab">Example:</span> calling a clearly grey-black area "a pretty, colourful butterfly" = colour projection.</p>
+</div>
+
+<div class="v">
+<h3>MOR — Morbid Content</h3>
+<p><span class="lab">Definition:</span> a percept that is dead, damaged, broken, spoiled, or given a dysphoric attribution.</p>
+<p><span class="lab">How to calculate:</span> count MOR; used in both self-perception and ideation clusters; &gt;2 is significant.</p>
+<p><span class="lab">What it tells:</span> a damaged, vulnerable self-image and a pessimistic, gloomy cognitive set that colours interpretation.</p>
+<p><span class="lab">Thinking / perception:</span> high MOR primes the person to construe events negatively and to see self/world as harmed or doomed.</p>
+<p class="ex"><span class="lab">Example:</span> "a crushed bug," "a torn, dying leaf," "a broken, bleeding heart" = morbid contents.</p>
+</div>
+
+<div class="v">
+<h3>PER — Personalized Response</h3>
+<p><span class="lab">Definition:</span> the person justifies a response by referring to personal knowledge or experience ("I know because I have one").</p>
+<p><span class="lab">How to calculate:</span> count PER; reviewed in the interpersonal cluster.</p>
+<p><span class="lab">What it tells:</span> a defensive authoritarianism — bolstering the self and warding off challenge by appealing to personal authority.</p>
+<p><span class="lab">Thinking / perception:</span> low PER is normal; high PER suggests insecurity managed through rigidity, control, and a need to be right, which can strain relationships.</p>
+<p class="ex"><span class="lab">Example:</span> "it's a specific kind of orchid — I know because I grow them" repeatedly = personalized responses.</p>
+</div>
+
+<div class="v">
+<h3>GHR : PHR — Good vs Poor Human Representation</h3>
+<p><span class="lab">Definition:</span> each human-related response is classified as a Good (GHR) or Poor (PHR) human representation by a set decision rule.</p>
+<p><span class="lab">How to calculate:</span> tally GHR and PHR; compare as a ratio.</p>
+<p><span class="lab">What it tells:</span> the quality of internalized object/relationship representations — how adaptively the person conceives of people.</p>
+<p><span class="lab">Thinking / perception:</span> GHR &gt; PHR = adaptive, effective interpersonal templates; PHR &gt; GHR = maladaptive, distorted, or off-putting ways of representing and engaging others.</p>
+<p class="ex"><span class="lab">Example:</span> "two friends talking" (GHR) vs "a monster ripping a body apart" (PHR); a 0:2 ratio signals uniformly poor relational templates.</p>
+</div>
+
+
+
+<h2 id="core" class="g">9. CORE RATIOS — Controls &amp; Stress Tolerance</h2>
+
+<div class="v">
+<h3>Lambda (L)</h3>
+<p><span class="lab">Definition:</span> the proportion of pure-form answers, indexing a simplifying/economizing style.</p>
+<p><span class="lab">How to calculate:</span> <code>L = F / (R - F)</code>; norm about .30 to .99.</p>
+<p><span class="lab">What it tells:</span> how much the person narrows the stimulus field and screens out complexity and emotion.</p>
+<p><span class="lab">Thinking / perception:</span> L &gt; 0.99 = avoidant style (oversimplifies, dodges affect/ambiguity); very low L = over-incorporates, takes in too much and is easily flooded.</p>
+<p class="ex"><span class="lab">Example:</span> L = 1.0 (half the record pure form) describes a person who keeps life simple and emotionally distant.</p>
+</div>
+
+<div class="v">
+<h3>EB — Erlebnistypus (coping style)</h3>
+<p><span class="lab">Definition:</span> the balance between ideational and emotional response tendencies.</p>
+<p><span class="lab">How to calculate:</span> <code>EB = Sum M : WSumC</code>; classified Introversive (M side), Extratensive (colour side), or Ambitent (roughly equal). <i>Not interpretable if EA &lt; 4.</i></p>
+<p><span class="lab">What it tells:</span> the preferred problem-solving / coping mode.</p>
+<p><span class="lab">Thinking / perception:</span> Introversive = thinks things through internally before acting; Extratensive = uses feelings and trial-and-error; Ambitent = inconsistent, switches modes, less efficient.</p>
+<p class="ex"><span class="lab">Example:</span> EB 7:1.0 = strongly introversive (ideational); EB 2:6.5 = extratensive (affect-driven).</p>
+</div>
+
+<div class="v">
+<h3>EA — Experience Actual (resources)</h3>
+<p><span class="lab">Definition:</span> the volume of organized psychological resources available for deliberate coping.</p>
+<p><span class="lab">How to calculate:</span> <code>EA = Sum M + WSumC</code>; norm about 7 to 11.</p>
+<p><span class="lab">What it tells:</span> how much capacity the person can deploy purposefully to manage demands.</p>
+<p><span class="lab">Thinking / perception:</span> high EA = ample coping capital; low EA = limited resources, leaving the person more easily overwhelmed even if outwardly stable.</p>
+<p class="ex"><span class="lab">Example:</span> EA = 2.0 indicates a person running on very little usable resource.</p>
+</div>
+
+<div class="v">
+<h3>EBPer — EB Pervasiveness</h3>
+<p><span class="lab">Definition:</span> how rigidly the dominant EB style is used.</p>
+<p><span class="lab">How to calculate:</span> <code>EBPer = larger EB side / smaller side</code> (only when a clear style exists); 2.5 or more = pervasive.</p>
+<p><span class="lab">What it tells:</span> whether the coping style is flexible or applied inflexibly across situations.</p>
+<p><span class="lab">Thinking / perception:</span> EBPer ≥ 2.5 means the person almost always defaults to one mode, losing the flexibility to switch when the situation calls for it.</p>
+<p class="ex"><span class="lab">Example:</span> EBPer 7.0 in an introversive person = thinks through nearly everything, rarely lets feeling guide action, even when it would help.</p>
+</div>
+
+<div class="v">
+<h3>eb — Experience Base</h3>
+<p><span class="lab">Definition:</span> the balance of non-deliberate, "felt" pressures.</p>
+<p><span class="lab">How to calculate:</span> <code>eb = (FM + m) : (SumC' + SumT + SumV + SumY)</code>.</p>
+<p><span class="lab">What it tells:</span> the load of internal demand (left side = need/stress ideation) and painful affect (right side = constraint, loneliness, self-criticism, anxiety).</p>
+<p><span class="lab">Thinking / perception:</span> a high right side = significant internalized distress; a high left side = pressure from drives and situational stress.</p>
+<p class="ex"><span class="lab">Example:</span> eb 4:5 with the right side elevated points to a person weighed down by suppressed, painful emotion.</p>
+</div>
+
+<div class="v">
+<h3>es and Adj es</h3>
+<p><span class="lab">Definition:</span> es is the total current stimulus demand; Adj es removes situational "noise."</p>
+<p><span class="lab">How to calculate:</span> <code>es = FM + m + SumC' + SumT + SumV + SumY</code>; <b>Adj es</b> = es minus all but one m and all but one Y.</p>
+<p><span class="lab">What it tells:</span> es = how much internal demand is pressing now; Adj es = the more stable, trait-level demand.</p>
+<p><span class="lab">Thinking / perception:</span> comparing es with EA shows whether demand exceeds resources; comparing es with Adj es isolates the situational component.</p>
+<p class="ex"><span class="lab">Example:</span> es 9 with Adj es 8 (one excess m removed) shows mostly chronic, with a small situational add-on.</p>
+</div>
+
+<div class="v">
+<h3>D Score and Adj D Score</h3>
+<p><span class="lab">Definition:</span> standardized indices of the capacity for control and stress tolerance (current vs baseline).</p>
+<p><span class="lab">How to calculate:</span> convert (EA - es) for D and (EA - Adj es) for Adj D via the standard banding (within ±2.5 → 0; ±2.6 to 5.0 → ±1; ±5.1 to 7.5 → ±2; etc.).</p>
+<p><span class="lab">What it tells:</span> whether the person can reliably form and direct behaviour under demand.</p>
+<p><span class="lab">Thinking / perception:</span> minus = overload and proneness to impulsive lapses; 0 = average; plus = sturdy control. D &lt; Adj D = situational stress is currently lowering control; D = Adj D = the strain is chronic.</p>
+<p class="ex"><span class="lab">Example:</span> D = -2, Adj D = -2 means a chronically overwhelmed control system with standing vulnerability to disorganization.</p>
+</div>
+
+<h2 id="aff" class="g">10. AFFECT CLUSTER RATIOS</h2>
+<div class="v">
+<h3>Afr — Affective Ratio</h3>
+<p><span class="lab">Definition:</span> responsiveness to the coloured (emotionally loaded) cards relative to the rest.</p>
+<p><span class="lab">How to calculate:</span> <code>Afr = responses to Cards VIII+IX+X / responses to Cards I–VII</code>; norm about .50 to .80.</p>
+<p><span class="lab">What it tells:</span> willingness to engage with and process emotional stimulation.</p>
+<p><span class="lab">Thinking / perception:</span> low Afr (&lt;.46) = avoids/withdraws from emotion; very high = drawn to or over-aroused by affect.</p>
+<p class="ex"><span class="lab">Example:</span> Afr .27 indicates marked avoidance of emotionally evocative situations.</p>
+</div>
+
+<div class="v">
+<h3>FC:CF+C and Pure C</h3>
+<p><span class="lab">Definition:</span> the balance of well-modulated vs poorly-modulated emotional expression.</p>
+<p><span class="lab">How to calculate:</span> compare FC against the sum of CF and C; note Pure C separately.</p>
+<p><span class="lab">What it tells:</span> how controlled or unrestrained the person's emotional displays are.</p>
+<p><span class="lab">Thinking / perception:</span> FC &gt; CF+C = controlled affect; CF+C dominant = under-modulated, intense; any Pure C = raw, impulsive discharge.</p>
+<p class="ex"><span class="lab">Example:</span> FC:CF+C = 3:7 with Pure C = 3 describes someone whose feelings frequently spill out with little restraint.</p>
+</div>
+
+<div class="v">
+<h3>SumC':WSumC (Constriction Ratio), S, Blends:R, CP</h3>
+<p><span class="lab">Definition:</span> markers of how much affect is held in vs expressed, plus negativism, complexity and denial.</p>
+<p><span class="lab">How to calculate:</span> compare SumC' (held-in) with WSumC (expressed); also note S count, Blends:R, and CP.</p>
+<p><span class="lab">What it tells:</span> a left-weighted constriction ratio = painful suppression of feeling; S = anger; Blends:R = emotional complexity; CP = denial.</p>
+<p><span class="lab">Thinking / perception:</span> together they describe the texture of emotional life — bottled-up, oppositional, complex, or defensively rose-tinted.</p>
+<p class="ex"><span class="lab">Example:</span> SumC':WSumC = 4:0 = strong internalization with no outlet (a recipe for dysphoria/tension).</p>
+</div>
+
+<h2 id="ide" class="g">11. IDEATION CLUSTER RATIOS</h2>
+<div class="v">
+<h3>a:p, Ma:Mp, Intellectualization (2AB+Art+Ay), MOR, M-</h3>
+<p><span class="lab">Definition:</span> the markers of how flexible, active, defended, pessimistic, or distorted the thinking is.</p>
+<p><span class="lab">How to calculate:</span> a:p and Ma:Mp from movement coding; 2AB+Art+Ay for intellectualization; count MOR and M-.</p>
+<p><span class="lab">What it tells:</span> a:p = flexibility of attitudes; Ma:Mp = active vs escapist thought; intellectualization = distancing defence; MOR = pessimistic set; M- = reality-distorted reasoning.</p>
+<p><span class="lab">Thinking / perception:</span> lopsided a:p = rigid views; Mp dominant = retreat into fantasy; index 4–5 = notable intellectualization, 6+ = major defence; M- = judgement that misfires especially about people.</p>
+<p class="ex"><span class="lab">Example:</span> Ma:Mp 0:2 with MOR 8 = a passive, fantasy-leaning thinker dominated by themes of damage.</p>
+</div>
+
+<h2 id="self" class="g">12. SELF-PERCEPTION RATIOS</h2>
+<div class="v">
+<h3>Egocentricity Index 3r+(2)/R; Fr+rF; FD; SumV; An+Xy; MOR; H:(H)+Hd+(Hd)</h3>
+<p><span class="lab">Definition:</span> the cluster describing the amount and tone of self-focus and the realism of self-image.</p>
+<p><span class="lab">How to calculate:</span> <code>Egocentricity = [3 x (Fr+rF) + Sum(2)] / R</code> (norm .33 to .45); plus the component variables above.</p>
+<p><span class="lab">What it tells:</span> how much attention is on the self, whether self-regard is inflated or deflated, and whether identity rests on reality or fantasy.</p>
+<p><span class="lab">Thinking / perception:</span> high index with reflections = narcissistic self-absorption; low index = poor self-worth; V = painful self-criticism; An+Xy = body preoccupation; MOR = damaged self; right-weighted H ratio = identity built on imagination/distortion.</p>
+<p class="ex"><span class="lab">Example:</span> Egocentricity .29, Fr+rF 0, MOR high = low self-esteem with a damaged self-image (not narcissism).</p>
+</div>
+
+<h2 id="inter" class="g">13. INTERPERSONAL RATIOS</h2>
+<div class="v">
+<h3>COP, AG, GHR:PHR, SumT, Human content / Pure H, a:p, Fd, PER, Isolation Index</h3>
+<p><span class="lab">Definition:</span> the cluster describing how the person expects, perceives, and engages in relationships.</p>
+<p><span class="lab">How to calculate:</span> tallies and ratios above; <code>Isolation Index = (Bt + 2Cl + Ge + Ls + 2Na) / R</code>.</p>
+<p><span class="lab">What it tells:</span> expectations (cooperative vs hostile), representational quality, need for closeness, realism about people, dependency, defensiveness, and social withdrawal.</p>
+<p><span class="lab">Thinking / perception:</span> COP&gt;AG and GHR&gt;PHR = adaptive relating; T=0 = guarded distance; low Pure H = poor grasp of others; Isolation &gt;.24 = withdrawal; high PER = controlling defensiveness.</p>
+<p class="ex"><span class="lab">Example:</span> COP 0, AG 4, GHR:PHR 2:4, T 0 = a guarded person who expects hostility and relates ineffectively.</p>
+</div>
+
+<h2 id="proc" class="g">14. PROCESSING RATIOS</h2>
+<div class="v">
+<h3>Zf, W:D:Dd, W:M, Zd, DQ, PSV</h3>
+<p><span class="lab">Definition:</span> the cluster describing effort, approach, aspiration, efficiency, sophistication, and flexibility of processing.</p>
+<p><span class="lab">How to calculate:</span> frequencies and ratios above; W:M compares organizing ambition with ideational delivery.</p>
+<p><span class="lab">What it tells:</span> how hard and how well the person organizes incoming information.</p>
+<p><span class="lab">Thinking / perception:</span> high Zf = effort; W:M with W far exceeding M = over-aspiration; Zd over/under = efficiency; DQ = sophistication; PSV = rigidity.</p>
+<p class="ex"><span class="lab">Example:</span> Zf 3 with Zd +4.5 = a person who rarely organizes, but over-scans when they do — erratic, inefficient processing.</p>
+</div>
+
+<h2 id="idx" class="g">15. THE SIX INDICES / CONSTELLATIONS</h2>
+
+<div class="v">
+<h3>PTI — Perceptual-Thinking Index</h3>
+<p><span class="lab">Definition:</span> a 0–5 scale flagging combined disturbance of perception and thinking.</p>
+<p><span class="lab">Criteria (count met):</span> (1) XA%&lt;.70 &amp; WDA%&lt;.75; (2) X-%&gt;.29; (3) Level-2 &gt;2 &amp; FAB2&gt;0; (4) R≤16 &amp; WSum6&gt;12, or R&gt;16 &amp; WSum6&gt;17; (5) M-&gt;1 or X-%&gt;.40.</p>
+<p><span class="lab">What it tells:</span> the likelihood and degree of psychotic-spectrum reality-testing / thought problems (continuous; higher is worse, no fixed cutoff).</p>
+<p><span class="lab">Thinking / perception:</span> values of 4–5 strongly suggest serious mediational/ideational disturbance; even 3 is clinically meaningful, especially with a CONTAM or very high X-%.</p>
+<p class="ex"><span class="lab">Example:</span> PTI 3 with X-% .45 and a CONTAM points to severe, if circumscribed, reality-testing difficulty.</p>
+</div>
+
+<div class="v">
+<h3>DEPI — Depression Index</h3>
+<p><span class="lab">Definition:</span> a 7-condition constellation for depressive organization.</p>
+<p><span class="lab">Criteria (≥5 positive):</span> vista/FD; colour-shading blend or S&gt;2; egocentricity (low or high-with-no-reflection); Afr&lt;.46 or Blends&lt;4; shading&gt;FM+m or SumC'&gt;2; MOR&gt;2 or intellectualization&gt;3; COP&lt;2 &amp; Isolation&gt;.24.</p>
+<p><span class="lab">What it tells:</span> whether the personality structure carries significant depressive features (affective + cognitive).</p>
+<p><span class="lab">Thinking / perception:</span> 5 = potential for affective disruption; 6–7 = a serious, often disabling depressive picture.</p>
+<p class="ex"><span class="lab">Example:</span> DEPI 6 with vista, low Afr, high MOR = a strong, pervasive depressive organization.</p>
+</div>
+
+<div class="v">
+<h3>CDI — Coping Deficit Index</h3>
+<p><span class="lab">Definition:</span> a 5-condition constellation for social/coping inadequacy.</p>
+<p><span class="lab">Criteria (≥4 positive):</span> EA&lt;6 or AdjD&lt;0; COP&lt;2 &amp; AG&lt;2; WSumC&lt;2.5 or Afr&lt;.46; p&gt;a+1 or PureH&lt;2; SumT&gt;1 or Isolation&gt;.24 or Fd&gt;0.</p>
+<p><span class="lab">What it tells:</span> a deficit in coping resources and social effectiveness.</p>
+<p><span class="lab">Thinking / perception:</span> a positive CDI marks someone who flounders socially and copes ineffectively; often the affective distress is secondary to relationship failure.</p>
+<p class="ex"><span class="lab">Example:</span> CDI 5 with EA 2 and Pure H 0 = profound coping and interpersonal-skill deficits.</p>
+</div>
+
+<div class="v">
+<h3>S-CON — Suicide Constellation</h3>
+<p><span class="lab">Definition:</span> a 12-variable list screening for self-destructive potential (reviewed first).</p>
+<p><span class="lab">Criteria (≥8 of 12 = red flag; 7 = caution):</span> FV+VF+V+FD&gt;2; colour-shading blend&gt;0; Ego&lt;.31 or &gt;.44; MOR&gt;3; |Zd|&gt;3.5; es&gt;EA; CF+C&gt;FC; X+%&lt;.70; S&gt;3; P&lt;3 or &gt;8; PureH&lt;2; R&lt;17.</p>
+<p><span class="lab">What it tells:</span> the degree to which the record resembles those of people who later harmed themselves.</p>
+<p><span class="lab">Thinking / perception:</span> ≥8 warrants urgent risk evaluation; 7 still warrants caution (has predicted near-lethal attempts).</p>
+<p class="ex"><span class="lab">Example:</span> S-CON 8 in a record with vista and high MOR is a serious safety flag requiring direct assessment.</p>
+</div>
+
+<div class="v">
+<h3>HVI — Hypervigilance Index</h3>
+<p><span class="lab">Definition:</span> a constellation for a guarded, mistrustful, hyper-alert stance.</p>
+<p><span class="lab">Criteria:</span> prerequisite FT+TF+T = 0, PLUS at least 4 of: Zf&gt;12; Zd&gt;+3.5; S&gt;3; H+(H)+Hd+(Hd)&gt;6; (H)+(A)+(Hd)+(Ad)&gt;3; H+A:Hd+Ad &lt;4:1; Cg&gt;3.</p>
+<p><span class="lab">What it tells:</span> a chronic, energy-consuming state of preparedness against a world felt to be threatening.</p>
+<p><span class="lab">Thinking / perception:</span> when positive, the person is cautious, guarded, preoccupied with personal space, and slow to trust; exacerbations resemble paranoid features.</p>
+<p class="ex"><span class="lab">Example:</span> T=0 with Zf 14, high Hd/Ad and Cg&gt;3 yields a positive HVI = pervasive hypervigilant guardedness.</p>
+</div>
+
+<div class="v">
+<h3>OBS — Obsessive Style Index</h3>
+<p><span class="lab">Definition:</span> a constellation for a perfectionistic, over-precise, detail-bound cognitive style.</p>
+<p><span class="lab">Criteria (positive via combinations):</span> built from Dd&gt;3; Zf&gt;12; Zd&gt;+3.0; P&gt;7; FQ+&gt;1 — positive if all five, or various subsets together with FQ+&gt;3 and/or X+%&gt;.89.</p>
+<p><span class="lab">What it tells:</span> an over-careful, perfectionistic, indecisive style preoccupied with correctness and detail.</p>
+<p><span class="lab">Thinking / perception:</span> when positive, the person is meticulous, conforming, and detail-focused, sometimes at the cost of efficiency and spontaneity.</p>
+<p class="ex"><span class="lab">Example:</span> high Dd, high Zf, many Populars and FQ+ with X+% &gt;.89 = an obsessive, perfectionistic processing style.</p>
+</div>
+
+<div class="box">
+<b>Golden rules for interpretation:</b> (1) never read a single score alone — interpret variables in combination; (2) compare to norms (deviation principle), then integrate into the whole person; (3) all frequencies depend on R; (4) anchor meanings to the engine — Form = control, Movement = mental activity (M ideation / FM needs / m stress), Colour = emotion expressed, C'/shading = emotion or pain held in, Texture = closeness, Vista = painful self-look, Reflection = self-regard; (5) the Cognitive Triad (Processing → Mediation → Ideation) and the Self/Interpersonal pair are each interpreted together.
+</div>
+
+<p class="small">Comprehensive study summary in original wording. Verify exact normative values and index algorithms against the current edition of the Comprehensive System manual/workbook before formal clinical use. Examples are illustrative, not scoring keys.</p>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rorschach (Exner CS) — Detailed Coding Reference: Formulas &amp; Meanings</title>
+<style>
+  :root{ --ink:#16202c; --mut:#5b6b7e; --acc:#1f6feb; --acc2:#0b7a4b; --line:#d3dbe4; --soft:#f3f6fa; --warn:#c98a00;}
+  *{box-sizing:border-box;}
+  body{font-family:"Segoe UI",Roboto,Arial,sans-serif;color:var(--ink);margin:0;font-size:13.5px;line-height:1.5;}
+  .wrap{max-width:1000px;margin:0 auto;padding:30px 26px 60px;}
+  h1{font-size:25px;margin:0 0 4px;}
+  h2{font-size:18px;margin:26px 0 6px;color:#fff;background:var(--acc);padding:5px 10px;border-radius:5px;}
+  h2.g{background:var(--acc2);}
+  h3{font-size:15px;margin:16px 0 4px;color:var(--acc);}
+  p{margin:6px 0;}
+  .lead{color:var(--mut);font-size:12.5px;}
+  table{border-collapse:collapse;width:100%;margin:8px 0 14px;font-size:12.3px;}
+  th,td{border:1px solid var(--line);padding:6px 8px;vertical-align:top;text-align:left;}
+  th{background:var(--soft);}
+  code{background:var(--soft);padding:1px 5px;border-radius:4px;}
+  .f{background:#fbfdff;border:1px solid var(--line);border-left:4px solid var(--acc2);border-radius:5px;padding:7px 11px;margin:6px 0;}
+  .f b{color:var(--acc2);}
+  .box{background:var(--soft);border:1px solid var(--line);border-left:4px solid var(--warn);border-radius:6px;padding:9px 13px;margin:12px 0;font-size:12.5px;}
+  .small{font-size:11.5px;color:var(--mut);}
+  .toc{columns:2;column-gap:26px;font-size:12.5px;}
+  .toc a{color:var(--acc);text-decoration:none;}
+  @media print{ body{font-size:10.6px;} .wrap{padding:0 6mm;max-width:none;} h2{page-break-after:avoid;} table,.f,.box{page-break-inside:avoid;} @page{size:A4;margin:10mm;} .noprint{display:none;} }
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>Rorschach — Detailed Coding Reference</h1>
+<p class="lead">Exner Comprehensive System. Every coding variable with its formula (where applicable), normative anchor, and what it says about the person. Summarized study notes in original wording; verify exact cut-offs against the current manual edition.</p>
+
+<div class="box noprint"><b>PDF:</b> open in a browser then choose <b>Print then Save as PDF</b> (A4). Print styling included.</div>
+
+<h2 id="t">Contents</h2>
+<div class="toc">
+<a href="#R">0. R and the core idea</a><br>
+<a href="#loc">1. Location codes</a><br>
+<a href="#dq">2. Developmental Quality</a><br>
+<a href="#det">3. Determinants (full)</a><br>
+<a href="#fq">4. Form Quality and % formulas</a><br>
+<a href="#con">5. Contents</a><br>
+<a href="#pop">6. Populars</a><br>
+<a href="#z">7. Organization (Z, Zd)</a><br>
+<a href="#ss">8. Special Scores</a><br>
+<a href="#core">9. Core ratios (EB, EA, eb, es, D, L)</a><br>
+<a href="#aff">10. Affect cluster ratios</a><br>
+<a href="#ide">11. Ideation cluster ratios</a><br>
+<a href="#self">12. Self-perception ratios</a><br>
+<a href="#inter">13. Interpersonal ratios</a><br>
+<a href="#proc">14. Processing ratios</a><br>
+<a href="#idx">15. The six indices (criteria)</a><br>
+</div>
+
+<h2 id="R">0. R and the core idea</h2>
+<div class="f"><b>R</b> = total number of responses. <b>Norm approx 17 to 27</b> (adult). <b>R &lt; 14 means invalid</b>, readminister.</div>
+<p><b>What it says:</b> productivity and engagement. Very low R = guardedness, defensiveness, low energy, or limited resources; very high R = either rich productivity or an obsessive / over-inclusive style. Because many scores are counts, R must be considered when reading any frequency.</p>
+
+<h2 id="loc">1. Location — WHERE the response was seen</h2>
+<table>
+<tr><th>Code</th><th>What it is</th><th>What it says about the person</th></tr>
+<tr><td><b>W</b></td><td>Whole blot</td><td>Drive to organize the whole picture; ambition / integration. Accurate W = good synthetic ability; many W with poor FQ = over-reaching beyond capacity.</td></tr>
+<tr><td><b>D</b></td><td>Common detail</td><td>Practical, conventional, economical focus on the obvious; reality-oriented everyday processing.</td></tr>
+<tr><td><b>Dd</b></td><td>Unusual detail</td><td>Idiosyncratic, peripheral attention; elevations = unusual scanning, over-focus on small things, perfectionism, or guardedness / avoidance of the whole.</td></tr>
+<tr><td><b>S</b></td><td>White space</td><td>Oppositionality, negativism, autonomy, anger. Mild = independence; high = anger / defiance. <b>S-</b> = anger linked to misperception.</td></tr>
+</table>
+<div class="f"><b>W:D:Dd</b> = the location ratio (processing approach). Typical emphasis is on D. Heavy Dd or heavy W shifts meaning as above.</div>
+
+<h2 id="dq">2. Developmental Quality (DQ) — sophistication of the seeing</h2>
+<table>
+<tr><th>Code</th><th>Meaning</th><th>Says about person</th></tr>
+<tr><td><b>+</b></td><td>Synthesized: 2 or more objects in a meaningful relationship, with form demand</td><td>Mature, analytic-synthetic processing; complexity of thought.</td></tr>
+<tr><td><b>o</b></td><td>Ordinary: one object with definite form</td><td>Standard, economical processing.</td></tr>
+<tr><td><b>v/+</b></td><td>Synthesized but with vague components</td><td>Mixed maturity.</td></tr>
+<tr><td><b>v</b></td><td>Vague: no specific form demand (e.g., "clouds")</td><td>Immature, impressionistic, diffuse thinking; common when distressed or low-functioning.</td></tr>
+</table>
+
+<h2 id="det">3. Determinants — WHAT made it look that way (the engine)</h2>
+
+<h3>Form</h3>
+<div class="f"><b>F</b> = pure form. Drives <b>Lambda = F / (R - F)</b>. <b>Norm L approx 0.30 to 0.99.</b></div>
+<p><b>Says:</b> reliance on logic / structure and emotional distance. High F / high Lambda = avoidant, simplifying, narrows complexity and feeling. Very low Lambda = over-involved, takes in too much, easily flooded.</p>
+
+<h3>Movement (mental activity)</h3>
+<table>
+<tr><th>Code</th><th>What it is</th><th>Says about person</th></tr>
+<tr><td><b>M</b></td><td>Human movement = deliberate ideation, reasoning, fantasy</td><td>Inner mental life, imagination, capacity for thoughtful delay. <b>M-</b> = distorted thinking / judgement. <b>M with no form</b> = serious slippage.</td></tr>
+<tr><td><b>FM</b></td><td>Animal movement = instinctual, need-driven ideation</td><td>Urges / needs pressing on the mind; if high, intrudes on attention and concentration.</td></tr>
+<tr><td><b>m</b></td><td>Inanimate movement = uncontrollable external forces</td><td>Situational stress, tension, sense of helplessness about outside pressures. Transient.</td></tr>
+<tr><td><b>a / p</b></td><td>Active vs passive coding of any movement</td><td>Feeds <b>a:p</b> (flexibility of attitudes) and <b>Ma:Mp</b> (active vs passive / escape fantasy).</td></tr>
+</table>
+
+<h3>Chromatic Colour (emotion expressed outward)</h3>
+<table>
+<tr><th>Code</th><th>What it is</th><th>Says about person</th></tr>
+<tr><td><b>FC</b></td><td>Form-dominated colour</td><td>Modulated, well-controlled emotional expression (mature affect).</td></tr>
+<tr><td><b>CF</b></td><td>Colour-dominated</td><td>Less controlled, more reactive emotion.</td></tr>
+<tr><td><b>C</b></td><td>Pure colour</td><td>Raw, unmodulated emotional discharge; impulsivity.</td></tr>
+<tr><td><b>Cn</b></td><td>Colour naming</td><td>Severe inability to integrate affect (pathological).</td></tr>
+</table>
+<div class="f"><b>WSumC</b> = (0.5 x FC) + (1.0 x CF) + (1.5 x C). The weighted "emotional output" value, used in EB and EA.</div>
+
+<h3>Achromatic Colour (emotion held in)</h3>
+<table>
+<tr><td><b>FC', C'F, C'</b></td><td>Black / grey used as colour</td><td><b>Suppressed, internalized, painful affect</b> — "holding feelings in." SumC' &gt; 2 = notable constriction, breeds tension / dysphoria.</td></tr>
+</table>
+
+<h3>Shading</h3>
+<table>
+<tr><th>Code</th><th>What it is</th><th>Says about person</th></tr>
+<tr><td><b>FT, TF, T</b></td><td>Texture</td><td>Needs for closeness / attachment. <b>T = 0</b> = guarded, distant, denies need for contact. <b>T &gt; 1</b> = strong unmet loneliness / longing.</td></tr>
+<tr><td><b>FV, VF, V</b></td><td>Vista (depth / dimension from shading)</td><td>Painful self-examination — guilt, shame, self-criticism, rumination. Loads on suicide risk.</td></tr>
+<tr><td><b>FY, YF, Y</b></td><td>Diffuse shading</td><td>Anxiety, apprehension, helplessness; situational distress.</td></tr>
+</table>
+
+<h3>Dimension, Pairs, Reflections</h3>
+<table>
+<tr><td><b>FD</b></td><td>Form-based dimensionality</td><td>Healthy self-inspection / introspective awareness (adaptive in moderation; absent = no self-examination capacity).</td></tr>
+<tr><td><b>(2)</b></td><td>Pair (symmetry, two identical objects)</td><td>Self-focus component; feeds Egocentricity.</td></tr>
+<tr><td><b>Fr, rF</b></td><td>Reflection</td><td>Narcissistic self-focus, inflated / defensive self-regard, entitlement.</td></tr>
+</table>
+
+<h3>Blends</h3>
+<div class="f"><b>Blends:R</b> = number of multi-determinant responses / R. Indexes <b>psychological complexity</b>.</div>
+<table>
+<tr><td><b>Blend</b></td><td>2 or more determinants in one response</td><td>Complexity of inner experience. Low = psychologically simple / constricted; very high = possibly overwhelmed / over-complex.</td></tr>
+<tr><td><b>Colour-Shading blend</b></td><td>Chromatic colour + shading / achromatic together</td><td>Ambivalent, confused, painful affect — "good and bad feelings fused"; loads on suicide constellation.</td></tr>
+<tr><td><b>Shading blend</b></td><td>Multiple shading determinants</td><td>Intense, painful, complex distress.</td></tr>
+</table>
+
+<h2 id="fq">4. Form Quality (FQ) — accuracy of perception / reality testing</h2>
+<table>
+<tr><th>Code</th><th>Meaning</th><th>Says about person</th></tr>
+<tr><td><b>+</b></td><td>Superior-overelaborated; precise + enriched</td><td>Exact, high-quality perception.</td></tr>
+<tr><td><b>o</b></td><td>Ordinary; common and accurate</td><td>Sees what is really there, conventionally — sound reality testing.</td></tr>
+<tr><td><b>u</b></td><td>Unusual; uncommon but contours fit</td><td>Individualistic, unconventional, but not distorted.</td></tr>
+<tr><td><b>-</b></td><td>Minus; contours violated / distorted</td><td><b>Key reality-testing failure</b> — sees what is not really supported by the blot.</td></tr>
+<tr><td><b>none</b></td><td>No form used</td><td>Pure colour / shading response without form control.</td></tr>
+</table>
+<div class="f">
+<b>XA%</b> = (FQ +, o, u responses) / R &nbsp;|&nbsp; norm &gt; approx .89<br>
+<b>WDA%</b> = (W+D responses with FQ +, o, u) / (number of W+D) &nbsp;|&nbsp; norm &gt; approx .85<br>
+<b>X-%</b> = FQ- / R &nbsp;|&nbsp; norm &lt; approx .15 (&gt;.20 problematic; &gt;.29 serious)<br>
+<b>X+%</b> = (FQ + and o) / R &nbsp;|&nbsp; conventional accuracy<br>
+<b>Xu%</b> = FQu / R &nbsp;|&nbsp; individualism / nonconformity
+</div>
+<p><b>Says:</b> XA% / WDA% high and X-% low = reality testing intact. Low WDA% means distortion even in obvious areas = pervasive, serious. High Xu% with acceptable X-% = unconventional, not impaired. <b>S-</b> count localizes distortion to anger.</p>
+
+<h2 id="con">5. Contents — WHAT was seen</h2>
+<table>
+<tr><th>Code(s)</th><th>Says about person</th></tr>
+<tr><td><b>H</b> (whole real human), <b>Pure H</b></td><td>Realistic interest in and perception of whole people; healthy object relations. Few = limited / immature understanding of others and self.</td></tr>
+<tr><td><b>(H), Hd, (Hd)</b></td><td>Imaginary / partial human, so self / other concept built on fantasy or fragments, not real experience.</td></tr>
+<tr><td><b>Hx</b></td><td>Human experience / emotion abstracted, so intellectualized handling of feeling.</td></tr>
+<tr><td><b>A, (A), Ad, (Ad)</b></td><td>Animal content; very high A% = stereotyped, guarded, economical thinking.</td></tr>
+<tr><td><b>An, Xy</b></td><td>Anatomy / X-ray, so bodily / somatic preoccupation, health / damage concern (An+Xy elevated).</td></tr>
+<tr><td><b>Bl, Fi, Ex</b></td><td>Blood / fire / explosion, so strong affect, aggression, or trauma themes.</td></tr>
+<tr><td><b>Fd</b></td><td>Food, so dependency, wish to be cared for.</td></tr>
+<tr><td><b>Sx</b></td><td>Sex, so preoccupation (context-dependent).</td></tr>
+<tr><td><b>Art, Ay</b></td><td>Art / Anthropology, so feed Intellectualization Index.</td></tr>
+<tr><td><b>Bt, Cl, Ge, Ls, Na</b></td><td>Botany / Clouds / Geography / Landscape / Nature, so feed Isolation Index (withdrawal).</td></tr>
+</table>
+
+<h2 id="pop">6. Popular responses (P)</h2>
+<div class="f"><b>P</b> = count of the conventional "popular" answers (one occurring in at least 1 of 3 records). <b>Norm approx 5 to 7.</b></div>
+<p><b>Says:</b> ability / willingness to see the world as others do. <b>Low P</b> = departs from convention (idiosyncratic, possibly impaired or oppositional); <b>very high P</b> = over-conventional, conforming, plays it safe.</p>
+
+<h2 id="z">7. Organizational Activity (Z, Zd)</h2>
+<div class="f">
+<b>Zf</b> = number of responses earning a Z score = <b>processing effort</b>.<br>
+<b>ZSum</b> = total weighted Z; <b>Zest</b> = expected sum for that Zf.<br>
+<b>Zd = ZSum - Zest</b> = <b>scanning efficiency</b>. Norm approx -3.0 to +3.0.
+</div>
+<table>
+<tr><td><b>Zd &gt; +3.0</b></td><td>Overincorporative: thorough, cautious, invests extra effort; can be inefficient / slow, perfectionistic.</td></tr>
+<tr><td><b>Zd &lt; -3.0</b></td><td>Underincorporative: hasty, careless scanning; misses available cues, so faulty input, errors, impulsivity.</td></tr>
+<tr><td><b>Zf low</b></td><td>Low effort / avoidant, or limited capacity.</td></tr>
+<tr><td><b>PSV</b></td><td>Perseveration, so cognitive rigidity / inflexibility (or processing difficulty).</td></tr>
+</table>
+
+<h2 id="ss">8. Special Scores</h2>
+<h3>Critical Six (cognitive — thought disturbance), Level 1 / Level 2</h3>
+<table>
+<tr><th>Code</th><th>What it is</th><th>Weight</th><th>Says about person</th></tr>
+<tr><td><b>DV</b></td><td>Deviant Verbalization (odd word / neologism / redundancy)</td><td>1/2</td><td>Mild word-level slippage.</td></tr>
+<tr><td><b>INCOM</b></td><td>Incongruous Combination (impossible feature fusion)</td><td>2/4</td><td>Condensation error in perception.</td></tr>
+<tr><td><b>DR</b></td><td>Deviant Response (rambling / inappropriate phrase)</td><td>3/6</td><td>Loose, derailing communication.</td></tr>
+<tr><td><b>FABCOM</b></td><td>Fabulized Combination (impossible relationship between objects)</td><td>4/7</td><td>Illogical linkage of percepts.</td></tr>
+<tr><td><b>ALOG</b></td><td>Inappropriate Logic (strained reasoning)</td><td>5</td><td>Autistic / illogical reasoning.</td></tr>
+<tr><td><b>CONTAM</b></td><td>Contamination (two percepts fused into one impossible image)</td><td>7</td><td><b>Most serious</b> — boundary breakdown; strong psychotic-level marker.</td></tr>
+</table>
+<div class="f"><b>Raw Sum6</b> = total count of the six. <b>WSum6</b> = sum of (weight x frequency). Norm WSum6 low (approx 5 in nonpatients). Higher = more disordered thinking; Level-2 scores = more serious.</div>
+<h3>Other (independent) special scores</h3>
+<table>
+<tr><td><b>AG</b></td><td>Aggressive movement, so sees relationships as hostile / combative.</td></tr>
+<tr><td><b>COP</b></td><td>Cooperative movement, so expects positive, collaborative interaction (adaptive).</td></tr>
+<tr><td><b>CP</b></td><td>Colour Projection, so denial; manufactures pleasant affect where none exists.</td></tr>
+<tr><td><b>MOR</b></td><td>Morbid (damaged / dysphoric) content, so damaged self-image + pessimistic cognitive set. &gt;2 significant.</td></tr>
+<tr><td><b>PER</b></td><td>Personal response, so defensive authoritarianism, insecurity under challenge; high = rigid / controlling.</td></tr>
+<tr><td><b>AB</b></td><td>Abstraction, so intellectualization defence.</td></tr>
+<tr><td><b>PSV</b></td><td>Perseveration, so rigidity.</td></tr>
+<tr><td><b>GHR : PHR</b></td><td>Good vs Poor Human Representation, so quality of relationship templates; GHR&gt;PHR adaptive, PHR&gt;GHR maladaptive / off-putting relating.</td></tr>
+</table>
+
+<h2 id="core" class="g">9. Core ratios — Controls and Stress Tolerance</h2>
+<div class="f"><b>Lambda (L) = F / (R - F)</b> &middot; norm .30 to .99. <b>&gt;0.99 = avoidant</b> (simplifies, narrows, sidesteps emotion).</div>
+<div class="f"><b>EB = Sum M : WSumC</b>, so coping <b>style</b>. <b>Introversive</b> (M dominant = thinks things through), <b>Extratensive</b> (colour dominant = feeling / trial-and-error), <b>Ambitent</b> (close = inconsistent, inefficient). <i>Not interpretable if EA &lt; 4.0.</i></div>
+<div class="f"><b>EA = Sum M + WSumC</b>, so available, organized <b>resources</b> for coping. Higher = more capacity. Norm approx 7 to 11.</div>
+<div class="f"><b>EBPer = larger EB side / smaller side</b> (when a style exists). <b>2.5 or more = pervasive</b> (rigid, inflexible use of the style).</div>
+<div class="f"><b>eb = (FM + m) : (SumC' + SumT + SumV + SumY)</b>, so demand / distress load. Right-side high = painful internalized affect.</div>
+<div class="f"><b>es = FM + m + SumC' + SumT + SumV + SumY</b>, so current stimulus demand. <b>Adj es</b> = es minus the excess m (all but 1) and excess Y (all but 1), so removes situational noise.</div>
+<div class="f"><b>D Score</b> = from (EA - es), banded: 0 plus or minus 2.5 gives 0; 2.6 to 5.0 gives plus or minus 1; 5.1 to 7.5 gives plus or minus 2 and so on, so it is the <b>current capacity for control.</b> <b>Adj D</b> = from (EA - Adj es) = <b>trait / baseline capacity.</b></div>
+<p><b>Says:</b> Minus D / Adj D = chronically or currently overwhelmed, prone to impulsive lapses. D &lt; Adj D = situational stress is currently lowering control. Positive D / Adj D = sturdy control.</p>
+
+<h2 id="aff" class="g">10. Affect cluster</h2>
+<div class="f"><b>Afr (Affective Ratio) = responses to Cards VIII+IX+X / responses to Cards I to VII.</b> Norm approx .50 to .80.</div>
+<table>
+<tr><td><b>Afr</b></td><td>Willingness to engage emotion. Low (&lt;.46) = avoids / withdraws from emotional stimulation; very high = drawn to / overstimulated by emotion.</td></tr>
+<tr><td><b>FC : CF+C</b></td><td>Emotional control vs discharge. FC&gt;CF+C = well-modulated; CF+C dominant = under-modulated, intense; Pure C present = impulsive discharge.</td></tr>
+<tr><td><b>Pure C</b></td><td>Raw, formless emotion; impulsive affect.</td></tr>
+<tr><td><b>SumC' : WSumC</b></td><td>Constriction ratio: left side high = feelings suppressed / held in (painful internalization).</td></tr>
+<tr><td><b>S</b></td><td>Negativism / anger contributing to affect.</td></tr>
+<tr><td><b>Blends:R</b></td><td>Emotional / psychological complexity.</td></tr>
+<tr><td><b>CP</b></td><td>Denial of negative affect (substitutes pleasant feeling).</td></tr>
+</table>
+
+<h2 id="ide" class="g">11. Ideation cluster</h2>
+<table>
+<tr><td><b>EB (introversive side)</b></td><td>Reliance on internal ideation for problem-solving.</td></tr>
+<tr><td><b>a : p</b> (active:passive movement)</td><td>Flexibility of ideas / attitudes. Lopsided = rigid, fixed views. p &gt; a+1 = passive ideational / interpersonal stance.</td></tr>
+<tr><td><b>Ma : Mp</b></td><td>Active vs passive deliberate thought. Mp dominant = escape into fantasy ("Snow White"), avoidance of active problem-solving.</td></tr>
+<tr><td><b>2AB + Art + Ay</b> (Intellectualization Index)</td><td>Use of intellectualization to neutralize affect. 4 or more notable; 6 or more = major defence (a naive denial that distorts true impact).</td></tr>
+<tr><td><b>MOR</b></td><td>Pessimistic, damage-themed cognitive set biasing reasoning toward gloom.</td></tr>
+<tr><td><b>Sum6 / WSum6</b></td><td>Amount and severity of disordered thinking.</td></tr>
+<tr><td><b>M-</b></td><td>Reality-distorted ideation; reasoning about people goes wrong.</td></tr>
+</table>
+
+<h2 id="self" class="g">12. Self-Perception cluster</h2>
+<div class="f"><b>Egocentricity Index = [3 x (Fr + rF) + Sum(2)] / R.</b> Norm approx .33 to .45.</div>
+<table>
+<tr><td><b>3r+(2)/R</b></td><td>Amount of self-focus. <b>High</b> (esp. with reflections) = self-absorbed / narcissistic; <b>low (&lt;.33)</b> = poor self-esteem, regards self unfavourably.</td></tr>
+<tr><td><b>Fr + rF</b></td><td>Reflections, so narcissistic self-regard, entitlement.</td></tr>
+<tr><td><b>FD</b></td><td>Capacity for balanced self-examination (adaptive); absent = little insight capacity.</td></tr>
+<tr><td><b>Sum V</b></td><td>Painful, self-critical introspection (guilt / shame).</td></tr>
+<tr><td><b>An + Xy</b></td><td>Body / somatic preoccupation; concern about bodily integrity.</td></tr>
+<tr><td><b>MOR</b></td><td>Damaged, "broken / spoiled" self-image.</td></tr>
+<tr><td><b>H : (H)+Hd+(Hd)</b></td><td>Self-concept based on real experience (H side) vs imagination / distortion (other side). Right side dominant = poorly reality-grounded identity.</td></tr>
+</table>
+
+<h2 id="inter" class="g">13. Interpersonal Perception cluster</h2>
+<div class="f"><b>Isolation Index = (Bt + 2 x Cl + Ge + Ls + 2 x Na) / R.</b> &gt;.24 = some withdrawal; .33 or more = socially isolated.</div>
+<table>
+<tr><td><b>COP / AG</b></td><td>Expectation of cooperative vs hostile interaction. COP good sign; high AG = sees others as threatening.</td></tr>
+<tr><td><b>GHR : PHR</b></td><td>Quality of relationship representations; PHR&gt;GHR = ineffective / off-putting relating.</td></tr>
+<tr><td><b>SumT</b></td><td>Need for closeness. T=0 = distant / guarded; T&gt;1 = neediness.</td></tr>
+<tr><td><b>Human content total and Pure H</b></td><td>Interest in and realistic perception of people. Low / no Pure H = limited, distorted social understanding.</td></tr>
+<tr><td><b>a : p</b></td><td>Passive interpersonal role if p dominant.</td></tr>
+<tr><td><b>Fd</b></td><td>Dependency on others.</td></tr>
+<tr><td><b>PER</b></td><td>Defensive, authoritarian, rigid relating; difficulty with non-submissive others.</td></tr>
+</table>
+
+<h2 id="proc" class="g">14. Information Processing cluster</h2>
+<table>
+<tr><td><b>Zf</b></td><td>Effort invested in organizing.</td></tr>
+<tr><td><b>W : D : Dd</b></td><td>Approach: W=integrative effort, D=practical, Dd=peripheral / unusual.</td></tr>
+<tr><td><b>W : M</b></td><td>Aspiration (W) vs deliverable ideation (M): W much greater than M = aiming higher than resources allow.</td></tr>
+<tr><td><b>Zd</b></td><td>Scanning efficiency (over / underincorporation).</td></tr>
+<tr><td><b>DQ</b></td><td>Sophistication of processed product.</td></tr>
+<tr><td><b>PSV</b></td><td>Rigidity / perseveration.</td></tr>
+</table>
+
+<h2 id="idx">15. The six indices / constellations (criteria)</h2>
+<table>
+<tr><th>Index</th><th>Cutoff</th><th>Criteria (summary)</th><th>Says</th></tr>
+<tr><td><b>PTI</b></td><td>0 to 5, continuous (higher worse)</td><td>(1) XA%&lt;.70 and WDA%&lt;.75; (2) X-%&gt;.29; (3) Lvl2&gt;2 and FAB2&gt;0; (4) R&lt;=16 and WSum6&gt;12 or R&gt;16 and WSum6&gt;17; (5) M-&gt;1 or X-%&gt;.40.</td><td>Perceptual + thinking disturbance (psychosis-spectrum signal).</td></tr>
+<tr><td><b>DEPI</b></td><td>5 or more positive</td><td>7 conditions: vista / FD; col-shd blend / S&gt;2; egocentricity; Afr / Blends; shading / C'; MOR / intellectualization; COP and Isolation.</td><td>Depressive organization.</td></tr>
+<tr><td><b>CDI</b></td><td>4 or more positive</td><td>EA&lt;6 or AdjD&lt;0; COP&lt;2 and AG&lt;2; WSumC&lt;2.5 or Afr&lt;.46; p&gt;a+1 or PureH&lt;2; SumT&gt;1 or Isolate&gt;.24 or Fd&gt;0.</td><td>Coping / social-skill deficit.</td></tr>
+<tr><td><b>S-CON</b></td><td>8 or more of 12 (review first; 7=caution)</td><td>FV+VF+V+FD&gt;2; col-shd bl&gt;0; Ego&lt;.31 or &gt;.44; MOR&gt;3; abs(Zd)&gt;3.5; es&gt;EA; CF+C&gt;FC; X+%&lt;.70; S&gt;3; P&lt;3 or &gt;8; PureH&lt;2; R&lt;17.</td><td>Self-harm risk.</td></tr>
+<tr><td><b>HVI</b></td><td>T=0 plus 4 or more of 7</td><td>Prereq FT+TF+T=0; Zf&gt;12; Zd&gt;+3.5; S&gt;3; H+(H)+Hd+(Hd)&gt;6; (H)+(A)+(Hd)+(Ad)&gt;3; H+A:Hd+Ad&lt;4:1; Cg&gt;3.</td><td>Hypervigilance, mistrust, guardedness.</td></tr>
+<tr><td><b>OBS</b></td><td>Positive combinations</td><td>Dd&gt;3; Zf&gt;12; Zd&gt;+3.0; P&gt;7; FQ+&gt;1 (all five; or subsets with FQ+ / X+%&gt;.89).</td><td>Obsessive, perfectionistic, detail-bound style.</td></tr>
+</table>
+
+<div class="box">
+<b>Golden rules:</b> (1) Never interpret one score alone — combine. (2) Compare to norms (deviation principle) but integrate into the person's whole pattern. (3) Frequencies depend on R. (4) Form = control; Movement = mental activity; Colour = emotion out; C' / shading = emotion / pain held in; Texture = closeness; Vista = painful self-look; Reflection = self-regard.
+</div>
+
+<p class="small">Study summary in original wording; confirm exact normative values and index algorithms against the current Comprehensive System manual / workbook before formal clinical use.</p>
+
+</div>
+</body>
+</html>
