@@ -1,0 +1,1923 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NIMHANS SLD Assessment · Complete Clinical, Psychodiagnostic &amp; Practical Guide</title>
+<style>
+:root{
+  --lavender:#ece8f7; --lavender-d:#c9bde8; --lilac:#f3edfb;
+  --powder:#e4eef7; --powder-d:#bcd6ec;
+  --sage:#e7f1e6; --sage-d:#bcd9b8;
+  --mint:#e3f4ee; --mint-d:#b4e0d0;
+  --peach:#fdeee2; --peach-d:#f6cdaa;
+  --blush:#fbe9ee; --blush-d:#f2c1cf;
+  --cream:#fbf6ea; --cream-d:#eddfbf;
+  --softblue:#e8eefb; --softblue-d:#c3d2f2;
+  --grey:#f5f6f8; --grey-d:#e2e5ea;
+  --ink:#33323d; --ink-soft:#565463; --muted:#7d7b89;
+  --line:#e4e2ec; --white:#ffffff;
+  --radius:18px; --shadow:0 6px 22px rgba(90,80,140,0.09);
+  --shadow-sm:0 2px 10px rgba(90,80,140,0.07);
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0; font-family:"Segoe UI",Roboto,-apple-system,"Helvetica Neue",Arial,sans-serif;
+  color:var(--ink); background:linear-gradient(135deg,#faf9fd 0%,#f4f6fb 100%);
+  line-height:1.68; font-size:16px;
+}
+#wm{
+  position:fixed; inset:0; z-index:9999; pointer-events:none;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='420' height='300'><text x='20' y='160' transform='rotate(-24 20 160)' fill='rgba(120,100,175,0.09)' font-family='Segoe UI, Arial, sans-serif' font-size='15' font-weight='600'>Made by Tejas Dangodra</text></svg>");
+  background-repeat:repeat; background-size:34vw 30vh;
+  -webkit-print-color-adjust:exact; print-color-adjust:exact;
+}
+.wrap{max-width:1080px; margin:0 auto; padding:0 20px 80px;}
+section{scroll-margin-top:70px;}
+h1,h2,h3,h4,h5{line-height:1.28; color:var(--ink); font-weight:700;}
+h2{font-size:1.72rem; margin:0 0 4px;}
+h3{font-size:1.26rem; margin:28px 0 10px; color:#5b4a8c;}
+h4{font-size:1.06rem; margin:18px 0 8px; color:var(--ink-soft);}
+h5{font-size:.96rem; margin:14px 0 6px; color:#4f79b0;}
+p{margin:10px 0;}
+a{color:#7b5fc0; text-decoration:none;}
+a:hover{text-decoration:underline;}
+small{color:var(--muted);}
+em{color:inherit;}
+
+.cover{
+  min-height:97vh; display:flex; flex-direction:column; justify-content:center; align-items:center;
+  text-align:center; padding:60px 24px; position:relative;
+  background:
+    radial-gradient(circle at 18% 22%,rgba(201,189,232,0.5),transparent 42%),
+    radial-gradient(circle at 82% 30%,rgba(188,214,236,0.5),transparent 42%),
+    radial-gradient(circle at 30% 82%,rgba(180,224,208,0.45),transparent 42%),
+    radial-gradient(circle at 78% 80%,rgba(246,205,170,0.4),transparent 42%),
+    linear-gradient(135deg,#faf8fe,#eef3fb);
+}
+.cover .badge{display:inline-block; padding:7px 18px; border-radius:40px; background:rgba(255,255,255,0.7);
+  border:1px solid var(--lavender-d); color:#6b56a8; font-size:.82rem; letter-spacing:.14em; text-transform:uppercase; margin-bottom:26px;}
+.cover h1{font-size:3.3rem; margin:0; letter-spacing:2px;
+  background:linear-gradient(120deg,#6b56a8,#4f79b0 55%,#4a9c86); -webkit-background-clip:text; background-clip:text; color:transparent;}
+.cover .name{font-size:1.35rem; color:var(--ink-soft); margin:14px auto 0; font-weight:700;}
+.cover .deg{font-size:1.02rem; color:var(--muted); margin:4px auto; font-weight:600;}
+.cover .sub1{font-size:1.04rem; color:var(--ink-soft); max-width:800px; margin:22px auto 4px; font-weight:600;}
+.cover .sub2{font-size:1.0rem; color:var(--muted); max-width:700px; margin:4px auto;}
+.cover .prep{margin-top:28px; font-size:.95rem; color:var(--ink-soft); background:rgba(255,255,255,0.6);
+  border:1px solid var(--line); border-radius:14px; padding:12px 24px;}
+.cover .made{margin-top:36px; font-size:1.1rem; font-weight:700; color:#6b56a8; letter-spacing:.04em;}
+.cover .made span{display:block; font-size:.9rem; color:var(--ink-soft); font-weight:600; margin-top:2px;}
+.cover .note{margin-top:16px; font-size:.78rem; color:var(--muted); max-width:720px;}
+.ribbon{display:flex; gap:10px; margin-top:34px; flex-wrap:wrap; justify-content:center;}
+.ribbon span{width:60px; height:24px; border-radius:6px; transform:skewX(-18deg); box-shadow:var(--shadow-sm);}
+.ribbon .r1{background:var(--lavender-d);} .ribbon .r2{background:var(--powder-d);}
+.ribbon .r3{background:var(--sage-d);} .ribbon .r4{background:var(--peach-d);} .ribbon .r5{background:var(--blush-d);}
+
+/* search */
+.searchbar{position:sticky; top:0; z-index:500; background:rgba(250,249,253,0.95); backdrop-filter:blur(6px);
+  border-bottom:1px solid var(--line); padding:10px 20px; display:flex; gap:10px; align-items:center; justify-content:center;}
+.searchbar input{width:min(560px,70vw); padding:9px 14px; border:1px solid var(--lavender-d); border-radius:30px;
+  font-size:.92rem; color:var(--ink); outline:none; background:#fff;}
+.searchbar input:focus{border-color:#7b5fc0; box-shadow:0 0 0 3px rgba(123,95,192,0.12);}
+.searchbar .sinfo{font-size:.8rem; color:var(--muted); min-width:92px;}
+mark{background:#fff2a8; color:inherit; padding:0 1px; border-radius:3px;}
+.search-hidden{display:none !important;}
+
+.toc{background:var(--white); border:1px solid var(--line); border-radius:var(--radius); padding:26px 30px; box-shadow:var(--shadow); margin:40px 0;}
+.toc h2{color:#6b56a8;}
+.toc-grid{columns:2; column-gap:36px;}
+.toc-grid a{display:block; padding:4px 0; font-size:.92rem; color:var(--ink-soft); break-inside:avoid;}
+.toc-grid a:hover{color:#6b56a8;}
+.toc .part{font-weight:700; color:#4f79b0; margin-top:12px; font-size:.82rem; text-transform:uppercase; letter-spacing:.06em;}
+@media(max-width:640px){.toc-grid{columns:1;}}
+
+.banner{border-radius:var(--radius); padding:22px 28px; margin:52px 0 8px; box-shadow:var(--shadow-sm); border:1px solid rgba(0,0,0,0.03);}
+.banner .tag{font-size:.74rem; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-soft); font-weight:700; opacity:.8;}
+.banner h2{margin-top:4px;}
+.b-theory{background:linear-gradient(120deg,var(--lavender),var(--lilac));}
+.b-admin{background:linear-gradient(120deg,var(--powder),#eef5fc);}
+.b-scoring{background:linear-gradient(120deg,var(--peach),#fef6ef);}
+.b-subtest{background:linear-gradient(120deg,var(--sage),#f0f7ef);}
+.b-interview{background:linear-gradient(120deg,var(--mint),#eefaf5);}
+.b-interp{background:linear-gradient(120deg,var(--cream),#fdfaf1);}
+.b-case{background:linear-gradient(120deg,var(--blush),#fdf1f4);}
+.b-report{background:linear-gradient(120deg,var(--softblue),#f0f4fd);}
+
+.card{background:var(--white); border:1px solid var(--line); border-radius:var(--radius); padding:22px 26px; margin:18px 0; box-shadow:var(--shadow-sm);}
+.card.tinted-lav{background:var(--lilac);} .card.tinted-powder{background:#eef5fc;}
+.card.tinted-peach{background:#fef6ef;} .card.tinted-sage{background:#f0f7ef;}
+.card.tinted-mint{background:#eefaf5;} .card.tinted-cream{background:#fdfaf1;}
+.card.tinted-blush{background:#fdf1f4;} .card.tinted-blue{background:#f0f4fd;}
+.grid2{display:grid; grid-template-columns:1fr 1fr; gap:18px;}
+.grid3{display:grid; grid-template-columns:repeat(3,1fr); gap:16px;}
+@media(max-width:860px){.grid2,.grid3{grid-template-columns:1fr;}}
+
+.domain-card{background:var(--white); border:1px solid var(--line); border-top:4px solid var(--sage-d); border-radius:14px; padding:16px 18px; box-shadow:var(--shadow-sm);}
+.domain-card.read{border-top-color:var(--powder-d);} .domain-card.write{border-top-color:var(--peach-d);}
+.domain-card.math{border-top-color:var(--mint-d);}
+.domain-card h4{margin:0 0 6px;}
+
+.subtest-card{background:var(--white); border:1px solid var(--line); border-left:5px solid var(--lavender-d); border-radius:14px; padding:18px 20px; margin:16px 0; box-shadow:var(--shadow-sm);}
+.subtest-card h4{margin:0 0 8px; color:#5b4a8c; font-size:1.1rem;}
+.subtest-card .sgrid{display:grid; grid-template-columns:140px 1fr; gap:6px 14px; font-size:.9rem; margin-top:8px;}
+.subtest-card .sgrid b{color:#4f79b0;}
+@media(max-width:620px){.subtest-card .sgrid{grid-template-columns:1fr;}.subtest-card .sgrid b{margin-top:8px;}}
+
+.ask-card{border:1px solid var(--line); border-radius:14px; padding:0; margin:16px 0; overflow:hidden; box-shadow:var(--shadow-sm); background:#fff;}
+.ask-card .q{background:linear-gradient(120deg,var(--lavender),var(--lilac)); padding:12px 18px; font-weight:700; color:#4a3f76;}
+.ask-card .body{padding:14px 18px;}
+.ask-card .row{display:grid; grid-template-columns:120px 1fr; gap:4px 14px; font-size:.9rem; margin:7px 0;}
+.ask-card .row .lab{font-weight:700; font-size:.74rem; text-transform:uppercase; letter-spacing:.05em; color:var(--muted); padding-top:2px;}
+@media(max-width:620px){.ask-card .row{grid-template-columns:1fr;}}
+.ans{display:inline-block; font-size:.84rem; padding:2px 9px; border-radius:16px; margin:2px 4px 2px 0;}
+.ans-ok{background:#e7f1e6; color:#3f6b41;} .ans-mild{background:#fbf6ea; color:#7d6420;}
+.ans-sig{background:#fdeee2; color:#a35d2a;} .ans-sev{background:#fbe9ee; color:#8a4258;}
+.ans-unc{background:#eef0f3; color:#565463; font-style:italic;}
+
+.flow{display:flex; flex-wrap:wrap; align-items:center; gap:8px; margin:16px 0;}
+.flow .step{background:var(--white); border:1px solid var(--powder-d); border-radius:12px; padding:9px 15px; font-size:.86rem; font-weight:600; color:var(--ink-soft); box-shadow:var(--shadow-sm);}
+.flow .arw{color:var(--powder-d); font-weight:700; font-size:1.1rem;}
+.flow.vert{flex-direction:column; align-items:stretch; max-width:460px; margin:16px auto;}
+.flow.vert .step{text-align:center;}
+.flow.vert .arw{text-align:center;}
+
+.spine{display:flex; flex-wrap:wrap; gap:6px; justify-content:center; margin:14px 0;}
+.spine .s{background:#fff; border:1px solid var(--lavender-d); border-radius:30px; padding:6px 14px; font-size:.8rem; font-weight:700; color:#6b56a8;}
+.spine .a{color:var(--lavender-d); align-self:center; font-weight:700;}
+
+.tbl-scroll{overflow-x:auto; margin:16px 0; border-radius:var(--radius); border:1px solid var(--line); box-shadow:var(--shadow-sm); -webkit-overflow-scrolling:touch;}
+table{border-collapse:collapse; width:100%; min-width:560px; background:var(--white); font-size:.89rem;}
+th,td{padding:10px 13px; text-align:left; border-bottom:1px solid var(--line); vertical-align:top;}
+thead th{background:var(--lavender); color:#4a3f76; font-size:.8rem; text-transform:uppercase; letter-spacing:.04em;}
+tbody tr:nth-child(even){background:#faf9fd;}
+
+.callout{border-radius:14px; padding:14px 18px; margin:16px 0; font-size:.93rem; border:1px solid;}
+.callout b{display:block; margin-bottom:3px;}
+.co-warn{background:#fdf1f4; border-color:var(--blush-d); color:#8a4258;}
+.co-note{background:#eef5fc; border-color:var(--powder-d); color:#3f5d82;}
+.co-key{background:#fdfaf1; border-color:var(--cream-d); color:#7d6420;}
+.co-verify{background:#f0f7ef; border-color:var(--sage-d); color:#3f6b41;}
+.co-src{background:#f3edfb; border-color:var(--lavender-d); color:#5b3fa0;}
+
+.pill{display:inline-block; padding:3px 11px; border-radius:20px; font-size:.76rem; font-weight:700; margin:2px;}
+.p-high{background:#e7f1e6; color:#3f6b41;} .p-avg{background:#fbf6ea; color:#7d6420;}
+.p-low{background:#fdeee2; color:#a35d2a;} .p-vlow{background:#fbe9ee; color:#8a4258;}
+.p-nv{background:#eef0f3; color:#565463; font-style:italic;}
+
+.report-doc{background:var(--white); border:1px solid var(--line); border-radius:var(--radius); padding:26px 30px; margin:20px 0; box-shadow:var(--shadow); font-size:.93rem;}
+.report-doc h4{color:#4f79b0; border-bottom:1px solid var(--line); padding-bottom:5px;}
+.phrase{background:#f0f4fd; border-radius:10px; padding:8px 12px; margin:7px 0; font-size:.89rem; font-style:italic; color:#3f5d82;}
+.good{background:#eef7ef;border:1px solid var(--sage-d);border-radius:10px;padding:8px 12px;margin:6px 0;font-size:.89rem;}
+.bad{background:#fbeef2;border:1px solid var(--blush-d);border-radius:10px;padding:8px 12px;margin:6px 0;font-size:.89rem;}
+.bad::before{content:"✗ ";font-weight:700;color:#c0566f;}
+.good::before{content:"✓ ";font-weight:700;color:#4a9c6b;}
+
+.viva{border:1px solid var(--line); border-radius:14px; margin:14px 0; overflow:hidden; box-shadow:var(--shadow-sm); background:#fff;}
+.viva .vq{background:var(--mint); padding:11px 16px; font-weight:700; color:#2f6b58;}
+.viva .vb{padding:12px 16px; font-size:.91rem;}
+.viva .vb .kp{display:block; margin-top:7px; font-size:.84rem; color:#4f79b0;}
+.viva .vb .cm{display:block; margin-top:4px; font-size:.84rem; color:#a35d2a;}
+
+ul.tight{margin:8px 0; padding-left:20px;} ul.tight li{margin:4px 0;}
+ol.tight{margin:8px 0; padding-left:22px;} ol.tight li{margin:4px 0;}
+.case-vig{background:var(--white); border:1px solid var(--line); border-left:5px solid var(--blush-d); border-radius:14px; padding:20px 24px; margin:20px 0; box-shadow:var(--shadow-sm);}
+.case-vig h4{color:#8a4258; margin-top:14px;}
+.case-vig h4:first-child{margin-top:0;}
+.lbl-fict{display:inline-block; background:#fbe9ee; color:#8a4258; font-size:.72rem; font-weight:700; padding:2px 10px; border-radius:16px; letter-spacing:.05em; text-transform:uppercase;}
+
+footer{background:linear-gradient(120deg,var(--lavender),var(--powder)); border-top:1px solid var(--line); padding:38px 20px; text-align:center; margin-top:60px;}
+footer .made{font-size:1.3rem; font-weight:700; color:#6b56a8;}
+footer .made span{display:block; font-size:.95rem; color:var(--ink-soft); font-weight:600; margin-top:3px;}
+footer p{color:var(--ink-soft); font-size:.85rem; max-width:760px; margin:12px auto;}
+.backtop{display:inline-block; margin-top:10px; font-size:.82rem; color:var(--muted);}
+
+@media print{
+  body{background:#fff; font-size:12px;} #wm{opacity:.4;}
+  .searchbar{display:none;}
+  .banner,.card,.subtest-card,.report-doc,.toc,.ask-card,.viva,.case-vig,.domain-card{box-shadow:none;}
+  .cover{min-height:auto; page-break-after:always;} a{color:var(--ink);}
+  h2,h3,h4,h5{break-after:avoid;}
+  .card,.subtest-card,table,.report-doc,.ask-card,.viva,.case-vig,.tbl-scroll{break-inside:avoid;}
+  .banner{break-before:auto;}
+  .backtop{display:none;}
+  @page{margin:14mm;}
+}
+</style>
+</head>
+<body>
+<div id="wm"></div>
+
+<!-- ===================== SEARCH ===================== -->
+<div class="searchbar">
+  <input id="search" type="text" placeholder="Search the handbook — e.g. dyslexia, reading, cancellation, IQ, severity, viva, error…" autocomplete="off">
+  <span class="sinfo" id="sinfo"></span>
+</div>
+
+<div class="wrap">
+
+<!-- ===================== COVER ===================== -->
+<header class="cover" id="top">
+  <div class="badge">Clinical · Psychodiagnostic · Practical</div>
+  <h1>NIMHANS SLD ASSESSMENT</h1>
+  <div class="name">Complete Clinical, Psychodiagnostic &amp; Practical Guide</div>
+  <div class="deg">M.Phil. Clinical Psychology</div>
+  <div class="sub1">Specific Learning Disability (SLD) — Referral → Case History → Developmental &amp; School History → Cognitive &amp; Academic Assessment → Reading · Writing · Mathematics → Error Analysis → Differential Diagnosis → Formulation → Report Writing → Recommendations</div>
+  <div class="sub2">A practical assessment companion for clinical posting, child psychodiagnostic work, the NIMHANS SLD practical examination, viva preparation, report writing &amp; revision.</div>
+  <div class="ribbon"><span class="r1"></span><span class="r2"></span><span class="r3"></span><span class="r4"></span><span class="r5"></span></div>
+  <div class="prep">Built strictly on the retrieved primary source — the <em>NIMHANS Index for Specific Learning Disabilities</em> (NIMHANS SLD Battery, 4th edition, 2020).</div>
+  <div class="made">Made by Tejas Dangodra<span>M.Phil. Clinical Psychology</span></div>
+  <div class="note">In keeping with the manual's copyright and test-security requirements, no secure test items, graded reading/spelling/copying passages, arithmetic answer keys, or normative tables are reproduced. Procedures, scoring <em>principles</em>, and interpretation cut-offs stated in the source are given; worked examples are fictional. Where exact figures are not in the retrieved source, this is flagged — <em>verify from the original NIMHANS manual</em>.</div>
+</header>
+
+<!-- ===================== TOC ===================== -->
+<nav class="toc" id="toc">
+  <h2>Table of Contents</h2>
+  <div class="toc-grid">
+    <div class="part">Source &amp; Version Control</div>
+    <a href="#source">0 · Primary Source &amp; Version-Control Table</a>
+    <a href="#donotguess">0a · The "Do Not Guess" Rule</a>
+    <div class="part">Part I — Foundations</div>
+    <a href="#intro-sld">1 · What is Specific Learning Disability?</a>
+    <a href="#distinctions">2 · Key Distinctions (SLD vs ID, GDD…)</a>
+    <a href="#domains">3 · SLD Domains (Reading · Writing · Maths)</a>
+    <div class="part">Part II — The Clinical Interview</div>
+    <a href="#spine">4 · The Central Clinical Spine</a>
+    <a href="#interview">5 · Interview Question Bank (ASK→DOCUMENT)</a>
+    <a href="#iddata">6 · Identification Data</a>
+    <a href="#informant">7 · Informant &amp; Reliability</a>
+    <a href="#referral">8 · Reason for Referral</a>
+    <a href="#cc">9 · Chief Complaints</a>
+    <a href="#hopi">10 · History of Presenting Difficulty</a>
+    <div class="part">Part III — Subject-Wise History</div>
+    <a href="#reading-hx">11 · Reading / Language History</a>
+    <a href="#writing-hx">12 · Writing History</a>
+    <a href="#maths-hx">13 · Mathematics History</a>
+    <div class="part">Part IV — Educational &amp; Developmental</div>
+    <a href="#school-hx">14 · School History</a>
+    <a href="#records">15 · Academic Record Analysis</a>
+    <a href="#devhx">16 · Developmental History</a>
+    <a href="#milestones">17 · Developmental Milestones</a>
+    <a href="#regression">18 · Developmental Regression</a>
+    <a href="#medical">19 · Medical History</a>
+    <a href="#family">20 · Family History</a>
+    <a href="#personal">21 · Personal History</a>
+    <div class="part">Part V — Psychiatric Screen</div>
+    <a href="#psych-screen">22 · Psychiatric Screening</a>
+    <a href="#adhd-diff">23 · ADHD Differential</a>
+    <div class="part">Part VI — Cognitive &amp; Language</div>
+    <a href="#intellect">24 · Intellectual Functioning</a>
+    <a href="#language">25 · Language &amp; Communication</a>
+    <div class="part">Part VII — The NIMHANS SLD Battery</div>
+    <a href="#battery">26 · NIMHANS Index — Overview</a>
+    <a href="#master-table">27 · Subtest Master Table</a>
+    <a href="#prereq">28 · Pre-requisites &amp; Certification</a>
+    <a href="#level1">29 · Level I — Younger Children (5–7)</a>
+    <a href="#level2">30 · Level II — Older Children (8–16)</a>
+    <a href="#visuomotor">31 · Visuo-Motor &amp; Memory</a>
+    <div class="part">Part VIII — Academic Assessment</div>
+    <a href="#reading-assess">32 · Reading Assessment</a>
+    <a href="#writing-assess">33 · Writing Assessment</a>
+    <a href="#maths-assess">34 · Mathematics Assessment</a>
+    <a href="#error-analysis">35 · SLD Error Analysis Handbook</a>
+    <div class="part">Part IX — Observation</div>
+    <a href="#qualitative">36 · Qualitative Observation</a>
+    <a href="#test-behaviour">37 · Test Behaviour</a>
+    <a href="#child-interview">38 · Child Interview</a>
+    <a href="#triangulation">39 · Child–Parent–Teacher Triangulation</a>
+    <div class="part">Part X — Diagnosis</div>
+    <a href="#diff-dx">40 · Differential Diagnosis</a>
+    <a href="#multilingual">41 · Multilingual / Bilingual Children</a>
+    <a href="#school-env">42 · School Environment</a>
+    <a href="#psychosocial">43 · Psychosocial Impact</a>
+    <a href="#formulation">44 · Diagnostic Formulation</a>
+    <a href="#decision">45 · Diagnostic Decision Algorithm</a>
+    <a href="#classification">46 · ICD / DSM Classification</a>
+    <div class="part">Part XI — Report &amp; Feedback</div>
+    <a href="#report">47 · Report Writing Structure</a>
+    <a href="#results-table">48 · Test Results Table</a>
+    <a href="#sample-language">49 · Sample Report Language</a>
+    <a href="#recommendations">50 · Recommendations</a>
+    <a href="#parent-couns">51 · Parent Counselling</a>
+    <a href="#child-feedback">52 · Child-Friendly Feedback</a>
+    <div class="part">Part XII — Exam &amp; Revision</div>
+    <a href="#mistakes">53 · Common Examiner Mistakes</a>
+    <a href="#cases">54 · Case Vignettes (×4)</a>
+    <a href="#viva">55 · Viva / Practical Bank</a>
+    <a href="#revision">56 · Rapid Revision Tables</a>
+    <a href="#algorithm">57 · One-Page Clinical Workflow</a>
+    <a href="#doc-language">58 · Documentation Language</a>
+    <a href="#unknown-neg">59 · Unknown vs Negative vs Not-Assessed</a>
+    <a href="#source-audit">60 · Source Audit</a>
+    <a href="#copyright">61 · Copyright / Test Security</a>
+  </div>
+</nav>
+
+<!-- ===================== 0 · SOURCE & VERSION ===================== -->
+<div class="banner b-theory"><div class="tag">Source &amp; Version Control</div><h2 id="source">0 · Primary Source &amp; Version-Control Table</h2></div>
+<section>
+  <div class="card tinted-lav">
+    <p><b>The authoritative source for this handbook</b> is the scanned manual retrieved from the repository: <b>NIMHANS SLD Battery (2020)</b> — i.e. the monograph <em>Psychological Assessment of Children and Adolescents in the Clinical Setting</em>, <b>4th edition, August 2020</b>, National Institute of Mental Health &amp; Neuro Sciences (NIMHANS), Bengaluru. Editors: <b>Uma Hirisave, Anna Oommen, Malavika Kapur</b>. The SLD material is <b>Chapter 4 — "Assessment of Specific Learning Disabilities"</b> (Annie John, Joe Rozario, Anna Oommen &amp; Uma Hirisave), supported by Chapter 5 (Intervention), Chapter 6 (Phonological model of dyslexia) and Chapter 7 (Reliability &amp; validity of the NIMHANS Index).</p>
+    <p>The instrument itself is the <b>NIMHANS Index for Specific Learning Disabilities (NIMHANS SLD Index)</b> — originally <b>John (1989)</b>, compiled and named by <b>Kapur, John, Rozario &amp; Oommen (1991)</b>, and in its <b>second/latest revision Hirisave, Kapur, John, Rozario &amp; Oommen (2019)</b>, published in the 2020 (4th) edition. It is organised as <b>Level I</b> (younger children, 5–7 yrs) and <b>Level II</b> (older children, 8–16 yrs).</p>
+  </div>
+
+  <h3>Version-Control Table</h3>
+  <div class="tbl-scroll"><table>
+    <thead><tr><th>Source</th><th>Edition / Year</th><th>What it contains</th><th>Authority</th></tr></thead>
+    <tbody>
+      <tr><td><b>NIMHANS SLD Battery / Monograph</b> (Hirisave, Oommen, Kapur, eds.)</td><td>4th ed., 2020</td><td>Chapter 4 — full SLD battery: Level I &amp; Level II structure, administration, scoring principles, interpretation cut-offs, record forms, certification/severity guidance</td><td><b>LEVEL 1 — Primary.</b> Followed throughout.</td></tr>
+      <tr><td>NIMHANS Index for SLD — original</td><td>John, 1989 (doctoral thesis)</td><td>Original battery (Bender Gestalt, Minnesota Percepto-Diagnostic, reading/writing/spelling/comprehension/arithmetic); n=50 clinic + 50 control, ages 8–12</td><td>Primary (historical basis)</td></tr>
+      <tr><td>NIMHANS Index for SLD — manual</td><td>Kapur, John, Rozario &amp; Oommen, 1991</td><td>Compiled &amp; named the Index: Attention, Language, Arithmetic, Visuo-motor, Memory</td><td>Primary (instrument manual)</td></tr>
+      <tr><td>NIMHANS Index for SLD — 2nd revision</td><td>Hirisave, Kapur, John, Rozario &amp; Oommen, 2019 → publ. 2020</td><td>Added/revised norms (English-medium school, Bengaluru; lower-middle &amp; middle SES); added tests for older children; My Experience Scale &amp; Resilience Tool added to the 2020 monograph</td><td>Primary (current revision)</td></tr>
+      <tr><td>Gazette of India (SLD certification)</td><td>2018 — REGD. NO. D.L-33004/99</td><td>Requires IQ ≥ 85 on an intelligence test; SLD rated on a severity scale; MISIC/WISC before the Index</td><td>Level 2 — statutory</td></tr>
+      <tr><td>Govt. of India office memorandum</td><td>File No. 38-01/2020-DD-III, Ministry of Social Justice &amp; Empowerment, 8 May 2020</td><td>A person assessed to have SLD is considered to have <b>&gt; 40% disability</b></td><td>Level 2 — statutory</td></tr>
+      <tr><td>DSM-5-TR; ICD-10; ICD-11</td><td>APA 2013/2022; WHO 2004/2019</td><td>Diagnostic criteria &amp; terminology (Specific Learning Disorder / Specific Developmental Disorder of Scholastic Skills / Developmental learning disorder)</td><td>Level 2 — classification</td></tr>
+      <tr><td>Standard texts (Sattler, Rutter's, Kaplan &amp; Sadock)</td><td>various</td><td>Supplementary clinical/neuropsychological/developmental context only</td><td>Level 3 — supplementary</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="callout co-src"><b>Which source is being followed?</b>For every statement about the NIMHANS battery (structure, administration, scoring, cut-offs, record forms, certification), this handbook follows the <b>2020 NIMHANS SLD Battery monograph (Chapter 4)</b> as the single primary authority. Classification sections explicitly name DSM-5-TR / ICD-10 / ICD-11 and do <em>not</em> merge their criteria. Where two sources differ, they are kept separate — never blended.</div>
+
+  <div class="callout co-note"><b>Note on terminology.</b>The source uses <b>"learning disability / specific learning disability"</b> and the test name <b>"NIMHANS Index for SLD"</b>. ICD-10 uses <b>"Specific Developmental Disorder of Scholastic Skills"</b>; DSM-5-TR uses <b>"Specific Learning Disorder"</b>; ICD-11 uses <b>"Developmental learning disorder"</b>. These are kept distinct in §46.</div>
+</section>
+
+<!-- 0a Do not guess -->
+<div class="banner b-theory"><div class="tag">Integrity Rule</div><h2 id="donotguess">0a · The "Do Not Guess" Rule</h2></div>
+<section>
+  <div class="callout co-verify"><b>Nothing is invented.</b>This handbook does <em>not</em> invent NIMHANS test items, raw-score conversions, normative tables, percentile values, cut-offs, age/grade equivalents, diagnostic thresholds, formulas, or administration wording. Where the exact figure is <b>not</b> present in the retrieved source, the handbook states: <em>"Not available in the retrieved source; verify from the original NIMHANS manual."</em></div>
+  <p>What the retrieved source <b>does</b> give explicitly (and is reproduced here as fact): the battery structure (Level I &amp; II subtests), administration instructions for each subtest, scoring <em>principles</em>, several qualitative interpretation cut-offs (e.g. visual discrimination ≥3 errors; auditory discrimination ≥5 errors; visual memory 3/4-item rule; copying-shape age norms; number-cancellation score formula), the certification pre-requisite (IQ ≥ 85), the severity-rating logic (3 vs 4+ standards below), and the record-form layout.</p>
+  <p>What the source <b>withholds as secure/copyrighted content</b> (and is therefore <em>not</em> reproduced here): the graded reading/spelling/copying passages, the arithmetic &amp; mathematics item lists and answer keys, and the full normative tables. For those, the trainee is referred to the original manual (see §61).</p>
+</section>
+
+<!-- ===================== 1 · WHAT IS SLD ===================== -->
+<div class="banner b-theory"><div class="tag">Part I — Foundations</div><h2 id="intro-sld">1 · What is Specific Learning Disability?</h2></div>
+<section>
+  <div class="card">
+    <p><b>Specific Learning Disability (SLD)</b> is a <b>neurodevelopmental</b> condition in which a child shows persistent difficulty acquiring and using academic skills — <b>reading, written expression/spelling, and/or mathematics</b> — that is <b>unexpected</b> given the child's age, intelligence, schooling, and effort, and that is <em>not</em> primarily explained by intellectual disability, uncorrected sensory impairment, neurological disorder, psychosocial adversity, inadequate instruction, or lack of proficiency in the language of instruction. Per DSM-5, the difficulties persist for at least 6 months despite the provision of targeted intervention (American Psychiatric Association, 2013; as cited in the NIMHANS 2020 monograph).</p>
+  </div>
+  <h3>Core characteristics (as described in the source)</h3>
+  <div class="grid2">
+    <div class="card tinted-lav"><h4>Discrepancy</h4><p>A gap between the child's ability and academic performance in one or more skill areas.</p></div>
+    <div class="card tinted-powder"><h4>Academic learning difficulty</h4><p>Problems concentrated in reading, writing, spelling and/or mathematics.</p></div>
+    <div class="card tinted-sage"><h4>Perceptual difficulty</h4><p>Difficulty recognising, discriminating or interpreting auditory and/or visual information.</p></div>
+    <div class="card tinted-peach"><h4>Metacognitive deficits</h4><p>Weak self-regulation — planning, monitoring, checking and correcting one's own work.</p></div>
+    <div class="card tinted-mint"><h4>Memory problems</h4><p>Children often fail to use the memory strategies that non-disabled peers use readily.</p></div>
+    <div class="card tinted-cream"><h4>Phonological deficits</h4><p>Poor phonological skills frequently accompany reading &amp; spelling difficulty.</p></div>
+    <div class="card tinted-blush"><h4>Attention / motor / social-emotional</h4><p>Short attention span, clumsiness/fine-motor difficulty, and higher rates of low self-esteem and emotional disturbance from repeated academic failure.</p></div>
+  </div>
+
+  <h3>Typical presentation &amp; impact</h3>
+  <ul class="tight">
+    <li><b>Age of identification:</b> usually in the early school years, once formal literacy/numeracy demands begin; often first flagged by a teacher or parent.</li>
+    <li><b>Academic impact:</b> underachievement relative to grade placement, slow/laboured work, avoidance of reading/writing/maths.</li>
+    <li><b>Emotional impact:</b> frustration, anxiety, shame, low academic self-concept; the source notes a higher prevalence of psychological disturbance than in the general population.</li>
+    <li><b>Social &amp; family impact:</b> peer comparison, avoidance, and parent–child conflict around homework and marks.</li>
+  </ul>
+  <h3>Causes / correlates (per the source)</h3>
+  <p>The source states there is <b>no single cause</b>; a variety of factors are linked: <b>genetic</b> (LD runs in families), <b>language</b> (poor phonological processing in reading/spelling disability), <b>biochemical</b> (chemical imbalance affecting brain function), <b>biological</b> (head trauma, foetal distress at birth), <b>unfavourable uterine environment</b> (drugs, smoking, alcohol), and <b>environmental deprivation</b> (lack of stimulation at critical developmental periods). Other correlates mentioned include laterality and left-hemisphere structural factors.</p>
+</section>
+
+<!-- 2 Distinctions -->
+<div class="banner b-theory"><div class="tag">Part I — Foundations</div><h2 id="distinctions">2 · Key Distinctions</h2></div>
+<section>
+  <p>A central skill is separating a true SLD from conditions it can resemble. Keep these distinctions explicit in every formulation.</p>
+  <div class="tbl-scroll"><table>
+    <thead><tr><th>Term</th><th>What it means</th><th>How it differs from SLD</th></tr></thead>
+    <tbody>
+      <tr><td><b>Learning difficulty</b></td><td>Mild, often transient underperformance; may improve with support</td><td>Less severe/persistent; typically 1–2 standards below (see severity logic, §28)</td></tr>
+      <tr><td><b>Learning disability / SLD</b></td><td>Persistent, unexpected, domain-specific academic impairment</td><td>This is the target condition</td></tr>
+      <tr><td><b>Specific Learning Disorder</b> (DSM-5-TR)</td><td>Classification label for SLD with reading/writing/maths specifiers</td><td>Same construct, diagnostic framework terminology</td></tr>
+      <tr><td><b>Intellectual Disability (ID)</b></td><td>Global deficit in intellectual <em>and</em> adaptive functioning, developmental onset</td><td>SLD requires near-average intelligence; certification pathway needs <b>IQ ≥ 85</b></td></tr>
+      <tr><td><b>Global Developmental Delay (GDD)</b></td><td>Delay across multiple developmental domains in a child &lt; 5 yrs</td><td>Broad &amp; early; SLD is skill-specific and identified at school age</td></tr>
+      <tr><td><b>Poor academic achievement</b></td><td>Low marks from any cause (illness, absenteeism, motivation)</td><td>Low marks alone never establish SLD</td></tr>
+      <tr><td><b>Educational deprivation</b></td><td>Underachievement due to inadequate/disrupted schooling or opportunity</td><td>An exclusion — must be ruled out before diagnosing SLD</td></tr>
+    </tbody>
+  </table></div>
+  <div class="callout co-key"><b>The guiding principle.</b>SLD is a diagnosis of <em>unexpected, specific</em> underachievement in a child of adequate intelligence, adequate sensory function, adequate schooling, and adequate opportunity. Every alternative explanation must be considered before the label is applied.</div>
+</section>
+
+<!-- 3 Domains -->
+<div class="banner b-theory"><div class="tag">Part I — Foundations</div><h2 id="domains">3 · SLD Domains</h2></div>
+<section>
+  <p>The exact subtests and terminology follow the NIMHANS source (§26–31). Broadly, three academic domains are assessed:</p>
+  <div class="grid3">
+    <div class="domain-card read">
+      <h4>Reading</h4>
+      <ul class="tight">
+        <li>Letter/word recognition &amp; decoding</li>
+        <li>Reading accuracy</li>
+        <li>Reading fluency &amp; speed</li>
+        <li>Reading comprehension</li>
+        <li>Listening comprehension (when reading is severe)</li>
+        <li>Phonological processing (where assessed)</li>
+      </ul>
+    </div>
+    <div class="domain-card write">
+      <h4>Written Expression</h4>
+      <ul class="tight">
+        <li>Handwriting (letter formation, size, spacing, alignment)</li>
+        <li>Copying</li>
+        <li>Spelling (Schonell graded)</li>
+        <li>Sentence construction &amp; grammar</li>
+        <li>Written expression / organisation</li>
+        <li>Writing speed &amp; fluency</li>
+      </ul>
+    </div>
+    <div class="domain-card math">
+      <h4>Mathematics</h4>
+      <ul class="tight">
+        <li>Number recognition &amp; concepts</li>
+        <li>Counting &amp; quantity</li>
+        <li>Calculation (+ − × ÷, fractions)</li>
+        <li>Place value, carrying/borrowing</li>
+        <li>Mathematical reasoning</li>
+        <li>Word (statement) problems</li>
+      </ul>
+    </div>
+  </div>
+  <div class="callout co-verify"><b>Follow the source for terminology.</b>The NIMHANS Index organises these as Level I (younger) and Level II (older) subtests with specific names (e.g. "Reading of English passages of I–IX grade levels", "Spelling of English words of I–X Std", Schonell Graded Spelling Test). Use the manual's exact subtest names in reports (§27, §30).</div>
+</section>
+
+<!-- ===================== 4 · SPINE ===================== -->
+<div class="banner b-interview"><div class="tag">Part II — The Clinical Interview</div><h2 id="spine">4 · The Central Clinical Spine</h2></div>
+<section>
+  <p>Every section of this handbook returns to one repeating structure. Hold it in mind through the whole assessment:</p>
+  <div class="spine">
+    <span class="s">ASK</span><span class="a">→</span>
+    <span class="s">POSSIBLE ANSWER</span><span class="a">→</span>
+    <span class="s">PROBE</span><span class="a">→</span>
+    <span class="s">OBSERVE</span><span class="a">→</span>
+    <span class="s">ASSESS</span><span class="a">→</span>
+    <span class="s">SCORE</span><span class="a">→</span>
+    <span class="s">INTERPRET</span><span class="a">→</span>
+    <span class="s">DIFFERENTIATE</span><span class="a">→</span>
+    <span class="s">FORMULATE</span><span class="a">→</span>
+    <span class="s">DOCUMENT</span><span class="a">→</span>
+    <span class="s">RECOMMEND</span>
+  </div>
+  <div class="callout co-note"><b>Why a spine, not a checklist.</b>SLD assessment is not just test administration. The interview generates hypotheses; the tests provide objective data; observation and records triangulate; and the formulation integrates all of it. The source stresses that test findings are <em>one source of information</em> and should never be the end-point — they are interpreted within the whole clinical picture.</div>
+</section>
+
+<!-- 5 Interview question bank -->
+<div class="banner b-interview"><div class="tag">Part II — The Clinical Interview</div><h2 id="interview">5 · Interview Question Bank</h2></div>
+<section>
+  <p>Each card below follows the spine: <b>ASK → POSSIBLE ANSWERS → PROBE → CLINICAL SIGNIFICANCE → DOCUMENTATION</b>. Possible answers are colour-coded:
+  <span class="ans ans-ok">unremarkable</span> <span class="ans ans-mild">mild concern</span> <span class="ans ans-sig">significant concern</span> <span class="ans ans-sev">severe concern</span> <span class="ans ans-unc">uncertain / "don't know"</span>.</p>
+
+  <div class="ask-card">
+    <div class="q">"What made you seek an assessment for your child now?"</div>
+    <div class="body">
+      <div class="row"><span class="lab">Possible answers</span><span>
+        <span class="ans ans-ok">"School counsellor suggested a routine check"</span>
+        <span class="ans ans-mild">"He's slower than classmates in reading"</span>
+        <span class="ans ans-sig">"The teacher says he may fail; he still can't read Std-II words"</span>
+        <span class="ans ans-sev">"He has been held back a year and refuses to go to school"</span>
+        <span class="ans ans-unc">"We're not sure, the school just told us to come"</span>
+      </span></div>
+      <div class="row"><span class="lab">Probe</span><span>Who first raised the concern — parent, teacher, school, or the child? When exactly? Has it worsened, stayed the same, or fluctuated? Which subjects most?</span></div>
+      <div class="row"><span class="lab">Significance</span><span>Clarifies the referral question, onset, trajectory, and whether the concern is corroborated across settings. Vague or externally-driven referrals need careful history before any test is chosen.</span></div>
+      <div class="row"><span class="lab">Documentation</span><span><em>"The child was brought for assessment on the recommendation of the class teacher, who reported persistent difficulty with grade-level reading over the past academic year."</em></span></div>
+    </div>
+  </div>
+
+  <div class="ask-card">
+    <div class="q">"Which subjects or tasks are hardest, and how do they look at home?"</div>
+    <div class="body">
+      <div class="row"><span class="lab">Possible answers</span><span>
+        <span class="ans ans-ok">"Only a bit weak in one subject"</span>
+        <span class="ans ans-sig">"Reading aloud and spelling — he dreads them"</span>
+        <span class="ans ans-sig">"Maths word problems; he can't start"</span>
+        <span class="ans ans-sev">"Everything written; copying takes hours"</span>
+        <span class="ans ans-unc">"We don't sit with homework, so we're not sure"</span>
+      </span></div>
+      <div class="row"><span class="lab">Probe</span><span>Home vs school? With help vs independent? Oral vs written performance? Examples from notebooks?</span></div>
+      <div class="row"><span class="lab">Significance</span><span>Localises the domain(s); the oral-vs-written gap is a classic SLD pointer; "improves with help" suggests the skill is attainable with support.</span></div>
+      <div class="row"><span class="lab">Documentation</span><span><em>"Caregiver reported difficulty with reading aloud and spelling, more marked in written than in oral tasks."</em></span></div>
+    </div>
+  </div>
+
+  <div class="ask-card">
+    <div class="q">"When did you first notice the difficulty, and has it changed over time?"</div>
+    <div class="body">
+      <div class="row"><span class="lab">Possible answers</span><span>
+        <span class="ans ans-ok">"Only this term, after a long illness"</span>
+        <span class="ans ans-sig">"Since Std I, he struggled to learn letters"</span>
+        <span class="ans ans-sev">"Always — and it is getting worse relative to the class"</span>
+        <span class="ans ans-unc">"Can't say exactly"</span>
+      </span></div>
+      <div class="row"><span class="lab">Probe</span><span>Age/class at onset; any skill once learned then lost (regression — see §18); any preceding illness, school change, or psychosocial event?</span></div>
+      <div class="row"><span class="lab">Significance</span><span>Insidious, long-standing, skill-specific difficulty fits SLD; abrupt onset after an event raises other explanations (illness, emotional, educational disruption).</span></div>
+      <div class="row"><span class="lab">Documentation</span><span><em>"Difficulty with reading was reportedly present since Std I and has been persistent."</em></span></div>
+    </div>
+  </div>
+
+  <div class="ask-card">
+    <div class="q">"Has your child had any help so far, and did it make a difference?"</div>
+    <div class="body">
+      <div class="row"><span class="lab">Possible answers</span><span>
+        <span class="ans ans-ok">"Regular tuition — doing much better now"</span>
+        <span class="ans ans-mild">"Some extra classes, slight improvement"</span>
+        <span class="ans ans-sig">"Tutor for two years, little change in reading"</span>
+        <span class="ans ans-unc">"No one has ever worked on it specifically"</span>
+      </span></div>
+      <div class="row"><span class="lab">Probe</span><span>What kind of help (general tuition vs structured remediation)? Duration, intensity, response? Previous assessments or reports?</span></div>
+      <div class="row"><span class="lab">Significance</span><span>Response-to-intervention is central: persistent difficulty <em>despite</em> adequate, targeted help strengthens the SLD picture; absence of any instruction points toward educational deprivation first.</span></div>
+      <div class="row"><span class="lab">Documentation</span><span><em>"The child reportedly received private tuition for approximately two years with minimal reported change in reading accuracy."</em></span></div>
+    </div>
+  </div>
+
+  <div class="callout co-note"><b>Interview stance.</b>Ask open questions first, then probe. Record the <em>informant's own words</em> as chief complaints before translating them into clinical language (§58). Note disagreements between child and parent rather than resolving them prematurely (§39).</div>
+</section>
+
+<!-- 6 Identification data -->
+<div class="banner b-interview"><div class="tag">Part II — The Clinical Interview</div><h2 id="iddata">6 · Identification Data</h2></div>
+<section>
+  <div class="grid2">
+    <div class="card">
+      <h4>Record</h4>
+      <ul class="tight">
+        <li>Name, age, date of birth, sex</li>
+        <li>Class / grade and school</li>
+        <li>Medium of instruction &amp; type of school (govt / private / aided)</li>
+        <li>Residence; socioeconomic background</li>
+        <li>Birth order; family structure (nuclear/joint)</li>
+        <li>Informant &amp; relationship</li>
+        <li>Referral source &amp; reason for referral</li>
+      </ul>
+    </div>
+    <div class="report-doc">
+      <h4>Example documentation</h4>
+      <p><em>Master A, a 9-year-old boy studying in Std IV in an English-medium private school, is the second of two siblings from a nuclear family of middle socioeconomic status, residing in [city]. He was brought by his mother (informant) on referral from his class teacher for assessment of academic difficulties.</em></p>
+    </div>
+  </div>
+  <div class="callout co-key"><b>Why medium of instruction matters.</b>The NIMHANS Index norms were collected on <b>English-medium</b> school children in Bengaluru. Document the medium and the child's language exposure explicitly (§41) — difficulty in the language of instruction is not automatically SLD.</div>
+</section>
+
+<!-- 7 Informant & reliability -->
+<div class="banner b-interview"><div class="tag">Part II — The Clinical Interview</div><h2 id="informant">7 · Informant &amp; Reliability</h2></div>
+<section>
+  <h4>Ask</h4>
+  <ul class="tight">
+    <li>Who accompanied the child, and what is their relationship?</li>
+    <li>How much time does the informant spend with the child daily?</li>
+    <li>Does the informant supervise homework / know school performance?</li>
+    <li>Has the informant seen the child's notebooks and report cards?</li>
+    <li>Are teacher reports or multiple informants available?</li>
+  </ul>
+  <h4>Documenting reliability</h4>
+  <div class="grid2">
+    <div class="card tinted-sage"><p><span class="pill p-high">Reliable</span> Informant spends substantial time with the child, supervises school work, and gives consistent, corroborated information.</p></div>
+    <div class="card tinted-cream"><p><span class="pill p-avg">Partially reliable</span> Knows the child well in some domains but not others (e.g. not involved in homework).</p></div>
+    <div class="card tinted-peach"><p><span class="pill p-low">Limited reliability</span> Limited contact time / limited knowledge of academic functioning; information needs corroboration.</p></div>
+    <div class="card tinted-blue"><p><span class="pill p-nv">Requires corroboration</span> Where accounts conflict or key facts are uncertain, note that corroboration (teacher report, records) is required.</p></div>
+  </div>
+  <div class="callout co-warn"><b>Do not over-label.</b>Do not call an informant unreliable merely because the parent is distressed or has limited formal education. Judge reliability by contact, consistency, and corroboration — not by affect or education.</div>
+</section>
+
+<!-- 8 Referral -->
+<div class="banner b-interview"><div class="tag">Part II — The Clinical Interview</div><h2 id="referral">8 · Reason for Referral</h2></div>
+<section>
+  <div class="card">
+    <ul class="tight">
+      <li>"What made you seek an assessment for your child?"</li>
+      <li>"What difficulties are you noticing in studies?"</li>
+      <li>"Which subjects are most difficult?"</li>
+      <li>"When did you first notice these difficulties?"</li>
+      <li>"Who first raised the concern — parents, teacher, school, or child?"</li>
+      <li>"Has the difficulty remained the same or changed over time?"</li>
+    </ul>
+  </div>
+  <div class="callout co-note"><b>From the source.</b>When a child is referred for testing, the reasons for referral must be very clear; even if the referral question is general, know <em>exactly</em> what is needed — the selection of tests depends on the nature of the clinical problem.</div>
+</section>
+
+<!-- 9 Chief complaints -->
+<div class="banner b-interview"><div class="tag">Part II — The Clinical Interview</div><h2 id="cc">9 · Chief Complaints</h2></div>
+<section>
+  <p>Write chief complaints concisely in the <b>informant's own words</b>, with duration — not as a premature diagnosis.</p>
+  <div class="grid2">
+    <div class="card tinted-blue">
+      <h4>Common areas (parent-reported)</h4>
+      <ul class="tight">
+        <li>Difficulty reading / reads slowly</li>
+        <li>Difficulty writing / poor spelling</li>
+        <li>Difficulty in mathematics / forgets tables</li>
+        <li>Slow completion of homework</li>
+        <li>Poor academic performance</li>
+        <li>Difficulty understanding written material</li>
+        <li>Difficulty remembering lessons</li>
+      </ul>
+    </div>
+    <div class="report-doc">
+      <h4>Example</h4>
+      <p><em>Chief complaints (as reported by mother):</em></p>
+      <ul class="tight">
+        <li><em>"Reads like a much younger child" — since Std I</em></li>
+        <li><em>"Spells the same word differently each time" — ~2 years</em></li>
+        <li><em>"Takes very long to finish written homework" — ongoing</em></li>
+      </ul>
+    </div>
+  </div>
+  <div class="callout co-key"><b>Rule.</b>Use simple, parent-reported language. Convert to clinical terminology only in the interpretation/formulation (§58), never at the complaint stage.</div>
+</section>
+
+<!-- 10 HOPI -->
+<div class="banner b-interview"><div class="tag">Part II — The Clinical Interview</div><h2 id="hopi">10 · History of Presenting Difficulty</h2></div>
+<section>
+  <p>A typical opening formulation: <em>"The index child was reportedly functioning adequately until…"</em> — or an onset-from-start formulation where the difficulty was present from the beginning of formal schooling.</p>
+  <h4>Cover systematically</h4>
+  <div class="grid2">
+    <div class="card">
+      <ul class="tight">
+        <li>When first noticed; age/class at onset</li>
+        <li>Subject affected first; progression</li>
+        <li>Current severity &amp; frequency</li>
+        <li>Situations in which it occurs (home vs school)</li>
+        <li>Teacher observations</li>
+      </ul>
+    </div>
+    <div class="card">
+      <ul class="tight">
+        <li>Homework &amp; examination performance</li>
+        <li>Remedial teaching tried &amp; response</li>
+        <li>Previous assessments / interventions</li>
+        <li>Current academic functioning</li>
+        <li>Impact on mood, motivation, attendance</li>
+      </ul>
+    </div>
+  </div>
+  <div class="report-doc">
+    <h4>Example documentation</h4>
+    <p><em>Difficulty with reading was reportedly present from the time the child began formal schooling. He was slow to learn letter–sound correspondences and continues to read below grade level, more so with unfamiliar words. The difficulty has been persistent and is reported both at home and at school. Private tuition over two years produced minimal change. No prior formal assessment had been carried out.</em></p>
+  </div>
+</section>
+
+<!-- ===================== 11 · READING HISTORY ===================== -->
+<div class="banner b-admin"><div class="tag">Part III — Subject-Wise History</div><h2 id="reading-hx">11 · Reading / Language History</h2></div>
+<section>
+  <h4>Ask</h4>
+  <div class="grid2">
+    <div class="card">
+      <ul class="tight">
+        <li>Does the child recognise letters? Confuse or reverse letters?</li>
+        <li>Difficulty sounding out words (decoding)?</li>
+        <li>Reads slowly? Skips words? Adds words?</li>
+        <li>Repeats words/lines? Loses place while reading?</li>
+        <li>Guesses unfamiliar words from the first letter/picture?</li>
+      </ul>
+    </div>
+    <div class="card">
+      <ul class="tight">
+        <li>Difficulty understanding what was read (comprehension)?</li>
+        <li>Can the child read aloud? How does it compare to peers?</li>
+        <li>Does reading improve with assistance?</li>
+        <li>Is listening comprehension better than reading comprehension?</li>
+      </ul>
+    </div>
+  </div>
+  <div class="ask-card">
+    <div class="q">"When your child reads aloud, what exactly happens?"</div>
+    <div class="body">
+      <div class="row"><span class="lab">Possible answers</span><span>
+        <span class="ans ans-ok">"Reads fine, just a little slow when tired"</span>
+        <span class="ans ans-sig">"Guesses words, skips lines, reads very slowly"</span>
+        <span class="ans ans-sev">"Can't read Std-level words at all; refuses to read aloud"</span>
+        <span class="ans ans-unc">"I've never actually heard him read"</span>
+      </span></div>
+      <div class="row"><span class="lab">Probe</span><span>Accuracy vs speed vs comprehension? Error types (omission/addition/substitution/reversal/repetition/loss of place)? Better with familiar text?</span></div>
+      <div class="row"><span class="lab">Significance</span><span>Separates decoding from comprehension; error pattern guides later error analysis (§35). Preserved listening comprehension with poor reading comprehension points to a reading (decoding) problem.</span></div>
+      <div class="row"><span class="lab">Documentation</span><span><em>"Caregiver reported slow, effortful reading with frequent word substitutions and loss of place; reading accuracy appeared below the expected level for current grade."</em></span></div>
+    </div>
+  </div>
+  <div class="callout co-warn"><b>Do not over-interpret.</b>Do <em>not</em> treat every letter reversal as proof of dyslexia — some reversals are developmentally normal in early readers. Weigh the <em>whole</em> pattern, persistence, and age.</div>
+</section>
+
+<!-- 12 Writing history -->
+<div class="banner b-admin"><div class="tag">Part III — Subject-Wise History</div><h2 id="writing-hx">12 · Writing History</h2></div>
+<section>
+  <h4>Ask about</h4>
+  <div class="grid3">
+    <div class="card tinted-peach"><h4>Handwriting</h4><ul class="tight"><li>Letter formation, size</li><li>Spacing, alignment</li><li>Writing speed</li><li>Fatigue while writing</li></ul></div>
+    <div class="card tinted-peach"><h4>Spelling &amp; mechanics</h4><ul class="tight"><li>Copying vs dictation</li><li>Omissions / additions / substitutions / reversals</li><li>Inconsistent spelling of the same word</li></ul></div>
+    <div class="card tinted-peach"><h4>Composition</h4><ul class="tight"><li>Sentence construction, grammar</li><li>Written expression &amp; organisation</li><li>Difficulty organising answers</li></ul></div>
+  </div>
+  <div class="ask-card">
+    <div class="q">"How does your child's writing differ from other children of the same class?"</div>
+    <div class="body">
+      <div class="row"><span class="lab">Possible answers</span><span>
+        <span class="ans ans-ok">"Just a bit untidy"</span>
+        <span class="ans ans-sig">"Spells the same word differently; very slow to copy"</span>
+        <span class="ans ans-sev">"Illegible, laborious; gives up on written answers"</span>
+        <span class="ans ans-unc">"I haven't compared with others"</span>
+      </span></div>
+      <div class="row"><span class="lab">Probe</span><span>Is it a handwriting (motor) problem, a spelling problem, a language-formulation problem, or an attention-related problem? Copying vs free writing?</span></div>
+      <div class="row"><span class="lab">Significance</span><span>Dissociates the components of written expression — crucial because the remedy differs (§33).</span></div>
+      <div class="row"><span class="lab">Documentation</span><span><em>"Caregiver reported slow, laboured handwriting and inconsistent spelling of familiar words, with difficulty organising written answers."</em></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 13 Maths history -->
+<div class="banner b-admin"><div class="tag">Part III — Subject-Wise History</div><h2 id="maths-hx">13 · Mathematics History</h2></div>
+<section>
+  <p>Separate the levels: <b>basic numerical knowledge → calculation → mathematical reasoning → word problems</b>.</p>
+  <div class="grid2">
+    <div class="card tinted-mint">
+      <h4>Basic numerical knowledge</h4>
+      <ul class="tight">
+        <li>Recognises numbers? Counts correctly?</li>
+        <li>Understands quantity? Compares numbers?</li>
+        <li>Understands place value &amp; mathematical symbols?</li>
+      </ul>
+    </div>
+    <div class="card tinted-mint">
+      <h4>Calculation</h4>
+      <ul class="tight">
+        <li>Recalls number facts / multiplication tables?</li>
+        <li>Addition, subtraction, multiplication, division?</li>
+        <li>Carrying / borrowing? Follows procedures/steps?</li>
+      </ul>
+    </div>
+    <div class="card tinted-mint">
+      <h4>Reasoning</h4>
+      <ul class="tight">
+        <li>Estimates quantities?</li>
+        <li>Applies the right operation?</li>
+      </ul>
+    </div>
+    <div class="card tinted-mint">
+      <h4>Word (statement) problems</h4>
+      <ul class="tight">
+        <li>Understands what the problem asks?</li>
+        <li>Translates words into operations?</li>
+      </ul>
+    </div>
+  </div>
+  <div class="ask-card">
+    <div class="q">"What happens when your child does maths — basic sums vs word problems?"</div>
+    <div class="body">
+      <div class="row"><span class="lab">Possible answers</span><span>
+        <span class="ans ans-ok">"Fine with sums, slips in tables"</span>
+        <span class="ans ans-sig">"Knows tables but can't start a word problem"</span>
+        <span class="ans ans-sev">"Confuses + and −, can't do place value or carrying"</span>
+        <span class="ans ans-unc">"Not sure where exactly it breaks down"</span>
+      </span></div>
+      <div class="row"><span class="lab">Probe</span><span>Which level fails first — number sense, calculation, reasoning, or word problems? Careless vs conceptual errors?</span></div>
+      <div class="row"><span class="lab">Significance</span><span>Localises the mathematical difficulty and guides targeted remediation (§34, §49).</span></div>
+      <div class="row"><span class="lab">Documentation</span><span><em>"Caregiver reported adequate recall of number facts but marked difficulty interpreting and solving statement (word) problems."</em></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 14 · SCHOOL HISTORY ===================== -->
+<div class="banner b-admin"><div class="tag">Part IV — Educational &amp; Developmental</div><h2 id="school-hx">14 · School History</h2></div>
+<section>
+  <div class="grid2">
+    <div class="card">
+      <ul class="tight">
+        <li>Age of school entry; preschool (Nursery/LKG/UKG) history</li>
+        <li>Class progression; school changes; absenteeism; repetition</li>
+        <li>Academic performance; subject-wise grades</li>
+        <li>Teacher concerns; homework; examination performance</li>
+        <li>Oral vs written performance</li>
+      </ul>
+    </div>
+    <div class="card">
+      <ul class="tight">
+        <li>Classroom behaviour; attention</li>
+        <li>Peer &amp; teacher relationships</li>
+        <li>Remedial education / special educator involvement</li>
+        <li>IEP / accommodations (if any)</li>
+        <li>Previous school assessments</li>
+      </ul>
+    </div>
+  </div>
+  <div class="callout co-key"><b>Adequacy of schooling is an exclusion criterion.</b>The source emphasises that, in the Indian context, quality of education affects academic skills: a study found only ~15% of slum-school children (vs higher in a mainstream school) had class-appropriate skills — underscoring that <em>inadequate schooling/opportunity must be ruled out</em> before diagnosing SLD.</div>
+</section>
+
+<!-- 15 Academic records -->
+<div class="banner b-admin"><div class="tag">Part IV — Educational &amp; Developmental</div><h2 id="records">15 · Academic Record Analysis</h2></div>
+<section>
+  <p>Review all available academic evidence — do not rely on report alone.</p>
+  <div class="tbl-scroll"><table>
+    <thead><tr><th>Source</th><th>What to look for</th><th>Clinical relevance</th></tr></thead>
+    <tbody>
+      <tr><td>Report cards</td><td>Subject-wise pattern over years; which subjects, when they fell</td><td>Trajectory; specific vs global underachievement</td></tr>
+      <tr><td>Notebooks</td><td>Handwriting, spelling consistency, copying errors, completion</td><td>Direct writing sample over time</td></tr>
+      <tr><td>Examination papers</td><td>Error types; oral vs written gap; incomplete answers</td><td>Shows performance under standard demand</td></tr>
+      <tr><td>Dictation samples</td><td>Spelling errors vs copying accuracy</td><td>Separates spelling from motor difficulty</td></tr>
+      <tr><td>Mathematics worksheets</td><td>Calculation vs reasoning errors; place-value/procedure slips</td><td>Localises maths difficulty</td></tr>
+      <tr><td>Teacher report</td><td>Cross-setting corroboration; behaviour, attention</td><td>Essential second informant</td></tr>
+      <tr><td>Parent report / direct assessment</td><td>Consistency with records &amp; testing</td><td>Triangulation (§39)</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- 16 Developmental history -->
+<div class="banner b-admin"><div class="tag">Part IV — Educational &amp; Developmental</div><h2 id="devhx">16 · Developmental History</h2></div>
+<section>
+  <div class="grid3">
+    <div class="card tinted-lav">
+      <h4>Prenatal</h4>
+      <ul class="tight">
+        <li>Maternal health; antenatal care</li>
+        <li>Illness, medications, substance exposure</li>
+        <li>Nutrition, stress</li>
+        <li>Pregnancy complications</li>
+      </ul>
+    </div>
+    <div class="card tinted-powder">
+      <h4>Perinatal</h4>
+      <ul class="tight">
+        <li>Gestational age; mode of delivery</li>
+        <li>Birth weight; cry at birth</li>
+        <li>Resuscitation; NICU admission</li>
+      </ul>
+    </div>
+    <div class="card tinted-sage">
+      <h4>Neonatal</h4>
+      <ul class="tight">
+        <li>Jaundice; seizures</li>
+        <li>Feeding difficulties</li>
+        <li>Respiratory problems; infections</li>
+      </ul>
+    </div>
+  </div>
+  <div class="callout co-note"><b>Why it matters.</b>Biological/perinatal risk factors are among the correlates named in the source (e.g. foetal distress, unfavourable uterine environment). They support the <em>neurodevelopmental</em> picture but are neither necessary nor sufficient for the diagnosis.</div>
+</section>
+
+<!-- 17 Milestones -->
+<div class="banner b-admin"><div class="tag">Part IV — Educational &amp; Developmental</div><h2 id="milestones">17 · Developmental Milestones</h2></div>
+<section>
+  <p>For every domain: <b>what to ask → possible normal / delayed answer → how to document → clinical significance</b>.</p>
+  <div class="tbl-scroll"><table>
+    <thead><tr><th>Domain</th><th>Ask</th><th>Normal</th><th>Delayed</th><th>Significance</th></tr></thead>
+    <tbody>
+      <tr><td>Gross motor</td><td>Sitting, standing, walking ages</td><td>Within expected range</td><td>Markedly late</td><td>Broad delay → consider GDD/ID, not isolated SLD</td></tr>
+      <tr><td>Fine motor</td><td>Pincer grasp, scribbling, buttoning, scissors</td><td>Age-appropriate</td><td>Clumsy, delayed</td><td>Relevant to handwriting/visuo-motor difficulty</td></tr>
+      <tr><td>Language</td><td>First words, phrases, sentences</td><td>Timely</td><td>Late talking, unclear speech</td><td>Language delay can mimic/contribute to literacy difficulty (§25)</td></tr>
+      <tr><td>Social</td><td>Smiling, interaction, pretend play</td><td>Typical</td><td>Reduced reciprocity</td><td>Screen for ASD if atypical (§40)</td></tr>
+      <tr><td>Adaptive / self-help</td><td>Feeding, dressing, toileting</td><td>Age-appropriate</td><td>Delayed independence</td><td>Low adaptive + low IQ → consider ID</td></tr>
+    </tbody>
+  </table></div>
+  <div class="callout co-warn"><b>Do not use single milestone ages as rigid cut-offs.</b>Normal variation is wide. Weigh the <em>pattern</em> across domains and corroborate; an isolated slightly-late milestone is not diagnostic.</div>
+</section>
+
+<!-- 18 Regression -->
+<div class="banner b-admin"><div class="tag">Part IV — Educational &amp; Developmental</div><h2 id="regression">18 · Developmental Regression</h2></div>
+<section>
+  <div class="ask-card">
+    <div class="q">"Did your child ever learn a skill and later lose it?"</div>
+    <div class="body">
+      <div class="row"><span class="lab">Differentiate</span><span>
+        <b>Never acquired</b> · <b>Delayed acquisition</b> · <b>Temporary difficulty</b> (e.g. during illness, then recovered) · <b>Actual regression</b> (true loss of a previously mastered skill).</span></div>
+      <div class="row"><span class="lab">Significance</span><span>SLD is a difficulty <em>acquiring</em> skills, not losing them. <b>Genuine regression requires further clinical/neurological evaluation</b> — it is a red flag that points away from uncomplicated SLD.</span></div>
+      <div class="row"><span class="lab">Documentation</span><span><em>"No history of loss of previously acquired skills was reported"</em> (negative) vs <em>"Caregiver reported loss of previously acquired reading skill, warranting neurological evaluation."</em></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 19 Medical -->
+<div class="banner b-admin"><div class="tag">Part IV — Educational &amp; Developmental</div><h2 id="medical">19 · Medical History</h2></div>
+<section>
+  <div class="grid2">
+    <div class="card">
+      <ul class="tight">
+        <li>Neurological illness; seizures</li>
+        <li>Head injury; loss of consciousness</li>
+        <li>CNS infection; high fever</li>
+        <li>Hearing problems; visual problems</li>
+      </ul>
+    </div>
+    <div class="card">
+      <ul class="tight">
+        <li>Chronic illness; endocrine/metabolic conditions</li>
+        <li>Sleep problems</li>
+        <li>Medication; hospitalisation; surgery</li>
+      </ul>
+    </div>
+  </div>
+  <div class="callout co-key"><b>Sensory screening is mandatory.</b>Uncorrected <b>hearing or vision</b> problems can masquerade as learning difficulty and are an explicit exclusion. Confirm sensory status before interpreting academic test performance. The source also advises administering a neuropsychological battery when there are difficulties in perception, attention or memory.</div>
+</section>
+
+<!-- 20 Family -->
+<div class="banner b-admin"><div class="tag">Part IV — Educational &amp; Developmental</div><h2 id="family">20 · Family History</h2></div>
+<section>
+  <div class="card">
+    <p>Ask about: learning difficulties, reading/academic difficulties, speech/language difficulties, ADHD, autism, intellectual disability, developmental disorders, neurological illness, psychiatric disorders, seizures, and family members who required special education.</p>
+  </div>
+  <div class="callout co-note"><b>Familial aggregation — stated carefully.</b>The source notes LD "runs in families" (a genetic correlate). Document family history as a <em>risk/aggregation</em> factor, <b>not</b> as deterministic — a positive family history raises prior probability but does not by itself establish the child's diagnosis.</div>
+</section>
+
+<!-- 21 Personal -->
+<div class="banner b-admin"><div class="tag">Part IV — Educational &amp; Developmental</div><h2 id="personal">21 · Personal History</h2></div>
+<section>
+  <div class="grid2">
+    <div class="card">
+      <ul class="tight">
+        <li>Early childhood; temperament; behaviour</li>
+        <li>Peer interaction; play; social development</li>
+        <li>Independence; self-care</li>
+      </ul>
+    </div>
+    <div class="card">
+      <ul class="tight">
+        <li>Sleep; appetite; screen use</li>
+        <li>Daily routine; homework routine</li>
+        <li>Parent–child interaction; discipline</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 22 · PSYCHIATRIC SCREENING ===================== -->
+<div class="banner b-interp"><div class="tag">Part V — Psychiatric Screen</div><h2 id="psych-screen">22 · Psychiatric Screening</h2></div>
+<section>
+  <div class="callout co-key"><b>SLD assessment must not be purely academic.</b>Academic underachievement can be <b>primary</b> (SLD), <b>secondary</b> to another condition (e.g. ADHD, anxiety, depression, school refusal), or <b>multiply determined</b>. Always screen.</div>
+  <div class="grid3">
+    <div class="card tinted-blush"><h4>Externalising</h4><ul class="tight"><li>ADHD (inattention/hyperactivity)</li><li>Oppositional behaviour</li><li>Conduct problems</li></ul></div>
+    <div class="card tinted-blush"><h4>Internalising</h4><ul class="tight"><li>Anxiety; depression</li><li>School refusal</li><li>OCD; trauma</li></ul></div>
+    <div class="card tinted-blush"><h4>Developmental &amp; other</h4><ul class="tight"><li>Autism-related concerns</li><li>Sleep disturbance</li><li>Low self-esteem; social difficulties</li></ul></div>
+  </div>
+</section>
+
+<!-- 23 ADHD differential -->
+<div class="banner b-interp"><div class="tag">Part V — Psychiatric Screen</div><h2 id="adhd-diff">23 · ADHD Differential</h2></div>
+<section>
+  <div class="tbl-scroll"><table>
+    <thead><tr><th>Feature</th><th>SLD</th><th>ADHD</th><th>Both (co-occurring)</th></tr></thead>
+    <tbody>
+      <tr><td>Core deficit</td><td>Acquiring/using a specific academic skill</td><td>Attention regulation, impulse control, activity level</td><td>Specific skill deficit <em>plus</em> attention dysregulation</td></tr>
+      <tr><td>Setting specificity</td><td>Tied to the affected academic task</td><td>Cross-setting (home, school, play)</td><td>Both: task-specific failure <em>and</em> pervasive inattention</td></tr>
+      <tr><td>Performance when motivated/supported</td><td>Skill still hard even with effort</td><td>Can do the skill but inconsistently; careless errors</td><td>Mixed</td></tr>
+      <tr><td>Error quality</td><td>Decoding/spelling/calculation errors reflecting the deficit</td><td>Careless, inconsistent, incomplete work</td><td>Both error types present</td></tr>
+      <tr><td>Effect on academics</td><td>Direct impairment of the skill</td><td>Impairs output/completion without a specific skill deficit</td><td>Compounded underachievement</td></tr>
+    </tbody>
+  </table></div>
+  <div class="callout co-warn"><b>Key caution.</b>ADHD can impair academic performance <em>without</em> a specific skill deficit — i.e. ADHD alone does not prove SLD. Equally, the two frequently co-occur. Ask about inattention, distractibility, impulsivity, hyperactivity, task completion, forgetfulness, organisation, and whether symptoms cross settings. Attention is directly sampled by the Number Cancellation test (§29, §30).</div>
+</section>
+
+<!-- 24 Intellectual functioning -->
+<div class="banner b-iq" style="background:linear-gradient(120deg,var(--mint),#eefaf5)"><div class="tag">Part VI — Cognitive &amp; Language</div><h2 id="intellect">24 · Intellectual Functioning</h2></div>
+<section>
+  <p>Intellectual assessment is a <b>required pre-requisite</b> in the SLD certification pathway. Per the Gazette of India document, an intelligence test (MISIC / WISC) is administered <b>before</b> the NIMHANS SLD Index, and the child must obtain an <b>IQ of 85 and above</b> for the SLD pathway.</p>
+  <div class="grid2">
+    <div class="card tinted-mint">
+      <h4>Instruments named in the source</h4>
+      <ul class="tight">
+        <li><b>MISIC</b> — Malin's Intelligence Scale for Indian Children (Malin, 1969)</li>
+        <li><b>WISC-III UK</b> (Indian adaptation); <b>WISC-IV</b> if WISC-III Indian not available</li>
+        <li><b>WAPIS</b> (Wechsler Adult Performance Intelligence Scale) for older children, since MISIC lacks norms above 15 years</li>
+      </ul>
+    </div>
+    <div class="card tinted-mint">
+      <h4>What to look at</h4>
+      <ul class="tight">
+        <li>Overall cognitive functioning (Full-Scale IQ)</li>
+        <li>Verbal vs non-verbal abilities</li>
+        <li>Working memory; processing speed; reasoning</li>
+        <li>Adaptive functioning where relevant</li>
+      </ul>
+    </div>
+  </div>
+  <div class="callout co-warn"><b>SLD vs Intellectual Disability.</b>Do <em>not</em> diagnose SLD solely because IQ is low or high. SLD requires adequate general intelligence (certification: IQ ≥ 85) with <em>specific</em> academic impairment; ID is a global deficit in intellectual <em>and</em> adaptive functioning. Follow the exact diagnostic framework of the classification system you are using (§46).</div>
+</section>
+
+<!-- 25 Language -->
+<div class="banner b-iq" style="background:linear-gradient(120deg,var(--mint),#eefaf5)"><div class="tag">Part VI — Cognitive &amp; Language</div><h2 id="language">25 · Language &amp; Communication</h2></div>
+<section>
+  <div class="grid2">
+    <div class="card">
+      <h4>Assess</h4>
+      <ul class="tight">
+        <li>Receptive language</li>
+        <li>Expressive language (verbal language expression task — §29)</li>
+        <li>Vocabulary; sentence formulation</li>
+        <li>Verbal comprehension</li>
+        <li>Speech/language history &amp; articulation</li>
+      </ul>
+    </div>
+    <div class="callout co-note" style="margin:0"><b>Why language matters.</b>Language impairment can mimic or contribute to academic difficulties — especially reading and written expression. A Developmental Language Disorder is a key differential (§40). Poor phonological processing (a language-level skill) is specifically linked to reading &amp; spelling disability in the source and in the phonological model of dyslexia (Chapter 6 of the monograph).</div>
+  </div>
+</section>
+
+<!-- ===================== 26 · BATTERY OVERVIEW ===================== -->
+<div class="banner b-subtest"><div class="tag">Part VII — The NIMHANS SLD Battery</div><h2 id="battery">26 · NIMHANS Index for SLD — Overview</h2></div>
+<section>
+  <div class="card tinted-sage">
+    <div class="sgrid" style="display:grid;grid-template-columns:170px 1fr;gap:6px 14px;font-size:.93rem">
+      <b>Full name</b><span>NIMHANS Index for Specific Learning Disabilities (the "NIMHANS SLD Index" / NIMHANS SLD Battery)</span>
+      <b>Developers</b><span>Originally John (1989); compiled &amp; named by Kapur, John, Rozario &amp; Oommen (1991); 2nd revision Hirisave, Kapur, John, Rozario &amp; Oommen (2019), publ. 2020</span>
+      <b>Purpose</b><span>To confirm specific learning disabilities and derive a profile for drawing up a remedial plan</span>
+      <b>Target age</b><span>School-age children; organised as <b>Level I (5–7 yrs)</b> and <b>Level II (8–16 yrs)</b></span>
+      <b>Measurement type</b><span>A <b>criterion-measure test</b> — compares performance to grade-level expectation (not a norm-referenced % of disability)</span>
+      <b>Pre-requisite</b><span>Intelligence test (MISIC/WISC) first; <b>IQ ≥ 85</b> for the certification pathway</span>
+      <b>Structure</b><span>Attention · Language (Reading, Writing, Spelling, Comprehension) · Arithmetic/Mathematics · Visuo-motor · Memory, plus readiness (Brigance) screening for the young</span>
+    </div>
+  </div>
+  <h4>Historical note (from the source)</h4>
+  <p>John's (1989) original battery consisted of the Bender Gestalt Test, the Minnesota Percepto-Diagnostic Test, and tests of reading, writing, comprehension, spelling and arithmetic, validated on 50 clinic children with scholastic backwardness (ages 8–12) vs 50 controls. In 1992 Kapur et al compiled the tests into the <b>NIMHANS Index for SLD</b>. The <b>second revision (2019)</b> added/revised norms for several subtests, collected from English-medium school children in Bengaluru (lower-middle &amp; middle SES). The 2020 monograph also introduced the <b>My Experience Scale</b> and a <b>Resilience Tool</b> (Chapters 8–9) and tests for older children.</p>
+  <div class="callout co-verify"><b>Norm detail.</b>Exact sample sizes per class and the normative tables themselves are partly summarised in the source and partly withheld as secure content. For any specific raw-score → interpretation conversion, use the tables in the original manual — <em>not available in full in the retrieved source; verify from the original NIMHANS manual.</em></div>
+</section>
+
+<!-- 27 Master table -->
+<div class="banner b-subtest"><div class="tag">Part VII — The NIMHANS SLD Battery</div><h2 id="master-table">27 · Subtest Master Table</h2></div>
+<section>
+  <div class="tbl-scroll"><table>
+    <thead><tr><th>Level / Domain</th><th>Subtest</th><th>Measures</th><th>Administration (core)</th><th>Scoring / Interpretation principle</th></tr></thead>
+    <tbody>
+      <tr><td>Readiness (pre-Level I/II)</td><td>Brigance basic skills screen</td><td>Readiness: colour, visual discrimination, visuo-motor, memory, body image, motor, language</td><td>Items 1–24 (see §29)</td><td>Age-based: &gt;7 yrs failing items → referred as learning-disabled, needs remediation</td></tr>
+      <tr><td>Level I — Attention</td><td>Colour Cancellation (Simple &amp; Double)</td><td>Sustained attention</td><td>Cancel one colour (simple, 60 s) / two colours (double, 120 s)</td><td>No. correct, errors, time</td></tr>
+      <tr><td>Level I — Visual</td><td>Visual Discrimination</td><td>Visual perception/discrimination</td><td>"Mark the one that looks the same as the first one"</td><td><b>≥3 errors</b> suggests difficulty (age 5+)</td></tr>
+      <tr><td>Level I — Visual</td><td>Visual Memory</td><td>Short-term visual memory</td><td>Row of pictures shown then covered; exposure 2–5 s by row size</td><td>Age 5: recall 3 items (any order) adequate; age 6+: recall 4 items adequate</td></tr>
+      <tr><td>Level I — Auditory</td><td>Auditory Discrimination</td><td>Phoneme discrimination</td><td>20 word-pairs (same/different); face hidden; 2nd presentation allowed</td><td><b>≥5 errors</b> (age 6+) suggests difficulty</td></tr>
+      <tr><td>Level I — Auditory</td><td>Auditory Memory</td><td>Verbal short-term memory</td><td>8 sentences repeated</td><td>Age 5: ≥1 error on each of 8 = difficulty; age 6: ≥5 sentences error-free</td></tr>
+      <tr><td>Level I — Language</td><td>Speech &amp; Language (verbal expression)</td><td>Expressive language</td><td>Describe pictures: "Tell me all you can about this"</td><td>Ages 4–6: &lt;4 responses = problem; age 7+: &lt;6 responses = difficulty</td></tr>
+      <tr><td>Level I — Visuo-motor</td><td>Copying shapes</td><td>Visuo-motor integration</td><td>Copy design; 3 chances, best counted</td><td>Norms: circle=3 yr, square=4, triangle=5½–6, diamond=6–7; difficulty after 7 → needs programme</td></tr>
+      <tr><td>Level I — Writing</td><td>Writing skills</td><td>Letter/number writing &amp; sequencing</td><td>Write capitals, smalls, preceding/succeeding letter &amp; number, numbers 1–20</td><td>Compare to grade expectation; qualitative error analysis</td></tr>
+      <tr><td>Level I — Phonics</td><td>Knowledge of sounds of alphabets/vowels; Phonic skills</td><td>Grapheme–phoneme knowledge</td><td>Articulate the sound for each alphabet</td><td>Qualitative; DIBELS phoneme segmentation / nonsense-word fluency may be added</td></tr>
+      <tr><td>Level II — Attention</td><td>Number Cancellation</td><td>Sustained attention</td><td>"Cancel all 3s and 4s as quickly as possible"; record time</td><td><b>Score = right cancelled − wrong cancelled</b>; comment on approach (systematic/haphazard)</td></tr>
+      <tr><td>Level II — Reading</td><td>Reading of English passages (I–IX grade)</td><td>Reading accuracy &amp; level</td><td>"Read this passage loudly &amp; clearly"; progress by standard</td><td>Highest standard read adequately vs grade placement → severity logic (§28)</td></tr>
+      <tr><td>Level II — Comprehension</td><td>Reading comprehension (I–IX)</td><td>Understanding of text</td><td>Comprehension questions per standard read</td><td>By standard; do <em>not</em> rate comprehension severity if reading is impaired</td></tr>
+      <tr><td>Level II — Comprehension</td><td>Listening comprehension (I–IX)</td><td>Comprehension without reading load</td><td>Examiner reads; child answers orally (when reading severe)</td><td>By standard</td></tr>
+      <tr><td>Level II — Spelling</td><td>Schonell Graded Spelling Test</td><td>Spelling</td><td>Dictation in groups of 10; stop after 10 consecutive errors; each word given 3× in a sentence</td><td>Per Schonell procedure (grade-level); qualitative error analysis</td></tr>
+      <tr><td>Level II — Writing</td><td>Copying &amp; Written expression (I–IX)</td><td>Copying, composition</td><td>Copy passage (10 min); write essay on "My School" (15 min)</td><td>Writing severity on a 0/1 scale; qualitative analysis</td></tr>
+      <tr><td>Level II — Arithmetic/Maths</td><td>Arithmetic (+ − × ÷, fractions) &amp; Mathematics Test</td><td>Calculation &amp; reasoning</td><td>Diagnostic sums (30–40 min); statement sums (60 min); discontinue if child unable</td><td>Time, procedure, mistakes, total score; by standard</td></tr>
+      <tr><td>Level II — Visuo-spatial</td><td>Bender Gestalt Test (Koppitz, 1974)</td><td>Visuo-motor perception</td><td>Standard BGT administration</td><td>Koppitz scoring; for 16–18 yrs use Bender L scoring</td></tr>
+      <tr><td>Battery — Visuo-motor</td><td>DTVMI (Beery &amp; Buktenica)</td><td>Visuo-motor integration</td><td>Per its own manual</td><td>Per its own manual</td></tr>
+      <tr><td>Battery — Memory</td><td>Memory test (BVRT, Benton) &amp; Auditory memory (word-pairs)</td><td>Visual retention; verbal memory</td><td>Word-pairs read; cue one, child recalls the other</td><td>Per manuals; if visuo-motor perception poor, do not administer BVRT</td></tr>
+      <tr><td>General ability</td><td>MISIC / WISC-III UK / WISC-IV</td><td>Intellectual functioning</td><td>Administered before the Index</td><td>IQ ≥ 85 required for certification pathway</td></tr>
+    </tbody>
+  </table></div>
+  <div class="callout co-verify"><b>Use the manual's exact subtest names &amp; forms.</b>The record forms (SLD Level-I and Level-II profiles) list these subtests; score columns and norm tables live in the manual. Where a specific numeric norm is not shown above, it is <em>not available in the retrieved source; verify from the original NIMHANS manual.</em></div>
+</section>
+
+<!-- 28 Prereq / certification -->
+<div class="banner b-subtest"><div class="tag">Part VII — The NIMHANS SLD Battery</div><h2 id="prereq">28 · Pre-requisites, Severity &amp; Certification</h2></div>
+<section>
+  <div class="flow vert">
+    <div class="step">Intelligence test first (MISIC / WISC) — obtain IQ</div>
+    <div class="arw">↓</div>
+    <div class="step"><b>IQ ≥ 85</b> required for the SLD certification pathway</div>
+    <div class="arw">↓</div>
+    <div class="step">Administer NIMHANS SLD Index (Level I or II as age/skill dictate)</div>
+    <div class="arw">↓</div>
+    <div class="step">Rate SLD on the <b>severity scale</b></div>
+  </div>
+  <h4>Severity rating at NIMHANS (from the source)</h4>
+  <div class="tbl-scroll"><table>
+    <thead><tr><th>Rating</th><th>Criterion</th><th>Applies to</th></tr></thead>
+    <tbody>
+      <tr><td><b>Severity 1</b></td><td>Child functions <b>three standards below</b> the standard currently studying in</td><td>Reading, reading comprehension, listening comprehension, spelling, arithmetic</td></tr>
+      <tr><td><b>Severity 2</b></td><td>Child functions <b>four standards or more below</b> the current standard</td><td>As above</td></tr>
+      <tr><td>Writing (copying &amp; written expression)</td><td>Rated on a <b>0 / 1</b> scale</td><td>Written expression &amp; copying</td></tr>
+      <tr><td>Learning <em>difficulty</em> (not full SLD)</td><td>Performance just <b>one or two standards below</b></td><td>Indicates difficulty, not necessarily SLD</td></tr>
+    </tbody>
+  </table></div>
+  <div class="callout co-key"><b>Statutory anchors.</b>Per the <b>Gazette of India, 2018 (REGD. NO. D.L-33004/99)</b>, MISIC/WISC must be administered before the Index and the child must obtain IQ ≥ 85; SLD is rated on a severity scale. Per the Govt. office memorandum (<b>File No. 38-01/2020-DD-III, Ministry of Social Justice &amp; Empowerment, 8 May 2020</b>), a person assessed to have SLD is considered to have <b>more than 40% disability</b>.</div>
+  <div class="callout co-warn"><b>No percentage from the test itself.</b>The source is explicit: the Index is a <b>criterion measure</b> — it is <em>not possible to arrive at a percentage of disability on this test</em>. Do not report a computed "% disability" from the Index; the 40% figure is a statutory classification, not a test score. Important caveat from the source: do <b>not</b> rate the severity of reading comprehension if the child has a reading disability.</div>
+</section>
+
+<!-- ===================== 29 · LEVEL I ===================== -->
+<div class="banner b-subtest"><div class="tag">Part VII — The NIMHANS SLD Battery</div><h2 id="level1">29 · Level I — Younger Children (5–7 yrs)</h2></div>
+<section>
+  <div class="callout co-note"><b>Readiness screen first — Brigance Diagnostic Inventory of Basic Skills (Brigance, 1977).</b>Before Level I/II, test basic readiness skills (items 1–24): colour recognition, visual discrimination, visuo-motor, visual memory, body image, gross/fine motor, identification of body parts, positional/comprehension of instructions, verbal fluency, sentence memory, counting, alphabets, numeral recognition (1–10), numerical comprehension, recognition of lower/upper-case letters, writing names, numbers in sequence (1–10), and letters by dictation.</div>
+  <h4>Brigance readiness — interpretation (from the source)</h4>
+  <div class="tbl-scroll"><table>
+    <thead><tr><th>Age</th><th>Expectation</th><th>Interpretation</th></tr></thead>
+    <tbody>
+      <tr><td>3–5 yrs</td><td>Most pass items 1–18; some have difficulty on 19–24</td><td>Difficulty on 19–24 at this age is <em>not</em> LD — these children master skills with inputs</td></tr>
+      <tr><td>5–7 yrs</td><td>Unable to do the items</td><td>Child is <b>"at risk"</b>; needs adequate inputs at school &amp; home</td></tr>
+      <tr><td>Above 7 yrs</td><td>Unable to pass the items</td><td>Referred to as <b>learning-disabled</b>; requires remedial training</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>Level I subtests — administration &amp; cut-offs</h3>
+
+  <div class="subtest-card">
+    <h4>Attention — Colour Cancellation</h4>
+    <div class="sgrid">
+      <b>Purpose</b><span>Ability to focus/sustain attention on a given task.</span>
+      <b>Materials</b><span>Colour cancellation sheet (printed on the back cover of the test book).</span>
+      <b>Administration</b><span><b>Simple:</b> cancel any one colour within <b>1 minute</b>. <b>Double:</b> cancel any two colours.</span>
+      <b>Instruction</b><span><em>"I am going to show you a sheet which has different coloured dots. I want you to cancel out all the black and yellow colours as fast as you can."</em> Demonstrate if needed.</span>
+      <b>Scoring</b><span>No. of correct, errors, time (record form: simple 60 s, double 120 s).</span>
+      <b>Observe</b><span>Systematic vs haphazard approach; impulsivity; omissions.</span>
+    </div>
+  </div>
+
+  <div class="subtest-card">
+    <h4>Visual Discrimination</h4>
+    <div class="sgrid">
+      <b>Purpose</b><span>Visual perception / discrimination of similar forms &amp; words.</span>
+      <b>Instruction</b><span><em>"Mark the one that looks the same as the first one."</em></span>
+      <b>Interpretation</b><span><b>Three or more errors</b> suggests difficulty with visual discrimination (children aged 5 or older).</span>
+      <b>Qualitative</b><span>Difficulty matching shapes/forms; loses place; recognises objects poorly when parts are missing; poorly formed/reversed letters (corroborate with observation &amp; parent report).</span>
+    </div>
+  </div>
+
+  <div class="subtest-card">
+    <h4>Visual Memory</h4>
+    <div class="sgrid">
+      <b>Instruction</b><span><em>"I am going to show you a row of pictures. After I cover the pictures, tell me each one exactly as you saw it; try to tell me in the same order."</em></span>
+      <b>Exposure time</b><span>Row 1 &amp; 2 = 2 s · Row 3 = 3 s · Row 4 = 4 s · Row 5 = 5 s.</span>
+      <b>Interpretation</b><span>Age 5: recalling <b>3 items</b> in any order within a row = adequate. Age 6+: recalling <b>4 items</b> in any order within a row = adequate.</span>
+      <b>Qualitative</b><span>Recognises when shown but cannot recall; remembers parts but in the wrong sequence.</span>
+    </div>
+  </div>
+
+  <div class="subtest-card">
+    <h4>Auditory Discrimination</h4>
+    <div class="sgrid">
+      <b>Set-up</b><span>Child should <b>not see the examiner's face</b> (prevents lip-reading).</span>
+      <b>Instruction</b><span><em>"I am going to tell you some words and you tell me if they are same or different."</em> 20 word-pairs. A second presentation may be made; if the child fails again it counts as an error.</span>
+      <b>Interpretation</b><span><b>Five or more errors</b> (age 6 or older) suggests difficulty.</span>
+      <b>Qualitative</b><span>Cannot tell when sounds are the same, or when pitch/intensity changes.</span>
+    </div>
+  </div>
+
+  <div class="subtest-card">
+    <h4>Auditory Memory</h4>
+    <div class="sgrid">
+      <b>Instruction</b><span><em>"I am going to read some sentences to you. When I finish, just repeat what I said."</em> (8 sentences; record responses verbatim.)</span>
+      <b>Interpretation</b><span>Age 5: one or more errors in <em>each</em> of the 8 sentences suggests difficulty. Age 6: can repeat <b>at least 5</b> sentences without error.</span>
+      <b>Qualitative</b><span>Difficulty following a sequence of directions; understands/recognises words but difficulty retrieving them; parents report "told yesterday, forgotten today".</span>
+    </div>
+  </div>
+
+  <div class="subtest-card">
+    <h4>Speech &amp; Language — Verbal Expression</h4>
+    <div class="sgrid">
+      <b>Instruction</b><span>Point to the picture: <em>"Tell me all you can about this. Tell me what it is, and what it does or what you can do with it."</em> (Record stimuli e.g. Car, Ball, Bucket.) List the number of responses.</span>
+      <b>Interpretation</b><span>Ages 4–6: fewer than <b>4 total responses</b> (at least one per item) suggests a problem. Age 7+: under <b>6 responses</b> suggests difficulty.</span>
+      <b>Qualitative</b><span>Doesn't speak; monosyllables only; articulation problems; can't describe persons/places; doesn't comprehend simple sentences.</span>
+    </div>
+  </div>
+
+  <div class="subtest-card">
+    <h4>Visuo-Motor Skills — Copying Shapes</h4>
+    <div class="sgrid">
+      <b>Administration</b><span>Child copies a design exactly as seen; <b>3 chances</b>, only the best effort counted.</span>
+      <b>Normative data</b><span>Single circle = age 3 · Square = age 4 · Triangle = 5½–6 yrs · Diamond = 6–7 yrs.</span>
+      <b>Interpretation</b><span>Difficulty after <b>age 7</b> indicates a need for a comprehensive visual-motor programme (eye–hand readiness).</span>
+      <b>Qualitative</b><span>Poor in games/clumsy; cannot catch/throw a ball; loses balance; unsteady gait.</span>
+    </div>
+  </div>
+
+  <div class="subtest-card">
+    <h4>Writing Skills · Phonic Skills · Knowledge of Sounds</h4>
+    <div class="sgrid">
+      <b>Writing</b><span>Write capital letters, small letters, the letter before/after a given letter, numbers 1–20, and the number before/after a given number.</span>
+      <b>Phonic skills</b><span>Check whether the child can articulate the sound corresponding to each alphabet.</span>
+      <b>Note (source)</b><span>Additional tests — DIBELS (copyrighted; Dynamic Measurement Group) phoneme segmentation fluency and nonsense-word fluency — may be administered. Children aged 6–7 (Std I) who can read &amp; write simple words → administer <b>SLD Level II</b> (Std-I tests: reading, comprehension, spelling, written expression, copying, single-digit addition &amp; subtraction).</span>
+    </div>
+  </div>
+
+  <div class="card tinted-sage">
+    <h4>Level I Profile sheet (record form)</h4>
+    <p>The <b>SLD Level-I record form</b> (Dept. of Clinical Psychology, Child &amp; Adolescent Mental Health Unit, NIMHANS; "for 5–7 years") records: Attention (single/double cancellation — correct/errors/time), Visual Discrimination (total correct), Visual Memory (exposure times &amp; figures recalled), Auditory Discrimination (20 items), Auditory Memory (8 verbatim), Visual-Motor Screen, Speech &amp; Language, Alphabets, Phonic skills, and Numbers. The profile is summarised qualitatively as <span class="pill p-high">Above average</span> <span class="pill p-avg">Average</span> <span class="pill p-low">Below average</span> across General abilities · Attention · Visual (Discrimination/Memory/Motor) · Auditory (Discrimination/Memory) · Language (Alphabets/Expressive speech/Phonic skills) · Arithmetic (Numbers).</p>
+  </div>
+</section>
+
+<!-- ===================== 30 · LEVEL II ===================== -->
+<div class="banner b-subtest"><div class="tag">Part VII — The NIMHANS SLD Battery</div><h2 id="level2">30 · Level II — Older Children (8–16 yrs)</h2></div>
+<section>
+  <div class="subtest-card">
+    <h4>Attention — Number Cancellation</h4>
+    <div class="sgrid">
+      <b>Purpose</b><span>Sustained attention.</span>
+      <b>Instruction</b><span><em>"Of the several numbers given below, I want you to cancel all 3s and 4s. Do it as quickly as possible."</em> (If the child finds two difficult, instruct to cancel any one number.)</span>
+      <b>Record</b><span>Time taken, number of right numbers cancelled, number of wrong numbers cancelled.</span>
+      <b>Score</b><span><b>Score = (no. of right numbers cancelled) − (no. of wrong numbers cancelled).</b></span>
+      <b>Observe</b><span>Comment on the approach: <b>systematic or haphazard</b>.</span>
+    </div>
+  </div>
+
+  <div class="subtest-card">
+    <h4>Reading — English passages (I–IX grade)</h4>
+    <div class="sgrid">
+      <b>Instruction</b><span><em>"I want you to read this passage loudly and clearly."</em> After the child reads (e.g. Std-I paragraph), ask comprehension questions from that standard. If read adequately, progress to the next standard, and so on.</span>
+      <b>Scoring/Interpretation</b><span>Note the highest standard the child reads adequately and compare to grade placement → feeds the severity logic (§28). Record error types for analysis (§35).</span>
+      <b>Content note</b><span>The graded passages are secure test content — not reproduced here (§61).</span>
+    </div>
+  </div>
+
+  <div class="subtest-card">
+    <h4>Reading Comprehension &amp; Listening Comprehension (I–IX)</h4>
+    <div class="sgrid">
+      <b>Reading comp.</b><span>Comprehension questions matched to each standard the child read.</span>
+      <b>Listening comp.</b><span>When reading is severe (so reading comprehension would be unfairly poor), the examiner reads the paragraph aloud and asks the questions orally.</span>
+      <b>Caution</b><span>Do <em>not</em> rate the severity of reading comprehension if the child has a reading disability (§28).</span>
+    </div>
+  </div>
+
+  <div class="subtest-card">
+    <h4>Spelling — Schonell Graded Spelling Test</h4>
+    <div class="sgrid">
+      <b>Procedure</b><span>Can be given to a whole group at once (paper &amp; pencil). On foolscap write: child's name, date, A-or-B form, score. Words given &amp; marked in groups of ten, written in a column (space between groups of 10). Each word given <b>only three times</b>. A child continues until making <b>ten mistakes in succession</b>.</span>
+      <b>Giving each word</b><span>Say the word → use it in a sentence so meaning is clear → say the word again → child writes it.</span>
+      <b>Interpretation</b><span>Spelling level vs grade placement; qualitative error analysis (§33, §35).</span>
+    </div>
+  </div>
+
+  <div class="subtest-card">
+    <h4>Copying &amp; Written Expression (I–IX)</h4>
+    <div class="sgrid">
+      <b>Copying</b><span><em>"I want you to copy this passage. Copy as neatly as possible."</em> Ruled sheets provided; <b>time limit 10 minutes</b>. Graded passages by standard (secure content).</span>
+      <b>Written expression</b><span><em>"I want you to write an essay / a few sentences on the topic 'My School'. Write all that you know."</em> <b>Time limit 15 minutes.</b></span>
+      <b>Scoring</b><span>Writing (copying &amp; written expression) rated on a <b>0/1</b> severity scale; qualitative analysis of handwriting, speed, spelling, organisation.</span>
+    </div>
+  </div>
+
+  <div class="subtest-card">
+    <h4>Arithmetic &amp; Mathematics</h4>
+    <div class="sgrid">
+      <b>Arithmetic (diagnostic)</b><span>Simple &amp; graded addition, subtraction, multiplication, division; addition/subtraction/multiplication/division of fractions. <em>"I want you to carry out the following problems."</em> <b>Time 30–40 min.</b></span>
+      <b>Mathematics Test</b><span>Statement (word) sums for VI standard and above: <em>"I want you to carry out the list of statement sums given below."</em> <b>Time 60 min.</b></span>
+      <b>Rule</b><span>If the child expresses inability to carry out, the test can be <b>discontinued</b>.</span>
+      <b>Record</b><span>Time taken, the procedure used to solve, examples of mistakes, and total score. (Item lists &amp; answer keys are secure content — §61.)</span>
+    </div>
+  </div>
+
+  <div class="callout co-verify"><b>Standard X note.</b>No norms were collected for Std X in the source; 10 Std-X children read, comprehended &amp; copied 3 paragraphs from their English textbook without mistakes. For Std X, use <b>curriculum-based testing (State / CBSE / ICSE)</b> to assess learning abilities. — <em>Specific Std-X cut-offs are not available in the retrieved source; verify from the original NIMHANS manual.</em></div>
+</section>
+
+<!-- 31 Visuo-motor & memory -->
+<div class="banner b-subtest"><div class="tag">Part VII — The NIMHANS SLD Battery</div><h2 id="visuomotor">31 · Visuo-Motor &amp; Memory Tests</h2></div>
+<section>
+  <div class="subtest-card">
+    <h4>Bender Gestalt Test (BGT)</h4>
+    <div class="sgrid">
+      <b>Purpose</b><span>Visuo-motor perception / visual-spatial ability.</span>
+      <b>Scoring</b><span><b>Koppitz (1974)</b> developmental scoring for children. For older children aged <b>16–18 years</b>, the source suggests using the scoring procedure given by <b>Bender L</b>.</span>
+      <b>Qualitative</b><span>Rotations, integration failures, perseveration, distortion — note alongside copying performance.</span>
+    </div>
+  </div>
+  <div class="subtest-card">
+    <h4>DTVMI &amp; Memory tests</h4>
+    <div class="sgrid">
+      <b>DTVMI</b><span>Developmental Test of Visual-Motor Integration (Beery &amp; Buktenica, 1967) — administer &amp; score per its own manual.</span>
+      <b>Memory (BVRT)</b><span>Benton's Visual Retention Test (Benton, 1953). <b>If visuo-motor perception is poor, it is suggested not to administer this test.</b></span>
+      <b>Auditory memory (word-pairs)</b><span><em>"I will read a list of pairs of words. Afterwards I will read one word of the pair; tell me the other word of the pair."</em> Pairs presented once; if the child's answer is wrong, the examiner gives the correct word and proceeds.</span>
+      <b>Note</b><span>Other battery tests (intelligence, perception, memory) are administered per their own manuals. The source advises administering a neuropsychological battery when there are difficulties in perception, attention or memory.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 32 · READING ASSESSMENT ===================== -->
+<div class="banner b-scoring"><div class="tag">Part VIII — Academic Assessment</div><h2 id="reading-assess">32 · Reading Assessment</h2></div>
+<section>
+  <p>Within the NIMHANS battery, reading is sampled at Level I (letter/sound recognition, phonic skills) and Level II (graded passage reading I–IX, comprehension, listening comprehension). Assess, where included:</p>
+  <div class="grid2">
+    <div class="card tinted-powder"><ul class="tight"><li>Letter recognition &amp; knowledge of sounds</li><li>Word reading &amp; (where tested) nonword reading</li><li>Reading accuracy</li><li>Reading fluency &amp; speed</li></ul></div>
+    <div class="card tinted-powder"><ul class="tight"><li>Reading comprehension (per standard)</li><li>Listening comprehension (when reading is severe)</li><li>Error analysis during oral reading</li></ul></div>
+  </div>
+  <h4>Classify reading errors (observe during oral reading)</h4>
+  <div class="tbl-scroll"><table>
+    <thead><tr><th>Error</th><th>Example</th><th>Note</th></tr></thead>
+    <tbody>
+      <tr><td>Omission</td><td>Leaves out a word/sound</td><td>May reflect speed or decoding</td></tr>
+      <tr><td>Addition</td><td>Inserts an extra word</td><td>Common in guessers</td></tr>
+      <tr><td>Substitution</td><td>Reads "house" for "home"</td><td>Semantic vs visual substitution differ in meaning</td></tr>
+      <tr><td>Reversal</td><td>"was" ↔ "saw", b/d</td><td>Not diagnostic alone — see caution</td></tr>
+      <tr><td>Mispronunciation</td><td>Distorts the word</td><td>Decoding weakness</td></tr>
+      <tr><td>Guessing</td><td>From first letter/picture</td><td>Compensatory strategy</td></tr>
+      <tr><td>Repetition</td><td>Re-reads words/lines</td><td>Effortful processing</td></tr>
+      <tr><td>Loss of place</td><td>Skips/repeats a line</td><td>Tracking/attention</td></tr>
+    </tbody>
+  </table></div>
+  <div class="callout co-warn"><b>Not all errors are equal.</b>Do not assume every error type carries the same diagnostic significance. A single reversal in a young reader is often developmental. Weigh persistence, density, age, and whether the error pattern coheres with the rest of the profile.</div>
+</section>
+
+<!-- 33 Writing assessment -->
+<div class="banner b-scoring"><div class="tag">Part VIII — Academic Assessment</div><h2 id="writing-assess">33 · Writing Assessment</h2></div>
+<section>
+  <p>From the NIMHANS battery: copying (10 min), dictation/spelling (Schonell), written expression ("My School", 15 min), plus handwriting quality, speed &amp; accuracy. Then separate the component that is impaired:</p>
+  <div class="tbl-scroll"><table>
+    <thead><tr><th>If the problem is…</th><th>Signature features</th><th>Where it shows</th></tr></thead>
+    <tbody>
+      <tr><td>Spelling</td><td>Phonologically/visually incorrect words; inconsistent spelling of the same word</td><td>Dictation worse than copying</td></tr>
+      <tr><td>Handwriting (motor)</td><td>Poor letter formation, spacing, alignment; slow, fatiguing</td><td>Copying effortful even when spelling is fine</td></tr>
+      <tr><td>Language formulation</td><td>Thin, disorganised content; grammar &amp; sentence errors</td><td>Free writing much worse than copying/dictation</td></tr>
+      <tr><td>Motor difficulty</td><td>Clumsy, variable control</td><td>Corroborated on visuo-motor tasks</td></tr>
+      <tr><td>Attention-related</td><td>Careless, inconsistent, incomplete</td><td>Variable across the sample; cross-setting inattention</td></tr>
+    </tbody>
+  </table></div>
+  <div class="callout co-warn"><b>Caution.</b>Poor handwriting <em>alone</em> is not "dysgraphia". Distinguish a motor/handwriting problem from a spelling problem, a language-formulation problem, and an attention-related problem before interpreting.</div>
+</section>
+
+<!-- 34 Maths assessment -->
+<div class="banner b-scoring"><div class="tag">Part VIII — Academic Assessment</div><h2 id="maths-assess">34 · Mathematics Assessment</h2></div>
+<section>
+  <p>From the battery: diagnostic arithmetic (simple/graded + − × ÷, fractions; 30–40 min) and the Mathematics Test (statement sums, VI std+; 60 min). Record <b>time, procedure used, examples of mistakes, total score</b>. Qualitative error analysis is central.</p>
+  <div class="grid2">
+    <div class="card tinted-mint"><h4>What to sample</h4><ul class="tight"><li>Number identification, counting, quantity, comparison</li><li>Arithmetic &amp; calculation (incl. fractions)</li><li>Mathematical reasoning</li><li>Word (statement) problems</li></ul></div>
+    <div class="card tinted-mint"><h4>Error patterns to note</h4><ul class="tight"><li>Place-value &amp; carrying/borrowing errors</li><li>Wrong-operation errors (confusing + and −)</li><li>Procedural / step-sequencing errors</li><li>Fact-retrieval errors (tables)</li><li>Careless vs conceptual errors</li></ul></div>
+  </div>
+</section>
+
+<!-- 35 Error analysis -->
+<div class="banner b-scoring"><div class="tag">Part VIII — Academic Assessment</div><h2 id="error-analysis">35 · SLD Error Analysis Handbook</h2></div>
+<section>
+  <p>For each error: <b>name · example · likely process · what to check next · what it does NOT prove · how to document</b>.</p>
+  <div class="tbl-scroll"><table>
+    <thead><tr><th>Error</th><th>Example</th><th>Likely process</th><th>Check next</th><th>Does NOT prove</th></tr></thead>
+    <tbody>
+      <tr><td>Omission</td><td>Drops a letter/word/digit</td><td>Phonological / attentional / speed</td><td>Pattern across tasks; attention screen</td><td>SLD on its own</td></tr>
+      <tr><td>Addition</td><td>Inserts extra element</td><td>Guessing; impulsivity</td><td>Error density; approach</td><td>A specific domain deficit</td></tr>
+      <tr><td>Substitution</td><td>Reads/writes a different word/number</td><td>Visual vs semantic confusion</td><td>Whether semantic (meaning kept) or visual</td><td>Direction of the deficit by itself</td></tr>
+      <tr><td>Sequencing error</td><td>Letters/steps out of order</td><td>Sequencing / working memory</td><td>Memory subtests; procedure used</td><td>Dyslexia specifically</td></tr>
+      <tr><td>Reversal / transposition</td><td>b↔d, was↔saw, 12↔21</td><td>Orthographic / directional</td><td>Age &amp; persistence</td><td>Dyslexia (often developmental in young)</td></tr>
+      <tr><td>Phonological error</td><td>Spells by sound incorrectly</td><td>Phonological processing</td><td>Phonic skills; auditory discrimination</td><td>A global language disorder</td></tr>
+      <tr><td>Spelling error</td><td>Inconsistent spelling of same word</td><td>Orthographic memory</td><td>Dictation vs copying</td><td>Handwriting (motor) problem</td></tr>
+      <tr><td>Calculation error</td><td>Wrong arithmetic result</td><td>Fact retrieval / procedure</td><td>Which operation; steps shown</td><td>Mathematical reasoning deficit</td></tr>
+      <tr><td>Place-value error</td><td>Misaligns columns, wrong carry</td><td>Number-concept / procedure</td><td>Number sense tasks</td><td>Careless error only</td></tr>
+      <tr><td>Procedural error</td><td>Right idea, wrong steps</td><td>Procedure learning</td><td>Can child verbalise the steps?</td><td>Conceptual failure</td></tr>
+      <tr><td>Careless error</td><td>Knows but slips</td><td>Attention / speed–accuracy</td><td>Does it self-correct on review?</td><td>A skill deficit</td></tr>
+      <tr><td>Comprehension error</td><td>Reads words but misses meaning</td><td>Comprehension / language</td><td>Listening comprehension</td><td>A decoding problem</td></tr>
+    </tbody>
+  </table></div>
+  <div class="callout co-key"><b>Documenting errors.</b>Record <em>what</em> the error was, in which task, how often, and the child's approach — then interpret cautiously in context. The qualitative error profile is what turns raw performance into a remedial plan (§49).</div>
+</section>
+
+<!-- ===================== 36 · QUALITATIVE OBSERVATION ===================== -->
+<div class="banner b-interview"><div class="tag">Part IX — Observation</div><h2 id="qualitative">36 · Qualitative Observation</h2></div>
+<section>
+  <div class="grid3">
+    <div class="card tinted-mint"><h4>Engagement</h4><ul class="tight"><li>Effort &amp; motivation</li><li>Frustration tolerance</li><li>Help-seeking</li><li>Response to praise &amp; correction</li></ul></div>
+    <div class="card tinted-mint"><h4>Regulation</h4><ul class="tight"><li>Attention &amp; impulsivity</li><li>Anxiety &amp; avoidance</li><li>Fatigue over the session</li></ul></div>
+    <div class="card tinted-mint"><h4>Strategy</h4><ul class="tight"><li>Self-correction</li><li>Speed–accuracy trade-off</li><li>Strategy use &amp; metacognitive awareness</li></ul></div>
+  </div>
+  <div class="callout co-warn"><b>The rule.</b>Qualitative observations <em>support</em> interpretation but do <b>not</b> independently establish an SLD diagnosis. Record them; weight them within the whole picture.</div>
+</section>
+
+<!-- 37 Test behaviour -->
+<div class="banner b-interview"><div class="tag">Part IX — Observation</div><h2 id="test-behaviour">37 · Test Behaviour (Behavioural Observation)</h2></div>
+<section>
+  <div class="grid2">
+    <div class="card"><ul class="tight"><li>Rapport &amp; cooperation</li><li>Eye contact; speech</li><li>Attention; activity level</li><li>Anxiety; motivation; fatigue</li></ul></div>
+    <div class="card"><ul class="tight"><li>Frustration; response to failure</li><li>Need for prompting</li><li>Response to praise</li><li>Self-correction</li></ul></div>
+  </div>
+  <div class="report-doc">
+    <h4>Example documentation</h4>
+    <p><em>The child was cooperative and rapport was established with ease. He was alert and oriented. Attention was adequate for most tasks but waned on lengthy written work. He showed visible frustration and sought reassurance during reading tasks, occasionally attempting to avoid them. Response to encouragement was positive. No abnormality of speech or activity was observed.</em></p>
+  </div>
+</section>
+
+<!-- 38 Child interview -->
+<div class="banner b-interview"><div class="tag">Part IX — Observation</div><h2 id="child-interview">38 · Child Interview (age-appropriate)</h2></div>
+<section>
+  <div class="grid3">
+    <div class="card tinted-lav"><h4>Younger child</h4><ul class="tight"><li>School; favourite &amp; difficult subject</li><li>Teacher; friends; homework</li><li>Reading / writing / maths</li><li>Feelings about school</li></ul></div>
+    <div class="card tinted-powder"><h4>School-age child</h4><ul class="tight"><li>"What is easiest for you? Hardest?"</li><li>"What happens when you read?"</li><li>"What happens when you have to write?"</li><li>"What do you do when you don't understand a question?"</li></ul></div>
+    <div class="card tinted-blush"><h4>Adolescent</h4><ul class="tight"><li>Academic expectations; exam stress</li><li>Career concerns; self-esteem</li><li>Peer comparison; avoidance; shame</li><li>Emotional impact; coping strategies</li></ul></div>
+  </div>
+</section>
+
+<!-- 39 Triangulation -->
+<div class="banner b-interview"><div class="tag">Part IX — Observation</div><h2 id="triangulation">39 · Child–Parent–Teacher Triangulation</h2></div>
+<section>
+  <div class="tbl-scroll"><table>
+    <thead><tr><th>Domain</th><th>Child</th><th>Parent</th><th>Teacher</th><th>Records</th><th>Direct assessment</th></tr></thead>
+    <tbody>
+      <tr><td>Reading</td><td>Self-report of difficulty</td><td>Home observation</td><td>Classroom performance</td><td>Notebooks, exams</td><td>Graded passages</td></tr>
+      <tr><td>Writing</td><td>Effort/avoidance</td><td>Homework struggle</td><td>Written output</td><td>Dictation samples</td><td>Copying + essay</td></tr>
+      <tr><td>Maths</td><td>Confidence</td><td>Tables/sums at home</td><td>Test marks</td><td>Worksheets</td><td>Arithmetic + statement sums</td></tr>
+      <tr><td>Attention/behaviour</td><td>Self-view</td><td>Home behaviour</td><td>Cross-setting report</td><td>Teacher comments</td><td>Cancellation; observation</td></tr>
+    </tbody>
+  </table></div>
+  <div class="callout co-warn"><b>Handling discrepancies.</b>If a parent reports severe reading difficulty but the child reports minimal difficulty, do <em>not</em> automatically decide which informant is correct. Note the discrepancy, seek corroboration (teacher report, records, direct assessment), and let the triangulated evidence — not a single informant — drive the conclusion.</div>
+</section>
+
+<!-- ===================== 40 · DIFFERENTIAL DIAGNOSIS ===================== -->
+<div class="banner b-interp"><div class="tag">Part X — Diagnosis</div><h2 id="diff-dx">40 · Differential Diagnosis</h2></div>
+<section>
+  <p>For each contrast: similarity · key distinction · questions to ask · assessment evidence · red flags · documentation.</p>
+  <div class="tbl-scroll"><table>
+    <thead><tr><th>SLD vs…</th><th>Similarity</th><th>Key distinction</th><th>Questions / evidence</th></tr></thead>
+    <tbody>
+      <tr><td><b>Intellectual Disability</b></td><td>Academic underachievement</td><td>ID = global deficit in intellectual <em>and</em> adaptive functioning; SLD needs IQ ≥ 85 &amp; specific impairment</td><td>IQ (MISIC/WISC); adaptive functioning (VSMS/Vineland); milestones</td></tr>
+      <tr><td><b>ADHD</b></td><td>Poor school output</td><td>ADHD = cross-setting attention/impulse problem without a specific skill deficit (may co-occur)</td><td>Cross-setting symptoms; cancellation; careless-vs-skill errors</td></tr>
+      <tr><td><b>Autism Spectrum Disorder</b></td><td>Learning problems possible</td><td>ASD = social-communication deficits + restricted/repetitive patterns</td><td>Social reciprocity, play, communication history</td></tr>
+      <tr><td><b>Developmental Language Disorder</b></td><td>Reading/writing difficulty</td><td>DLD = primary oral-language impairment driving literacy difficulty</td><td>Receptive/expressive language; speech history</td></tr>
+      <tr><td><b>Sensory impairment</b></td><td>Appears "slow"</td><td>Uncorrected hearing/vision explains the difficulty</td><td>Vision &amp; hearing screening (mandatory)</td></tr>
+      <tr><td><b>Neurological disorder</b></td><td>Academic decline</td><td>Loss of acquired skills / focal signs → neurology</td><td>Regression (§18); seizures; head injury; CNS infection</td></tr>
+      <tr><td><b>Inadequate schooling</b></td><td>Low attainment</td><td>Difficulty explained by poor/disrupted instruction</td><td>School history; attendance; school changes; opportunity</td></tr>
+      <tr><td><b>Emotional disorder</b></td><td>Underachievement</td><td>Anxiety/depression/school refusal driving the dip</td><td>Mood/anxiety screen; onset relative to academic change</td></tr>
+      <tr><td><b>Low motivation</b></td><td>Poor marks</td><td>Can perform when engaged; no stable skill deficit</td><td>Performance when motivated/supported</td></tr>
+      <tr><td><b>Cultural / linguistic factors</b></td><td>Low scores on English tasks</td><td>Limited exposure to language of instruction</td><td>Home vs school language; age of exposure (§41)</td></tr>
+      <tr><td><b>Inadequate educational opportunity</b></td><td>Backwardness</td><td>Lack of access/resources, not a disorder</td><td>Resources, remedial access, educational disruption</td></tr>
+    </tbody>
+  </table></div>
+  <div class="callout co-key"><b>Red flags that point away from uncomplicated SLD:</b> loss of previously acquired skills (§18), global delay/low adaptive functioning, uncorrected sensory deficit, focal neurological signs, or difficulty fully explained by schooling/language/opportunity.</div>
+</section>
+
+<!-- 41 Multilingual -->
+<div class="banner b-interp"><div class="tag">Part X — Diagnosis</div><h2 id="multilingual">41 · Multilingual / Bilingual Children</h2></div>
+<section>
+  <div class="grid2">
+    <div class="card"><h4>Assess</h4><ul class="tight"><li>Home language vs school language</li><li>Language exposure &amp; age of exposure</li><li>Language of literacy &amp; of instruction</li><li>Proficiency; language switching</li><li>Cultural/educational background</li></ul></div>
+    <div class="callout co-key" style="margin:0"><b>Essential caution.</b>Difficulty in the <em>language of instruction</em> does not automatically indicate SLD. The NIMHANS norms were collected on English-medium children; a child with limited English exposure may underperform on English reading/spelling for reasons of exposure, not disability. Separate limited exposure from a true skill deficit before interpreting.</div>
+  </div>
+</section>
+
+<!-- 42 School environment -->
+<div class="banner b-interp"><div class="tag">Part X — Diagnosis</div><h2 id="school-env">42 · School Environment</h2></div>
+<section>
+  <div class="grid2">
+    <div class="card"><ul class="tight"><li>Teacher quality; teaching methods</li><li>Attendance; class size</li><li>Language of instruction</li><li>School changes; educational disruption</li></ul></div>
+    <div class="card"><ul class="tight"><li>Online schooling periods</li><li>Family educational support</li><li>Access to remedial teaching</li><li>Educational resources</li></ul></div>
+  </div>
+  <div class="callout co-note"><b>From the source.</b>In the Indian context, the quality of education affects academic skills (the slum-vs-mainstream school finding, §14). Document the adequacy of the educational environment as part of the exclusion process.</div>
+</section>
+
+<!-- 43 Psychosocial impact -->
+<div class="banner b-interp"><div class="tag">Part X — Diagnosis</div><h2 id="psychosocial">43 · Psychosocial Impact</h2></div>
+<section>
+  <div class="grid3">
+    <div class="card tinted-blush"><ul class="tight"><li>Academic self-esteem</li><li>Shame; anxiety</li><li>Frustration</li></ul></div>
+    <div class="card tinted-blush"><ul class="tight"><li>Peer comparison; bullying</li><li>Avoidance; school refusal</li></ul></div>
+    <div class="card tinted-blush"><ul class="tight"><li>Family &amp; parent–child conflict</li><li>Career concerns (adolescents)</li></ul></div>
+  </div>
+  <div class="callout co-note"><b>From the source.</b>Continuous academic failure results in poor self-concept and self-esteem; the prevalence of psychological disturbance is higher among children with LD than in the general population. Document functional &amp; emotional impact explicitly.</div>
+</section>
+
+<!-- 44 Formulation -->
+<div class="banner b-interp"><div class="tag">Part X — Diagnosis</div><h2 id="formulation">44 · Diagnostic Formulation</h2></div>
+<section>
+  <div class="grid2">
+    <div class="card tinted-lav"><h4>The 4 P's</h4>
+      <ul class="tight">
+        <li><b>Predisposing:</b> family history of LD, perinatal risk, language/phonological vulnerability</li>
+        <li><b>Precipitating:</b> onset of formal literacy/numeracy demands; school transition</li>
+        <li><b>Perpetuating:</b> repeated failure, low self-esteem, avoidance, lack of targeted remediation</li>
+        <li><b>Protective:</b> adequate IQ, supportive family, good motivation/strengths, access to remediation</li>
+      </ul>
+    </div>
+    <div class="card tinted-powder"><h4>Integrate</h4>
+      <ul class="tight">
+        <li>Presenting academic difficulties (which domains, severity)</li>
+        <li>Cognitive / developmental findings (IQ, language, memory, attention)</li>
+        <li>Emotional / behavioural findings</li>
+        <li>Environmental factors (schooling, language, opportunity)</li>
+        <li>Functional impact</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 45 Decision algorithm -->
+<div class="banner b-interp"><div class="tag">Part X — Diagnosis</div><h2 id="decision">45 · Diagnostic Decision Algorithm</h2></div>
+<section>
+  <div class="flow vert">
+    <div class="step">Academic concern (referral)</div><div class="arw">↓</div>
+    <div class="step">Detailed developmental + educational history</div><div class="arw">↓</div>
+    <div class="step">Check adequacy of schooling &amp; language exposure</div><div class="arw">↓</div>
+    <div class="step">Assess sensory functioning (vision, hearing)</div><div class="arw">↓</div>
+    <div class="step">Assess intellectual / cognitive functioning (IQ ≥ 85)</div><div class="arw">↓</div>
+    <div class="step">Assess academic achievement (NIMHANS Index)</div><div class="arw">↓</div>
+    <div class="step">Identify specific domain(s) of impairment</div><div class="arw">↓</div>
+    <div class="step">Assess functional impact</div><div class="arw">↓</div>
+    <div class="step">Rule out alternative explanations (§40)</div><div class="arw">↓</div>
+    <div class="step">Integrate multiple sources (triangulate)</div><div class="arw">↓</div>
+    <div class="step">Formulate diagnosis &amp; severity</div><div class="arw">↓</div>
+    <div class="step">Recommendations &amp; feedback</div>
+  </div>
+  <div class="callout co-warn"><b>Golden rule.</b>Do not make a diagnosis based on one test score alone. SLD is a clinical judgment integrating history, cognition, academic performance, exclusions, functional impact, and multiple informants.</div>
+</section>
+
+<!-- 46 Classification -->
+<div class="banner b-interp"><div class="tag">Part X — Diagnosis</div><h2 id="classification">46 · ICD / DSM Classification</h2></div>
+<section>
+  <div class="tbl-scroll"><table>
+    <thead><tr><th>Feature</th><th>ICD-10 (WHO, 2004)</th><th>ICD-11 (WHO)</th><th>DSM-5-TR (APA)</th></tr></thead>
+    <tbody>
+      <tr><td>Term</td><td>Specific Developmental Disorders of Scholastic Skills (SDDSS)</td><td>Developmental learning disorder</td><td>Specific Learning Disorder</td></tr>
+      <tr><td>Domains / specifiers</td><td>Specific reading, spelling, arithmetic disorders; mixed</td><td>With impairment in reading / written expression / mathematics</td><td>With impairment in reading / written expression / mathematics; severity mild/moderate/severe</td></tr>
+      <tr><td>Core principle</td><td>Significant impairment in scholastic skills, developmental, not due to mental retardation, neurological deficit, sensory problem or emotional disturbance</td><td>Learning skills markedly below expected for age/intellectual level, developmental onset</td><td>Persistent (≥6 months) difficulty despite intervention; skills substantially below age; onset in school years</td></tr>
+      <tr><td>Exclusions</td><td>Not due to lower intelligence, neurological/sensory problem, or emotional disturbance</td><td>Not due to intellectual disability, sensory impairment, neurological disorder, lack of instruction</td><td>Not better explained by intellectual disability, sensory problems, other disorders, psychosocial adversity, lack of proficiency in the language of instruction, or inadequate instruction</td></tr>
+    </tbody>
+  </table></div>
+  <div class="callout co-warn"><b>Do not mix criteria.</b>State which classification system you are using in the case and apply <em>only</em> that system's criteria. The source cites DSM-5 and ICD-10 (SDDSS) definitions; name the system explicitly in the report.</div>
+  <div class="callout co-verify"><b>Note.</b>The detailed ICD-11 category wording and code should be confirmed against the current ICD-11 browser; exact code numbers are <em>not available in the retrieved NIMHANS source — verify from the primary classification.</em></div>
+</section>
+
+<!-- ===================== 47 · REPORT STRUCTURE ===================== -->
+<div class="banner b-report"><div class="tag">Part XI — Report &amp; Feedback</div><h2 id="report">47 · Report Writing Structure</h2></div>
+<section>
+  <div class="report-doc">
+    <ol class="tight">
+      <li>Identification data</li>
+      <li>Referral source</li>
+      <li>Reason for referral</li>
+      <li>Informant (&amp; reliability)</li>
+      <li>History of presenting difficulty</li>
+      <li>Developmental history</li>
+      <li>Educational history</li>
+      <li>Medical history</li>
+      <li>Family history</li>
+      <li>Behavioural observation</li>
+      <li>Tests administered</li>
+      <li>Test results</li>
+      <li>Qualitative observations</li>
+      <li>Interpretation</li>
+      <li>Diagnostic formulation</li>
+      <li>Diagnosis (with classification system named)</li>
+      <li>Functional implications</li>
+      <li>Recommendations</li>
+      <li>Follow-up</li>
+    </ol>
+  </div>
+</section>
+
+<!-- 48 Results table -->
+<div class="banner b-report"><div class="tag">Part XI — Report &amp; Feedback</div><h2 id="results-table">48 · Test Results Table</h2></div>
+<section>
+  <div class="tbl-scroll"><table>
+    <thead><tr><th>Test / Domain</th><th>Raw / performance</th><th>Level attained vs grade</th><th>Severity</th><th>Clinical interpretation</th></tr></thead>
+    <tbody>
+      <tr><td>MISIC / WISC (IQ)</td><td>FSIQ (per that manual)</td><td>—</td><td>—</td><td>Confirms IQ ≥ 85 pre-requisite</td></tr>
+      <tr><td>Attention — Number Cancellation</td><td>right − wrong; time</td><td>—</td><td>—</td><td>Sustained attention; approach</td></tr>
+      <tr><td>Reading (graded passages)</td><td>Highest std read adequately</td><td>e.g. Std II vs placement Std V</td><td>1 (3 below) / 2 (4+ below)</td><td>Reading accuracy level</td></tr>
+      <tr><td>Reading comprehension</td><td>Per standard</td><td>vs grade</td><td>(not rated if reading impaired)</td><td>Understanding of text</td></tr>
+      <tr><td>Spelling (Schonell)</td><td>Spelling level</td><td>vs grade</td><td>1 / 2</td><td>Spelling skill</td></tr>
+      <tr><td>Copying &amp; written expression</td><td>Quality/speed</td><td>vs grade</td><td>0 / 1</td><td>Handwriting &amp; composition</td></tr>
+      <tr><td>Arithmetic / Mathematics</td><td>Score; procedure; mistakes</td><td>vs grade</td><td>1 / 2</td><td>Calculation &amp; reasoning</td></tr>
+      <tr><td>BGT (Koppitz) / DTVMI</td><td>Per that manual</td><td>—</td><td>—</td><td>Visuo-motor</td></tr>
+    </tbody>
+  </table></div>
+  <div class="callout co-verify"><b>Use only real score types.</b>The Index yields raw performance, grade-level attainment, and the NIMHANS severity rating (1/2 or 0/1) — <em>not</em> a percentage disability or an invented standard/percentile. Do not fabricate conversions. Exact norm-table values: <em>not available in the retrieved source; verify from the original NIMHANS manual.</em></div>
+</section>
+
+<!-- 49... wait 49 is recommendations. Keep: sample language first (spec 48) -->
+<div class="banner b-report"><div class="tag">Part XI — Report &amp; Feedback</div><h2 id="sample-language">49 · Sample Report Language</h2></div>
+<section>
+  <p>Each example models cautious clinical language. (Fictional.)</p>
+  <h5>Normal findings</h5>
+  <div class="phrase">"The child's performance across reading, writing and mathematics was commensurate with current grade placement. No evidence of a specific learning disability was found on the present evaluation."</div>
+  <h5>Mild academic difficulty</h5>
+  <div class="phrase">"Reading accuracy was approximately one to two standards below grade placement, consistent with a learning difficulty rather than a disability at this stage. Re-assessment after a period of targeted input is advised."</div>
+  <h5>Significant reading difficulty</h5>
+  <div class="phrase">"Reading was adequate up to the Std-II level against a Std-V placement (approximately three standards below), corresponding to a severity rating of 1 on the NIMHANS Index, in the context of an IQ in the average range."</div>
+  <h5>Significant writing difficulty</h5>
+  <div class="phrase">"Written expression showed slow, laboured handwriting with inconsistent spelling and poorly organised content, rated as impaired on the writing scale."</div>
+  <h5>Significant mathematics difficulty</h5>
+  <div class="phrase">"Arithmetic performance was markedly below grade placement, with place-value and procedural errors; statement problems could not be attempted."</div>
+  <h5>Mixed academic difficulty</h5>
+  <div class="phrase">"Difficulties were evident across reading, spelling and mathematics, each below the expected grade level, in the context of average intellectual functioning."</div>
+  <h5>Unclear / inconsistent findings</h5>
+  <div class="phrase">"Performance was inconsistent across tasks and sessions; findings are suggestive but not conclusive, and re-assessment is recommended."</div>
+  <h5>Performance affected by attention / anxiety</h5>
+  <div class="phrase">"Test performance appeared to be influenced by inattention and situational anxiety; current results may underestimate the child's abilities and should be interpreted with caution."</div>
+</section>
+
+<!-- 50 Recommendations -->
+<div class="banner b-report"><div class="tag">Part XI — Report &amp; Feedback</div><h2 id="recommendations">50 · Recommendations</h2></div>
+<section>
+  <div class="grid2">
+    <div class="card tinted-blue"><h4>School</h4><ul class="tight"><li>Classroom accommodations</li><li>Additional time where appropriate</li><li>Reduced copying burden</li><li>Structured, step-wise instructions</li><li>Alternative response formats where appropriate</li><li>Seating to support attention</li><li>Individualised educational support &amp; remedial teaching</li></ul></div>
+    <div class="card tinted-powder"><h4>Reading</h4><ul class="tight"><li>Structured literacy intervention</li><li>Explicit instruction</li><li>Repeated reading where appropriate</li><li>Phonological / decoding intervention where indicated</li></ul></div>
+    <div class="card tinted-peach"><h4>Writing</h4><ul class="tight"><li>Spelling intervention</li><li>Written-expression support (planning, organisation)</li><li>Handwriting intervention where required</li><li>Structured writing frameworks</li></ul></div>
+    <div class="card tinted-mint"><h4>Mathematics</h4><ul class="tight"><li>Concrete-to-abstract teaching</li><li>Number-line strategies</li><li>Explicit calculation instruction</li><li>Step-wise problem solving</li></ul></div>
+  </div>
+  <div class="callout co-key"><b>Match recommendations to the profile.</b>Only recommend interventions supported by the child's actual assessed profile. The source states the Index profile is used precisely for <em>drawing up a remedial plan</em> — so recommendations should map directly onto the identified domain(s) and error patterns.</div>
+</section>
+
+<!-- 51 Parent counselling -->
+<div class="banner b-report"><div class="tag">Part XI — Report &amp; Feedback</div><h2 id="parent-couns">51 · Parent Counselling</h2></div>
+<section>
+  <ul class="tight">
+    <li>Avoid blame; never call the child "lazy".</li>
+    <li>Explain SLD as a neurodevelopmental / learning difficulty, not a lack of effort or intelligence.</li>
+    <li>Explain the child's strengths <em>and</em> weaknesses.</li>
+    <li>Give practical home strategies; set realistic expectations.</li>
+    <li>Discuss school collaboration; address emotional impact.</li>
+  </ul>
+  <div class="phrase">"Your child is a capable learner who finds specific skills — here, reading and spelling — genuinely harder than other children of the same age and intelligence. This is not due to laziness or lack of effort. With the right structured support at school and home, these skills can improve, and we will set up a plan together."</div>
+</section>
+
+<!-- 52 Child feedback -->
+<div class="banner b-report"><div class="tag">Part XI — Report &amp; Feedback</div><h2 id="child-feedback">52 · Child-Friendly Feedback</h2></div>
+<section>
+  <p>Explain findings to the child without shame, labelling, comparison, threat, or making the child feel incapable.</p>
+  <div class="phrase">"You have some areas that are harder for you — especially reading and spelling — but you also have real strengths, like your ideas and your maths thinking. This assessment helps us understand how to make learning easier for you, and we're going to work on it together."</div>
+</section>
+
+<!-- ===================== 53 · EXAMINER MISTAKES ===================== -->
+<div class="banner b-case"><div class="tag">Part XII — Exam &amp; Revision</div><h2 id="mistakes">53 · Common Examiner Mistakes — "DO NOT DO THIS"</h2></div>
+<section>
+  <div class="grid2">
+    <div class="card">
+      <div class="bad">Diagnosing from one low score</div>
+      <div class="bad">Ignoring developmental history</div>
+      <div class="bad">Ignoring schooling &amp; opportunity</div>
+      <div class="bad">Ignoring language background</div>
+      <div class="bad">Ignoring sensory (vision/hearing) problems</div>
+      <div class="bad">Ignoring intellectual functioning / skipping IQ</div>
+      <div class="bad">Ignoring ADHD &amp; emotional problems</div>
+      <div class="bad">Treating letter reversal as diagnostic</div>
+      <div class="bad">Treating poor handwriting alone as "dysgraphia"</div>
+    </div>
+    <div class="card">
+      <div class="bad">Treating low marks alone as SLD</div>
+      <div class="bad">Ignoring teacher information &amp; school records</div>
+      <div class="bad">Using incorrect / wrong-age norms</div>
+      <div class="bad">Mixing different versions of the battery</div>
+      <div class="bad">Changing standardized administration instructions</div>
+      <div class="bad">Giving excessive prompts / leading the child</div>
+      <div class="bad">Over-interpreting qualitative behaviour</div>
+      <div class="bad">Reporting a "% disability" computed from the Index</div>
+      <div class="bad">Rating reading-comprehension severity when reading is impaired</div>
+    </div>
+  </div>
+</section>
+
+<!-- 54 Case vignettes -->
+<div class="banner b-case"><div class="tag">Part XII — Exam &amp; Revision</div><h2 id="cases">54 · Case Vignettes</h2></div>
+<section>
+  <p>All four cases are <span class="lbl-fict">Fictional — for teaching only</span></p>
+
+  <div class="case-vig">
+    <h4>Case 1 — Reading Difficulty <span class="lbl-fict">Fictional</span></h4>
+    <p><b>History:</b> A 9-year-old boy, Std IV, English-medium, referred by his teacher for persistent reading difficulty since Std I; private tuition for 2 years with little change. Milestones broadly normal; family history of a maternal uncle who "could never read well". Vision &amp; hearing normal.</p>
+    <p><b>Questions asked:</b> onset, trajectory, oral vs written, response to help (see §5, §11). <b>Possible answers:</b> "guesses words, loses place, dreads reading aloud".</p>
+    <p><b>Test selection:</b> MISIC first (FSIQ average, ≥85) → NIMHANS Level II: Number Cancellation, graded reading + comprehension, Schonell spelling, copying/written expression, arithmetic, BGT.</p>
+    <p><b>Findings:</b> Reading adequate only to Std-II level (≈3 standards below) with substitutions &amp; loss of place; spelling below grade; comprehension of orally-read text intact; maths at grade level; attention adequate.</p>
+    <p><b>Interpretation:</b> Severity 1 reading disability; preserved listening comprehension localises the problem to decoding, not comprehension. <b>Differential:</b> ID excluded (IQ ≥ 85), sensory normal, schooling adequate, no ADHD/emotional driver. <b>Formulation:</b> predisposing — family history, phonological vulnerability; perpetuating — repeated failure. <b>Recommendations:</b> structured literacy / phonological-decoding intervention, extra time, reduced reading load, re-assess.</p>
+  </div>
+
+  <div class="case-vig">
+    <h4>Case 2 — Writing Difficulty <span class="lbl-fict">Fictional</span></h4>
+    <p><b>History:</b> A 10-year-old girl, Std V, with slow, illegible handwriting, inconsistent spelling, and difficulty organising written answers; oral performance good. Fine-motor milestones slightly late.</p>
+    <p><b>Test selection:</b> IQ (average) → Level II copying (10 min) &amp; "My School" essay (15 min), Schonell spelling, BGT/DTVMI, reading &amp; maths to exclude broader involvement.</p>
+    <p><b>Findings:</b> Copying slow &amp; laboured; spelling inconsistent on dictation but better on copying; essay thin &amp; disorganised; reading &amp; maths at grade level; BGT shows mild visuo-motor immaturity.</p>
+    <p><b>Interpretation:</b> Impairment on the writing scale, combining a handwriting (motor) component and a spelling/language-formulation component (§33). <b>Differential:</b> poor handwriting alone ≠ dysgraphia — the spelling &amp; composition components confirm written-expression difficulty. <b>Recommendations:</b> handwriting &amp; spelling intervention, written-expression scaffolds, reduced copying burden, alternative response formats.</p>
+  </div>
+
+  <div class="case-vig">
+    <h4>Case 3 — Mathematics Difficulty <span class="lbl-fict">Fictional</span></h4>
+    <p><b>History:</b> An 11-year-old boy, Std VI, who "knows tables" but fails calculations and cannot start word problems. Reading &amp; writing reportedly fine.</p>
+    <p><b>Test selection:</b> IQ (average) → Level II arithmetic (simple/graded + − × ÷, fractions; 30–40 min) &amp; Mathematics statement sums (60 min); reading &amp; spelling to exclude broader involvement.</p>
+    <p><b>Findings:</b> Place-value &amp; carrying/borrowing errors, wrong-operation errors, cannot translate statement problems into operations; reading &amp; spelling at grade level.</p>
+    <p><b>Interpretation:</b> Specific mathematics disability, below grade placement, with both calculation and reasoning components. <b>Differential:</b> careless/attention errors excluded by consistency &amp; approach; schooling adequate. <b>Recommendations:</b> concrete-to-abstract teaching, number-line strategies, explicit calculation instruction, step-wise problem solving.</p>
+  </div>
+
+  <div class="case-vig">
+    <h4>Case 4 — Mixed Difficulty with ADHD / Emotional Factors <span class="lbl-fict">Fictional</span></h4>
+    <p><b>History:</b> A 9-year-old boy with underachievement across subjects, restless and inattentive both at home and at school, increasingly anxious about exams and avoiding homework.</p>
+    <p><b>Test selection:</b> IQ → Level II across domains; Number Cancellation; careful cross-setting attention &amp; emotional screen; teacher report.</p>
+    <p><b>Findings:</b> Cancellation shows haphazard approach &amp; many omissions; academic errors are careless &amp; inconsistent rather than a stable skill deficit; cross-setting inattention/hyperactivity; situational anxiety.</p>
+    <p><b>Interpretation:</b> Academic underachievement appears <em>secondary</em> to pervasive inattention and anxiety rather than a primary SLD; performance may underestimate ability. <b>Why differentiate:</b> ADHD can impair output without a specific skill deficit (§23) — labelling this "SLD" would misdirect remediation. <b>Recommendations:</b> address attention &amp; anxiety first, re-assess academic skills once attention is managed; liaise with school.</p>
+  </div>
+</section>
+
+<!-- ===================== 55 · VIVA BANK ===================== -->
+<div class="banner b-case"><div class="tag">Part XII — Exam &amp; Revision</div><h2 id="viva">55 · Viva / Practical Bank</h2></div>
+<section>
+  <p>Each: <b>Question → Model answer → Key point → Common mistake</b>.</p>
+
+  <div class="viva"><div class="vq">What is SLD?</div><div class="vb">A neurodevelopmental condition of persistent, unexpected difficulty acquiring/using a specific academic skill (reading, writing, maths), not explained by low IQ, sensory/neurological problems, inadequate schooling, language, or emotional factors.<span class="kp">Key point: "specific" &amp; "unexpected" — intelligence is adequate.</span><span class="cm">Mistake: equating SLD with general poor marks.</span></div></div>
+
+  <div class="viva"><div class="vq">What are the domains of SLD?</div><div class="vb">Reading, written expression (spelling/handwriting/composition), and mathematics.<span class="kp">Key point: a child may be impaired in one or several.</span><span class="cm">Mistake: forgetting written expression as a distinct domain.</span></div></div>
+
+  <div class="viva"><div class="vq">What is the NIMHANS SLD battery?</div><div class="vb">The NIMHANS Index for Specific Learning Disabilities — originally John (1989), compiled by Kapur et al (1991), revised 2019 (publ. 2020). Organised as Level I (5–7 yrs) and Level II (8–16 yrs), covering attention, language/reading/writing/spelling/comprehension, arithmetic/maths, visuo-motor and memory, with Brigance readiness screening.<span class="kp">Key point: criterion-measure test used to confirm SLD and plan remediation.</span><span class="cm">Mistake: calling it a norm-referenced test yielding % disability.</span></div></div>
+
+  <div class="viva"><div class="vq">Why assess IQ before the Index?</div><div class="vb">Per the Gazette of India, MISIC/WISC is administered first and the child must obtain IQ ≥ 85 — this excludes intellectual disability and establishes that underachievement is "unexpected".<span class="kp">Key point: IQ ≥ 85 is the certification pre-requisite.</span><span class="cm">Mistake: diagnosing SLD without an intelligence test.</span></div></div>
+
+  <div class="viva"><div class="vq">How is severity rated on the NIMHANS Index?</div><div class="vb">Severity 1 = functioning three standards below current standard; Severity 2 = four or more standards below (for reading, reading comprehension, listening comprehension, spelling, arithmetic). Writing is rated 0/1. One–two standards below = learning difficulty.<span class="kp">Key point: it's a criterion measure — no % disability from the test.</span><span class="cm">Mistake: rating reading-comprehension severity when reading is impaired.</span></div></div>
+
+  <div class="viva"><div class="vq">Why is developmental &amp; school history important?</div><div class="vb">To establish neurodevelopmental onset, rule out regression/ID/GDD, and confirm that schooling &amp; opportunity were adequate (an exclusion).<span class="kp">Key point: history rules in <em>and</em> rules out.</span><span class="cm">Mistake: jumping to tests without history.</span></div></div>
+
+  <div class="viva"><div class="vq">Why assess sensory functioning?</div><div class="vb">Uncorrected vision/hearing deficits can mimic learning difficulty and are an exclusion criterion.<span class="kp">Key point: screen vision &amp; hearing before interpreting.</span><span class="cm">Mistake: ignoring sensory status.</span></div></div>
+
+  <div class="viva"><div class="vq">What are dyslexia, dysgraphia, dyscalculia?</div><div class="vb">Lay/clinical terms for SLD with impairment in reading (dyslexia), written expression (dysgraphia), and mathematics (dyscalculia) respectively.<span class="kp">Key point: use the classification system's formal specifiers in the report.</span><span class="cm">Mistake: using the "-dys" terms loosely without evidence.</span></div></div>
+
+  <div class="viva"><div class="vq">SLD vs Intellectual Disability?</div><div class="vb">ID = global deficit in intellectual <em>and</em> adaptive functioning (developmental onset); SLD = specific skill deficit with adequate intelligence (IQ ≥ 85).<span class="kp">Key point: specificity &amp; IQ threshold.</span><span class="cm">Mistake: diagnosing SLD when IQ is below 85.</span></div></div>
+
+  <div class="viva"><div class="vq">How do you differentiate SLD from ADHD?</div><div class="vb">ADHD = cross-setting attention/impulse problem that impairs output without a specific skill deficit; SLD = task-specific skill deficit. They can co-occur.<span class="kp">Key point: setting-specificity and error quality.</span><span class="cm">Mistake: labelling careless, cross-setting underperformance as SLD.</span></div></div>
+
+  <div class="viva"><div class="vq">Why are multiple informants &amp; teacher reports required?</div><div class="vb">To triangulate across settings and corroborate parent report, child report, records and direct assessment.<span class="kp">Key point: no single informant decides.</span><span class="cm">Mistake: relying on one distressed parent's account.</span></div></div>
+
+  <div class="viva"><div class="vq">Why can low marks alone not establish SLD?</div><div class="vb">Low marks have many causes (illness, absenteeism, schooling, language, motivation, emotional factors) — SLD requires specific, unexpected impairment after exclusions.<span class="kp">Key point: marks are an outcome, not a diagnosis.</span><span class="cm">Mistake: equating report-card dips with SLD.</span></div></div>
+
+  <div class="viva"><div class="vq">What is error analysis &amp; the role of qualitative observation?</div><div class="vb">Systematic classification of error types (omission, substitution, reversal, place-value, procedural, etc.) and session behaviour that supports interpretation and shapes the remedial plan.<span class="kp">Key point: errors + behaviour contextualise the scores.</span><span class="cm">Mistake: over-interpreting a single error or behaviour as diagnostic.</span></div></div>
+
+  <div class="viva"><div class="vq">How do you give recommendations &amp; counsel parents?</div><div class="vb">Map interventions to the assessed profile (school accommodations + domain-specific remediation); counsel without blame, explain strengths &amp; weaknesses, set realistic expectations, collaborate with school.<span class="kp">Key point: never call the child lazy.</span><span class="cm">Mistake: generic recommendations unmatched to the profile.</span></div></div>
+</section>
+
+<!-- 56 Revision tables -->
+<div class="banner b-case"><div class="tag">Part XII — Exam &amp; Revision</div><h2 id="revision">56 · Rapid Revision Tables</h2></div>
+<section>
+  <div class="tbl-scroll"><table>
+    <thead><tr><th>Topic</th><th>High-yield points</th></tr></thead>
+    <tbody>
+      <tr><td>SLD domains</td><td>Reading · Written expression (spelling/handwriting/composition) · Mathematics</td></tr>
+      <tr><td>Battery structure</td><td>Level I (5–7) + Level II (8–16); Attention · Language · Arithmetic · Visuo-motor · Memory; Brigance readiness</td></tr>
+      <tr><td>Pre-requisite</td><td>IQ ≥ 85 (MISIC/WISC first) — Gazette of India 2018</td></tr>
+      <tr><td>Severity</td><td>1 = 3 std below · 2 = 4+ std below · writing 0/1 · difficulty = 1–2 std below · no % from test</td></tr>
+      <tr><td>Level I cut-offs</td><td>Visual discrim ≥3 errors · Auditory discrim ≥5 errors · Visual memory 3(age5)/4(age6+) · Copying: circle 3 / square 4 / triangle 5½–6 / diamond 6–7</td></tr>
+      <tr><td>Brigance ages</td><td>3–5 pass 1–18 · 5–7 fail = "at risk" · &gt;7 fail = learning-disabled, needs remediation</td></tr>
+      <tr><td>Number Cancellation score</td><td>right cancelled − wrong cancelled; note time &amp; approach</td></tr>
+      <tr><td>Developmental red flags</td><td>Regression (loss of acquired skill), global delay, sensory deficit, focal neurological signs</td></tr>
+      <tr><td>Reading errors</td><td>Omission · addition · substitution · reversal · mispronunciation · guessing · repetition · loss of place</td></tr>
+      <tr><td>Writing errors</td><td>Spelling vs handwriting vs language-formulation vs motor vs attention</td></tr>
+      <tr><td>Maths errors</td><td>Place-value · carrying/borrowing · wrong-operation · procedural · fact-retrieval · careless</td></tr>
+      <tr><td>Assessment sequence</td><td>History → schooling/language → sensory → IQ → academic → domain → impact → exclude → integrate → formulate</td></tr>
+      <tr><td>Report structure</td><td>19 headings (§47)</td></tr>
+      <tr><td>Statutory</td><td>Gazette 2018 (IQ ≥ 85, severity) · Govt. memo 8.5.2020 (SLD &gt; 40% disability)</td></tr>
+      <tr><td>Examiner mistakes</td><td>One-score diagnosis · ignoring history/schooling/sensory/IQ/ADHD · reversal = dyslexia · bad handwriting = dysgraphia</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- 57 One-page workflow -->
+<div class="banner b-case"><div class="tag">Part XII — Exam &amp; Revision</div><h2 id="algorithm">57 · One-Page Clinical Workflow</h2></div>
+<section>
+  <div class="card tinted-lav">
+    <h4 style="text-align:center">NIMHANS SLD ASSESSMENT — CLINICAL WORKFLOW</h4>
+    <div class="flow vert">
+      <div class="step">Referral</div><div class="arw">↓</div>
+      <div class="step">Informant + Reliability</div><div class="arw">↓</div>
+      <div class="step">Chief Complaints</div><div class="arw">↓</div>
+      <div class="step">History of Presenting Difficulty (HOPI)</div><div class="arw">↓</div>
+      <div class="step">Developmental History</div><div class="arw">↓</div>
+      <div class="step">Educational History</div><div class="arw">↓</div>
+      <div class="step">Medical / Neurological History</div><div class="arw">↓</div>
+      <div class="step">Sensory Screening</div><div class="arw">↓</div>
+      <div class="step">Psychiatric Screening</div><div class="arw">↓</div>
+      <div class="step">Cognitive / Intellectual Assessment (IQ ≥ 85)</div><div class="arw">↓</div>
+      <div class="step">Academic Assessment — Reading · Writing · Mathematics</div><div class="arw">↓</div>
+      <div class="step">Error Analysis</div><div class="arw">↓</div>
+      <div class="step">Behavioural Observation</div><div class="arw">↓</div>
+      <div class="step">Multi-informant Integration</div><div class="arw">↓</div>
+      <div class="step">Differential Diagnosis</div><div class="arw">↓</div>
+      <div class="step">Formulation</div><div class="arw">↓</div>
+      <div class="step">Diagnosis + Severity</div><div class="arw">↓</div>
+      <div class="step">Recommendations</div><div class="arw">↓</div>
+      <div class="step">Parent + Child Feedback</div><div class="arw">↓</div>
+      <div class="step">Follow-up</div>
+    </div>
+  </div>
+</section>
+
+<!-- 58 Documentation language -->
+<div class="banner b-report"><div class="tag">Part XII — Exam &amp; Revision</div><h2 id="doc-language">58 · Clinical Documentation Language</h2></div>
+<section>
+  <div class="tbl-scroll"><table>
+    <thead><tr><th>Parent says</th><th>Possible documentation</th></tr></thead>
+    <tbody>
+      <tr><td>"He is very weak in English."</td><td>"Caregiver reported difficulty with academic tasks involving English-language reading and written work."</td></tr>
+      <tr><td>"He doesn't know tables."</td><td>"Caregiver reported difficulty recalling multiplication facts."</td></tr>
+      <tr><td>"He reads like a small child."</td><td>"Caregiver reported reading performance below the expected level for the child's current grade."</td></tr>
+      <tr><td>"He is lazy with homework."</td><td>"Caregiver reported reluctance and slowness in completing written homework." (avoid value judgments)</td></tr>
+      <tr><td>"His writing is terrible."</td><td>"Caregiver reported concerns regarding handwriting legibility and spelling consistency."</td></tr>
+    </tbody>
+  </table></div>
+  <div class="callout co-warn"><b>Do not over-interpret.</b>Translate the <em>content</em> of what the caregiver reports; do not add diagnostic conclusions or value judgments at the documentation stage.</div>
+</section>
+
+<!-- 59 Unknown vs negative -->
+<div class="banner b-report"><div class="tag">Part XII — Exam &amp; Revision</div><h2 id="unknown-neg">59 · Unknown vs Negative vs Not-Assessed</h2></div>
+<section>
+  <div class="grid3">
+    <div class="card tinted-sage"><h4>Negative</h4><div class="phrase">"No history of seizures was reported."</div></div>
+    <div class="card tinted-cream"><h4>Unknown</h4><div class="phrase">"History could not be reliably established."</div></div>
+    <div class="card tinted-powder"><h4>Not assessed</h4><div class="phrase">"Sensory functioning was not assessed during the present evaluation."</div></div>
+  </div>
+  <div class="callout co-warn"><b>Do not convert missing information into negative history.</b>"Not asked / not known / not assessed" is <em>not</em> the same as "absent". Record the distinction honestly.</div>
+</section>
+
+<!-- 60 Source audit -->
+<div class="banner b-theory"><div class="tag">Part XII — Exam &amp; Revision</div><h2 id="source-audit">60 · Source Audit</h2></div>
+<section>
+  <div class="tbl-scroll"><table>
+    <thead><tr><th>Section(s)</th><th>Source used</th><th>Reference</th><th>Primary / Secondary</th></tr></thead>
+    <tbody>
+      <tr><td>26–35, 47–50 (battery, administration, scoring, severity, remediation)</td><td>NIMHANS SLD monograph, Chapter 4</td><td>Hirisave, Oommen &amp; Kapur (eds.), <em>Psychological Assessment of Children &amp; Adolescents in the Clinical Setting</em>, 4th ed., NIMHANS, 2020; Chapter 4 (John, Rozario, Oommen &amp; Hirisave)</td><td>Primary</td></tr>
+      <tr><td>26, 28 (history &amp; revision of the Index)</td><td>NIMHANS Index references</td><td>John (1989); Kapur, John, Rozario &amp; Oommen (1991); Hirisave, Kapur, John, Rozario &amp; Oommen (2019)</td><td>Primary</td></tr>
+      <tr><td>24, 28 (certification, IQ ≥ 85, severity)</td><td>Gazette of India</td><td>Gazette of India, 2018 — REGD. NO. D.L-33004/99</td><td>Secondary (statutory)</td></tr>
+      <tr><td>28 (&gt;40% disability)</td><td>Govt. of India office memorandum</td><td>File No. 38-01/2020-DD-III, Ministry of Social Justice &amp; Empowerment, 8 May 2020</td><td>Secondary (statutory)</td></tr>
+      <tr><td>1, 46 (definitions &amp; classification)</td><td>DSM-5 / ICD-10 (as cited in the monograph); ICD-11</td><td>APA, 2013; WHO, 2004; WHO ICD-11</td><td>Secondary (classification)</td></tr>
+      <tr><td>29 (readiness screen)</td><td>Brigance Diagnostic Inventory</td><td>Brigance, A.H. (1977)</td><td>Primary (within battery)</td></tr>
+      <tr><td>29, 31 (visuo-motor &amp; memory)</td><td>BGT; DTVMI; BVRT</td><td>Koppitz (1974); Beery &amp; Buktenica (1967); Benton (1953)</td><td>Primary (within battery)</td></tr>
+      <tr><td>24 (intelligence)</td><td>MISIC; WISC</td><td>Malin (1969); Wechsler</td><td>Primary (within battery)</td></tr>
+      <tr><td>14, 25 (Indian-context studies)</td><td>Monograph-cited research</td><td>Srinath, S. (Personal Communication); Ralte, M. (2012); Panicker, A. (2006)</td><td>Primary (as cited)</td></tr>
+    </tbody>
+  </table></div>
+  <div class="callout co-note"><b>No fabricated citations.</b>Every reference above was read directly from the retrieved NIMHANS source or is a standard classification document named in it. Exact page numbers and the full reference list are in the original monograph.</div>
+</section>
+
+<!-- 61 Copyright -->
+<div class="banner b-theory"><div class="tag">Part XII — Exam &amp; Revision</div><h2 id="copyright">61 · Copyright / Test Security</h2></div>
+<section>
+  <div class="callout co-verify"><b>What is deliberately NOT reproduced here</b> (secure / copyrighted content from the manual):
+    <ul class="tight">
+      <li>The graded <b>reading passages</b> (Std I–IX)</li>
+      <li>The graded <b>copying passages</b> (Std I–IX)</li>
+      <li>The <b>Schonell spelling</b> word lists</li>
+      <li>The <b>arithmetic &amp; mathematics</b> item lists and <b>answer keys</b></li>
+      <li>The full <b>normative tables</b> and the colour-cancellation / number-cancellation stimulus sheets</li>
+    </ul>
+    For all of these, refer to the <b>original NIMHANS manual</b>. This handbook explains procedures, scoring <em>principles</em>, and interpretation cut-offs, and uses fictional worked examples — in keeping with test-security and copyright requirements.</div>
+</section>
+
+<!-- ===================== FINAL PAGE ===================== -->
+<div class="banner b-report"><div class="tag">Final Page</div><h2 id="final">A Practical Companion</h2></div>
+<section>
+  <div class="card tinted-lav">
+    <p>This handbook follows a single working logic from first contact to follow-up:</p>
+    <div class="spine">
+      <span class="s">ASK</span><span class="a">→</span><span class="s">POSSIBLE ANSWER</span><span class="a">→</span><span class="s">PROBE</span><span class="a">→</span><span class="s">OBSERVE</span><span class="a">→</span><span class="s">ASSESS</span><span class="a">→</span><span class="s">SCORE</span><span class="a">→</span><span class="s">INTERPRET</span><span class="a">→</span><span class="s">DIFFERENTIATE</span><span class="a">→</span><span class="s">FORMULATE</span><span class="a">→</span><span class="s">DOCUMENT</span><span class="a">→</span><span class="s">RECOMMEND</span>
+    </div>
+    <p>Use it for clinical posting, child assessment, the NIMHANS SLD practical examination, case history, psychodiagnostic work, viva preparation, report writing, parent feedback, school recommendations, and pre-exam revision. For all secure test content and exact norm tables, go to the original NIMHANS manual.</p>
+  </div>
+</section>
+
+</div><!-- /wrap -->
+
+<footer>
+  <div class="made">Made by Tejas Dangodra<span>M.Phil. Clinical Psychology</span></div>
+  <p>NIMHANS SLD Assessment — Complete Clinical, Psychodiagnostic &amp; Practical Guide. Built strictly on the retrieved primary source: the <em>NIMHANS Index for Specific Learning Disabilities</em> (NIMHANS SLD Battery / <em>Psychological Assessment of Children &amp; Adolescents in the Clinical Setting</em>, 4th ed., 2020). In keeping with copyright &amp; test-security requirements, no secure items, passages, answer keys or norm tables are reproduced; worked examples are fictional. Where a figure was not in the retrieved source, it is flagged — verify from the original NIMHANS manual.</p>
+  <a class="backtop" href="#top">↑ Back to top</a>
+</footer>
+
+<script>
+(function(){
+  var input=document.getElementById('search');
+  var info=document.getElementById('sinfo');
+  var sections=Array.prototype.slice.call(document.querySelectorAll('section'));
+  var banners=Array.prototype.slice.call(document.querySelectorAll('.banner'));
+  var debounce;
+
+  function clearMarks(root){
+    var marks=root.querySelectorAll('mark');
+    marks.forEach(function(m){
+      var parent=m.parentNode;
+      parent.replaceChild(document.createTextNode(m.textContent),m);
+      parent.normalize();
+    });
+  }
+  function highlight(node,re){
+    if(node.nodeType===3){
+      var text=node.nodeValue; var m=re.exec(text);
+      if(m){
+        var span=document.createElement('span');
+        var last=0; re.lastIndex=0; var frag=document.createDocumentFragment(); var mm;
+        while((mm=re.exec(text))!==null){
+          frag.appendChild(document.createTextNode(text.slice(last,mm.index)));
+          var mk=document.createElement('mark'); mk.textContent=mm[0]; frag.appendChild(mk);
+          last=mm.index+mm[0].length;
+          if(mm.index===re.lastIndex) re.lastIndex++;
+        }
+        frag.appendChild(document.createTextNode(text.slice(last)));
+        node.parentNode.replaceChild(frag,node);
+        return true;
+      }
+    } else if(node.nodeType===1 && node.tagName!=='SCRIPT' && node.tagName!=='STYLE' && node.tagName!=='MARK'){
+      var kids=Array.prototype.slice.call(node.childNodes); var found=false;
+      kids.forEach(function(k){ if(highlight(k,re)) found=true; });
+      return found;
+    }
+    return false;
+  }
+  function esc(s){return s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');}
+
+  function prevBanner(s){
+    var p=s.previousElementSibling;
+    if(p && p.classList && p.classList.contains('banner')) return p;
+    return null;
+  }
+  function run(q){
+    sections.forEach(function(s){clearMarks(s);});
+    if(!q || q.length<2){
+      sections.forEach(function(s){s.classList.remove('search-hidden');});
+      banners.forEach(function(b){b.classList.remove('search-hidden');});
+      info.textContent='';
+      return;
+    }
+    var re=new RegExp(esc(q),'gi');
+    var shown=0;
+    sections.forEach(function(s){
+      var txt=s.textContent||'';
+      var b=prevBanner(s);
+      if(re.test(txt)){
+        re.lastIndex=0; highlight(s,re);
+        s.classList.remove('search-hidden');
+        if(b) b.classList.remove('search-hidden');
+        shown++;
+      } else {
+        s.classList.add('search-hidden');
+        if(b) b.classList.add('search-hidden');
+      }
+    });
+    info.textContent=shown? (shown+' section'+(shown>1?'s':'')) : 'no matches';
+  }
+  input.addEventListener('input',function(){
+    clearTimeout(debounce);
+    var q=input.value.trim();
+    debounce=setTimeout(function(){run(q);},180);
+  });
+  input.addEventListener('keydown',function(e){ if(e.key==='Escape'){input.value='';run('');} });
+})();
+</script>
+</body>
+</html>
