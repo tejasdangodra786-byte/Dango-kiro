@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ICD-10 &amp; ICD-11 Comparative Handbook — F20–F29 Schizophrenia, Schizotypal and Delusional Disorders</title>
+<style>
+:root{
+  --deep:#0a2540;--accent:#0e6655;--icd10:#1a5276;--icd11:#1e8449;
+  --ks:#7d3c98;--other:#b9770e;--bg:#f4f6f9;--card:#ffffff;
+  --ink:#1c2833;--muted:#5d6d7e;--line:#d5dbdb;--soft:#eaf2f8;
+  --warn:#922b21;--uniq:#6c3483;--surface:#fdfefe;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.72;font-size:16px}
+.cover{background:linear-gradient(160deg,#0a2540 0%,#154360 40%,#0e6655 100%);color:#fff;padding:60px 30px 50px;text-align:center}
+.cover .subtitle{text-transform:uppercase;letter-spacing:.3em;font-size:.72rem;opacity:.7;margin-bottom:16px}
+.cover h1{font-size:2.05rem;font-weight:800;line-height:1.22;margin-bottom:12px;max-width:940px;display:inline-block}
+.cover .tagline{font-size:1.05rem;font-weight:400;opacity:.9;max-width:820px;margin:0 auto 22px}
+.cover .chips{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-bottom:18px}
+.cover .chip{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);border-radius:6px;padding:5px 14px;font-size:.82rem}
+.cover .srcline{font-size:.8rem;opacity:.65;max-width:760px;margin:0 auto}
+.wrap{max-width:1160px;margin:0 auto;padding:0 22px}
+.layout{display:flex;gap:28px;align-items:flex-start}
+nav.toc{position:sticky;top:0;max-height:100vh;overflow-y:auto;flex:0 0 272px;padding:20px 12px 60px;font-size:.83rem;border-right:1px solid var(--line);background:var(--surface)}
+nav.toc h4{margin:18px 0 6px;color:var(--accent);text-transform:uppercase;font-size:.68rem;letter-spacing:.08em;font-weight:700}
+nav.toc a{display:block;color:var(--muted);text-decoration:none;padding:4px 10px;border-radius:6px;border-left:3px solid transparent;transition:all .15s}
+nav.toc a:hover{background:var(--soft);color:var(--icd10);border-left-color:var(--icd10)}
+main{flex:1 1 auto;min-width:0;padding:28px 0 100px}
+section{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:28px 30px;margin:0 0 26px;scroll-margin-top:16px;box-shadow:0 1px 3px rgba(10,37,64,.04)}
+h2{font-size:1.45rem;color:var(--deep);border-bottom:3px solid var(--accent);padding-bottom:10px;margin-bottom:14px;font-weight:800}
+h3{font-size:1.1rem;color:var(--accent);margin:26px 0 8px;font-weight:700;padding-left:14px;border-left:4px solid var(--accent)}
+h4{font-size:.98rem;margin:16px 0 6px;font-weight:700;color:var(--deep)}
+p{margin:.55em 0}
+.tag{display:inline-block;font-size:.64rem;font-weight:700;padding:2px 9px;border-radius:4px;color:#fff;vertical-align:middle;letter-spacing:.02em}
+.t10{background:var(--icd10)}.t11{background:var(--icd11)}.tks{background:var(--ks)}.tother{background:var(--other)}
+b.cl{color:var(--deep);font-weight:700}
+i.si{color:var(--uniq);font-style:normal;font-weight:500}
+table{border-collapse:collapse;width:100%;margin:16px 0;font-size:.89rem;border-radius:10px;overflow:hidden;box-shadow:0 0 0 1px var(--line)}
+th,td{border:1px solid var(--line);padding:10px 12px;text-align:left;vertical-align:top}
+th{background:var(--deep);color:#fff;font-weight:600;font-size:.79rem;text-transform:uppercase;letter-spacing:.03em}
+tr:nth-child(even) td{background:#f8fafb}
+.c10{background:#eaf2f8!important}.c11{background:#eafaf1!important}
+.panel10{border-left:5px solid var(--icd10);background:#edf2f8;border-radius:0 10px 10px 0;padding:16px 20px;margin:14px 0}
+.panel11{border-left:5px solid var(--icd11);background:#edfaf1;border-radius:0 10px 10px 0;padding:16px 20px;margin:14px 0}
+.panel10 h4,.panel11 h4{margin:0 0 8px;padding-left:0;border-left:none}
+.note{border-left:5px solid var(--accent);background:var(--soft);padding:14px 18px;border-radius:0 10px 10px 0;margin:14px 0}
+.warn{border-left:5px solid var(--warn);background:#fdedec;padding:14px 18px;border-radius:0 10px 10px 0;margin:14px 0}
+.unique{border:2px solid var(--uniq);background:#f5eef8;border-radius:12px;padding:16px 20px;margin:16px 0}
+.unique h4{color:var(--uniq);margin:0 0 10px;border-left:none;padding-left:0}
+.assoc{border:2px solid var(--warn);background:#fdf0ee;border-radius:12px;padding:16px 20px;margin:16px 0}
+.assoc h4{color:var(--warn);margin:0 0 10px;border-left:none;padding-left:0}
+.psych{border:2px solid #1f6f8b;background:#eaf4f7;border-radius:12px;padding:16px 20px;margin:16px 0}
+.psych h4{color:#1f6f8b;margin:0 0 10px;border-left:none;padding-left:0}
+.ddx{border:2px dashed #0b6b5f;background:#e9f6f2;border-radius:10px;padding:12px 16px;margin:12px 0;font-size:.9rem}
+.ddx h5{color:#0b6b5f;margin:0 0 6px;font-size:.9rem;text-transform:uppercase;letter-spacing:.03em}
+.incl{border-left:5px solid #1e8449;background:#eefaf2;padding:12px 16px;border-radius:0 8px 8px 0;margin:10px 0;font-size:.9rem}
+.excl{border-left:5px solid #922b21;background:#fdf0ee;padding:12px 16px;border-radius:0 8px 8px 0;margin:10px 0;font-size:.9rem}
+.sig{background:var(--deep);color:#fff;padding:14px 20px;border-radius:10px;margin:14px 0;font-size:.96rem}
+.sig b{color:#f9e79f}
+.remember{border:2px dashed #d4ac0d;background:#fef9e7;border-radius:12px;padding:16px 20px;margin:14px 0}
+.remember h4{color:#7d6608;margin:0 0 8px;border-left:none;padding-left:0}
+.idcard{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin:14px 0}
+.idcard div{background:#f2f6fa;border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:.85rem}
+.idcard b{display:block;font-size:.62rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:3px}
+ul.t,ol.t{margin:.5em 0;padding-left:1.3em}
+ul.t li,ol.t li{margin:.3em 0}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.top{text-align:right;font-size:.78rem;margin-top:10px}.top a{color:var(--muted);text-decoration:none}
+footer{background:var(--deep);color:#aeb6bf;padding:30px 22px;font-size:.86rem;text-align:center}
+footer strong{color:#fff}
+@media(max-width:920px){.layout{display:block}nav.toc{position:static;border-right:none;border-bottom:1px solid var(--line);max-height:none;flex:none}.g2{grid-template-columns:1fr}.cover h1{font-size:1.5rem}}
+@media print{nav.toc{display:none}body{background:#fff}section{box-shadow:none;break-inside:avoid}footer{background:#fff;color:#333}}
+</style>
+</head>
+<body>
+<a id="top"></a>
+
+<div class="cover">
+  <p class="subtitle">M.Phil. Clinical Psychology &mdash; Complete Diagnostic, Clinical &amp; Treatment Reference</p>
+  <h1>ICD-10 &amp; ICD-11 Comparative Clinical Handbook<br>F20&ndash;F29: Schizophrenia, Schizotypal and Delusional Disorders</h1>
+  <p class="tagline">A comprehensive examination reference covering introduction, etiology, epidemiology, identifying symptoms, associated conditions, diagnostic criteria strictly from ICD-10 and ICD-11, memory aids, and treatment (pharmacological and psychological) for every disorder in the primary psychotic disorders block.</p>
+  <div class="chips">
+    <span class="chip">Criteria strictly from ICD-10 &amp; ICD-11</span>
+    <span class="chip">Difficult terms explained in each line</span>
+    <span class="chip">Positive, negative &amp; first-rank symptoms</span>
+    <span class="chip">Mnemonics for every section</span>
+    <span class="chip">Pharmacological + psychological treatment</span>
+  </div>
+  <p class="srcline">Primary authorities: WHO ICD-10 Clinical Descriptions &amp; Diagnostic Guidelines and WHO ICD-11 Clinical Descriptions &amp; Diagnostic Requirements. Secondary: Kaplan &amp; Sadock's Synopsis/Comprehensive Textbook of Psychiatry; peer-reviewed literature.</p>
+</div>
+
+<div class="wrap layout">
+<nav class="toc">
+  <h4>Foundations</h4>
+  <a href="#overview">The F20&ndash;F29 block overview</a>
+  <a href="#symptoms">Core symptom concepts</a>
+  <a href="#delusions">Types of delusions (Fish)</a>
+  <a href="#hallucinations">Types of hallucinations (Fish)</a>
+  <a href="#compare">ICD-10 vs ICD-11 comparison</a>
+  <a href="#map">Master code map</a>
+  <h4>Causes &amp; distribution</h4>
+  <a href="#etiology">Etiology (incl. psychological theories)</a>
+  <a href="#epidemiology">Epidemiology</a>
+  <h4>Disorders</h4>
+  <a href="#f20">F20 &middot; Schizophrenia</a>
+  <a href="#f21">F21 &middot; Schizotypal disorder</a>
+  <a href="#f22">F22 &middot; Persistent delusional disorders</a>
+  <a href="#f23">F23 &middot; Acute and transient psychotic disorders</a>
+  <a href="#f24">F24 &middot; Induced delusional disorder</a>
+  <a href="#f25">F25 &middot; Schizoaffective disorders</a>
+  <a href="#f28">F28 &middot; Other nonorganic psychotic disorders</a>
+  <a href="#f29">F29 &middot; Unspecified nonorganic psychosis</a>
+  <h4>Exam reference</h4>
+  <a href="#ddx">Differential diagnosis tables</a>
+  <a href="#mnemonics">Mnemonics master sheet</a>
+  <a href="#glossary">Terminology glossary</a>
+  <a href="#references">References</a>
+</nav>
+
+<main>
+
+<!-- ═══════════ OVERVIEW ═══════════ -->
+<section id="overview">
+  <h2>The F20&ndash;F29 Block &mdash; Overview</h2>
+  <p>The ICD-10 block <b class="cl">F20&ndash;F29</b> is titled <b>"Schizophrenia, schizotypal and delusional disorders"</b>. It brings together the disorders in which <b class="cl">psychosis</b> <i class="si">(a loss of contact with reality, shown by delusions, hallucinations, or grossly disorganised thinking and behaviour)</i> is the defining feature and is <b>not</b> caused by a physical brain/body disease or a substance (those are coded in F00&ndash;F09 and F10&ndash;F19). Schizophrenia is the most important and most studied disorder of the group. <span class="tag t10">ICD-10</span></p>
+  <p>In ICD-11 the corresponding grouping is <b>"Schizophrenia or other primary psychotic disorders"</b>, coded in the <b>6A2</b> range. The word <b class="cl">"primary"</b> <i class="si">(meaning the psychosis is the disorder itself, not a symptom of something else)</i> signals that these psychoses are not secondary to a medical condition or substance. <span class="tag t11">ICD-11</span></p>
+  <div class="note"><b>Two key definitions before we begin.</b> A <b class="cl">delusion</b> <i class="si">(a fixed, false belief that is firmly held despite clear evidence to the contrary, and not shared by the person's culture)</i> and a <b class="cl">hallucination</b> <i class="si">(a perception &mdash; hearing, seeing, feeling &mdash; that occurs without any real external stimulus)</i> are the two building blocks of psychosis and appear throughout this block.</div>
+</section>
+
+<!-- ═══════════ SYMPTOM CONCEPTS ═══════════ -->
+<section id="symptoms">
+  <h2>Core Symptom Concepts (needed for the whole block)</h2>
+
+  <h3>Positive vs negative symptoms</h3>
+  <table>
+    <tr><th>Type</th><th>Meaning</th><th>Examples</th></tr>
+    <tr><td><b class="cl">Positive symptoms</b> <i class="si">(added, abnormal experiences not normally present)</i></td><td>An excess or distortion of normal function</td><td>Delusions, hallucinations, disorganised (formal) thought disorder, bizarre behaviour</td></tr>
+    <tr><td><b class="cl">Negative symptoms</b> <i class="si">(normal functions that are lost or reduced)</i></td><td>A loss or diminution of normal function</td><td><b class="cl">Alogia</b> <i class="si">(poverty of speech)</i>, <b class="cl">avolition</b> <i class="si">(lack of motivation/drive)</i>, <b class="cl">anhedonia</b> <i class="si">(inability to feel pleasure)</i>, <b class="cl">affective flattening</b> <i class="si">(reduced emotional expression)</i>, social withdrawal</td></tr>
+  </table>
+
+  <h3>Schneider's first-rank symptoms (the classic building blocks of the ICD-10 criteria)</h3>
+  <p><b class="cl">First-rank symptoms</b> <i class="si">(a set of symptoms described by Kurt Schneider that were traditionally considered strongly suggestive of schizophrenia)</i> are heavily represented in the ICD-10 groups (a)&ndash;(d). <span class="tag tks">Kaplan &amp; Sadock</span></p>
+  <ul class="t">
+    <li><b class="cl">Thought echo</b> <i class="si">(hearing one's own thoughts spoken aloud)</i>, <b class="cl">thought insertion or withdrawal</b> <i class="si">(the feeling that thoughts are being put into, or taken out of, one's mind by an outside force)</i>, and <b class="cl">thought broadcasting</b> <i class="si">(the belief that one's thoughts are being transmitted so others can hear them)</i>.</li>
+    <li><b class="cl">Delusions of control, influence, or passivity</b> <i class="si">(the belief that one's body, actions, or feelings are being controlled by an external force)</i>, and <b class="cl">delusional perception</b> <i class="si">(a real perception given a bizarre, self-referential delusional meaning)</i>.</li>
+    <li><b class="cl">Third-person auditory hallucinations</b> <i class="si">(voices discussing the patient among themselves, or giving a running commentary on their actions)</i>.</li>
+  </ul>
+  <div class="remember">
+    <h4>Mnemonic for first-rank symptoms &mdash; "ABCD"</h4>
+    <p><b>A</b>uditory hallucinations (third-person, running commentary, thought echo) &middot; <b>B</b>roadcasting of thought (and insertion/withdrawal) &middot; <b>C</b>ontrolled feelings/impulses/acts (passivity) &middot; <b>D</b>elusional perception.</p>
+  </div>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+<!-- ═══════════ TYPES OF DELUSIONS ═══════════ -->
+<section id="delusions">
+  <h2>Types of Delusions (Descriptive Psychopathology &mdash; after Fish)</h2>
+  <p>A <b class="cl">delusion</b> <i class="si">(a fixed, false belief held with absolute conviction, not amenable to reason, and out of keeping with the person's culture and education)</i> is classified in two complementary ways: by its <b>form/origin</b> (how it arose &mdash; the primary/secondary distinction, which is diagnostically important) and by its <b>content/theme</b> (what it is about). The framework below follows the descriptive psychopathology of <b>Fish's Clinical Psychopathology</b> and standard phenomenology. <span class="tag tother">Fish's Clinical Psychopathology; standard phenomenology</span></p>
+
+  <h3>1. Classification by FORM / ORIGIN</h3>
+  <div class="unique">
+    <h4>Primary (autochthonous) delusions <i class="si">(arising "out of the blue", not understandable from the person's mood, experience, or other beliefs)</i></h4>
+    <p>Primary delusions are held to be a core feature of schizophrenia. Fish (following Jaspers and Schneider) describes several forms:</p>
+    <ul class="t">
+      <li><b class="cl">Delusional intuition / autochthonous delusion (sudden delusional idea)</b> <i class="si">(a fully formed delusional belief that appears suddenly in the mind with no preceding event to explain it &mdash; "it just came to me that I am the chosen one")</i>.</li>
+      <li><b class="cl">Delusional perception</b> <i class="si">(a real, normally-perceived object is suddenly given a delusional meaning of great personal significance &mdash; e.g. "the traffic light turned red, so I knew I was the son of God")</i>. This is a <b>Schneiderian first-rank symptom</b> and is a two-stage phenomenon: a normal perception followed by a delusional interpretation.</li>
+      <li><b class="cl">Delusional mood (atmosphere)</b> <i class="si">(a strange, uncanny feeling that something significant but unidentifiable is going on, which is later "explained" and relieved when a delusion crystallises)</i>.</li>
+      <li><b class="cl">Delusional memory (retrospective delusion)</b> <i class="si">(a past memory is reinterpreted, or a new "memory" is created, with delusional meaning &mdash; "I now remember that aliens implanted a chip in me as a child")</i>.</li>
+    </ul>
+  </div>
+  <div class="unique">
+    <h4>Secondary delusions (delusion-like ideas) <i class="si">(understandable as arising from another experience &mdash; a mood state, another delusion, or a hallucination)</i></h4>
+    <p>For example, a profoundly depressed person develops a delusion of guilt or poverty; an elated manic person develops grandiose delusions; a person with persecutory voices develops a delusion of conspiracy to explain them. Secondary delusions occur across many disorders (mood disorders, organic states), whereas primary delusions point more specifically to schizophrenia.</p>
+  </div>
+  <h4>Other form-related descriptors</h4>
+  <ul class="t">
+    <li><b class="cl">Systematised delusion</b> <i class="si">(a single, logically elaborated delusional system built up around one theme)</i> vs <b>non-systematised / fragmentary</b> delusions.</li>
+    <li><b class="cl">Mood-congruent</b> <i class="si">(delusion content fits the prevailing mood &mdash; e.g. guilt in depression)</i> vs <b>mood-incongruent</b> delusions.</li>
+    <li><b class="cl">Bizarre</b> <i class="si">(clearly impossible and not understandable &mdash; e.g. organs replaced by machines)</i> vs <b>non-bizarre</b> <i class="si">(could conceivably be true &mdash; being followed, deceived)</i>.</li>
+    <li><b class="cl">Over-valued idea</b> <i class="si">(a strongly held, understandable, non-delusional belief that dominates the person's life &mdash; intermediate between a normal belief and a delusion; not held with delusional conviction)</i>.</li>
+    <li><b class="cl">Shared delusion (folie &agrave; deux)</b> <i class="si">(a delusion transferred from one person to a closely linked, suggestible other)</i>.</li>
+  </ul>
+
+  <h3>2. Classification by CONTENT / THEME</h3>
+  <table>
+    <tr><th>Delusion (with plain meaning)</th><th>Typical association</th></tr>
+    <tr><td><b class="cl">Persecutory (paranoid)</b> <i class="si">(belief of being conspired against, spied on, cheated, poisoned, or harmed)</i></td><td>Commonest theme; schizophrenia, delusional disorder, organic/mood psychoses</td></tr>
+    <tr><td><b class="cl">Delusion of reference</b> <i class="si">(belief that ordinary events, objects, or others' remarks are specially directed at oneself &mdash; e.g. the TV newsreader is talking about me)</i></td><td>Schizophrenia</td></tr>
+    <tr><td><b class="cl">Grandiose (expansive)</b> <i class="si">(inflated belief in one's power, wealth, identity, or special mission)</i></td><td>Mania, schizophrenia, neurosyphilis</td></tr>
+    <tr><td><b class="cl">Delusion of guilt / worthlessness</b> <i class="si">(unfounded belief of having committed a terrible sin or crime)</i></td><td>Psychotic depression</td></tr>
+    <tr><td><b class="cl">Nihilistic delusion (Cotard syndrome)</b> <i class="si">(belief that oneself, others, or the world does not exist, or that one is dead or one's organs are rotting)</i></td><td>Severe psychotic depression</td></tr>
+    <tr><td><b class="cl">Delusion of poverty</b> <i class="si">(false conviction of being financially ruined)</i></td><td>Depression</td></tr>
+    <tr><td><b class="cl">Hypochondriacal / somatic delusion</b> <i class="si">(false belief of having a serious illness, infestation, or bodily defect)</i></td><td>Delusional disorder (somatic type), depression</td></tr>
+    <tr><td><b class="cl">Delusion of infestation (Ekbom syndrome)</b> <i class="si">(fixed belief of being infested by insects or parasites under the skin)</i></td><td>Delusional disorder, organic states, stimulant use</td></tr>
+    <tr><td><b class="cl">Delusional jealousy (Othello syndrome)</b> <i class="si">(fixed false belief of a partner's infidelity)</i></td><td>Delusional disorder, alcohol dependence</td></tr>
+    <tr><td><b class="cl">Erotomania (de Cl&eacute;rambault syndrome)</b> <i class="si">(belief that another person, often of higher status, is secretly in love with oneself)</i></td><td>Delusional disorder</td></tr>
+    <tr><td><b class="cl">Religious delusion</b> <i class="si">(delusion with religious content &mdash; special relationship with God, being a prophet)</i></td><td>Schizophrenia, mania</td></tr>
+    <tr><td><b class="cl">Delusion of control / passivity</b> <i class="si">(belief that one's actions, feelings, impulses, or thoughts are controlled by an external force)</i></td><td>Schizophrenia (first-rank)</td></tr>
+    <tr><td><b class="cl">Thought insertion / withdrawal / broadcasting</b> <i class="si">(thoughts put in, removed, or made public by an outside agency)</i></td><td>Schizophrenia (first-rank)</td></tr>
+    <tr><td><b class="cl">Misidentification delusions</b> &mdash; <b>Capgras</b> <i class="si">(a familiar person has been replaced by an identical impostor)</i>; <b>Fr&eacute;goli</b> <i class="si">(a stranger is really a familiar persecutor in disguise)</i></td><td>Schizophrenia, organic states</td></tr>
+  </table>
+  <div class="remember">
+    <h4>Mnemonics for delusions</h4>
+    <p><b>Primary forms &mdash; "PIMM":</b> delusional <b>P</b>erception, delusional intuition (<b>I</b>dea, sudden/autochthonous), delusional <b>M</b>ood, delusional <b>M</b>emory. <b>Content themes &mdash; "PG-R GNS JE":</b> <b>P</b>ersecutory, <b>G</b>randiose, <b>R</b>eference, <b>G</b>uilt, <b>N</b>ihilistic, <b>S</b>omatic, <b>J</b>ealous (Othello), <b>E</b>rotomanic.</p>
+  </div>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+<!-- ═══════════ TYPES OF HALLUCINATIONS ═══════════ -->
+<section id="hallucinations">
+  <h2>Types of Hallucinations (Descriptive Psychopathology &mdash; after Fish)</h2>
+  <p>A <b class="cl">hallucination</b> <i class="si">(a perception experienced in the absence of any external stimulus, which has the full force and quality of a true perception and is located in external/objective space)</i> is distinguished from a <b class="cl">pseudohallucination</b> <i class="si">(a perception-like experience that is recognised as not real and/or is located in inner subjective space &mdash; e.g. "voices inside my head" that the person knows are not external)</i> and from an <b class="cl">illusion</b> <i class="si">(a misinterpretation of a real external stimulus)</i>. Hallucinations are classified by <b>sensory modality</b> and by <b>special form</b>. Framework after <b>Fish's Clinical Psychopathology</b>. <span class="tag tother">Fish's Clinical Psychopathology; standard phenomenology</span></p>
+
+  <h3>1. By SENSORY MODALITY</h3>
+  <table>
+    <tr><th>Type (with plain meaning)</th><th>Notes / typical associations</th></tr>
+    <tr><td><b class="cl">Auditory (auditory-verbal)</b> <i class="si">(hearing sounds or voices that are not there)</i></td><td>The commonest hallucination in schizophrenia. Ranges from <b>elementary hallucinations</b> <i class="si">(simple noises &mdash; bangs, whistles, buzzing)</i> to fully formed <b>voices</b>. Voices are further classified by grammatical <b>person</b> (first / second / third) &mdash; see the dedicated subsection immediately below.</td></tr>
+    <tr><td><b class="cl">Visual</b> <i class="si">(seeing things that are not there)</i></td><td>Strongly suggest an <b>organic or substance cause</b> (delirium, dementia with Lewy bodies, occipital lesions, hallucinogens). <b>Lilliputian hallucinations</b> <i class="si">(seeing tiny people or animals)</i> occur in delirium and toxic states.</td></tr>
+    <tr><td><b class="cl">Olfactory</b> <i class="si">(smelling odours that are not there)</i></td><td>Often organic &mdash; temporal-lobe epilepsy (the "uncinate" aura), also depression (delusional smell of decay).</td></tr>
+    <tr><td><b class="cl">Gustatory</b> <i class="si">(tasting things that are not there)</i></td><td>Often organic/epileptic; may accompany persecutory delusions of poisoning.</td></tr>
+    <tr><td><b class="cl">Tactile (haptic) &amp; somatic</b> <i class="si">(false sensations on or in the body)</i></td><td>Includes <b>formication</b> <i class="si">(sensation of insects crawling on/under the skin)</i> in cocaine/amfetamine use and delirium tremens; <b>deep somatic (visceral)</b> hallucinations of organs being manipulated occur in schizophrenia.</td></tr>
+  </table>
+
+  <h3>1a. Auditory hallucinations classified by "person" (first / second / third person)</h3>
+  <p>Auditory-verbal hallucinations (hearing voices) are further classified by the <b>grammatical person</b> the voice uses toward the patient &mdash; a distinction with important diagnostic weight in descriptive psychopathology. <span class="tag tother">Fish's Clinical Psychopathology; standard phenomenology</span></p>
+  <div class="unique">
+    <ul class="t">
+      <li><b class="cl">First-person (audible thoughts) hallucination</b> <i class="si">(the patient hears their own thoughts spoken aloud)</i>. This is <b class="cl">thought echo</b> or <b class="cl">Gedankenlautwerden</b> <i class="si">(German: "thoughts becoming loud" &mdash; hearing one's own thoughts aloud as they are being thought; the closely related term "&eacute;cho de la pens&eacute;e" refers to hearing them echoed just after)</i>. It is a <b>Schneiderian first-rank symptom</b> strongly suggestive of schizophrenia.</li>
+      <li><b class="cl">Second-person hallucination</b> <i class="si">(the voice speaks directly TO the patient, addressing them as "you" &mdash; e.g. "you are worthless", "you must jump")</i>. These are typically <b>evaluative/derogatory or command</b> voices. Their content is often <b>mood-congruent</b>: in <b>depression</b> they are derogatory, accusatory, or condemnatory; they also occur in schizophrenia. <b class="cl">Command hallucinations</b> <i class="si">(second-person voices that order the patient to act)</i> carry particular risk to self or others.</li>
+      <li><b class="cl">Third-person hallucination</b> <i class="si">(voices talk ABOUT the patient among themselves, referring to them as "he" or "she" &mdash; e.g. two voices arguing about the patient)</i>. Two forms are <b>Schneiderian first-rank symptoms</b>: <b>voices discussing or arguing about the patient</b> in the third person, and <b class="cl">running commentary</b> <i class="si">(a voice giving a live commentary on the patient's actions &mdash; "now he is getting up, now he is walking to the door")</i>. Third-person voices are strongly suggestive of <b>schizophrenia</b>.</li>
+    </ul>
+    <p style="margin:6px 0 0"><b>Diagnostic significance:</b> first-person (thought echo) and third-person (discussion / running commentary) voices are <b>first-rank symptoms</b> pointing to schizophrenia; second-person voices are less specific and are especially associated with <b>mood disorders</b> (mood-congruent) as well as schizophrenia. <span class="mean" style="color:#5d6d7e"><i>(Note: ICD-11 no longer gives first-rank symptoms special diagnostic weight, but the person-based description remains clinically important.)</i></span></p>
+  </div>
+  <div class="remember">
+    <h4>Mnemonic for auditory hallucinations by person &mdash; "1-2-3"</h4>
+    <p><b>1st person</b> = my own thoughts aloud (thought echo / Gedankenlautwerden). <b>2nd person</b> = voices talk TO me ("you...") &mdash; commands &amp; derogatory, often mood-congruent (depression). <b>3rd person</b> = voices talk ABOUT me ("he/she...") &amp; running commentary &mdash; classic first-rank, schizophrenia.</p>
+  </div>
+
+  <h3>2. By SPECIAL FORM (Fish)</h3>
+  <div class="unique">
+    <ul class="t">
+      <li><b class="cl">Functional hallucination</b> <i class="si">(a real external stimulus is needed to trigger the hallucination, and both are perceived together &mdash; e.g. hearing a voice only when the tap runs, but hearing both the running water and the voice)</i>.</li>
+      <li><b class="cl">Reflex hallucination</b> <i class="si">(a stimulus in one sensory modality triggers a hallucination in a different modality &mdash; e.g. hearing music produces a visual hallucination)</i>.</li>
+      <li><b class="cl">Extracampine hallucination</b> <i class="si">(a hallucination located outside the possible sensory field &mdash; e.g. seeing someone standing behind one's back, or hearing voices from another city)</i>.</li>
+      <li><b class="cl">Autoscopic hallucination (phantom mirror-image)</b> <i class="si">(seeing an image of one's own body projected into external space)</i> &mdash; often organic. <span class="tag tother">Other evidence</span></li>
+      <li><b class="cl">Hypnagogic hallucination</b> <i class="si">(a false perception occurring while falling asleep)</i> and <b class="cl">hypnopompic hallucination</b> <i class="si">(one occurring while waking up)</i> &mdash; these can occur in healthy people and in narcolepsy, and are not in themselves signs of psychosis.</li>
+      <li><b class="cl">Command hallucination</b> <i class="si">(a voice that orders the person to do something)</i> &mdash; clinically important because of risk to self or others.</li>
+    </ul>
+  </div>
+
+  <h3>3. Related perceptual disturbances (for completeness)</h3>
+  <ul class="t">
+    <li><b class="cl">Pseudohallucination</b> <i class="si">(experienced in inner subjective space and/or recognised as unreal)</i>.</li>
+    <li><b class="cl">Illusion</b> <i class="si">(misperception of a real stimulus &mdash; may be completion, affect-based, or pareidolic)</i>.</li>
+    <li><b class="cl">Sensory distortions</b> &mdash; changes in intensity, quality, or size/shape of perception (e.g. <b>micropsia/macropsia</b> &mdash; <i class="si">objects seen as smaller/larger than they are</i>).</li>
+  </ul>
+  <div class="remember">
+    <h4>Mnemonics for hallucinations</h4>
+    <p><b>Modalities &mdash; "A VOG-T":</b> <b>A</b>uditory, <b>V</b>isual, <b>O</b>lfactory, <b>G</b>ustatory, <b>T</b>actile/somatic. <b>Special forms &mdash; "FREAH-C":</b> <b>F</b>unctional, <b>R</b>eflex, <b>E</b>xtracampine, <b>A</b>utoscopic, <b>H</b>ypnagogic/hypnopompic, <b>C</b>ommand. <b>Key rule:</b> <b>auditory</b> hallucinations point to primary psychosis; <b>visual</b> (and olfactory/gustatory/tactile) point to an <b>organic or substance</b> cause until proven otherwise.</p>
+  </div>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+<!-- ═══════════ COMPARE ═══════════ -->
+<section id="compare">
+  <h2>ICD-10 vs ICD-11 &mdash; General Comparison for this Block</h2>
+  <table>
+    <tr><th>Dimension</th><th class="c10">ICD-10</th><th class="c11">ICD-11</th></tr>
+    <tr><td>Block title</td><td class="c10">Schizophrenia, schizotypal and delusional disorders (F20&ndash;F29)</td><td class="c11">Schizophrenia or other primary psychotic disorders (6A20&ndash;6A2Z)</td></tr>
+    <tr><td>Classic subtypes of schizophrenia</td><td class="c10">Retained: paranoid, hebephrenic, catatonic, undifferentiated, residual, simple (F20.0&ndash;.6)</td><td class="c11"><b>Abolished.</b> Subtypes are replaced by dimensional <b>symptom-domain specifiers</b> (positive, negative, depressive, manic, psychomotor, cognitive) rated for severity</td></tr>
+    <tr><td>First-rank symptoms</td><td class="c10">Given special diagnostic weight (groups a&ndash;d; one clear symptom may suffice)</td><td class="c11">No longer given special weight; positive symptoms count equally</td></tr>
+    <tr><td>Duration for schizophrenia</td><td class="c10">Symptoms for most of the time for at least <b>1 month</b></td><td class="c11">Core symptoms for at least <b>1 month</b> (unchanged)</td></tr>
+    <tr><td>Course specifiers</td><td class="c10">Fifth-character course codes (continuous, episodic, etc.)</td><td class="c11">First episode / multiple episodes / continuous, each with currently symptomatic / partial remission / full remission</td></tr>
+    <tr><td>Catatonia</td><td class="c10">A subtype of schizophrenia (F20.2)</td><td class="c11">A separate, trans-diagnostic grouping (6A4x), not a schizophrenia subtype</td></tr>
+    <tr><td>Symptom domains</td><td class="c10">Not formally rated</td><td class="c11">Six rateable domains (6A25.0&ndash;.5) allow a dimensional profile of the current presentation</td></tr>
+  </table>
+  <div class="note"><b>The single biggest change to state in the exam:</b> ICD-11 <b>removed the traditional schizophrenia subtypes</b> (paranoid, hebephrenic, catatonic, etc.) and replaced them with a <b>dimensional symptom-domain and course description</b>, because the old subtypes had poor reliability and little predictive value. It also <b>demoted first-rank symptoms</b> from their special status.</div>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+<!-- ═══════════ MAP ═══════════ -->
+<section id="map">
+  <h2>Master Code Map &mdash; F20&ndash;F29 to ICD-11</h2>
+  <table>
+    <tr><th>ICD-10</th><th>Disorder</th><th>ICD-11</th><th>Note</th></tr>
+    <tr><td>F20 (.0&ndash;.9)</td><td>Schizophrenia (with subtypes)</td><td>6A20</td><td>Retained; subtypes replaced by symptom-domain and course specifiers</td></tr>
+    <tr><td>F21</td><td>Schizotypal disorder</td><td>6A22</td><td>Schizotypal disorder</td></tr>
+    <tr><td>F22 (.0&ndash;.9)</td><td>Persistent delusional disorders</td><td>6A24</td><td>Delusional disorder</td></tr>
+    <tr><td>F23 (.0&ndash;.9)</td><td>Acute and transient psychotic disorders</td><td>6A23</td><td>Acute and transient psychotic disorder</td></tr>
+    <tr><td>F24</td><td>Induced delusional disorder (folie &agrave; deux)</td><td>&mdash;</td><td>No exact stand-alone equivalent; coded under other/delusional disorder as appropriate</td></tr>
+    <tr><td>F25 (.0&ndash;.9)</td><td>Schizoaffective disorders</td><td>6A21</td><td>Schizoaffective disorder</td></tr>
+    <tr><td>F28</td><td>Other nonorganic psychotic disorders</td><td>6A2Y</td><td>Other specified primary psychotic disorder</td></tr>
+    <tr><td>F29</td><td>Unspecified nonorganic psychosis</td><td>6A2Z</td><td>Schizophrenia or other primary psychotic disorder, unspecified</td></tr>
+    <tr><td>&mdash;</td><td>(symptom rating)</td><td>6A25</td><td>Symptomatic manifestations: positive, negative, depressive, manic, psychomotor, cognitive domains</td></tr>
+    <tr><td>F20.2</td><td>Catatonic schizophrenia</td><td>6A4x</td><td>Catatonia is now a separate grouping, not a schizophrenia subtype</td></tr>
+  </table>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+<!-- ═══════════════════════ ETIOLOGY ═══════════════════════ -->
+<section id="etiology">
+  <h2>Etiology of the Primary Psychotic Disorders (Comprehensive)</h2>
+  <p>Psychotic disorders, above all schizophrenia, are understood through the <b class="cl">stress&ndash;vulnerability (diathesis&ndash;stress) model</b> <i class="si">(an inherited or acquired biological vulnerability that is activated by psychological and social stressors to produce the illness)</i>, and increasingly the <b class="cl">neurodevelopmental model</b> <i class="si">(the view that the seeds of the disorder are laid down early in brain development, long before symptoms appear)</i>. <span class="tag tks">Kaplan &amp; Sadock</span></p>
+
+  <h3>A. Biological factors</h3>
+  <table>
+    <tr><th>Factor</th><th>Detail</th></tr>
+    <tr><td><b>Genetic</b></td><td>The strongest single risk factor is a family history. Lifetime risk rises from about 1% in the general population to roughly 10% in a first-degree relative and around 40&ndash;50% in the identical (monozygotic) twin of an affected person. Inheritance is <b class="cl">polygenic</b> <i class="si">(many genes of small effect)</i>, with rare copy-number variants of larger effect.</td></tr>
+    <tr><td><b>Dopamine hypothesis</b></td><td><i class="si">(the classic biochemical theory)</i> Overactivity of <b>dopamine</b> in the <b class="cl">mesolimbic pathway</b> <i class="si">(a deep-brain reward circuit)</i> drives <b>positive symptoms</b>; underactivity in the <b class="cl">mesocortical pathway</b> <i class="si">(the circuit to the frontal cortex)</i> underlies <b>negative and cognitive symptoms</b>. All effective antipsychotics block dopamine D2 receptors.</td></tr>
+    <tr><td><b>Glutamate hypothesis</b></td><td>Reduced function of <b class="cl">NMDA receptors</b> <i class="si">(glutamate receptors central to learning and signalling)</i> &mdash; supported by the fact that NMDA-blocking drugs (ketamine, PCP) reproduce both positive and negative symptoms.</td></tr>
+    <tr><td><b>Neurodevelopmental &amp; obstetric</b></td><td>Prenatal infection or malnutrition, obstetric complications, hypoxia at birth, and winter/spring birth; subtle premorbid motor, cognitive, and social abnormalities in childhood.</td></tr>
+    <tr><td><b>Structural / functional brain</b></td><td>Enlarged lateral ventricles, reduced grey-matter and hippocampal volume, and hypofrontality <i class="si">(reduced frontal-lobe activity)</i>.</td></tr>
+  </table>
+
+  <h3>B. Psychological theories and models</h3>
+  <div class="psych">
+    <h4>1. Cognitive models of psychosis</h4>
+    <p>Cognitive theories propose that psychotic symptoms arise from <b>faulty appraisal of anomalous experiences</b>. A key idea is the <b class="cl">jumping-to-conclusions bias</b> <i class="si">(a tendency to accept a conclusion on the basis of very little evidence, thought to contribute to delusion formation)</i>, together with <b class="cl">attributional biases</b> <i class="si">(a bias toward blaming others &mdash; an "externalising" style &mdash; linked to persecutory delusions)</i> and impaired <b class="cl">theory of mind</b> <i class="si">(difficulty inferring the intentions and mental states of others)</i>. These models underpin CBT for psychosis.</p>
+  </div>
+  <div class="psych">
+    <h4>2. The expressed-emotion / family model</h4>
+    <p><b class="cl">Expressed emotion (EE)</b> <i class="si">(the amount of criticism, hostility, and emotional over-involvement shown by family members toward the patient)</i> does not cause schizophrenia but strongly predicts <b>relapse</b>: patients returning to <b>high-EE households</b> relapse far more often. This is the rationale for family intervention.</p>
+  </div>
+  <div class="psych">
+    <h4>3. Stress&ndash;vulnerability (Zubin &amp; Spring) and the dopamine-sensitisation ("aberrant salience") model</h4>
+    <p>Zubin and Spring's model holds that each person has a threshold of vulnerability; enough stress crossing that threshold triggers an episode. The <b class="cl">aberrant salience model</b> <i class="si">(Kapur's theory that excess dopamine makes neutral events feel abnormally important and meaningful, which the mind then explains with a delusion)</i> links the biology to the experience of delusions and hallucinations.</p>
+  </div>
+  <div class="psych">
+    <h4>4. Psychodynamic and historical models</h4>
+    <p>Earlier psychodynamic accounts (regression to a pre-ego state; the discredited "schizophrenogenic mother" concept) are now of mainly historical interest, but the <b>importance of the therapeutic relationship and of reducing stress</b> that they emphasised remains clinically valid.</p>
+  </div>
+
+  <h3>C. Social and environmental factors</h3>
+  <ul class="t">
+    <li><b>Cannabis use</b> in adolescence (dose-related increase in risk, especially high-potency products).</li>
+    <li><b>Urban birth and upbringing</b>, <b>migration</b> and minority status, childhood trauma and abuse, and social adversity/isolation.</li>
+    <li><b>Life events</b> commonly precede relapse; substance use worsens course.</li>
+  </ul>
+  <div class="remember">
+    <h4>Mnemonic for etiology &mdash; "GDN-SCE"</h4>
+    <p><b>G</b>enetic &middot; <b>D</b>opamine (&amp; glutamate) &middot; <b>N</b>eurodevelopmental &middot; <b>S</b>tress&ndash;vulnerability &middot; <b>C</b>ognitive biases (jumping to conclusions) + high expressed emotion &middot; <b>E</b>nvironment (cannabis, urban, migration, trauma).</p>
+  </div>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+<!-- ═══════════════════════ EPIDEMIOLOGY ═══════════════════════ -->
+<section id="epidemiology">
+  <h2>Epidemiology of Schizophrenia and Related Psychoses (Comprehensive)</h2>
+  <table>
+    <tr><th>Measure</th><th>Detail</th></tr>
+    <tr><td><b>Lifetime prevalence (schizophrenia)</b></td><td>Approximately <b>1%</b> worldwide, strikingly consistent across countries and cultures. <span class="tag tks">Kaplan &amp; Sadock</span></td></tr>
+    <tr><td><b>Incidence</b></td><td>Around 15&ndash;20 new cases per 100,000 per year, with some variation by place and migrant status.</td></tr>
+    <tr><td><b>Sex ratio &amp; onset</b></td><td>Roughly equal overall, but <b>men</b> have earlier onset (late teens&ndash;mid-20s) than <b>women</b> (late 20s), and women show a second peak after 45.</td></tr>
+    <tr><td><b>Mortality &amp; suicide</b></td><td>Life expectancy is reduced by ~15&ndash;20 years (cardiovascular/metabolic disease); roughly <b>5&ndash;10% die by suicide</b>, with the highest risk early in the illness.</td></tr>
+    <tr><td><b>Delusional disorder</b></td><td>Uncommon; later age of onset (middle/late adulthood); associated with sensory impairment, isolation, and migration.</td></tr>
+    <tr><td><b>Acute &amp; transient psychotic disorders</b></td><td>More common in <b>women</b> and in <b>low- and middle-income countries</b>; often stress-precipitated; generally good prognosis.</td></tr>
+    <tr><td><b>Schizoaffective</b></td><td>Less common than schizophrenia; prognosis intermediate between schizophrenia and mood disorders.</td></tr>
+    <tr><td><b>Social gradient</b></td><td>Higher prevalence in lower socioeconomic groups &mdash; explained partly by <b class="cl">social drift</b> <i class="si">(the illness causes a decline in social and occupational status, rather than low status causing the illness)</i>.</td></tr>
+  </table>
+  <div class="note"><b>Prognostic pointers (good vs poor):</b> good-prognosis features include acute onset, a clear precipitant, prominent mood symptoms, older onset, and good premorbid functioning; poor-prognosis features include insidious onset, prominent negative symptoms, early onset, and poor premorbid adjustment.</div>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+<!-- ═══════════════════════ F20 SCHIZOPHRENIA ═══════════════════════ -->
+<section id="f20">
+  <h2>F20 &middot; Schizophrenia &rarr; ICD-11 6A20</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> Schizophrenia, schizotypal and delusional disorders / ICD-11 Schizophrenia or other primary psychotic disorders (F20&ndash;F29) &mdash; disorders where psychosis (delusions, hallucinations, disorganisation) is the defining feature and is not due to a physical illness or substance. See the block overview and core symptom concepts above.</p>
+  <div class="idcard">
+    <div><b>ICD-10</b> F20 (.0 paranoid, .1 hebephrenic, .2 catatonic, .3 undifferentiated, .4 post-schizophrenic depression, .5 residual, .6 simple, .8/.9)</div>
+    <div><b>ICD-11</b> 6A20 (first episode / multiple episodes / continuous; each with symptomatic, partial or full remission)</div>
+    <div><b>Core</b> The prototypical primary psychotic disorder</div>
+    <div><b>Key change</b> ICD-11 abolished the classic subtypes; uses symptom-domain and course specifiers instead</div>
+  </div>
+
+  <h3>1. Introduction</h3>
+  <p>Schizophrenia is a severe, often chronic <b class="cl">primary psychotic disorder</b> <i class="si">(a disorder in which psychosis is the illness itself, not caused by another condition)</i> characterised by fundamental distortions of thinking, perception, and <b class="cl">affect</b> <i class="si">(the outward expression of emotion)</i>. The core disturbance is a loss of the normal sense of self and of the boundary between the self and the outside world. Consciousness and, usually, intellectual capacity are preserved, although cognitive deficits accumulate over time. <span class="tag t10">ICD-10</span></p>
+
+  <h3>2. Etiology (causes)</h3>
+  <p>Schizophrenia is best understood through the <b class="cl">stress&ndash;vulnerability model</b> <i class="si">(an interaction between an inherited/biological predisposition and environmental stressors that together trigger the illness)</i>. <span class="tag tks">Kaplan &amp; Sadock</span></p>
+  <ul class="t">
+    <li><b>Genetic:</b> the strongest risk factor is family history; risk rises from about 1% in the general population to much higher in first-degree relatives and highest in the identical twin of an affected person. Many genes of small effect are involved (<b class="cl">polygenic</b> &mdash; <i class="si">many genes each contributing a little</i>).</li>
+    <li><b>Neurochemical &mdash; the dopamine hypothesis:</b> <i class="si">(the theory that psychotic symptoms arise from excess dopamine activity in certain brain pathways)</i> overactivity of <b class="cl">dopamine</b> in the mesolimbic pathway is linked to positive symptoms; underactivity in the mesocortical pathway is linked to negative symptoms. Glutamate and serotonin systems are also implicated.</li>
+    <li><b>Neurodevelopmental:</b> obstetric complications, prenatal infection or malnutrition, and winter birth; subtle brain changes (enlarged ventricles, reduced grey matter) suggest an early developmental origin.</li>
+    <li><b>Environmental:</b> cannabis use in adolescence, urban birth/upbringing, migration, childhood adversity, and social stress.</li>
+  </ul>
+
+  <h3>3. Epidemiology</h3>
+  <ul class="t">
+    <li><b>Lifetime prevalence</b> is approximately <b>1%</b> worldwide, remarkably consistent across cultures. <span class="tag tks">Kaplan &amp; Sadock</span></li>
+    <li><b>Sex:</b> roughly equal overall; <b>men</b> have an earlier onset (late teens to mid-20s) than <b>women</b> (late 20s), and women show a second smaller peak after age 45.</li>
+    <li>Associated with substantially reduced life expectancy (cardiovascular disease, metabolic effects of treatment, and a high <b>suicide</b> rate &mdash; roughly 5&ndash;10% die by suicide).</li>
+    <li>Better long-term outcomes have historically been reported in some developing countries.</li>
+  </ul>
+
+  <h3>4. Clinical features &mdash; identifying symptoms</h3>
+  <div class="g2">
+    <div><h4>Positive symptoms</h4><ul class="t">
+      <li>Delusions (often persecutory, of reference, or bizarre).</li>
+      <li>Hallucinations (classically auditory &mdash; third-person voices or running commentary).</li>
+      <li><b class="cl">Formal thought disorder</b> <i class="si">(disorganised thinking shown in speech &mdash; loosening of associations, tangential replies, or <b>neologisms</b>, newly invented words)</i>.</li>
+      <li>Passivity phenomena and thought interference (first-rank symptoms).</li>
+    </ul></div>
+    <div><h4>Negative symptoms</h4><ul class="t">
+      <li>Affective flattening/blunting; <b class="cl">alogia</b> (poverty of speech).</li>
+      <li><b class="cl">Avolition</b> and <b class="cl">apathy</b> (loss of drive).</li>
+      <li>Anhedonia; social withdrawal; self-neglect.</li>
+    </ul></div>
+  </div>
+  <div class="unique">
+    <h4>Identifying clues &mdash; "recognise schizophrenia"</h4>
+    <ul class="t">
+      <li>Onset in <b>late adolescence or early adulthood</b>, often with a <b class="cl">prodrome</b> <i class="si">(an early phase of subtle decline in functioning, odd ideas, and withdrawal before frank psychosis)</i>.</li>
+      <li><b>First-rank symptoms</b> (thought insertion/withdrawal/broadcasting, passivity, third-person voices, delusional perception) &mdash; strongly suggestive.</li>
+      <li><b>Clear consciousness</b> and preserved orientation (distinguishing it from delirium).</li>
+      <li>Progressive functional decline with accumulating <b>negative symptoms</b> and cognitive impairment.</li>
+      <li>Lack of insight is common.</li>
+    </ul>
+  </div>
+  <div class="unique">
+    <h4>Unique and important additional features of schizophrenia (high-yield)</h4>
+    <ul class="t">
+      <li><b class="cl">Hallucinations &mdash; characteristically AUDITORY</b>: the classic Schneiderian forms are <b>third-person voices</b> (discussing the patient as "he/she", or arguing), a <b>running commentary</b> on the patient's actions, and <b>thought echo</b> (hearing one's own thoughts aloud); voices are usually experienced as <b>external</b> (contrast the internal, pseudohallucinatory voices of DID). Second-person (command) voices and hallucinations in other modalities also occur.</li>
+      <li><b class="cl">Delusions</b> &mdash; often <b>bizarre</b> and including the first-rank <b>passivity / delusion of control</b> and <b>delusions of persecution and reference</b>; <b>delusional perception</b> is a first-rank symptom.</li>
+      <li><b class="cl">Thought interference (first-rank)</b> &mdash; thought <b>insertion, withdrawal, and broadcasting</b>.</li>
+      <li><b class="cl">Formal thought disorder</b> &mdash; loosening of associations, tangentiality, and <b>neologisms</b> (invented words), producing incoherent speech.</li>
+      <li><b class="cl">Negative symptoms (the "5 A's")</b> &mdash; affective flattening, alogia, avolition, anhedonia, asociality &mdash; which drive long-term disability.</li>
+      <li><b class="cl">Preserved consciousness and orientation</b> &mdash; a key contrast with delirium and organic psychosis.</li>
+      <li><b class="cl">Prodrome</b> &mdash; an early phase of subtle decline, social withdrawal, and odd ideas that often precedes the first frank psychotic episode.</li>
+      <li><b class="cl">Poor insight and cognitive impairment</b> (attention, memory, executive function) that accumulate over the course.</li>
+    </ul>
+  </div>
+  <div class="assoc">
+    <h4>Associated conditions and complications</h4>
+    <ul class="t">
+      <li><b>High suicide risk</b>, especially early in the illness and in <b>post-schizophrenic depression</b> (F20.4).</li>
+      <li><b>Comorbid substance use</b> (especially nicotine, cannabis, and alcohol), which worsens outcome.</li>
+      <li>Metabolic syndrome, diabetes, and cardiovascular disease (partly from antipsychotics).</li>
+      <li><b>Tardive dyskinesia</b> <i class="si">(late-onset, potentially irreversible involuntary movements caused by long-term antipsychotic use)</i> and other movement side-effects.</li>
+      <li>Social complications: unemployment, homelessness, stigma.</li>
+    </ul>
+  </div>
+
+  <h3>5. Diagnostic criteria (strictly from ICD-10 and ICD-11)</h3>
+  <div class="panel10">
+    <h4><span class="tag t10">ICD-10</span> Diagnostic guidelines</h4>
+    <p>The symptoms are divided into groups of special diagnostic importance:</p>
+    <ol class="t" style="list-style-type:lower-alpha">
+      <li>Thought echo, thought insertion or withdrawal, and thought broadcasting.</li>
+      <li>Delusions of control, influence, or passivity (referred to body movements, thoughts, actions, or sensations); delusional perception.</li>
+      <li>Hallucinatory voices giving a running commentary, or discussing the patient among themselves, or other voices coming from a part of the body.</li>
+      <li>Persistent delusions of other kinds that are culturally inappropriate and completely impossible (e.g. superhuman powers).</li>
+      <li>Persistent hallucinations in any modality, accompanied by fleeting delusions or persistent over-valued ideas, or occurring daily for weeks/months.</li>
+      <li>Breaks or interpolations in the train of thought, resulting in incoherence, irrelevant speech, or <b>neologisms</b>.</li>
+      <li>Catatonic behaviour (excitement, posturing, <b class="cl">waxy flexibility</b> &mdash; <i class="si">limbs stay in whatever position they are placed</i>, negativism, mutism, stupor).</li>
+      <li>"Negative" symptoms (marked apathy, poverty of speech, blunting/incongruity of affect), not due to depression or medication.</li>
+      <li>A significant, consistent change in overall quality of behaviour (loss of interest, aimlessness, social withdrawal).</li>
+    </ol>
+    <p><b>The rule:</b> a diagnosis requires at least <b>one very clear symptom</b> (two or more if less clear) from groups <b>(a)&ndash;(d)</b>, OR symptoms from at least <b>two of the groups (e)&ndash;(h)</b>, present for <b>most of the time during a period of at least one month</b>. If the same symptoms are present for <b>less than one month</b>, diagnose acute schizophrenia-like psychotic disorder (F23.2) unless/until they persist.</p>
+    <p><b>ICD-10 subtypes (F20.0&ndash;F20.9):</b> see the detailed subsection immediately below, where each subtype is described in full. In brief: paranoid, hebephrenic, catatonic, undifferentiated, post-schizophrenic depression, residual, and simple schizophrenia. <b>ICD-11 abolished these subtypes</b> and uses symptom-domain and course specifiers instead.</p>
+  </div>
+  <div class="panel11">
+    <h4><span class="tag t11">ICD-11</span> Essential (required) features (6A20)</h4>
+    <p>At least <b>two</b> of the following symptoms must be present (by the individual's report or through observation), for <b>most of the time for at least one month</b>, and <b>at least one</b> must be from items 1&ndash;4 (the "core positive" symptoms):</p>
+    <ol class="t">
+      <li>Persistent <b>delusions</b>;</li>
+      <li>Persistent <b>hallucinations</b> (most commonly auditory);</li>
+      <li><b>Disorganised thinking</b> (formal thought disorder), e.g. tangential/incoherent speech;</li>
+      <li><b>Experiences of influence, passivity, or control</b> (the feeling that thoughts/feelings/actions are controlled by an external force);</li>
+      <li><b>Negative symptoms</b> (affective flattening, alogia, avolition, anhedonia, asociality);</li>
+      <li><b>Grossly disorganised behaviour</b>;</li>
+      <li><b>Psychomotor disturbances</b> (catatonic restlessness/agitation, posturing, waxy flexibility, mutism, or stupor).</li>
+    </ol>
+    <p>The symptoms are not a manifestation of another medical condition or the effect of a substance. <b>Subtypes are not used;</b> instead the clinician records the <b>course</b> (first episode / multiple episodes / continuous, each as currently symptomatic, in partial remission, or in full remission) and rates the <b>symptom domains</b> (6A25: positive, negative, depressive, manic, psychomotor, cognitive).</p>
+  </div>
+  <h4>Comparison of criteria</h4>
+  <table>
+    <tr><th>Component</th><th class="c10">ICD-10</th><th class="c11">ICD-11</th></tr>
+    <tr><td>Symptom requirement</td><td class="c10">One clear (a)&ndash;(d) symptom, or two from (e)&ndash;(h)</td><td class="c11">Two of seven symptoms, at least one from items 1&ndash;4</td></tr>
+    <tr><td>First-rank symptoms</td><td class="c10">Given special weight (one may suffice)</td><td class="c11">No special weight</td></tr>
+    <tr><td>Duration</td><td class="c10">At least 1 month</td><td class="c11">At least 1 month</td></tr>
+    <tr><td>Subtypes</td><td class="c10">Six subtypes</td><td class="c11">Abolished; symptom-domain + course specifiers</td></tr>
+    <tr><td>Catatonia</td><td class="c10">Subtype F20.2</td><td class="c11">Separate grouping (6A4x)</td></tr>
+  </table>
+
+  <h3>Detailed ICD-10 Subtypes of Schizophrenia (F20.0&ndash;F20.9)</h3>
+  <p>ICD-10 retains the classical subtypes; ICD-11 has abolished them (replacing them with symptom-domain and course specifiers) because their reliability and predictive value were poor. Each is described in full below.</p>
+
+  <div class="assoc" style="border-color:#1a5276;background:#eef3f8">
+    <h4 style="color:#1a5276">F20.0 &mdash; Paranoid schizophrenia (the commonest subtype)</h4>
+    <ul class="t">
+      <li><b>Dominant feature:</b> relatively stable, often <b>persecutory</b> delusions, usually accompanied by hallucinations (especially <b>auditory</b>) and perceptual disturbances.</li>
+      <li>Delusions of persecution, reference, exalted birth, special mission, bodily change, or jealousy; threatening or commanding voices; hallucinations of smell, taste, or bodily sensation.</li>
+      <li><b>Relatively preserved:</b> affect, volition, speech, and catatonic features are <b>not prominent</b> (in contrast to hebephrenic and catatonic types).</li>
+      <li><b>Onset &amp; prognosis:</b> tends to start <b>later</b> than hebephrenic type; generally the <b>best prognosis</b> of the subtypes; personality is comparatively preserved.</li>
+    </ul>
+  </div>
+  <div class="assoc" style="border-color:#1a5276;background:#eef3f8">
+    <h4 style="color:#1a5276">F20.1 &mdash; Hebephrenic schizophrenia (called "disorganised" type elsewhere)</h4>
+    <ul class="t">
+      <li><b>Dominant feature:</b> prominent <b>affective changes</b> and <b>disorganisation</b> &mdash; shallow and inappropriate affect (silly giggling, self-absorbed smiling), disorganised thought and speech, and unpredictable, irresponsible behaviour and mannerisms.</li>
+      <li>Delusions and hallucinations are fleeting and fragmentary; there is aimless, disorganised conduct and a tendency to social isolation.</li>
+      <li><b>Onset &amp; prognosis:</b> <b>early onset</b> (typically 15&ndash;25 years); <b>poor prognosis</b> because of the rapid development of prominent <b>negative symptoms</b> (flattening of affect and loss of volition).</li>
+      <li>Diagnosis usually requires a 2&ndash;3 month period of observation to confirm the characteristic behaviour is sustained.</li>
+    </ul>
+  </div>
+  <div class="assoc" style="border-color:#1a5276;background:#eef3f8">
+    <h4 style="color:#1a5276">F20.2 &mdash; Catatonic schizophrenia</h4>
+    <ul class="t">
+      <li><b>Dominant feature:</b> prominent <b class="cl">psychomotor disturbances</b> <i class="si">(abnormalities of movement and activity)</i> that may alternate between extremes of over-activity and stupor, or between automatic obedience and negativism.</li>
+      <li>Characteristic signs: <b class="cl">stupor</b> <i class="si">(marked reduction in reactivity and movement, mutism)</i>; <b class="cl">excitement</b> <i class="si">(purposeless motor over-activity)</i>; <b class="cl">posturing</b> <i class="si">(voluntarily assuming and maintaining bizarre postures)</i>; <b class="cl">negativism</b> <i class="si">(motiveless resistance to instructions)</i>; <b class="cl">rigidity</b>; <b class="cl">waxy flexibility (cerea flexibilitas)</b> <i class="si">(limbs remain in whatever position they are placed, like bending a wax rod)</i>; <b class="cl">command automatism</b> <i class="si">(automatic compliance with instructions)</i>; and perseveration of words/phrases (<b class="cl">echolalia</b> &mdash; <i class="si">repeating others' words</i>; <b class="cl">echopraxia</b> &mdash; <i class="si">copying others' movements</i>).</li>
+      <li><b>Now rare</b> in high-income settings; a medical/organic cause must always be excluded. In ICD-11, catatonia is a <b>separate trans-diagnostic grouping (6A4x)</b>, not a schizophrenia subtype.</li>
+    </ul>
+  </div>
+  <div class="assoc" style="border-color:#1a5276;background:#eef3f8">
+    <h4 style="color:#1a5276">F20.3 &mdash; Undifferentiated schizophrenia</h4>
+    <ul class="t">
+      <li>Meets the general criteria for schizophrenia but <b>does not fit</b> any of the paranoid, hebephrenic, or catatonic pictures, <b>or</b> shows features of more than one without a clear predominance of any.</li>
+    </ul>
+  </div>
+  <div class="assoc" style="border-color:#1a5276;background:#eef3f8">
+    <h4 style="color:#1a5276">F20.4 &mdash; Post-schizophrenic depression</h4>
+    <ul class="t">
+      <li>A <b>depressive episode</b>, which may be prolonged, arising in the <b>aftermath</b> of a schizophrenic illness. Some schizophrenic symptoms (positive or negative) must still be present but no longer dominate the picture.</li>
+      <li>Associated with an <b>increased risk of suicide</b>; must be distinguished from antipsychotic-induced states and from negative symptoms.</li>
+    </ul>
+  </div>
+  <div class="assoc" style="border-color:#1a5276;background:#eef3f8">
+    <h4 style="color:#1a5276">F20.5 &mdash; Residual schizophrenia</h4>
+    <ul class="t">
+      <li>A <b>chronic stage</b> in which there has been a clear progression from an early (florid) phase to a later phase characterised by <b>long-term, prominent negative symptoms</b> &mdash; psychomotor slowing, under-activity, blunted affect, passivity, poverty of speech, poor self-care, and social withdrawal.</li>
+      <li>Requires evidence of at least one clear past psychotic episode and at least a one-year period of predominant negative symptoms.</li>
+    </ul>
+  </div>
+  <div class="assoc" style="border-color:#1a5276;background:#eef3f8">
+    <h4 style="color:#1a5276">F20.6 &mdash; Simple schizophrenia</h4>
+    <ul class="t">
+      <li>An <b>insidious but progressive</b> development of oddities of conduct, inability to meet the demands of society, and decline in total performance, <b>without</b> any preceding overt psychotic (positive) symptoms &mdash; i.e. negative symptoms and functional decline appear "from the start".</li>
+      <li>Difficult to diagnose reliably; carries a poor prognosis.</li>
+      <li>F20.8 = other schizophrenia; F20.9 = schizophrenia, unspecified.</li>
+    </ul>
+  </div>
+  <div class="note"><b>Course specifiers (ICD-10 fifth character):</b> .x0 continuous; .x1 episodic with progressive deficit; .x2 episodic with stable deficit; .x3 episodic remittent; .x4 incomplete remission; .x5 complete remission; .x8 other; .x9 uncertain. <b>ICD-11 equivalent:</b> first episode / multiple episodes / continuous, each specified as currently symptomatic, in partial remission, or in full remission, with the six rateable symptom domains (6A25).</div>
+  <div class="incl"><b>Includes (ICD-10):</b> schizophrenic reaction; F20.0 includes paraphrenic schizophrenia; F20.1 includes hebephrenia and disorganized schizophrenia; F20.6 includes schizophrenic simplex.</div>
+  <div class="excl"><b>Excludes (ICD-10):</b> schizophrenia in the paranoid subtype excludes involutional paranoid state (F22.8) and paranoia (F22.0); schizophrenia generally excludes acute schizophrenia-like disorder (F23.2), cyclic/schizoaffective (F25), schizotypal disorder (F21), and schizophrenic reaction in a personality disorder; also excludes schizophrenia when symptoms are due to an organic mental disorder (F0x) or psychoactive substance use (F1x).</div>
+  <div class="ddx">
+    <h5>Differential diagnosis of schizophrenia and its subtypes</h5>
+    <ul class="t">
+      <li><b>Organic and drug-induced psychoses</b> &mdash; ICD-10 stresses it is important to <b>exclude epileptic and drug-induced psychoses</b> (and organic causes generally); look for clouding of consciousness, visual hallucinations, atypical age, and a temporal link to illness/substance.</li>
+      <li><b>Mood (affective) disorders with psychotic features</b> &mdash; if psychotic symptoms occur only during a mood episode; if both are prominent within one episode &rarr; schizoaffective disorder (F25).</li>
+      <li><b>Schizoaffective disorder (F25)</b> and <b>acute and transient psychotic disorders (F23)</b> &mdash; distinguished by concurrent mood symptoms and by acute/short course, respectively.</li>
+      <li><b>Persistent delusional disorder (F22)</b> &mdash; a single delusional theme without prominent hallucinations, thought disorder, or negative symptoms.</li>
+      <li><b>Schizotypal disorder (F21)</b> &mdash; odd but never sustained frank psychosis.</li>
+      <li><b>Delirium / dementia (F0x)</b> &mdash; clouded/fluctuating consciousness, disorientation, visual hallucinations, and an organic cause.</li>
+      <li><b>Cultural note (ICD-10):</b> persecutory delusions "might carry little diagnostic weight in people from certain countries or cultures" &mdash; interpret content within the person's cultural background.</li>
+    </ul>
+  </div>
+
+  <h3>6. Easy way to remember</h3>
+  <div class="remember">
+    <h4>Mnemonics</h4>
+    <p><b>First-rank symptoms &mdash; "ABCD":</b> <b>A</b>uditory hallucinations (3rd-person/commentary/thought echo), <b>B</b>roadcasting (+ insertion/withdrawal of thought), <b>C</b>ontrol/passivity of feelings-impulses-acts, <b>D</b>elusional perception.</p>
+    <p><b>Negative symptoms &mdash; the "5 A's":</b> <b>A</b>ffective flattening, <b>A</b>logia (poverty of speech), <b>A</b>volition, <b>A</b>nhedonia, <b>A</b>sociality.</p>
+    <p><b>ICD-10 diagnostic rule &mdash; "1 from A&ndash;D, or 2 from E&ndash;H, for 1 month."</b></p>
+  </div>
+
+  <h3>7. Treatment</h3>
+  <h4>Pharmacological <span class="tag tks">Kaplan &amp; Sadock</span></h4>
+  <ul class="t">
+    <li><b class="cl">Antipsychotics</b> <i class="si">(medications that reduce psychotic symptoms, mainly by blocking dopamine receptors)</i> are the mainstay: <b>first-generation ("typical")</b> agents (e.g. haloperidol, chlorpromazine) and <b>second-generation ("atypical")</b> agents (e.g. risperidone, olanzapine, aripiprazole).</li>
+    <li><b class="cl">Clozapine</b> <i class="si">(the most effective antipsychotic, reserved for treatment-resistant schizophrenia because it can lower white blood cells, requiring regular blood monitoring)</i> for treatment resistance.</li>
+    <li><b>Long-acting injectable ("depot") antipsychotics</b> improve adherence.</li>
+    <li>Watch for side-effects: <b class="cl">extrapyramidal side-effects</b> <i class="si">(movement problems such as stiffness, tremor, restlessness)</i>, tardive dyskinesia, metabolic syndrome, sedation, and (rarely) <b class="cl">neuroleptic malignant syndrome</b> <i class="si">(a life-threatening reaction with fever, rigidity, and confusion)</i>.</li>
+  </ul>
+  <h4>Psychological and psychosocial</h4>
+  <ul class="t">
+    <li><b class="cl">CBT for psychosis</b> <i class="si">(therapy that helps the person test and cope with delusional beliefs and voices)</i>; <b>family therapy / psychoeducation</b> to reduce <b class="cl">expressed emotion</b> <i class="si">(high levels of criticism or over-involvement in the family, which raise relapse risk)</i>.</li>
+    <li>Social skills training, supported employment, cognitive remediation, assertive community treatment, and relapse-prevention planning.</li>
+  </ul>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+<!-- ═══════════════════════ F21 SCHIZOTYPAL ═══════════════════════ -->
+<section id="f21">
+  <h2>F21 &middot; Schizotypal Disorder &rarr; ICD-11 6A22</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> Primary psychotic disorders (F20&ndash;F29) &mdash; a chronic, schizophrenia-spectrum disorder of eccentricity and odd experiences that never reaches frank, sustained psychosis. See the block overview above.</p>
+  <div class="idcard">
+    <div><b>ICD-10</b> F21</div><div><b>ICD-11</b> 6A22</div>
+    <div><b>Type</b> Chronic, schizophrenia-like but sub-threshold</div>
+    <div><b>Key point</b> Odd but never frankly psychotic; no clear onset</div>
+  </div>
+  <h3>1. Introduction</h3>
+  <p>A disorder of <b>eccentric behaviour and anomalies of thinking and affect that resemble schizophrenia</b> but in which <b>no definite and characteristic schizophrenic symptoms occur at any stage</b>. There is no clear onset; it runs a chronic course fluctuating in intensity, and it is genetically related to schizophrenia (more common in relatives of people with schizophrenia). <span class="tag t10">ICD-10</span></p>
+  <h3>2&ndash;3. Etiology and epidemiology</h3>
+  <p>Considered part of the <b class="cl">schizophrenia spectrum</b> <i class="si">(a family of related conditions sharing genetic vulnerability with schizophrenia)</i>; more frequent among biological relatives of people with schizophrenia. <span class="tag tks">Kaplan &amp; Sadock</span></p>
+  <h3>4. Identifying symptoms</h3>
+  <div class="unique"><h4>Identifying clues</h4><ul class="t">
+    <li>Inappropriate or constricted <b>affect</b> (appears cold and aloof).</li>
+    <li>Odd, eccentric behaviour and appearance; poor social rapport and social withdrawal.</li>
+    <li><b class="cl">Magical thinking</b> <i class="si">(odd beliefs influencing behaviour, e.g. in telepathy or a "sixth sense")</i> and <b class="cl">ideas of reference</b> <i class="si">(the feeling that ordinary events have special personal meaning)</i>.</li>
+    <li>Suspiciousness or paranoid ideas; unusual perceptual experiences; vague, circumstantial, or over-elaborate speech (without frank incoherence).</li>
+    <li>Occasional transient <b>quasi-psychotic episodes</b> with intense illusions or hallucinations, but these are brief and never sustained.</li>
+  </ul></div>
+  <div class="assoc"><h4>Comorbidities and complications</h4><ul class="t">
+    <li>Frequently coexists with <b>depressive and anxiety disorders</b>.</li>
+    <li>Overlaps with <b>schizoid and paranoid personality disorders</b>.</li>
+    <li>A minority progress to frank schizophrenia; social isolation and underachievement are common.</li>
+  </ul></div>
+  <h3>5. Diagnostic criteria</h3>
+  <div class="panel10"><h4><span class="tag t10">ICD-10</span></h4><p>This diagnostic rubric is not recommended for general use, but where used it requires <b>three or four</b> of the typical features (listed above) to have been present, continuously or episodically, for <b>at least two years</b>. The individual must never have met the criteria for schizophrenia itself.</p></div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11 (6A22)</span></h4><p>An enduring pattern (several years) of eccentricities in behaviour, appearance, and speech, accompanied by cognitive and perceptual distortions, unusual beliefs, and discomfort with (and reduced capacity for) interpersonal relationships. Symptoms are <b>not of sufficient intensity or duration to meet the requirements for schizophrenia</b>.</p></div>
+  <h3>6&ndash;7. Remember and treatment</h3>
+  <div class="remember"><h4>Mnemonic &mdash; "ODD-MAP"</h4><p><b>O</b>dd/eccentric behaviour &middot; <b>D</b>etached (constricted) affect &middot; <b>D</b>istrust (paranoid ideas) &middot; <b>M</b>agical thinking &middot; <b>A</b>bnormal perceptions &middot; <b>P</b>eculiar speech. Never fully psychotic, chronic, spectrum-related.</p></div>
+  <p><b>Treatment:</b> supportive psychotherapy and social-skills support; low-dose antipsychotics only for transient psychotic-like symptoms; treat comorbid anxiety/depression. <span class="tag tks">Kaplan &amp; Sadock</span></p>
+  <div class="ddx">
+    <h5>Differential diagnosis (F21 Schizotypal disorder)</h5>
+    <ul class="t">
+      <li><b>Schizophrenia</b> &mdash; schizotypal never reaches sustained frank psychosis; there is no clear onset.</li>
+      <li><b>Schizoid and paranoid personality disorders</b> &mdash; overlapping traits without the perceptual/cognitive distortions and quasi-psychotic episodes.</li>
+      <li><b>Autism spectrum disorder / Asperger</b> &mdash; pervasive developmental social-communication difficulty rather than odd beliefs and magical thinking.</li>
+      <li><b>Delusional disorder</b> &mdash; a defined delusion rather than fluctuating eccentric ideas.</li>
+    </ul>
+  </div>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+<!-- ═══════════════════════ F22 DELUSIONAL ═══════════════════════ -->
+<section id="f22">
+  <h2>F22 &middot; Persistent Delusional Disorders &rarr; ICD-11 6A24</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> Primary psychotic disorders (F20&ndash;F29) &mdash; a long-standing delusion (or set of related delusions) is the only or most conspicuous feature, with otherwise preserved functioning. See the block overview above.</p>
+  <div class="idcard">
+    <div><b>ICD-10</b> F22 (.0 delusional disorder, .8 other, .9 unspecified)</div>
+    <div><b>ICD-11</b> 6A24 Delusional disorder</div>
+    <div><b>Type</b> A single delusion or set of related delusions, otherwise normal</div>
+    <div><b>Key point</b> No prominent hallucinations, no thought disorder, personality preserved</div>
+  </div>
+  <h3>1. Introduction</h3>
+  <p>A group of disorders in which a <b>long-standing delusion (or set of related delusions)</b> is the only, or the most conspicuous, clinical feature. The delusions are highly variable in content but are typically <b>non-bizarre</b> <i class="si">(they concern situations that could conceivably occur in real life &mdash; being followed, poisoned, deceived by a partner, loved from afar)</i>. Crucially, there are <b>no</b> persistent hallucinations, no schizophrenic thought disorder, and the personality and functioning outside the delusion remain largely intact. <span class="tag t10">ICD-10</span></p>
+  <h3>2&ndash;3. Etiology and epidemiology</h3>
+  <p>Onset is usually in middle or late adult life. Less common than schizophrenia. Sensory impairment (deafness), social isolation, and migration are recognised risk factors. <span class="tag tks">Kaplan &amp; Sadock</span></p>
+  <h3>4. Identifying symptoms and delusional themes</h3>
+  <div class="unique"><h4>Classic delusional themes (identifying clues)</h4><ul class="t">
+    <li><b class="cl">Persecutory</b> <i class="si">(belief of being conspired against, cheated, or harmed)</i> &mdash; the commonest type.</li>
+    <li><b class="cl">Grandiose</b> <i class="si">(inflated belief in one's own worth, power, or special identity)</i>.</li>
+    <li><b class="cl">Jealous / Othello syndrome</b> <i class="si">(the fixed false belief that a partner is unfaithful)</i>.</li>
+    <li><b class="cl">Erotomanic / de Cl&eacute;rambault syndrome</b> <i class="si">(the belief that another person, often of higher status, is secretly in love with them)</i>.</li>
+    <li><b class="cl">Somatic</b> <i class="si">(a false belief about one's body, e.g. of infestation or a foul odour)</i>.</li>
+    <li>Behaviour and emotion outside the delusion are normal; there is often good preservation of social function, which can make the disorder hard to detect.</li>
+  </ul></div>
+  <div class="assoc"><h4>Comorbidities and complications</h4><ul class="t">
+    <li><b>Depression</b> is common (secondary to the delusional preoccupation).</li>
+    <li>Risk of <b>acting on the delusion</b> &mdash; e.g. litigation, stalking (erotomania), or violence (morbid jealousy/persecutory type).</li>
+    <li>Social withdrawal and isolation; sensory impairment (deafness) is a contributing association.</li>
+  </ul></div>
+  <h3>5. Diagnostic criteria</h3>
+  <div class="panel10"><h4><span class="tag t10">ICD-10</span></h4><p>A delusion or set of delusions must be present for <b>at least 3 months</b>, and must be <b>personal</b> (not sub-cultural). Depressive symptoms or even a depressive episode may be present intermittently, provided the delusions persist at times when there is no mood disturbance. There must be <b>no evidence of brain disease</b>, <b>no or only occasional auditory hallucinations</b>, and <b>no history of schizophrenic symptoms</b> (delusions of control, thought broadcasting, blunted affect, etc.).</p></div>
+  <div class="assoc" style="border-color:#1a5276;background:#eef3f8">
+    <h4 style="color:#1a5276">Detailed ICD-10 subtypes of persistent delusional disorders (F22.0&ndash;F22.9)</h4>
+    <ul class="t">
+      <li><b>F22.0 &mdash; Delusional disorder:</b> the core category &mdash; a single delusion or a set of related delusions (persecutory, grandiose, hypochondriacal/somatic, jealous, or erotomanic) that is usually persistent and sometimes lifelong, with otherwise normal affect, speech, and behaviour. Includes named syndromes such as <b>paranoia</b>, <b>Othello syndrome</b> (delusional jealousy), <b>de Cl&eacute;rambault syndrome</b> (erotomania), and querulant/litiginous paranoia.</li>
+      <li><b>F22.8 &mdash; Other persistent delusional disorders:</b> disorders in which delusions are accompanied by persistent hallucinatory voices or by schizophrenic symptoms too incomplete or infrequent to meet criteria for schizophrenia. Includes <b>delusional dysmorphophobia</b> <i class="si">(a delusional conviction of being physically deformed/ugly)</i> and <b>involutional paranoid state</b>.</li>
+      <li><b>F22.9 &mdash;</b> persistent delusional disorder, unspecified.</li>
+    </ul>
+  </div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11 (6A24)</span></h4><p>The presence of a delusion or set of related delusions, typically persisting for <b>at least 3 months</b> (usually much longer), occurring in the <b>absence of other characteristic symptoms of schizophrenia</b> (e.g. clear and persistent hallucinations, thought disorder, negative symptoms). Apart from actions and attitudes directly related to the delusion, affect, speech, and behaviour are unaffected.</p></div>
+  <h3>6&ndash;7. Remember and treatment</h3>
+  <div class="remember"><h4>Mnemonic for delusional themes &mdash; "PGJES"</h4><p><b>P</b>ersecutory &middot; <b>G</b>randiose &middot; <b>J</b>ealous (Othello) &middot; <b>E</b>rotomanic (de Cl&eacute;rambault) &middot; <b>S</b>omatic. Key rule: <b>delusion only, otherwise normal, for at least 3 months.</b></p></div>
+  <p><b>Treatment:</b> antipsychotics (often with limited response and adherence problems because insight is poor); build a therapeutic alliance; treat comorbid depression; CBT can help. <span class="tag tks">Kaplan &amp; Sadock</span></p>
+  <div class="ddx">
+    <h5>Differential diagnosis (F22 Persistent delusional disorders)</h5>
+    <ul class="t">
+      <li><b>Paranoid schizophrenia (F20.0)</b> &mdash; excluded here; schizophrenia has prominent hallucinations, thought disorder, negative symptoms.</li>
+      <li><b>Paranoid personality disorder (F60.0)</b> &mdash; lifelong suspicious traits, not a discrete fixed delusion.</li>
+      <li><b>Psychogenic/paranoid reaction (F23.3)</b> and <b>involutional paranoid state (F22.8)</b>.</li>
+      <li><b>Mood disorder with psychotic features</b> &mdash; delusions confined to a mood episode.</li>
+      <li><b>Organic/delusional (schizophrenia-like) disorder (F06.2)</b> and substance-induced delusions &mdash; exclude a medical/substance cause.</li>
+      <li><b>Hypochondriacal delusions</b> vs hypochondriacal disorder (degree of conviction).</li>
+    </ul>
+  </div>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+<!-- ═══════════════════════ F24 INDUCED ═══════════════════════ -->
+<section id="f24">
+  <h2>F24 &middot; Induced Delusional Disorder (Folie &agrave; Deux)</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> Primary psychotic disorders (F20&ndash;F29) &mdash; a delusion shared by two or more people in a close, isolated relationship, induced in the passive member(s) by the person with the genuine disorder. See the block overview above.</p>
+  <div class="idcard">
+    <div><b>ICD-10</b> F24</div><div><b>ICD-11</b> No exact stand-alone equivalent</div>
+    <div><b>Type</b> A shared delusion between two (or more) closely linked people</div>
+    <div><b>Also known as</b> Folie &agrave; deux ("madness of two")</div>
+  </div>
+  <h3>1. Introduction and identifying features</h3>
+  <p>A <b>delusional disorder shared by two or more people with close emotional links</b>. Only one of them has a genuine psychotic disorder (the <b class="cl">primary / inducer</b>); the delusions are <b>induced</b> in the other(s) (the <b class="cl">secondary / recipient</b>), who is usually more suggestible, dependent, and socially isolated with the primary. <span class="tag t10">ICD-10</span></p>
+  <div class="unique"><h4>Identifying clues</h4><ul class="t">
+    <li>Two (or more) people <b>share the same delusion</b>.</li>
+    <li>They live in <b>unusually close association</b> and are relatively <b>isolated</b> from others.</li>
+    <li>The delusions of the passive partner(s) usually <b>resolve when the pair is separated</b> &mdash; a key diagnostic and therapeutic clue.</li>
+  </ul></div>
+  <h3>5. Diagnostic criteria</h3>
+  <div class="panel10"><h4><span class="tag t10">ICD-10</span></h4><p>Diagnosed only if: (1) two or more people share the same delusion or delusional system and support one another in it; (2) they have an unusually close relationship; and (3) there is temporal or contextual evidence that the delusion was <b>induced</b> in the passive member(s) by contact with the active partner.</p></div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11</span></h4><p>There is no dedicated stand-alone category; such presentations are captured under delusional disorder or other specified primary psychotic disorder, taking into account the induced/shared context.</p></div>
+  <h3>6&ndash;7. Remember and treatment</h3>
+  <div class="remember"><h4>Mnemonic</h4><p><b>"Two, close, isolated, shared &mdash; separate to cure."</b> Folie &agrave; deux = madness of two.</p></div>
+  <p><b>Treatment:</b> <b>separate the individuals</b> (the recipient's delusions often fade); treat the primary person's psychotic disorder; support and monitor the recipient. <span class="tag tks">Kaplan &amp; Sadock</span></p>
+  <div class="ddx">
+    <h5>Differential diagnosis (F24 Induced delusional disorder)</h5>
+    <ul class="t">
+      <li><b>Two people with independent psychoses</b> (folie simultan&eacute;e) &mdash; excluded; in F24 the delusion is <b>induced</b> in a previously well, passive partner.</li>
+      <li><b>Shared cultural/religious belief</b> &mdash; not a delusion if normative within the group.</li>
+      <li><b>Primary delusional disorder or schizophrenia</b> in the passive member &mdash; distinguished because their delusions typically <b>resolve on separation</b>.</li>
+    </ul>
+  </div>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+<!-- ═══════════════════════ F23 ATPD ═══════════════════════ -->
+<section id="f23">
+  <h2>F23 &middot; Acute and Transient Psychotic Disorders &rarr; ICD-11 6A23</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> Primary psychotic disorders (F20&ndash;F29) &mdash; sudden-onset, short-lived, often stress-related psychosis with a rapidly changing ("polymorphic") picture and usually full recovery. See the block overview above.</p>
+  <div class="idcard">
+    <div><b>ICD-10</b> F23 (.0 acute polymorphic without schizophrenic symptoms, .1 with schizophrenic symptoms, .2 acute schizophrenia-like, .3 other predominantly delusional, .8/.9)</div>
+    <div><b>ICD-11</b> 6A23 Acute and transient psychotic disorder</div>
+    <div><b>Type</b> Sudden-onset, short-lived psychosis</div>
+    <div><b>Key point</b> Acute onset, rapidly changing ("polymorphic") picture, full recovery</div>
+  </div>
+  <h3>1. Introduction</h3>
+  <p>A group of disorders defined by their <b>acute onset</b> and <b>brief, fluctuating course</b>. They are especially common in developing countries and are often preceded by <b>acute stress</b>. The characteristic form is <b class="cl">polymorphic</b> <i class="si">(the type and intensity of symptoms change rapidly, even from day to day &mdash; a kaleidoscopic, shifting picture)</i>. <span class="tag t10">ICD-10</span></p>
+  <h3>2&ndash;3. Etiology and epidemiology</h3>
+  <p>Frequently triggered by a stressful life event; more common in women and in lower-income countries. Prognosis is generally good, with full recovery within weeks to a few months, although some cases later evolve into schizophrenia or a mood disorder. <span class="tag tks">Kaplan &amp; Sadock</span></p>
+  <h3>4. Identifying symptoms</h3>
+  <div class="unique"><h4>Identifying clues</h4><ul class="t">
+    <li><b>Acute onset</b> defined as within <b>2 weeks</b> from a non-psychotic to a clearly psychotic state.</li>
+    <li><b>Rapidly changing ("polymorphic")</b> delusions, hallucinations, and perceptual disturbances, often with emotional turmoil (rapidly shifting intense happiness, anxiety, and irritability).</li>
+    <li>Frequent association with <b>acute stress</b> (onset within about 2 weeks of a stressful event).</li>
+    <li><b>Rapid, complete recovery</b> (usually within weeks; the diagnosis is revised if symptoms persist).</li>
+  </ul></div>
+  <div class="assoc"><h4>Comorbidities and complications</h4><ul class="t">
+    <li>Frequent association with an <b>acute stressor</b>; postpartum onset is recognised.</li>
+    <li>A minority (over follow-up) <b>evolve into schizophrenia or a mood disorder</b> &mdash; so follow-up is essential.</li>
+    <li>Risk of harm during the acute, disorganised phase.</li>
+  </ul></div>
+  <h3>5. Diagnostic criteria</h3>
+  <div class="panel10"><h4><span class="tag t10">ICD-10</span></h4><p>Requires <b>acute onset (within 2 weeks)</b> as the defining feature; the presence of typical syndromes (polymorphic, or schizophrenia-like); and the presence or absence of associated acute stress (a fifth character marks this). Duration limits distinguish the subtypes &mdash; if schizophrenic symptoms persist beyond <b>1 month</b>, the diagnosis is changed to schizophrenia (F20). Full recovery usually occurs within 2&ndash;3 months, often within weeks or days.</p></div>
+  <div class="assoc" style="border-color:#1a5276;background:#eef3f8">
+    <h4 style="color:#1a5276">Detailed ICD-10 subtypes of acute and transient psychotic disorders (F23.0&ndash;F23.9)</h4>
+    <ul class="t">
+      <li><b>F23.0 &mdash; Acute polymorphic psychotic disorder WITHOUT symptoms of schizophrenia:</b> <b class="cl">polymorphic</b> <i class="si">(rapidly changing and variable)</i> hallucinations, delusions, and perceptual disturbances with intense, shifting emotional turmoil, but <b>not</b> meeting the symptom pattern of schizophrenia. Corresponds to the classic "bouff&eacute;e d&eacute;lirante" / cycloid psychosis; usually resolves rapidly and completely.</li>
+      <li><b>F23.1 &mdash; Acute polymorphic psychotic disorder WITH symptoms of schizophrenia:</b> the same rapidly changing polymorphic picture, but some typical schizophrenic symptoms are also present for <b>most of the time</b>. If those schizophrenic symptoms persist beyond one month, reclassify as schizophrenia.</li>
+      <li><b>F23.2 &mdash; Acute schizophrenia-like psychotic disorder:</b> psychotic symptoms that <b>do meet the criteria for schizophrenia</b> but have lasted <b>less than one month</b>; relatively stable (not polymorphic). If they persist beyond one month, the diagnosis becomes schizophrenia (F20).</li>
+      <li><b>F23.3 &mdash; Other acute predominantly delusional psychotic disorders:</b> acute onset with relatively stable <b>delusions or hallucinations</b> as the main feature, not meeting the criteria for schizophrenia.</li>
+      <li><b>F23.8 / F23.9 &mdash;</b> other, and unspecified, acute and transient psychotic disorders.</li>
+      <li><b>Fifth character for associated acute stress:</b> .x0 without associated acute stress; .x1 with associated acute stress (onset within about 2 weeks of a stressful event).</li>
+    </ul>
+  </div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11 (6A23)</span></h4><p>Acute onset of psychotic symptoms that <b>reach their maximum severity within about two weeks</b>. Symptoms typically <b>change rapidly in nature and intensity from day to day, or within a day</b> (polymorphic). Symptoms have <b>not persisted for more than three months</b> (most last days to a month). If the picture persists, an alternative diagnosis (e.g. schizophrenia) is considered.</p></div>
+  <h3>6&ndash;7. Remember and treatment</h3>
+  <div class="remember"><h4>Mnemonic &mdash; "SPAR"</h4><p><b>S</b>udden onset (within 2 weeks) &middot; <b>P</b>olymorphic, rapidly changing symptoms &middot; <b>A</b>ssociated acute stress often &middot; <b>R</b>apid, full recovery. If it lasts beyond a month with schizophrenic features &rarr; reconsider schizophrenia.</p></div>
+  <p><b>Treatment:</b> short-term antipsychotics and management of any precipitating stress; benzodiazepines for agitation; most recover fully and treatment can often be withdrawn; follow up because a minority evolve into schizophrenia or a mood disorder. <span class="tag tks">Kaplan &amp; Sadock</span></p>
+  <div class="ddx">
+    <h5>Differential diagnosis (F23 Acute and transient psychotic disorders)</h5>
+    <ul class="t">
+      <li><b>Schizophrenia (F20)</b> &mdash; if the psychotic (schizophrenic) symptoms persist beyond <b>1 month</b>, the diagnosis changes to schizophrenia.</li>
+      <li><b>Organic (F06.2) or substance-induced psychosis</b> &mdash; exclude a medical cause, delirium, or drug (esp. stimulant/hallucinogen) intoxication.</li>
+      <li><b>Mood disorder with psychotic features</b> &mdash; if a full mood syndrome dominates.</li>
+      <li><b>Delirium</b> &mdash; clouded, fluctuating consciousness with an acute medical trigger.</li>
+    </ul>
+  </div>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+<!-- ═══════════════════════ F25 SCHIZOAFFECTIVE ═══════════════════════ -->
+<section id="f25">
+  <h2>F25 &middot; Schizoaffective Disorders &rarr; ICD-11 6A21</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> Primary psychotic disorders (F20&ndash;F29) &mdash; both schizophrenic and mood (affective) symptoms are prominent within the same episode. See the block overview above.</p>
+  <div class="idcard">
+    <div><b>ICD-10</b> F25 (.0 manic type, .1 depressive type, .2 mixed type, .8/.9)</div>
+    <div><b>ICD-11</b> 6A21 Schizoaffective disorder</div>
+    <div><b>Type</b> Schizophrenic and mood symptoms together in the same episode</div>
+    <div><b>Key point</b> Both sets of symptoms are prominent and roughly simultaneous</div>
+  </div>
+  <h3>1. Introduction</h3>
+  <p>Episodic disorders in which <b>both schizophrenic and affective (mood) symptoms are prominent within the same episode of illness</b>, either simultaneously or within a few days of each other. The disorder sits "between" schizophrenia and the mood disorders. <span class="tag t10">ICD-10</span></p>
+  <h3>2&ndash;3. Etiology and epidemiology</h3>
+  <p>Shares genetic risk with both schizophrenia and mood disorders; prognosis is generally intermediate &mdash; better than schizophrenia but worse than a pure mood disorder. <span class="tag tks">Kaplan &amp; Sadock</span></p>
+  <h3>4. Identifying symptoms</h3>
+  <div class="unique"><h4>Identifying clues</h4><ul class="t">
+    <li><b>Simultaneously prominent</b> schizophrenic symptoms (e.g. first-rank symptoms, bizarre delusions) <b>and</b> a full mood syndrome (manic or depressive) within the same episode.</li>
+    <li><b>Manic type (F25.0):</b> a florid manic picture (elevated/expansive mood, grandiosity, overactivity) with prominent schizophrenic symptoms in the same episode &mdash; usually a <b>good prognosis</b>.</li>
+    <li><b>Depressive type (F25.1):</b> a depressive picture (low mood, retardation, guilt, sleep/appetite disturbance) with prominent schizophrenic symptoms &mdash; a more <b>prolonged course</b> and generally poorer prognosis than the manic type.</li>
+    <li><b>Mixed type (F25.2):</b> schizophrenic symptoms coexisting with a <b>mixed bipolar</b> picture (manic and depressive features together).</li>
+    <li><b>F25.8 / F25.9:</b> other, and unspecified, schizoaffective disorders.</li>
+    <li>Distinguishing feature: the psychotic symptoms are <b>not confined</b> to the periods of mood disturbance (that would make it a mood disorder with psychotic features).</li>
+  </ul></div>
+  <div class="assoc"><h4>Comorbidities and complications</h4><ul class="t">
+    <li><b>Substance use disorders</b> and <b>anxiety disorders</b>.</li>
+    <li><b>High suicide risk</b> (particularly the depressive type and mixed presentations).</li>
+    <li>Metabolic and cardiovascular risk from long-term antipsychotic and mood-stabiliser treatment.</li>
+  </ul></div>
+  <h3>5. Diagnostic criteria</h3>
+  <div class="panel10"><h4><span class="tag t10">ICD-10</span></h4><p>Diagnosed only when <b>both definite schizophrenic and definite affective symptoms are prominent simultaneously, or within a few days of each other, within the same episode</b>, and the episode consequently meets neither the criteria for schizophrenia alone nor for a manic or depressive episode alone. Subtypes: F25.0 manic type, F25.1 depressive type, F25.2 mixed type.</p></div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11 (6A21)</span></h4><p>All diagnostic requirements for <b>schizophrenia</b> are met <b>concurrently</b> with those for a <b>moderate or severe mood episode</b> (manic, depressive, or mixed), <b>within the same episode of illness</b>. The diagnosis requires that the two sets of symptoms occur together; if psychotic symptoms occur only during mood episodes, a mood disorder with psychotic features is diagnosed instead.</p></div>
+  <h3>6&ndash;7. Remember and treatment</h3>
+  <div class="remember"><h4>Mnemonic</h4><p><b>"Schizophrenia + mood episode, together, same episode."</b> If psychosis is ONLY during the mood episode &rarr; it is a mood disorder with psychotic features, not schizoaffective.</p></div>
+  <p><b>Treatment:</b> combination of an <b>antipsychotic</b> with a <b>mood stabiliser</b> (e.g. lithium or valproate) or an <b>antidepressant</b>, according to the predominant mood pole; psychosocial support; ECT in severe or treatment-resistant cases. <span class="tag tks">Kaplan &amp; Sadock</span></p>
+  <div class="ddx">
+    <h5>Differential diagnosis (F25 Schizoaffective disorders)</h5>
+    <ul class="t">
+      <li><b>Schizophrenia</b> &mdash; mood symptoms are not prominent, or occur only briefly relative to the psychosis.</li>
+      <li><b>Mood disorder with psychotic features</b> &mdash; psychotic symptoms occur <b>only</b> during the mood episode (in schizoaffective they occur together and the psychosis is not confined to mood episodes).</li>
+      <li><b>Organic/substance-induced psychosis or mood syndrome</b> &mdash; exclude a medical/drug cause.</li>
+    </ul>
+  </div>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+<!-- ═══════════════════════ F28 / F29 ═══════════════════════ -->
+<section id="f28">
+  <h2>F28 &middot; Other Nonorganic Psychotic Disorders &rarr; ICD-11 6A2Y</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> Primary psychotic disorders (F20&ndash;F29) &mdash; an "other specified" residual category for non-organic psychoses not meeting the specific categories. See the block overview above.</p>
+  <div class="idcard">
+    <div><b>ICD-10</b> F28</div><div><b>ICD-11</b> 6A2Y Other specified primary psychotic disorder</div>
+    <div><b>Type</b> Residual "other specified" category</div>
+  </div>
+  <p>Used for psychotic disorders that <b>do not meet the criteria for any of the specific categories</b> F20&ndash;F25 and are not due to an organic cause or substance (e.g. chronic hallucinatory psychoses that do not fit schizophrenia or delusional disorder). <span class="tag t10">ICD-10</span> <span class="tag t11">ICD-11</span></p>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+<section id="f29">
+  <h2>F29 &middot; Unspecified Nonorganic Psychosis &rarr; ICD-11 6A2Z</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> Primary psychotic disorders (F20&ndash;F29) &mdash; an "unspecified" residual category used when information is insufficient for a specific diagnosis. See the block overview above.</p>
+  <div class="idcard">
+    <div><b>ICD-10</b> F29</div><div><b>ICD-11</b> 6A2Z Schizophrenia or other primary psychotic disorder, unspecified</div>
+    <div><b>Type</b> Residual "unspecified" category</div>
+  </div>
+  <p>A catch-all for <b>psychosis with no organic cause where information is insufficient</b> to make a more specific diagnosis, or where the features do not fit any defined category. It is a provisional label pending clarification. <span class="tag t10">ICD-10</span> <span class="tag t11">ICD-11</span></p>
+  <div class="note"><b>Practice point:</b> "unspecified psychosis" is often used in emergency or first-contact settings before enough history is available; it should be revised to a specific diagnosis as the picture clarifies.</div>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+<!-- ═══════════════════════ DIFFERENTIALS ═══════════════════════ -->
+<section id="ddx">
+  <h2>Differential Diagnosis Tables</h2>
+
+  <h3>The psychoses distinguished mainly by DURATION</h3>
+  <table>
+    <tr><th>Disorder</th><th>Duration of psychotic symptoms</th><th>Key point</th></tr>
+    <tr><td>Acute and transient psychotic disorder (F23)</td><td>Days up to about 1 month (recovers within ~3 months)</td><td>Sudden onset, polymorphic, often stress-related, full recovery</td></tr>
+    <tr><td>Schizophrenia (F20)</td><td>At least 1 month of core symptoms</td><td>Persistent; functional decline; negative symptoms</td></tr>
+    <tr><td>Persistent delusional disorder (F22)</td><td>At least 3 months</td><td>Delusion only, otherwise normal, no hallucinations/thought disorder</td></tr>
+    <tr><td>Schizotypal disorder (F21)</td><td>At least 2 years</td><td>Odd but never frankly/persistently psychotic</td></tr>
+  </table>
+
+  <h3>Schizophrenia vs Delusional disorder vs Schizoaffective</h3>
+  <table>
+    <tr><th>Feature</th><th>Schizophrenia</th><th>Delusional disorder</th><th>Schizoaffective</th></tr>
+    <tr><td>Delusions</td><td>Often bizarre</td><td>Usually non-bizarre</td><td>Present</td></tr>
+    <tr><td>Hallucinations</td><td>Prominent (esp. auditory)</td><td>Absent or minimal</td><td>Present</td></tr>
+    <tr><td>Thought disorder / negative symptoms</td><td>Present</td><td>Absent</td><td>May be present</td></tr>
+    <tr><td>Mood syndrome</td><td>Not prominent</td><td>Not prominent</td><td>Prominent, concurrent</td></tr>
+    <tr><td>Functioning outside symptoms</td><td>Declines</td><td>Largely preserved</td><td>Intermediate</td></tr>
+  </table>
+
+  <h3>Primary psychosis vs Secondary (organic/substance) psychosis</h3>
+  <table>
+    <tr><th>Feature</th><th>Primary psychosis (F20&ndash;F29)</th><th>Secondary psychosis (F06 / F1x)</th></tr>
+    <tr><td>Consciousness</td><td>Clear</td><td>May be clouded/fluctuating (if delirious)</td></tr>
+    <tr><td>Hallucination type</td><td>Often auditory</td><td>Often visual</td></tr>
+    <tr><td>Onset/age</td><td>Typically late teens&ndash;30s</td><td>Any age; linked to illness/drug</td></tr>
+    <tr><td>Cause</td><td>No medical/substance cause</td><td>Medical condition or substance identified</td></tr>
+    <tr><td>Course</td><td>Independent of medical illness</td><td>Tracks the cause; often reversible</td></tr>
+  </table>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+<!-- ═══════════════════════ MNEMONICS MASTER SHEET ═══════════════════════ -->
+<section id="mnemonics">
+  <h2>Mnemonics Master Sheet (all in one place)</h2>
+  <table>
+    <tr><th>Topic</th><th>Mnemonic</th><th>Expansion</th></tr>
+    <tr><td>First-rank symptoms</td><td><b>ABCD</b></td><td><b>A</b>uditory hallucinations (3rd-person/commentary/thought echo) &middot; <b>B</b>roadcasting (+ insertion/withdrawal) &middot; <b>C</b>ontrol/passivity &middot; <b>D</b>elusional perception</td></tr>
+    <tr><td>Negative symptoms</td><td><b>5 A's</b></td><td><b>A</b>ffective flattening &middot; <b>A</b>logia &middot; <b>A</b>volition &middot; <b>A</b>nhedonia &middot; <b>A</b>sociality</td></tr>
+    <tr><td>Schizophrenia ICD-10 rule</td><td><b>"1 of A&ndash;D or 2 of E&ndash;H for 1 month"</b></td><td>One clear first-rank-type symptom, or two lesser symptom groups, for at least a month</td></tr>
+    <tr><td>Schizotypal disorder</td><td><b>ODD-MAP</b></td><td><b>O</b>dd behaviour &middot; <b>D</b>etached affect &middot; <b>D</b>istrust &middot; <b>M</b>agical thinking &middot; <b>A</b>bnormal perceptions &middot; <b>P</b>eculiar speech</td></tr>
+    <tr><td>Delusional themes</td><td><b>PGJES</b></td><td><b>P</b>ersecutory &middot; <b>G</b>randiose &middot; <b>J</b>ealous (Othello) &middot; <b>E</b>rotomanic (de Cl&eacute;rambault) &middot; <b>S</b>omatic</td></tr>
+    <tr><td>Induced delusional disorder</td><td><b>"Two, close, isolated, shared; separate to cure"</b></td><td>Folie &agrave; deux &mdash; shared delusion; separating the pair resolves the recipient's delusion</td></tr>
+    <tr><td>Acute &amp; transient psychosis</td><td><b>SPAR</b></td><td><b>S</b>udden onset (&lt;2 weeks) &middot; <b>P</b>olymorphic &middot; <b>A</b>ssociated stress &middot; <b>R</b>apid full recovery</td></tr>
+    <tr><td>Schizoaffective</td><td><b>"Schizophrenia + mood, together"</b></td><td>Both syndromes prominent in the same episode; not just psychosis during mood episodes</td></tr>
+  </table>
+  <div class="remember">
+    <h4>Two golden rules for the block</h4>
+    <p><b>Rule 1 &mdash; sort the psychoses by duration:</b> days&ndash;1 month = acute/transient; &ge;1 month = schizophrenia; &ge;3 months delusion-only = delusional disorder; &ge;2 years odd-but-not-psychotic = schizotypal.</p>
+    <p><b>Rule 2 &mdash; always exclude an organic/substance cause first:</b> clear consciousness + auditory hallucinations + no medical trigger points to a primary psychosis; clouded consciousness or visual hallucinations point to a secondary (organic/substance) cause.</p>
+  </div>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+<!-- ═══════════════════════ GLOSSARY ═══════════════════════ -->
+<section id="glossary">
+  <h2>Clinical Terminology Glossary</h2>
+  <table>
+    <tr><th>Term</th><th>Plain-language meaning</th></tr>
+    <tr><td>Psychosis</td><td>A loss of contact with reality, shown by delusions, hallucinations, or grossly disorganised thinking/behaviour.</td></tr>
+    <tr><td>Primary psychotic disorder</td><td>A psychosis that is the illness itself, not caused by a medical condition or substance.</td></tr>
+    <tr><td>Delusion</td><td>A fixed, false belief held despite clear contrary evidence and not shared by the person's culture.</td></tr>
+    <tr><td>Hallucination</td><td>A perception (hearing, seeing, feeling) that occurs without any real external stimulus.</td></tr>
+    <tr><td>Positive symptoms</td><td>Added, abnormal experiences not normally present (delusions, hallucinations, disorganisation).</td></tr>
+    <tr><td>Negative symptoms</td><td>Normal functions that are reduced or lost (flat affect, poor speech, low drive, anhedonia).</td></tr>
+    <tr><td>First-rank symptoms</td><td>A set of symptoms (Schneider) traditionally considered strongly suggestive of schizophrenia.</td></tr>
+    <tr><td>Thought echo</td><td>Hearing one's own thoughts spoken aloud.</td></tr>
+    <tr><td>Thought insertion / withdrawal</td><td>Feeling that thoughts are put into, or removed from, one's mind by an outside force.</td></tr>
+    <tr><td>Thought broadcasting</td><td>Belief that one's thoughts are transmitted so others can hear them.</td></tr>
+    <tr><td>Passivity / delusion of control</td><td>Belief that one's actions, feelings, or body are controlled by an external force.</td></tr>
+    <tr><td>Delusional perception</td><td>A real perception given a bizarre, self-referential delusional meaning.</td></tr>
+    <tr><td>Formal thought disorder</td><td>Disorganised thinking shown in speech (loose associations, tangential replies, neologisms).</td></tr>
+    <tr><td>Neologism</td><td>A newly invented word used by the patient.</td></tr>
+    <tr><td>Ideas of reference</td><td>The feeling that ordinary events have a special personal meaning.</td></tr>
+    <tr><td>Affect / affective flattening</td><td>The outward expression of emotion / a marked reduction in that expression.</td></tr>
+    <tr><td>Alogia</td><td>Poverty of speech (reduced amount or content of speech).</td></tr>
+    <tr><td>Avolition</td><td>Lack of motivation or drive to start and continue activities.</td></tr>
+    <tr><td>Anhedonia</td><td>Inability to feel pleasure.</td></tr>
+    <tr><td>Catatonia</td><td>A syndrome of marked motor disturbance: stupor/immobility or excitement, with posturing, mutism, negativism.</td></tr>
+    <tr><td>Waxy flexibility</td><td>Limbs remain in whatever position they are placed (a catatonic sign).</td></tr>
+    <tr><td>Prodrome</td><td>An early phase of subtle decline and odd experiences before frank psychosis.</td></tr>
+    <tr><td>Polymorphic</td><td>Rapidly changing in type and intensity of symptoms (a shifting picture).</td></tr>
+    <tr><td>Non-bizarre delusion</td><td>A delusion about something that could conceivably happen in real life (being followed, deceived).</td></tr>
+    <tr><td>Othello syndrome</td><td>The delusion that one's partner is unfaithful (delusional jealousy).</td></tr>
+    <tr><td>De Cl&eacute;rambault syndrome (erotomania)</td><td>The delusion that another person, often of higher status, is secretly in love with the patient.</td></tr>
+    <tr><td>Folie &agrave; deux</td><td>A delusion shared between two closely linked people ("madness of two").</td></tr>
+    <tr><td>Expressed emotion</td><td>High levels of criticism or over-involvement in the family, which increase relapse risk.</td></tr>
+    <tr><td>Antipsychotic (neuroleptic)</td><td>A medication that reduces psychotic symptoms, mainly by blocking dopamine.</td></tr>
+    <tr><td>Clozapine</td><td>The most effective antipsychotic, reserved for treatment resistance; requires blood monitoring.</td></tr>
+    <tr><td>Extrapyramidal side-effects</td><td>Movement side-effects of antipsychotics (stiffness, tremor, restlessness).</td></tr>
+    <tr><td>Tardive dyskinesia</td><td>Late-onset, potentially irreversible involuntary movements from long-term antipsychotic use.</td></tr>
+    <tr><td>Neuroleptic malignant syndrome</td><td>A rare, life-threatening reaction to antipsychotics: fever, rigidity, confusion, autonomic instability.</td></tr>
+  </table>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+<!-- ═══════════════════════ REFERENCES ═══════════════════════ -->
+<section id="references">
+  <h2>References and Source Attribution</h2>
+  <p>Diagnostic terminology and criteria are drawn strictly from the two official WHO classifications; clinical elaboration is drawn from standard psychiatric texts and peer-reviewed literature, each labelled inline with a source tag.</p>
+  <ul class="t">
+    <li><span class="tag t10">ICD-10</span> World Health Organization. <i>The ICD-10 Classification of Mental and Behavioural Disorders: Clinical Descriptions and Diagnostic Guidelines.</i> Geneva: World Health Organization, 1992.</li>
+    <li><span class="tag t11">ICD-11</span> World Health Organization. <i>Clinical Descriptions and Diagnostic Requirements for ICD-11 Mental, Behavioural and Neurodevelopmental Disorders.</i> Geneva: World Health Organization.</li>
+    <li><span class="tag tks">Kaplan &amp; Sadock</span> Sadock BJ, Sadock VA, Ruiz P. <i>Kaplan &amp; Sadock's Synopsis of Psychiatry</i> and <i>Comprehensive Textbook of Psychiatry</i> (etiology, clinical features, and treatment; content paraphrased).</li>
+    <li><span class="tag tother">Other evidence</span> Peer-reviewed reviews on the epidemiology and treatment of schizophrenia and related psychoses, and on the ICD-10 to ICD-11 transition.</li>
+  </ul>
+  <div class="warn"><b>Note on use.</b> This is an educational study reference for M.Phil. Clinical Psychology. Diagnostic criteria are paraphrased from the ICD sources without reproducing copyrighted text at length; secondary-source content has been rephrased for compliance with licensing restrictions. It is not a substitute for the full official classifications or for individual clinical and medical judgement, and it is not a prescribing guide.</div>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+</main>
+</div>
+
+<footer>
+  <p><strong>ICD-10 &amp; ICD-11 Comparative Clinical Handbook &mdash; F20&ndash;F29 Schizophrenia, Schizotypal and Delusional Disorders</strong></p>
+  <p>Comprehensive examination reference &middot; diagnostic criteria strictly from ICD-10 and ICD-11 &middot; identifying symptoms, associated conditions and mnemonics for every disorder &middot; clinical terminology explained in plain language.</p>
+  <p style="margin-top:14px;font-size:1rem;color:#fff;letter-spacing:.04em">Made by <strong>Tejas Dangodra</strong></p>
+</footer>
+
+</body>
+</html>

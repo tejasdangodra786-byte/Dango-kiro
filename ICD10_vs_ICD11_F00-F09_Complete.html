@@ -1,0 +1,1455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ICD-10 &amp; ICD-11 Comparative Handbook — F00–F09 Organic and Neurocognitive Mental Disorders</title>
+<style>
+:root{
+  --deep:#0a2540;--accent:#0e6655;--icd10:#1a5276;--icd11:#1e8449;
+  --ks:#7d3c98;--other:#b9770e;--bg:#f4f6f9;--card:#ffffff;
+  --ink:#1c2833;--muted:#5d6d7e;--line:#d5dbdb;--soft:#eaf2f8;
+  --warn:#922b21;--uniq:#6c3483;--surface:#fdfefe;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.72;font-size:16px}
+
+/* ─── Cover ─── */
+.cover{background:linear-gradient(160deg,#0a2540 0%,#154360 40%,#0e6655 100%);color:#fff;padding:60px 30px 50px;text-align:center}
+.cover .subtitle{text-transform:uppercase;letter-spacing:.3em;font-size:.72rem;opacity:.7;margin-bottom:16px}
+.cover h1{font-size:2.2rem;font-weight:800;line-height:1.22;margin-bottom:12px;max-width:900px;display:inline-block}
+.cover .tagline{font-size:1.05rem;font-weight:400;opacity:.9;max-width:800px;margin:0 auto 22px}
+.cover .chips{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-bottom:18px}
+.cover .chip{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);border-radius:6px;padding:5px 14px;font-size:.82rem}
+.cover .srcline{font-size:.8rem;opacity:.65;max-width:750px;margin:0 auto}
+
+/* ─── Layout ─── */
+.wrap{max-width:1160px;margin:0 auto;padding:0 22px}
+.layout{display:flex;gap:28px;align-items:flex-start}
+nav.toc{position:sticky;top:0;max-height:100vh;overflow-y:auto;flex:0 0 270px;padding:20px 12px 60px;font-size:.84rem;border-right:1px solid var(--line);background:var(--surface)}
+nav.toc h4{margin:18px 0 6px;color:var(--accent);text-transform:uppercase;font-size:.68rem;letter-spacing:.08em;font-weight:700}
+nav.toc a{display:block;color:var(--muted);text-decoration:none;padding:4px 10px;border-radius:6px;border-left:3px solid transparent;transition:all .15s}
+nav.toc a:hover{background:var(--soft);color:var(--icd10);border-left-color:var(--icd10)}
+main{flex:1 1 auto;min-width:0;padding:28px 0 100px}
+
+/* ─── Cards / Sections ─── */
+section{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:28px 30px;margin:0 0 26px;scroll-margin-top:16px;box-shadow:0 1px 3px rgba(10,37,64,.04)}
+h2{font-size:1.45rem;color:var(--deep);border-bottom:3px solid var(--accent);padding-bottom:10px;margin-bottom:14px;font-weight:800}
+h3{font-size:1.1rem;color:var(--accent);margin:26px 0 8px;font-weight:700;padding-left:14px;border-left:4px solid var(--accent)}
+h4{font-size:.98rem;margin:16px 0 6px;font-weight:700;color:var(--deep)}
+p{margin:.55em 0}
+
+/* ─── Tags ─── */
+.tag{display:inline-block;font-size:.64rem;font-weight:700;padding:2px 9px;border-radius:4px;color:#fff;vertical-align:middle;letter-spacing:.02em}
+.t10{background:var(--icd10)}.t11{background:var(--icd11)}.tks{background:var(--ks)}.tother{background:var(--other)}
+
+/* ─── Term bracket style ─── */
+b.cl{color:var(--deep);font-weight:700}
+i.si{color:var(--uniq);font-style:normal;font-weight:500}
+
+/* ─── Tables ─── */
+table{border-collapse:collapse;width:100%;margin:16px 0;font-size:.9rem;border-radius:10px;overflow:hidden;box-shadow:0 0 0 1px var(--line)}
+th,td{border:1px solid var(--line);padding:10px 12px;text-align:left;vertical-align:top}
+th{background:var(--deep);color:#fff;font-weight:600;font-size:.8rem;text-transform:uppercase;letter-spacing:.03em}
+tr:nth-child(even) td{background:#f8fafb}
+.c10{background:#eaf2f8!important}.c11{background:#eafaf1!important}
+
+/* ─── Criteria panels ─── */
+.panel10{border-left:5px solid var(--icd10);background:#edf2f8;border-radius:0 10px 10px 0;padding:16px 20px;margin:14px 0}
+.panel11{border-left:5px solid var(--icd11);background:#edfaf1;border-radius:0 10px 10px 0;padding:16px 20px;margin:14px 0}
+.panel10 h4,.panel11 h4{margin:0 0 8px;padding-left:0;border-left:none}
+
+/* ─── Callouts ─── */
+.note{border-left:5px solid var(--accent);background:var(--soft);padding:14px 18px;border-radius:0 10px 10px 0;margin:14px 0}
+.warn{border-left:5px solid var(--warn);background:#fdedec;padding:14px 18px;border-radius:0 10px 10px 0;margin:14px 0}
+.unique{border:2px solid var(--uniq);background:#f5eef8;border-radius:12px;padding:16px 20px;margin:16px 0}
+.unique h4{color:var(--uniq);margin:0 0 10px;border-left:none;padding-left:0}
+.assoc{border:2px solid var(--warn);background:#fdf0ee;border-radius:12px;padding:16px 20px;margin:16px 0}
+.assoc h4{color:var(--warn);margin:0 0 10px;border-left:none;padding-left:0}
+.psych{border:2px solid #1f6f8b;background:#eaf4f7;border-radius:12px;padding:16px 20px;margin:16px 0}
+.ddx{border:2px dashed #0b6b5f;background:#e9f6f2;border-radius:10px;padding:12px 16px;margin:12px 0;font-size:.92rem}
+.ddx h5{color:#0b6b5f;margin:0 0 6px;font-size:.9rem;text-transform:uppercase;letter-spacing:.03em}
+.psych h4{color:#1f6f8b;margin:0 0 10px;border-left:none;padding-left:0}
+
+/* ─── Signature / remember ─── */
+.sig{background:var(--deep);color:#fff;padding:14px 20px;border-radius:10px;margin:14px 0;font-size:.96rem}
+.sig b{color:#f9e79f}
+.remember{border:2px dashed #d4ac0d;background:#fef9e7;border-radius:12px;padding:16px 20px;margin:14px 0}
+.remember h4{color:#7d6608;margin:0 0 8px;border-left:none;padding-left:0}
+
+/* ─── ID card ─── */
+.idcard{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin:14px 0}
+.idcard div{background:#f2f6fa;border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:.86rem}
+.idcard b{display:block;font-size:.62rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:3px}
+
+/* ─── Lists ─── */
+ul.t,ol.t{margin:.5em 0;padding-left:1.3em}
+ul.t li,ol.t li{margin:.3em 0}
+
+/* ─── Grid ─── */
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+
+/* ─── Back to top ─── */
+.top{text-align:right;font-size:.78rem;margin-top:10px}.top a{color:var(--muted);text-decoration:none}
+
+/* ─── Footer ─── */
+footer{background:var(--deep);color:#aeb6bf;padding:30px 22px;font-size:.86rem;text-align:center}
+footer strong{color:#fff}
+
+/* ─── Responsive ─── */
+@media(max-width:920px){.layout{display:block}nav.toc{position:static;border-right:none;border-bottom:1px solid var(--line);max-height:none;flex:none}.g2{grid-template-columns:1fr}.cover h1{font-size:1.5rem}}
+@media print{nav.toc{display:none}body{background:#fff}section{box-shadow:none;break-inside:avoid}footer{background:#fff;color:#333}}
+</style>
+</head>
+<body>
+<a id="top"></a>
+
+<!-- ════════════════════════ COVER ════════════════════════ -->
+<div class="cover">
+  <p class="subtitle">M.Phil. Clinical Psychology &mdash; Complete Diagnostic, Clinical &amp; Treatment Reference</p>
+  <h1>ICD-10 &amp; ICD-11 Comparative Clinical Handbook<br>F00&ndash;F09: Organic, Including Symptomatic, Mental Disorders<br>&amp; Neurocognitive Disorders</h1>
+  <p class="tagline">Comprehensive examination-oriented reference covering introduction, etiology, epidemiology, clinical features, diagnostic criteria (strictly from ICD-10 and ICD-11), differential diagnosis, assessment, and treatment (pharmacological and psychological) for every disorder in this block.</p>
+  <div class="chips">
+    <span class="chip">Criteria strictly from ICD-10 &amp; ICD-11</span>
+    <span class="chip">Extensive etiology &amp; epidemiology</span>
+    <span class="chip">Hard terms explained in brackets</span>
+    <span class="chip">Unique disease-specific clues</span>
+    <span class="chip">Pharmacological + psychological treatment</span>
+  </div>
+  <p class="srcline">Primary authorities: WHO ICD-10 Clinical Descriptions &amp; Diagnostic Guidelines (CDDG) and WHO ICD-11 Clinical Descriptions &amp; Diagnostic Requirements (CDDR). Secondary: Kaplan &amp; Sadock's Synopsis/Comprehensive Textbook of Psychiatry; peer-reviewed literature.</p>
+</div>
+
+<!-- ════════════════════════ LAYOUT ════════════════════════ -->
+<div class="wrap layout">
+<nav class="toc">
+  <h4>Foundations</h4>
+  <a href="#what-icd">What is ICD</a>
+  <a href="#compare">ICD-10 vs ICD-11 comparison</a>
+  <a href="#mastermap">Master code map (all F00-F09)</a>
+  <a href="#overview">The F00-F09 block explained</a>
+  <a href="#etiology-gen">General etiology framework</a>
+  <a href="#epidemiology-gen">Epidemiology (comprehensive)</a>
+  <a href="#dementia-gen">General concept of dementia</a>
+  <h4>Dementias</h4>
+  <a href="#f00">F00 &middot; Alzheimer</a>
+  <a href="#f01">F01 &middot; Vascular</a>
+  <a href="#f02-dlb">F02/6D82 &middot; Lewy body</a>
+  <a href="#f02-ftd">F02.0/6D83 &middot; Frontotemporal</a>
+  <a href="#f02-cjd">F02.1/6D85.5 &middot; Prion (CJD)</a>
+  <a href="#f02-hd">F02.2/6D85.1 &middot; Huntington</a>
+  <a href="#f02-pd">F02.3/6D85.0 &middot; Parkinson</a>
+  <a href="#f02-hiv">F02.4/6D85.3 &middot; HIV</a>
+  <a href="#f02-other">Other dementias (NPH, pellagra, etc.)</a>
+  <a href="#f03">F03 &middot; Unspecified dementia</a>
+  <h4>Other organic disorders</h4>
+  <a href="#f04">F04 &middot; Organic amnesic syndrome</a>
+  <a href="#f05">F05 &middot; Delirium</a>
+  <a href="#f06">F06 &middot; Other mental disorders (organic)</a>
+  <a href="#f07">F07 &middot; Personality and behavioural disorders</a>
+  <a href="#f09">F09 &middot; Unspecified</a>
+  <h4>Exam reference</h4>
+  <a href="#ddx">Differential diagnosis tables</a>
+  <a href="#glossary">Clinical terminology glossary</a>
+  <a href="#references">References</a>
+</nav>
+
+<main>
+
+<!-- ════════════════════════ WHAT IS ICD ════════════════════════ -->
+<section id="what-icd">
+  <h2>What is ICD?</h2>
+  <p>The <b class="cl">International Classification of Diseases (ICD)</b> <i class="si">(a global system of codes and names for every disease and health condition)</i> is developed and maintained by the <b class="cl">World Health Organization (WHO)</b>. It serves as the international standard for diagnostic classification, enabling uniform recording and reporting of diseases for clinical communication, epidemiological surveillance <i class="si">(tracking disease patterns in populations)</i>, health-service planning, research comparisons across countries, morbidity and mortality statistics, and reimbursement coding.</p>
+
+  <h3>ICD-10</h3>
+  <p>The Tenth Revision of the ICD was endorsed by the World Health Assembly in 1990 and came into widespread use in 1994. Its chapter on mental and behavioural disorders was published with a dedicated clinical companion volume: the <b class="cl">Clinical Descriptions and Diagnostic Guidelines (CDDG)</b>, commonly known as the "Blue Book" (WHO, 1992). This volume provides prototype-based diagnostic descriptions for each mental disorder, organised under alphanumeric F-codes (F00 through F99). It has been the principal international diagnostic classification in psychiatry for three decades.</p>
+
+  <h3>ICD-11</h3>
+  <p>The Eleventh Revision was adopted by the World Health Assembly in May 2019 and came into effect for member states from January 2022. For mental, behavioural and neurodevelopmental disorders (Chapter 06), the WHO released the <b class="cl">Clinical Descriptions and Diagnostic Requirements (CDDR)</b>, which replaced the CDDG. The CDDR provides a more consistently structured text for each disorder, organised under a new alphanumeric coding system (e.g. 6D80 rather than F00). Major structural improvements include: uniform headings across all disorder categories (essential features, additional clinical features, boundary with normality, course features, developmental presentations, culture-related features, sex- and gender-related features, boundaries with other disorders); the introduction of <b class="cl">post-coordination</b> <i class="si">(the ability to add extension codes for severity, provisional status, or differential diagnosis to a stem code)</i>; and a systematic approach to dimensional qualifiers within an otherwise categorical system.</p>
+</section>
+
+<!-- ════════════════════════ COMPARE ════════════════════════ -->
+<section id="compare">
+  <h2>ICD-10 vs ICD-11 &mdash; General Comparison</h2>
+  <table>
+    <tr><th>Dimension</th><th class="c10">ICD-10 (1992)</th><th class="c11">ICD-11 (2022)</th></tr>
+    <tr><td>Overall structure</td><td class="c10">Approximately 22 chapters; mental disorders in Chapter V, coded with the letter F (F00&ndash;F99).</td><td class="c11">26 chapters; mental, behavioural and neurodevelopmental disorders in Chapter 06, coded with alphanumeric stems (e.g. 6A, 6B, 6C, 6D, 6E).</td></tr>
+    <tr><td>Coding philosophy</td><td class="c10">F-codes with up to 4&ndash;5 characters (e.g. F00.0).</td><td class="c11">Alphanumeric stems with post-coordination: stem code + extension codes for severity (XS5W mild, XS0T moderate, XS25 severe), provisional status (XY7Z), and differential diagnosis (XY75), joined with an ampersand (&amp;). Multiple diagnoses joined with a slash (/).</td></tr>
+    <tr><td>Diagnostic text format</td><td class="c10">"Diagnostic guidelines" &mdash; flexible, prototype-based descriptions; headings vary across categories.</td><td class="c11">"Essential (required) features" with uniform headings across all major categories; still prototype-based but consistently structured.</td></tr>
+    <tr><td>Dimensional elements</td><td class="c10">Largely categorical.</td><td class="c11">Retains categories but introduces dimensional/severity qualifiers in several areas (e.g. dementia severity, schizophrenia symptom domains).</td></tr>
+    <tr><td>The term "organic"</td><td class="c10">Central to the F00&ndash;F09 block: "Organic, including symptomatic, mental disorders".</td><td class="c11">Deliberately retired. The corresponding grouping is renamed "Neurocognitive disorders" (where cognition is the core feature) and "Secondary mental or behavioural syndromes associated with disorders or diseases classified elsewhere" (where mood, psychosis, anxiety, personality change due to a medical condition is the core feature).</td></tr>
+    <tr><td>Number of cognitive domains for dementia</td><td class="c10">"Multiple higher cortical functions" (no specific number stated).</td><td class="c11">Explicitly requires decline in "two or more cognitive domains" (memory, attention, executive function, language, social cognition, psychomotor speed, visuoperceptual or visuospatial abilities).</td></tr>
+    <tr><td>Severity of dementia</td><td class="c10">Not separately coded.</td><td class="c11">Coded via extension codes: XS5W (mild), XS0T (moderate), XS25 (severe).</td></tr>
+    <tr><td>Behavioural and psychological symptoms of dementia (BPSD)</td><td class="c10">Indicated by a fifth character appended to F00&ndash;F03 (.x0 without additional symptoms, .x1 predominantly delusional, .x2 predominantly hallucinatory, .x3 predominantly depressive, .x4 other mixed symptoms).</td><td class="c11">Coded through dedicated category 6D86 with specific sub-codes: psychotic symptoms (.0), mood symptoms (.1), anxiety symptoms (.2), apathy (.3), agitation or aggression (.4), disinhibition (.5), wandering (.6).</td></tr>
+    <tr><td>Double coding (syndrome + cause)</td><td class="c10">Required in both systems.</td><td class="c11">Required; in ICD-11, the order of the two codes is explicitly stated to be non-meaningful.</td></tr>
+  </table>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+<!-- ════════════════════════ MASTER MAP ════════════════════════ -->
+<section id="mastermap">
+  <h2>Master Code Map &mdash; F00&ndash;F09 to ICD-11</h2>
+  <table>
+    <tr><th>ICD-10 Code</th><th>ICD-10 Disorder Name</th><th>ICD-11 Code</th><th>ICD-11 Disorder Name</th><th>Classification Status</th></tr>
+    <tr><td>F00 (.0&ndash;.9)</td><td>Dementia in Alzheimer's disease</td><td>6D80 (.0&ndash;.3, .Z)</td><td>Dementia due to Alzheimer disease</td><td>Retained; renamed; mixed subtypes added; severity and BPSD externalised</td></tr>
+    <tr><td>F01 (.0&ndash;.9)</td><td>Vascular dementia</td><td>6D81</td><td>Dementia due to cerebrovascular disease</td><td>Renamed; vascular subtypes not preserved as separate stem codes</td></tr>
+    <tr><td>F02.0</td><td>Dementia in Pick's disease</td><td>6D83</td><td>Frontotemporal dementia</td><td>Broadened from Pick's to frontotemporal; requires 2nd code (8A23)</td></tr>
+    <tr><td>F02.1</td><td>Dementia in Creutzfeldt&ndash;Jakob disease</td><td>6D85.5</td><td>Dementia due to prion disease</td><td>Moved to sub-code of 6D85</td></tr>
+    <tr><td>F02.2</td><td>Dementia in Huntington's disease</td><td>6D85.1</td><td>Dementia due to Huntington disease</td><td>Moved to sub-code of 6D85</td></tr>
+    <tr><td>F02.3</td><td>Dementia in Parkinson's disease</td><td>6D85.0</td><td>Dementia due to Parkinson disease</td><td>Moved to sub-code of 6D85</td></tr>
+    <tr><td>F02.4</td><td>Dementia in HIV disease</td><td>6D85.3</td><td>Dementia due to HIV</td><td>Moved to sub-code of 6D85</td></tr>
+    <tr><td>(within F02.8)</td><td>Dementia with Lewy bodies (no dedicated ICD-10 code)</td><td>6D82</td><td>Dementia due to Lewy body disease</td><td>New stand-alone category in ICD-11</td></tr>
+    <tr><td>&mdash;</td><td>(Substance-induced dementia coded in F1x in ICD-10)</td><td>6D84 (.0&ndash;.Y)</td><td>Dementia due to psychoactive substances including medications</td><td>Placed within dementia grouping with cross-reference to substance chapter</td></tr>
+    <tr><td>F03</td><td>Unspecified dementia</td><td>6D8Z</td><td>Dementia, cause unknown or unspecified</td><td>Retained as residual category</td></tr>
+    <tr><td>F04</td><td>Organic amnesic syndrome, not induced by alcohol and other psychoactive substances</td><td>6D72 (.0&ndash;.Z)</td><td>Amnestic disorder</td><td>Renamed; "organic" dropped; substance-induced amnestic states now explicit sub-codes</td></tr>
+    <tr><td>F05 (.0&ndash;.9)</td><td>Delirium, not induced by alcohol and other psychoactive substances</td><td>6D70 (.0&ndash;.Z)</td><td>Delirium</td><td>Renamed; subtyped by aetiology instead of relationship to dementia</td></tr>
+    <tr><td>F06.0</td><td>Organic hallucinosis</td><td>6E61</td><td>Secondary psychotic syndrome</td><td>Moved to secondary syndromes grouping</td></tr>
+    <tr><td>F06.1</td><td>Organic catatonic disorder</td><td>6E67</td><td>Secondary catatonia syndrome</td><td>Moved to secondary syndromes grouping</td></tr>
+    <tr><td>F06.2</td><td>Organic delusional [schizophrenia-like] disorder</td><td>6E61</td><td>Secondary psychotic syndrome</td><td>Merged with hallucinosis under secondary psychotic syndrome</td></tr>
+    <tr><td>F06.3 (.30&ndash;.33)</td><td>Organic mood [affective] disorders</td><td>6E62 (.0&ndash;.3)</td><td>Secondary mood syndrome</td><td>Moved to secondary syndromes grouping</td></tr>
+    <tr><td>F06.4</td><td>Organic anxiety disorder</td><td>6E63</td><td>Secondary anxiety syndrome</td><td>Moved to secondary syndromes grouping</td></tr>
+    <tr><td>F06.5</td><td>Organic dissociative disorder</td><td>6E65</td><td>Secondary dissociative syndrome</td><td>Moved to secondary syndromes grouping</td></tr>
+    <tr><td>F06.6</td><td>Organic emotionally labile [asthenic] disorder</td><td>&mdash;</td><td>No exact one-to-one equivalent</td><td>Features distributed across secondary syndromes</td></tr>
+    <tr><td>F06.7</td><td>Mild cognitive disorder</td><td>6D71</td><td>Mild neurocognitive disorder</td><td>Elevated to stand-alone neurocognitive category</td></tr>
+    <tr><td>F07.0</td><td>Organic personality disorder</td><td>6E68</td><td>Secondary personality change</td><td>Moved and renamed</td></tr>
+    <tr><td>F07.1</td><td>Postencephalitic syndrome</td><td>&mdash;</td><td>No exact one-to-one equivalent</td><td>Handled via nervous-system chapter + secondary syndromes</td></tr>
+    <tr><td>F07.2</td><td>Postconcussional syndrome</td><td>&mdash;</td><td>No exact one-to-one equivalent</td><td>Primarily addressed in diseases of the nervous system chapter</td></tr>
+    <tr><td>F09</td><td>Unspecified organic or symptomatic mental disorder</td><td>6E6Z</td><td>Secondary mental or behavioural syndrome, unspecified</td><td>Retained as residual category</td></tr>
+  </table>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+<!-- ════════════════════════ F00-F09 OVERVIEW ════════════════════════ -->
+<section id="overview">
+  <h2>The F00&ndash;F09 Block &mdash; "Organic, Including Symptomatic, Mental Disorders"</h2>
+  <h3>Meaning and scope in ICD-10</h3>
+  <p><span class="tag t10">ICD-10</span> This block comprises a range of mental disorders grouped together on the basis of their common, demonstrable <b class="cl">aetiology</b> <i class="si">(cause)</i> in <b class="cl">cerebral disease</b> <i class="si">(disease directly affecting the brain)</i>, <b class="cl">brain injury</b>, or other insult leading to <b class="cl">cerebral dysfunction</b>. The dysfunction may be <b>primary</b> &mdash; in diseases, injuries, and insults that affect the brain directly or with predilection &mdash; or <b>secondary</b> &mdash; in systemic diseases and disorders that attack the brain only as one of the multiple organs or systems of the body involved.</p>
+  <p>Two key terms define this block:</p>
+  <ul class="t">
+    <li><b class="cl">"Organic"</b> <i class="si">(the syndrome can be attributed to an independently diagnosable cerebral or systemic disease or disorder)</i>. The use of this term does not imply that conditions elsewhere in the classification are "non-organic" in the sense of having no cerebral substrate; it means simply that the syndrome so classified can be attributed to an independently diagnosable disease.</li>
+    <li><b class="cl">"Symptomatic"</b> <i class="si">(cerebral involvement is secondary to a systemic extra-cerebral disease or disorder)</i>, for example hepatic encephalopathy <i class="si">(brain dysfunction caused by liver failure)</i> or thyroid-related cognitive change.</li>
+  </ul>
+  <p>ICD-10 identifies two main clinical clusters within this block:</p>
+  <ol class="t">
+    <li><b>Cognitive/sensorium cluster</b> &mdash; the invariable and most prominent features are disturbances of cognitive functions (memory, intellect, learning) or disturbances of the sensorium (consciousness, attention). This cluster includes the <b>dementias, delirium, and the amnesic syndrome</b>.</li>
+    <li><b>Symptomatic psychiatric cluster</b> &mdash; the most conspicuous manifestations are in perception (hallucinations), thought content (delusions), mood and emotion, or overall personality and behaviour, while cognitive or sensory dysfunction is minimal or difficult to ascertain. This cluster includes <b>organic hallucinosis, organic delusional disorder, organic mood disorders, organic anxiety disorder, organic personality change</b>, and others.</li>
+  </ol>
+  <p>In the majority of cases, the recording of a diagnosis requires the use of <b>two codes</b>: one for the psychopathological syndrome <i class="si">(the mental-disorder diagnosis)</i> and another for the underlying disorder <i class="si">(the causal medical condition)</i>.</p>
+  <p>Alcohol- and drug-caused brain disorders, though logically belonging to this group, are classified under F10&ndash;F19 for practical reasons.</p>
+
+  <h3>How ICD-11 reconceptualises this territory</h3>
+  <p><span class="tag t11">ICD-11</span> ICD-11 deliberately retires the term "organic" because all mental disorders have a biological substrate; the term was considered to create a misleading distinction. The conditions formerly grouped under F00&ndash;F09 are distributed across two ICD-11 groupings:</p>
+  <ol class="t">
+    <li><b class="cl">Neurocognitive disorders</b> <i class="si">(acquired conditions where cognition is the principal affected area)</i> &mdash; delirium (6D70), mild neurocognitive disorder (6D71), amnestic disorder (6D72), and the dementias (6D80&ndash;6D86). Code range: <b>6D70&ndash;6D86</b>.</li>
+    <li><b class="cl">Secondary mental or behavioural syndromes associated with disorders or diseases classified elsewhere</b> <i class="si">(psychiatric presentations that are the direct result of a medical condition)</i> &mdash; secondary psychotic (6E61), mood (6E62), anxiety (6E63), obsessive-compulsive (6E64), dissociative (6E65), impulse-control (6E66), catatonia (6E67), and personality change (6E68). Code range: <b>6E60&ndash;6E69</b>.</li>
+  </ol>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+<!-- ════════════════════════ GENERAL ETIOLOGY ════════════════════════ -->
+<section id="etiology-gen">
+  <h2>General Aetiological Framework</h2>
+  <p>Because every disorder in this block is, by definition, caused by a demonstrable brain or systemic condition, aetiology is central to diagnosis. The following framework organises the causes into major groups. For each group the table shows the mechanism by which the brain is affected and the clinical syndromes that typically result. <span class="tag tks">Kaplan &amp; Sadock</span> <span class="tag tother">Other evidence</span></p>
+  <table>
+    <tr><th>Aetiological category</th><th>Common examples</th><th>Brain mechanism</th><th>Typical clinical syndrome</th></tr>
+    <tr><td><b>Neurodegenerative</b> <i class="si">(progressive brain-cell death from abnormal protein deposits)</i></td><td>Alzheimer disease (amyloid/tau), Lewy body disease (alpha-synuclein), frontotemporal lobar degeneration (tau/TDP-43), Parkinson disease (alpha-synuclein in substantia nigra), Huntington disease (huntingtin protein, CAG repeat expansion)</td><td>Progressive neuronal and synaptic loss; protein aggregation and spreading; neurotransmitter depletion (cholinergic, dopaminergic, serotonergic systems)</td><td>Progressive dementia; parkinsonism; chorea; personality/behavioural change</td></tr>
+    <tr><td><b>Cerebrovascular</b> <i class="si">(brain blood-vessel disease)</i></td><td>Large-vessel territorial infarcts; lacunar infarcts <i class="si">(small deep strokes)</i>; cerebral small-vessel disease <i class="si">(chronic damage to tiny brain arteries)</i>; haemorrhagic stroke; cerebral amyloid angiopathy</td><td>Ischaemic neuronal death <i class="si">(neurons die from lack of blood flow)</i>; white-matter disconnection; haemorrhagic tissue destruction</td><td>Vascular dementia (stepwise or progressive); post-stroke cognitive impairment; secondary mood or psychotic syndromes</td></tr>
+    <tr><td><b>Infectious</b></td><td>HIV encephalopathy; neurosyphilis <i class="si">(brain infection by syphilis spirochete)</i>; herpes simplex encephalitis; tuberculosis meningitis; prion diseases (Creutzfeldt&ndash;Jakob disease); COVID-19 neurological sequelae; cerebral malaria</td><td>Direct central nervous system infection and inflammation; immune-mediated damage; spongiform degeneration (prion diseases)</td><td>Dementia; delirium; amnesic syndrome; secondary psychotic or mood syndromes</td></tr>
+    <tr><td><b>Traumatic</b></td><td>Traumatic brain injury (TBI); concussion; subdural haematoma <i class="si">(bleeding between the brain and its outer covering)</i>; chronic traumatic encephalopathy</td><td>Axonal shearing <i class="si">(stretching and tearing of nerve fibres)</i>; contusion <i class="si">(bruising of brain tissue)</i>; mass effect from haematoma</td><td>Delirium (acute); amnesic syndrome; post-concussional syndrome; personality change; dementia (chronic/repetitive)</td></tr>
+    <tr><td><b>Metabolic</b></td><td>Hepatic encephalopathy <i class="si">(brain dysfunction from liver failure)</i>; uraemic encephalopathy <i class="si">(kidney failure)</i>; hypoglycaemia; hyperglycaemia; hyponatraemia <i class="si">(dangerously low blood sodium)</i>; hypernatraemia; hypercalcaemia; hypoxia <i class="si">(insufficient oxygen)</i></td><td>Disruption of neurotransmitter systems; osmotic damage; accumulation of neurotoxic metabolites</td><td>Delirium (most commonly); reversible cognitive impairment</td></tr>
+    <tr><td><b>Endocrine</b> <i class="si">(hormone disorders)</i></td><td>Hypothyroidism <i class="si">(underactive thyroid)</i>; hyperthyroidism <i class="si">(overactive thyroid)</i>; Cushing syndrome <i class="si">(cortisol excess)</i>; Addison disease <i class="si">(cortisol deficiency)</i>; hyperparathyroidism; insulinoma</td><td>Hormonal effects on neuronal function, neurotransmitter synthesis, and cerebral metabolism</td><td>Secondary mood syndromes (depression from hypothyroidism, mania from corticosteroids); secondary anxiety (hyperthyroidism); reversible cognitive decline</td></tr>
+    <tr><td><b>Nutritional deficiency</b></td><td>Thiamine (vitamin B1) deficiency (Wernicke&ndash;Korsakoff syndrome); vitamin B12 deficiency; folate deficiency; niacin (vitamin B3) deficiency (pellagra)</td><td>Impaired neuronal energy metabolism; damage to mammillary bodies and medial thalamus (thiamine); subacute combined degeneration (B12); pellagra encephalopathy</td><td>Amnesic syndrome (Korsakoff); delirium (Wernicke); dementia (B12 deficiency, pellagra); peripheral neuropathy</td></tr>
+    <tr><td><b>Autoimmune and inflammatory</b></td><td>Autoimmune encephalitis <i class="si">(e.g. anti-NMDA receptor encephalitis)</i>; systemic lupus erythematosus cerebritis; multiple sclerosis; neurosarcoidosis</td><td>Antibody-mediated neuronal dysfunction or destruction; demyelination <i class="si">(loss of the insulating sheath around nerve fibres)</i>; vasculitis</td><td>Delirium; secondary psychotic syndrome; dementia (multiple sclerosis); cognitive fluctuation</td></tr>
+    <tr><td><b>Neoplastic</b> <i class="si">(tumour-related)</i></td><td>Primary brain tumours (glioma, meningioma); metastatic brain disease; paraneoplastic syndromes <i class="si">(remote immune effects of a cancer elsewhere in the body)</i></td><td>Mass effect; cerebral oedema <i class="si">(brain swelling)</i>; destruction of brain tissue; remote immune-mediated damage</td><td>Focal cognitive change; personality change (frontal tumours); delirium; secondary mood or psychotic syndromes</td></tr>
+    <tr><td><b>Epileptic</b></td><td>Complex partial status epilepticus; post-ictal states <i class="si">(confusion after a seizure)</i>; epileptic encephalopathy</td><td>Abnormal sustained or recurrent electrical activity disrupting normal brain function</td><td>Delirium (ictal/post-ictal); transient amnesia; secondary psychotic syndrome (inter-ictal psychosis)</td></tr>
+    <tr><td><b>Toxic and substance-related</b></td><td>Heavy metal poisoning (lead, mercury, arsenic); carbon monoxide poisoning; chronic alcohol-related brain damage; medication toxicity (anticholinergics, lithium, corticosteroids, benzodiazepines, opioids)</td><td>Direct neurotoxicity; neurotransmitter disruption (especially cholinergic blockade); oxidative damage; delayed white-matter injury (carbon monoxide)</td><td>Delirium; dementia; amnesic syndrome (coded in substance-use block if alcohol/drug is the cause); secondary mood or psychotic syndromes</td></tr>
+    <tr><td><b>Structural / hydrocephalic</b></td><td>Normal-pressure hydrocephalus <i class="si">(excess cerebrospinal fluid with normal pressure &mdash; causing the triad of gait disturbance, dementia, and urinary incontinence)</i>; obstructive hydrocephalus</td><td>Ventricular dilatation compressing periventricular white matter and disrupting frontal-subcortical circuits</td><td>Dementia (potentially reversible with shunt); gait disturbance; incontinence</td></tr>
+    <tr><td><b>Genetic / chromosomal</b></td><td>Down syndrome <i class="si">(trisomy 21 &mdash; extra copy of chromosome 21 carrying the amyloid precursor protein gene)</i></td><td>Overproduction of amyloid precursor protein leading to early Alzheimer-type neuropathology</td><td>Early-onset Alzheimer-type dementia</td></tr>
+  </table>
+
+  <h3>Psychological theories and models relevant to this block</h3>
+  <p>Although these disorders are, by definition, caused by physical brain/systemic disease, psychological theory is highly relevant to how they present, are assessed, and are managed. <span class="tag tks">Kaplan &amp; Sadock</span></p>
+  <div class="psych">
+    <h4>1. Cognitive reserve theory</h4>
+    <p><b class="cl">Cognitive reserve</b> <i class="si">(the brain's resilience, built up through education, mentally stimulating occupation, and lifelong activity, that allows it to tolerate more damage before symptoms appear)</i> explains why two people with the same amount of brain pathology can differ greatly in clinical severity. Higher reserve delays the clinical onset of dementia.</p>
+  </div>
+  <div class="psych">
+    <h4>2. Retrogenesis model of dementia</h4>
+    <p><i class="si">(Reisberg's model that dementia reverses the order of normal development &mdash; abilities are lost roughly in the reverse order in which a child acquired them)</i>. It guides staging and caregiving (approaching the person at their current functional "developmental" level).</p>
+  </div>
+  <div class="psych">
+    <h4>3. Kitwood's person-centred model &amp; "malignant social psychology"</h4>
+    <p>Tom Kitwood argued that the presentation of dementia reflects not only <b>neuropathology</b> but also <b>personality, biography, health, and social environment</b>. <b class="cl">Malignant social psychology</b> <i class="si">(dehumanising interactions such as infantilising, ignoring, or labelling a person with dementia)</i> worsens distress and behaviour, whereas <b>person-centred care</b> that supports "personhood" reduces it. This is the theoretical basis of modern psychosocial dementia care.</p>
+  </div>
+  <div class="psych">
+    <h4>4. Behavioural / "unmet needs" model of BPSD</h4>
+    <p>The <b class="cl">behavioural and psychological symptoms of dementia (BPSD)</b> <i class="si">(agitation, wandering, aggression, etc.)</i> are often best understood as expressions of an <b>unmet need</b> (pain, hunger, boredom, fear, over-stimulation) or as learned responses to environmental triggers &mdash; the rationale for the <b class="cl">ABC (antecedent&ndash;behaviour&ndash;consequence) functional analysis</b> <i class="si">(examining what comes before and after a behaviour to find its cause)</i> used in behavioural management.</p>
+  </div>
+  <div class="psych">
+    <h4>5. Psychological reaction and coping</h4>
+    <p>Awareness of cognitive decline commonly provokes a psychological reaction &mdash; anxiety, depression, denial, or grief &mdash; and coping style influences outcome. This underlies the value of psychoeducation, supportive psychotherapy, and grief work for both patient and caregiver.</p>
+  </div>
+  <div class="remember">
+    <h4>Mnemonic for the psychological angle &mdash; "CRoP-B"</h4>
+    <p><b>C</b>ognitive <b>R</b>eserve &middot; <b>R</b>etrogenesis &middot; <b>P</b>erson-centred (Kitwood) &middot; <b>B</b>ehavioural unmet-needs model of BPSD (+ coping/psychological reaction).</p>
+  </div>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+<!-- ════════════════════════ EPIDEMIOLOGY ════════════════════════ -->
+<section id="epidemiology-gen">
+  <h2>Epidemiology of the Organic / Neurocognitive Disorders (Comprehensive)</h2>
+  <table>
+    <tr><th>Condition</th><th>Epidemiological detail</th></tr>
+    <tr><td><b>Dementia (overall)</b></td><td>Prevalence rises steeply with age, roughly <b>doubling every five years after 65</b>; a substantial proportion of those aged 85+ are affected. It is one of the leading global causes of disability and dependency in older people, with numbers rising as populations age. <span class="tag tother">Other evidence</span></td></tr>
+    <tr><td><b>Alzheimer disease</b></td><td>The commonest cause of dementia (~50&ndash;60% of cases); more common in women (partly greater longevity). <span class="tag tks">Kaplan &amp; Sadock</span></td></tr>
+    <tr><td><b>Vascular dementia</b></td><td>The second most common cause; frequently co-exists with Alzheimer pathology (mixed dementia); associated with vascular risk factors, so partly preventable.</td></tr>
+    <tr><td><b>Lewy body / frontotemporal</b></td><td>Lewy body disease is a notable minority of degenerative dementias; frontotemporal dementia is a leading cause of <b>early-onset (&lt;65)</b> dementia.</td></tr>
+    <tr><td><b>Delirium</b></td><td>Very common in hospital: point prevalence ~10&ndash;30% in medically ill inpatients, higher (often &gt;50%) in ICU and postoperative elderly; pooled prevalence ~36% at discharge; frequently under-recognised (especially the hypoactive form). <span class="tag tother">Other evidence</span></td></tr>
+    <tr><td><b>Delirium superimposed on dementia</b></td><td>Common (reported ~22&ndash;89%, pooled near half); dementia is the leading risk factor for delirium, and delirium in turn increases the risk of later dementia.</td></tr>
+    <tr><td><b>Amnesic syndrome</b></td><td>Rates depend on cause; the alcohol-related (Korsakoff) form predominates where heavy alcohol use and malnutrition are common.</td></tr>
+    <tr><td><b>Indian / regional context</b></td><td>Community studies report dementia prevalence rising sharply with age; estimates vary by region, screening tool, and rural/urban setting, so figures should be quoted with their source and method. <span class="tag tother">Other evidence</span></td></tr>
+  </table>
+  <div class="note"><b>Risk factors for dementia (modifiable and non-modifiable):</b> age and genetics (non-modifiable); and a large set of <b>modifiable</b> factors &mdash; hypertension, diabetes, obesity, smoking, physical inactivity, hearing loss, depression, social isolation, low education, and excess alcohol &mdash; addressing which can reduce population risk.</div>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+<!-- ════════════════════════ GENERAL DEMENTIA ════════════════════════ -->
+<section id="dementia-gen">
+  <h2>General Concept of Dementia (Applicable to F00&ndash;F03 and 6D80&ndash;6D85)</h2>
+  <p>Both ICD-10 and ICD-11 provide a general definition of dementia that sets the minimum requirement for diagnosing dementia of any specific type. The type-specific criteria are then applied on top of this general definition.</p>
+
+  <div class="panel10">
+    <h4><span class="tag t10">ICD-10</span> General description of dementia</h4>
+    <p>Dementia is a <b>syndrome due to disease of the brain</b>, usually of a <b class="cl">chronic</b> <i class="si">(long-lasting)</i> or <b class="cl">progressive</b> <i class="si">(gradually worsening)</i> nature, in which there is <b>disturbance of multiple higher cortical functions</b>, including memory, thinking, <b class="cl">orientation</b> <i class="si">(awareness of time, place, and person)</i>, comprehension, calculation, learning capacity, language, and judgement. <b>Consciousness is not clouded</b> <i class="si">(the person's level of alertness and awareness is preserved &mdash; this is what distinguishes dementia from delirium)</i>. The impairments of cognitive function are commonly accompanied, and occasionally preceded, by deterioration in emotional control, social behaviour, or motivation.</p>
+    <p>Dementia produces an appreciable decline in intellectual functioning, and usually some interference with <b class="cl">personal activities of daily living</b> <i class="si">(basic self-care tasks such as washing, dressing, eating, personal hygiene, and toilet activities)</i>. How such a decline manifests itself will depend largely on the social and cultural setting in which the patient lives.</p>
+    <p><b>Important diagnostic caution built into ICD-10:</b> special care should be taken to avoid false-positive identification. Motivational or emotional factors, particularly <b class="cl">depression</b>, in addition to motor slowness and general physical frailty, rather than loss of intellectual capacity, may account for failure to perform.</p>
+    <p><b>Duration:</b> For a confident clinical diagnosis, the decline in memory and other cognitive functions should have been present for <b>at least 6 months</b>. If the period since the manifest onset is shorter, the diagnosis can only be tentative.</p>
+  </div>
+
+  <div class="panel11">
+    <h4><span class="tag t11">ICD-11</span> General definition of dementia</h4>
+    <p>Dementia is an <b>acquired</b> <i class="si">(develops later in life, not present from birth)</i>, <b>chronic</b> condition characterised by <b>significant cognitive impairment or decline from a previous level of cognitive functioning</b> in <b>two or more cognitive domains</b> <i class="si">(memory, attention, executive function, language, social cognition, psychomotor speed, visuoperceptual or visuospatial abilities)</i> that is sufficiently severe to <b>interfere with performance or independence in activities of daily living</b>.</p>
+    <p>If memory difficulties and other cognitive symptoms in older adults occur <b>exclusively in the context of a depressive episode</b>, a diagnosis of dementia is generally not appropriate. However, a depressive episode can be superimposed on dementia.</p>
+  </div>
+
+  <h3>Key differences between ICD-10 and ICD-11 definitions</h3>
+  <table>
+    <tr><th>Element</th><th class="c10">ICD-10</th><th class="c11">ICD-11</th></tr>
+    <tr><td>Number of domains</td><td class="c10">"Multiple higher cortical functions" (no specific number)</td><td class="c11">Explicitly "two or more cognitive domains"</td></tr>
+    <tr><td>Named domains</td><td class="c10">Memory, thinking, orientation, comprehension, calculation, learning, language, judgement</td><td class="c11">Explicitly adds executive function, social cognition, psychomotor speed, visuoperceptual/visuospatial abilities</td></tr>
+    <tr><td>Duration</td><td class="c10">At least 6 months for a confident diagnosis</td><td class="c11">Not numerically specified; requires a persistent decline</td></tr>
+    <tr><td>Severity coding</td><td class="c10">Not separately coded</td><td class="c11">Extension codes: XS5W mild, XS0T moderate, XS25 severe</td></tr>
+    <tr><td>BPSD coding</td><td class="c10">Fifth character (.x1&ndash;.x4)</td><td class="c11">Dedicated codes 6D86 (.0&ndash;.6)</td></tr>
+    <tr><td>Depression caveat</td><td class="c10">Depression may cause false-positive identification</td><td class="c11">Cognitive symptoms occurring exclusively during depression should generally not be diagnosed as dementia</td></tr>
+  </table>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+<!-- ════════════════════════ F00 ALZHEIMER ════════════════════════ -->
+<section id="f00">
+  <h2>F00 &middot; Dementia in Alzheimer's Disease &rarr; ICD-11 6D80</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> Organic (incl. symptomatic) mental disorders / ICD-11 Neurocognitive disorders (F00&ndash;F09) &mdash; disorders with a demonstrable cause in cerebral or systemic disease; here cognition is the core disturbance. See the F00&ndash;F09 overview and general dementia concept above.</p>
+  <div class="idcard">
+    <div><b>ICD-10 code</b> F00 &middot; F00.0 early onset, F00.1 late onset, F00.2 atypical/mixed, F00.9 unspecified</div>
+    <div><b>ICD-11 code</b> 6D80 &middot; .0 early onset, .1 late onset, .2 mixed with cerebrovascular disease, .3 mixed with other nonvascular aetiologies, .Z onset unknown</div>
+    <div><b>Status</b> Retained; renamed to "Dementia due to Alzheimer disease"</div>
+    <div><b>Key change</b> Mixed subtypes added; severity and behavioural symptoms coded separately</div>
+  </div>
+
+  <h3>1. Introduction</h3>
+  <p>Alzheimer disease is a <b class="cl">primary degenerative cerebral disease</b> <i class="si">(a disease in which brain cells progressively die, with the brain itself being the primary site of the disease)</i> of unknown aetiology, with characteristic <b class="cl">neuropathological</b> <i class="si">(microscopic tissue changes in the brain)</i> and <b class="cl">neurochemical</b> <i class="si">(changes in the brain's chemical messengers)</i> features. It is the single most common cause of dementia worldwide. The onset is usually <b class="cl">insidious</b> <i class="si">(so gradual that neither the patient nor the family can identify when it began)</i>, and the disease develops slowly but steadily over a period of years &mdash; typically 8 to 10 years from diagnosis to death, though this can be as short as 2 to 3 years or considerably longer.</p>
+  <p>The clinical picture is dominated by a slowly progressive, <b class="cl">amnestic</b> <i class="si">(memory-predominant)</i> dementia in which recent memory is affected first, followed by progressive involvement of language, praxis, visuospatial function, and executive function, while consciousness remains clear until the very late stages. ICD-10 notes that dementia in Alzheimer's disease is at present irreversible.</p>
+
+  <h3>2. Aetiology and Pathophysiology</h3>
+  <h4>Neuropathological hallmarks</h4>
+  <p>ICD-10 describes the characteristic brain changes: a marked reduction in the population of neurons, particularly in the <b class="cl">hippocampus</b> <i class="si">(the brain's principal memory-forming structure)</i>, <b class="cl">substantia innominata</b>, <b class="cl">locus ceruleus</b>, and the temporoparietal and frontal cortex; the appearance of <b class="cl">neurofibrillary tangles</b> <i class="si">(twisted intracellular threads made of hyperphosphorylated tau protein)</i> made of paired helical filaments; <b class="cl">neuritic (argentophil) plaques</b> <i class="si">(extracellular deposits consisting largely of beta-amyloid protein)</i>; and granulovacuolar bodies. <span class="tag t10">ICD-10</span></p>
+  <h4>Neurochemical changes</h4>
+  <p>There is a marked reduction in the enzyme <b class="cl">choline acetyltransferase</b> <i class="si">(the enzyme that manufactures the memory neurotransmitter acetylcholine)</i>, in <b class="cl">acetylcholine</b> itself, and in other neurotransmitters and neuromodulators. This <b class="cl">cholinergic deficit</b> <i class="si">(shortage of acetylcholine signalling)</i> is the direct rationale for treatment with cholinesterase inhibitors. <span class="tag tks">Kaplan &amp; Sadock</span></p>
+  <h4>Molecular and genetic mechanisms</h4>
+  <ul class="t">
+    <li><b class="cl">Amyloid cascade hypothesis</b> <i class="si">(the leading theory that abnormal accumulation of beta-amyloid triggers the disease)</i>: aberrant cleavage of amyloid precursor protein produces beta-amyloid, which aggregates into plaques, triggering tau hyperphosphorylation, neuroinflammation, synaptic loss, and neuronal death. <span class="tag tks">Kaplan &amp; Sadock</span></li>
+    <li><b>Early-onset familial Alzheimer disease</b> (autosomal dominant, &lt;5% of cases): mutations in the amyloid precursor protein gene (APP, chromosome 21), presenilin-1 (PSEN1, chromosome 14), and presenilin-2 (PSEN2, chromosome 1).</li>
+    <li><b>Late-onset Alzheimer disease</b>: the <b class="cl">apolipoprotein E epsilon-4 allele (APOE &epsilon;4)</b> <i class="si">(a genetic variant that increases risk and lowers age of onset)</i> is the strongest genetic risk factor; possession of two copies markedly increases risk.</li>
+    <li><b>Down syndrome</b> (trisomy 21): because the APP gene lies on chromosome 21, virtually all individuals with Down syndrome develop Alzheimer-type neuropathology by middle age, and many develop clinical dementia early.</li>
+  </ul>
+  <h4>Risk and protective factors</h4>
+  <ul class="t">
+    <li><b>Risk factors:</b> advancing age (the single strongest risk factor), family history, APOE &epsilon;4, female sex, low educational attainment / low <b class="cl">cognitive reserve</b> <i class="si">(the brain's resilience built up through education and mental activity)</i>, midlife vascular risk factors (hypertension, diabetes, obesity), head injury, hearing loss, social isolation, depression.</li>
+    <li><b>Protective factors:</b> higher education, cognitive and physical activity, social engagement, treatment of vascular risk factors.</li>
+  </ul>
+
+  <h3>3. Epidemiology</h3>
+  <ul class="t">
+    <li><b>Proportion of dementias:</b> Alzheimer disease accounts for approximately <b>50&ndash;60%</b> of all dementia cases, making it the most common cause of dementia. <span class="tag tks">Kaplan &amp; Sadock</span></li>
+    <li><b>Prevalence and age:</b> prevalence rises steeply with age, approximately <b>doubling every five years after age 65</b>. It affects a small percentage of those aged 65&ndash;69 but a substantial proportion (often cited around one-third or more) of those aged 85 and over. <span class="tag tother">Other evidence</span></li>
+    <li><b>Onset distribution:</b> late-onset (after 65) is far more common than early-onset (before 65). Early-onset cases are more likely to be familial, progress more rapidly, and show prominent temporal and parietal features including <b class="cl">dysphasia</b> <i class="si">(language difficulty)</i> and <b class="cl">dyspraxia</b> <i class="si">(difficulty performing skilled movements)</i>.</li>
+    <li><b>Sex:</b> more common in women, partly attributable to their greater longevity.</li>
+    <li><b>Global burden:</b> dementia (Alzheimer being the leading cause) is among the major causes of disability and dependency in older people worldwide, with numbers rising as populations age.</li>
+    <li><b>Indian context:</b> community studies report dementia prevalence in older adults that increases sharply with age; estimates vary by region, screening instrument, and rural versus urban setting, so any figure should be quoted with its source and method. <span class="tag tother">Other evidence</span></li>
+  </ul>
+
+  <h3>4. Clinical Features and Symptoms</h3>
+  <h4>Cognitive features by stage</h4>
+  <table>
+    <tr><th>Stage</th><th>Cognitive features</th><th>Functional impact</th></tr>
+    <tr><td>Early (mild)</td><td>Anterograde amnesia <i class="si">(difficulty forming new memories)</i>; forgetting recent conversations and events; repetitive questioning; misplacing objects; mild word-finding difficulty; mild disorientation to time</td><td>Difficulty with complex tasks (finances, planning); still largely independent</td></tr>
+    <tr><td>Middle (moderate)</td><td>Worsening memory (including some remote memory); aphasia <i class="si">(language impairment)</i>; apraxia <i class="si">(inability to carry out learned movements)</i>; agnosia <i class="si">(inability to recognise objects or faces)</i>; disorientation to time and place; impaired judgement; behavioural and psychological symptoms</td><td>Needs help with dressing, hygiene, and daily tasks; wandering; may get lost</td></tr>
+    <tr><td>Late (severe)</td><td>Profound memory loss; minimal or no meaningful speech; failure to recognise family; disorientation to person</td><td>Fully dependent; incontinence; immobility; swallowing difficulty; consciousness remains clear until terminal stages</td></tr>
+  </table>
+  <h4>Behavioural and psychological symptoms of dementia (BPSD)</h4>
+  <p>Depression, apathy, and anxiety early; agitation, aggression, wandering, disinhibition, delusions (commonly of theft), and hallucinations in later stages. In ICD-11 these are coded separately under 6D86.</p>
+  <div class="unique">
+    <h4>Unique and easily identifiable clues &mdash; "recognise Alzheimer disease"</h4>
+    <ul class="t">
+      <li><b>Memory-first, insidious, steadily progressive</b> decline over years, with clear consciousness throughout.</li>
+      <li>Recent (episodic) memory is affected out of proportion to remote memory early on.</li>
+      <li><b class="cl">Anosognosia</b> <i class="si">(the patient is unaware of, or denies, the deficit)</i> &mdash; the family is worried while the patient minimises the problem.</li>
+      <li><b>No early focal neurological signs</b> and no stepwise deterioration (which would suggest a vascular cause).</li>
+      <li>Neuroimaging shows medial temporal lobe and <b>hippocampal atrophy</b>.</li>
+      <li>A person with <b>Down syndrome</b> developing dementia in middle age is presumptively Alzheimer type.</li>
+    </ul>
+  </div>
+  <div class="assoc">
+    <h4>Comorbidities and complications</h4>
+    <ul class="t">
+      <li><b>Depression</b> and <b>anxiety</b> (very common, especially early when insight is partly retained).</li>
+      <li><b>Behavioural and psychological symptoms of dementia (BPSD)</b> &mdash; agitation, aggression, wandering, psychosis, sleep reversal.</li>
+      <li><b>Delirium superimposed on the dementia</b> during any acute illness.</li>
+      <li>Falls, malnutrition, incontinence, aspiration and infection in later stages; high caregiver burden.</li>
+    </ul>
+  </div>
+
+  <h3>5. Diagnostic Criteria (strictly from ICD-10 and ICD-11)</h3>
+  <div class="panel10">
+    <h4><span class="tag t10">ICD-10</span> Diagnostic guidelines</h4>
+    <p>The following features are required for a diagnosis:</p>
+    <ol class="t">
+      <li><b>Presence of dementia</b> as described in the general criteria (decline in memory and other cognitive functions, clear consciousness, present for at least 6 months).</li>
+      <li><b>Insidious onset with slow deterioration.</b> While the onset is usually difficult to pinpoint in time, realisation by others that the defect exists may come suddenly. An apparent plateau may occur in the progression.</li>
+      <li><b>Absence of clinical evidence, or findings from special investigations, to suggest that the mental state may be due to other systemic or brain disease</b> which can induce a dementia (e.g. hypothyroidism, hypercalcaemia, vitamin B12 deficiency, niacin deficiency, neurosyphilis, normal-pressure hydrocephalus, subdural haematoma).</li>
+      <li><b>Absence of a sudden apoplectic onset</b> <i class="si">(sudden stroke-like onset)</i>, or of neurological signs of focal damage such as hemiparesis, sensory loss, visual field defects, and incoordination occurring early in the illness (although these phenomena may later be superimposed).</li>
+    </ol>
+    <p><b>Subtypes:</b></p>
+    <ul class="t">
+      <li><b>F00.0 &mdash; with early onset:</b> onset before age 65, with relatively rapid deterioration and marked multiple disorders of the higher cortical functions. Aphasia, agraphia <i class="si">(impaired writing)</i>, alexia <i class="si">(impaired reading)</i>, and apraxia occur relatively early. Family history of Alzheimer's disease is a contributory but not necessary factor.</li>
+      <li><b>F00.1 &mdash; with late onset:</b> onset after age 65, usually in the late 70s or thereafter, with slow progression and memory impairment as the principal feature.</li>
+      <li><b>F00.2 &mdash; atypical or mixed type:</b> dementias not fitting F00.0 or F00.1; mixed Alzheimer and vascular dementias are included here.</li>
+      <li><b>F00.9 &mdash; unspecified.</b></li>
+    </ul>
+    <p style="margin-top:8px"><b>Fifth-character behavioural qualifier (applies to F00&ndash;F03 in ICD-10):</b> .x0 without additional symptoms; .x1 with other symptoms, predominantly <b>delusional</b>; .x2 predominantly <b>hallucinatory</b>; .x3 predominantly <b>depressive</b>; .x4 <b>other mixed</b> symptoms. <span class="mean" style="color:#5d6d7e"><i>(In ICD-11 these behavioural and psychological symptoms of dementia are coded separately as 6D86.)</i></span></p>
+  </div>
+  <div class="panel11">
+    <h4><span class="tag t11">ICD-11</span> Essential (required) features</h4>
+    <ol class="t">
+      <li>All general diagnostic requirements for <b>Dementia</b> are met (acquired decline in two or more cognitive domains, interfering with independence in activities of daily living).</li>
+      <li><b>Onset of symptoms is insidious, with a gradual progression</b> in cognitive impairment.</li>
+      <li>There is typically <b>prominent impairment in memory</b> that is present early in the course, though a minority present with non-amnestic (e.g. language, visuospatial, or executive) presentations.</li>
+      <li>There is <b>no evidence of mixed aetiology</b> (i.e. no evidence that another systemic disease, brain disease, or substance is causing the cognitive decline), unless a mixed subtype is being coded.</li>
+      <li>The pattern of onset, course, and clinical features is <b>not better accounted for by another neurocognitive disorder, mental disorder, or the effects of a substance or medication</b>.</li>
+    </ol>
+    <p><b>Subtypes / qualifiers:</b> 6D80.0 with early onset; 6D80.1 with late onset; 6D80.2 mixed type, with cerebrovascular disease; 6D80.3 mixed type, with other nonvascular aetiologies; 6D80.Z onset unknown or unspecified. Severity is coded with extension codes (XS5W mild, XS0T moderate, XS25 severe); behavioural or psychological disturbances are coded with 6D86.</p>
+  </div>
+  <h4>Comparison of criteria</h4>
+  <table>
+    <tr><th>Component</th><th class="c10">ICD-10</th><th class="c11">ICD-11</th></tr>
+    <tr><td>Base requirement</td><td class="c10">General dementia (multiple higher functions, &ge;6 months)</td><td class="c11">General dementia (&ge;2 domains, functional impairment)</td></tr>
+    <tr><td>Onset and course</td><td class="c10">Insidious onset, slow deterioration</td><td class="c11">Insidious onset, gradual progression</td></tr>
+    <tr><td>Predominant deficit</td><td class="c10">Memory (especially late onset)</td><td class="c11">Usually memory; non-amnestic presentations recognised</td></tr>
+    <tr><td>Exclusion of other cause</td><td class="c10">Required (no other systemic/brain disease; no early focal signs)</td><td class="c11">Required (no mixed aetiology unless coded; not better explained otherwise)</td></tr>
+    <tr><td>Mixed pathology</td><td class="c10">F00.2 atypical/mixed</td><td class="c11">6D80.2 / 6D80.3 explicit mixed subtypes</td></tr>
+  </table>
+
+  <h3>6. Easy Way to Remember</h3>
+  <div class="remember">
+    <h4>Memory aid</h4>
+    <p>The <b>"4 A's" of Alzheimer</b> capture the classic cortical deficits: <b>Amnesia</b> (memory loss, first), <b>Aphasia</b> (language), <b>Apraxia</b> (skilled movement), <b>Agnosia</b> (recognition). Add a fifth "A" &mdash; <b>Anosognosia</b> (lack of insight). The pathology mnemonic: <b>"Plaques and Tangles, low Acetylcholine."</b></p>
+    <p><b>Clinical signature:</b> insidious onset + steadily progressive + memory-first + alert + no early focal signs + hippocampal atrophy = Alzheimer disease.</p>
+  </div>
+
+  <h3>7. Treatment</h3>
+  <h4>Pharmacological <span class="tag tks">Kaplan &amp; Sadock</span></h4>
+  <table>
+    <tr><th>Target / stage</th><th>Drug class and examples</th><th>Mechanism and clinical notes</th></tr>
+    <tr><td>Mild to moderate cognition</td><td><b>Cholinesterase inhibitors</b>: donepezil, rivastigmine, galantamine</td><td>Inhibit the enzyme that breaks down acetylcholine, raising cholinergic transmission; provide modest symptomatic benefit. Adverse effects: nausea, diarrhoea, bradycardia <i class="si">(slow heart rate)</i>, vivid dreams; caution in cardiac conduction disease and peptic ulcer.</td></tr>
+    <tr><td>Moderate to severe cognition</td><td><b>NMDA receptor antagonist</b>: memantine</td><td>Modulates excessive glutamate-mediated excitotoxicity <i class="si">(harmful over-stimulation of neurons)</i>; used alone or combined with a cholinesterase inhibitor; generally well tolerated.</td></tr>
+    <tr><td>Depression / anxiety</td><td>Antidepressants (SSRIs preferred)</td><td>Treat comorbid mood symptoms; avoid strongly anticholinergic agents.</td></tr>
+    <tr><td>Agitation / psychosis (BPSD)</td><td>Non-drug measures first; antipsychotics only when severe risk</td><td><b>Antipsychotics increase the risk of stroke and death in older people with dementia</b> &mdash; use only for serious risk, at the lowest effective dose, for the shortest time, with regular review.</td></tr>
+  </table>
+  <h4>Psychological and psychosocial <span class="tag tks">Kaplan &amp; Sadock</span></h4>
+  <ul class="t">
+    <li><b class="cl">Cognitive stimulation therapy</b> <i class="si">(structured group activities and discussions that exercise thinking and memory)</i>.</li>
+    <li><b class="cl">Reality orientation</b> <i class="si">(repeatedly presenting time, place, and person information to reduce disorientation)</i> and environmental modifications (clear signage, clocks, calendars, good lighting, safe layout).</li>
+    <li><b class="cl">Reminiscence therapy</b> <i class="si">(using past memories, photographs, and music to stimulate engagement and mood)</i>.</li>
+    <li>Behavioural analysis of triggers for agitation; music and activity-based therapies.</li>
+    <li><b>Caregiver interventions:</b> psychoeducation, training in communication and behaviour management, respite care, support for caregiver burden, and advance care planning.</li>
+    <li>Attention to physical health, nutrition, hydration, sensory aids (glasses, hearing aids), and sleep.</li>
+  </ul>
+  <p><b>Prognosis:</b> progressive and, at present, irreversible; treatments slow symptom progression rather than modify the underlying disease. Median survival from diagnosis is several years, shorter with early or rapidly progressive onset.</p>
+  <div class="ddx">
+    <h5>Differential diagnosis (F00 Alzheimer dementia)</h5>
+    <ul class="t">
+      <li><b>Vascular dementia</b> &mdash; stepwise/post-stroke course, focal neurological signs, vascular risk factors, executive/processing deficits before memory.</li>
+      <li><b>Dementia with Lewy bodies</b> &mdash; fluctuating cognition, early visual hallucinations, parkinsonism, REM-sleep behaviour disorder, neuroleptic sensitivity.</li>
+      <li><b>Frontotemporal dementia</b> &mdash; younger onset, early personality/behaviour or language change, memory relatively spared early.</li>
+      <li><b>Depression ("pseudodementia")</b> &mdash; subacute, "don't know" answers, prominent low mood, effort-dependent deficits, improves with treatment.</li>
+      <li><b>Delirium</b> &mdash; acute, fluctuating, impaired attention/consciousness, identifiable medical trigger.</li>
+      <li><b>Reversible causes</b> &mdash; thyroid disease, B12 deficiency, normal-pressure hydrocephalus, subdural haematoma (screen and exclude).</li>
+    </ul>
+  </div>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+<!-- ════════════════════════ F01 VASCULAR ════════════════════════ -->
+<section id="f01">
+  <h2>F01 &middot; Vascular Dementia &rarr; ICD-11 6D81 (Dementia due to Cerebrovascular Disease)</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> Organic / Neurocognitive disorders (F00&ndash;F09) &mdash; a dementia subtype; meets the general dementia rule plus a demonstrable cerebrovascular cause. See the F00&ndash;F09 overview and general dementia concept above.</p>
+  <div class="idcard">
+    <div><b>ICD-10 code</b> F01 &middot; .0 acute onset, .1 multi-infarct, .2 subcortical, .3 mixed cortical and subcortical, .8 other, .9 unspecified</div>
+    <div><b>ICD-11 code</b> 6D81 Dementia due to cerebrovascular disease</div>
+    <div><b>Status</b> Renamed / reorganised</div>
+    <div><b>Key change</b> ICD-10 vascular subtypes not preserved as separate stem codes</div>
+  </div>
+
+  <h3>1. Introduction</h3>
+  <p>Vascular dementia is dementia resulting from <b class="cl">cerebrovascular disease</b> <i class="si">(disease of the blood vessels supplying the brain &mdash; including strokes and chronic small-vessel damage)</i>. It results from infarction of the brain due to vascular disease, including hypertensive cerebrovascular disease. It is the <b>second most common cause of dementia</b> after Alzheimer disease, and the two frequently co-exist as <b class="cl">mixed dementia</b>. Onset is usually in later life. The distinguishing clinical feature is that the deficits reflect the location and extent of the vascular lesions, so the picture is often uneven ("patchy") and accompanied by focal neurological signs.</p>
+
+  <h3>2. Aetiology and Pathophysiology</h3>
+  <ul class="t">
+    <li><b>Large-vessel disease:</b> territorial <b class="cl">infarcts</b> <i class="si">(areas of dead brain tissue caused by a blocked artery)</i> from thromboembolism, producing multi-infarct dementia.</li>
+    <li><b>Small-vessel disease:</b> chronic damage to small penetrating arteries causing <b class="cl">lacunar infarcts</b> <i class="si">(small deep strokes)</i> and diffuse <b class="cl">white-matter disease</b> <i class="si">(damage to the brain's connecting fibre tracts)</i>, producing subcortical vascular dementia (Binswanger type).</li>
+    <li><b>Strategic infarcts:</b> a single stroke in a critical location (e.g. thalamus, angular gyrus) can produce dementia.</li>
+    <li><b>Haemorrhage</b> and <b>cerebral amyloid angiopathy</b> <i class="si">(amyloid deposition in blood-vessel walls, causing bleeding)</i>.</li>
+    <li><b>Risk factors:</b> hypertension (the most important modifiable factor), diabetes mellitus, hyperlipidaemia, <b class="cl">atrial fibrillation</b> <i class="si">(an irregular heart rhythm that can throw clots to the brain)</i>, smoking, prior stroke or transient ischaemic attack, and older age. <span class="tag tks">Kaplan &amp; Sadock</span></li>
+  </ul>
+
+  <h3>3. Epidemiology</h3>
+  <ul class="t">
+    <li>The <b>second most common</b> type of dementia (after Alzheimer disease); estimates commonly attribute a substantial minority of dementia cases to vascular or mixed vascular pathology. <span class="tag tks">Kaplan &amp; Sadock</span></li>
+    <li>Frequently co-exists with Alzheimer pathology (mixed dementia), especially in the very old.</li>
+    <li>More common in populations and regions with a high burden of vascular risk factors; higher in men in some series (reflecting vascular-disease distribution).</li>
+    <li>An important public-health point: because the risk factors are modifiable, a proportion of vascular dementia is <b>preventable</b>, and progression can be slowed by risk-factor control. <span class="tag tother">Other evidence</span></li>
+  </ul>
+
+  <h3>4. Clinical Features and Symptoms</h3>
+  <ul class="t">
+    <li><b>Cognitive:</b> slowed <b class="cl">processing speed</b> <i class="si">(how quickly the person can think and respond)</i>, impaired attention, and <b class="cl">executive dysfunction</b> <i class="si">(difficulty planning, organising, and problem-solving)</i> often exceed memory loss early &mdash; the reverse of Alzheimer disease.</li>
+    <li><b>Neurological:</b> focal signs such as unilateral limb weakness, exaggerated tendon reflexes, extensor plantar response, gait disturbance, and <b class="cl">pseudobulbar palsy</b> <i class="si">(impaired control of the muscles of the face, throat, and tongue, causing difficulty with speech and swallowing and sudden uncontrolled crying or laughing)</i>.</li>
+    <li><b>Emotional:</b> depression and <b class="cl">emotional lability</b> <i class="si">("emotional incontinence" &mdash; sudden crying or laughing that the person cannot control)</i> are common; insight and personality are relatively preserved until late.</li>
+  </ul>
+  <div class="unique">
+    <h4>Unique and easily identifiable clues &mdash; "recognise vascular dementia"</h4>
+    <ul class="t">
+      <li><b class="cl">Stepwise deterioration</b> <i class="si">(the decline occurs in sudden drops separated by plateaus, rather than a smooth slope)</i>, or onset in close temporal relationship to a stroke.</li>
+      <li><b>Focal neurological signs</b> and gait disturbance appearing early in the illness.</li>
+      <li>Executive dysfunction and slowed processing dominate; memory may be relatively spared early.</li>
+      <li>"Patchy" cognitive profile &mdash; some functions markedly impaired, others preserved.</li>
+      <li>Prominent vascular risk factors and neuroimaging showing infarcts or extensive white-matter disease.</li>
+    </ul>
+  </div>
+  <div class="assoc">
+    <h4>Comorbidities and complications</h4>
+    <ul class="t">
+      <li><b>Depression</b> (very common post-stroke) and <b>emotional lability</b>.</li>
+      <li>Coexisting <b>Alzheimer pathology</b> (mixed dementia); recurrent strokes causing stepwise worsening.</li>
+      <li>The underlying vascular disease itself: <b>cardiovascular and cerebrovascular events</b>, which shorten life expectancy.</li>
+      <li>Gait disturbance with falls; delirium during acute illness.</li>
+    </ul>
+  </div>
+
+  <h3>5. Diagnostic Criteria (strictly from ICD-10 and ICD-11)</h3>
+  <div class="panel10">
+    <h4><span class="tag t10">ICD-10</span> Diagnostic guidelines</h4>
+    <ol class="t">
+      <li>The general criteria for <b>dementia</b> must be met.</li>
+      <li>Deficits in higher cognitive functions are <b>unevenly distributed</b>, with some functions affected and others relatively spared. Thus memory may be quite markedly affected while thinking, reasoning, and information processing may show only mild decline. Insight and judgement may be relatively well preserved.</li>
+      <li>There is clinical evidence of <b>focal brain damage</b>, manifest as at least one of: unilateral spastic weakness of the limbs; unilaterally increased tendon reflexes; an extensor plantar response; pseudobulbar palsy.</li>
+      <li>There is evidence from the history, examination, or tests of significant <b>cerebrovascular disease</b>, which may reasonably be judged to be aetiologically related to the dementia.</li>
+    </ol>
+    <p><b>Detailed ICD-10 subtypes of vascular dementia:</b></p>
+    <ul class="t">
+      <li><b>F01.0 &mdash; Vascular dementia of acute onset:</b> develops rapidly (usually within one month, but up to three) after a succession of strokes or, occasionally, a single large infarct.</li>
+      <li><b>F01.1 &mdash; Multi-infarct dementia:</b> more gradual onset, following several minor ischaemic episodes that produce an accumulation of infarcts; <b>predominantly cortical</b>, with a characteristically <b>stepwise</b> progression.</li>
+      <li><b>F01.2 &mdash; Subcortical vascular dementia:</b> a history of hypertension and foci of ischaemic destruction in the deep white matter; the cerebral cortex is usually preserved, so the picture may clinically <b>resemble Alzheimer's disease</b> (Binswanger type).</li>
+      <li><b>F01.3 &mdash; Mixed cortical and subcortical vascular dementia.</b></li>
+      <li><b>F01.8 other vascular dementia; F01.9 vascular dementia, unspecified.</b></li>
+    </ul>
+  </div>
+  <div class="panel11">
+    <h4><span class="tag t11">ICD-11</span> Essential (required) features</h4>
+    <ol class="t">
+      <li>All general diagnostic requirements for <b>Dementia</b> are met.</li>
+      <li>There is <b>evidence of cerebrovascular disease</b> judged to be sufficient to account for the neurocognitive deficits, based on history (e.g. documented stroke), physical examination (focal neurological signs), and/or neuroimaging (evidence of significant infarction, haemorrhage, or small-vessel disease).</li>
+      <li>The <b>onset of the cognitive deficits is temporally related to one or more cerebrovascular events</b>, or the pattern and course of decline (e.g. stepwise progression, or a subcortical pattern with prominent slowing and executive dysfunction) is consistent with cerebrovascular disease.</li>
+      <li>The deficits are <b>not better accounted for</b> by another neurocognitive disorder or condition.</li>
+    </ol>
+    <p>Severity coded with extension codes; behavioural or psychological disturbances coded with 6D86.</p>
+  </div>
+
+  <h3>6. Easy Way to Remember</h3>
+  <div class="remember">
+    <h4>Memory aid &mdash; "STEP"</h4>
+    <p><b>S</b>tepwise decline &middot; <b>T</b>emporally linked to strokes &middot; <b>E</b>xecutive function and processing speed hit first &middot; <b>P</b>atchy deficits with focal signs and vascular risk factors.</p>
+    <p><b>Clinical signature:</b> stepwise or post-stroke onset + focal neurological signs + prominent vascular risk factors + executive/processing deficits &ge; memory = vascular dementia.</p>
+  </div>
+
+  <h3>7. Treatment</h3>
+  <h4>Pharmacological <span class="tag tks">Kaplan &amp; Sadock</span></h4>
+  <ul class="t">
+    <li><b>Secondary prevention is the cornerstone:</b> aggressive control of vascular risk factors &mdash; antihypertensives, statins for hyperlipidaemia, glycaemic control in diabetes, and <b class="cl">antiplatelet or anticoagulant therapy</b> <i class="si">(blood-thinning treatment to prevent further strokes)</i> as indicated (e.g. anticoagulation for atrial fibrillation).</li>
+    <li>Cholinesterase inhibitors and memantine have a limited and less-established role but may be used, particularly where Alzheimer pathology co-exists (mixed dementia).</li>
+    <li>Treat comorbid depression (SSRIs); manage emotional lability.</li>
+  </ul>
+  <h4>Psychological and psychosocial</h4>
+  <ul class="t">
+    <li><b class="cl">Cognitive rehabilitation</b> <i class="si">(structured retraining and compensatory strategies for lost cognitive skills)</i>.</li>
+    <li>Physiotherapy and occupational therapy for gait and functional impairment; speech therapy where relevant.</li>
+    <li>Mood-focused interventions; lifestyle change (smoking cessation, diet, exercise); caregiver education and support.</li>
+  </ul>
+  <p><b>Prognosis:</b> variable; stabilisation is possible if vascular risk factors are well controlled, but the condition progresses if cerebrovascular disease continues. Life expectancy is often shorter than in Alzheimer disease because of associated cardiovascular mortality.</p>
+  <div class="ddx">
+    <h5>Differential diagnosis (F01 Vascular dementia)</h5>
+    <ul class="t">
+      <li><b>Alzheimer dementia</b> &mdash; insidious, smoothly progressive, memory-first, no early focal signs.</li>
+      <li><b>Mixed dementia</b> &mdash; coexisting Alzheimer + cerebrovascular pathology (very common; ICD-11 6D80.2 captures this).</li>
+      <li><b>Normal-pressure hydrocephalus</b> &mdash; gait + cognitive + urinary triad, ventriculomegaly, potentially reversible with shunting.</li>
+      <li><b>Depression</b> &mdash; apathy and slowing that are mood-driven and reversible.</li>
+      <li><b>Delirium</b> &mdash; acute, fluctuating, attention grossly impaired.</li>
+    </ul>
+  </div>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+<!-- ════════════════════════ F02 INTRO ════════════════════════ -->
+<section id="f02-intro">
+  <h2>F02 &middot; Dementia in Other Diseases Classified Elsewhere</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> Organic / Neurocognitive disorders (F00&ndash;F09) &mdash; dementias occurring as a manifestation of a specific named disease diagnosed elsewhere; requires double coding. See the F00&ndash;F09 overview and general dementia concept above.</p>
+  <div class="idcard">
+    <div><b>ICD-10 code</b> F02 &middot; .0 Pick's, .1 Creutzfeldt&ndash;Jakob, .2 Huntington's, .3 Parkinson's, .4 HIV, .8 other</div>
+    <div><b>ICD-11 codes</b> 6D82 Lewy body &middot; 6D83 frontotemporal &middot; 6D85 due to other diseases classified elsewhere (.0&ndash;.Y)</div>
+    <div><b>Status</b> Split and reorganised</div>
+    <div><b>Key change</b> Lewy body elevated to its own category; Pick's broadened to frontotemporal; remainder distributed across 6D85 sub-codes</div>
+  </div>
+  <p><span class="tag t10">ICD-10</span> This category covers cases of dementia attributable to, or presumed to arise as a manifestation of, cerebral and systemic conditions classified elsewhere. The general dementia criteria must be met, and there must be evidence of the specific underlying disease. In all cases <b>two codes</b> are used &mdash; one for the dementia and one for the underlying disease. The individual conditions are presented below as separate modules because their clinical pictures, unique clues, and management differ substantially.</p>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+<!-- ════════════════════════ LEWY BODY ════════════════════════ -->
+<section id="f02-dlb">
+  <h2>Dementia with Lewy Bodies &rarr; ICD-11 6D82</h2>
+  <div class="idcard">
+    <div><b>ICD-10</b> No dedicated code (subsumed under F02.8 "other")</div>
+    <div><b>ICD-11</b> 6D82 Dementia due to Lewy body disease</div>
+    <div><b>Status</b> New stand-alone category in ICD-11</div>
+    <div><b>Key change</b> Recognised as a distinct entity for the first time</div>
+  </div>
+  <h3>1. Introduction</h3>
+  <p>A progressive degenerative dementia caused by <b class="cl">Lewy bodies</b> <i class="si">(abnormal spherical deposits of the protein alpha-synuclein inside neurons)</i>. It is considered the third most common degenerative dementia after Alzheimer and frontotemporal disease. It occupies a clinical spectrum with Parkinson disease dementia, distinguished mainly by the timing of dementia relative to motor symptoms.</p>
+  <h3>2. Aetiology and Pathophysiology</h3>
+  <p>Widespread cortical and subcortical deposition of <b class="cl">alpha-synuclein</b> as Lewy bodies, with associated cholinergic and dopaminergic deficits. The prominent cholinergic loss underlies the marked cognitive fluctuations and responsiveness to cholinesterase inhibitors; dopaminergic loss underlies the parkinsonism. <span class="tag tks">Kaplan &amp; Sadock</span></p>
+  <h3>3. Epidemiology</h3>
+  <p>Estimated to account for a notable minority of degenerative dementias; onset usually in older adults; somewhat more common in men. Frequently under- or mis-diagnosed as Alzheimer disease or Parkinson disease.</p>
+  <h3>4. Clinical Features and Symptoms</h3>
+  <div class="unique">
+    <h4>Unique and easily identifiable clues &mdash; the core features</h4>
+    <ul class="t">
+      <li><b>Fluctuating cognition</b> with pronounced variation in attention and alertness (lucid periods alternating with marked confusion, sometimes within the same day).</li>
+      <li><b>Recurrent, well-formed visual hallucinations</b> <i class="si">(clearly seeing people, animals, or objects that are not there)</i>, often of people or small animals.</li>
+      <li><b>Spontaneous parkinsonism</b> <i class="si">(slowness of movement, rigidity, and tremor arising without medication)</i>, typically emerging around the same time as the cognitive decline.</li>
+      <li><b class="cl">REM sleep behaviour disorder</b> <i class="si">(physically acting out dreams &mdash; kicking, shouting, punching during sleep)</i>, which may precede the dementia by years.</li>
+      <li><b>Severe neuroleptic (antipsychotic) sensitivity</b> &mdash; antipsychotic drugs can cause severe, sometimes life-threatening, reactions and must be used with extreme caution or avoided.</li>
+    </ul>
+  </div>
+  <h3>5. Diagnostic Criteria</h3>
+  <div class="panel10"><h4><span class="tag t10">ICD-10</span></h4><p>ICD-10 does not provide a dedicated category; such cases were classified under F02.8 (dementia in other specified diseases classified elsewhere), diagnosed by meeting the general dementia criteria together with evidence of the underlying Lewy body disease.</p></div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11</span> Essential features</h4>
+    <ol class="t">
+      <li>General requirements for <b>Dementia</b> are met.</li>
+      <li>The presentation is characterised by the core features of Lewy body disease: <b>fluctuating cognition</b>, <b>recurrent visual hallucinations</b>, <b>spontaneous parkinsonism</b>, and/or <b>REM sleep behaviour disorder</b>.</li>
+      <li>The cognitive and other features are judged to be a direct consequence of Lewy body disease and are not better accounted for by another disorder.</li>
+    </ol>
+  </div>
+  <h3>6. Easy Way to Remember</h3>
+  <div class="remember"><h4>Memory aid &mdash; "FVPR"</h4><p><b>F</b>luctuation &middot; <b>V</b>isual hallucinations &middot; <b>P</b>arkinsonism &middot; <b>R</b>EM sleep behaviour disorder. And the safety rule: <b>never give standard antipsychotics casually</b> (neuroleptic sensitivity).</p></div>
+  <h3>7. Treatment</h3>
+  <ul class="t">
+    <li><b>Pharmacological:</b> <b>cholinesterase inhibitors</b> (rivastigmine, donepezil) are often notably effective for cognition and hallucinations. Parkinsonism may be treated cautiously with levodopa (which can worsen hallucinations). <b>Avoid or minimise antipsychotics;</b> if unavoidable, use the lowest dose of an agent with low extrapyramidal risk. <span class="tag tks">Kaplan &amp; Sadock</span></li>
+    <li><b>Psychological:</b> psychoeducation about fluctuations and hallucinations, environmental safety, structured routine, caregiver support, and management of REM sleep behaviour disorder.</li>
+  </ul>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+<!-- ════════════════════════ FRONTOTEMPORAL ════════════════════════ -->
+<section id="f02-ftd">
+  <h2>Frontotemporal Dementia (formerly Pick's Disease) &rarr; ICD-11 6D83</h2>
+  <div class="idcard">
+    <div><b>ICD-10</b> F02.0 Dementia in Pick's disease</div>
+    <div><b>ICD-11</b> 6D83 Frontotemporal dementia (requires second code 8A23, frontotemporal lobar degeneration)</div>
+    <div><b>Status</b> Concept broadened</div>
+    <div><b>Key change</b> From the single eponymous "Pick's disease" to the frontotemporal dementia family</div>
+  </div>
+  <h3>1. Introduction</h3>
+  <p>A group of progressive dementias caused by degeneration of the <b class="cl">frontal and temporal lobes</b> <i class="si">(the front and side regions of the brain, controlling personality, behaviour, and language)</i>. Compared with Alzheimer disease, onset is younger and the earliest features are change in personality/behaviour or in language, rather than memory. ICD-10 described this under Pick's disease, characterised by selective atrophy of the frontal and temporal lobes with Pick bodies.</p>
+  <h3>2. Aetiology and Pathophysiology</h3>
+  <p>Frontotemporal lobar degeneration with abnormal accumulation of <b>tau</b> or <b>TDP-43</b> protein. A significant proportion is familial, with mutations in genes such as MAPT, GRN, and C9orf72. <span class="tag tks">Kaplan &amp; Sadock</span></p>
+  <h3>3. Epidemiology</h3>
+  <p>A leading cause of <b>early-onset (before 65) dementia</b>, with onset commonly in the 50s and 60s; roughly equal sex distribution; frequently a family history.</p>
+  <h3>4. Clinical Features and Symptoms</h3>
+  <div class="unique">
+    <h4>Unique and easily identifiable clues</h4>
+    <ul class="t">
+      <li><b>Younger onset</b> (50s&ndash;60s).</li>
+      <li><b>Behavioural variant:</b> early and prominent change in personality and social conduct &mdash; <b class="cl">disinhibition</b> <i class="si">(loss of normal social restraint &mdash; tactless, impulsive, or inappropriate behaviour)</i>, <b class="cl">apathy</b> <i class="si">(loss of motivation and interest)</i>, loss of empathy, compulsive or ritualistic behaviour, and dietary/oral changes.</li>
+      <li><b>Language variants:</b> <b class="cl">progressive non-fluent aphasia</b> <i class="si">(speech becomes effortful, hesitant, and agrammatic)</i> or <b class="cl">semantic dementia</b> <i class="si">(progressive loss of the meaning of words and objects)</i>.</li>
+      <li><b>Memory is relatively preserved early</b> &mdash; the opposite of Alzheimer disease.</li>
+      <li>Neuroimaging shows focal frontal and/or temporal atrophy.</li>
+    </ul>
+  </div>
+  <h3>5. Diagnostic Criteria</h3>
+  <div class="panel10"><h4><span class="tag t10">ICD-10</span> (F02.0, Pick's disease)</h4><p>A progressive dementia commencing in middle age (typically 50&ndash;60), characterised by slowly progressive changes of character and social deterioration, followed by impairment of intellect, memory, and language, with apathy, euphoria, and occasionally extrapyramidal phenomena. General dementia criteria plus evidence of the characteristic predominance of frontal-lobe features (euphoria, emotional blunting, coarsening of social behaviour, disinhibition) which may precede memory impairment.</p></div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11</span> (6D83) Essential features</h4>
+    <ol class="t">
+      <li>General requirements for <b>Dementia</b> are met.</li>
+      <li>Onset is insidious with gradual progression, typically with <b>early and prominent changes in behaviour and personality</b> (behavioural variant) and/or <b>progressive language impairment</b> (language variants), with relative sparing of memory and visuospatial function early.</li>
+      <li>The features are attributable to frontotemporal neurodegeneration and not better explained by another disorder. A second code (8A23) identifies the frontotemporal lobar degeneration.</li>
+    </ol>
+  </div>
+  <h3>6. Easy Way to Remember</h3>
+  <div class="remember"><h4>Memory aid</h4><p><b>"Personality first, memory later, and young."</b> Frontal = behaviour/disinhibition/apathy; Temporal = language. Contrast sharply with Alzheimer's memory-first picture.</p></div>
+  <h3>7. Treatment</h3>
+  <ul class="t">
+    <li><b>Pharmacological:</b> no cure; SSRIs may help behavioural symptoms (disinhibition, compulsions); cholinesterase inhibitors are generally <b>not</b> beneficial and may worsen behaviour; antipsychotics used cautiously for severe agitation. <span class="tag tks">Kaplan &amp; Sadock</span></li>
+    <li><b>Psychological:</b> behavioural management, structured environment, caregiver education (behavioural symptoms are especially distressing to families), and safety planning.</li>
+  </ul>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+<!-- ════════════════════════ CJD ════════════════════════ -->
+<section id="f02-cjd">
+  <h2>Dementia in Creutzfeldt&ndash;Jakob Disease &rarr; ICD-11 6D85.5 (Prion Disease)</h2>
+  <div class="idcard">
+    <div><b>ICD-10</b> F02.1</div><div><b>ICD-11</b> 6D85.5 Dementia due to prion disease</div>
+    <div><b>Status</b> Moved to sub-code of 6D85</div><div><b>Key change</b> Renamed to the aetiological term "prion disease"</div>
+  </div>
+  <h3>1&ndash;3. Introduction, aetiology, epidemiology</h3>
+  <p>A <b>rare, rapidly progressive, and invariably fatal</b> dementia caused by <b class="cl">prions</b> <i class="si">(infectious, abnormally folded proteins that induce normal brain proteins to misfold)</i>, producing <b class="cl">spongiform encephalopathy</b> <i class="si">(the brain develops a sponge-like appearance from microscopic holes)</i>. Rare (roughly one to two cases per million per year). Sporadic, genetic, and acquired (iatrogenic, variant CJD from contaminated beef) forms exist.</p>
+  <h3>4. Clinical features / unique clues</h3>
+  <div class="unique"><h4>Unique clues</h4><ul class="t">
+    <li><b>Extremely rapid dementia</b> progressing over weeks to a few months (much faster than other dementias).</li>
+    <li><b class="cl">Myoclonus</b> <i class="si">(sudden, brief, shock-like involuntary muscle jerks)</i>, often startle-induced.</li>
+    <li>Rapidly evolving cerebellar, visual, and pyramidal signs; characteristic EEG and MRI changes; rapid progression to akinetic mutism and death.</li>
+  </ul></div>
+  <h3>5. Diagnostic criteria</h3>
+  <div class="panel10"><h4><span class="tag t10">ICD-10 (F02.1)</span></h4><p>A progressive dementia with extensive neurological signs, due to specific neuropathological changes (subacute spongiform encephalopathy) presumed to be caused by a transmissible agent. Onset usually in middle or later life, with a typically rapid course. General dementia criteria plus the characteristic triad of rapidly progressive devastating dementia, pyramidal/extrapyramidal disease with myoclonus, and a characteristic (triphasic) EEG.</p></div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11 (6D85.5)</span></h4><p>Dementia requirements met, judged to be a direct consequence of prion disease, supported by the clinical course and investigations. Coded with the underlying prion disease.</p></div>
+  <h3>6&ndash;7. Remember &amp; treatment</h3>
+  <div class="remember"><h4>Memory aid</h4><p><b>"Rapid dementia + myoclonus = think prion (CJD)."</b></p></div>
+  <p><b>Treatment:</b> no disease-modifying treatment exists; management is <b>palliative</b> <i class="si">(comfort-focused)</i> &mdash; symptom control (myoclonus, agitation), supportive nursing, and family support.</p>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+<!-- ════════════════════════ HUNTINGTON ════════════════════════ -->
+<section id="f02-hd">
+  <h2>Dementia in Huntington's Disease &rarr; ICD-11 6D85.1</h2>
+  <div class="idcard">
+    <div><b>ICD-10</b> F02.2</div><div><b>ICD-11</b> 6D85.1 Dementia due to Huntington disease</div>
+    <div><b>Status</b> Moved to sub-code of 6D85</div><div><b>Key change</b> Terminology only</div>
+  </div>
+  <h3>1&ndash;3. Introduction, aetiology, epidemiology</h3>
+  <p>An <b>autosomal dominant</b> <i class="si">(inherited such that each child of an affected parent has a 50% chance of inheriting it)</i> neurodegenerative disease caused by an expanded <b class="cl">CAG trinucleotide repeat</b> <i class="si">(an abnormally long, repeated segment of DNA)</i> in the huntingtin gene on chromosome 4, causing degeneration of the <b class="cl">caudate nucleus and putamen</b> <i class="si">(deep brain structures controlling movement)</i>. Onset typically in the 30s&ndash;50s. Positive family history is usual.</p>
+  <h3>4. Unique clues</h3>
+  <div class="unique"><h4>Unique clues</h4><ul class="t">
+    <li><b class="cl">Chorea</b> <i class="si">(rapid, irregular, dance-like involuntary movements)</i>.</li>
+    <li><b>Family history</b> of the same condition (dominant inheritance).</li>
+    <li>Prominent <b>early psychiatric and behavioural change</b> (depression, irritability, personality change) often preceding the movement disorder; <b>subcortical dementia</b> pattern (slowed thinking, executive and memory-retrieval difficulty).</li>
+    <li>High suicide risk.</li>
+  </ul></div>
+  <h3>5. Diagnostic criteria</h3>
+  <div class="panel10"><h4><span class="tag t10">ICD-10 (F02.2)</span></h4><p>Dementia occurring as part of a widespread degeneration of the brain in Huntington's disease. General dementia criteria plus the association of choreiform movement disorder, dementia, and a family history of Huntington's disease. Involuntary choreiform movements, typically of the face, hands, and shoulders, or in the gait, are early features. Dementia is characterised by predominant frontal-lobe features early, with relative preservation of memory until later.</p></div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11 (6D85.1)</span></h4><p>Dementia requirements met and judged a direct consequence of Huntington disease (confirmed by family history and/or genetic testing). Coded with the Huntington disease diagnosis.</p></div>
+  <h3>6&ndash;7. Remember &amp; treatment</h3>
+  <div class="remember"><h4>Memory aid</h4><p><b>"Chorea + family history + psychiatric change = Huntington."</b></p></div>
+  <p><b>Treatment:</b> no cure; chorea may be treated with agents such as tetrabenazine or antipsychotics; treat depression (SSRIs) given high suicide risk; genetic counselling for the family; psychological support and caregiver interventions. <span class="tag tks">Kaplan &amp; Sadock</span></p>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+<!-- ════════════════════════ PARKINSON ════════════════════════ -->
+<section id="f02-pd">
+  <h2>Dementia in Parkinson's Disease &rarr; ICD-11 6D85.0</h2>
+  <div class="idcard">
+    <div><b>ICD-10</b> F02.3</div><div><b>ICD-11</b> 6D85.0 Dementia due to Parkinson disease</div>
+    <div><b>Status</b> Moved to sub-code of 6D85</div><div><b>Key change</b> Terminology only</div>
+  </div>
+  <h3>1&ndash;3. Introduction, aetiology, epidemiology</h3>
+  <p>Dementia developing in a person with established Parkinson disease &mdash; a neurodegenerative disorder with loss of dopaminergic neurons in the <b class="cl">substantia nigra</b> <i class="si">(a midbrain structure that produces dopamine for movement control)</i> and alpha-synuclein pathology. A substantial proportion of Parkinson patients develop dementia as the disease advances, the risk rising with age and disease duration. Its relationship to dementia with Lewy bodies is close: the distinction rests on whether dementia begins well after (Parkinson disease dementia) or around the same time as (Lewy body dementia) the motor features.</p>
+  <h3>4. Unique clues</h3>
+  <div class="unique"><h4>Unique clues</h4><ul class="t">
+    <li><b>Established Parkinson disease for years first</b> (tremor, rigidity, bradykinesia), <b>then</b> dementia emerges.</li>
+    <li>Subcortical, dysexecutive pattern with slowed processing; visual hallucinations (often partly drug-related) common.</li>
+  </ul></div>
+  <h3>5. Diagnostic criteria</h3>
+  <div class="panel10"><h4><span class="tag t10">ICD-10 (F02.3)</span></h4><p>A dementia developing in the course of established Parkinson's disease. General dementia criteria are met in a patient with Parkinson's disease; no particular distinguishing clinical features have yet been demonstrated.</p></div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11 (6D85.0)</span></h4><p>Dementia requirements met, arising in the context of established Parkinson disease and judged to be a direct consequence of it.</p></div>
+  <h3>6&ndash;7. Remember &amp; treatment</h3>
+  <div class="remember"><h4>Memory aid</h4><p><b>"Motor first (years), dementia later = Parkinson disease dementia"</b> (contrast Lewy body: dementia and motor features together).</p></div>
+  <p><b>Treatment:</b> cholinesterase inhibitors (rivastigmine) can help cognition; optimise Parkinson medication balancing motor benefit against hallucinations; avoid strong antipsychotics; psychological and caregiver support. <span class="tag tks">Kaplan &amp; Sadock</span></p>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+<!-- ════════════════════════ HIV ════════════════════════ -->
+<section id="f02-hiv">
+  <h2>Dementia in HIV Disease &rarr; ICD-11 6D85.3</h2>
+  <div class="idcard">
+    <div><b>ICD-10</b> F02.4</div><div><b>ICD-11</b> 6D85.3 Dementia due to HIV</div>
+    <div><b>Status</b> Moved to sub-code of 6D85</div><div><b>Key change</b> Terminology only</div>
+  </div>
+  <h3>1&ndash;3. Introduction, aetiology, epidemiology</h3>
+  <p>Dementia caused by direct HIV infection of the brain (HIV-associated neurocognitive disorder). More common in advanced, untreated HIV; incidence of severe forms has fallen greatly with effective antiretroviral therapy. It is characteristically a <b class="cl">subcortical dementia</b> <i class="si">(a pattern of slowed thinking and movement, apathy, and memory-retrieval difficulty, from damage to deep brain structures)</i>.</p>
+  <h3>4. Unique clues</h3>
+  <div class="unique"><h4>Unique clues</h4><ul class="t">
+    <li><b>Subcortical pattern:</b> psychomotor slowing, apathy, social withdrawal, and impaired concentration and memory retrieval, often with motor slowing.</li>
+    <li>Occurs in a person with known HIV/AIDS; <b>improves with antiretroviral treatment</b> &mdash; a potentially treatable dementia.</li>
+  </ul></div>
+  <h3>5. Diagnostic criteria</h3>
+  <div class="panel10"><h4><span class="tag t10">ICD-10 (F02.4)</span></h4><p>Dementia developing in the course of HIV disease, in the absence of a concurrent illness or condition other than HIV infection that could explain the clinical features. Typically complaints of forgetfulness, slowness, poor concentration, and difficulty in problem-solving and reading, with apathy and reduced spontaneity.</p></div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11 (6D85.3)</span></h4><p>Dementia requirements met, judged to be a direct consequence of HIV infection, once other causes are excluded.</p></div>
+  <h3>6&ndash;7. Remember &amp; treatment</h3>
+  <div class="remember"><h4>Memory aid</h4><p><b>"HIV + subcortical slowing = HIV dementia; treat the HIV."</b></p></div>
+  <p><b>Treatment:</b> <b>antiretroviral therapy</b> is central and can improve cognition; treat opportunistic infections; symptomatic and psychological support; treat comorbid depression. <span class="tag tks">Kaplan &amp; Sadock</span></p>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+<!-- ════════════════════════ OTHER 6D85 ════════════════════════ -->
+<section id="f02-other">
+  <h2>Other Dementias due to Diseases Classified Elsewhere &rarr; ICD-11 6D85 (further sub-codes)</h2>
+  <p>ICD-11 provides explicit sub-codes under 6D85 for additional causes; several are important because they are <b>potentially reversible</b>.</p>
+  <table>
+    <tr><th>Cause (ICD-11 code)</th><th>Unique clue</th><th>Note</th></tr>
+    <tr><td>Normal-pressure hydrocephalus (6D85.6)</td><td><b>Triad: gait disturbance (magnetic/shuffling gait), dementia, urinary incontinence</b> &mdash; "wobbly, wacky, wet"; ventricular enlargement on imaging</td><td><b>Potentially reversible</b> with a cerebrospinal-fluid <b class="cl">shunt</b> <i class="si">(a surgically implanted tube that drains excess brain fluid)</i></td></tr>
+    <tr><td>Dementia due to pellagra (6D85.8)</td><td><b>Three D's: Dementia, Diarrhoea, Dermatitis</b> (light-sensitive skin rash)</td><td>Caused by <b class="cl">niacin (vitamin B3) deficiency</b>; reversible with niacin replacement</td></tr>
+    <tr><td>Dementia due to exposure to heavy metals and other toxins (6D85.2)</td><td>Occupational or environmental toxin exposure (lead, mercury, arsenic, manganese)</td><td>May stabilise or partly reverse with removal of exposure and chelation</td></tr>
+    <tr><td>Dementia due to multiple sclerosis (6D85.4)</td><td>Known multiple sclerosis with relapsing neurological deficits; subcortical cognitive pattern</td><td>Cognitive impairment as part of established MS</td></tr>
+    <tr><td>Dementia due to injury to the head (6D85.7)</td><td>History of significant traumatic brain injury; may be static or, with repeated injury, progressive</td><td>Chronic sequelae of head trauma</td></tr>
+    <tr><td>Dementia due to Down syndrome (6D85.9)</td><td>Early Alzheimer-type dementia in a person with Down syndrome</td><td>Trisomy 21 and the APP gene dosage effect</td></tr>
+  </table>
+  <div class="note"><b>Clinical priority:</b> whenever dementia is diagnosed, screen deliberately for the <b>reversible</b> causes above (and for thyroid disease, vitamin B12 deficiency, neurosyphilis, and subdural haematoma), because treating them can halt or reverse the decline.</div>
+  <div class="ddx">
+    <h5>Differential diagnosis (F02 dementias in other diseases &mdash; distinguishing the types)</h5>
+    <ul class="t">
+      <li><b>Alzheimer disease</b> &mdash; memory-first, insidious, smooth, no early focal signs (the baseline to compare against).</li>
+      <li><b>Lewy body dementia</b> &mdash; fluctuation + recurrent visual hallucinations + parkinsonism + REM-sleep behaviour disorder; neuroleptic sensitivity.</li>
+      <li><b>Frontotemporal dementia</b> &mdash; younger, early behaviour/personality or language change, memory spared early.</li>
+      <li><b>Creutzfeldt&ndash;Jakob (prion)</b> &mdash; very rapid dementia (weeks&ndash;months) + myoclonus.</li>
+      <li><b>Huntington</b> &mdash; chorea + autosomal-dominant family history + early psychiatric change.</li>
+      <li><b>Parkinson disease dementia</b> &mdash; established Parkinson's for years, then dementia (vs Lewy body, where both start together).</li>
+      <li><b>HIV dementia</b> &mdash; subcortical slowing/apathy in known HIV; improves with antiretrovirals.</li>
+      <li><b>Reversible mimics</b> &mdash; normal-pressure hydrocephalus, pellagra, heavy-metal toxicity, B12 deficiency, hypothyroidism, delirium, and depression.</li>
+    </ul>
+  </div>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+<!-- ════════════════════════ F03 ════════════════════════ -->
+<section id="f03">
+  <h2>F03 &middot; Unspecified Dementia &rarr; ICD-11 6D8Z</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> Organic / Neurocognitive disorders (F00&ndash;F09) &mdash; a dementia residual category used when the type/cause cannot be identified. See the F00&ndash;F09 overview and general dementia concept above.</p>
+  <div class="idcard">
+    <div><b>ICD-10</b> F03</div><div><b>ICD-11</b> 6D8Z Dementia, cause unknown or unspecified</div>
+    <div><b>Status</b> Retained (residual category)</div><div><b>Key change</b> Functionally equivalent</div>
+  </div>
+  <h3>1. Introduction</h3>
+  <p>This category is used when the general criteria for dementia are met but the specific type cannot be identified, or the cause is not yet known. It is a <b>provisional / residual</b> designation, not a distinct disease.</p>
+  <h3>5. Diagnostic criteria</h3>
+  <div class="panel10"><h4><span class="tag t10">ICD-10 (F03)</span></h4><p>Used when the general criteria for dementia are satisfied but the dementia cannot be allocated to any of the specific types (F00&ndash;F02). Includes presenile and senile dementia not otherwise specified, and presenile and senile psychosis not otherwise specified.</p></div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11 (6D8Z)</span></h4><p>Dementia is present (general requirements met) but the underlying cause is unknown or unspecified.</p></div>
+  <div class="note"><b>Practice point:</b> an "unspecified" label should prompt continued evaluation for a specific &mdash; especially reversible &mdash; cause rather than closing the case.</div>
+  <h3>7. Treatment</h3>
+  <p>General dementia care (as for Alzheimer disease) with ongoing investigation to identify a specific cause; caregiver support.</p>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+<!-- ════════════════════════ F04 AMNESIC ════════════════════════ -->
+<section id="f04">
+  <h2>F04 &middot; Organic Amnesic Syndrome &rarr; ICD-11 6D72 (Amnestic Disorder)</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> Organic / Neurocognitive disorders (F00&ndash;F09) &mdash; an isolated, prominent memory disturbance (not dementia, not delirium) with a demonstrable cerebral cause. See the F00&ndash;F09 overview above.</p>
+  <div class="idcard">
+    <div><b>ICD-10 code</b> F04 &middot; Organic amnesic syndrome, not induced by alcohol and other psychoactive substances</div>
+    <div><b>ICD-11 code</b> 6D72 &middot; .0 disease classified elsewhere, .1 psychoactive substances (.10 alcohol, .11 sedatives/hypnotics/anxiolytics, .12 other, .13 volatile inhalants), .2 unknown aetiology, .Y, .Z</div>
+    <div><b>Status</b> Renamed ("organic" dropped)</div>
+    <div><b>Key change</b> Substance-induced amnestic states now explicit sub-codes within the same category</div>
+  </div>
+
+  <h3>1. Introduction</h3>
+  <p>A syndrome of <b>prominent, isolated impairment of memory</b> in which recent and remote memory are affected while <b class="cl">immediate recall</b> <i class="si">(the ability to hold information for a few seconds, e.g. repeating a number just heard)</i> is preserved, occurring in the setting of clear consciousness and without a general decline in intellect. It is neither a global dementia (because only memory is affected) nor a delirium (because the person is alert and attentive). The classic form is <b class="cl">Korsakoff syndrome</b> <i class="si">(the chronic amnesic state following thiamine deficiency, most often related to chronic alcohol use)</i>.</p>
+
+  <h3>2. Aetiology and Pathophysiology</h3>
+  <p>The syndrome results from bilateral damage to the memory circuits &mdash; the <b class="cl">hippocampi</b>, <b class="cl">mammillary bodies</b> <i class="si">(small paired structures at the base of the brain, part of the memory circuit)</i>, the <b class="cl">medial thalamus</b>, and the fornix. Causes include: <span class="tag tks">Kaplan &amp; Sadock</span></p>
+  <ul class="t">
+    <li><b>Thiamine (vitamin B1) deficiency</b> &mdash; Wernicke&ndash;Korsakoff syndrome, most often from chronic alcohol misuse with malnutrition (the alcohol form is coded in the substance block in ICD-10 and as 6D72.10 in ICD-11).</li>
+    <li><b>Hypoxia / anoxia</b> <i class="si">(lack of oxygen)</i> &mdash; cardiac arrest, carbon monoxide poisoning (the hippocampus is highly vulnerable).</li>
+    <li><b>Head injury</b>; <b>herpes simplex encephalitis</b> (damages medial temporal lobes); <b>posterior cerebral artery stroke</b>; rupture of an <b>anterior communicating artery aneurysm</b>; brain tumours affecting the third ventricle region.</li>
+  </ul>
+
+  <h3>3. Epidemiology</h3>
+  <p>Rates depend on the underlying cause. Korsakoff syndrome is the most familiar form and occurs where chronic heavy alcohol use and nutritional deficiency are prevalent. It classically follows an episode of Wernicke encephalopathy, especially if thiamine treatment is delayed.</p>
+
+  <h3>4. Clinical Features and Symptoms</h3>
+  <ul class="t">
+    <li><b class="cl">Anterograde amnesia</b> <i class="si">(marked inability to form new memories after the onset of the disorder)</i> &mdash; the dominant feature; the person cannot learn new information and forgets events within minutes.</li>
+    <li><b class="cl">Retrograde amnesia</b> <i class="si">(loss of memories laid down before the onset)</i>, usually with a temporal gradient (recent past lost more than the distant past).</li>
+    <li>Preserved immediate recall, attention, perception, and general intelligence; clear consciousness.</li>
+    <li>Disturbed sense of time and sequencing of events.</li>
+  </ul>
+  <div class="unique">
+    <h4>Unique and easily identifiable clues &mdash; the classic examination link</h4>
+    <ul class="t">
+      <li><b>Alcohol use or withdrawal &rarr; thiamine deficiency &rarr; Wernicke encephalopathy &rarr; Korsakoff syndrome.</b></li>
+      <li><b class="cl">Wernicke encephalopathy</b> <i class="si">(the acute, reversible emergency preceding Korsakoff)</i> is a triad of <b>confusion</b>, <b class="cl">ataxia</b> <i class="si">(unsteady, uncoordinated walking)</i>, and <b class="cl">ophthalmoplegia / nystagmus</b> <i class="si">(weakness of the eye muscles / rhythmic jerking eye movements)</i>. It requires <b>urgent thiamine</b>.</li>
+      <li><b class="cl">Confabulation</b> <i class="si">(unintentionally producing false or distorted memories to fill gaps, without any intention to deceive)</i> is the characteristic give-away of Korsakoff syndrome.</li>
+      <li>Striking, isolated failure of new learning with an otherwise alert, articulate patient of normal general intelligence.</li>
+    </ul>
+  </div>
+  <div class="assoc">
+    <h4>Comorbidities and complications</h4>
+    <ul class="t">
+      <li><b>Alcohol dependence</b> and its physical complications (the commonest context, via thiamine deficiency).</li>
+      <li>Coexisting <b>peripheral neuropathy</b> and cerebellar signs; malnutrition.</li>
+      <li>Depression; loss of independence because of the memory deficit; vulnerability to exploitation.</li>
+    </ul>
+  </div>
+
+  <h3>5. Diagnostic Criteria (strictly from ICD-10 and ICD-11)</h3>
+  <div class="panel10">
+    <h4><span class="tag t10">ICD-10</span> Diagnostic guidelines</h4>
+    <p>For a definite diagnosis, all of the following are required:</p>
+    <ol class="t">
+      <li>Presence of a <b>memory impairment</b> shown as a defect of recent memory (impaired learning of new material); an <b class="cl">anterograde</b> and <b class="cl">retrograde amnesia</b>, and a reduced ability to recall past experiences in reverse order of their occurrence.</li>
+      <li><b>Absence of a defect in immediate recall</b> (as tested, for example, by the digit span), of disturbance of attention and consciousness, and of global intellectual impairment.</li>
+      <li>A <b>history or objective evidence of an insult to, or disease of, the brain</b> (especially involving bilaterally the diencephalic and medial temporal structures).</li>
+    </ol>
+    <p><b>Confabulation</b>, a marked lack of insight, and emotional changes (apathy, lack of initiative) may be additional but not invariable features. (Amnesic states due to alcohol or other psychoactive substances are classified in F10&ndash;F19.)</p>
+  </div>
+  <div class="panel11">
+    <h4><span class="tag t11">ICD-11</span> Essential (required) features</h4>
+    <ol class="t">
+      <li><b>Prominent memory impairment</b> relative to expectations for age and general premorbid level of functioning, characterised by significant difficulty acquiring, learning, and remembering new information, sometimes with an inability to recall previously learned information.</li>
+      <li>The memory impairment is <b>severe enough to result in significant impairment</b> in personal, family, social, educational, occupational, or other important areas of functioning.</li>
+      <li>The memory impairment occurs <b>in the absence of other significant neurocognitive impairment</b> (i.e. it is not part of a broader dementia) and does not occur exclusively during delirium.</li>
+      <li>The features are judged to be the direct consequence of an underlying medical condition or the use of a substance/medication (assign the relevant sub-code, e.g. 6D72.10 for alcohol).</li>
+    </ol>
+  </div>
+
+  <h3>6. Easy Way to Remember</h3>
+  <div class="remember">
+    <h4>Memory aids</h4>
+    <p>Wernicke triad = <b>"CAN"</b> &mdash; <b>C</b>onfusion, <b>A</b>taxia, <b>N</b>ystagmus (ophthalmoplegia). Korsakoff = <b>"can't learn new + makes up stories (confabulation) + otherwise sharp."</b> The whole sequence: <b>alcohol &rarr; thiamine deficiency &rarr; Wernicke &rarr; Korsakoff</b>. Treatment reflex: <b>give thiamine before glucose</b>.</p>
+  </div>
+
+  <h3>7. Treatment</h3>
+  <h4>Pharmacological <span class="tag tks">Kaplan &amp; Sadock</span></h4>
+  <ul class="t">
+    <li><b>Urgent parenteral thiamine</b> <i class="si">(vitamin B1 given by injection)</i> whenever Wernicke encephalopathy is suspected &mdash; this prevents or limits progression to Korsakoff syndrome and is a medical emergency. Thiamine should be given before or with glucose to avoid precipitating Wernicke.</li>
+    <li>Treat the specific underlying cause (e.g. herpes encephalitis, hypoxic injury); manage alcohol dependence.</li>
+  </ul>
+  <h4>Psychological and rehabilitative</h4>
+  <ul class="t">
+    <li><b class="cl">Compensatory memory strategies</b> <i class="si">(external memory aids such as diaries, alarms, notebooks, and consistent routines)</i>.</li>
+    <li>Errorless learning techniques; structured, familiar environment; occupational support; supportive psychotherapy; family education.</li>
+  </ul>
+  <p><b>Prognosis:</b> depends on cause and timeliness of treatment. Early thiamine can reverse Wernicke encephalopathy; established Korsakoff amnesia is frequently persistent and may be permanent, though some recovery can occur.</p>
+  <div class="ddx">
+    <h5>Differential diagnosis (F04 Organic amnesic syndrome)</h5>
+    <ul class="t">
+      <li><b>Dementia</b> &mdash; amnesic syndrome impairs <b>memory only</b>; dementia impairs multiple cognitive domains.</li>
+      <li><b>Delirium</b> &mdash; acute, fluctuating, with impaired attention/consciousness (amnesic syndrome has clear consciousness and intact attention).</li>
+      <li><b>Dissociative (psychogenic) amnesia</b> &mdash; typically autobiographical, stress-triggered, no identified organic cause, often reversible.</li>
+      <li><b>Ordinary/age-related forgetfulness</b> &mdash; minor, non-progressive, no functional impairment, helped by cueing.</li>
+      <li><b>Transient global amnesia</b> &mdash; sudden, self-limited (hours), full recovery.</li>
+      <li><b>Substance-induced amnesia</b> &mdash; alcohol/sedative blackouts (coded in F10&ndash;F19).</li>
+    </ul>
+  </div>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+<!-- ════════════════════════ F05 DELIRIUM ════════════════════════ -->
+<section id="f05">
+  <h2>F05 &middot; Delirium &rarr; ICD-11 6D70</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> Organic / Neurocognitive disorders (F00&ndash;F09) &mdash; an acute, fluctuating disturbance of attention and awareness due to a physical cause; a medical emergency. See the F00&ndash;F09 overview above.</p>
+  <div class="idcard">
+    <div><b>ICD-10 code</b> F05 &middot; .0 not superimposed on dementia, .1 superimposed on dementia, .8 other, .9 unspecified</div>
+    <div><b>ICD-11 code</b> 6D70 &middot; .0 due to disease classified elsewhere, .1 due to psychoactive substances including medications, .2 due to multiple aetiological factors, .Y other specified, .Z unknown/unspecified</div>
+    <div><b>Status</b> Renamed / reorganised</div>
+    <div><b>Key change</b> Subtyped by aetiology rather than by relationship to dementia</div>
+  </div>
+
+  <h3>1. Introduction</h3>
+  <p>Delirium is an <b class="cl">aetiologically non-specific organic cerebral syndrome</b> <i class="si">(an acute brain dysfunction that can be produced by many different physical causes)</i> characterised by concurrent disturbance of consciousness and attention, perception, thinking, memory, psychomotor behaviour, emotion, and the sleep&ndash;wake cycle. It has an acute onset and a fluctuating course, and it is a <b>medical emergency</b> that is usually <b>reversible</b> once the underlying cause is identified and treated. It is common, frequently missed (especially the quiet form), and associated with poor outcomes.</p>
+
+  <h3>2. Aetiology and Pathophysiology</h3>
+  <p>Delirium arises from a wide range of acute systemic or cerebral insults acting on a vulnerable brain, disrupting widespread neurotransmitter systems (notably a relative <b>cholinergic deficiency</b> and <b>dopaminergic excess</b>) and large-scale attention networks. Common causes (the mnemonic below is useful): <span class="tag tks">Kaplan &amp; Sadock</span></p>
+  <ul class="t">
+    <li><b>Infection</b> (urinary tract infection, pneumonia, sepsis) &mdash; a very common trigger in the elderly.</li>
+    <li><b>Drugs and toxins</b> &mdash; anticholinergics, benzodiazepines, opioids, sedatives, corticosteroids, and polypharmacy; alcohol/sedative <b>withdrawal</b>.</li>
+    <li><b>Metabolic and electrolyte disturbance</b> &mdash; hypo/hyperglycaemia, hyponatraemia, hypercalcaemia, hepatic or renal failure, dehydration.</li>
+    <li><b>Hypoxia</b>, cardiac events, and <b>constipation / urinary retention</b> and uncontrolled <b>pain</b> in frail patients.</li>
+    <li><b>Intracranial causes</b> &mdash; stroke, head injury, encephalitis, seizures, raised intracranial pressure.</li>
+    <li><b>Postoperative states</b>, especially after major or emergency surgery in older patients.</li>
+  </ul>
+  <p><b>Predisposing (vulnerability) factors:</b> older age, pre-existing dementia, sensory impairment (poor vision/hearing), frailty, multiple medical comorbidities, and previous delirium.</p>
+
+  <h3>3. Epidemiology</h3>
+  <ul class="t">
+    <li>Very common in the general hospital: point prevalence in medically ill inpatients is commonly cited around 10&ndash;30%, rising much higher (frequently over half) in intensive-care and postoperative elderly patients. <span class="tag tks">Kaplan &amp; Sadock</span></li>
+    <li>Pooled delirium prevalence around <b>36% at hospital discharge</b> in older inpatients in a systematic review. <span class="tag tother">Other evidence</span></li>
+    <li>In general-hospital admissions aged 65+, one large cohort found roughly 17% with delirium alone and about 8% with delirium superimposed on dementia. <span class="tag tother">Other evidence</span></li>
+    <li><b>Delirium superimposed on dementia</b> is common (reported ranges of roughly 22&ndash;89%, pooled near half). <span class="tag tother">Other evidence</span></li>
+    <li>Delirium is under-recognised (particularly the hypoactive subtype) and is associated with prolonged admission, increased mortality, functional decline, and an increased risk of subsequently developing dementia. <span class="tag tother">Other evidence</span></li>
+  </ul>
+
+  <h3>4. Clinical Features and Symptoms</h3>
+  <p>ICD-10 requires symptoms, mild or severe, in <b>each</b> of the following areas: (1) impairment of consciousness and attention; (2) global disturbance of cognition; (3) psychomotor disturbance; (4) disturbance of the sleep&ndash;wake cycle; (5) emotional disturbances.</p>
+  <h4>Motor subtypes</h4>
+  <ul class="t">
+    <li><b>Hyperactive:</b> agitated, restless, hypervigilant, hallucinating &mdash; easily noticed.</li>
+    <li><b>Hypoactive:</b> drowsy, withdrawn, slowed, quiet &mdash; <b>frequently missed and often mistaken for depression</b>; carries a worse prognosis.</li>
+    <li><b>Mixed:</b> fluctuates between hyperactive and hypoactive.</li>
+  </ul>
+  <div class="unique">
+    <h4>Unique and easily identifiable clues &mdash; "recognise delirium"</h4>
+    <ul class="t">
+      <li><b>Impaired attention is the hallmark</b> &mdash; a bedside screen is asking the patient to recite the months of the year backwards; a delirious patient cannot sustain it.</li>
+      <li><b>Acute onset over hours to days</b> with a <b>fluctuating course</b>, characteristically worse in the evening and at night (<b class="cl">sundowning</b> <i class="si">(worsening confusion as daylight fades)</i>).</li>
+      <li>Perceptual disturbances are typically <b>visual</b> (in contrast to the predominantly auditory hallucinations of primary psychosis).</li>
+      <li>The <b>hypoactive form is the diagnostic trap</b> &mdash; a quiet, drowsy patient wrongly labelled as depressed or simply "tired".</li>
+      <li>Special clue: <b>alcohol or benzodiazepine withdrawal &rarr; delirium tremens</b> <i class="si">(severe withdrawal delirium with tremor, sweating, rapid heart rate, and vivid hallucinations)</i> &mdash; the one form of delirium treated <b>with</b> benzodiazepines.</li>
+    </ul>
+  </div>
+  <div class="assoc">
+    <h4>Comorbidities and complications</h4>
+    <ul class="t">
+      <li>Almost always occurs on a background of <b>acute medical illness</b> (infection, metabolic disturbance, post-operative state) &mdash; and frequently <b>superimposed on dementia</b>.</li>
+      <li>Associated with <b>longer hospital stay, falls, functional decline, increased mortality</b>, and an increased risk of <b>subsequent dementia</b>.</li>
+      <li>Hypoactive delirium is frequently misdiagnosed as depression; agitated delirium risks injury to self and others.</li>
+    </ul>
+  </div>
+  <div class="unique">
+    <h4>Unique and important additional features of delirium (high-yield)</h4>
+    <ul class="t">
+      <li><b class="cl">Impaired attention is the core, defining feature</b> &mdash; tested at the bedside by digit span or reciting months backwards.</li>
+      <li><b class="cl">Fluctuating course with a diurnal pattern</b> &mdash; typically lucid intervals with marked worsening in the evening/night (<b>"sundowning"</b>).</li>
+      <li><b class="cl">Three motor subtypes:</b> <b>hyperactive</b> (agitated, hallucinating, hypervigilant), <b>hypoactive</b> (drowsy, withdrawn, slow &mdash; the commonest and most missed, with the worst prognosis), and <b>mixed</b>.</li>
+      <li><b class="cl">Perceptual disturbances</b> &mdash; illusions and hallucinations that are characteristically <b>visual</b> (unlike the auditory hallucinations of primary psychosis); fleeting, poorly-formed <b>persecutory delusions</b> are common.</li>
+      <li><b class="cl">Disturbed sleep&ndash;wake cycle</b> and vivid, frightening dreams that may continue as hallucinations on waking.</li>
+      <li><b class="cl">Clouding / altered level of consciousness</b> and disorientation (time first, then place, then person) &mdash; the key contrast with dementia, in which consciousness is clear.</li>
+      <li><b class="cl">Emotional lability</b> &mdash; rapidly shifting fear, irritability, perplexity, or apathy.</li>
+      <li>Onset is <b>acute (hours&ndash;days)</b> and the whole episode is usually <b>reversible</b> and lasts &lt; 6 months once the cause is treated.</li>
+    </ul>
+  </div>
+
+  <h3>5. Diagnostic Criteria (strictly from ICD-10 and ICD-11)</h3>
+  <div class="panel10">
+    <h4><span class="tag t10">ICD-10</span> Diagnostic guidelines</h4>
+    <p>For a definite diagnosis, symptoms, mild or severe, should be present in each one of the following areas:</p>
+    <ol class="t">
+      <li><b>Impairment of consciousness and attention</b> (on a continuum from clouding to coma; reduced ability to direct, focus, sustain, and shift attention).</li>
+      <li><b>Global disturbance of cognition</b> (perceptual distortions, illusions and hallucinations &mdash; most often visual; impairment of abstract thinking and comprehension, with or without transient delusions, but typically with some degree of incoherence; impairment of immediate recall and of recent memory but with relatively intact remote memory; disorientation for time as well as, in more severe cases, for place and person).</li>
+      <li><b>Psychomotor disturbances</b> (hypo- or hyperactivity and unpredictable shifts from one to the other; increased reaction time; increased or decreased flow of speech; enhanced startle reaction).</li>
+      <li><b>Disturbance of the sleep&ndash;wake cycle</b> (insomnia or, in severe cases, total sleep loss or reversal of the sleep&ndash;wake cycle; daytime drowsiness; nocturnal worsening of symptoms; disturbing dreams or nightmares which may continue as hallucinations after awakening).</li>
+      <li><b>Emotional disturbances</b> (depression, anxiety or fear, irritability, euphoria, apathy, or wondering perplexity).</li>
+    </ol>
+    <p>The onset is usually <b>rapid</b>, the course <b>diurnally fluctuating</b>, and the total duration of the condition is <b>less than 6 months</b>.</p>
+    <p style="margin-top:8px"><b>Detailed ICD-10 subtypes of delirium (F05):</b></p>
+    <ul class="t">
+      <li><b>F05.0 &mdash; Delirium not superimposed on dementia:</b> the delirium arises in a person <b>without</b> a pre-existing dementia.</li>
+      <li><b>F05.1 &mdash; Delirium superimposed on dementia:</b> the delirium develops in the course of a pre-existing dementia (F00&ndash;F03); features of both are present.</li>
+      <li><b>F05.8 &mdash; Other delirium:</b> e.g. delirium of mixed origin, or subacute confusional state.</li>
+      <li><b>F05.9 &mdash; Delirium, unspecified.</b> <span class="mean" style="color:#5d6d7e"><i>(ICD-11 6D70 instead sub-types delirium by aetiology &mdash; .0 due to a disease, .1 substance/medication, .2 multiple factors, .Y other, .Z unknown &mdash; and codes delirium superimposed on dementia by using both a delirium and a dementia code.)</i></span></li>
+    </ul>
+  </div>
+  <div class="panel11">
+    <h4><span class="tag t11">ICD-11</span> Essential (required) features</h4>
+    <ol class="t">
+      <li><b>Disturbance of attention</b> (reduced ability to direct, focus, sustain, and shift attention) <b>and awareness</b> (reduced orientation to the environment).</li>
+      <li>The disturbance <b>develops over a short period of time (usually hours to a few days)</b>, represents a change from the individual's baseline level of functioning, and tends to <b>fluctuate in severity over the course of a day</b>.</li>
+      <li>The disturbance is accompanied by <b>impairment in other cognitive domains</b> (e.g. memory, language, visuospatial ability, or perception) and may include disturbance of emotion, behaviour, and the sleep&ndash;wake cycle.</li>
+      <li>The symptoms are <b>not better accounted for by another pre-existing, established, or evolving neurocognitive disorder</b>, and do not occur in the context of severely reduced arousal such as coma.</li>
+      <li>There is evidence that the disturbance is a <b>direct consequence of a medical condition, a substance or medication, or multiple aetiological factors</b> (assign the relevant sub-code). Delirium may be superimposed on dementia (in which case both are coded).</li>
+    </ol>
+  </div>
+  <h4>Comparison of criteria</h4>
+  <table>
+    <tr><th>Component</th><th class="c10">ICD-10</th><th class="c11">ICD-11</th></tr>
+    <tr><td>Core disturbance</td><td class="c10">Consciousness and attention, plus a broad five-area symptom list</td><td class="c11">Attention and awareness, with associated cognitive/emotional/sleep features</td></tr>
+    <tr><td>Onset and course</td><td class="c10">Rapid onset; diurnally fluctuating; usually &lt;6 months</td><td class="c11">Onset over hours to days; change from baseline; fluctuating within a day</td></tr>
+    <tr><td>Basis of subtyping</td><td class="c10">Relationship to dementia (superimposed or not)</td><td class="c11">Aetiology (disease / substance / multiple / unknown)</td></tr>
+  </table>
+
+  <h3>6. Easy Way to Remember</h3>
+  <div class="remember">
+    <h4>Memory aids</h4>
+    <p>Delirium recognition &mdash; <b>"acute, fluctuating, inattentive, in a sick patient."</b> Causes screen &mdash; <b>"I WATCH DEATH"</b>: <b>I</b>nfection, <b>W</b>ithdrawal, <b>A</b>cute metabolic, <b>T</b>rauma, <b>C</b>NS pathology, <b>H</b>ypoxia, <b>D</b>eficiencies, <b>E</b>ndocrine, <b>A</b>cute vascular, <b>T</b>oxins/drugs, <b>H</b>eavy metals.</p>
+    <p><b>Clinical signature:</b> sudden + fluctuating + inattention + altered awareness + an identifiable acute medical trigger = delirium (an organic emergency, not "just confusion").</p>
+  </div>
+
+  <h3>7. Treatment</h3>
+  <h4>Identify and treat the cause (definitive)</h4>
+  <p>The essential treatment is to <b>find and correct the underlying cause</b> &mdash; treat infection, correct electrolytes and oxygenation, review and stop offending medications, relieve pain, urinary retention, and constipation.</p>
+  <h4>Non-pharmacological (first-line for the delirium itself)</h4>
+  <ul class="t">
+    <li>Reorientation (clocks, calendars, familiar faces), good daytime lighting and quiet nights, day&ndash;night cues.</li>
+    <li>Ensure sensory aids (glasses, hearing aids); maintain hydration and nutrition; encourage early mobilisation; promote normal sleep.</li>
+    <li>Avoid physical restraints and deliriogenic drugs; involve family; provide a calm, consistent environment.</li>
+  </ul>
+  <h4>Pharmacological (reserved) <span class="tag tks">Kaplan &amp; Sadock</span></h4>
+  <ul class="t">
+    <li>Medication is only for <b>severe agitation, distress, or danger</b>: a low dose of an antipsychotic (e.g. haloperidol or an atypical agent) for the shortest necessary time.</li>
+    <li><b>Benzodiazepines are first-line only for alcohol or sedative withdrawal delirium</b> (delirium tremens); in other deliria they can worsen or prolong the condition.</li>
+    <li>Avoid antipsychotics in suspected Lewy body dementia (neuroleptic sensitivity).</li>
+  </ul>
+  <p><b>Prognosis:</b> often reversible with prompt treatment, but associated with longer hospital stays, higher mortality, functional decline, and increased risk of later dementia. Hypoactive delirium and delirium superimposed on dementia have worse outcomes. <span class="tag tother">Other evidence</span></p>
+  <div class="ddx">
+    <h5>Differential diagnosis (F05 Delirium)</h5>
+    <ul class="t">
+      <li><b>Dementia</b> &mdash; chronic, stable, attention/consciousness preserved early, insidious onset (delirium is acute, fluctuating, with impaired attention). Both can coexist (delirium superimposed on dementia).</li>
+      <li><b>Depression</b> (esp. vs hypoactive delirium) &mdash; subacute, mood-driven, attention grossly intact, no fluctuating consciousness.</li>
+      <li><b>Primary psychosis</b> &mdash; clear consciousness/attention, auditory &gt; visual hallucinations, no acute medical trigger, systematised delusions.</li>
+      <li><b>Non-convulsive status epilepticus</b> and other organic causes of an acute confusional state.</li>
+    </ul>
+  </div>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+<!-- ════════════════════════ F06 ════════════════════════ -->
+<section id="f06">
+  <h2>F06 &middot; Other Mental Disorders due to Brain Damage/Dysfunction and Physical Disease &rarr; ICD-11 6E6x and 6D71</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> Organic / Neurocognitive disorders (F00&ndash;F09) &mdash; the "symptomatic" cluster: psychiatric syndromes (psychosis, mood, anxiety, catatonia) caused by a physical illness (ICD-11 "secondary syndromes"), plus mild neurocognitive disorder. See the F00&ndash;F09 overview above.</p>
+  <div class="idcard">
+    <div><b>ICD-10 code</b> F06 &middot; .0 hallucinosis, .1 catatonic, .2 delusional, .3 mood (.30&ndash;.33), .4 anxiety, .5 dissociative, .6 emotionally labile, .7 mild cognitive</div>
+    <div><b>ICD-11 codes</b> Secondary syndromes: 6E61 psychotic, 6E62 mood, 6E63 anxiety, 6E65 dissociative, 6E67 catatonia; plus 6D71 mild neurocognitive disorder</div>
+    <div><b>Status</b> Moved / reorganised</div>
+    <div><b>Key change</b> "Symptomatic" psychiatric syndromes become "secondary syndromes"; mild cognitive disorder becomes a neurocognitive category</div>
+  </div>
+
+  <h3>1. Introduction</h3>
+  <p>This category covers presentations in which the <b>prominent feature is a psychiatric symptom cluster</b> (hallucinations, delusions, mood change, anxiety, catatonia, dissociation) that is <b>caused by a brain disease or systemic physical disease</b>, with cognition relatively preserved &mdash; that is, the symptoms are secondary to a demonstrable medical condition rather than being a primary psychiatric disorder. ICD-11 reframes these as <b class="cl">secondary syndromes</b> <i class="si">(psychiatric syndromes that are the direct physiological consequence of another medical condition)</i> and places them in a dedicated grouping (6E60&ndash;6E69), each mirroring its primary counterpart (e.g. secondary psychotic syndrome parallels schizophrenia). F06.7 (mild cognitive disorder) is reclassified as a neurocognitive disorder (6D71).</p>
+
+  <h3>2. Aetiology</h3>
+  <p>The same broad range of causes as the general aetiological framework (brain tumours, epilepsy, stroke, encephalitis, endocrine disease such as thyroid or cortisol disorders, autoimmune disease, and medications such as corticosteroids and dopaminergic drugs) &mdash; but here the medical cause produces a <b>symptom syndrome</b> rather than a global cognitive syndrome. <span class="tag tks">Kaplan &amp; Sadock</span></p>
+
+  <h3>3. Epidemiology</h3>
+  <p>Common among medically ill and neurological patients but frequently under-recognised as "secondary" rather than "primary" psychiatric disorders. Mild neurocognitive disorder (6D71) is common in older adults; a proportion progress to dementia, some remain stable, and some reverse.</p>
+
+  <h3>4. Sub-types, symptoms, and unique clues</h3>
+  <table>
+    <tr><th>ICD-10</th><th>ICD-11</th><th>Clinical picture and unique clue</th></tr>
+    <tr><td>F06.0 Organic hallucinosis</td><td>6E61 Secondary psychotic syndrome</td><td>Persistent or recurrent <b>hallucinations</b> (often visual) due to a medical cause, in clear consciousness. Clue: visual hallucinations + clear sensorium + a medical cause point away from schizophrenia.</td></tr>
+    <tr><td>F06.1 Organic catatonic disorder</td><td>6E67 Secondary catatonia syndrome</td><td><b class="cl">Catatonia</b> <i class="si">(a syndrome of marked motor disturbance &mdash; stupor and immobility, or excessive purposeless activity, with posturing, mutism, negativism)</i> due to a medical cause (e.g. encephalitis).</td></tr>
+    <tr><td>F06.2 Organic delusional [schizophrenia-like] disorder</td><td>6E61 Secondary psychotic syndrome</td><td>Persistent <b>delusions</b> due to a medical cause; ICD-11 merges delusional and hallucinatory forms under one secondary psychotic syndrome.</td></tr>
+    <tr><td>F06.3 Organic mood disorders (.30 manic, .31 bipolar, .32 depressive, .33 mixed)</td><td>6E62 Secondary mood syndrome</td><td>Depressive, manic, or mixed mood disturbance due to a medical cause. Clue: <b>first-ever mania in an older adult</b>, or depression beginning exactly with a new illness (hypothyroidism) or drug (corticosteroids).</td></tr>
+    <tr><td>F06.4 Organic anxiety disorder</td><td>6E63 Secondary anxiety syndrome</td><td>Prominent anxiety or panic due to a medical cause. Clue: panic with palpitations from <b>hyperthyroidism</b> or a <b class="cl">phaeochromocytoma</b> <i class="si">(an adrenaline-secreting tumour of the adrenal gland)</i>.</td></tr>
+    <tr><td>F06.5 Organic dissociative disorder</td><td>6E65 Secondary dissociative syndrome</td><td>Dissociative features due to a medical cause.</td></tr>
+    <tr><td>F06.6 Organic emotionally labile [asthenic] disorder</td><td>No exact 1:1 equivalent (features within 6E6x)</td><td><b class="cl">Emotional lability</b> <i class="si">(easily provoked, poorly controlled emotional expression)</i>, fatigue, and various uncomfortable physical sensations, often following cerebrovascular disease.</td></tr>
+    <tr><td>F06.7 Mild cognitive disorder</td><td>6D71 Mild neurocognitive disorder</td><td>Objective mild cognitive decline that does <b>not</b> significantly impair independence (not yet dementia). Some cases progress to dementia; others stabilise or reverse.</td></tr>
+  </table>
+  <div class="unique">
+    <h4>Master rule &mdash; when to suspect a secondary (organic) cause instead of a primary psychiatric disorder</h4>
+    <ul class="t">
+      <li>Atypical age of onset (e.g. a first episode of psychosis or mania in an older adult).</li>
+      <li>Prominent <b>visual</b> hallucinations (rather than auditory).</li>
+      <li>Symptoms beginning in close temporal relationship to a medical illness, a new medication, or a metabolic derangement.</li>
+      <li>Abnormal physical examination or investigations, fluctuating cognition, or poor response to standard psychiatric treatment.</li>
+    </ul>
+  </div>
+
+  <h3>5. Diagnostic Criteria (strictly from ICD-10 and ICD-11)</h3>
+  <div class="panel10">
+    <h4><span class="tag t10">ICD-10</span> General guidelines for F06</h4>
+    <ol class="t">
+      <li>Evidence of <b>cerebral disease, damage, or dysfunction, or of systemic physical disease</b> known to be associated with one of the listed syndromes.</li>
+      <li>A <b>temporal relationship</b> (weeks or a few months) between the development of the underlying disease and the onset of the syndrome.</li>
+      <li><b>Recovery</b> from the mental disorder following removal or improvement of the underlying presumed cause.</li>
+      <li><b>Absence of evidence</b> to suggest an alternative cause of the mental syndrome (such as a strong family history or precipitating stress).</li>
+    </ol>
+    <p>If conditions 1, 2, and 4 are met, a provisional diagnosis is justified; if condition 3 is also met, the diagnosis is certain.</p>
+  </div>
+  <div class="panel11">
+    <h4><span class="tag t11">ICD-11</span> Essential features (secondary syndromes, 6E6x)</h4>
+    <ol class="t">
+      <li>The presentation is characterised by <b>symptoms typical of the corresponding primary disorder</b> (e.g. psychotic symptoms for 6E61, mood symptoms for 6E62, anxiety symptoms for 6E63).</li>
+      <li>There is evidence from history, examination, or laboratory findings that the syndrome is the <b>direct pathophysiological consequence of a medical condition or substance/medication</b> not classified under mental and behavioural disorders.</li>
+      <li>The symptoms are <b>not better accounted for by a primary mental disorder</b> (e.g. a primary psychotic or mood disorder) and do not occur exclusively during delirium.</li>
+      <li>The symptoms are sufficiently severe to warrant specific clinical attention. The secondary-syndrome code is assigned together with the code for the underlying medical condition (order not meaningful).</li>
+    </ol>
+    <p><b>Mild neurocognitive disorder (6D71):</b> objectively verified mild decline from a previous level in one or more cognitive domains, that is <b>not severe enough to significantly interfere with independence</b> in everyday activities, and not occurring exclusively during delirium or better explained by another mental disorder.</p>
+  </div>
+
+  <h3>6. Easy Way to Remember</h3>
+  <div class="remember"><h4>Memory aid</h4><p><b>"Right symptom, wrong story"</b> &mdash; a textbook psychiatric picture appearing out of context (wrong age, visual hallucinations, tied to an illness or drug) signals a secondary syndrome. Mild neurocognitive disorder = <b>"slipping, but still independent."</b></p></div>
+
+  <h3>7. Treatment</h3>
+  <ul class="t">
+    <li><b>Pharmacological:</b> the priority is to <b>treat the underlying medical cause</b> (e.g. correct thyroid dysfunction, withdraw the offending drug), which often resolves the syndrome; add symptomatic treatment as needed &mdash; antidepressants for secondary depression, cautious antipsychotics for secondary psychosis, benzodiazepines (and consider electroconvulsive therapy) for catatonia. <span class="tag tks">Kaplan &amp; Sadock</span></li>
+    <li><b>Psychological:</b> psychoeducation, supportive psychotherapy; for mild neurocognitive disorder &mdash; cognitive strategies, vascular risk-factor control, and monitoring for progression to dementia.</li>
+    <li><b>Prognosis:</b> frequently improves or reverses when the cause is treated; mild neurocognitive disorder has a variable trajectory.</li>
+  </ul>
+  <div class="ddx">
+    <h5>Differential diagnosis (F06 secondary syndromes &amp; mild neurocognitive disorder)</h5>
+    <ul class="t">
+      <li><b>Primary psychiatric disorders</b> (schizophrenia, mood, anxiety, catatonia) &mdash; a secondary syndrome is suspected when the picture is out of context (atypical age, visual hallucinations, a temporal link to an illness/drug, abnormal exam/tests, poor response to standard treatment).</li>
+      <li><b>Delirium</b> &mdash; acute, fluctuating, impaired attention (secondary syndromes occur in clear consciousness).</li>
+      <li><b>Dementia</b> (vs mild neurocognitive disorder) &mdash; dementia impairs independence in daily activities; mild NCD does not.</li>
+      <li><b>Substance-induced disorders</b> &mdash; exclude alcohol/drugs/medications as the cause.</li>
+    </ul>
+  </div>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+<!-- ════════════════════════ F07 ════════════════════════ -->
+<section id="f07">
+  <h2>F07 &middot; Personality and Behavioural Disorders due to Brain Disease, Damage and Dysfunction &rarr; ICD-11 6E68</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> Organic / Neurocognitive disorders (F00&ndash;F09) &mdash; a persistent change from the previous personality/behaviour after a brain insult (ICD-11 secondary personality change). See the F00&ndash;F09 overview above.</p>
+  <div class="idcard">
+    <div><b>ICD-10 code</b> F07 &middot; .0 organic personality disorder, .1 postencephalitic syndrome, .2 postconcussional syndrome, .8/.9</div>
+    <div><b>ICD-11 code</b> 6E68 Secondary personality change (postencephalitic and postconcussional syndromes have no exact 1:1 equivalent)</div>
+    <div><b>Status</b> Moved / renamed / partly no equivalent</div>
+    <div><b>Key change</b> Organic personality disorder becomes "secondary personality change"; the two post-injury syndromes lack a direct ICD-11 counterpart</div>
+  </div>
+
+  <h3>1. Introduction</h3>
+  <p>This category covers a <b>significant alteration of the habitual pattern of premorbid behaviour</b> following brain disease, damage, or dysfunction. The change particularly affects the expression of emotions, needs, and impulses. Cognition may be largely preserved, so the person can appear intellectually intact while being behaviourally transformed. The classic cause is <b>frontal-lobe damage</b>.</p>
+
+  <h3>2. Aetiology</h3>
+  <p>Frontal-lobe head injury, frontal or other brain tumours, stroke, encephalitis, epilepsy, and other frontal-system diseases. <span class="tag tks">Kaplan &amp; Sadock</span></p>
+
+  <h3>3. Epidemiology</h3>
+  <p>Common after significant traumatic brain injury and frontal pathology; a frequent reason families seek help ("he/she is not the same person").</p>
+
+  <h3>4. Clinical Features and Symptoms</h3>
+  <div class="unique">
+    <h4>Unique and easily identifiable clues (organic personality disorder, F07.0 / 6E68)</h4>
+    <ul class="t">
+      <li>A clear <b>change from the person's previous baseline personality</b> following a brain insult &mdash; not a lifelong pattern (which would indicate a primary personality disorder).</li>
+      <li><b class="cl">Disinhibition</b> <i class="si">(loss of social restraint &mdash; tactless, impulsive, or sexually/socially inappropriate behaviour)</i> and/or <b class="cl">apathy</b> <i class="si">(marked loss of drive and motivation)</i>.</li>
+      <li>Reduced ability to persevere with goal-directed activity; shallow or labile emotions; impaired judgement.</li>
+      <li>Relatively preserved memory and general cognition with prominent <b class="cl">executive dysfunction</b> <i class="si">(impaired planning, self-monitoring, and self-control)</i> &mdash; "same intellect, different person".</li>
+    </ul>
+  </div>
+  <p><b>Postencephalitic syndrome (F07.1):</b> residual, often reversible behavioural change after recovery from viral or bacterial encephalitis &mdash; general malaise, apathy, irritability, some cognitive difficulty, altered sleep and appetite, and changes in sexual behaviour and social judgement.</p>
+  <p><b>Postconcussional syndrome (F07.2):</b> occurs after head trauma (usually severe enough to cause loss of consciousness) &mdash; headache, dizziness, fatigue, irritability, difficulty concentrating and performing mental tasks, memory complaints, insomnia, and reduced tolerance of stress, emotional excitement, or alcohol.</p>
+
+  <h3>5. Diagnostic Criteria (strictly from ICD-10 and ICD-11)</h3>
+  <div class="panel10">
+    <h4><span class="tag t10">ICD-10</span> (F07.0 Organic personality disorder)</h4>
+    <p>In addition to an established history or other evidence of brain disease, damage, or dysfunction, a definite diagnosis requires <b>two or more</b> of the following features:</p>
+    <ol class="t">
+      <li>Consistently reduced ability to persevere with goal-directed activities, especially ones involving longer periods and postponed gratification.</li>
+      <li>Altered emotional behaviour, characterised by emotional lability, shallow and unwarranted cheerfulness (euphoria, inappropriate jocularity), and easy change to irritability or short-lived outbursts of anger and aggression; in some instances apathy may be the more prominent feature.</li>
+      <li>Expression of needs and impulses without consideration of consequences or social convention (antisocial acts such as stealing, inappropriate sexual advances, voracious eating, or extreme disregard for personal hygiene).</li>
+      <li>Cognitive disturbances, typically in the form of suspiciousness or paranoid ideation, and/or excessive preoccupation with a single, usually abstract, theme (e.g. religion, "right and wrong").</li>
+      <li>Marked alteration of the rate and flow of language, with features such as circumstantiality, over-inclusiveness, viscosity, and hypergraphia.</li>
+      <li>Altered sexual behaviour (hyposexuality or change of sexual preference).</li>
+    </ol>
+  </div>
+  <div class="panel11">
+    <h4><span class="tag t11">ICD-11</span> (6E68 Secondary personality change)</h4>
+    <ol class="t">
+      <li>A <b>persistent personality disturbance</b> that represents a change from the individual's previous characteristic personality pattern (in individuals for whom the personality was previously established, or an alteration in the developmental trajectory in children).</li>
+      <li>There is evidence that the personality change is the <b>direct pathophysiological consequence of a medical condition</b> not classified under mental and behavioural disorders.</li>
+      <li>The disturbance is <b>not better accounted for</b> by another mental disorder and does not occur exclusively during delirium. It is coded together with the underlying medical condition.</li>
+    </ol>
+    <p><b>Postencephalitic and postconcussional syndromes:</b> there is no exact one-to-one ICD-11 equivalent; the post-concussional picture is primarily addressed within the chapter on diseases of the nervous system, with secondary mental/behavioural syndromes coded in addition where specific psychiatric features are present.</p>
+  </div>
+  <div class="assoc" style="border-color:#1a5276;background:#eef3f8">
+    <h4 style="color:#1a5276">Detailed ICD-10 subtypes of F07 with criteria</h4>
+    <ul class="t">
+      <li><b>F07.0 &mdash; Organic personality disorder:</b> a significant change from the premorbid pattern of behaviour after brain disease/damage/dysfunction; diagnosed on <b>two or more</b> of &mdash; reduced ability to persevere with goal-directed activity; altered emotional behaviour (lability, shallow euphoria, or apathy); disinhibited expression of needs/impulses (antisocial acts, sexual indiscretion, voracious eating, poor hygiene); cognitive disturbance (suspiciousness, over-inclusive/perseverative thinking); altered rate and flow of language (circumstantiality, viscosity, hypergraphia); altered sexual behaviour.</li>
+      <li><b>F07.1 &mdash; Postencephalitic syndrome:</b> residual, usually reversible behavioural change following recovery from viral or bacterial encephalitis &mdash; malaise, apathy, irritability, some cognitive impairment, disturbed sleep and appetite, and changed sexual and social behaviour; there may be neurological deficits (paralysis, deafness, aphasia, apraxia).</li>
+      <li><b>F07.2 &mdash; Postconcussional syndrome:</b> follows head trauma (usually with loss of consciousness) &mdash; headache, dizziness, fatigue, irritability, difficulty concentrating and performing mental tasks, memory complaints, insomnia, reduced tolerance of stress/alcohol, and preoccupation with these symptoms and fear of brain damage.</li>
+      <li><b>F07.8 other; F07.9 unspecified</b> organic personality and behavioural disorders due to brain disease, damage, and dysfunction.</li>
+    </ul>
+  </div>
+
+  <h3>6. Easy Way to Remember</h3>
+  <div class="remember"><h4>Memory aid</h4><p><b>"Same brain-power, different person"</b> &mdash; a change from baseline personality after a frontal-lobe insult, with disinhibition or apathy and preserved memory. Contrast: a primary personality disorder is lifelong with no discrete brain insult.</p></div>
+
+  <h3>7. Treatment</h3>
+  <ul class="t">
+    <li><b>Pharmacological:</b> treat the underlying condition; symptomatic medication (e.g. mood stabilisers or SSRIs) may be used cautiously for aggression, impulsivity, or lability. <span class="tag tks">Kaplan &amp; Sadock</span></li>
+    <li><b>Psychological:</b> behavioural management programmes, structured and predictable environments, family psychoeducation and support, and <b class="cl">neurorehabilitation</b> <i class="si">(structured retraining and support after brain injury)</i>.</li>
+  </ul>
+  <div class="ddx">
+    <h5>Differential diagnosis (F07 Personality/behavioural disorders due to brain disease)</h5>
+    <ul class="t">
+      <li><b>Primary personality disorder</b> &mdash; a lifelong, pervasive pattern from adolescence/early adulthood, with no discrete brain insult and no clear change from a previous baseline.</li>
+      <li><b>Frontotemporal dementia</b> &mdash; personality/behaviour change <b>plus</b> progressive cognitive decline (dementia).</li>
+      <li><b>Secondary mood syndrome</b> &mdash; a dominant, sustained mood syndrome rather than a trait/behaviour change.</li>
+      <li><b>Postencephalitic / postconcussional syndromes</b> &mdash; distinguished by the specific preceding illness/injury.</li>
+      <li><b>Substance effects and delirium</b> &mdash; exclude as causes of behavioural change.</li>
+    </ul>
+  </div>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+<!-- ════════════════════════ F09 ════════════════════════ -->
+<section id="f09">
+  <h2>F09 &middot; Unspecified Organic or Symptomatic Mental Disorder &rarr; ICD-11 6E6Z</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> Organic / Neurocognitive disorders (F00&ndash;F09) &mdash; a residual placeholder for an organic mental disorder that cannot be classified more specifically. See the F00&ndash;F09 overview above.</p>
+  <div class="idcard">
+    <div><b>ICD-10 code</b> F09</div><div><b>ICD-11 code</b> 6E6Z Secondary mental or behavioural syndrome, unspecified</div>
+    <div><b>Status</b> Retained (residual category)</div><div><b>Key change</b> Functionally equivalent placeholder</div>
+  </div>
+  <h3>1. Introduction and use</h3>
+  <p>Used when there is evidence of a mental disorder attributable to a cerebral or systemic condition, but the presentation cannot be assigned to a more specific category within this block. It is a residual placeholder pending clarification.</p>
+  <h3>5. Diagnostic criteria</h3>
+  <div class="panel10"><h4><span class="tag t10">ICD-10 (F09)</span></h4><p>A category for an organic or symptomatic mental disorder that meets the general criteria for an aetiological (organic) basis but cannot be allocated to any of the specific categories F00&ndash;F07. Includes "organic psychosis not otherwise specified" and "symptomatic psychosis not otherwise specified".</p></div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11 (6E6Z)</span></h4><p>A secondary mental or behavioural syndrome is judged present (attributable to a medical condition) but is unspecified.</p></div>
+  <h3>7. Treatment</h3>
+  <p>Identify and treat the underlying cause; provide symptomatic and supportive care while investigation continues.</p>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+<!-- ════════════════════════ DIFFERENTIALS ════════════════════════ -->
+<section id="ddx">
+  <h2>Differential Diagnosis Tables</h2>
+
+  <h3>Delirium vs Dementia</h3>
+  <table>
+    <tr><th>Feature</th><th class="c10">Delirium</th><th class="c11">Dementia</th></tr>
+    <tr><td>Onset</td><td class="c10">Acute (hours to days)</td><td class="c11">Insidious (months to years)</td></tr>
+    <tr><td>Course</td><td class="c10">Fluctuating; worse at night</td><td class="c11">Stable day to day; progressive over time</td></tr>
+    <tr><td>Attention</td><td class="c10">Markedly impaired (the hallmark)</td><td class="c11">Relatively preserved early</td></tr>
+    <tr><td>Consciousness / awareness</td><td class="c10">Altered / fluctuating</td><td class="c11">Clear until late stages</td></tr>
+    <tr><td>Reversibility</td><td class="c10">Usually reversible</td><td class="c11">Usually irreversible / progressive</td></tr>
+    <tr><td>Perception</td><td class="c10">Visual hallucinations common</td><td class="c11">Less prominent early</td></tr>
+    <tr><td>Underlying cause</td><td class="c10">Acute medical trigger</td><td class="c11">Chronic brain disease</td></tr>
+  </table>
+
+  <h3>Dementia vs Depression (Pseudodementia)</h3>
+  <table>
+    <tr><th>Feature</th><th>Dementia</th><th>Depression (pseudodementia)</th></tr>
+    <tr><td>Complaint of memory loss</td><td>Minimises / denies (anosognosia)</td><td>Emphasises and complains of memory loss</td></tr>
+    <tr><td>Effort on testing</td><td>Tries; makes near-miss errors</td><td>"Don't know" answers; poor effort</td></tr>
+    <tr><td>Mood</td><td>Variable; apathy</td><td>Pervasive low mood / anhedonia is primary</td></tr>
+    <tr><td>Memory pattern</td><td>Recall and recognition both impaired</td><td>Recall improves with cueing / recognition preserved</td></tr>
+    <tr><td>Response to antidepressant</td><td>No cognitive reversal</td><td>Cognition improves with treatment</td></tr>
+  </table>
+
+  <h3>Alzheimer vs Vascular vs Lewy Body vs Frontotemporal Dementia</h3>
+  <table>
+    <tr><th>Feature</th><th>Alzheimer</th><th>Vascular</th><th>Lewy body</th><th>Frontotemporal</th></tr>
+    <tr><td>Onset / course</td><td>Insidious, smoothly progressive</td><td>Stepwise / post-stroke</td><td>Fluctuating</td><td>Insidious, younger onset</td></tr>
+    <tr><td>Earliest deficit</td><td>Memory</td><td>Executive function / processing speed</td><td>Attention + visual hallucinations</td><td>Behaviour / personality or language</td></tr>
+    <tr><td>Neurological signs</td><td>Few early</td><td>Focal signs, gait disturbance</td><td>Parkinsonism</td><td>Few early</td></tr>
+    <tr><td>Distinguishing clue</td><td>Hippocampal atrophy; anosognosia</td><td>Focal signs + vascular risk factors</td><td>Fluctuation + visual hallucinations + parkinsonism + REM sleep behaviour disorder; neuroleptic sensitivity</td><td>Disinhibition/apathy with memory spared early</td></tr>
+  </table>
+
+  <h3>Amnesic Syndrome vs Dementia vs Delirium</h3>
+  <table>
+    <tr><th>Feature</th><th>Amnesic syndrome</th><th>Dementia</th><th>Delirium</th></tr>
+    <tr><td>Domains affected</td><td>Memory only (isolated)</td><td>Two or more domains</td><td>Attention plus global cognition</td></tr>
+    <tr><td>Attention / consciousness</td><td>Preserved</td><td>Preserved early</td><td>Impaired / fluctuating</td></tr>
+    <tr><td>Onset</td><td>Variable; persistent</td><td>Insidious</td><td>Acute</td></tr>
+    <tr><td>Signature</td><td>Confabulation (Korsakoff)</td><td>Multi-domain decline</td><td>Inattention + fluctuation</td></tr>
+  </table>
+
+  <h3>Secondary (Organic) vs Primary Psychiatric Presentations</h3>
+  <table>
+    <tr><th>Feature</th><th>Secondary (organic) syndrome</th><th>Primary psychiatric disorder</th></tr>
+    <tr><td>Consciousness / cognition</td><td>May fluctuate; may show subtle cognitive change</td><td>Clear; cognition intact</td></tr>
+    <tr><td>Hallucination type</td><td>Often visual</td><td>Often auditory (in psychosis)</td></tr>
+    <tr><td>Age / context of onset</td><td>Atypical age; active medical illness or medication</td><td>Typical age; no medical trigger</td></tr>
+    <tr><td>Course</td><td>Tracks the medical cause; improves when treated</td><td>Independent of medical illness</td></tr>
+    <tr><td>Personality change</td><td>Change from a previous baseline after a brain insult</td><td>Lifelong pattern (personality disorder)</td></tr>
+  </table>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+<!-- ════════════════════════ GLOSSARY ════════════════════════ -->
+<section id="glossary">
+  <h2>Clinical Terminology Glossary</h2>
+  <p>All difficult clinical terms used in this handbook, collected in one place with plain-language meanings.</p>
+  <table>
+    <tr><th>Term</th><th>Plain-language meaning</th></tr>
+    <tr><td>Organic (mental disorder)</td><td>A mental disorder attributable to an independently diagnosable brain or systemic disease.</td></tr>
+    <tr><td>Symptomatic</td><td>Brain involvement that is secondary to a disease elsewhere in the body.</td></tr>
+    <tr><td>Neurocognitive disorder</td><td>An acquired disorder in which cognition (thinking, memory) is the principal affected area.</td></tr>
+    <tr><td>Secondary syndrome</td><td>A psychiatric syndrome that is the direct physiological result of another medical condition.</td></tr>
+    <tr><td>Cognitive domain</td><td>A specific area of thinking (memory, attention, language, executive function, etc.).</td></tr>
+    <tr><td>Executive function</td><td>Higher-order control processes: planning, judgement, problem-solving, self-monitoring, self-control.</td></tr>
+    <tr><td>Activities of daily living (ADLs)</td><td>Basic self-care tasks such as washing, dressing, eating, and using the toilet.</td></tr>
+    <tr><td>Insidious onset</td><td>A beginning so gradual that its exact start cannot be identified.</td></tr>
+    <tr><td>Stepwise deterioration</td><td>Decline occurring in sudden drops separated by plateaus (characteristic of vascular dementia).</td></tr>
+    <tr><td>Anterograde amnesia</td><td>Inability to form new memories after the onset of a condition.</td></tr>
+    <tr><td>Retrograde amnesia</td><td>Loss of memories laid down before the onset of a condition.</td></tr>
+    <tr><td>Confabulation</td><td>Unintentionally producing false or distorted memories without intent to deceive.</td></tr>
+    <tr><td>Anosognosia</td><td>Lack of awareness of, or denial of, one's own deficit.</td></tr>
+    <tr><td>Orientation / disorientation</td><td>Awareness / loss of awareness of time, place, and person.</td></tr>
+    <tr><td>Clouding of consciousness</td><td>Reduced clarity of awareness of the environment.</td></tr>
+    <tr><td>Attention</td><td>The capacity to direct, focus, sustain, and shift mental engagement.</td></tr>
+    <tr><td>Aphasia / dysphasia</td><td>Impairment of language (speaking or understanding).</td></tr>
+    <tr><td>Apraxia / dyspraxia</td><td>Inability to perform learned, skilled movements despite intact strength.</td></tr>
+    <tr><td>Agnosia</td><td>Inability to recognise objects, faces, or sounds despite intact senses.</td></tr>
+    <tr><td>Agraphia / alexia</td><td>Impaired writing / impaired reading.</td></tr>
+    <tr><td>Chorea</td><td>Rapid, irregular, dance-like involuntary movements (Huntington disease).</td></tr>
+    <tr><td>Myoclonus</td><td>Sudden, brief, shock-like involuntary muscle jerks (Creutzfeldt&ndash;Jakob disease).</td></tr>
+    <tr><td>Parkinsonism</td><td>Slowness of movement, rigidity, and tremor.</td></tr>
+    <tr><td>Ataxia</td><td>Unsteady, uncoordinated movement and walking.</td></tr>
+    <tr><td>Ophthalmoplegia / nystagmus</td><td>Weakness of eye-movement muscles / rhythmic involuntary eye movements.</td></tr>
+    <tr><td>Pseudobulbar palsy / affect</td><td>Impaired control of face and throat muscles with uncontrolled crying or laughing.</td></tr>
+    <tr><td>Emotional lability</td><td>Rapidly shifting, poorly controlled emotional expression.</td></tr>
+    <tr><td>Disinhibition</td><td>Loss of normal social restraint (impulsive or inappropriate behaviour).</td></tr>
+    <tr><td>Apathy</td><td>Marked loss of motivation, drive, and interest.</td></tr>
+    <tr><td>Catatonia</td><td>Marked motor disturbance: stupor/immobility or excessive activity, with posturing, mutism, negativism.</td></tr>
+    <tr><td>Psychomotor</td><td>The level of physical/motor activity that accompanies mental state.</td></tr>
+    <tr><td>Sundowning</td><td>Worsening of confusion in the late afternoon and evening.</td></tr>
+    <tr><td>Hallucination</td><td>A perception without an external stimulus (in delirium and Lewy body disease, often visual).</td></tr>
+    <tr><td>Delusion</td><td>A fixed, false belief held despite contrary evidence.</td></tr>
+    <tr><td>Illusion</td><td>A misinterpretation of a real external stimulus.</td></tr>
+    <tr><td>Amyloid plaque</td><td>Extracellular deposit of beta-amyloid protein (Alzheimer disease).</td></tr>
+    <tr><td>Neurofibrillary tangle</td><td>Intracellular twisted threads of tau protein (Alzheimer disease).</td></tr>
+    <tr><td>Acetylcholine</td><td>A neurotransmitter important for memory; reduced in Alzheimer disease.</td></tr>
+    <tr><td>Lewy body</td><td>An abnormal alpha-synuclein protein deposit inside neurons.</td></tr>
+    <tr><td>Prion</td><td>An infectious, abnormally folded protein (causes Creutzfeldt&ndash;Jakob disease).</td></tr>
+    <tr><td>Cerebrovascular disease</td><td>Disease of the brain's blood vessels (strokes, small-vessel damage).</td></tr>
+    <tr><td>Infarct</td><td>An area of tissue death caused by loss of blood supply.</td></tr>
+    <tr><td>Focal (neurological) signs</td><td>Localising signs (e.g. one-sided weakness) indicating damage to a specific brain area.</td></tr>
+    <tr><td>Subcortical</td><td>Relating to deep brain structures; a pattern of slowed thinking, apathy, and motor slowing.</td></tr>
+    <tr><td>Encephalitis / encephalopathy</td><td>Brain inflammation (usually infective) / any diffuse brain dysfunction.</td></tr>
+    <tr><td>Normal-pressure hydrocephalus</td><td>Excess cerebrospinal fluid with normal pressure, causing gait disturbance, dementia, and incontinence; potentially reversible with a shunt.</td></tr>
+    <tr><td>BPSD</td><td>Behavioural and psychological symptoms of dementia (agitation, psychosis, mood change, wandering).</td></tr>
+    <tr><td>Cholinesterase inhibitor</td><td>A drug that raises acetylcholine levels (donepezil, rivastigmine, galantamine).</td></tr>
+    <tr><td>NMDA receptor antagonist</td><td>Memantine, which reduces harmful over-activation of neurons by glutamate.</td></tr>
+    <tr><td>Neuroleptic</td><td>An antipsychotic drug.</td></tr>
+    <tr><td>Delirium tremens</td><td>Severe alcohol-withdrawal delirium (tremor, sweating, rapid heart rate, hallucinations).</td></tr>
+    <tr><td>Thiamine</td><td>Vitamin B1; its deficiency causes Wernicke&ndash;Korsakoff syndrome.</td></tr>
+    <tr><td>Post-coordination</td><td>The ICD-11 practice of adding extension codes (e.g. for severity) to a main stem code.</td></tr>
+  </table>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+<!-- ════════════════════════ REFERENCES ════════════════════════ -->
+<section id="references">
+  <h2>References and Source Attribution</h2>
+  <p>Diagnostic terminology and criteria are drawn strictly from the two official WHO classifications; clinical elaboration is drawn from standard psychiatric texts and peer-reviewed literature, each labelled inline with a source tag.</p>
+  <ul class="t">
+    <li><span class="tag t10">ICD-10</span> World Health Organization. <i>The ICD-10 Classification of Mental and Behavioural Disorders: Clinical Descriptions and Diagnostic Guidelines.</i> Geneva: World Health Organization, 1992.</li>
+    <li><span class="tag t11">ICD-11</span> World Health Organization. <i>Clinical Descriptions and Diagnostic Requirements for ICD-11 Mental, Behavioural and Neurodevelopmental Disorders.</i> Geneva: World Health Organization.</li>
+    <li><span class="tag tks">Kaplan &amp; Sadock</span> Sadock BJ, Sadock VA, Ruiz P. <i>Kaplan &amp; Sadock's Synopsis of Psychiatry</i> and <i>Comprehensive Textbook of Psychiatry</i> (clinical features, aetiology, assessment, and treatment; content paraphrased).</li>
+    <li><span class="tag tother">Other evidence</span> Peer-reviewed reviews and meta-analyses on the epidemiology of delirium and dementia and on the ICD-10 to ICD-11 transition in neurocognitive disorders; standard internal-medicine reference texts for systemic causes.</li>
+  </ul>
+  <div class="warn"><b>Note on use.</b> This is an educational study reference for M.Phil. Clinical Psychology. Diagnostic criteria are paraphrased from the ICD sources without reproducing copyrighted text at length; secondary-source content has been rephrased for compliance with licensing restrictions. This document is not a substitute for the full official classifications or for individual clinical and medical judgement.</div>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+</main>
+</div>
+
+<!-- ════════════════════════ FOOTER ════════════════════════ -->
+<footer>
+  <p><strong>ICD-10 &amp; ICD-11 Comparative Clinical Handbook &mdash; F00&ndash;F09 Organic and Neurocognitive Mental Disorders</strong></p>
+  <p>Comprehensive examination reference &middot; diagnostic criteria strictly from ICD-10 and ICD-11 &middot; clinical terminology explained in plain language.</p>
+  <p style="margin-top:14px;font-size:1rem;color:#fff;letter-spacing:.04em">Made by <strong>Tejas Dangodra</strong></p>
+</footer>
+
+</body>
+</html>

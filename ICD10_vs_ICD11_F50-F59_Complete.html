@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ICD-10 &amp; ICD-11 Comparative Handbook — F50–F59 Behavioural Syndromes Associated with Physiological Disturbances and Physical Factors</title>
+<style>
+:root{
+  --deep:#0a2540;--accent:#0e6655;--icd10:#1a5276;--icd11:#1e8449;
+  --ks:#7d3c98;--other:#b9770e;--bg:#f4f6f9;--card:#ffffff;
+  --ink:#1c2833;--muted:#5d6d7e;--line:#d5dbdb;--soft:#eaf2f8;
+  --warn:#922b21;--uniq:#6c3483;--surface:#fdfefe;--psych:#1f6f8b;--ddx:#0b6b5f;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.72;font-size:16px}
+.cover{background:linear-gradient(160deg,#0a2540 0%,#154360 40%,#0e6655 100%);color:#fff;padding:60px 30px 50px;text-align:center}
+.cover .subtitle{text-transform:uppercase;letter-spacing:.3em;font-size:.72rem;opacity:.7;margin-bottom:16px}
+.cover h1{font-size:2.05rem;font-weight:800;line-height:1.22;margin-bottom:12px;max-width:940px;display:inline-block}
+.cover .tagline{font-size:1.05rem;font-weight:400;opacity:.9;max-width:820px;margin:0 auto 22px}
+.cover .chips{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-bottom:18px}
+.cover .chip{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);border-radius:6px;padding:5px 14px;font-size:.82rem}
+.cover .srcline{font-size:.8rem;opacity:.65;max-width:760px;margin:0 auto}
+.wrap{max-width:1160px;margin:0 auto;padding:0 22px}
+.layout{display:flex;gap:28px;align-items:flex-start}
+nav.toc{position:sticky;top:0;max-height:100vh;overflow-y:auto;flex:0 0 288px;padding:20px 12px 60px;font-size:.82rem;border-right:1px solid var(--line);background:var(--surface)}
+nav.toc h4{margin:18px 0 6px;color:var(--accent);text-transform:uppercase;font-size:.68rem;letter-spacing:.08em;font-weight:700}
+nav.toc a{display:block;color:var(--muted);text-decoration:none;padding:4px 10px;border-radius:6px;border-left:3px solid transparent;transition:all .15s}
+nav.toc a:hover{background:var(--soft);color:var(--icd10);border-left-color:var(--icd10)}
+nav.toc a.sub{padding-left:22px;font-size:.79rem}
+main{flex:1 1 auto;min-width:0;padding:28px 0 100px}
+section{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:28px 30px;margin:0 0 26px;scroll-margin-top:16px;box-shadow:0 1px 3px rgba(10,37,64,.04)}
+h2{font-size:1.45rem;color:var(--deep);border-bottom:3px solid var(--accent);padding-bottom:10px;margin-bottom:14px;font-weight:800}
+h3{font-size:1.1rem;color:var(--accent);margin:26px 0 8px;font-weight:700;padding-left:14px;border-left:4px solid var(--accent)}
+h4{font-size:.98rem;margin:16px 0 6px;font-weight:700;color:var(--deep)}
+p{margin:.55em 0}
+.tag{display:inline-block;font-size:.64rem;font-weight:700;padding:2px 9px;border-radius:4px;color:#fff;vertical-align:middle;letter-spacing:.02em}
+.t10{background:var(--icd10)}.t11{background:var(--icd11)}.tks{background:var(--ks)}.tother{background:var(--other)}
+b.cl{color:var(--deep);font-weight:700}
+i.si{color:var(--uniq);font-style:normal;font-weight:500}
+table{border-collapse:collapse;width:100%;margin:16px 0;font-size:.89rem;border-radius:10px;overflow:hidden;box-shadow:0 0 0 1px var(--line)}
+th,td{border:1px solid var(--line);padding:10px 12px;text-align:left;vertical-align:top}
+th{background:var(--deep);color:#fff;font-weight:600;font-size:.79rem;text-transform:uppercase;letter-spacing:.03em}
+tr:nth-child(even) td{background:#f8fafb}
+.c10{background:#eaf2f8!important}.c11{background:#eafaf1!important}
+.panel10{border-left:5px solid var(--icd10);background:#edf2f8;border-radius:0 10px 10px 0;padding:16px 20px;margin:14px 0}
+.panel11{border-left:5px solid var(--icd11);background:#edfaf1;border-radius:0 10px 10px 0;padding:16px 20px;margin:14px 0}
+.panel10 h4,.panel11 h4{margin:0 0 8px;padding-left:0;border-left:none}
+.note{border-left:5px solid var(--accent);background:var(--soft);padding:14px 18px;border-radius:0 10px 10px 0;margin:14px 0}
+.warn{border-left:5px solid var(--warn);background:#fdedec;padding:14px 18px;border-radius:0 10px 10px 0;margin:14px 0}
+.incl{border-left:5px solid var(--icd11);background:#eefaf2;padding:12px 16px;border-radius:0 8px 8px 0;margin:10px 0;font-size:.9rem}
+.excl{border-left:5px solid var(--warn);background:#fdf0ee;padding:12px 16px;border-radius:0 8px 8px 0;margin:10px 0;font-size:.9rem}
+.unique{border:2px solid var(--uniq);background:#f5eef8;border-radius:12px;padding:16px 20px;margin:16px 0}
+.unique h4{color:var(--uniq);margin:0 0 10px;border-left:none;padding-left:0}
+.assoc{border:2px solid var(--warn);background:#fdf0ee;border-radius:12px;padding:16px 20px;margin:16px 0}
+.assoc h4{color:var(--warn);margin:0 0 10px;border-left:none;padding-left:0}
+.psych{border:2px solid var(--psych);background:#eaf4f7;border-radius:12px;padding:16px 20px;margin:16px 0}
+.psych h4{color:var(--psych);margin:0 0 10px;border-left:none;padding-left:0}
+.subtype{border:2px solid #1a5276;background:#eef3f8;border-radius:12px;padding:18px 22px;margin:18px 0}
+.subtype h4{color:#1a5276;margin:0 0 10px;border-left:none;padding-left:0;font-size:1.04rem}
+.ddx{border:2px dashed var(--ddx);background:#e9f6f2;border-radius:10px;padding:12px 16px;margin:12px 0;font-size:.9rem}
+.ddx h5{color:var(--ddx);margin:0 0 6px;font-size:.9rem;text-transform:uppercase;letter-spacing:.03em}
+.sig{background:var(--deep);color:#fff;padding:14px 20px;border-radius:10px;margin:14px 0;font-size:.96rem}
+.sig b{color:#f9e79f}
+.remember{border:2px dashed #d4ac0d;background:#fef9e7;border-radius:12px;padding:16px 20px;margin:14px 0}
+.remember h4{color:#7d6608;margin:0 0 8px;border-left:none;padding-left:0}
+.idcard{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin:14px 0}
+.idcard div{background:#f2f6fa;border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:.85rem}
+.idcard b{display:block;font-size:.62rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:3px}
+ul.t,ol.t{margin:.5em 0;padding-left:1.3em}
+ul.t li,ol.t li{margin:.3em 0}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.top{text-align:right;font-size:.78rem;margin-top:10px}.top a{color:var(--muted);text-decoration:none}
+footer{background:var(--deep);color:#aeb6bf;padding:30px 22px;font-size:.86rem;text-align:center}
+footer strong{color:#fff}
+@media(max-width:920px){.layout{display:block}nav.toc{position:static;border-right:none;border-bottom:1px solid var(--line);max-height:none;flex:none}.g2{grid-template-columns:1fr}.cover h1{font-size:1.5rem}}
+@media print{nav.toc{display:none}body{background:#fff}section{box-shadow:none;break-inside:avoid}footer{background:#fff;color:#333}}
+</style>
+</head>
+<body>
+<a id="top"></a>
+
+<div class="cover">
+  <p class="subtitle">M.Phil. Clinical Psychology &mdash; Complete Diagnostic, Clinical &amp; Treatment Reference</p>
+  <h1>ICD-10 &amp; ICD-11 Comparative Clinical Handbook<br>F50&ndash;F59: Behavioural Syndromes Associated with Physiological Disturbances and Physical Factors</h1>
+  <p class="tagline">The fully comprehensive edition: eating disorders, sleep disorders, sexual dysfunctions, perinatal (puerperal) mental disorders, psychological factors affecting physical illness, and abuse of non-dependence-producing substances &mdash; every disorder and every subtype set out with its own ICD-10 and ICD-11 diagnostic criteria, includes/excludes, and dedicated differential diagnosis, plus etiology (with psychological theories), epidemiology, unique presentations, comorbidities, memory aids and treatment.</p>
+  <div class="chips">
+    <span class="chip">Criteria strictly from ICD-10 &amp; ICD-11</span>
+    <span class="chip">Every subtype detailed + its own differential diagnosis</span>
+    <span class="chip">Includes / excludes from ICD</span>
+    <span class="chip">Etiology incl. psychological theories</span>
+    <span class="chip">Epidemiology, comorbidities, mnemonics, treatment</span>
+    <span class="chip">Where ICD-11 relocated sleep &amp; sexual disorders</span>
+  </div>
+  <p class="srcline">Primary authorities: WHO ICD-10 Clinical Descriptions &amp; Diagnostic Guidelines and WHO ICD-11 Clinical Descriptions &amp; Diagnostic Requirements. Secondary: Kaplan &amp; Sadock's Synopsis/Comprehensive Textbook of Psychiatry; Fairburn's cognitive-behavioural model of eating disorders; peer-reviewed literature.</p>
+</div>
+
+<div class="wrap layout">
+<nav class="toc">
+  <h4>Foundations</h4>
+  <a href="#overview">The F50&ndash;F59 block overview</a>
+  <a href="#compare">ICD-10 vs ICD-11 &mdash; the big structural change</a>
+  <a href="#map">Master code map</a>
+  <h4>F50 Eating disorders</h4>
+  <a href="#f50">F50 &middot; Overview</a>
+  <a class="sub" href="#f50-0">F50.0 Anorexia nervosa</a>
+  <a class="sub" href="#f50-1">F50.1 Atypical anorexia nervosa</a>
+  <a class="sub" href="#f50-2">F50.2 Bulimia nervosa</a>
+  <a class="sub" href="#f50-3">F50.3 Atypical bulimia nervosa</a>
+  <a class="sub" href="#f50-4">F50.4 Overeating with disturbance</a>
+  <a class="sub" href="#f50-5">F50.5 Vomiting with disturbance</a>
+  <a class="sub" href="#f50-8">F50.8 / F50.9 Other &amp; unspecified</a>
+  <a class="sub" href="#f50-11">ICD-11 new members (BED, ARFID, pica, rumination)</a>
+  <h4>F51 Nonorganic sleep disorders</h4>
+  <a href="#f51">F51 &middot; Overview</a>
+  <a class="sub" href="#f51-0">F51.0 Nonorganic insomnia</a>
+  <a class="sub" href="#f51-1">F51.1 Nonorganic hypersomnia</a>
+  <a class="sub" href="#f51-2">F51.2 Sleep-wake schedule disorder</a>
+  <a class="sub" href="#f51-3">F51.3 Sleepwalking</a>
+  <a class="sub" href="#f51-4">F51.4 Sleep terrors</a>
+  <a class="sub" href="#f51-5">F51.5 Nightmares</a>
+  <h4>F52 Sexual dysfunction</h4>
+  <a href="#f52">F52 &middot; Overview</a>
+  <a class="sub" href="#f52-0">F52.0 Lack/loss of sexual desire</a>
+  <a class="sub" href="#f52-1">F52.1 Aversion / lack of enjoyment</a>
+  <a class="sub" href="#f52-2">F52.2 Failure of genital response</a>
+  <a class="sub" href="#f52-3">F52.3 Orgasmic dysfunction</a>
+  <a class="sub" href="#f52-4">F52.4 Premature ejaculation</a>
+  <a class="sub" href="#f52-5">F52.5 Nonorganic vaginismus</a>
+  <a class="sub" href="#f52-6">F52.6 Nonorganic dyspareunia</a>
+  <a class="sub" href="#f52-7">F52.7 Excessive sexual drive</a>
+  <h4>F53 Puerperal disorders</h4>
+  <a href="#f53">F53 &middot; Overview</a>
+  <a class="sub" href="#f53-0">F53.0 Mild (postnatal depression)</a>
+  <a class="sub" href="#f53-1">F53.1 Severe (puerperal psychosis)</a>
+  <h4>F54 Psychological factors</h4>
+  <a href="#f54">F54 &middot; Psychological &amp; behavioural factors</a>
+  <h4>F55 Abuse of non-dependence substances</h4>
+  <a href="#f55">F55 &middot; Overview + subtypes</a>
+  <h4>F59 Unspecified</h4>
+  <a href="#f59">F59 &middot; Unspecified</a>
+  <h4>Reference</h4>
+  <a href="#references">References</a>
+</nav>
+<main>
+
+
+<!-- ═══════════════════════ OVERVIEW ═══════════════════════ -->
+<section id="overview">
+  <h2>The F50&ndash;F59 block: what holds it together</h2>
+  <p><span class="tag t10">ICD-10</span> groups under this heading a set of conditions that share one feature: a <b class="cl">disturbance of a normal bodily (physiological) function</b> &mdash; eating, sleeping, sexual response, the physiological state after childbirth, or bodily illness itself &mdash; where <b class="cl">psychological and behavioural factors are prominent</b>. They are not classical &ldquo;mental&rdquo; symptoms (like delusions or panic) but disorders that sit on the border between mind and body. The block runs from F50 to F59.</p>
+  <p>The six clinical territories are: <b>F50</b> eating disorders; <b>F51</b> nonorganic (that is, not caused by a physical brain/body disease) sleep disorders; <b>F52</b> sexual dysfunction not caused by organic disorder; <b>F53</b> mental and behavioural disorders associated with the puerperium (the six-week period after childbirth); <b>F54</b> psychological and behavioural factors affecting disorders classified elsewhere; and <b>F55</b> abuse of substances that do <i>not</i> produce dependence. <b>F59</b> is the residual &ldquo;unspecified&rdquo; category.</p>
+
+  <div class="note"><b>Terms in plain language.</b> <i>Nonorganic</i> = not explained by a physical disease of the body or brain; <i>puerperium</i> = the roughly six weeks after giving birth; <i>physiological</i> = to do with normal body function; <i>somatic</i> = bodily; <i>parasomnia</i> = an abnormal event happening during sleep (like sleepwalking); <i>dyssomnia</i> = a disorder of the amount, quality or timing of sleep; <i>BMI</i> = body-mass index, weight in kilograms divided by height in metres squared.</p></div>
+</section>
+
+<!-- ═══════════════════════ COMPARE ═══════════════════════ -->
+<section id="compare">
+  <h2>ICD-10 vs ICD-11 &mdash; the single biggest change in this block</h2>
+  <p>For most F-blocks, ICD-11 keeps the disorders in the same chapter and mostly refines the criteria. <b class="cl">F50&ndash;F59 is different.</b> ICD-11 broke this block apart and moved large pieces of it out of the mental-disorders chapter entirely. This is the most examinable fact about the block, so it is worth stating clearly:</p>
+  <div class="g2">
+    <div class="panel10"><h4><span class="tag t10">ICD-10</span> One combined block</h4>
+      <ul class="t">
+        <li>Eating, sleep, sexual dysfunction, puerperal, psychological-factors and non-dependence-abuse categories all sit together in F50&ndash;F59, inside the mental &amp; behavioural disorders chapter.</li>
+        <li>Sleep disorders (F51) and sexual dysfunction (F52) are explicitly the <i>nonorganic</i> versions only &mdash; the organic ones live in other ICD-10 chapters.</li>
+      </ul>
+    </div>
+    <div class="panel11"><h4><span class="tag t11">ICD-11</span> Deliberately split up</h4>
+      <ul class="t">
+        <li><b>Feeding &amp; eating disorders</b> remain in the mental-disorders chapter (grouping <b>6B80&ndash;6B8Z</b>), now expanded to include binge eating disorder, ARFID, pica and rumination-regurgitation.</li>
+        <li><b>Sleep-wake disorders</b> were moved to a brand-new, dedicated chapter (<b>Chapter 07, codes 7A00&ndash;7B2Z</b>) covering organic and nonorganic causes together &mdash; they are no longer &ldquo;mental disorders&rdquo;.</li>
+        <li><b>Sexual dysfunctions</b> moved to a new chapter, <b>Conditions related to sexual health</b> (codes <b>HA00&ndash;HA0Z</b>; sexual pain such as dyspareunia/vaginismus under <b>HA20</b>), integrating physical and psychological causes.</li>
+        <li><b>Puerperal disorders (F53)</b> become <b>6E20/6E21</b> &mdash; mental or behavioural disorders associated with pregnancy, childbirth or the puerperium, without (6E20) or with (6E21) psychotic symptoms.</li>
+        <li><b>Psychological/behavioural factors affecting other illness (F54)</b> map to <b>6E40</b> (&ldquo;psychological or behavioural factors affecting disorders or diseases classified elsewhere&rdquo;).</li>
+        <li><b>Abuse of non-dependence-producing substances (F55)</b> has no direct mental-disorder equivalent; ICD-11 handles this under health-status factor codes (<b>QE</b>-range).</li>
+      </ul>
+    </div>
+  </div>
+  <div class="unique"><h4>The one-line exam answer</h4><p>ICD-10 kept eating, sleep, sexual, puerperal, psychosomatic and non-dependence-abuse categories together as &ldquo;behavioural syndromes associated with physiological disturbances&rdquo;. <b>ICD-11 kept only feeding/eating disorders and the perinatal and psychological-factor categories in the mental-disorders chapter, moved sleep-wake to its own new chapter and sexual dysfunctions to a new sexual-health chapter, and dropped the concept of &ldquo;abuse of non-dependence substances&rdquo; as a mental disorder.</b> The unifying reason: ICD-11 stopped forcing a mind/body split and grouped conditions by the system they affect.</p></div>
+</section>
+
+<!-- ═══════════════════════ MAP ═══════════════════════ -->
+<section id="map">
+  <h2>Master code map (ICD-10 &rarr; ICD-11)</h2>
+  <table>
+    <tr><th>ICD-10</th><th>Disorder</th><th>ICD-11 destination</th></tr>
+    <tr><td class="c10">F50.0</td><td>Anorexia nervosa</td><td class="c11">6B80 Anorexia nervosa (with BMI-based subtypes)</td></tr>
+    <tr><td class="c10">F50.1</td><td>Atypical anorexia nervosa</td><td class="c11">Absorbed into 6B80 (criteria broadened) / 6B8Y</td></tr>
+    <tr><td class="c10">F50.2</td><td>Bulimia nervosa</td><td class="c11">6B81 Bulimia nervosa</td></tr>
+    <tr><td class="c10">F50.3</td><td>Atypical bulimia nervosa</td><td class="c11">Absorbed into 6B81 / 6B8Y</td></tr>
+    <tr><td class="c10">F50.4</td><td>Overeating with other disturbances</td><td class="c11">6B82 Binge eating disorder (now a full diagnosis)</td></tr>
+    <tr><td class="c10">F50.5</td><td>Vomiting with other disturbances</td><td class="c11">Assessed within relevant eating disorder / bodily distress</td></tr>
+    <tr><td class="c10">&mdash;</td><td>(new) Avoidant/restrictive food intake</td><td class="c11">6B83 ARFID</td></tr>
+    <tr><td class="c10">&mdash;</td><td>(new) Pica</td><td class="c11">6B84 Pica</td></tr>
+    <tr><td class="c10">&mdash;</td><td>(new) Rumination-regurgitation</td><td class="c11">6B85 Rumination-regurgitation disorder</td></tr>
+    <tr><td class="c10">F51.0&ndash;F51.5</td><td>Nonorganic sleep disorders</td><td class="c11">Moved to Chapter 07 Sleep-wake disorders (7A00&ndash;7B2Z)</td></tr>
+    <tr><td class="c10">F52.0&ndash;F52.9</td><td>Sexual dysfunctions</td><td class="c11">Moved to Conditions related to sexual health (HA00&ndash;HA0Z; pain HA20)</td></tr>
+    <tr><td class="c10">F53.0/F53.1</td><td>Puerperal disorders</td><td class="c11">6E20 (without) / 6E21 (with psychotic symptoms)</td></tr>
+    <tr><td class="c10">F54</td><td>Psychological factors affecting illness</td><td class="c11">6E40 Psychological/behavioural factors affecting disorders elsewhere</td></tr>
+    <tr><td class="c10">F55</td><td>Abuse of non-dependence substances</td><td class="c11">No MD equivalent (QE health-status factor codes)</td></tr>
+    <tr><td class="c10">F59</td><td>Unspecified</td><td class="c11">Residual / &ldquo;unspecified&rdquo; codes within each destination</td></tr>
+  </table>
+  <div class="warn"><b>Read this the right way.</b> An arrow means &ldquo;the nearest ICD-11 home&rdquo;, not an identical criteria set. Where ICD-11 moved a category out of the mental-disorders chapter, the diagnostic <i>requirements</i> were also rewritten by the receiving chapter. Below, each disorder gives the ICD-10 guidelines in full and the ICD-11 requirements where they still exist in a comparable form.</p></div>
+</section>
+
+
+<!-- ═══════════════════════ F50 EATING DISORDERS ═══════════════════════ -->
+<section id="f50">
+  <h2>F50 &middot; Eating disorders</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F50 is the eating-disorders group within F50&ndash;F59. It covers disorders in which eating behaviour and the control of body weight are disturbed, driven by a characteristic overvalued fear of fatness. In ICD-11 this is the only part of F50&ndash;F59 that stays fully inside the mental-disorders chapter, as the expanded grouping <b>6B80&ndash;6B8Z Feeding and Eating Disorders</b>.</p>
+  <p><span class="tag t10">ICD-10</span> lists anorexia nervosa (F50.0), atypical anorexia (F50.1), bulimia nervosa (F50.2), atypical bulimia (F50.3), overeating associated with other psychological disturbances (F50.4), vomiting associated with other psychological disturbances (F50.5), and other/unspecified (F50.8/F50.9). <span class="tag t11">ICD-11</span> keeps anorexia (6B80) and bulimia (6B81) but adds three full diagnoses that ICD-10 lacked &mdash; <b>binge eating disorder (6B82)</b>, <b>avoidant/restrictive food intake disorder or ARFID (6B83)</b> &mdash; plus <b>pica (6B84)</b> and <b>rumination-regurgitation disorder (6B85)</b>, which ICD-10 had placed among childhood disorders.</p>
+
+  <h3>1. Introduction</h3>
+  <p>Eating disorders are conditions in which a person's relationship with eating, body weight and body shape becomes disordered enough to threaten physical health and psychological functioning. The two long-recognised syndromes &mdash; anorexia nervosa and bulimia nervosa &mdash; share the same core psychopathology (a <b class="cl">morbid dread of fatness</b> and self-worth judged largely by weight/shape) but differ in weight and behaviour. They have the highest mortality of any psychiatric disorder group, chiefly through medical complications of starvation and through suicide.</p>
+
+  <h3>2. Etiology (with psychological theories)</h3>
+  <p><span class="tag tks">Kaplan &amp; Sadock</span> Causation is multifactorial: interacting <b>sociocultural</b> (cultural idealisation of thinness, dieting), <b>biological</b> (genetic loading; disturbances of serotonin and appetite-regulating systems; secondary endocrine and metabolic changes from starvation), and <b>psychological</b> factors (perfectionism, low self-esteem, need for control, vulnerability of personality).</p>
+  <div class="psych"><h4>Psychological theories of eating disorders</h4>
+    <ul class="t">
+      <li><b>Cognitive-behavioural model (Fairburn).</b> <span class="tag tother">Other evidence</span> The central maintaining mechanism is over-evaluation of shape and weight and their control: self-worth is judged almost entirely by weight/shape. This drives dietary restraint, which sets up binge&ndash;purge cycles in bulimia and rigid restriction in anorexia. This model underpins CBT-E (enhanced CBT), the leading psychological treatment.</li>
+      <li><b>Family-systems theory (Minuchin).</b> Describes the &ldquo;psychosomatic family&rdquo; &mdash; enmeshment, over-protectiveness, rigidity and poor conflict resolution &mdash; in which the child's symptom stabilises family tensions. Basis for family-based treatment (the Maudsley approach) in adolescent anorexia.</li>
+      <li><b>Psychodynamic view.</b> Anorexia framed as a struggle for autonomy and identity, control over the body substituting for a sense of control over the self (Bruch's work on the &ldquo;relentless pursuit of thinness&rdquo; and disturbed body awareness).</li>
+      <li><b>Restraint theory.</b> Rigid dietary rules paradoxically increase the likelihood of disinhibited overeating (binges) once a rule is broken &mdash; the &ldquo;what-the-hell&rdquo; effect.</li>
+    </ul>
+  </div>
+
+  <h3>3. Epidemiology</h3>
+  <ul class="t">
+    <li><b>Anorexia nervosa:</b> lifetime prevalence roughly 0.5&ndash;1% in women; female-to-male ratio about 10:1; onset typically mid-to-late adolescence. Highest mortality of any psychiatric disorder (standardised mortality ratio markedly raised).</li>
+    <li><b>Bulimia nervosa:</b> lifetime prevalence about 1&ndash;2% in women; onset slightly later than anorexia (late adolescence/early adulthood).</li>
+    <li><b>Binge eating disorder:</b> the commonest eating disorder overall (around 2&ndash;3.5%), with a more even sex distribution and strong association with obesity.</li>
+    <li>Higher rates in occupations/pursuits emphasising thinness (ballet, modelling, some sports).</li>
+  </ul>
+
+  <h3>4. Symptoms &mdash; easy to spot, unique clues, comorbidities</h3>
+  <h4>Easy-to-spot features</h4>
+  <ul class="t">
+    <li>Marked weight loss or fluctuation; preoccupation with food, calories, cooking for others while not eating.</li>
+    <li>Distorted body image (&ldquo;feels fat&rdquo; despite being underweight); rituals around eating; avoidance of eating with others.</li>
+    <li>Evidence of purging: trips to the toilet after meals, laxative packets, dental erosion, knuckle calluses (Russell's sign).</li>
+  </ul>
+  <div class="unique"><h4>Unique identifying clues</h4>
+    <ul class="t">
+      <li><b>Lanugo hair</b> (fine downy body hair), cold intolerance, bradycardia (slow heart rate) and amenorrhoea in anorexia &mdash; the body of starvation.</li>
+      <li><b>Russell's sign</b> (callus/scarring on the back of the hand from self-induced vomiting) and <b>parotid gland swelling</b> plus dental enamel erosion in bulimia.</li>
+      <li><b>Hypokalaemia</b> (low blood potassium) from vomiting/laxatives &mdash; risk of cardiac arrhythmia; the electrolyte clue that flags covert purging.</li>
+    </ul>
+  </div>
+  <div class="assoc"><h4>Common comorbidities</h4>
+    <p>Depression and anxiety disorders (very common), obsessive-compulsive disorder and traits (especially in anorexia), substance misuse (especially in bulimia), self-harm, and personality disorder features. Physical comorbidity from starvation/purging: osteoporosis, cardiac and electrolyte disturbance, gastrointestinal problems.</p>
+  </div>
+</section>
+
+
+<section id="f50-0">
+  <h2>F50.0 &middot; Anorexia nervosa</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F50 Eating disorders &rarr; the first and defining subtype. A syndrome of deliberate, self-induced and sustained weight loss.</p>
+  <p>Anorexia nervosa is a disorder characterised by deliberate weight loss, induced and sustained by the patient. It occurs most commonly in adolescent girls and young women, but adolescent boys and young men may be affected, as may children approaching puberty and older women up to the menopause. It is associated with undernutrition of varying severity, with secondary endocrine and metabolic changes and disturbances of bodily function.</p>
+
+  <div class="g2">
+    <div class="panel10"><h4><span class="tag t10">ICD-10 diagnostic guidelines (F50.0)</span></h4>
+      <p>For a definite diagnosis, <b>all</b> the following are required:</p>
+      <ul class="t">
+        <li><b>(a) Low body weight:</b> body weight maintained at least 15% below that expected (either lost or never achieved), or a Quetelet's body-mass index (BMI) of 17.5 or less. Prepubertal patients may fail to make the expected weight gain during growth.</li>
+        <li><b>(b) Self-induced weight loss:</b> by avoidance of &ldquo;fattening foods&rdquo;, and one or more of &mdash; self-induced vomiting; self-induced purging; excessive exercise; use of appetite suppressants and/or diuretics (water tablets).</li>
+        <li><b>(c) Body-image distortion:</b> a specific psychopathology whereby a dread of fatness persists as an intrusive, overvalued idea, and the patient imposes a low weight threshold on himself or herself.</li>
+        <li><b>(d) Endocrine disorder:</b> involving the hypothalamic&ndash;pituitary&ndash;gonadal axis &mdash; in women, amenorrhoea (loss of periods); in men, loss of sexual interest and potency. (An apparent exception is continued vaginal bleeding in women taking replacement hormones, e.g. a contraceptive pill.) There may also be raised growth hormone and cortisol, and changes in thyroid-hormone metabolism and insulin secretion.</li>
+        <li><b>(e) Prepubertal onset:</b> the sequence of pubertal events is delayed or arrested (growth ceases; in girls breasts do not develop and there is primary amenorrhoea; in boys the genitals remain juvenile). With recovery, puberty often completes normally but the menarche is late.</li>
+      </ul>
+      <div class="excl" style="margin-top:10px"><b>Excludes:</b> loss of appetite (R63.0); psychogenic loss of appetite (coded under F50.8).</div>
+    </div>
+    <div class="panel11"><h4><span class="tag t11">ICD-11 requirements (6B80)</span></h4>
+      <p>Anorexia nervosa in ICD-11 requires:</p>
+      <ul class="t">
+        <li><b>Significantly low body weight</b> for the person's height, age and developmental stage (in adults, BMI under 18.5, or in children/adolescents body weight below the fifth percentile) that is <b>not due to another health condition or to unavailability of food</b>.</li>
+        <li>A <b>persistent pattern of restrictive eating</b> or other behaviours aimed at maintaining abnormally low body weight (fasting, purging, excessive exercise).</li>
+        <li><b>Excessive preoccupation with body weight or shape</b>, including over-valued ideas of being too heavy, or (especially in younger patients) behaviour consistent with fear of weight gain <i>without</i> the person necessarily verbalising it.</li>
+      </ul>
+      <h4 style="margin-top:12px">Key ICD-11 changes from ICD-10</h4>
+      <ul class="t">
+        <li><b>Amenorrhoea is dropped</b> as a required criterion (it excluded men, pre-menarchal girls and women on hormones).</li>
+        <li>The BMI threshold is <b>18.5</b> (ICD-10 used 17.5), broadening the diagnosis.</li>
+        <li>Explicit <b>severity by weight</b> and a <b>&ldquo;in recovery&rdquo;</b> category are added (see subtypes below).</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="subtype"><h4>ICD-11 subtypes of anorexia nervosa &mdash; each with its own qualifier</h4>
+    <ul class="t">
+      <li><b>6B80.0 Anorexia nervosa with significantly low body weight</b> (BMI 14.0&ndash;18.4 in adults). Further specified by eating pattern:
+        <ul class="t"><li><b>6B80.00 restricting pattern</b> &mdash; weight loss chiefly by fasting/restriction and/or exercise, without regular binge-purge behaviour.</li>
+        <li><b>6B80.01 binge-purge pattern</b> &mdash; regular binge eating or purging (self-induced vomiting, laxatives).</li></ul></li>
+      <li><b>6B80.1 Anorexia nervosa with dangerously low body weight</b> (BMI under 14.0 in adults, or rapid weight loss with acute medical risk), again split into <b>6B80.10 restricting</b> and <b>6B80.11 binge-purge</b> patterns. This flags the medically critical group.</li>
+      <li><b>6B80.2 Anorexia nervosa in recovery with normal body weight</b> &mdash; weight has been restored but cognitive features (preoccupation, over-valued ideas) persist; recognises that psychological recovery lags behind weight recovery.</li>
+    </ul>
+    <p style="margin-top:8px"><b>ICD-10's equivalent split</b> was clinical, not a coded subtype: the &ldquo;restricting&rdquo; versus &ldquo;binge-purge&rdquo; distinction was described in the text rather than given its own code as in ICD-11.</p>
+  </div>
+
+  <div class="ddx"><h5>Differential diagnosis</h5>
+    <p><b>From ICD-10:</b> there may be associated depressive or obsessional symptoms and features of a personality disorder, which can make differentiation difficult and may require more than one diagnostic code. <b>Somatic (bodily) causes of weight loss</b> in young patients that must be distinguished include chronic debilitating diseases, brain tumours, and intestinal disorders such as Crohn's disease or a malabsorption syndrome. <b>Bulimia nervosa</b> is distinguished when body weight is maintained at or above a normal level. <b>Depressive disorder</b> can cause weight loss but lacks the dread of fatness and body-image psychopathology. In starvation from any cause, the driving over-valued idea about shape/weight is absent.</p>
+  </div>
+
+  <div class="remember"><h4>Easy way to remember &mdash; anorexia &ldquo;WEIGHT&rdquo;</h4>
+    <ul class="t">
+      <li><b>W</b> &mdash; Weight low (BMI &le;17.5 ICD-10 / &lt;18.5 ICD-11)</li>
+      <li><b>E</b> &mdash; Endocrine disturbance (amenorrhoea in ICD-10; dropped in ICD-11)</li>
+      <li><b>I</b> &mdash; Intrusive dread of fatness (over-valued idea)</li>
+      <li><b>G</b> &mdash; Getting rid / self-induced loss (vomiting, purging, exercise, appetite suppressants)</li>
+      <li><b>H</b> &mdash; Hypothalamic&ndash;pituitary&ndash;gonadal axis affected</li>
+      <li><b>T</b> &mdash; Threshold weight imposed on self / distorted body image</li>
+    </ul>
+  </div>
+
+  <h3>7. Treatment</h3>
+  <p><span class="tag tks">Kaplan &amp; Sadock</span> <b>Priority is medical:</b> restore weight and correct electrolyte/cardiac complications; watch for <i>refeeding syndrome</i> (dangerous shifts in phosphate and fluids when feeding is restarted too fast).</p>
+  <ul class="t">
+    <li><b>Psychological (first-line):</b> in adolescents, <b>family-based treatment</b> (the Maudsley approach); in adults, eating-disorder-focused CBT (CBT-ED / CBT-E), the Maudsley Anorexia Nervosa Treatment for Adults (MANTRA), or specialist supportive clinical management.</li>
+    <li><b>Pharmacological:</b> no drug reliably restores weight; medications treat comorbidity (e.g. an SSRI for coexisting depression/OCD once nutritionally stable). Antipsychotics are sometimes used adjunctively but evidence is limited.</li>
+    <li><b>Setting:</b> inpatient/day-patient care for severe low weight, rapid loss, or medical instability.</li>
+  </ul>
+</section>
+
+
+<section id="f50-1">
+  <h2>F50.1 &middot; Atypical anorexia nervosa</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F50 Eating disorders &rarr; a &ldquo;near-miss&rdquo; anorexia category.</p>
+  <div class="panel10"><h4><span class="tag t10">ICD-10 (F50.1)</span></h4>
+    <p>Used for individuals in whom <b>one or more key features of anorexia nervosa</b> (F50.0) &mdash; such as amenorrhoea or significant weight loss &mdash; <b>is absent</b>, but who otherwise present a fairly typical clinical picture. Also used when all key symptoms are present but only to a mild degree. Patients are usually seen in psychiatric liaison services or primary care. <b>Not</b> to be used for eating disorders that resemble anorexia but are due to a known physical illness.</p>
+  </div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11</span></h4>
+    <p>ICD-11 largely <b>absorbs atypical anorexia into 6B80</b> itself, because it dropped the amenorrhoea requirement and broadened the criteria; presentations that ICD-10 called &ldquo;atypical&rdquo; often now meet full anorexia criteria. Residual presentations fall under <b>6B8Y other specified feeding or eating disorders</b>.</p>
+  </div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>From full anorexia nervosa (which requires all criteria), from bulimia nervosa (normal/above weight with regular bingeing), and from weight loss due to physical illness (which must be excluded before this code is used). Depressive and obsessional states can mimic reduced eating but lack the shape/weight over-valued idea.</p></div>
+  <div class="remember"><h4>Remember</h4><p>&ldquo;Atypical = <b>almost</b> anorexia&rdquo; &mdash; typical picture, but one key feature (usually amenorrhoea or the degree of weight loss) is missing. Under ICD-11 many of these simply <i>become</i> anorexia nervosa.</p></div>
+</section>
+
+<section id="f50-2">
+  <h2>F50.2 &middot; Bulimia nervosa</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F50 Eating disorders &rarr; the binge&ndash;compensation syndrome at normal or near-normal weight.</p>
+  <p>Bulimia nervosa is a syndrome characterised by repeated bouts of overeating and an excessive preoccupation with the control of body weight, leading the patient to adopt extreme measures to mitigate the &ldquo;fattening&rdquo; effects of food. The term is restricted to the form related to anorexia nervosa by sharing the same psychopathology. Age/sex distribution is similar to anorexia but presentation is slightly later; it may be a sequel to persistent anorexia. Repeated vomiting can cause electrolyte disturbances and physical complications (tetany, epileptic seizures, cardiac arrhythmias, muscular weakness).</p>
+  <div class="g2">
+    <div class="panel10"><h4><span class="tag t10">ICD-10 guidelines (F50.2)</span></h4>
+      <p>For a definite diagnosis, <b>all</b> are required:</p>
+      <ul class="t">
+        <li><b>(a)</b> A persistent preoccupation with eating and an irresistible craving for food; the patient succumbs to episodes of overeating in which large amounts of food are consumed in short periods.</li>
+        <li><b>(b)</b> Attempts to counteract the &ldquo;fattening&rdquo; effects of food by one or more of: self-induced vomiting; purgative (laxative) abuse; alternating periods of starvation; use of drugs such as appetite suppressants, thyroid preparations or diuretics. (Diabetic patients may neglect insulin.)</li>
+        <li><b>(c)</b> The psychopathology is a morbid dread of fatness, and the patient sets a sharply defined weight threshold well below the premorbid or healthy weight. There is often, but not always, an earlier episode of anorexia nervosa (months to years before).</li>
+      </ul>
+      <div class="incl" style="margin-top:8px"><b>Includes:</b> bulimia NOS; hyperorexia nervosa.</div>
+    </div>
+    <div class="panel11"><h4><span class="tag t11">ICD-11 requirements (6B81)</span></h4>
+      <ul class="t">
+        <li><b>Frequent, recurrent binge eating</b> (e.g. at least once weekly over about a month) &mdash; eating markedly more than normal with a subjective <b>loss of control</b> over eating.</li>
+        <li><b>Repeated inappropriate compensatory behaviours</b> to prevent weight gain (self-induced vomiting, laxatives, fasting, excessive exercise).</li>
+        <li><b>Excessive preoccupation with body weight or shape</b> strongly influencing self-evaluation.</li>
+        <li>The person does <b>not</b> meet the criteria for anorexia nervosa (i.e. body weight is not significantly low) &mdash; this is the key separator.</li>
+      </ul>
+      <p style="margin-top:8px">ICD-11 defines a binge more explicitly around <b>loss of control</b> and sets a frequency guide, where ICD-10 spoke of &ldquo;irresistible craving&rdquo; without a fixed frequency.</p>
+    </div>
+  </div>
+  <div class="ddx"><h5>Differential diagnosis (from ICD-10)</h5>
+    <p>Bulimia nervosa must be differentiated from: <b>(a)</b> upper gastrointestinal disorders leading to repeated vomiting (the characteristic psychopathology is absent); <b>(b)</b> a more general abnormality of personality (the eating disorder may coexist with alcohol dependence and petty offences such as shoplifting); <b>(c)</b> depressive disorder (bulimic patients often experience depressive symptoms &mdash; code both if each is justified). Also distinguish from <b>anorexia nervosa binge-purge type</b> (there the weight is significantly low) and from <b>binge eating disorder</b> (bingeing <i>without</i> regular compensatory behaviour).</p>
+  </div>
+  <div class="remember"><h4>Easy way to remember &mdash; &ldquo;BINGE&rdquo;</h4>
+    <ul class="t">
+      <li><b>B</b> &mdash; Bouts of overeating (loss of control)</li>
+      <li><b>I</b> &mdash; Irresistible craving for food</li>
+      <li><b>N</b> &mdash; Normal (or above) body weight (unlike anorexia)</li>
+      <li><b>G</b> &mdash; Getting rid: vomiting, laxatives, fasting, exercise</li>
+      <li><b>E</b> &mdash; Excessive dread of fatness / weight threshold</li>
+    </ul>
+  </div>
+  <h3>Treatment</h3>
+  <ul class="t">
+    <li><b>Psychological (first-line):</b> CBT for bulimia (CBT-BN / CBT-E) has the strongest evidence; guided self-help based on CBT is an effective first step; interpersonal therapy (IPT) is an alternative.</li>
+    <li><b>Pharmacological:</b> an SSRI, particularly <b>fluoxetine</b> (typically at higher dose, e.g. 60&nbsp;mg), reduces binge&ndash;purge frequency &mdash; the best-evidenced drug. Correct electrolytes; avoid bupropion (seizure risk in purging patients).</li>
+  </ul>
+</section>
+
+<section id="f50-3">
+  <h2>F50.3 &middot; Atypical bulimia nervosa</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F50 Eating disorders &rarr; a &ldquo;near-miss&rdquo; bulimia category.</p>
+  <div class="panel10"><h4><span class="tag t10">ICD-10 (F50.3)</span></h4>
+    <p>For individuals in whom <b>one or more key features of bulimia nervosa</b> (F50.2) is absent but who otherwise present a fairly typical clinical picture. Most commonly this applies to people with normal or even excessive weight but with typical periods of overeating followed by vomiting or purging. Partial syndromes with depressive symptoms are common; if the depressive symptoms justify a separate diagnosis, make two diagnoses.</p>
+    <div class="incl" style="margin-top:8px"><b>Includes:</b> normal weight bulimia.</div>
+  </div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11</span></h4>
+    <p>Absorbed into <b>6B81 bulimia nervosa</b> where criteria are met, or classified under <b>6B8Y other specified feeding or eating disorders</b>. Importantly, cases that are &ldquo;binge without compensation&rdquo; now have their own home &mdash; <b>6B82 binge eating disorder</b> &mdash; which did not exist as a full diagnosis in ICD-10.</p>
+  </div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>From full bulimia nervosa (all criteria met), from binge eating disorder (no regular compensatory behaviour), and from a depressive disorder with reactive overeating. If depressive symptoms warrant their own diagnosis, code both.</p></div>
+  <div class="remember"><h4>Remember</h4><p>&ldquo;Atypical bulimia = <b>bulimia minus one criterion</b>&rdquo; &mdash; e.g. bingeing/purging that is less frequent or at clearly normal weight. In ICD-11 many of these become bulimia or binge eating disorder.</p></div>
+</section>
+
+
+<section id="f50-4">
+  <h2>F50.4 &middot; Overeating associated with other psychological disturbances</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F50 Eating disorders &rarr; overeating as a reaction to distress (&ldquo;reactive obesity&rdquo;).</p>
+  <div class="panel10"><h4><span class="tag t10">ICD-10 (F50.4)</span></h4>
+    <p>Overeating that has led to obesity <b>as a reaction to distressing events</b> is coded here. Bereavements, accidents, surgical operations and emotionally distressing events may be followed by &ldquo;reactive obesity&rdquo;, especially in individuals predisposed to weight gain. <b>Obesity as a <i>cause</i> of psychological disturbance</b> is <b>not</b> coded here (that goes under categories such as other mood disorder, mixed anxiety-depression, or neurotic disorder unspecified, plus an E66 obesity code). Drug-induced obesity and obesity itself have their own physical (E66) codes.</p>
+  </div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11</span></h4>
+    <p>Where the picture is recurrent objective binges with loss of control, this now belongs under <b>6B82 Binge Eating Disorder</b> &mdash; the major upgrade in ICD-11 (see below). Reactive overeating not amounting to binge eating disorder is captured through psychological-factor coding (6E40) alongside the obesity code.</p>
+  </div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>From <b>binge eating disorder</b> (discrete, out-of-control binges) and from <b>bulimia nervosa</b> (compensatory behaviour present). Distinguish overeating that <i>causes</i> psychological distress (coded elsewhere) from overeating that is a <i>reaction to</i> distress (coded here). Exclude endocrine/drug causes of weight gain.</p></div>
+  <div class="remember"><h4>Remember</h4><p>&ldquo;<b>Distress &rarr; eating &rarr; weight</b>&rdquo;: emotion comes first, overeating is the reaction. If the eating is the classic out-of-control binge, think ICD-11 binge eating disorder instead.</p></div>
+</section>
+
+<section id="f50-5">
+  <h2>F50.5 &middot; Vomiting associated with other psychological disturbances</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F50 Eating disorders &rarr; psychogenic vomiting outside the eating-disorder weight-control context.</p>
+  <div class="panel10"><h4><span class="tag t10">ICD-10 (F50.5)</span></h4>
+    <p>Covers repeated vomiting occurring for psychological reasons that is <b>not</b> the self-induced vomiting of bulimia nervosa &mdash; for example, vomiting occurring in dissociative disorders, in hypochondriacal disorder as one of several bodily symptoms, or in pregnancy where emotional factors contribute (psychogenic hyperemesis gravidarum). The distinguishing point is the <b>absence</b> of the weight-control psychopathology.</p>
+  </div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11</span></h4>
+    <p>No stand-alone eating-disorder code; ICD-11 would assess such vomiting within the relevant disorder &mdash; e.g. <b>bodily distress disorder (6C20)</b>, a dissociative disorder, or a pregnancy-related condition &mdash; rather than as an eating-disorder subtype.</p>
+  </div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>From <b>bulimia nervosa</b> and <b>anorexia binge-purge type</b> (there the vomiting serves weight control and the dread-of-fatness psychopathology is present); from <b>gastrointestinal disease</b> causing vomiting; from <b>hyperemesis gravidarum</b> and other physical causes.</p></div>
+  <div class="remember"><h4>Remember</h4><p>&ldquo;Vomiting <b>without</b> the fear of fatness&rdquo; &mdash; if the drive is weight control it is bulimia/anorexia, not F50.5.</p></div>
+</section>
+
+<section id="f50-8">
+  <h2>F50.8 / F50.9 &middot; Other and unspecified eating disorders</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F50 Eating disorders &rarr; the &ldquo;other&rdquo; and residual categories.</p>
+  <div class="panel10"><h4><span class="tag t10">ICD-10</span></h4>
+    <ul class="t">
+      <li><b>F50.8 Other eating disorders</b> &mdash; includes <b>pica in adults</b> (eating non-nutritive substances) and <b>psychogenic loss of appetite</b>.</li>
+      <li><b>F50.9 Eating disorder, unspecified.</b></li>
+    </ul>
+  </div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11</span></h4>
+    <p>ICD-11 gives several of these their own full codes: <b>pica (6B84)</b> and <b>rumination-regurgitation disorder (6B85)</b> are recognised across the lifespan, and residual presentations use <b>6B8Y other specified</b> or <b>6B8Z unspecified feeding or eating disorders</b>.</p>
+  </div>
+</section>
+
+<section id="f50-11">
+  <h2>ICD-11's new eating-disorder members (no ICD-10 F50 equivalent)</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> 6B80&ndash;6B8Z Feeding and Eating Disorders &rarr; diagnoses ICD-11 added or promoted. These are important because examiners often ask &ldquo;what did ICD-11 add?&rdquo;</p>
+
+  <div class="subtype"><h4>6B82 Binge Eating Disorder (BED)</h4>
+    <div class="panel11"><h4><span class="tag t11">ICD-11 requirements</span></h4>
+      <ul class="t">
+        <li><b>Frequent, recurrent binge eating</b> (e.g. weekly for about a month): eating markedly more than most people would, with a <b>subjective loss of control</b>.</li>
+        <li>Binges are marked by distress (e.g. eating rapidly, when not hungry, alone through embarrassment, guilt afterwards).</li>
+        <li><b>No regular inappropriate compensatory behaviour</b> (this is what separates it from bulimia).</li>
+      </ul>
+    </div>
+    <div class="ddx"><h5>Differential diagnosis</h5><p>From <b>bulimia nervosa</b> (compensation present) and from <b>overeating/obesity</b> without discrete out-of-control binges. Often associated with obesity, but obesity alone is not BED.</p></div>
+    <p><b>Treatment:</b> CBT-ED or guided self-help first-line; IPT and behavioural weight-loss are alternatives; an SSRI or lisdexamfetamine may reduce binge frequency.</p>
+  </div>
+
+  <div class="subtype"><h4>6B83 Avoidant/Restrictive Food Intake Disorder (ARFID)</h4>
+    <div class="panel11"><h4><span class="tag t11">ICD-11 requirements</span></h4>
+      <ul class="t">
+        <li><b>Avoidance or restriction of food intake</b> leading to insufficient quantity or variety &mdash; causing significant weight loss/faltering growth, nutritional deficiency, dependence on supplements/tube feeding, or marked impairment.</li>
+        <li>The restriction is <b>not</b> driven by preoccupation with body weight or shape (this separates it from anorexia).</li>
+        <li>Common drivers: sensory sensitivity to food, lack of interest in eating, or fear of aversive consequences (e.g. choking, vomiting).</li>
+      </ul>
+    </div>
+    <div class="ddx"><h5>Differential diagnosis</h5><p>From <b>anorexia nervosa</b> (ARFID lacks the dread-of-fatness/body-image drive); from a specific phobia of choking; from a general medical or gastrointestinal cause of poor intake; from autism spectrum-related food selectivity when not causing the required impairment.</p></div>
+    <p><b>Treatment:</b> nutritional rehabilitation plus behavioural approaches (graded exposure to feared/avoided foods; family-based work in children).</p>
+  </div>
+
+  <div class="subtype"><h4>6B84 Pica &nbsp;&amp;&nbsp; 6B85 Rumination-Regurgitation Disorder</h4>
+    <div class="panel11"><h4><span class="tag t11">ICD-11 requirements</span></h4>
+      <ul class="t">
+        <li><b>6B84 Pica:</b> regular eating of <b>non-nutritive, non-food substances</b> (e.g. soil, chalk, paper) persistent enough to cause harm or need clinical attention, and developmentally inappropriate (beyond the age where mouthing is normal).</li>
+        <li><b>6B85 Rumination-regurgitation disorder:</b> intentional and repeated <b>bringing up of previously swallowed food</b>, which may be re-chewed, re-swallowed or spat out, not explained by a gastrointestinal or other medical condition.</li>
+      </ul>
+      <p style="margin-top:6px"><b>ICD-10 contrast:</b> ICD-10 placed pica and rumination among <b>childhood feeding disorders (F98)</b> and only mentioned adult pica under F50.8. ICD-11 recognises both across all ages within the eating-disorders grouping.</p>
+    </div>
+    <div class="ddx"><h5>Differential diagnosis</h5><p>Pica: from culturally sanctioned practices and from iron/zinc deficiency states (investigate and treat). Rumination: from gastro-oesophageal reflux, gastroparesis and other GI disorders, and from the self-induced vomiting of bulimia (which is weight-control driven).</p></div>
+    <p><b>Treatment:</b> pica &mdash; correct nutritional deficiencies, behavioural intervention, ensure safety; rumination &mdash; behavioural techniques such as diaphragmatic breathing to compete with the regurgitation reflex.</p>
+  </div>
+
+  <div class="remember"><h4>Remember what ICD-11 added &mdash; &ldquo;BARP&rdquo;</h4>
+    <p><b>B</b>inge eating disorder &middot; <b>A</b>RFID &middot; <b>R</b>umination-regurgitation &middot; <b>P</b>ica &mdash; the four feeding/eating diagnoses ICD-11 gives full status that ICD-10 F50 did not.</p>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════ F51 SLEEP ═══════════════════════ -->
+<section id="f51">
+  <h2>F51 &middot; Nonorganic sleep disorders</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F51 is the sleep-disorders group within F50&ndash;F59, restricted in ICD-10 to sleep problems that are <b>nonorganic</b> (not explained by a physical brain/body disease) and in which emotional factors are a primary cause. In ICD-11 the whole area was <b>moved out of the mental-disorders chapter</b> into a dedicated Chapter 07 (Sleep-wake disorders, 7A00&ndash;7B2Z) that combines organic and nonorganic causes.</p>
+  <p><span class="tag t10">ICD-10</span> divides them into <b>dyssomnias</b> (disorders of the amount, quality or timing of sleep &mdash; insomnia F51.0, hypersomnia F51.1, sleep-wake schedule disorder F51.2) and <b>parasomnias</b> (abnormal episodes during sleep &mdash; sleepwalking F51.3, sleep terrors F51.4, nightmares F51.5).</p>
+
+  <h3>Etiology &amp; a psychological model</h3>
+  <div class="psych"><h4>The cognitive-behavioural (3-P) model of insomnia</h4>
+    <p><span class="tag tother">Other evidence</span> Spielman's model explains insomnia through <b>Predisposing</b> factors (trait tendency to hyperarousal), <b>Precipitating</b> factors (a stressor that triggers a bad patch), and <b>Perpetuating</b> factors (maladaptive coping &mdash; daytime napping, long time in bed, worry about sleep) that keep it going after the trigger has passed. This maps directly onto ICD-10's description of a &ldquo;vicious circle&rdquo; of fear of sleeplessness and is the rationale for CBT for insomnia (CBT-I).</p>
+  </div>
+  <h3>Epidemiology</h3>
+  <p>Insomnia complaints affect up to a third of adults at some point; a persistent disorder around 6&ndash;10%. It is more prevalent in women, older adults, and those who are psychologically distressed or socioeconomically disadvantaged. Parasomnias (sleepwalking, terrors) are far commoner in childhood and usually remit with maturity.</p>
+  <div class="assoc"><h4>Common comorbidities</h4><p>Depression, anxiety and substance/alcohol use are strongly bidirectionally linked with insomnia and hypersomnia. Insomnia is a risk factor for later depression. Parasomnias may coincide with febrile illness in children and, if arising in adulthood, with psychological disturbance.</p></div>
+</section>
+
+<section id="f51-0">
+  <h2>F51.0 &middot; Nonorganic insomnia</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F51 Nonorganic sleep disorders &rarr; dyssomnia; difficulty getting or staying asleep.</p>
+  <p>A condition of unsatisfactory quantity and/or quality of sleep persisting for a considerable time. Difficulty falling asleep is the commonest complaint, followed by difficulty staying asleep and early final waking. It typically develops at a time of increased stress; a preoccupation with sleeplessness and its consequences creates a self-perpetuating vicious circle.</p>
+  <div class="g2">
+    <div class="panel10"><h4><span class="tag t10">ICD-10 guidelines (F51.0)</span></h4>
+      <ul class="t">
+        <li><b>(a)</b> the complaint is of difficulty falling asleep or maintaining sleep, or of poor quality of sleep;</li>
+        <li><b>(b)</b> the sleep disturbance has occurred <b>at least three times per week for at least 1 month</b>;</li>
+        <li><b>(c)</b> there is preoccupation with the sleeplessness and excessive concern over its consequences at night and during the day;</li>
+        <li><b>(d)</b> the unsatisfactory quantity/quality of sleep causes marked distress or interferes with ordinary daily activities.</li>
+      </ul>
+      <p style="margin-top:6px">Coexisting psychiatric symptoms do not invalidate the diagnosis if insomnia is the primary complaint. Transient insomnia (a few nights related to a stressor) is not coded here.</p>
+    </div>
+    <div class="panel11"><h4><span class="tag t11">ICD-11 (Chapter 07)</span></h4>
+      <p>Corresponds to <b>7A00 Insomnia disorders</b> (chronic 7A00, short-term 7A01) in the sleep-wake chapter. Requirements are similar &mdash; difficulty initiating/maintaining sleep with daytime impairment despite adequate opportunity &mdash; but <b>chronic insomnia</b> uses a threshold of at least <b>3 times a week for at least 3 months</b>. The nonorganic/organic split is abandoned: cause is assessed within one unified sleep framework.</p>
+    </div>
+  </div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>Insomnia is a common <b>symptom</b> of affective, neurotic, organic and eating disorders, substance use and schizophrenia, and of other sleep disorders (nightmares, sleep-wake schedule disorder, sleep apnoea, nocturnal myoclonus). If insomnia occurs only as one of many symptoms of another mental or physical disorder and does not dominate, code the underlying disorder. Distinguish from transient (normal) sleeplessness and from the &ldquo;short sleeper&rdquo; who needs little sleep but is not distressed.</p></div>
+  <div class="remember"><h4>Remember &mdash; &ldquo;3 &times; 1 (ICD-10) / 3 &times; 3 (ICD-11)&rdquo;</h4><p>ICD-10 insomnia: &ge;<b>3 nights/week for &ge;1 month</b>. ICD-11 chronic insomnia: &ge;<b>3 nights/week for &ge;3 months</b>. The distress + daytime consequence + preoccupation triad is constant.</p></div>
+  <h3>Treatment</h3>
+  <ul class="t"><li><b>Psychological (first-line):</b> CBT for insomnia (CBT-I) &mdash; stimulus control, sleep restriction, sleep hygiene, cognitive work on sleep worry.</li><li><b>Pharmacological:</b> short-term hypnotics (a short-acting Z-drug or benzodiazepine) for limited periods; melatonin (especially in older adults); treat any underlying depression/anxiety.</li></ul>
+</section>
+
+<section id="f51-1">
+  <h2>F51.1 &middot; Nonorganic hypersomnia</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F51 Nonorganic sleep disorders &rarr; dyssomnia; excessive sleepiness of psychological origin.</p>
+  <p>Hypersomnia is either excessive daytime sleepiness/sleep attacks (not due to inadequate sleep) or a prolonged transition to full wakefulness on waking (&ldquo;sleep drunkenness&rdquo;). When no organic cause is found it is usually associated with a mental disorder, often a bipolar depressed phase or a depressive episode.</p>
+  <div class="g2">
+    <div class="panel10"><h4><span class="tag t10">ICD-10 guidelines (F51.1)</span></h4>
+      <ul class="t">
+        <li><b>(a)</b> excessive daytime sleepiness or sleep attacks, not accounted for by inadequate sleep, and/or prolonged transition to full arousal on waking;</li>
+        <li><b>(b)</b> occurring daily for more than 1 month or in recurrent shorter periods, causing marked distress or interference with daily life;</li>
+        <li><b>(c)</b> absence of narcolepsy's auxiliary symptoms (cataplexy &mdash; sudden loss of muscle tone; sleep paralysis; hypnagogic hallucinations &mdash; vivid images while falling asleep) and of clinical evidence of sleep apnoea (breathing pauses, loud snoring);</li>
+        <li><b>(d)</b> absence of a neurological or medical condition of which daytime sleepiness could be a symptom.</li>
+      </ul>
+    </div>
+    <div class="panel11"><h4><span class="tag t11">ICD-11 (Chapter 07)</span></h4>
+      <p>Falls under the sleep-wake chapter's <b>central disorders of hypersomnolence (7A20&ndash;7A2Z)</b>, alongside narcolepsy and idiopathic hypersomnia, with cause assessed on its merits rather than pre-labelled &ldquo;nonorganic&rdquo;.</p>
+    </div>
+  </div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>From <b>narcolepsy</b> (cataplexy, sleep paralysis, hypnagogic hallucinations), from <b>sleep apnoea</b> (snoring, breathing pauses, obesity), from insufficient sleep, and from medication/substance effects. If hypersomnia occurs only as a symptom of an affective disorder, code the underlying disorder (adding psychogenic hypersomnia if it is a prominent, self-standing complaint).</p></div>
+  <div class="remember"><h4>Remember</h4><p>&ldquo;<b>Sleepy by day, no cataplexy, no apnoea, no organic cause</b>&rdquo; &mdash; and think of a depressive/bipolar cause behind psychogenic hypersomnia.</p></div>
+</section>
+
+<section id="f51-2">
+  <h2>F51.2 &middot; Nonorganic disorder of the sleep-wake schedule</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F51 Nonorganic sleep disorders &rarr; dyssomnia; the body clock is out of step with the desired schedule.</p>
+  <div class="panel10"><h4><span class="tag t10">ICD-10 (F51.2)</span></h4>
+    <p>A lack of synchrony between the individual's own sleep-wake cycle and the desired schedule for their environment, resulting in insomnia during the main sleep period and hypersomnia during waking hours. The pattern is present nearly every day for at least a month or recurrently, and it must not be due to an organic cause (e.g. narcolepsy). The result is marked distress or interference with functioning.</p>
+    <div class="incl" style="margin-top:8px"><b>Includes:</b> psychogenic inversion of circadian/nyctohemeral (day-night) sleep rhythm.</div>
+  </div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11 (Chapter 07)</span></h4>
+    <p>Corresponds to the <b>circadian rhythm sleep-wake disorders (7A60&ndash;7A6Z)</b> &mdash; e.g. delayed sleep-wake phase, shift-work and jet-lag types &mdash; recognised regardless of &ldquo;organic&rdquo; status.</p>
+  </div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>From primary insomnia and hypersomnia (here the total sleep is normal but mistimed), from shift-work and jet-lag patterns (contextual), and from an organic circadian disorder or the effects of substances that shift the clock.</p></div>
+  <div class="remember"><h4>Remember</h4><p>&ldquo;<b>Right amount of sleep, wrong time</b>&rdquo; &mdash; the clock, not the quantity, is the problem.</p></div>
+</section>
+
+<section id="f51-3">
+  <h2>F51.3 &middot; Sleepwalking (somnambulism)</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F51 Nonorganic sleep disorders &rarr; parasomnia; a disorder of arousal from deep (stage 3&ndash;4) sleep, closely related to sleep terrors.</p>
+  <p>A state of altered consciousness in which sleep and wakefulness are combined. The person arises from bed, usually in the first third of the night, and walks about with low awareness and reactivity, at risk of injury, then usually returns to bed with no recall of the event.</p>
+  <div class="g2">
+    <div class="panel10"><h4><span class="tag t10">ICD-10 guidelines (F51.3)</span></h4>
+      <ul class="t">
+        <li><b>(a)</b> the predominant symptom is one or more episodes of rising from bed, usually in the first third of the night, and walking about;</li>
+        <li><b>(b)</b> during an episode the individual has a blank, staring face, is relatively unresponsive, and can be woken only with great difficulty;</li>
+        <li><b>(c)</b> on waking (from the episode or next morning) there is no recollection of it;</li>
+        <li><b>(d)</b> within minutes of waking there is no impairment of mental activity or behaviour, although there may briefly be some confusion/disorientation;</li>
+        <li><b>(e)</b> no evidence of an organic mental disorder (e.g. dementia) or a physical disorder such as epilepsy.</li>
+      </ul>
+    </div>
+    <div class="panel11"><h4><span class="tag t11">ICD-11 (Chapter 07)</span></h4>
+      <p>A <b>non-REM parasomnia / disorder of arousal (7B00&ndash;7B0Z)</b>, grouped with sleep terrors and confusional arousals in the sleep-wake chapter.</p>
+    </div>
+  </div>
+  <div class="ddx"><h5>Differential diagnosis (from ICD-10)</h5><p>From <b>psychomotor (temporal-lobe) epileptic seizures</b> &mdash; which very seldom occur only at night; during a seizure the person is completely unresponsive and perseverative movements (swallowing, hand-rubbing) are common, and EEG discharges confirm epilepsy. From <b>dissociative fugue (F44.1)</b> &mdash; there episodes are much longer, the person is more alert and capable of complex purposeful behaviour, and it typically begins during waking hours and is rare in children.</p></div>
+  <div class="remember"><h4>Remember</h4><p>&ldquo;<b>Walks in the first third, blank face, no memory, no epilepsy</b>&rdquo; &mdash; a deep-sleep arousal disorder, the twin of sleep terrors.</p></div>
+</section>
+
+<section id="f51-4">
+  <h2>F51.4 &middot; Sleep terrors (night terrors)</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F51 Nonorganic sleep disorders &rarr; parasomnia; the more intense twin of sleepwalking on the same arousal continuum.</p>
+  <p>Nocturnal episodes of extreme terror and panic with intense vocalisation, motility and high autonomic discharge. The person sits or gets up with a panicky scream, usually in the first third of the night, often appearing to try to escape, and is at great risk of injury; efforts to intervene may intensify the fear.</p>
+  <div class="g2">
+    <div class="panel10"><h4><span class="tag t10">ICD-10 guidelines (F51.4)</span></h4>
+      <ul class="t">
+        <li><b>(a)</b> one or more episodes of waking from sleep with a panicky scream, marked by intense anxiety, body motility and autonomic hyperactivity (tachycardia, rapid breathing, dilated pupils, sweating);</li>
+        <li><b>(b)</b> episodes typically last 1&ndash;10 minutes, usually in the first third of the night;</li>
+        <li><b>(c)</b> relative unresponsiveness to others' efforts, almost invariably followed by at least several minutes of disorientation and perseverative movements;</li>
+        <li><b>(d)</b> recall of the event, if any, is minimal (one or two fragmentary images);</li>
+        <li><b>(e)</b> no evidence of a physical disorder such as brain tumour or epilepsy.</li>
+      </ul>
+    </div>
+    <div class="panel11"><h4><span class="tag t11">ICD-11 (Chapter 07)</span></h4>
+      <p>Also a <b>non-REM disorder of arousal (7B00&ndash;7B0Z)</b> in the sleep-wake chapter, sitting on the same continuum as sleepwalking.</p>
+    </div>
+  </div>
+  <div class="ddx"><h5>Differential diagnosis (from ICD-10)</h5><p>From <b>nightmares (F51.5)</b> &mdash; those are the common &ldquo;bad dreams&rdquo; with little vocalisation/motility, occurring at any time of night, from which the person wakes easily with detailed, vivid recall. From <b>epileptic seizures</b> &mdash; which seldom occur only at night; an abnormal EEG favours epilepsy.</p></div>
+  <div class="remember"><h4>Remember &mdash; terrors vs nightmares</h4><p><b>Terrors:</b> first third of night, scream + autonomic storm, no recall, hard to wake. <b>Nightmares:</b> later (REM) portion, vivid recall, easy to wake.</p></div>
+</section>
+
+<section id="f51-5">
+  <h2>F51.5 &middot; Nightmares</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F51 Nonorganic sleep disorders &rarr; parasomnia arising from REM sleep, with full vivid recall.</p>
+  <div class="panel10"><h4><span class="tag t10">ICD-10 guidelines (F51.5)</span></h4>
+    <p>Nightmares are dream experiences loaded with anxiety or fear of which the individual has very detailed recall. The dream experiences are extremely vivid and usually involve threats to survival, security or self-esteem. For a definite diagnosis: <b>(a)</b> waking from sleep (during the second half of the sleep period) with detailed and vivid recall of intensely frightening dreams, usually involving threats to survival, security or self-esteem; <b>(b)</b> on waking, the person rapidly becomes oriented and alert; <b>(c)</b> the dream experience, and the disturbed sleep resulting from waking, cause marked distress.</p>
+  </div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11 (Chapter 07)</span></h4>
+    <p>Classified as <b>nightmare disorder</b> within the <b>REM-related parasomnias (7B01)</b> of the sleep-wake chapter.</p>
+  </div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>From <b>sleep terrors</b> (first third of night, autonomic storm, little/no recall, hard to rouse). Consider <b>PTSD</b> when nightmares replay a specific trauma. Certain drugs (e.g. some antidepressants, beta-blockers, dopaminergic agents) and their withdrawal can precipitate nightmares.</p></div>
+  <div class="remember"><h4>Remember</h4><p>&ldquo;<b>Vivid recall, wakes fully, second half of night</b>&rdquo; &mdash; the REM-sleep parasomnia, opposite in profile to the deep-sleep terrors.</p></div>
+  <h3>Treatment of the parasomnias (F51.3&ndash;F51.5)</h3>
+  <ul class="t"><li><b>Reassurance &amp; safety</b> (bedroom safety for sleepwalkers) &mdash; most childhood cases remit spontaneously.</li><li><b>Behavioural:</b> scheduled awakenings; good sleep hygiene; reduce sleep deprivation and stress. For recurrent nightmares/PTSD, <b>image rehearsal therapy</b>.</li><li><b>Pharmacological (only if severe):</b> short-term low-dose clonazepam for arousal parasomnias; <b>prazosin</b> for trauma-related nightmares.</li></ul>
+</section>
+
+
+<!-- ═══════════════════════ F52 SEXUAL DYSFUNCTION ═══════════════════════ -->
+<section id="f52">
+  <h2>F52 &middot; Sexual dysfunction, not caused by organic disorder or disease</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F52 is the sexual-dysfunction group within F50&ndash;F59, restricted in ICD-10 to <b>nonorganic</b> dysfunctions. In ICD-11 the whole area was <b>moved out of the mental-disorders chapter</b> into the new chapter <b>Conditions related to sexual health</b> (Sexual dysfunctions HA00&ndash;HA0Z; sexual pain-penetration disorders HA20), which deliberately integrates physical and psychological causes rather than splitting them.</p>
+  <p>Sexual dysfunction covers the various ways in which a person is unable to participate in a sexual relationship as they would wish &mdash; lack of interest, lack of enjoyment, failure of the physiological responses needed for effective sexual interaction (e.g. erection), or an inability to control or experience orgasm. Sexual response is a psychosomatic process; both psychological and somatic processes are usually involved.</p>
+  <div class="note"><b>How ICD-11 reframes this.</b> ICD-11 organises sexual dysfunctions by the phase/response affected (desire, arousal, orgasm) and adds an <b>etiological set of qualifiers</b> so a clinician records whether the cause is organic, psychological, both, or related to substances/medication &mdash; abandoning ICD-10's up-front &ldquo;nonorganic only&rdquo; boundary. It also groups the pain conditions (vaginismus, dyspareunia) together as <b>sexual pain-penetration disorder</b>.</p></div>
+  <div class="excl"><b>ICD-10 Excludes (from F52):</b> Dhat syndrome and koro (coded under F48.8) &mdash; culture-related syndromes not classified as sexual dysfunctions.</div>
+  <h3>Etiology &amp; psychological model</h3>
+  <div class="psych"><h4>The psychological model (Masters &amp; Johnson / Kaplan)</h4>
+    <p><span class="tag tother">Other evidence</span> Performance anxiety and &ldquo;spectatoring&rdquo; (self-monitoring during sex instead of engaging) set up a self-perpetuating cycle of failure. Kaplan's triphasic model (desire &rarr; arousal &rarr; orgasm) organises dysfunctions by the phase affected and underpins sex therapy techniques (sensate focus, stop-start).</p>
+  </div>
+  <div class="assoc"><h4>Comorbidities</h4><p>Depression and anxiety disorders, relationship distress, alcohol/substance use, and the sexual side-effects of medication (notably SSRIs and antihypertensives). Organic contributors (diabetes, vascular disease, hormonal changes, pelvic pathology) must always be considered.</p></div>
+  <h3>Treatment (general)</h3>
+  <ul class="t"><li><b>Psychological:</b> sex therapy &mdash; sensate focus, communication work, cognitive work on performance anxiety; couple therapy where relevant.</li><li><b>Pharmacological:</b> targeted to the specific dysfunction (see each subtype); always review contributing medication and treat organic factors.</li></ul>
+</section>
+
+<section id="f52-0">
+  <h2>F52.0 &middot; Lack or loss of sexual desire</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F52 Sexual dysfunction &rarr; a <i>desire-phase</i> problem.</p>
+  <div class="panel10"><h4><span class="tag t10">ICD-10 (F52.0)</span></h4>
+    <p>Loss of sexual desire is the principal problem and is not secondary to other sexual difficulties such as erectile failure or dyspareunia. Lack of desire does not preclude sexual enjoyment or arousal, but makes the initiation of sexual activity less likely.</p>
+    <div class="incl" style="margin-top:8px"><b>Includes:</b> frigidity; hypoactive sexual desire disorder.</div>
+  </div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11</span></h4><p><b>HA00 Hypoactive sexual desire dysfunction</b> in the sexual-health chapter, with etiological qualifiers to record organic/psychological/mixed contributions.</p></div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>From desire that is low only <b>because</b> of another dysfunction (erectile failure, pain) &mdash; there desire loss is secondary. From depression, hormonal deficiency, and medication effects (which reduce libido). From relationship-specific rather than generalised loss of desire.</p></div>
+  <div class="remember"><h4>Remember</h4><p>&ldquo;<b>Won't start</b> &mdash; desire is the primary problem, arousal/orgasm may still work.&rdquo;</p></div>
+</section>
+
+<section id="f52-1">
+  <h2>F52.1 &middot; Sexual aversion and lack of sexual enjoyment</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F52 Sexual dysfunction &rarr; two coded sub-subtypes with their own criteria.</p>
+  <div class="panel10"><h4><span class="tag t10">ICD-10 (F52.1 &mdash; two sub-subtypes)</span></h4>
+    <ul class="t">
+      <li><b>F52.10 Sexual aversion:</b> the prospect of sexual interaction with a partner is associated with strong negative feelings and produces sufficient fear or anxiety that sexual activity is avoided.</li>
+      <li><b>F52.11 Lack of sexual enjoyment:</b> sexual responses occur normally and orgasm is experienced, but there is a lack of appropriate pleasure. Much more common in women than in men.</li>
+    </ul>
+    <div class="incl" style="margin-top:8px"><b>Includes:</b> anhedonia (sexual).</div>
+  </div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11</span></h4><p>Sexual aversion is handled under the sexual-health chapter's aversion category, and lack of enjoyment within the arousal/desire framework (HA0-range), with etiological qualifiers.</p></div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>Aversion: from a specific phobia and from PTSD after sexual trauma; from low desire (F52.0) where the feeling is indifference rather than fear/disgust. Lack of enjoyment: from orgasmic dysfunction (F52.3, where orgasm itself fails) &mdash; here orgasm occurs but pleasure is absent.</p></div>
+  <div class="remember"><h4>Remember</h4><p><b>Aversion = fear/disgust of sex; anhedonia = sex happens but gives no pleasure.</b></p></div>
+</section>
+
+<section id="f52-2">
+  <h2>F52.2 &middot; Failure of genital response</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F52 Sexual dysfunction &rarr; an <i>arousal-phase</i> problem (erection in men, lubrication in women).</p>
+  <div class="panel10"><h4><span class="tag t10">ICD-10 (F52.2)</span></h4>
+    <p><b>In men</b>, the principal problem is erectile dysfunction &mdash; difficulty developing or maintaining an erection suitable for satisfactory intercourse. If erection occurs normally in some situations (during masturbation, sleep, or with a different partner) the cause is likely psychogenic. <b>In women</b>, the principal problem is vaginal dryness or failure of lubrication, which may be psychogenic, pathological (e.g. infection) or due to oestrogen deficiency (e.g. postmenopausal).</p>
+    <div class="incl" style="margin-top:8px"><b>Includes:</b> female sexual arousal disorder; male erectile disorder; psychogenic impotence.</div>
+  </div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11</span></h4><p><b>HA01 Sexual arousal dysfunctions</b> (including male erectile dysfunction and female sexual arousal dysfunction) with organic/psychological/mixed qualifiers.</p></div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>Psychogenic vs organic erectile dysfunction: preserved nocturnal/masturbatory erections and situational pattern point to psychogenic; investigations (e.g. nocturnal penile tumescence) may be needed. Exclude vascular disease, diabetes, neurological disease and drug effects. In women, distinguish oestrogen-deficiency dryness and infection from a psychogenic arousal problem.</p></div>
+  <div class="remember"><h4>Remember</h4><p>&ldquo;<b>Body won't respond</b> &mdash; erection/lubrication fails. Situational failure hints psychogenic; total failure hints organic.&rdquo;</p></div>
+  <p><b>Treatment (men):</b> PDE-5 inhibitors (e.g. sildenafil) plus addressing anxiety and relationship factors; <b>(women):</b> lubricants/local oestrogen for dryness, plus psychological therapy.</p>
+</section>
+
+<section id="f52-3">
+  <h2>F52.3 &middot; Orgasmic dysfunction</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F52 Sexual dysfunction &rarr; an <i>orgasm-phase</i> problem.</p>
+  <div class="panel10"><h4><span class="tag t10">ICD-10 (F52.3)</span></h4>
+    <p>Orgasm either does not occur or is markedly delayed. This may be situational (occurring only in certain situations &mdash; etiology likely psychogenic) or invariable (when physical/constitutional factors cannot easily be excluded except by a positive response to psychological treatment). More common in women than in men.</p>
+    <div class="incl" style="margin-top:8px"><b>Includes:</b> inhibited orgasm (male/female); psychogenic anorgasmy.</div>
+  </div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11</span></h4><p><b>HA02 Orgasmic dysfunctions</b> (anorgasmia and, in men, male delayed ejaculation-type problems) in the sexual-health chapter, with etiological qualifiers.</p></div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>Situational (psychogenic) vs invariable (consider organic/constitutional). From arousal failure (F52.2, where the problem is earlier in the cycle) and from lack of enjoyment (F52.1, where orgasm occurs but without pleasure). Exclude drug effects (notably SSRIs) and neurological/pelvic causes.</p></div>
+  <div class="remember"><h4>Remember</h4><p>&ldquo;<b>Arousal is fine, the finish fails</b>&rdquo; &mdash; orgasm absent or much delayed. Situational favours psychogenic.</p></div>
+</section>
+
+<section id="f52-4">
+  <h2>F52.4 &middot; Premature ejaculation</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F52 Sexual dysfunction &rarr; a male orgasm-timing problem.</p>
+  <div class="panel10"><h4><span class="tag t10">ICD-10 (F52.4)</span></h4>
+    <p>The inability to control ejaculation sufficiently for both partners to enjoy sexual interaction. In severe cases ejaculation may occur before vaginal entry or in the absence of an erection. Usually not organic, but can arise as a psychological reaction to organic impairment (e.g. erectile failure or pain). If erection requires prolonged stimulation, apparent &ldquo;prematurity&rdquo; may really be a problem of delayed erection.</p>
+  </div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11</span></h4><p><b>HA03 Ejaculatory dysfunctions</b> (including premature/early ejaculation and delayed ejaculation) in the sexual-health chapter.</p></div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>From apparent prematurity that is really <b>delayed erection</b> requiring prolonged stimulation; from a secondary reaction to erectile dysfunction or genital pain (treat the primary problem). Consider withdrawal from opioids or other substances.</p></div>
+  <div class="remember"><h4>Remember</h4><p>&ldquo;<b>Finishes too soon, cannot control the timing</b>&rdquo; &mdash; check it is not really a delayed-erection problem in disguise.</p></div>
+  <p><b>Treatment:</b> behavioural stop-start/squeeze techniques; topical anaesthetics; SSRIs (e.g. dapoxetine or off-label daily SSRI) to delay ejaculation.</p>
+</section>
+
+<section id="f52-5">
+  <h2>F52.5 &middot; Nonorganic vaginismus</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F52 Sexual dysfunction &rarr; a sexual-pain / penetration problem.</p>
+  <div class="panel10"><h4><span class="tag t10">ICD-10 (F52.5)</span></h4>
+    <p>Spasm of the muscles that surround the vagina, causing occlusion of the vaginal opening. Penile entry is either impossible or painful. Vaginismus may be a secondary reaction to some local cause of pain, in which case this category should <b>not</b> be used.</p>
+    <div class="incl" style="margin-top:8px"><b>Includes:</b> psychogenic vaginismus.</div>
+  </div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11</span></h4><p>Grouped with dyspareunia as <b>HA20 Sexual pain-penetration disorder</b> &mdash; ICD-11 combines the muscular/spasm and pain aspects into one condition rather than two.</p></div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>From vaginismus that is <b>secondary to a local painful condition</b> (infection, scarring, atrophy &mdash; treat the physical cause; do not use this code). From dyspareunia (F52.6) where pain, not muscle spasm preventing entry, is the leading feature (in ICD-11 these merge).</p></div>
+  <div class="remember"><h4>Remember</h4><p>&ldquo;<b>Muscles clamp shut &mdash; entry blocked</b>&rdquo; &mdash; not used if there is a local physical cause of pain.</p></div>
+</section>
+
+<section id="f52-6">
+  <h2>F52.6 &middot; Nonorganic dyspareunia</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F52 Sexual dysfunction &rarr; a sexual-pain / penetration problem.</p>
+  <div class="panel10"><h4><span class="tag t10">ICD-10 (F52.6)</span></h4>
+    <p>Dyspareunia (pain during sexual intercourse) occurs in both women and men. It can often be attributed to a local pathological condition and should then be appropriately categorised (physically). This category is used <b>only if there is no other more primary sexual dysfunction</b> (e.g. vaginismus or vaginal dryness) and where no obvious cause is apparent and emotional factors may be important.</p>
+    <div class="incl" style="margin-top:8px"><b>Includes:</b> psychogenic dyspareunia.</div>
+  </div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11</span></h4><p>Merged with vaginismus as <b>HA20 Sexual pain-penetration disorder</b>.</p></div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>From dyspareunia due to a <b>local physical condition</b> (infection, endometriosis, atrophy &mdash; code physically); from vaginismus (F52.5) where muscle spasm prevents entry; from vaginal dryness (F52.2). Use F52.6 only when a more primary dysfunction and a physical cause have been excluded.</p></div>
+  <div class="remember"><h4>Remember</h4><p>&ldquo;<b>Pain with sex, no physical cause, no other primary dysfunction</b>&rdquo; &mdash; ICD-11 folds this into sexual pain-penetration disorder.</p></div>
+</section>
+
+<section id="f52-7">
+  <h2>F52.7 &middot; Excessive sexual drive</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F52 Sexual dysfunction &rarr; the one category about too much, not too little.</p>
+  <div class="panel10"><h4><span class="tag t10">ICD-10 (F52.7)</span></h4>
+    <p>Both men and women may occasionally complain of excessive sexual drive as a problem in its own right, usually during late teenage or early adulthood. When the excessive drive is secondary to an affective disorder (F30&ndash;F39) or occurs in the early stages of dementia (F00&ndash;F03), the underlying disorder should be coded.</p>
+    <div class="incl" style="margin-top:8px"><b>Includes:</b> nymphomania; satyriasis.</div>
+  </div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11</span></h4><p>ICD-11 does not treat high sexual drive as a sexual dysfunction; the related construct <b>Compulsive sexual behaviour disorder (6C72)</b> sits among <b>impulse-control disorders</b>, defined by a failure to control intense, repetitive sexual impulses causing distress/impairment.</p></div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>From a manic/hypomanic episode (F30&ndash;F31, where increased libido is one feature of the mood state) and from early dementia (F00&ndash;F03) &mdash; code the underlying disorder. In ICD-11, distinguish from compulsive sexual behaviour disorder (6C72).</p></div>
+  <div class="remember"><h4>Remember</h4><p>&ldquo;<b>Too much drive</b> &mdash; but first rule out mania and early dementia.&rdquo; ICD-11 recasts the compulsive form as an impulse-control disorder (6C72).</p></div>
+</section>
+
+
+<!-- ═══════════════════════ F53 PUERPERAL ═══════════════════════ -->
+<section id="f53">
+  <h2>F53 &middot; Mental and behavioural disorders associated with the puerperium, not elsewhere classified</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F53 is the perinatal group within F50&ndash;F59. In ICD-11 it becomes <b>6E20 / 6E21</b> in the mental-disorders chapter (mental or behavioural disorders associated with pregnancy, childbirth or the puerperium).</p>
+  <div class="warn"><b>A deliberately restrictive category.</b> ICD-10 says this classification should be used <b>only</b> for mental disorders associated with the puerperium (starting within <b>6 weeks of delivery</b>) that <b>do not meet the criteria for disorders classified elsewhere</b> &mdash; either because information is insufficient or because special additional features make classification elsewhere inappropriate. Usually it is instead possible to classify a puerperal mental disorder with two other codes: the specific type of mental disorder (most often an affective disorder, F30&ndash;F39) <b>plus</b> O99.3 (mental disorders complicating the puerperium). In other words, F53 is a last resort.</p></div>
+
+  <h3>Etiology, epidemiology &amp; psychology</h3>
+  <div class="psych"><h4>Biopsychosocial model of perinatal disorder</h4><p><span class="tag tks">Kaplan &amp; Sadock</span> Steep post-delivery falls in oestrogen and progesterone interact with sleep deprivation, a previous history of mood disorder, and psychosocial stressors (lack of support, relationship or financial strain) to precipitate perinatal illness.</p></div>
+  <ul class="t">
+    <li><b>&ldquo;Baby blues&rdquo;</b> (transient tearfulness) affect a large majority of mothers in the first days &mdash; normal, self-limiting, <b>not</b> a disorder.</li>
+    <li><b>Postnatal depression</b> affects roughly 10&ndash;15% of mothers.</li>
+    <li><b>Puerperal (postpartum) psychosis</b> is rare (about 1&ndash;2 per 1000 births) but a psychiatric emergency, with abrupt onset usually within the first two weeks; strongly linked to bipolar disorder.</li>
+  </ul>
+  <div class="assoc"><h4>Comorbidities / associations</h4><p>Prior mood disorder (especially bipolar disorder, the strongest risk factor for puerperal psychosis), anxiety disorders, and psychosocial adversity. Untreated illness carries risk to mother-infant bonding and, in severe cases, to the safety of mother and infant.</p></div>
+</section>
+
+<section id="f53-0">
+  <h2>F53.0 &middot; Mild mental and behavioural disorders associated with the puerperium</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F53 Puerperal disorders &rarr; the milder presentation.</p>
+  <div class="panel10"><h4><span class="tag t10">ICD-10 (F53.0)</span></h4><p>For mild puerperal mental/behavioural disorders not classifiable elsewhere. <b>Includes:</b> postnatal depression NOS; postpartum depression NOS.</p></div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11 (6E20)</span></h4><p><b>6E20 Mental or behavioural disorders associated with pregnancy, childbirth or the puerperium, without psychotic symptoms</b> &mdash; used with an additional code to specify the syndrome (e.g. a depressive episode). Onset during pregnancy or within about 6 weeks postpartum.</p></div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>From the normal, transient <b>&ldquo;baby blues&rdquo;</b> (brief, self-limiting, not impairing); from a depressive or anxiety disorder that <b>does</b> meet full criteria (which should be coded as such, plus the perinatal specifier) &mdash; F53 is reserved for the residual case; from thyroid dysfunction and anaemia after delivery.</p></div>
+  <div class="remember"><h4>Remember</h4><p>&ldquo;<b>Mild, within 6 weeks, doesn't fit elsewhere &rarr; F53.0</b>&rdquo; &mdash; but if it meets full depression criteria, code the depression + perinatal specifier instead.</p></div>
+  <p><b>Treatment:</b> psychological therapy (CBT/IPT) first-line for mild-moderate cases; antidepressants where indicated, with attention to breastfeeding safety; psychosocial support.</p>
+</section>
+
+<section id="f53-1">
+  <h2>F53.1 &middot; Severe mental and behavioural disorders associated with the puerperium</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F53 Puerperal disorders &rarr; the severe/psychotic presentation &mdash; a psychiatric emergency.</p>
+  <div class="panel10"><h4><span class="tag t10">ICD-10 (F53.1)</span></h4><p>For severe puerperal mental/behavioural disorders not classifiable elsewhere. <b>Includes:</b> puerperal psychosis NOS.</p></div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11 (6E21)</span></h4><p><b>6E21 Mental or behavioural disorders associated with pregnancy, childbirth or the puerperium, with psychotic symptoms</b> &mdash; used with an additional code for the specific syndrome. Captures postpartum psychosis (often an affective psychosis).</p></div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>From an <b>organic/delirious state</b> after delivery (infection, eclampsia, thyroid storm, medication) &mdash; must be excluded urgently; from a first presentation of <b>bipolar disorder or schizophrenia</b> that meets full criteria (code as such plus perinatal specifier). Rapid fluctuation, confusion and mood-congruent psychosis are typical of puerperal psychosis.</p></div>
+  <div class="unique"><h4>Unique / emergency features</h4><p>Abrupt onset in the first 1&ndash;2 weeks; rapidly fluctuating (&ldquo;kaleidoscopic&rdquo;) psychotic and mood symptoms, perplexity and confusion; strong link to bipolar disorder; significant risk of harm to self or infant. Requires <b>urgent psychiatric assessment</b>, usually admission (ideally to a mother-and-baby unit).</p></div>
+  <div class="remember"><h4>Remember</h4><p>&ldquo;<b>Sudden, severe, psychotic, first 2 weeks &mdash; emergency</b>&rdquo; &mdash; think bipolar link; exclude organic causes; admit.</p></div>
+  <p><b>Treatment:</b> urgent admission; antipsychotic and/or mood stabiliser (lithium is effective but affects breastfeeding decisions); ECT for severe/refractory or high-risk cases; ensure infant safety.</p>
+</section>
+
+<!-- ═══════════════════════ F54 PSYCH FACTORS ═══════════════════════ -->
+<section id="f54">
+  <h2>F54 &middot; Psychological and behavioural factors associated with disorders or diseases classified elsewhere</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F54 stands alone in F50&ndash;F59 &mdash; it is not a disorder but a coding note that psychological factors are affecting a <i>physical</i> illness. In ICD-11 it becomes <b>6E40</b>.</p>
+  <div class="panel10"><h4><span class="tag t10">ICD-10 (F54)</span></h4>
+    <p>Used to record the presence of <b>psychological or behavioural influences thought to have played a major part</b> in the manifestation of physical disorders classifiable in other ICD chapters. Any resulting mental disturbance is usually mild and often prolonged (worry, emotional conflict, apprehension) and does not itself justify another category. An <b>additional code must be used to identify the physical disorder</b>. Classic examples: asthma (F54 + J45), dermatitis/eczema (F54 + L23&ndash;L25), gastric ulcer (F54 + K25), mucous colitis (F54 + K58), ulcerative colitis (F54 + K51), urticaria (F54 + L50).</p>
+    <div class="incl" style="margin-top:8px"><b>Includes:</b> psychological factors affecting physical conditions. <b>Excludes:</b> tension-type headache (G44.2).</div>
+  </div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11 (6E40)</span></h4>
+    <p><b>6E40 Psychological or behavioural factors affecting disorders or diseases classified elsewhere.</b> The concept is retained: a documented medical condition is present, and psychological/behavioural factors adversely affect its course, treatment or presentation (e.g. anxiety worsening asthma, non-adherence, denial delaying care). Coded alongside the physical condition. This is the classic home of the old idea of &ldquo;psychosomatic&rdquo; illness.</p>
+  </div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>From <b>bodily distress disorder / somatoform disorders</b> (there the distressing bodily symptoms are the focus and may lack a fully explanatory physical disease); from a diagnosable <b>mental disorder</b> (anxiety, depression) that meets full criteria in its own right &mdash; then code that disorder; from factitious disorder and malingering (intentional production of symptoms). F54/6E40 requires a genuine, separately coded physical disease that the psychological factors are influencing.</p></div>
+  <div class="remember"><h4>Remember</h4><p>&ldquo;<b>Real physical illness + mind makes it worse &rarr; F54 (6E40), always with the physical code</b>&rdquo; &mdash; the &ldquo;psychosomatic&rdquo; label. Think asthma, ulcer, eczema, colitis.</p></div>
+</section>
+
+
+<!-- ═══════════════════════ F55 NON-DEPENDENCE ABUSE ═══════════════════════ -->
+<section id="f55">
+  <h2>F55 &middot; Abuse of non-dependence-producing substances</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F55 is the final substantive category in F50&ndash;F59. It is distinct from F10&ndash;F19: these substances do <b>not</b> cause dependence or a withdrawal state. ICD-11 <b>dropped this as a mental disorder</b>, handling it through health-status factor codes (QE range).</p>
+  <div class="panel10"><h4><span class="tag t10">ICD-10 (F55)</span></h4>
+    <p>A wide variety of medicaments, proprietary (over-the-counter) drugs and folk remedies may be involved, but three groups are particularly important: <b>psychotropic drugs that do not produce dependence</b> (such as antidepressants); <b>laxatives</b>; and <b>analgesics</b> that can be bought without prescription (such as aspirin and paracetamol). Although the medication may initially have been prescribed or recommended, a pattern of <b>prolonged, unnecessary and often excessive dosage</b> develops, facilitated by availability without prescription. There is unnecessary expense, often needless contact with medical professionals, and sometimes harmful physical effects. Attempts to discourage use are met with resistance &mdash; even despite warnings about, or actual, physical problems such as renal dysfunction or electrolyte disturbance.</p>
+    <div class="warn" style="margin-top:8px"><b>The defining line.</b> Although the person clearly has a strong motivation to take the substance, there is <b>no development of dependence</b> (as in Flx.2) and <b>no withdrawal state</b> (as in Flx.3) of the kind seen with the psychoactive substances in F10&ndash;F19. A fourth character identifies the substance type.</div>
+  </div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11</span></h4>
+    <p>ICD-11 does <b>not</b> retain &ldquo;abuse of non-dependence-producing substances&rdquo; as a mental-disorder diagnosis. The situation is captured with <b>health-status / factors-influencing-health codes (QE range)</b> &mdash; for example, harmful non-medical use of, or problems related to, such substances &mdash; recorded alongside any physical consequence. Genuinely dependence-producing use always belongs in the substance-use disorders grouping (6C40&ndash;6C4G), not here.</p>
+  </div>
+
+  <div class="subtype"><h4>ICD-10 fourth-character subtypes of F55 (each names the substance being abused)</h4>
+    <ul class="t">
+      <li><b>F55.0 Antidepressants</b> &mdash; such as tricyclic and tetracyclic antidepressants and monoamine-oxidase inhibitors (non-dependence-producing but misused).</li>
+      <li><b>F55.1 Laxatives</b> &mdash; chronic misuse; risk of electrolyte disturbance and bowel dysfunction; overlaps with eating disorders.</li>
+      <li><b>F55.2 Analgesics</b> &mdash; non-opioid painkillers such as aspirin and paracetamol; risk of renal and gastric harm (note: opioids are dependence-producing and belong in F11, not here).</li>
+      <li><b>F55.3 Antacids</b> &mdash; excessive habitual use.</li>
+      <li><b>F55.4 Vitamins</b> &mdash; excessive self-medication with vitamin preparations.</li>
+      <li><b>F55.5 Steroids or hormones</b> &mdash; misuse of steroid/hormone preparations.</li>
+      <li><b>F55.6 Specific herbal or folk remedies.</b></li>
+      <li><b>F55.8 Other substances that do not produce dependence.</b></li>
+      <li><b>F55.9 Unspecified.</b></li>
+    </ul>
+  </div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>From <b>dependence syndrome / harmful use of psychoactive substances (F10&ndash;F19)</b> &mdash; the decisive difference is the <b>absence</b> of a true dependence syndrome and withdrawal state here. From <b>eating disorders</b> where laxative/appetite-suppressant misuse serves weight control (code the eating disorder). From <b>factitious disorder</b> (deliberate feigning) and from legitimate, appropriate medical use. From <b>somatoform/hypochondriacal</b> presentations driving medication-seeking.</p></div>
+  <div class="remember"><h4>Easy way to remember &mdash; &ldquo;LAVA-SASH&rdquo; substances + the key rule</h4>
+    <p><b>L</b>axatives &middot; <b>A</b>ntidepressants &middot; <b>V</b>itamins &middot; <b>A</b>ntacids &middot; <b>S</b>teroids/hormones &middot; <b>A</b>nalgesics &middot; <b>S</b>pecific herbal/folk remedies &middot; <b>H</b>armful other. <b>Key rule:</b> strong urge to use, but <b>no dependence, no withdrawal</b> &mdash; that is what puts it in F55 and not in F10&ndash;F19.</p>
+  </div>
+  <h3>Treatment</h3>
+  <ul class="t"><li>Psychoeducation about the harms; treat any physical complications (electrolytes, renal, gastric).</li><li>Treat any underlying disorder driving the misuse (depression, an eating disorder, health anxiety).</li><li>Behavioural strategies to reduce use and manage the health-anxiety or reassurance-seeking that maintains it.</li></ul>
+</section>
+
+<!-- ═══════════════════════ F59 ═══════════════════════ -->
+<section id="f59">
+  <h2>F59 &middot; Unspecified behavioural syndromes associated with physiological disturbances and physical factors</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F59 is the residual code closing the F50&ndash;F59 block.</p>
+  <div class="panel10"><h4><span class="tag t10">ICD-10 (F59)</span></h4><p>The residual category for the block. <b>Includes:</b> psychogenic physiological dysfunction NOS. Used when a behavioural syndrome linked to a physiological disturbance is present but cannot be assigned to F50&ndash;F55.</p></div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11</span></h4><p>No single equivalent: because ICD-11 dispersed this block across several chapters, each destination has its own &ldquo;other specified&rdquo; and &ldquo;unspecified&rdquo; residual codes (e.g. 6B8Y/6B8Z for feeding and eating disorders).</p></div>
+  <p><i>As a purely residual, unspecified category, F59 has no meaningful stand-alone differential diagnosis; the task is to identify a more specific category wherever possible.</i></p>
+</section>
+
+
+<!-- ═══════════════════════ REFERENCES ═══════════════════════ -->
+<section id="references">
+  <h2>References and Source Attribution</h2>
+  <p>Diagnostic terminology and criteria (including the includes/excludes and differential-diagnosis notes) are drawn strictly from the two official WHO classifications; clinical elaboration and psychological theories are drawn from standard psychiatric and psychological texts and peer-reviewed literature, each labelled inline with a source tag. A central teaching point of this block is that ICD-11 relocated much of ICD-10's F50&ndash;F59 into other chapters (sleep-wake disorders; conditions related to sexual health; perinatal and psychological-factor categories), which is reflected throughout.</p>
+  <ul class="t">
+    <li><span class="tag t10">ICD-10</span> World Health Organization. <i>The ICD-10 Classification of Mental and Behavioural Disorders: Clinical Descriptions and Diagnostic Guidelines.</i> Geneva: World Health Organization, 1992.</li>
+    <li><span class="tag t11">ICD-11</span> World Health Organization. <i>Clinical Descriptions and Diagnostic Requirements for ICD-11 Mental, Behavioural and Neurodevelopmental Disorders</i>, and the ICD-11 chapters on Sleep-wake disorders and Conditions related to sexual health. Geneva: World Health Organization.</li>
+    <li><span class="tag tks">Kaplan &amp; Sadock</span> Sadock BJ, Sadock VA, Ruiz P. <i>Kaplan &amp; Sadock's Synopsis of Psychiatry</i> and <i>Comprehensive Textbook of Psychiatry</i> (etiology, epidemiology, clinical features and treatment; content paraphrased).</li>
+    <li><span class="tag tother">Other evidence</span> Fairburn's transdiagnostic cognitive-behavioural model of eating disorders; Bruch and Minuchin on anorexia and the family; Spielman's 3-P (predisposing/precipitating/perpetuating) model of insomnia; Masters &amp; Johnson and Kaplan's models of the sexual response cycle; and peer-reviewed epidemiological reviews. Content was rephrased for compliance with licensing restrictions.</li>
+  </ul>
+  <div class="warn"><b>Note on use.</b> This is an educational study reference for M.Phil. Clinical Psychology. Diagnostic criteria are paraphrased from the ICD sources without reproducing copyrighted text at length; secondary-source content has been rephrased for compliance with licensing restrictions. It is not a substitute for the full official classifications or for individual clinical and medical judgement, and it is not a prescribing guide.</div>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+</main>
+</div>
+
+<footer>
+  <p><strong>ICD-10 &amp; ICD-11 Comparative Clinical Handbook &mdash; F50&ndash;F59 Behavioural Syndromes Associated with Physiological Disturbances and Physical Factors</strong></p>
+  <p>Fully comprehensive edition &middot; every disorder and subtype detailed with its own ICD-10 &amp; ICD-11 criteria, includes/excludes, and differential diagnosis &middot; etiology (with psychological theories), epidemiology, comorbidities, mnemonics and treatment &middot; terminology explained in plain language &middot; showing where ICD-11 relocated the sleep-wake and sexual-health disorders.</p>
+  <p style="margin-top:14px;font-size:1rem;color:#fff;letter-spacing:.04em">Made by <strong>Tejas Dangodra</strong></p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ICD-10 &amp; ICD-11 Comparative Handbook — F80–F89 Disorders of Psychological Development</title>
+<style>
+:root{
+  --deep:#0a2540;--accent:#0e6655;--icd10:#1a5276;--icd11:#1e8449;
+  --ks:#7d3c98;--other:#b9770e;--bg:#f4f6f9;--card:#ffffff;
+  --ink:#1c2833;--muted:#5d6d7e;--line:#d5dbdb;--soft:#eaf2f8;
+  --warn:#922b21;--uniq:#6c3483;--surface:#fdfefe;--psych:#1f6f8b;--ddx:#0b6b5f;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.72;font-size:16px}
+.cover{background:linear-gradient(160deg,#0a2540 0%,#154360 40%,#0e6655 100%);color:#fff;padding:60px 30px 50px;text-align:center}
+.cover .subtitle{text-transform:uppercase;letter-spacing:.3em;font-size:.72rem;opacity:.7;margin-bottom:16px}
+.cover h1{font-size:2.05rem;font-weight:800;line-height:1.22;margin-bottom:12px;max-width:940px;display:inline-block}
+.cover .tagline{font-size:1.05rem;font-weight:400;opacity:.9;max-width:820px;margin:0 auto 22px}
+.cover .chips{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-bottom:18px}
+.cover .chip{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);border-radius:6px;padding:5px 14px;font-size:.82rem}
+.cover .srcline{font-size:.8rem;opacity:.65;max-width:760px;margin:0 auto}
+.wrap{max-width:1160px;margin:0 auto;padding:0 22px}
+.layout{display:flex;gap:28px;align-items:flex-start}
+nav.toc{position:sticky;top:0;max-height:100vh;overflow-y:auto;flex:0 0 288px;padding:20px 12px 60px;font-size:.82rem;border-right:1px solid var(--line);background:var(--surface)}
+nav.toc h4{margin:18px 0 6px;color:var(--accent);text-transform:uppercase;font-size:.68rem;letter-spacing:.08em;font-weight:700}
+nav.toc a{display:block;color:var(--muted);text-decoration:none;padding:4px 10px;border-radius:6px;border-left:3px solid transparent;transition:all .15s}
+nav.toc a:hover{background:var(--soft);color:var(--icd10);border-left-color:var(--icd10)}
+nav.toc a.sub{padding-left:22px;font-size:.79rem}
+main{flex:1 1 auto;min-width:0;padding:28px 0 100px}
+section{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:28px 30px;margin:0 0 26px;scroll-margin-top:16px;box-shadow:0 1px 3px rgba(10,37,64,.04)}
+h2{font-size:1.45rem;color:var(--deep);border-bottom:3px solid var(--accent);padding-bottom:10px;margin-bottom:14px;font-weight:800}
+h3{font-size:1.1rem;color:var(--accent);margin:26px 0 8px;font-weight:700;padding-left:14px;border-left:4px solid var(--accent)}
+h4{font-size:.98rem;margin:16px 0 6px;font-weight:700;color:var(--deep)}
+p{margin:.55em 0}
+.tag{display:inline-block;font-size:.64rem;font-weight:700;padding:2px 9px;border-radius:4px;color:#fff;vertical-align:middle;letter-spacing:.02em}
+.t10{background:var(--icd10)}.t11{background:var(--icd11)}.tks{background:var(--ks)}.tother{background:var(--other)}
+b.cl{color:var(--deep);font-weight:700}
+i.si{color:var(--uniq);font-style:normal;font-weight:500}
+table{border-collapse:collapse;width:100%;margin:16px 0;font-size:.89rem;border-radius:10px;overflow:hidden;box-shadow:0 0 0 1px var(--line)}
+th,td{border:1px solid var(--line);padding:10px 12px;text-align:left;vertical-align:top}
+th{background:var(--deep);color:#fff;font-weight:600;font-size:.79rem;text-transform:uppercase;letter-spacing:.03em}
+tr:nth-child(even) td{background:#f8fafb}
+.c10{background:#eaf2f8!important}.c11{background:#eafaf1!important}
+.panel10{border-left:5px solid var(--icd10);background:#edf2f8;border-radius:0 10px 10px 0;padding:16px 20px;margin:14px 0}
+.panel11{border-left:5px solid var(--icd11);background:#edfaf1;border-radius:0 10px 10px 0;padding:16px 20px;margin:14px 0}
+.panel10 h4,.panel11 h4{margin:0 0 8px;padding-left:0;border-left:none}
+.note{border-left:5px solid var(--accent);background:var(--soft);padding:14px 18px;border-radius:0 10px 10px 0;margin:14px 0}
+.warn{border-left:5px solid var(--warn);background:#fdedec;padding:14px 18px;border-radius:0 10px 10px 0;margin:14px 0}
+.incl{border-left:5px solid var(--icd11);background:#eefaf2;padding:12px 16px;border-radius:0 8px 8px 0;margin:10px 0;font-size:.9rem}
+.excl{border-left:5px solid var(--warn);background:#fdf0ee;padding:12px 16px;border-radius:0 8px 8px 0;margin:10px 0;font-size:.9rem}
+.unique{border:2px solid var(--uniq);background:#f5eef8;border-radius:12px;padding:16px 20px;margin:16px 0}
+.unique h4{color:var(--uniq);margin:0 0 10px;border-left:none;padding-left:0}
+.assoc{border:2px solid var(--warn);background:#fdf0ee;border-radius:12px;padding:16px 20px;margin:16px 0}
+.assoc h4{color:var(--warn);margin:0 0 10px;border-left:none;padding-left:0}
+.psych{border:2px solid var(--psych);background:#eaf4f7;border-radius:12px;padding:16px 20px;margin:16px 0}
+.psych h4{color:var(--psych);margin:0 0 10px;border-left:none;padding-left:0}
+.subtype{border:2px solid #1a5276;background:#eef3f8;border-radius:12px;padding:18px 22px;margin:18px 0}
+.subtype h4{color:#1a5276;margin:0 0 10px;border-left:none;padding-left:0;font-size:1.04rem}
+.ddx{border:2px dashed var(--ddx);background:#e9f6f2;border-radius:10px;padding:12px 16px;margin:12px 0;font-size:.9rem}
+.ddx h5{color:var(--ddx);margin:0 0 6px;font-size:.9rem;text-transform:uppercase;letter-spacing:.03em}
+.sig{background:var(--deep);color:#fff;padding:14px 20px;border-radius:10px;margin:14px 0;font-size:.96rem}
+.sig b{color:#f9e79f}
+.remember{border:2px dashed #d4ac0d;background:#fef9e7;border-radius:12px;padding:16px 20px;margin:14px 0}
+.remember h4{color:#7d6608;margin:0 0 8px;border-left:none;padding-left:0}
+.idcard{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin:14px 0}
+.idcard div{background:#f2f6fa;border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:.85rem}
+.idcard b{display:block;font-size:.62rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:3px}
+ul.t,ol.t{margin:.5em 0;padding-left:1.3em}
+ul.t li,ol.t li{margin:.3em 0}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.top{text-align:right;font-size:.78rem;margin-top:10px}.top a{color:var(--muted);text-decoration:none}
+footer{background:var(--deep);color:#aeb6bf;padding:30px 22px;font-size:.86rem;text-align:center}
+footer strong{color:#fff}
+@media(max-width:920px){.layout{display:block}nav.toc{position:static;border-right:none;border-bottom:1px solid var(--line);max-height:none;flex:none}.g2{grid-template-columns:1fr}.cover h1{font-size:1.5rem}}
+@media print{nav.toc{display:none}body{background:#fff}section{box-shadow:none;break-inside:avoid}footer{background:#fff;color:#333}}
+</style>
+</head>
+<body>
+<a id="top"></a>
+
+<div class="cover">
+  <p class="subtitle">M.Phil. Clinical Psychology &mdash; Complete Diagnostic, Clinical &amp; Treatment Reference</p>
+  <h1>ICD-10 &amp; ICD-11 Comparative Clinical Handbook<br>F80&ndash;F89: Disorders of Psychological Development</h1>
+  <p class="tagline">The fully comprehensive edition: speech and language disorders, specific learning (scholastic) disorders, motor coordination disorder, and the pervasive developmental disorders including autism &mdash; every disorder and every subtype set out with its own ICD-10 criteria and its ICD-11 counterpart, includes/excludes and dedicated differential diagnosis, plus etiology (with psychological theories), epidemiology, unique presentations, comorbidities, memory aids and management. Centred on the biggest change in this block: the collapse of the pervasive developmental disorder subtypes into a single Autism Spectrum Disorder.</p>
+  <div class="chips">
+    <span class="chip">Criteria strictly from ICD-10 &amp; ICD-11</span>
+    <span class="chip">Every subtype detailed + its own differential diagnosis</span>
+    <span class="chip">PDD subtypes &rarr; single Autism Spectrum Disorder</span>
+    <span class="chip">Etiology incl. psychological theories</span>
+    <span class="chip">Epidemiology, comorbidities, mnemonics, management</span>
+    <span class="chip">Where ICD-11 moved stuttering, ADHD &amp; Rett syndrome</span>
+  </div>
+  <p class="srcline">Primary authorities: WHO ICD-10 Clinical Descriptions &amp; Diagnostic Guidelines and WHO ICD-11 Clinical Descriptions &amp; Diagnostic Requirements. Secondary: Kaplan &amp; Sadock's Synopsis/Comprehensive Textbook of Psychiatry; foundational developmental theory; peer-reviewed literature.</p>
+</div>
+
+<div class="wrap layout">
+<nav class="toc">
+  <h4>Foundations</h4>
+  <a href="#overview">The F80&ndash;F89 block overview</a>
+  <a href="#compare">ICD-10 vs ICD-11 &mdash; the big change</a>
+  <a href="#map">Master code map</a>
+  <a href="#etiology">Etiology, epidemiology &amp; comorbidities</a>
+  <h4>F80 Speech &amp; language</h4>
+  <a href="#f80">F80 &middot; Overview</a>
+  <a class="sub" href="#f80-0">F80.0 Articulation disorder</a>
+  <a class="sub" href="#f80-1">F80.1 Expressive language</a>
+  <a class="sub" href="#f80-2">F80.2 Receptive language</a>
+  <a class="sub" href="#f80-3">F80.3 Landau-Kleffner</a>
+  <h4>F81 Scholastic skills</h4>
+  <a href="#f81">F81 &middot; Overview</a>
+  <a class="sub" href="#f81-0">F81.0 Reading (dyslexia)</a>
+  <a class="sub" href="#f81-1">F81.1 Spelling</a>
+  <a class="sub" href="#f81-2">F81.2 Arithmetic (dyscalculia)</a>
+  <a class="sub" href="#f81-3">F81.3 Mixed</a>
+  <h4>F82 / F83 Motor &amp; mixed</h4>
+  <a href="#f82">F82 &middot; Motor function (dyspraxia)</a>
+  <a href="#f83">F83 &middot; Mixed specific</a>
+  <h4>F84 Pervasive developmental</h4>
+  <a href="#f84">F84 &middot; Overview</a>
+  <a class="sub" href="#f84-0">F84.0 Childhood autism</a>
+  <a class="sub" href="#f84-1">F84.1 Atypical autism</a>
+  <a class="sub" href="#f84-2">F84.2 Rett's syndrome</a>
+  <a class="sub" href="#f84-3">F84.3 Disintegrative disorder</a>
+  <a class="sub" href="#f84-4">F84.4 Overactive + MR</a>
+  <a class="sub" href="#f84-5">F84.5 Asperger's syndrome</a>
+  <h4>F88 / F89 Other &amp; unspecified</h4>
+  <a href="#f88">F88 / F89</a>
+  <h4>Reference</h4>
+  <a href="#references">References</a>
+</nav>
+<main>
+
+
+<!-- ═══════════════════════ OVERVIEW ═══════════════════════ -->
+<section id="overview">
+  <h2>The F80&ndash;F89 block: what holds it together</h2>
+  <p><span class="tag t10">ICD-10</span> groups here the <b class="cl">disorders of psychological development</b> &mdash; conditions in which a specific area of development (language, learning, motor skill, or the whole pattern of social and communicative development) is impaired or delayed from early life. ICD-10 states three shared features:</p>
+  <ul class="t">
+    <li><b>(a)</b> onset invariably during <b>infancy or childhood</b>;</li>
+    <li><b>(b)</b> an impairment or delay in functions <b>strongly related to biological maturation of the central nervous system</b>;</li>
+    <li><b>(c)</b> a <b>steady course</b> that does <b>not</b> show the remissions and relapses typical of many mental disorders.</li>
+  </ul>
+  <p>Typically the impairments lessen as the child grows older (though milder deficits often remain in adult life), the history is of delay/impairment present from as early as it could be detected (no prior period of normal development, except in the acquired/regressive conditions), most conditions are <b>several times more common in boys</b>, and a family history of similar disorders is common.</p>
+  <p>The block runs: <b>F80</b> speech and language, <b>F81</b> scholastic (learning) skills, <b>F82</b> motor function, <b>F83</b> mixed specific developmental disorders, <b>F84</b> pervasive developmental disorders (autism and related), <b>F88</b> other, and <b>F89</b> unspecified.</p>
+
+  <div class="note"><b>Terms in plain language.</b> <i>Specific</i> developmental disorder = one skill area is affected against otherwise normal development; <i>pervasive</i> developmental disorder = many areas of development are affected together (social, communication, behaviour); <i>expressive</i> language = producing speech; <i>receptive</i> language = understanding speech; <i>articulation/phonology</i> = producing speech sounds; <i>dyslexia</i> = specific reading disorder; <i>dyscalculia</i> = specific arithmetic disorder; <i>dyspraxia</i> = poor motor coordination; <i>stereotypies</i> = repetitive purposeless movements; <i>mental age</i> = the developmental age at which abilities function.</p></div>
+</section>
+
+<!-- ═══════════════════════ COMPARE ═══════════════════════ -->
+<section id="compare">
+  <h2>ICD-10 vs ICD-11 &mdash; the biggest change in this block</h2>
+  <p>Two connected changes dominate F80&ndash;F89: a <b>reorganisation into the neurodevelopmental grouping</b>, and, above all, the <b>collapse of the pervasive developmental disorder subtypes into a single Autism Spectrum Disorder</b>.</p>
+  <div class="g2">
+    <div class="panel10"><h4><span class="tag t10">ICD-10 &mdash; many named subtypes</h4>
+      <ul class="t">
+        <li>&ldquo;Disorders of psychological development&rdquo; is its own block (F80&ndash;F89).</li>
+        <li><b>Pervasive developmental disorders (F84)</b> are split into <b>six named subtypes</b>: childhood autism, atypical autism, Rett's syndrome, other disintegrative disorder, overactive disorder with mental retardation and stereotypies, and Asperger's syndrome.</li>
+        <li>Autism is defined by a <b>triad</b> (social interaction, communication, restricted/repetitive behaviour) with onset before age 3.</li>
+        <li>Stuttering and ADHD (hyperkinetic disorder) sit in the childhood-onset block F90&ndash;F98, not here.</li>
+      </ul>
+    </div>
+    <div class="panel11"><h4><span class="tag t11">ICD-11 &mdash; one spectrum, one grouping</h4>
+      <ul class="t">
+        <li>Everything here joins a single <b>Neurodevelopmental disorders</b> grouping (6A00&ndash;6A0Z) together with intellectual developmental disorders (6A00) and ADHD (6A05).</li>
+        <li>All six PDD subtypes <b>collapse into one diagnosis: Autism Spectrum Disorder (6A02)</b>, qualified by whether there is an accompanying <b>disorder of intellectual development</b> and whether <b>functional language</b> is impaired.</li>
+        <li>Autism is defined by <b>two</b> domains (persistent social-communication deficits + restricted/repetitive patterns), not the old triad; onset in the developmental period but not tied to a strict age-3 cut-off.</li>
+        <li><b>Asperger's, atypical autism and disintegrative disorder are abolished</b> (subsumed into ASD). <b>Rett's syndrome is removed from the mental-disorders chapter entirely</b> (it is a defined genetic/neurological disease).</li>
+        <li><b>Stuttering</b> becomes <b>developmental speech fluency disorder (6A01.1)</b> and <b>ADHD (6A05)</b> joins this grouping.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="unique"><h4>The one-line exam answer</h4><p>ICD-10 splits pervasive developmental disorders into <b>six subtypes</b> and defines autism by a <b>triad</b>; ICD-11 replaces all of them with a <b>single Autism Spectrum Disorder (6A02)</b> defined by <b>two</b> domains and qualified by intellectual and language status, abolishes Asperger/atypical/disintegrative, and moves <b>Rett's syndrome out of mental disorders</b>. The whole block is folded into one <b>neurodevelopmental disorders</b> grouping with ADHD and intellectual developmental disorders.</p></div>
+</section>
+
+<!-- ═══════════════════════ MAP ═══════════════════════ -->
+<section id="map">
+  <h2>Master code map (ICD-10 &rarr; ICD-11)</h2>
+  <table>
+    <tr><th>ICD-10</th><th>Disorder</th><th>ICD-11 destination</th></tr>
+    <tr><td class="c10">F80.0</td><td>Specific speech articulation disorder</td><td class="c11">6A01.0 Developmental speech sound disorder</td></tr>
+    <tr><td class="c10">F80.1</td><td>Expressive language disorder</td><td class="c11">6A01.2 Developmental language disorder (expressive type)</td></tr>
+    <tr><td class="c10">F80.2</td><td>Receptive language disorder</td><td class="c11">6A01.2 Developmental language disorder (receptive + expressive)</td></tr>
+    <tr><td class="c10">F80.3</td><td>Landau-Kleffner (acquired aphasia with epilepsy)</td><td class="c11">Coded with the epilepsy syndrome (not a developmental language disorder)</td></tr>
+    <tr><td class="c10">&mdash;</td><td>Stuttering (was F98.5)</td><td class="c11">6A01.1 Developmental speech fluency disorder</td></tr>
+    <tr><td class="c10">F81.0</td><td>Specific reading disorder (dyslexia)</td><td class="c11">6A03.0 Developmental learning disorder with impairment in reading</td></tr>
+    <tr><td class="c10">F81.1</td><td>Specific spelling disorder</td><td class="c11">6A03.1 With impairment in written expression</td></tr>
+    <tr><td class="c10">F81.2</td><td>Specific disorder of arithmetical skills</td><td class="c11">6A03.2 With impairment in mathematics</td></tr>
+    <tr><td class="c10">F81.3</td><td>Mixed disorder of scholastic skills</td><td class="c11">6A03 (multiple impairments coded) / 6A03.3 other</td></tr>
+    <tr><td class="c10">F82</td><td>Specific developmental disorder of motor function</td><td class="c11">6A04 Developmental motor coordination disorder</td></tr>
+    <tr><td class="c10">F83</td><td>Mixed specific developmental disorders</td><td class="c11">No single code &mdash; each disorder coded separately</td></tr>
+    <tr><td class="c10">F84.0</td><td>Childhood autism</td><td class="c11">6A02 Autism spectrum disorder (+ qualifiers)</td></tr>
+    <tr><td class="c10">F84.1</td><td>Atypical autism</td><td class="c11">6A02 Autism spectrum disorder</td></tr>
+    <tr><td class="c10">F84.2</td><td>Rett's syndrome</td><td class="c11">Removed &mdash; genetic/neurological disease (Chapter 08 / LD90.4 range)</td></tr>
+    <tr><td class="c10">F84.3</td><td>Other childhood disintegrative disorder</td><td class="c11">6A02 Autism spectrum disorder</td></tr>
+    <tr><td class="c10">F84.5</td><td>Asperger's syndrome</td><td class="c11">6A02 Autism spectrum disorder (without intellectual/language impairment)</td></tr>
+    <tr><td class="c10">F84.4</td><td>Overactive disorder + MR + stereotypies</td><td class="c11">Coded as 6A00 + 6A05 (ADHD) + 6A06 as applicable</td></tr>
+    <tr><td class="c10">F88 / F89</td><td>Other / unspecified developmental disorder</td><td class="c11">6A0Y / 6A0Z residual neurodevelopmental codes</td></tr>
+  </table>
+  <div class="warn"><b>Read this the right way.</b> An arrow means &ldquo;the nearest ICD-11 home&rdquo;, not identical criteria. The biggest single fact: the whole of F84 (except Rett) becomes <b>one</b> diagnosis, 6A02 Autism spectrum disorder, with qualifiers. Below, each disorder gives the ICD-10 guidelines in full and the ICD-11 approach where a comparable diagnosis exists.</p></div>
+</section>
+
+<!-- ═══════════════════════ ETIOLOGY ═══════════════════════ -->
+<section id="etiology">
+  <h2>Etiology, epidemiology &amp; comorbidities (shared across the block)</h2>
+  <h3>Etiology</h3>
+  <p><span class="tag tks">Kaplan &amp; Sadock</span> These are <b>neurodevelopmental</b> conditions: they arise from atypical brain maturation, with strong <b>genetic/heritable</b> contributions (twin and family studies show high heritability for autism, dyslexia and language disorders), interacting with prenatal/perinatal risk (prematurity, birth complications) and environmental factors. They are not caused by parenting style or by vaccines.</p>
+  <div class="psych"><h4>Developmental / psychological models</h4>
+    <ul class="t">
+      <li><b>Theory of mind (Baron-Cohen).</b> <span class="tag tother">Other evidence</span> A core account of autism: difficulty attributing mental states to self and others (&ldquo;mind-blindness&rdquo;), explaining the social-communication deficits.</li>
+      <li><b>Weak central coherence (Frith).</b> A processing bias toward detail over global meaning &mdash; explaining both restricted interests and some autistic strengths.</li>
+      <li><b>Executive dysfunction.</b> Difficulties with planning, flexibility and inhibition contribute to rigidity, repetitive behaviour and (in ADHD) inattention/impulsivity.</li>
+      <li><b>Phonological-deficit model of dyslexia.</b> Reading disorder is chiefly a deficit in processing the sound structure of language (phonological awareness), not a visual problem.</li>
+    </ul>
+  </div>
+  <h3>Epidemiology</h3>
+  <ul class="t">
+    <li><b>Autism spectrum disorder:</b> now estimated at roughly 1&ndash;2% of children; historically reported far lower, the rise reflecting broadened criteria and better recognition; male predominance (about 3&ndash;4:1).</li>
+    <li><b>Specific reading disorder (dyslexia):</b> among the commonest, around 3&ndash;7% of school-age children.</li>
+    <li><b>Speech/language and motor coordination disorders:</b> each affect several percent of children.</li>
+    <li>All are more frequent in boys and cluster in families.</li>
+  </ul>
+  <div class="assoc"><h4>Comorbidities</h4><p>These disorders <b>co-occur heavily</b> with one another and with other neurodevelopmental conditions. Common associations: intellectual developmental disorder, ADHD, epilepsy (especially with autism and intellectual disability), anxiety and mood disorders, tic disorders, and (with learning disorders) low self-esteem, poor school attendance and secondary conduct/emotional problems. ICD-11's shift to allowing <b>multiple neurodevelopmental diagnoses together</b> (e.g. ASD + ADHD, which DSM-IV/ICD-10 discouraged) reflects this reality.</p></div>
+  <h3>Management (shared principles)</h3>
+  <ul class="t">
+    <li><b>Early identification and intervention</b> improve outcomes across the block.</li>
+    <li><b>Educational and skills-based:</b> special educational support, speech-and-language therapy, occupational therapy (for motor coordination), and structured behavioural/developmental programmes for autism.</li>
+    <li><b>Treat comorbidity:</b> manage co-occurring ADHD, epilepsy, anxiety and behavioural disturbance.</li>
+    <li><b>Medication is adjunctive</b> &mdash; there is no drug that treats the core deficits of autism or learning disorders; medication targets specific comorbid conditions (e.g. stimulants for ADHD, antiepileptics for seizures).</li>
+    <li><b>Family support, psychoeducation</b> and long-term follow-up.</li>
+  </ul>
+</section>
+
+
+<!-- ═══════════════════════ F80 SPEECH & LANGUAGE ═══════════════════════ -->
+<section id="f80">
+  <h2>F80 &middot; Specific developmental disorders of speech and language</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F80 is the speech-and-language group of F80&ndash;F89: normal-language development is disturbed from early stages, not explained by intellectual disability, hearing loss, a structural/neurological abnormality, or environmental deprivation. In ICD-11 these become <b>6A01 Developmental speech or language disorders</b>.</p>
+  <p>ICD-10 subtypes: articulation (F80.0), expressive language (F80.1), receptive language (F80.2), and acquired aphasia with epilepsy &mdash; Landau-Kleffner (F80.3). The unifying rule: the impairment is <b>specific</b> (out of keeping with the child's mental age) and not secondary to another condition.</p>
+  <div class="ddx"><h5>Differential diagnosis (whole F80 group)</h5><p>From <b>intellectual developmental disorder (F70&ndash;F79)</b> where language is delayed in proportion to a global delay; from <b>hearing impairment</b> (always test hearing); from <b>autism spectrum disorder (F84)</b> where language problems sit within pervasive social-communication deficits; from <b>selective mutism (F94.0)</b> (language is present but not used in specific situations); and from environmental deprivation.</p></div>
+</section>
+
+<section id="f80-0">
+  <h2>F80.0 &middot; Specific speech articulation disorder</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F80 Speech &amp; language &rarr; the speech-sound (phonological) subtype. ICD-11: <b>6A01.0 Developmental speech sound disorder</b>.</p>
+  <div class="g2">
+    <div class="panel10"><h4><span class="tag t10">ICD-10 (F80.0)</span></h4>
+      <p>A specific developmental disorder in which the child's <b>use of speech sounds is below the appropriate level for his or her mental age</b>, but in which there is a <b>normal level of language skills</b>. Abnormal development shows as misarticulations making the child hard to understand, and omissions, distortions or substitutions of speech sounds. Diagnose only when: severity is outside normal variation for mental age; <b>nonverbal intelligence is normal</b>; <b>expressive and receptive language are normal</b>; the abnormalities are <b>not</b> due to a sensory, structural or neurological cause; and the mispronunciations are clearly abnormal for the child's subculture.</p>
+      <div class="incl" style="margin-top:8px"><b>Includes:</b> developmental articulation/phonological disorder; dyslalia; functional articulation disorder; lalling. <b>Excludes:</b> articulation problems due to aphasia (R47.0), apraxia (R48.2), cleft palate/oral structural abnormality (Q35&ndash;Q38), hearing loss (H90&ndash;H91), intellectual disability (F70&ndash;F79), or a language disorder (F80.1/F80.2).</div>
+    </div>
+    <div class="panel11"><h4><span class="tag t11">ICD-11 (6A01.0)</span></h4><p><b>Developmental speech sound disorder:</b> difficulties in the acquisition, production and perception of speech sounds resulting in reduced intelligibility, significantly below what is expected for age and developmental level, not explained by a hearing, structural or neurological condition or by another disorder.</p></div>
+  </div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>From <b>expressive/receptive language disorder (F80.1/F80.2)</b> (there the deficit is in language itself, not just sounds); from articulation problems due to <b>cleft palate, hearing loss, dysarthria or apraxia</b> (structural/neurological &mdash; excluded); from normal developmental speech errors (which resolve by about 6&ndash;7 years).</p></div>
+  <div class="remember"><h4>Remember</h4><p>&ldquo;<b>Sounds wrong, language right</b>&rdquo; &mdash; only speech-sound production is affected, with normal nonverbal IQ and normal language.</p></div>
+</section>
+
+<section id="f80-1">
+  <h2>F80.1 &middot; Expressive language disorder</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F80 Speech &amp; language &rarr; the expressive (producing language) subtype. ICD-11: <b>6A01.2 Developmental language disorder, with impairment of mainly expressive language</b>.</p>
+  <div class="g2">
+    <div class="panel10"><h4><span class="tag t10">ICD-10 (F80.1)</span></h4>
+      <p>Ability to use <b>expressive spoken language is markedly below the appropriate level for mental age</b>, but <b>language comprehension is within normal limits</b>. Articulation may or may not be abnormal. <b>Signs of delay:</b> absence of single words (or word approximations) by <b>age 2</b>, and failure to generate simple two-word phrases by <b>age 3</b>. Later: restricted vocabulary, over-use of a few general words, short utterances, immature sentence structure, syntactic errors (omitting word endings/prefixes, misusing prepositions, pronouns, articles, verb/noun inflexions). Nonverbal cues (smiles, gesture) and &ldquo;internal&rdquo; language (make-believe play) are relatively intact, and the child <b>seeks to communicate</b>, compensating with gesture and mime.</p>
+    </div>
+    <div class="panel11"><h4><span class="tag t11">ICD-11 (6A01.2)</span></h4><p><b>Developmental language disorder, with impairment of mainly expressive language:</b> persistent difficulties in producing/using spoken or signed language, markedly below age level, with relatively intact comprehension.</p></div>
+  </div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>From <b>receptive language disorder (F80.2)</b> (comprehension also impaired); from <b>articulation disorder (F80.0)</b> (only speech sounds affected); from <b>autism (F84.0)</b> (there the child does <i>not</i> compensate socially and has pervasive social-communication deficits); from <b>intellectual disability</b>, <b>hearing loss</b>, and <b>selective mutism</b>.</p></div>
+  <div class="remember"><h4>Remember</h4><p>&ldquo;<b>Understands, can't produce</b>&rdquo; &mdash; comprehension normal, expression delayed; the child still tries to communicate with gesture (unlike autism).</p></div>
+</section>
+
+<section id="f80-2">
+  <h2>F80.2 &middot; Receptive language disorder</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F80 Speech &amp; language &rarr; the receptive (understanding language) subtype &mdash; the more serious, since comprehension underpins expression. ICD-11: <b>6A01.2 Developmental language disorder, with impairment of receptive and expressive language</b>.</p>
+  <div class="g2">
+    <div class="panel10"><h4><span class="tag t10">ICD-10 (F80.2)</span></h4>
+      <p>The child's <b>understanding of language is below the level appropriate for mental age.</b> In practice, expressive language is also markedly affected (comprehension supports production), and abnormalities of word-sound production are common. Signs include failure to respond to familiar names by the first birthday, inability to identify a few common objects by 18 months, and failure to follow simple instructions by age 2. Associated socio-emotional and behavioural difficulties are common. Prognosis is generally <b>worse</b> than for expressive language disorder.</p>
+      <div class="excl" style="margin-top:8px"><b>Excludes:</b> acquired aphasia with epilepsy (F80.3); autism (F84.0/F84.1); receptive difficulties due to deafness or intellectual disability.</div>
+    </div>
+    <div class="panel11"><h4><span class="tag t11">ICD-11 (6A01.2)</span></h4><p><b>Developmental language disorder with impairment of receptive and expressive language:</b> persistent difficulties in understanding spoken/signed language together with impaired production, below age level.</p></div>
+  </div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>Crucially from <b>autism (F84)</b> &mdash; receptive language disorder lacks the restricted/repetitive behaviours and the pervasive social reciprocity deficit (the child compensates socially and non-verbally); from <b>acquired aphasia with epilepsy (F80.3)</b> (there language was normal then lost); from <b>hearing impairment</b> and <b>intellectual disability</b>.</p></div>
+  <div class="remember"><h4>Remember</h4><p>&ldquo;<b>Doesn't understand &rarr; can't express</b>&rdquo; &mdash; comprehension impaired, worse prognosis; must be distinguished from autism.</p></div>
+</section>
+
+<section id="f80-3">
+  <h2>F80.3 &middot; Acquired aphasia with epilepsy (Landau-Kleffner syndrome)</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F80 Speech &amp; language &rarr; the acquired/regressive subtype &mdash; unusual because language develops normally then is lost. ICD-11 codes it with the associated epilepsy syndrome rather than as a developmental language disorder.</p>
+  <div class="panel10"><h4><span class="tag t10">ICD-10 (F80.3)</span></h4>
+    <p>A disorder in which the child, <b>having previously made normal progress in language development, loses both receptive and expressive language skills but retains general intelligence.</b> Onset is accompanied by <b>paroxysmal EEG abnormalities</b> (almost always from the temporal lobes, usually bilateral) and, in most cases, by <b>epileptic seizures</b>. Typical onset is between <b>ages 3 and 7</b>. In a quarter of cases language loss is gradual over months, but more often it is abrupt (over days/weeks). Seizure onset and language loss may precede one another by a few months to two years. The receptive-language impairment is characteristically profound, with difficulties in auditory comprehension.</p>
+  </div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11</span></h4><p>Not classified as a developmental language disorder; it is coded with the corresponding <b>epilepsy/epileptic encephalopathy syndrome</b> (a neurological diagnosis), reflecting its acquired, epilepsy-related nature.</p></div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>From <b>receptive/expressive developmental language disorders (F80.1/F80.2)</b> &mdash; those never had normal language; here there is <b>loss</b> after normal development with EEG abnormality; from <b>disintegrative disorder (F84.3)</b> (broader regression across many domains); from <b>acquired hearing loss</b>; from autism with regression (no epileptiform EEG pattern of this kind).</p></div>
+  <div class="remember"><h4>Remember</h4><p>&ldquo;<b>Normal, then loses language + EEG spikes/seizures, age 3&ndash;7</b>&rdquo; &mdash; the acquired aphasia of Landau-Kleffner; IQ preserved.</p></div>
+</section>
+
+
+<!-- ═══════════════════════ F81 SCHOLASTIC ═══════════════════════ -->
+<section id="f81">
+  <h2>F81 &middot; Specific developmental disorders of scholastic skills</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F81 is the learning-skills group of F80&ndash;F89: specific impairment of reading, spelling or arithmetic that is <b>not</b> explained by intellectual disability, inadequate schooling, or uncorrected sensory problems. In ICD-11 these become <b>6A03 Developmental learning disorder</b> (with specifiers for reading, written expression, mathematics).</p>
+  <p>ICD-10 subtypes: reading (F81.0), spelling (F81.1), arithmetic (F81.2) and mixed (F81.3). The key concept is a <b>discrepancy</b>: the skill is significantly below the level expected from the child's age, general intelligence and schooling.</p>
+  <div class="ddx"><h5>Differential diagnosis (whole F81 group)</h5><p>From <b>intellectual developmental disorder (F70&ndash;F79)</b> (there all abilities are low together, not a specific gap); from <b>lack of educational opportunity</b> or frequent school changes; from <b>uncorrected visual or hearing impairment</b>; from a primary <b>attention disorder (ADHD)</b> impairing learning; and from acquired brain injury (which would not be developmental).</p></div>
+</section>
+
+<section id="f81-0">
+  <h2>F81.0 &middot; Specific reading disorder (dyslexia)</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F81 Scholastic skills &rarr; the reading subtype. ICD-11: <b>6A03.0 Developmental learning disorder with impairment in reading</b>.</p>
+  <div class="g2">
+    <div class="panel10"><h4><span class="tag t10">ICD-10 (F81.0)</span></h4>
+      <p>A <b>specific and significant impairment in the development of reading skills</b>, not solely accounted for by mental age, visual acuity problems, or inadequate schooling. Reading comprehension, word recognition, oral reading and reading-based tasks may all be affected. <b>Spelling difficulties</b> frequently accompany it and often persist into adolescence even after reading improves. Many children have a <b>history of speech/language disorders</b>. Diagnose when reading performance is significantly below the level expected on the basis of age, general intelligence and school placement, assessed by an <b>individually administered, standardised test</b> of reading accuracy and comprehension.</p>
+    </div>
+    <div class="panel11"><h4><span class="tag t11">ICD-11 (6A03.0)</span></h4><p><b>Developmental learning disorder with impairment in reading:</b> significant, persistent difficulties in reading accuracy, fluency or comprehension, substantially below age level, not due to intellectual disability, sensory impairment, neurological disorder, lack of instruction or language barrier.</p></div>
+  </div>
+  <div class="unique"><h4>Unique features</h4><p>Often heralded by early <b>phonological</b> difficulties (processing the sound structure of words); associated with poor spelling, slow effortful reading, and secondary loss of confidence, poor school attendance and behavioural/emotional complications in later school years.</p></div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>From reading failure due to <b>intellectual disability</b>, <b>poor schooling</b>, <b>visual impairment</b>, or a general <b>language disorder</b>; from ADHD-related underachievement (though the two often coexist and are coded together in ICD-11).</p></div>
+  <div class="remember"><h4>Remember</h4><p>&ldquo;<b>Reads far below IQ &amp; age, spelling suffers too</b>&rdquo; &mdash; a phonological, not visual, disorder.</p></div>
+</section>
+
+<section id="f81-1">
+  <h2>F81.1 &middot; Specific spelling disorder</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F81 Scholastic skills &rarr; the spelling subtype. ICD-11: <b>6A03.1 Developmental learning disorder with impairment in written expression</b>.</p>
+  <div class="panel10"><h4><span class="tag t10">ICD-10 (F81.1)</span></h4>
+    <p>A specific and significant impairment in the development of <b>spelling skills in the absence of a history of specific reading disorder</b>, not solely accounted for by low mental age, visual problems or inadequate schooling. The ability to spell aloud and to write words correctly are both affected. (If reading is also impaired, code F81.0.)</p>
+  </div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11 (6A03.1)</span></h4><p><b>Developmental learning disorder with impairment in written expression:</b> significant difficulties in spelling, grammar/punctuation accuracy, and the organisation/clarity of written work, below age level.</p></div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>From <b>reading disorder (F81.0)</b> (there reading is also impaired &mdash; code F81.0 instead); from poor spelling due to inadequate teaching or intellectual disability; from motor difficulty with handwriting alone (motor coordination disorder, F82).</p></div>
+  <div class="remember"><h4>Remember</h4><p>&ldquo;<b>Spelling impaired, reading intact</b>&rdquo; &mdash; if reading is also affected, it becomes reading disorder.</p></div>
+</section>
+
+<section id="f81-2">
+  <h2>F81.2 &middot; Specific disorder of arithmetical skills (dyscalculia)</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F81 Scholastic skills &rarr; the arithmetic subtype. ICD-11: <b>6A03.2 Developmental learning disorder with impairment in mathematics</b>.</p>
+  <div class="panel10"><h4><span class="tag t10">ICD-10 (F81.2)</span></h4>
+    <p>A specific impairment in <b>arithmetical skills</b> not solely explicable by general intellectual disability or inadequate schooling. The deficit concerns mastery of <b>basic computational skills</b> (addition, subtraction, multiplication, division) rather than the more abstract mathematics of algebra or geometry. Reading and spelling are within the normal range.</p>
+  </div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11 (6A03.2)</span></h4><p><b>Developmental learning disorder with impairment in mathematics:</b> significant difficulties in number sense, memorisation of arithmetic facts, accurate/fluent calculation and mathematical reasoning, below age level.</p></div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>From arithmetic failure due to <b>intellectual disability</b> or <b>poor schooling</b>; from reading/language problems that impede maths word-problems (assess the specific arithmetic skills); from anxiety-related maths avoidance.</p></div>
+  <div class="remember"><h4>Remember</h4><p>&ldquo;<b>Can't do basic sums, reads &amp; spells fine</b>&rdquo; &mdash; dyscalculia targets core computation.</p></div>
+</section>
+
+<section id="f81-3">
+  <h2>F81.3 &middot; Mixed disorder of scholastic skills</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F81 Scholastic skills &rarr; more than one learning skill impaired together.</p>
+  <div class="panel10"><h4><span class="tag t10">ICD-10 (F81.3)</span></h4>
+    <p>An ill-defined residual category for disorders in which <b>both arithmetical and reading or spelling skills are significantly impaired</b>, but which is not solely explicable by general intellectual disability or inadequate schooling. Used when the combined difficulties meet the criteria for both F81.2 and F81.0 or F81.1.</p>
+  </div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11</span></h4><p>Coded within <b>6A03</b> by applying <b>more than one specifier</b> (e.g. impairment in reading + mathematics) &mdash; the dimensional/specifier approach removes the need for a separate &ldquo;mixed&rdquo; code.</p></div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>From <b>intellectual disability</b> (global, not a specific pattern of gaps); from single-domain learning disorders (F81.0/.1/.2) where only one skill is affected.</p></div>
+  <div class="remember"><h4>Remember</h4><p>&ldquo;<b>Reading/spelling AND maths both hit</b>&rdquo; &mdash; ICD-11 just stacks specifiers on 6A03.</p></div>
+</section>
+
+<!-- ═══════════════════════ F82 MOTOR ═══════════════════════ -->
+<section id="f82">
+  <h2>F82 &middot; Specific developmental disorder of motor function (dyspraxia)</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F82 is the motor-coordination member of F80&ndash;F89. ICD-11: <b>6A04 Developmental motor coordination disorder</b>.</p>
+  <div class="g2">
+    <div class="panel10"><h4><span class="tag t10">ICD-10 (F82)</span></h4>
+      <p>A disorder in which the main feature is a <b>serious impairment in the development of motor coordination</b> that is not solely explicable by general intellectual disability or by any specific congenital or acquired neurological disorder. The motor clumsiness is associated with some degree of impaired performance on visuo-spatial cognitive tasks. Developmental milestones for motor skills are delayed; the child is clumsy, drops things, has an awkward gait, and does poorly at handwriting, drawing, ball games and constructional tasks.</p>
+      <div class="incl" style="margin-top:8px"><b>Includes:</b> clumsy child syndrome; developmental coordination disorder; developmental dyspraxia. <b>Excludes:</b> abnormalities of gait/mobility (R26), lack of coordination (R27), coordination problems secondary to intellectual disability (F70&ndash;F79) or a diagnosable neurological disorder.</div>
+    </div>
+    <div class="panel11"><h4><span class="tag t11">ICD-11 (6A04)</span></h4><p><b>Developmental motor coordination disorder:</b> significant delay in acquiring gross and fine motor skills and clumsiness/slowness/inaccuracy of motor performance, below age level, causing impairment, not explained by intellectual disability, sensory or neurological disorder.</p></div>
+  </div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>From coordination problems due to a <b>diagnosable neurological disorder</b> (e.g. cerebral palsy, muscular dystrophy) &mdash; excluded; from <b>intellectual disability</b> (global delay); from motor difficulty that is part of <b>autism</b>. Handwriting difficulty here is motor, unlike the linguistic basis of a written-expression learning disorder.</p></div>
+  <div class="remember"><h4>Remember</h4><p>&ldquo;<b>Clumsy child, no neurological disease, IQ normal</b>&rdquo; &mdash; developmental dyspraxia / coordination disorder.</p></div>
+</section>
+
+<!-- ═══════════════════════ F83 MIXED ═══════════════════════ -->
+<section id="f83">
+  <h2>F83 &middot; Mixed specific developmental disorders</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F83 is a residual &ldquo;mixed&rdquo; category of F80&ndash;F89 for co-occurring specific developmental disorders.</p>
+  <div class="panel10"><h4><span class="tag t10">ICD-10 (F83)</span></h4>
+    <p>An <b>ill-defined, residual category</b> for disorders in which there is <b>some admixture of specific developmental disorders of speech and language, of scholastic skills, and/or of motor function</b>, but in which none predominates sufficiently to constitute the primary diagnosis. Used only when there is major overlap of these specific delays; it should not be used where the picture is dominated by one disorder or by a pervasive developmental disorder.</p>
+  </div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11</span></h4><p>No single equivalent: ICD-11 simply <b>codes each co-occurring neurodevelopmental disorder separately</b> (e.g. developmental language disorder + developmental learning disorder + motor coordination disorder), consistent with its policy of allowing multiple neurodevelopmental diagnoses.</p></div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>From a single predominant specific developmental disorder (code that instead); from <b>pervasive developmental disorder / autism (F84)</b> (which involves social-communication and restricted/repetitive features, not just skill delays); from intellectual disability.</p></div>
+  <div class="remember"><h4>Remember</h4><p>&ldquo;<b>Language + learning + motor mixed, none dominant</b>&rdquo; &mdash; ICD-11 codes each one separately instead.</p></div>
+</section>
+
+
+<!-- ═══════════════════════ F84 PDD ═══════════════════════ -->
+<section id="f84">
+  <h2>F84 &middot; Pervasive developmental disorders</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F84 is the pervasive-developmental group of F80&ndash;F89 &mdash; disorders affecting <b>many</b> areas of development together (social interaction, communication, behaviour), unlike the &ldquo;specific&rdquo; single-skill disorders above. This is where the single biggest ICD-11 change occurs: <b>all the F84 subtypes collapse into one Autism Spectrum Disorder (6A02)</b>, except Rett's syndrome, which leaves the mental-disorders chapter altogether.</p>
+  <p><span class="tag t10">ICD-10</span> subtypes: childhood autism (F84.0), atypical autism (F84.1), Rett's syndrome (F84.2), other disintegrative disorder (F84.3), overactive disorder with intellectual disability and stereotypies (F84.4), and Asperger's syndrome (F84.5), plus other/unspecified (F84.8/F84.9).</p>
+
+  <h3>Etiology &amp; psychological theories (autism)</h3>
+  <p><span class="tag tks">Kaplan &amp; Sadock</span> Autism is strongly <b>heritable</b> (one of the most genetic of psychiatric conditions), with many contributing genes and associations with older parental age, prematurity and some prenatal exposures. It is a disorder of brain development; it is <b>not</b> caused by parenting or by vaccines.</p>
+  <div class="psych"><h4>Psychological theories of autism</h4>
+    <ul class="t">
+      <li><b>Theory of mind / &ldquo;mind-blindness&rdquo; (Baron-Cohen).</b> <span class="tag tother">Other evidence</span> Difficulty inferring others' thoughts and feelings, explaining the social-reciprocity and communication deficits.</li>
+      <li><b>Weak central coherence (Frith).</b> A bias to local detail over global meaning &mdash; explaining restricted interests, insistence on sameness, and some islands of ability.</li>
+      <li><b>Executive dysfunction.</b> Poor cognitive flexibility and planning &mdash; explaining rigidity and repetitive behaviour.</li>
+    </ul>
+  </div>
+  <div class="assoc"><h4>Comorbidities in autism</h4><p>Intellectual developmental disorder (historically about three-quarters of childhood-autism cases, though lower with broader modern criteria), epilepsy, ADHD, anxiety, sleep and eating problems, and self-injurious behaviour (especially with intellectual disability).</p></div>
+</section>
+
+<section id="f84-0">
+  <h2>F84.0 &middot; Childhood autism</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F84 Pervasive developmental disorders &rarr; the prototype. ICD-11: subsumed into <b>6A02 Autism spectrum disorder</b>.</p>
+  <div class="g2">
+    <div class="panel10"><h4><span class="tag t10">ICD-10 (F84.0)</span> &mdash; the &ldquo;triad&rdquo;</h4>
+      <p>A pervasive developmental disorder defined by <b>abnormal and/or impaired development manifest before age 3</b> and by abnormal functioning in <b>all three</b> of:</p>
+      <ul class="t">
+        <li><b>(1) Reciprocal social interaction:</b> inadequate appreciation of socio-emotional cues, poor response to others' emotions, poor use of social signals, weak integration of social/emotional/communicative behaviour, and a lack of socio-emotional reciprocity.</li>
+        <li><b>(2) Communication:</b> lack of social use of language, impaired make-believe/imitative play, poor conversational reciprocity, poor flexibility of expression, lack of emotional response to others' overtures, and impaired use of gesture/intonation.</li>
+        <li><b>(3) Restricted, repetitive, stereotyped behaviour, interests and activities:</b> rigid routines, ritualistic non-functional acts, motor stereotypies, preoccupations (e.g. dates, routes, timetables), attachment to unusual objects, and resistance to change.</li>
+      </ul>
+      <p style="margin-top:6px">Boys are affected 3&ndash;4 times more often than girls; significant intellectual disability is present in about three-quarters. Non-specific features are common (fears/phobias, sleep and eating disturbance, tantrums, aggression, self-injury).</p>
+      <div class="incl" style="margin-top:8px"><b>Includes:</b> autistic disorder; infantile autism; infantile psychosis; Kanner's syndrome. <b>Excludes:</b> autistic psychopathy (F84.5).</div>
+    </div>
+    <div class="panel11"><h4><span class="tag t11">ICD-11 (6A02)</span> &mdash; two domains</h4>
+      <p><b>Autism spectrum disorder</b> requires persistent deficits in <b>two</b> (not three) domains:</p>
+      <ul class="t">
+        <li><b>(1) Social interaction and social communication</b> (deficits in initiating/sustaining reciprocal interaction and communication);</li>
+        <li><b>(2) Restricted, repetitive and inflexible patterns</b> of behaviour, interests or activities.</li>
+      </ul>
+      <p style="margin-top:6px">Onset is in the developmental period (often early childhood) but symptoms may not fully manifest until social demands exceed capacity; <b>no strict age-3 cut-off</b>. Qualified by <b>with/without disorder of intellectual development</b> and <b>with/without impairment of functional language</b> (codes 6A02.0&ndash;6A02.5).</p>
+    </div>
+  </div>
+  <div class="unique"><h4>Unique / identifying features</h4><p>The combination of impaired <b>social reciprocity</b>, <b>insistence on sameness/routines</b>, and <b>motor stereotypies</b> from early childhood. Islands of ability against a background of pervasive impairment. In ICD-11 the fusing of the old subtypes reflects that they lay on one spectrum of severity, not distinct diseases.</p></div>
+  <div class="ddx"><h5>Differential diagnosis (from ICD-10)</h5><p>From <b>receptive language disorder (F80.2)</b> with secondary socio-emotional problems; from <b>reactive/disinhibited attachment disorder (F94.1/F94.2)</b>; from <b>intellectual disability (F70&ndash;F79)</b> with associated emotional/behavioural disorder; from <b>very early-onset schizophrenia (F20)</b>; and from <b>Rett's syndrome (F84.2)</b>.</p></div>
+  <div class="remember"><h4>Remember &mdash; the autism triad &ldquo;3 S's before 3&rdquo;</h4><p><b>S</b>ocial reciprocity impaired &middot; <b>S</b>peech/communication impaired &middot; <b>S</b>tereotyped/restricted behaviour &mdash; onset <b>before age 3</b> (ICD-10). ICD-11: <b>2</b> domains (social-communication + restricted/repetitive), no strict age cut-off.</p></div>
+  <h3>Management</h3>
+  <ul class="t"><li><b>Core:</b> structured behavioural and developmental/educational intervention (e.g. applied behaviour analysis-based and naturalistic developmental approaches), speech-and-language and social-communication support; parent-mediated interventions.</li><li><b>Medication is adjunctive</b> for comorbidity/behaviour (e.g. risperidone or aripiprazole for severe irritability/aggression; treat coexisting ADHD, epilepsy, anxiety, sleep problems). No drug treats the core social deficit.</li></ul>
+</section>
+
+<section id="f84-1">
+  <h2>F84.1 &middot; Atypical autism</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F84 Pervasive developmental disorders &rarr; autism that misses full criteria. ICD-11: subsumed into <b>6A02 Autism spectrum disorder</b> (abolished as a separate label).</p>
+  <div class="panel10"><h4><span class="tag t10">ICD-10 (F84.1)</span></h4>
+    <p>A pervasive developmental disorder differing from childhood autism <b>either in age of onset or in failing to meet all three sets of criteria</b>. Thus abnormal development becomes manifest <b>only after age 3</b>, and/or there are <b>insufficient abnormalities in one or two</b> of the three areas (social interaction, communication, restricted/repetitive behaviour) despite characteristic abnormalities in the other(s). It arises most often in <b>profoundly intellectually disabled</b> individuals (whose low functioning gives little scope to show the specific autistic behaviours) and in those with a severe receptive language disorder.</p>
+    <div class="incl" style="margin-top:8px"><b>Includes:</b> atypical childhood psychosis; intellectual disability with autistic features.</div>
+  </div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11</span></h4><p>No separate code &mdash; such presentations are <b>autism spectrum disorder (6A02)</b>, with the appropriate intellectual-development and language qualifiers. The dimensional ASD concept makes &ldquo;atypical&rdquo; unnecessary.</p></div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>From <b>childhood autism (F84.0)</b> (full triad, onset before 3); from <b>intellectual disability (F70&ndash;F79)</b> without autistic features; from severe <b>receptive language disorder (F80.2)</b>.</p></div>
+  <div class="remember"><h4>Remember</h4><p>&ldquo;<b>Autism but late-onset or incomplete triad</b>&rdquo; &mdash; ICD-11 simply calls it autism spectrum disorder.</p></div>
+</section>
+
+<section id="f84-2">
+  <h2>F84.2 &middot; Rett's syndrome</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F84 Pervasive developmental disorders &rarr; a distinctive regressive disorder. ICD-11 change: <b>removed from the mental-disorders chapter entirely</b> (now classified as a genetic/neurological disease).</p>
+  <div class="panel10"><h4><span class="tag t10">ICD-10 (F84.2)</span></h4>
+    <p>A condition of unknown cause (in ICD-10's day), <b>so far reported only in girls</b>, differentiated by a characteristic onset, course and symptom pattern. Apparently normal early development is followed by <b>partial or complete loss of acquired hand skills and of speech</b>, with <b>deceleration in head growth</b>, usually with onset between <b>7 and 24 months</b>. Highly characteristic: <b>hand-wringing / &ldquo;hand-washing&rdquo; stereotypies</b>, loss of purposive hand movements, hyperventilation episodes, loss of chewing, near-universal failure to gain bowel/bladder control, and loss of social engagement (though a &ldquo;social smile&rdquo; is retained). Trunk ataxia/apraxia, scoliosis and later spasticity develop; epileptic fits are frequent (onset usually before age 8). <b>Severe intellectual disability invariably results.</b> Unlike autism, deliberate self-injury and complex stereotyped routines are rare.</p>
+  </div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11</span></h4><p><b>Rett syndrome is no longer a mental/behavioural disorder.</b> It is now recognised as a defined <b>genetic disease</b> (typically due to MECP2 mutations) and classified in the chapter on developmental anomalies / diseases of the nervous system, not among mental disorders.</p></div>
+  <div class="ddx"><h5>Differential diagnosis (from ICD-10)</h5><p>Differentiated initially by the <b>loss of purposive hand movements, deceleration of head growth, ataxia, &ldquo;hand-washing&rdquo; stereotypies and lack of proper chewing</b>; the course of <b>progressive motor deterioration</b> confirms it. Distinguish from <b>autism</b> (no head-growth deceleration or hand-wringing signature), from <b>disintegrative disorder (F84.3)</b>, and from other neurodegenerative conditions.</p></div>
+  <div class="remember"><h4>Remember</h4><p>&ldquo;<b>Girl, normal then regresses, hand-wringing, head-growth slows, 7&ndash;24 months</b>&rdquo; &mdash; Rett's; ICD-11 moves it out of psychiatry to genetics/neurology.</p></div>
+</section>
+
+<section id="f84-3">
+  <h2>F84.3 &middot; Other childhood disintegrative disorder (Heller's syndrome)</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F84 Pervasive developmental disorders &rarr; late regression after clearly normal development. ICD-11: subsumed into <b>6A02 Autism spectrum disorder</b>.</p>
+  <div class="panel10"><h4><span class="tag t10">ICD-10 (F84.3)</span></h4>
+    <p>A pervasive developmental disorder (other than Rett's) defined by <b>a period of normal development before onset</b>, then a <b>definite loss over a few months of previously acquired skills in several areas</b>, together with characteristic abnormalities of social, communicative and behavioural functioning. Often a prodrome of vague illness (restive, irritable, anxious, overactive), then loss of speech and language and behavioural disintegration, loss of bowel/bladder control, and autistic-like impairment of social interaction. Diagnosis rests on apparently normal development <b>up to at least age 2</b>, then definite loss of acquired skills. Prognosis is usually poor, with severe intellectual disability. Resembles adult dementia but differs (usually no identifiable organic disease, possible partial recovery, and deviant autistic-type social impairment).</p>
+    <div class="incl" style="margin-top:8px"><b>Includes:</b> dementia infantilis; disintegrative psychosis; Heller's syndrome; symbiotic psychosis. <b>Excludes:</b> acquired aphasia with epilepsy (F80.3); selective mutism (F94.0); Rett's syndrome (F84.2); schizophrenia (F20.-).</div>
+  </div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11</span></h4><p>No separate code &mdash; classified as <b>autism spectrum disorder (6A02)</b> (recognising the strong overlap with autism after regression).</p></div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>From <b>Rett's syndrome (F84.2)</b> (girls, hand-wringing, head-growth deceleration); from <b>Landau-Kleffner (F80.3)</b> (language loss + epileptiform EEG); from <b>childhood autism (F84.0)</b> (no clear prior normal period then loss); from an acquired <b>neurodegenerative disorder</b> (code the neurological condition separately).</p></div>
+  <div class="remember"><h4>Remember</h4><p>&ldquo;<b>Normal &ge;2 years, then loses skills across the board</b>&rdquo; &mdash; Heller's disintegrative disorder; ICD-11 folds it into ASD.</p></div>
+</section>
+
+<section id="f84-4">
+  <h2>F84.4 &middot; Overactive disorder with intellectual disability and stereotyped movements</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F84 Pervasive developmental disorders &rarr; an admittedly &ldquo;ill-defined&rdquo; category. ICD-11: coded by combining the relevant diagnoses (intellectual developmental disorder + ADHD + stereotyped movement disorder).</p>
+  <div class="panel10"><h4><span class="tag t10">ICD-10 (F84.4)</span></h4>
+    <p>An <b>ill-defined disorder of uncertain nosological validity</b>, included because children with <b>moderate-to-severe intellectual disability (IQ below 50)</b> who show major hyperactivity and inattention frequently also show <b>stereotyped behaviours</b>. Characteristically, such children <b>do not benefit from stimulant drugs</b> (unlike hyperkinetic children of normal IQ) and may show a severe dysphoric reaction to them; in adolescence the overactivity tends to be replaced by <b>underactivity</b> (unusual in typical hyperkinetic children). Often associated with a variety of developmental delays.</p>
+  </div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11</span></h4><p>No single equivalent; ICD-11 <b>codes the components separately</b> &mdash; <b>disorder of intellectual development (6A00)</b> + <b>ADHD (6A05)</b> + <b>stereotyped movement disorder (6A06)</b> as applicable &mdash; consistent with allowing multiple neurodevelopmental diagnoses.</p></div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>From typical <b>ADHD/hyperkinetic disorder</b> of normal IQ (responds to stimulants; overactivity persists differently); from <b>autism (F84.0)</b> (social-communication deficits central); from <b>intellectual disability</b> alone without the overactivity/stereotypy cluster.</p></div>
+  <div class="remember"><h4>Remember</h4><p>&ldquo;<b>IQ&lt;50 + hyperactive + stereotypies, doesn't respond to stimulants</b>&rdquo; &mdash; ICD-11 codes the parts separately.</p></div>
+</section>
+
+<section id="f84-5">
+  <h2>F84.5 &middot; Asperger's syndrome</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F84 Pervasive developmental disorders &rarr; autistic features without language/cognitive delay. ICD-11 change: <b>Asperger's is abolished</b> and absorbed into <b>6A02 Autism spectrum disorder (without disorder of intellectual development and without impairment of functional language)</b>.</p>
+  <div class="panel10"><h4><span class="tag t10">ICD-10 (F84.5)</span></h4>
+    <p>A disorder of uncertain nosological validity characterised by the <b>same qualitative abnormalities of reciprocal social interaction that typify autism</b>, together with a <b>restricted, stereotyped, repetitive repertoire of interests and activities</b>, but differing from autism primarily in that there is <b>no general delay or retardation in language or in cognitive development.</b> Most individuals are of normal general intelligence but are commonly <b>markedly clumsy</b>; it occurs predominantly in boys (about 8:1). The abnormalities tend to persist into adolescence and adult life. Diagnosis rests on the lack of clinically significant language/cognitive delay <b>plus</b> autistic social and restricted/repetitive features.</p>
+    <div class="incl" style="margin-top:8px"><b>Includes:</b> autistic psychopathy; schizoid disorder of childhood. <b>Excludes:</b> anankastic personality disorder (F60.5); attachment disorders of childhood (F94.1/F94.2); obsessive-compulsive disorder (F42.-); schizotypal disorder (F21); simple schizophrenia (F20.6).</div>
+  </div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11</span></h4><p>Diagnosed as <b>autism spectrum disorder without disorder of intellectual development and without impairment of functional language</b> &mdash; the presentation formerly called Asperger's. The separate label is retired because research showed it was not reliably distinct from &ldquo;high-functioning&rdquo; autism.</p></div>
+  <div class="ddx"><h5>Differential diagnosis (from ICD-10)</h5><p>From <b>childhood autism (F84.0)</b> (there language/cognitive development is delayed); from <b>schizoid (F60.1)/schizotypal (F21)</b> disorders and <b>anankastic personality disorder (F60.5)</b>; from <b>OCD (F42)</b> (rituals there are ego-dystonic); from <b>simple schizophrenia (F20.6)</b>.</p></div>
+  <div class="remember"><h4>Remember</h4><p>&ldquo;<b>Autistic social + restricted interests, normal language &amp; IQ, clumsy</b>&rdquo; &mdash; Asperger's; ICD-11 files it under ASD (no intellectual/language impairment).</p></div>
+</section>
+
+<!-- ═══════════════════════ F88 / F89 ═══════════════════════ -->
+<section id="f88">
+  <h2>F88 / F89 &middot; Other and unspecified disorders of psychological development</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F88/F89 close the F80&ndash;F89 block as the &ldquo;other&rdquo; and residual categories.</p>
+  <div class="panel10"><h4><span class="tag t10">ICD-10</span></h4>
+    <ul class="t">
+      <li><b>F88 Other disorders of psychological development.</b> <b>Includes:</b> developmental agnosia (a specific difficulty recognising/interpreting sensory information despite intact senses).</li>
+      <li><b>F89 Unspecified disorder of psychological development.</b> <b>Includes:</b> developmental disorder NOS.</li>
+    </ul>
+  </div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11</span></h4><p>Handled by the residual neurodevelopmental codes (<b>6A0Y other specified</b> / <b>6A0Z unspecified neurodevelopmental disorders</b>).</p></div>
+  <p><i>As residual/unspecified categories, F88 and F89 have no meaningful stand-alone differential diagnosis; the task is to identify a more specific developmental disorder wherever possible.</i></p>
+</section>
+
+
+<!-- ═══════════════════════ REFERENCES ═══════════════════════ -->
+<section id="references">
+  <h2>References and Source Attribution</h2>
+  <p>Diagnostic terminology and criteria (including the includes/excludes and differential-diagnosis notes) are drawn strictly from the two official WHO classifications; clinical elaboration and psychological theories are drawn from standard psychiatric and psychological texts and peer-reviewed literature, each labelled inline with a source tag. A central teaching point of this block is the collapse of ICD-10's pervasive developmental disorder subtypes into a single ICD-11 Autism Spectrum Disorder, the removal of Rett's syndrome from the mental-disorders chapter, and the folding of the whole block into the neurodevelopmental disorders grouping.</p>
+  <ul class="t">
+    <li><span class="tag t10">ICD-10</span> World Health Organization. <i>The ICD-10 Classification of Mental and Behavioural Disorders: Clinical Descriptions and Diagnostic Guidelines.</i> Geneva: World Health Organization, 1992.</li>
+    <li><span class="tag t11">ICD-11</span> World Health Organization. <i>Clinical Descriptions and Diagnostic Requirements for ICD-11 Mental, Behavioural and Neurodevelopmental Disorders.</i> Geneva: World Health Organization.</li>
+    <li><span class="tag tks">Kaplan &amp; Sadock</span> Sadock BJ, Sadock VA, Ruiz P. <i>Kaplan &amp; Sadock's Synopsis of Psychiatry</i> and <i>Comprehensive Textbook of Psychiatry</i> (etiology, epidemiology, clinical features and management; content paraphrased).</li>
+    <li><span class="tag tother">Other evidence</span> Foundational developmental theory (Baron-Cohen's theory of mind; Frith's weak central coherence; executive-dysfunction accounts; the phonological-deficit model of dyslexia) and peer-reviewed epidemiological literature. Content was rephrased for compliance with licensing restrictions.</li>
+  </ul>
+  <div class="warn"><b>Note on use.</b> This is an educational study reference for M.Phil. Clinical Psychology. Diagnostic criteria are paraphrased from the ICD sources without reproducing copyrighted text at length; secondary-source content has been rephrased for compliance with licensing restrictions. It is not a substitute for the full official classifications or for individual clinical and medical judgement, and it is not a prescribing guide.</div>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+</main>
+</div>
+
+<footer>
+  <p><strong>ICD-10 &amp; ICD-11 Comparative Clinical Handbook &mdash; F80&ndash;F89 Disorders of Psychological Development</strong></p>
+  <p>Fully comprehensive edition &middot; every disorder and subtype detailed with its own ICD-10 criteria and ICD-11 counterpart, includes/excludes and differential diagnosis &middot; the collapse of the PDD subtypes into a single Autism Spectrum Disorder &middot; etiology (with psychological theories), epidemiology, comorbidities, mnemonics and management &middot; terminology explained in plain language.</p>
+  <p style="margin-top:14px;font-size:1rem;color:#fff;letter-spacing:.04em">Made by <strong>Tejas Dangodra</strong></p>
+</footer>
+
+</body>
+</html>

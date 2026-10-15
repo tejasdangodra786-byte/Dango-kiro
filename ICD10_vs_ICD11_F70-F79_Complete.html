@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ICD-10 &amp; ICD-11 Comparative Handbook — F70–F79 Mental Retardation / Disorders of Intellectual Development</title>
+<style>
+:root{
+  --deep:#0a2540;--accent:#0e6655;--icd10:#1a5276;--icd11:#1e8449;
+  --ks:#7d3c98;--other:#b9770e;--bg:#f4f6f9;--card:#ffffff;
+  --ink:#1c2833;--muted:#5d6d7e;--line:#d5dbdb;--soft:#eaf2f8;
+  --warn:#922b21;--uniq:#6c3483;--surface:#fdfefe;--psych:#1f6f8b;--ddx:#0b6b5f;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.72;font-size:16px}
+.cover{background:linear-gradient(160deg,#0a2540 0%,#154360 40%,#0e6655 100%);color:#fff;padding:60px 30px 50px;text-align:center}
+.cover .subtitle{text-transform:uppercase;letter-spacing:.3em;font-size:.72rem;opacity:.7;margin-bottom:16px}
+.cover h1{font-size:2.05rem;font-weight:800;line-height:1.22;margin-bottom:12px;max-width:940px;display:inline-block}
+.cover .tagline{font-size:1.05rem;font-weight:400;opacity:.9;max-width:820px;margin:0 auto 22px}
+.cover .chips{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-bottom:18px}
+.cover .chip{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);border-radius:6px;padding:5px 14px;font-size:.82rem}
+.cover .srcline{font-size:.8rem;opacity:.65;max-width:760px;margin:0 auto}
+.wrap{max-width:1160px;margin:0 auto;padding:0 22px}
+.layout{display:flex;gap:28px;align-items:flex-start}
+nav.toc{position:sticky;top:0;max-height:100vh;overflow-y:auto;flex:0 0 288px;padding:20px 12px 60px;font-size:.82rem;border-right:1px solid var(--line);background:var(--surface)}
+nav.toc h4{margin:18px 0 6px;color:var(--accent);text-transform:uppercase;font-size:.68rem;letter-spacing:.08em;font-weight:700}
+nav.toc a{display:block;color:var(--muted);text-decoration:none;padding:4px 10px;border-radius:6px;border-left:3px solid transparent;transition:all .15s}
+nav.toc a:hover{background:var(--soft);color:var(--icd10);border-left-color:var(--icd10)}
+nav.toc a.sub{padding-left:22px;font-size:.79rem}
+main{flex:1 1 auto;min-width:0;padding:28px 0 100px}
+section{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:28px 30px;margin:0 0 26px;scroll-margin-top:16px;box-shadow:0 1px 3px rgba(10,37,64,.04)}
+h2{font-size:1.45rem;color:var(--deep);border-bottom:3px solid var(--accent);padding-bottom:10px;margin-bottom:14px;font-weight:800}
+h3{font-size:1.1rem;color:var(--accent);margin:26px 0 8px;font-weight:700;padding-left:14px;border-left:4px solid var(--accent)}
+h4{font-size:.98rem;margin:16px 0 6px;font-weight:700;color:var(--deep)}
+p{margin:.55em 0}
+.tag{display:inline-block;font-size:.64rem;font-weight:700;padding:2px 9px;border-radius:4px;color:#fff;vertical-align:middle;letter-spacing:.02em}
+.t10{background:var(--icd10)}.t11{background:var(--icd11)}.tks{background:var(--ks)}.tother{background:var(--other)}
+b.cl{color:var(--deep);font-weight:700}
+i.si{color:var(--uniq);font-style:normal;font-weight:500}
+table{border-collapse:collapse;width:100%;margin:16px 0;font-size:.89rem;border-radius:10px;overflow:hidden;box-shadow:0 0 0 1px var(--line)}
+th,td{border:1px solid var(--line);padding:10px 12px;text-align:left;vertical-align:top}
+th{background:var(--deep);color:#fff;font-weight:600;font-size:.79rem;text-transform:uppercase;letter-spacing:.03em}
+tr:nth-child(even) td{background:#f8fafb}
+.c10{background:#eaf2f8!important}.c11{background:#eafaf1!important}
+.panel10{border-left:5px solid var(--icd10);background:#edf2f8;border-radius:0 10px 10px 0;padding:16px 20px;margin:14px 0}
+.panel11{border-left:5px solid var(--icd11);background:#edfaf1;border-radius:0 10px 10px 0;padding:16px 20px;margin:14px 0}
+.panel10 h4,.panel11 h4{margin:0 0 8px;padding-left:0;border-left:none}
+.note{border-left:5px solid var(--accent);background:var(--soft);padding:14px 18px;border-radius:0 10px 10px 0;margin:14px 0}
+.warn{border-left:5px solid var(--warn);background:#fdedec;padding:14px 18px;border-radius:0 10px 10px 0;margin:14px 0}
+.incl{border-left:5px solid var(--icd11);background:#eefaf2;padding:12px 16px;border-radius:0 8px 8px 0;margin:10px 0;font-size:.9rem}
+.excl{border-left:5px solid var(--warn);background:#fdf0ee;padding:12px 16px;border-radius:0 8px 8px 0;margin:10px 0;font-size:.9rem}
+.unique{border:2px solid var(--uniq);background:#f5eef8;border-radius:12px;padding:16px 20px;margin:16px 0}
+.unique h4{color:var(--uniq);margin:0 0 10px;border-left:none;padding-left:0}
+.assoc{border:2px solid var(--warn);background:#fdf0ee;border-radius:12px;padding:16px 20px;margin:16px 0}
+.assoc h4{color:var(--warn);margin:0 0 10px;border-left:none;padding-left:0}
+.psych{border:2px solid var(--psych);background:#eaf4f7;border-radius:12px;padding:16px 20px;margin:16px 0}
+.psych h4{color:var(--psych);margin:0 0 10px;border-left:none;padding-left:0}
+.subtype{border:2px solid #1a5276;background:#eef3f8;border-radius:12px;padding:18px 22px;margin:18px 0}
+.subtype h4{color:#1a5276;margin:0 0 10px;border-left:none;padding-left:0;font-size:1.04rem}
+.ddx{border:2px dashed var(--ddx);background:#e9f6f2;border-radius:10px;padding:12px 16px;margin:12px 0;font-size:.9rem}
+.ddx h5{color:var(--ddx);margin:0 0 6px;font-size:.9rem;text-transform:uppercase;letter-spacing:.03em}
+.sig{background:var(--deep);color:#fff;padding:14px 20px;border-radius:10px;margin:14px 0;font-size:.96rem}
+.sig b{color:#f9e79f}
+.remember{border:2px dashed #d4ac0d;background:#fef9e7;border-radius:12px;padding:16px 20px;margin:14px 0}
+.remember h4{color:#7d6608;margin:0 0 8px;border-left:none;padding-left:0}
+.idcard{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin:14px 0}
+.idcard div{background:#f2f6fa;border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:.85rem}
+.idcard b{display:block;font-size:.62rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:3px}
+ul.t,ol.t{margin:.5em 0;padding-left:1.3em}
+ul.t li,ol.t li{margin:.3em 0}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.top{text-align:right;font-size:.78rem;margin-top:10px}.top a{color:var(--muted);text-decoration:none}
+footer{background:var(--deep);color:#aeb6bf;padding:30px 22px;font-size:.86rem;text-align:center}
+footer strong{color:#fff}
+@media(max-width:920px){.layout{display:block}nav.toc{position:static;border-right:none;border-bottom:1px solid var(--line);max-height:none;flex:none}.g2{grid-template-columns:1fr}.cover h1{font-size:1.5rem}}
+@media print{nav.toc{display:none}body{background:#fff}section{box-shadow:none;break-inside:avoid}footer{background:#fff;color:#333}}
+</style>
+</head>
+<body>
+<a id="top"></a>
+
+<div class="cover">
+  <p class="subtitle">M.Phil. Clinical Psychology &mdash; Complete Diagnostic, Clinical &amp; Treatment Reference</p>
+  <h1>ICD-10 &amp; ICD-11 Comparative Clinical Handbook<br>F70&ndash;F79: Mental Retardation / Disorders of Intellectual Development</h1>
+  <p class="tagline">The fully comprehensive edition: every severity level &mdash; mild, moderate, severe and profound &mdash; set out with its own ICD-10 criteria (IQ band, language, self-care, schooling, work) and its ICD-11 counterpart, includes/excludes and dedicated differential diagnosis, plus etiology, epidemiology, unique presentations, comorbidities, memory aids and management. Centred on the shift from ICD-10's IQ-led &ldquo;mental retardation&rdquo; to ICD-11's dual-axis (intellectual + adaptive) &ldquo;disorders of intellectual development&rdquo;.</p>
+  <div class="chips">
+    <span class="chip">Criteria strictly from ICD-10 &amp; ICD-11</span>
+    <span class="chip">Every severity level detailed + its own differential diagnosis</span>
+    <span class="chip">IQ bands &amp; mental-age equivalents</span>
+    <span class="chip">Terminology &amp; assessment change explained</span>
+    <span class="chip">Etiology, epidemiology, comorbidities, mnemonics, management</span>
+  </div>
+  <p class="srcline">Primary authorities: WHO ICD-10 Clinical Descriptions &amp; Diagnostic Guidelines and WHO ICD-11 Clinical Descriptions &amp; Diagnostic Requirements. Secondary: Kaplan &amp; Sadock's Synopsis/Comprehensive Textbook of Psychiatry; peer-reviewed literature.</p>
+</div>
+
+<div class="wrap layout">
+<nav class="toc">
+  <h4>Foundations</h4>
+  <a href="#overview">The F70&ndash;F79 block overview</a>
+  <a href="#compare">ICD-10 vs ICD-11 &mdash; terminology &amp; assessment change</a>
+  <a href="#map">Master code map &amp; severity table</a>
+  <a href="#etiology">Etiology, epidemiology &amp; comorbidities</a>
+  <h4>Severity levels</h4>
+  <a href="#f70">F70 &middot; Mild (IQ 50&ndash;69)</a>
+  <a href="#f71">F71 &middot; Moderate (IQ 35&ndash;49)</a>
+  <a href="#f72">F72 &middot; Severe (IQ 20&ndash;34)</a>
+  <a href="#f73">F73 &middot; Profound (IQ under 20)</a>
+  <a href="#f78">F78 &middot; Other</a>
+  <a href="#f79">F79 &middot; Unspecified</a>
+  <h4>Reference</h4>
+  <a href="#references">References</a>
+</nav>
+<main>
+
+
+<!-- ═══════════════════════ OVERVIEW ═══════════════════════ -->
+<section id="overview">
+  <h2>The F70&ndash;F79 block: what holds it together</h2>
+  <p><span class="tag t10">ICD-10</span> defines mental retardation as <b class="cl">a condition of arrested or incomplete development of the mind</b>, especially characterised by impairment of skills manifested during the developmental period, which contribute to the overall level of intelligence &mdash; that is, cognitive, language, motor and social abilities. The block runs from F70 to F79 and is graded by severity: <b>F70</b> mild, <b>F71</b> moderate, <b>F72</b> severe, <b>F73</b> profound, <b>F78</b> other, and <b>F79</b> unspecified.</p>
+  <p>Two features are constant across the whole block. First, <b>onset is during the developmental period</b> (childhood), not acquired later in adult life (which would be dementia). Second, <b>adaptive behaviour is always impaired</b> &mdash; though in a protected, supportive environment this may not be at all obvious in someone with mild retardation.</p>
+
+  <div class="note"><b>Terms in plain language.</b> <i>Intelligence quotient (IQ)</i> = a standardised score of intellectual ability, set so the population average is about 100; <i>adaptive behaviour</i> = how well a person copes with the everyday practical, social and self-care demands of life; <i>developmental period</i> = the years of childhood/adolescence when the brain and skills are maturing; <i>organic etiology</i> = an identifiable physical/biological cause; <i>mental age</i> = the age-level at which a person's abilities function, regardless of their actual age.</p></div>
+
+  <div class="warn"><b>A note on the old terms.</b> ICD-10 still contained now-obsolete and offensive historical labels in its &ldquo;includes&rdquo; lists (e.g. &ldquo;moron&rdquo;, &ldquo;imbecility&rdquo;, &ldquo;idiocy&rdquo;, &ldquo;oligophrenia&rdquo;, &ldquo;feeble-mindedness&rdquo;). They are recorded here only so that the ICD-10 source is represented accurately for study; they must <b>never</b> be used clinically. ICD-11 removed all of them along with the term &ldquo;mental retardation&rdquo; itself.</p></div>
+</section>
+
+<!-- ═══════════════════════ COMPARE ═══════════════════════ -->
+<section id="compare">
+  <h2>ICD-10 vs ICD-11 &mdash; the terminology and assessment change</h2>
+  <p>This block is dominated by two related changes: a change of <b>name</b> and a change of <b>how you make the diagnosis</b>.</p>
+  <div class="g2">
+    <div class="panel10"><h4><span class="tag t10">ICD-10 &mdash; &ldquo;Mental retardation&rdquo;, IQ-led</h4>
+      <ul class="t">
+        <li>Named <b>&ldquo;mental retardation&rdquo;</b> and placed in its own block F70&ndash;F79.</li>
+        <li>Severity is anchored to <b>IQ bands</b> (mild 50&ndash;69, moderate 35&ndash;49, severe 20&ndash;34, profound under 20), described as &ldquo;a guide&rdquo; that should not be applied rigidly, alongside adaptive behaviour.</li>
+        <li>A <b>fourth character</b> records the extent of associated behavioural impairment (.0 none/minimal, .1 significant, .8 other, .9 not mentioned).</li>
+      </ul>
+    </div>
+    <div class="panel11"><h4><span class="tag t11">ICD-11 &mdash; &ldquo;Disorders of intellectual development&rdquo;, dual-axis</h4>
+      <ul class="t">
+        <li>Renamed <b>&ldquo;Disorders of intellectual development&rdquo; (6A00)</b> &mdash; deliberately destigmatising language.</li>
+        <li>Moved into the <b>Neurodevelopmental disorders</b> grouping (alongside autism, ADHD, developmental learning/speech disorders), reflecting that it is a developmental condition.</li>
+        <li>Severity (<b>6A00.0 mild, 6A00.1 moderate, 6A00.2 severe, 6A00.3 profound</b>) is defined by assessing <b>both intellectual functioning AND adaptive behaviour</b>, ideally with standardised tests but explicitly allowing <b>behavioural indicators</b> where testing is not feasible.</li>
+        <li>Adds a <b>6A00.4 provisional</b> category (for infants/young children or where assessment is not yet possible) and <b>6A00.Z unspecified</b>.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="unique"><h4>The one-line exam answer</h4><p>ICD-10 calls it <b>&ldquo;mental retardation&rdquo;</b> and grades it mainly by <b>IQ band</b>; ICD-11 renames it <b>&ldquo;disorders of intellectual development&rdquo;</b>, places it among <b>neurodevelopmental disorders</b>, and grades severity on <b>both intellectual functioning and adaptive behaviour</b> (with a provisional category for the very young/untestable). The shift is toward less stigma and a fuller, function-based assessment rather than a single IQ number.</p></div>
+</section>
+
+<!-- ═══════════════════════ MAP ═══════════════════════ -->
+<section id="map">
+  <h2>Master code map &amp; severity table</h2>
+  <table>
+    <tr><th>Severity</th><th>ICD-10 (IQ guide)</th><th>Approx. mental age (adult)</th><th>ICD-11</th></tr>
+    <tr><td class="c10"><b>Mild</b></td><td>F70 &mdash; IQ 50&ndash;69</td><td>about 9 to under 12 years</td><td class="c11">6A00.0</td></tr>
+    <tr><td class="c10"><b>Moderate</b></td><td>F71 &mdash; IQ 35&ndash;49</td><td>about 6 to under 9 years</td><td class="c11">6A00.1</td></tr>
+    <tr><td class="c10"><b>Severe</b></td><td>F72 &mdash; IQ 20&ndash;34</td><td>about 3 to under 6 years</td><td class="c11">6A00.2</td></tr>
+    <tr><td class="c10"><b>Profound</b></td><td>F73 &mdash; IQ under 20</td><td>under 3 years</td><td class="c11">6A00.3</td></tr>
+    <tr><td class="c10"><b>Other</b></td><td>F78 &mdash; assessment impeded by sensory/physical impairment</td><td>&mdash;</td><td class="c11">(assessed within 6A00 / provisional)</td></tr>
+    <tr><td class="c10"><b>Unspecified</b></td><td>F79 &mdash; retardation present, insufficient information</td><td>&mdash;</td><td class="c11">6A00.Z / 6A00.4 provisional</td></tr>
+  </table>
+  <div class="warn"><b>Read this the right way.</b> The IQ bands are an ICD-10 <b>guide</b>, not a rigid cut-off &mdash; ICD-10 itself warns against applying them rigidly and stresses adaptive behaviour and cross-cultural validity. Mental-age figures are approximate teaching aids, not part of the formal criteria. The fourth-character behavioural-impairment codes (.0/.1/.8/.9) apply across F70&ndash;F73.</p></div>
+  <div class="note"><b>Fourth-character behavioural impairment (F70&ndash;F73).</b> <b>.0</b> = no, or minimal, impairment of behaviour; <b>.1</b> = significant impairment of behaviour requiring attention or treatment; <b>.8</b> = other impairments of behaviour; <b>.9</b> = without mention of impairment of behaviour. If the intellectual disability has a known cause, an <b>additional ICD-10 code</b> is added (e.g. F72 severe + a code for the underlying syndrome).</p></div>
+</section>
+
+<!-- ═══════════════════════ ETIOLOGY ═══════════════════════ -->
+<section id="etiology">
+  <h2>Etiology, epidemiology &amp; comorbidities (shared across the block)</h2>
+  <h3>Etiology</h3>
+  <p><span class="tag tks">Kaplan &amp; Sadock</span> Causes span the whole developmental timeline. An organic cause is found in only a minority of <b>mild</b> cases but in the <b>majority</b> of moderate, severe and profound cases.</p>
+  <ul class="t">
+    <li><b>Prenatal (before birth):</b> chromosomal (Down syndrome/trisomy 21, fragile X &mdash; the commonest inherited cause), single-gene and metabolic disorders (phenylketonuria), neural-tube and brain malformations, and maternal/intrauterine factors (congenital infections such as rubella and cytomegalovirus, alcohol &mdash; fetal alcohol spectrum disorder, iodine deficiency).</li>
+    <li><b>Perinatal (around birth):</b> extreme prematurity, birth asphyxia (lack of oxygen), birth trauma, severe neonatal jaundice (kernicterus).</li>
+    <li><b>Postnatal (after birth):</b> CNS infections (meningitis, encephalitis), head injury, lead and other toxins, severe malnutrition, and profound early deprivation.</li>
+    <li>In many mild cases no single cause is found; polygenic and psychosocial factors interact.</li>
+  </ul>
+  <div class="psych"><h4>A developmental / biopsychosocial understanding</h4><p><span class="tag tother">Other evidence</span> Intellectual disability results from an interaction of biological insult and the psychosocial environment. Early enrichment, education and family support materially change the level of achieved <b>adaptive</b> functioning &mdash; which is why ICD-11's emphasis on adaptive behaviour (not IQ alone) matters clinically. Prevention (antenatal screening, newborn metabolic screening, iodine/folate supplementation, immunisation, injury prevention) is a major public-health lever.</p></div>
+  <h3>Epidemiology</h3>
+  <ul class="t">
+    <li>Overall prevalence roughly <b>1&ndash;3%</b> of the population; the great majority (about 85%) are in the <b>mild</b> range.</li>
+    <li>More common in males.</li>
+    <li>Mild disability clusters with socioeconomic disadvantage; the moderate&ndash;profound range is more evenly distributed and more often has an identifiable organic cause.</li>
+  </ul>
+  <div class="assoc"><h4>Comorbidities (the &ldquo;dual diagnosis&rdquo; issue)</h4><p>People with intellectual disability can experience the <b>full range of mental disorders</b>, and the prevalence of other mental disorders is at least <b>three to four times higher</b> than in the general population (ICD-10). Common associations: epilepsy, autism spectrum disorder, ADHD, cerebral palsy and motor/sensory impairments, and behavioural disturbance. Diagnostic overshadowing (wrongly attributing new symptoms to the disability itself) is a key clinical pitfall; communication difficulty means diagnosis often relies more on <b>objectively observable signs</b> (e.g. for depression: psychomotor slowing, loss of appetite/weight, sleep disturbance) and on informant history. Vulnerability to <b>exploitation and physical/sexual abuse</b> is increased.</p></div>
+  <h3>Management (shared principles)</h3>
+  <ul class="t">
+    <li><b>Not &ldquo;curable&rdquo;</b>: management is habilitative and lifelong &mdash; education/special education, skills and communication training, and support tailored to the level of need.</li>
+    <li><b>Treat the treatable:</b> identify and manage underlying causes (e.g. dietary treatment in PKU), and treat comorbid epilepsy and mental disorders.</li>
+    <li><b>Behavioural approaches</b> for challenging behaviour; avoid over-reliance on sedating medication (psychotropics are adjunctive, for specific comorbid disorders or severe behavioural disturbance).</li>
+    <li><b>Family and social support</b>, safeguarding against abuse, and support for independent living appropriate to ability.</li>
+  </ul>
+</section>
+
+
+<!-- ═══════════════════════ F70 MILD ═══════════════════════ -->
+<section id="f70">
+  <h2>F70 &middot; Mild mental retardation (IQ 50&ndash;69)</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F70&ndash;F79 Mental retardation / disorders of intellectual development &rarr; the mildest and by far the commonest level (about 85% of all cases). ICD-11 counterpart: <b>6A00.0 Disorder of intellectual development, mild</b>.</p>
+  <div class="g2">
+    <div class="panel10"><h4><span class="tag t10">ICD-10 (F70)</span></h4>
+      <p><b>IQ guide 50&ndash;69.</b> Clinical picture:</p>
+      <ul class="t">
+        <li><b>Language:</b> acquired with some delay, but most achieve the ability to use speech for everyday purposes, hold conversations and take part in a clinical interview. Executive speech problems may persist into adult life.</li>
+        <li><b>Self-care:</b> most achieve <b>full independence</b> in self-care (eating, washing, dressing, bowel and bladder control) and in practical and domestic skills, even if development is slower than normal.</li>
+        <li><b>Schooling:</b> the main difficulties are in <b>academic school work</b>, with particular problems in reading and writing; helped greatly by education tailored to develop skills and compensate for difficulties.</li>
+        <li><b>Work / adult life:</b> those in the higher ranges are potentially capable of <b>practical (rather than academic) work</b>, including unskilled or semiskilled manual labour. Emotional/social difficulties resemble those of people of normal intelligence more than the specific problems of the more severely affected.</li>
+        <li><b>Etiology:</b> an organic cause is identifiable in only a <b>minority</b>.</li>
+      </ul>
+      <div class="incl" style="margin-top:8px"><b>Includes (obsolete ICD-10 terms):</b> feeble-mindedness; mild mental subnormality; mild oligophrenia; &ldquo;moron&rdquo;. (Historical only &mdash; not for clinical use.)</div>
+    </div>
+    <div class="panel11"><h4><span class="tag t11">ICD-11 (6A00.0)</span></h4>
+      <p><b>Disorder of intellectual development, mild.</b> Intellectual functioning and adaptive behaviour approximately <b>2 to 3 standard deviations below the mean</b> (roughly the old IQ 50&ndash;69 range). Affected people:</p>
+      <ul class="t">
+        <li>often acquire academic skills up to roughly primary-school level;</li>
+        <li>may have difficulty with abstract reasoning, planning and money/time;</li>
+        <li>can usually achieve independent living and employment with appropriate support.</li>
+      </ul>
+      <p style="margin-top:6px">Diagnosis rests on <b>both</b> intellectual functioning and adaptive behaviour, ideally on standardised, individually administered, normed tests.</p>
+    </div>
+  </div>
+  <div class="unique"><h4>Unique / identifying features of the mild level</h4><p>Frequently <b>not identified until school age</b>, when academic demands expose the difficulty; in a supportive, low-academic environment it may not present as a problem at all. This is the group most amenable to education and most likely to reach semi-independent adult life. The largest single subgroup within intellectual disability.</p></div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>From <b>specific learning disorders (F81 / ICD-11 6A03)</b> &mdash; those affect a specific skill (reading, spelling, arithmetic) against otherwise normal general intelligence, whereas intellectual disability is a global reduction. From <b>borderline intellectual functioning</b> (above the threshold). From <b>dementia</b> (acquired decline after a period of normal development, not developmental onset). From educational disadvantage or unrecognised <b>sensory impairment</b> (hearing/vision) that mimics low ability &mdash; test appropriately. Associated autism, epilepsy, conduct disorder or physical disability should be coded independently.</p></div>
+  <div class="remember"><h4>Remember &mdash; mild &ldquo;9&ndash;12 / school&rdquo;</h4><p>IQ <b>50&ndash;69</b>, mental age about <b>9 to under 12</b>. Cue: <b>&ldquo;talks, self-cares, struggles at school, works with hands&rdquo;</b> &mdash; independence achievable with support.</p></div>
+</section>
+
+<!-- ═══════════════════════ F71 MODERATE ═══════════════════════ -->
+<section id="f71">
+  <h2>F71 &middot; Moderate mental retardation (IQ 35&ndash;49)</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F70&ndash;F79 &rarr; the moderate level. ICD-11 counterpart: <b>6A00.1 Disorder of intellectual development, moderate</b>.</p>
+  <div class="g2">
+    <div class="panel10"><h4><span class="tag t10">ICD-10 (F71)</span></h4>
+      <p><b>IQ guide 35&ndash;49.</b> Clinical picture:</p>
+      <ul class="t">
+        <li><b>Language:</b> slow to develop, with limited eventual achievement; variable &mdash; some take part in simple conversations, others have only enough language for basic needs, and some never learn to speak but may use manual signs.</li>
+        <li><b>Self-care &amp; motor skills:</b> retarded; some need supervision throughout life, though the majority are fully mobile and physically active.</li>
+        <li><b>Schooling:</b> limited progress, but a proportion learn basic reading, writing and counting; educational programmes suit slow learners with a low ceiling of achievement.</li>
+        <li><b>Work / adult life:</b> as adults, usually able to do <b>simple practical work</b> if tasks are carefully structured and skilled supervision is provided; <b>completely independent living is rarely achieved</b>. Most show social development &mdash; ability to make contact, communicate and take part in simple social activities.</li>
+        <li><b>Etiology:</b> an organic cause can be identified in the <b>majority</b>; childhood autism or other pervasive developmental disorders are present in a substantial minority; epilepsy and neurological/physical disability are common.</li>
+      </ul>
+      <div class="incl" style="margin-top:8px"><b>Includes (obsolete ICD-10 terms):</b> imbecility; moderate mental subnormality; moderate oligophrenia. (Historical only.)</div>
+    </div>
+    <div class="panel11"><h4><span class="tag t11">ICD-11 (6A00.1)</span></h4>
+      <p><b>Disorder of intellectual development, moderate.</b> Intellectual functioning and adaptive behaviour approximately <b>3 to 4 standard deviations below the mean</b>. Typically: language and academic skills develop to a basic level; ongoing support is needed for daily living; supervised work and structured social participation are achievable but independent living generally is not.</p>
+    </div>
+  </div>
+  <div class="unique"><h4>Unique / identifying features of the moderate level</h4><p>The <b>&ldquo;discrepant profile&rdquo;</b> is characteristic &mdash; some individuals reach higher levels in visuo-spatial skills than in language, while others are markedly clumsy but enjoy social interaction and simple conversation. A substantial minority have <b>co-occurring autism</b>, which shapes the whole clinical picture and management.</p></div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>From <b>mild disability (F70)</b> (there language is conversational and self-care independent); from <b>severe disability (F72)</b> (there motor impairment and CNS damage are marked and achievement lower); from a primary <b>autism spectrum disorder</b> without intellectual disability (assess intellectual functioning and adaptive behaviour separately &mdash; the two are coded independently). Associated epilepsy and physical/psychiatric disorders are coded independently.</p></div>
+  <div class="remember"><h4>Remember &mdash; moderate &ldquo;6&ndash;9 / supervised&rdquo;</h4><p>IQ <b>35&ndash;49</b>, mental age about <b>6 to under 9</b>. Cue: <b>&ldquo;basic self-care with help, simple supervised work, rarely lives alone&rdquo;</b> &mdash; organic cause usually found; watch for autism.</p></div>
+</section>
+
+
+<!-- ═══════════════════════ F72 SEVERE ═══════════════════════ -->
+<section id="f72">
+  <h2>F72 &middot; Severe mental retardation (IQ 20&ndash;34)</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F70&ndash;F79 &rarr; the severe level. ICD-11 counterpart: <b>6A00.2 Disorder of intellectual development, severe</b>.</p>
+  <div class="g2">
+    <div class="panel10"><h4><span class="tag t10">ICD-10 (F72)</span></h4>
+      <p><b>IQ guide 20&ndash;34.</b> Broadly similar to the moderate level in clinical picture, presence of an organic cause and associated conditions, but with the <b>lower levels of achievement</b>. Key points:</p>
+      <ul class="t">
+        <li>Most have a <b>marked degree of motor impairment</b> or other deficits, indicating clinically significant damage to, or maldevelopment of, the central nervous system.</li>
+        <li>Language and skills are at the lower end of what is described for the moderate group.</li>
+        <li>Requires continuous support; may achieve very basic self-care skills with training and supervision.</li>
+      </ul>
+      <div class="incl" style="margin-top:8px"><b>Includes (obsolete ICD-10 terms):</b> severe mental subnormality; severe oligophrenia. (Historical only.)</div>
+    </div>
+    <div class="panel11"><h4><span class="tag t11">ICD-11 (6A00.2)</span></h4>
+      <p><b>Disorder of intellectual development, severe.</b> Intellectual functioning and adaptive behaviour approximately <b>4 or more standard deviations below the mean</b>, similar profile to profound but with slightly greater residual skills. Very limited language and academic attainment; needs support for all or nearly all activities of daily living; associated motor and sensory impairments common.</p>
+    </div>
+  </div>
+  <div class="unique"><h4>Unique / identifying features of the severe level</h4><p>The presence of <b>clinically significant CNS damage/maldevelopment</b> is characteristic &mdash; marked motor impairment and neurological signs distinguish it from the moderate group despite overlapping descriptions. An organic cause is almost always identifiable.</p></div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>From <b>moderate disability (F71)</b> (higher achievement, less motor impairment); from <b>profound disability (F73)</b> (there mobility, continence and communication are far more restricted). Distinguish global intellectual disability from a severe primary <b>motor or sensory disability</b> that limits testing but not underlying cognition (see F78). Code associated epilepsy, cerebral palsy and psychiatric disorders independently.</p></div>
+  <div class="remember"><h4>Remember &mdash; severe &ldquo;3&ndash;6 / CNS damage&rdquo;</h4><p>IQ <b>20&ndash;34</b>, mental age about <b>3 to under 6</b>. Cue: <b>&ldquo;like moderate but lower, with marked motor/CNS impairment&rdquo;</b> &mdash; organic cause almost always present.</p></div>
+</section>
+
+<!-- ═══════════════════════ F73 PROFOUND ═══════════════════════ -->
+<section id="f73">
+  <h2>F73 &middot; Profound mental retardation (IQ under 20)</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F70&ndash;F79 &rarr; the most severe level. ICD-11 counterpart: <b>6A00.3 Disorder of intellectual development, profound</b>.</p>
+  <div class="g2">
+    <div class="panel10"><h4><span class="tag t10">ICD-10 (F73)</span></h4>
+      <p><b>IQ estimated under 20.</b> Affected individuals are severely limited in their ability to understand or comply with requests or instructions. Clinical picture:</p>
+      <ul class="t">
+        <li>Most are <b>immobile or severely restricted in mobility</b>, incontinent, and capable at most of only very rudimentary <b>nonverbal communication</b>.</li>
+        <li>Little or no ability to care for their own basic needs; require <b>constant help and supervision</b>.</li>
+        <li>Comprehension and use of language limited to, at best, understanding basic commands and making simple requests; the most basic visuo-spatial skills (sorting, matching) may be acquired, and with supervision the person may take a small part in domestic/practical tasks.</li>
+        <li><b>Etiology:</b> an organic cause can be identified in most cases; severe neurological/physical disability affecting mobility is common, as are epilepsy and visual and hearing impairments. The most severe forms of pervasive developmental disorder (especially atypical autism) are particularly frequent, especially in those who are mobile.</li>
+      </ul>
+      <div class="incl" style="margin-top:8px"><b>Includes (obsolete ICD-10 terms):</b> idiocy; profound mental subnormality; profound oligophrenia. (Historical only.)</div>
+    </div>
+    <div class="panel11"><h4><span class="tag t11">ICD-11 (6A00.3)</span></h4>
+      <p><b>Disorder of intellectual development, profound.</b> Intellectual functioning and adaptive behaviour approximately <b>4 or more standard deviations below the mean</b>, at the extreme. Very limited communication (largely nonverbal); co-occurring severe motor and sensory impairments are usual; dependence on others for all aspects of daily care.</p>
+    </div>
+  </div>
+  <div class="unique"><h4>Unique / identifying features of the profound level</h4><p>The combination of <b>immobility or very restricted mobility, incontinence, minimal nonverbal communication and total dependence</b> is characteristic. High rates of severe neurological disability, epilepsy, and sensory impairment. Assessment relies almost entirely on observation and informant report rather than formal testing.</p></div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>From <b>severe disability (F72)</b> (there some language and greater mobility/self-care remain); from a purely <b>physical/neurological condition</b> causing immobility with relatively preserved cognition; from a <b>degenerative CNS disorder</b> presenting in childhood. Code associated epilepsy, cerebral palsy, sensory impairment and any psychiatric disorder independently.</p></div>
+  <div class="remember"><h4>Remember &mdash; profound &ldquo;under 3 / total care&rdquo;</h4><p>IQ <b>under 20</b>, mental age <b>under 3</b>. Cue: <b>&ldquo;immobile, incontinent, minimal nonverbal communication, constant care&rdquo;</b> &mdash; organic cause in most; severe neuro/sensory comorbidity.</p></div>
+</section>
+
+<!-- ═══════════════════════ F78 OTHER ═══════════════════════ -->
+<section id="f78">
+  <h2>F78 &middot; Other mental retardation</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F70&ndash;F79 &rarr; used when the usual severity assessment cannot be carried out.</p>
+  <div class="panel10"><h4><span class="tag t10">ICD-10 (F78)</span></h4>
+    <p>Used <b>only when assessment of the degree of intellectual retardation by the usual procedures is rendered particularly difficult or impossible</b> by associated sensory or physical impairments &mdash; for example in people who are blind, deaf-mute, or severely behaviourally disturbed or physically disabled. Intellectual disability is present, but its level cannot be reliably graded.</p>
+  </div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11</span></h4>
+    <p>No separate &ldquo;other&rdquo; code; such cases are diagnosed within <b>6A00</b>, and where the severity genuinely cannot yet be established the <b>6A00.4 provisional</b> category is used.</p>
+  </div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>The task here is to separate <b>true intellectual disability</b> from apparent low functioning caused by <b>uncorrected sensory/physical impairment</b> or by a severe communication barrier. Wherever possible, use tests adapted to the person's sensory and motor abilities before defaulting to this category.</p></div>
+  <div class="remember"><h4>Remember</h4><p>&ldquo;<b>Disability present, level can't be graded</b>&rdquo; &mdash; because of blindness, deafness or severe physical/behavioural barriers to testing. ICD-11 handles it as provisional (6A00.4).</p></div>
+</section>
+
+<!-- ═══════════════════════ F79 UNSPECIFIED ═══════════════════════ -->
+<section id="f79">
+  <h2>F79 &middot; Unspecified mental retardation</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F70&ndash;F79 &rarr; the residual code closing the block.</p>
+  <div class="panel10"><h4><span class="tag t10">ICD-10 (F79)</span></h4>
+    <p>There is <b>evidence of mental retardation, but insufficient information is available</b> to assign the person to one of the specific severity categories (F70&ndash;F73).</p>
+    <div class="incl" style="margin-top:8px"><b>Includes (obsolete ICD-10 terms):</b> mental deficiency NOS; mental subnormality NOS; oligophrenia NOS. (Historical only.)</div>
+  </div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11</span></h4>
+    <p>Corresponds to <b>6A00.Z Disorder of intellectual development, unspecified</b> (with 6A00.4 provisional used where a fuller assessment is expected to become possible).</p>
+  </div>
+  <p><i>As a purely residual, unspecified category, F79 has no meaningful stand-alone differential diagnosis; the task is to complete a fuller assessment and assign a specific severity wherever possible.</i></p>
+</section>
+
+<!-- ═══════════════════════ REFERENCES ═══════════════════════ -->
+<section id="references">
+  <h2>References and Source Attribution</h2>
+  <p>Diagnostic terminology and criteria (including the IQ guides, includes lists and differential-diagnosis notes) are drawn strictly from the two official WHO classifications; clinical elaboration is drawn from standard psychiatric texts and peer-reviewed literature, each labelled inline with a source tag. A central teaching point of this block is the change from ICD-10's IQ-anchored &ldquo;mental retardation&rdquo; to ICD-11's dual-axis (intellectual functioning + adaptive behaviour) &ldquo;disorders of intellectual development&rdquo; within the neurodevelopmental grouping.</p>
+  <ul class="t">
+    <li><span class="tag t10">ICD-10</span> World Health Organization. <i>The ICD-10 Classification of Mental and Behavioural Disorders: Clinical Descriptions and Diagnostic Guidelines.</i> Geneva: World Health Organization, 1992.</li>
+    <li><span class="tag t11">ICD-11</span> World Health Organization. <i>Clinical Descriptions and Diagnostic Requirements for ICD-11 Mental, Behavioural and Neurodevelopmental Disorders.</i> Geneva: World Health Organization.</li>
+    <li><span class="tag tks">Kaplan &amp; Sadock</span> Sadock BJ, Sadock VA, Ruiz P. <i>Kaplan &amp; Sadock's Synopsis of Psychiatry</i> and <i>Comprehensive Textbook of Psychiatry</i> (etiology, epidemiology, clinical features and management; content paraphrased).</li>
+    <li><span class="tag tother">Other evidence</span> Developmental/biopsychosocial models of intellectual disability and peer-reviewed epidemiological and public-health literature (prevention, early intervention). Content was rephrased for compliance with licensing restrictions.</li>
+  </ul>
+  <div class="warn"><b>Note on use.</b> This is an educational study reference for M.Phil. Clinical Psychology. Diagnostic criteria are paraphrased from the ICD sources without reproducing copyrighted text at length; secondary-source content has been rephrased for compliance with licensing restrictions. Obsolete historical terms are reproduced only to represent the ICD-10 source accurately and must not be used clinically. This is not a substitute for the full official classifications or for individual clinical and medical judgement, and it is not a prescribing guide.</div>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+</main>
+</div>
+
+<footer>
+  <p><strong>ICD-10 &amp; ICD-11 Comparative Clinical Handbook &mdash; F70&ndash;F79 Mental Retardation / Disorders of Intellectual Development</strong></p>
+  <p>Fully comprehensive edition &middot; every severity level detailed with its own ICD-10 criteria (IQ, language, self-care, schooling, work) and ICD-11 counterpart, includes lists and differential diagnosis &middot; the terminology and dual-axis assessment change &middot; etiology, epidemiology, comorbidities, mnemonics and management &middot; terminology explained in plain language.</p>
+  <p style="margin-top:14px;font-size:1rem;color:#fff;letter-spacing:.04em">Made by <strong>Tejas Dangodra</strong></p>
+</footer>
+
+</body>
+</html>

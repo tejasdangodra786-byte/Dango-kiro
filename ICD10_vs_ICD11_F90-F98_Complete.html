@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ICD-10 &amp; ICD-11 Comparative Handbook — F90–F98 Behavioural &amp; Emotional Disorders of Childhood and Adolescence</title>
+<style>
+:root{
+  --deep:#0a2540;--accent:#0e6655;--icd10:#1a5276;--icd11:#1e8449;
+  --ks:#7d3c98;--other:#b9770e;--bg:#f4f6f9;--card:#ffffff;
+  --ink:#1c2833;--muted:#5d6d7e;--line:#d5dbdb;--soft:#eaf2f8;
+  --warn:#922b21;--uniq:#6c3483;--surface:#fdfefe;--psych:#1f6f8b;--ddx:#0b6b5f;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.72;font-size:16px}
+.cover{background:linear-gradient(160deg,#0a2540 0%,#154360 40%,#0e6655 100%);color:#fff;padding:60px 30px 50px;text-align:center}
+.cover .subtitle{text-transform:uppercase;letter-spacing:.3em;font-size:.72rem;opacity:.7;margin-bottom:16px}
+.cover h1{font-size:2.05rem;font-weight:800;line-height:1.22;margin-bottom:12px;max-width:940px;display:inline-block}
+.cover .tagline{font-size:1.05rem;font-weight:400;opacity:.9;max-width:820px;margin:0 auto 22px}
+.cover .chips{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-bottom:18px}
+.cover .chip{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);border-radius:6px;padding:5px 14px;font-size:.82rem}
+.cover .srcline{font-size:.8rem;opacity:.65;max-width:760px;margin:0 auto}
+.wrap{max-width:1160px;margin:0 auto;padding:0 22px}
+.layout{display:flex;gap:28px;align-items:flex-start}
+nav.toc{position:sticky;top:0;max-height:100vh;overflow-y:auto;flex:0 0 288px;padding:20px 12px 60px;font-size:.82rem;border-right:1px solid var(--line);background:var(--surface)}
+nav.toc h4{margin:18px 0 6px;color:var(--accent);text-transform:uppercase;font-size:.68rem;letter-spacing:.08em;font-weight:700}
+nav.toc a{display:block;color:var(--muted);text-decoration:none;padding:4px 10px;border-radius:6px;border-left:3px solid transparent;transition:all .15s}
+nav.toc a:hover{background:var(--soft);color:var(--icd10);border-left-color:var(--icd10)}
+nav.toc a.sub{padding-left:22px;font-size:.79rem}
+main{flex:1 1 auto;min-width:0;padding:28px 0 100px}
+section{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:28px 30px;margin:0 0 26px;scroll-margin-top:16px;box-shadow:0 1px 3px rgba(10,37,64,.04)}
+h2{font-size:1.45rem;color:var(--deep);border-bottom:3px solid var(--accent);padding-bottom:10px;margin-bottom:14px;font-weight:800}
+h3{font-size:1.1rem;color:var(--accent);margin:26px 0 8px;font-weight:700;padding-left:14px;border-left:4px solid var(--accent)}
+h4{font-size:.98rem;margin:16px 0 6px;font-weight:700;color:var(--deep)}
+p{margin:.55em 0}
+.tag{display:inline-block;font-size:.64rem;font-weight:700;padding:2px 9px;border-radius:4px;color:#fff;vertical-align:middle;letter-spacing:.02em}
+.t10{background:var(--icd10)}.t11{background:var(--icd11)}.tks{background:var(--ks)}.tother{background:var(--other)}
+b.cl{color:var(--deep);font-weight:700}
+i.si{color:var(--uniq);font-style:normal;font-weight:500}
+table{border-collapse:collapse;width:100%;margin:16px 0;font-size:.89rem;border-radius:10px;overflow:hidden;box-shadow:0 0 0 1px var(--line)}
+th,td{border:1px solid var(--line);padding:10px 12px;text-align:left;vertical-align:top}
+th{background:var(--deep);color:#fff;font-weight:600;font-size:.79rem;text-transform:uppercase;letter-spacing:.03em}
+tr:nth-child(even) td{background:#f8fafb}
+.c10{background:#eaf2f8!important}.c11{background:#eafaf1!important}
+.panel10{border-left:5px solid var(--icd10);background:#edf2f8;border-radius:0 10px 10px 0;padding:16px 20px;margin:14px 0}
+.panel11{border-left:5px solid var(--icd11);background:#edfaf1;border-radius:0 10px 10px 0;padding:16px 20px;margin:14px 0}
+.panel10 h4,.panel11 h4{margin:0 0 8px;padding-left:0;border-left:none}
+.note{border-left:5px solid var(--accent);background:var(--soft);padding:14px 18px;border-radius:0 10px 10px 0;margin:14px 0}
+.warn{border-left:5px solid var(--warn);background:#fdedec;padding:14px 18px;border-radius:0 10px 10px 0;margin:14px 0}
+.incl{border-left:5px solid var(--icd11);background:#eefaf2;padding:12px 16px;border-radius:0 8px 8px 0;margin:10px 0;font-size:.9rem}
+.excl{border-left:5px solid var(--warn);background:#fdf0ee;padding:12px 16px;border-radius:0 8px 8px 0;margin:10px 0;font-size:.9rem}
+.unique{border:2px solid var(--uniq);background:#f5eef8;border-radius:12px;padding:16px 20px;margin:16px 0}
+.unique h4{color:var(--uniq);margin:0 0 10px;border-left:none;padding-left:0}
+.assoc{border:2px solid var(--warn);background:#fdf0ee;border-radius:12px;padding:16px 20px;margin:16px 0}
+.assoc h4{color:var(--warn);margin:0 0 10px;border-left:none;padding-left:0}
+.psych{border:2px solid var(--psych);background:#eaf4f7;border-radius:12px;padding:16px 20px;margin:16px 0}
+.psych h4{color:var(--psych);margin:0 0 10px;border-left:none;padding-left:0}
+.subtype{border:2px solid #1a5276;background:#eef3f8;border-radius:12px;padding:18px 22px;margin:18px 0}
+.subtype h4{color:#1a5276;margin:0 0 10px;border-left:none;padding-left:0;font-size:1.04rem}
+.ddx{border:2px dashed var(--ddx);background:#e9f6f2;border-radius:10px;padding:12px 16px;margin:12px 0;font-size:.9rem}
+.ddx h5{color:var(--ddx);margin:0 0 6px;font-size:.9rem;text-transform:uppercase;letter-spacing:.03em}
+.sig{background:var(--deep);color:#fff;padding:14px 20px;border-radius:10px;margin:14px 0;font-size:.96rem}
+.sig b{color:#f9e79f}
+.remember{border:2px dashed #d4ac0d;background:#fef9e7;border-radius:12px;padding:16px 20px;margin:14px 0}
+.remember h4{color:#7d6608;margin:0 0 8px;border-left:none;padding-left:0}
+.idcard{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin:14px 0}
+.idcard div{background:#f2f6fa;border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:.85rem}
+.idcard b{display:block;font-size:.62rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:3px}
+ul.t,ol.t{margin:.5em 0;padding-left:1.3em}
+ul.t li,ol.t li{margin:.3em 0}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.top{text-align:right;font-size:.78rem;margin-top:10px}.top a{color:var(--muted);text-decoration:none}
+footer{background:var(--deep);color:#aeb6bf;padding:30px 22px;font-size:.86rem;text-align:center}
+footer strong{color:#fff}
+@media(max-width:920px){.layout{display:block}nav.toc{position:static;border-right:none;border-bottom:1px solid var(--line);max-height:none;flex:none}.g2{grid-template-columns:1fr}.cover h1{font-size:1.5rem}}
+@media print{nav.toc{display:none}body{background:#fff}section{box-shadow:none;break-inside:avoid}footer{background:#fff;color:#333}}
+</style>
+</head>
+<body>
+<a id="top"></a>
+
+<div class="cover">
+  <p class="subtitle">M.Phil. Clinical Psychology &mdash; Complete Diagnostic, Clinical &amp; Treatment Reference</p>
+  <h1>ICD-10 &amp; ICD-11 Comparative Clinical Handbook<br>F90&ndash;F98: Behavioural &amp; Emotional Disorders with Onset Usually in Childhood and Adolescence</h1>
+  <p class="tagline">The fully comprehensive edition: hyperkinetic (ADHD), conduct and oppositional disorders, mixed conduct-emotional disorders, childhood emotional disorders, disorders of social functioning, tic disorders, and the other childhood-onset disorders (enuresis, encopresis, feeding, pica, stereotypies, stuttering) &mdash; every disorder and every subtype set out with its own ICD-10 criteria and its ICD-11 counterpart, includes/excludes and dedicated differential diagnosis, plus etiology (with psychological theories), epidemiology, unique presentations, comorbidities, memory aids and treatment. Centred on the biggest change: ICD-11 dissolving the age-based childhood block and dispersing its disorders across lifespan groupings.</p>
+  <div class="chips">
+    <span class="chip">Criteria strictly from ICD-10 &amp; ICD-11</span>
+    <span class="chip">Every subtype detailed + its own differential diagnosis</span>
+    <span class="chip">The childhood block dissolved in ICD-11</span>
+    <span class="chip">Etiology incl. psychological theories</span>
+    <span class="chip">Epidemiology, comorbidities, mnemonics, treatment</span>
+    <span class="chip">Where ICD-11 moved ADHD, conduct, tics &amp; anxiety</span>
+  </div>
+  <p class="srcline">Primary authorities: WHO ICD-10 Clinical Descriptions &amp; Diagnostic Guidelines and WHO ICD-11 Clinical Descriptions &amp; Diagnostic Requirements. Secondary: Kaplan &amp; Sadock's Synopsis/Comprehensive Textbook of Psychiatry; foundational developmental theory; peer-reviewed literature.</p>
+</div>
+
+<div class="wrap layout">
+<nav class="toc">
+  <h4>Foundations</h4>
+  <a href="#overview">The F90&ndash;F98 block overview</a>
+  <a href="#compare">ICD-10 vs ICD-11 &mdash; the big change</a>
+  <a href="#map">Master code map</a>
+  <a href="#etiology">Etiology, epidemiology &amp; comorbidities</a>
+  <h4>F90 Hyperkinetic (ADHD)</h4>
+  <a href="#f90">F90 &middot; Overview</a>
+  <a class="sub" href="#f90-0">F90.0 Activity &amp; attention</a>
+  <a class="sub" href="#f90-1">F90.1 Hyperkinetic conduct</a>
+  <h4>F91 Conduct disorders</h4>
+  <a href="#f91">F91 &middot; Overview</a>
+  <a class="sub" href="#f91-0">F91.0 Confined to family</a>
+  <a class="sub" href="#f91-1">F91.1 Unsocialized</a>
+  <a class="sub" href="#f91-2">F91.2 Socialized</a>
+  <a class="sub" href="#f91-3">F91.3 Oppositional defiant</a>
+  <h4>F92 Mixed conduct &amp; emotions</h4>
+  <a href="#f92">F92 &middot; Overview</a>
+  <h4>F93 Childhood emotional</h4>
+  <a href="#f93">F93 &middot; Overview</a>
+  <a class="sub" href="#f93-0">F93.0 Separation anxiety</a>
+  <a class="sub" href="#f93-1">F93.1 Phobic anxiety</a>
+  <a class="sub" href="#f93-2">F93.2 Social anxiety</a>
+  <a class="sub" href="#f93-3">F93.3 Sibling rivalry</a>
+  <h4>F94 Social functioning</h4>
+  <a href="#f94">F94 &middot; Overview</a>
+  <a class="sub" href="#f94-0">F94.0 Selective mutism</a>
+  <a class="sub" href="#f94-1">F94.1 Reactive attachment</a>
+  <a class="sub" href="#f94-2">F94.2 Disinhibited attachment</a>
+  <h4>F95 Tic disorders</h4>
+  <a href="#f95">F95 &middot; Overview</a>
+  <a class="sub" href="#f95-0">F95.0 Transient</a>
+  <a class="sub" href="#f95-1">F95.1 Chronic motor/vocal</a>
+  <a class="sub" href="#f95-2">F95.2 Tourette</a>
+  <h4>F98 Other childhood-onset</h4>
+  <a href="#f98">F98 &middot; Overview</a>
+  <a class="sub" href="#f98-0">F98.0 Enuresis</a>
+  <a class="sub" href="#f98-1">F98.1 Encopresis</a>
+  <a class="sub" href="#f98-2">F98.2 Feeding disorder</a>
+  <a class="sub" href="#f98-3">F98.3 Pica of infancy</a>
+  <a class="sub" href="#f98-4">F98.4 Stereotyped movement</a>
+  <a class="sub" href="#f98-5">F98.5 Stuttering</a>
+  <a class="sub" href="#f98-6">F98.6 Cluttering</a>
+  <h4>Reference</h4>
+  <a href="#references">References</a>
+</nav>
+<main>
+
+
+<!-- ═══════════════════════ OVERVIEW ═══════════════════════ -->
+<section id="overview">
+  <h2>The F90&ndash;F98 block: what holds it together</h2>
+  <p><span class="tag t10">ICD-10</span> gathers here the <b class="cl">behavioural and emotional disorders with onset usually occurring in childhood and adolescence</b> &mdash; a heterogeneous block whose unifying thread is simply <b>age of onset</b> rather than a shared mechanism. The block runs from F90 to F98 (with F99 &ldquo;unspecified mental disorder&rdquo; closing Chapter V).</p>
+  <p>The territories are: <b>F90</b> hyperkinetic disorders (the ICD-10 name for what is widely called ADHD); <b>F91</b> conduct disorders; <b>F92</b> mixed disorders of conduct and emotions; <b>F93</b> emotional disorders with onset specific to childhood; <b>F94</b> disorders of social functioning (selective mutism, attachment disorders); <b>F95</b> tic disorders; and <b>F98</b> other behavioural/emotional disorders (enuresis, encopresis, feeding disorder, pica, stereotyped movements, stuttering, cluttering).</p>
+  <div class="note"><b>Terms in plain language.</b> <i>Hyperkinetic</i> = overactive; <i>inattention</i> = difficulty sustaining focus; <i>impulsivity</i> = acting without thinking; <i>conduct disorder</i> = a persistent pattern of rule-breaking/aggressive behaviour; <i>oppositional</i> = defiant/argumentative but not seriously rule-violating; <i>ego-syntonic</i> = feels part of oneself; <i>tic</i> = a sudden, rapid, recurrent, non-rhythmic movement or vocalisation; <i>coprolalia</i> = involuntary utterance of obscene words; <i>echolalia/echopraxia</i> = repeating others' words/actions; <i>enuresis</i> = involuntary wetting; <i>encopresis</i> = involuntary soiling; <i>pica</i> = eating non-food substances; <i>selective (elective) mutism</i> = consistent failure to speak in specific situations despite speaking in others.</p></div>
+</section>
+
+<!-- ═══════════════════════ COMPARE ═══════════════════════ -->
+<section id="compare">
+  <h2>ICD-10 vs ICD-11 &mdash; the biggest change: the block dissolves</h2>
+  <p>ICD-10 kept an <b>age-defined block</b> for &ldquo;childhood and adolescent&rdquo; disorders. ICD-11 took a deliberately different philosophy: mental disorders should be grouped by their <b>nature (phenomenology)</b>, not by the age at which they usually start. So <b>the F90&ndash;F98 block is dismantled</b> and its members are relocated to lifespan groupings alongside the adult conditions they most resemble. This is the single most examinable point.</p>
+  <div class="g2">
+    <div class="panel10"><h4><span class="tag t10">ICD-10 &mdash; one age-based block</h4>
+      <ul class="t">
+        <li>All these disorders sit together because they <b>usually begin in childhood</b>.</li>
+        <li>Hyperkinetic disorder (ADHD), conduct/oppositional disorders, childhood anxiety, attachment disorders, tics, and elimination/feeding disorders share the block.</li>
+        <li>Childhood anxiety (e.g. separation anxiety) is separated from adult anxiety disorders.</li>
+      </ul>
+    </div>
+    <div class="panel11"><h4><span class="tag t11">ICD-11 &mdash; dispersed by phenomenology</h4>
+      <ul class="t">
+        <li><b>ADHD (6A05)</b> &rarr; <b>Neurodevelopmental disorders</b> (with autism and intellectual developmental disorders).</li>
+        <li><b>Conduct-dissocial disorder (6C91) and oppositional defiant disorder (6C90)</b> &rarr; a new grouping, <b>Disruptive behaviour or dissocial disorders</b>, with new callous-unemotional and chronic-irritability qualifiers.</li>
+        <li><b>Separation anxiety (6B05) and selective mutism (6B06)</b> &rarr; <b>Anxiety or fear-related disorders</b> (no longer &ldquo;childhood&rdquo; anxiety &mdash; recognised across the lifespan).</li>
+        <li><b>Reactive attachment disorder (6B44) and disinhibited social engagement disorder</b> &rarr; <b>Disorders specifically associated with stress</b>.</li>
+        <li><b>Tic disorders including Tourette (8A05)</b> &rarr; <b>Chapter 08, Diseases of the nervous system</b> (neurology), cross-listed under neurodevelopmental disorders.</li>
+        <li><b>Enuresis (6C00) and encopresis (6C01)</b> &rarr; a dedicated <b>Elimination disorders</b> grouping.</li>
+        <li><b>Feeding/pica</b> &rarr; <b>Feeding and eating disorders (6B8x)</b>; <b>stuttering</b> &rarr; <b>developmental speech fluency disorder (6A01.1)</b>; <b>stereotyped movement disorder (6A06)</b> &rarr; neurodevelopmental.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="unique"><h4>The one-line exam answer</h4><p>ICD-10 keeps a single <b>age-based</b> block (F90&ndash;F98) for childhood-onset behavioural and emotional disorders. ICD-11 <b>abolishes the block</b> and reclassifies each disorder by its phenomenology across the lifespan: ADHD and stereotyped movement to neurodevelopmental; conduct/oppositional to disruptive behaviour or dissocial disorders; separation anxiety and selective mutism to anxiety; attachment disorders to stress-related; tics to neurology; enuresis/encopresis to elimination disorders; stuttering to speech fluency. The principle: <b>classify by what the disorder is, not by when it starts.</b></p></div>
+</section>
+
+<!-- ═══════════════════════ MAP ═══════════════════════ -->
+<section id="map">
+  <h2>Master code map (ICD-10 &rarr; ICD-11)</h2>
+  <table>
+    <tr><th>ICD-10</th><th>Disorder</th><th>ICD-11 destination (grouping)</th></tr>
+    <tr><td class="c10">F90.0/F90.1</td><td>Hyperkinetic disorder (ADHD)</td><td class="c11">6A05 ADHD &mdash; Neurodevelopmental disorders (inattentive/hyperactive-impulsive/combined)</td></tr>
+    <tr><td class="c10">F91.3</td><td>Oppositional defiant disorder</td><td class="c11">6C90 Oppositional defiant disorder &mdash; Disruptive behaviour or dissocial disorders</td></tr>
+    <tr><td class="c10">F91.0&ndash;F91.2</td><td>Conduct disorder (subtypes)</td><td class="c11">6C91 Conduct-dissocial disorder (childhood/adolescent onset qualifier)</td></tr>
+    <tr><td class="c10">F92</td><td>Mixed disorder of conduct &amp; emotions</td><td class="c11">6C91 + co-coded mood/anxiety disorder (no single &ldquo;mixed&rdquo; code)</td></tr>
+    <tr><td class="c10">F93.0</td><td>Separation anxiety disorder</td><td class="c11">6B05 Separation anxiety disorder &mdash; Anxiety or fear-related disorders</td></tr>
+    <tr><td class="c10">F93.1/F93.2</td><td>Phobic / social anxiety of childhood</td><td class="c11">6B01 Specific phobia / 6B04 Social anxiety disorder</td></tr>
+    <tr><td class="c10">F93.3</td><td>Sibling rivalry disorder</td><td class="c11">No specific code &mdash; assessed within adjustment/relational problems</td></tr>
+    <tr><td class="c10">F94.0</td><td>Elective (selective) mutism</td><td class="c11">6B06 Selective mutism &mdash; Anxiety or fear-related disorders</td></tr>
+    <tr><td class="c10">F94.1</td><td>Reactive attachment disorder</td><td class="c11">6B44 Reactive attachment disorder &mdash; Disorders associated with stress</td></tr>
+    <tr><td class="c10">F94.2</td><td>Disinhibited attachment disorder</td><td class="c11">6B45 Disinhibited social engagement disorder &mdash; Disorders associated with stress</td></tr>
+    <tr><td class="c10">F95.0&ndash;F95.2</td><td>Tic disorders / Tourette</td><td class="c11">8A05 Tic disorders &mdash; Chapter 08 Diseases of the nervous system (cross-listed)</td></tr>
+    <tr><td class="c10">F98.0</td><td>Nonorganic enuresis</td><td class="c11">6C00 Enuresis &mdash; Elimination disorders (nocturnal/diurnal/both)</td></tr>
+    <tr><td class="c10">F98.1</td><td>Nonorganic encopresis</td><td class="c11">6C01 Encopresis &mdash; Elimination disorders</td></tr>
+    <tr><td class="c10">F98.2/F98.3</td><td>Feeding disorder / pica of infancy</td><td class="c11">6B83 ARFID / 6B84 Pica &mdash; Feeding and eating disorders</td></tr>
+    <tr><td class="c10">F98.4</td><td>Stereotyped movement disorder</td><td class="c11">6A06 Stereotyped movement disorder &mdash; Neurodevelopmental</td></tr>
+    <tr><td class="c10">F98.5/F98.6</td><td>Stuttering / cluttering</td><td class="c11">6A01.1 Developmental speech fluency disorder &mdash; Neurodevelopmental</td></tr>
+  </table>
+  <div class="warn"><b>Read this the right way.</b> An arrow means &ldquo;the nearest ICD-11 home&rdquo;, not identical criteria &mdash; and here the arrows point to <b>different chapters/groupings</b> because ICD-11 broke the block up. Below, each disorder gives the ICD-10 guidelines in full and the ICD-11 approach at its new home.</p></div>
+</section>
+
+<!-- ═══════════════════════ ETIOLOGY ═══════════════════════ -->
+<section id="etiology">
+  <h2>Etiology, epidemiology &amp; comorbidities (shared themes)</h2>
+  <h3>Etiology</h3>
+  <p><span class="tag tks">Kaplan &amp; Sadock</span> These disorders arise from an interaction of <b>genetic/temperamental</b> vulnerability with <b>psychosocial</b> factors. ADHD and tic disorders are strongly heritable and neurodevelopmental (dopaminergic and fronto-striatal systems); conduct and attachment disorders are more strongly shaped by <b>adverse environments</b> (harsh/inconsistent parenting, neglect, abuse, family adversity, deprivation); childhood emotional disorders reflect temperament (behavioural inhibition) interacting with attachment and stress.</p>
+  <div class="psych"><h4>Psychological theories</h4>
+    <ul class="t">
+      <li><b>Attachment theory (Bowlby / Ainsworth).</b> <span class="tag tother">Other evidence</span> Early caregiving quality shapes the child's internal working model of relationships &mdash; central to separation anxiety and to the attachment disorders (which follow grossly inadequate or disrupted care).</li>
+      <li><b>Social-learning theory (Bandura / Patterson).</b> Aggressive/antisocial behaviour is learned and maintained through modelling and coercive family cycles &mdash; the basis of parent-management training for conduct problems.</li>
+      <li><b>Executive-function / self-regulation models of ADHD (Barkley).</b> Core deficit in behavioural inhibition and self-regulation, not simply &ldquo;attention&rdquo;.</li>
+      <li><b>Behavioural model of tics.</b> Tics are worsened by tension and temporarily relieved by performing them &mdash; the rationale for habit-reversal training.</li>
+    </ul>
+  </div>
+  <h3>Epidemiology</h3>
+  <ul class="t">
+    <li><b>ADHD:</b> roughly 5% of school-age children; male predominance; often persists (in attenuated form) into adulthood.</li>
+    <li><b>Conduct disorder:</b> around 5%; more common in boys; a strong predictor of later antisocial (dissocial) personality disorder and substance use.</li>
+    <li><b>Childhood anxiety (incl. separation anxiety):</b> among the commonest childhood disorders (several percent).</li>
+    <li><b>Tic disorders:</b> transient tics are common in childhood; Tourette syndrome affects up to ~1%, boys more than girls.</li>
+    <li><b>Enuresis:</b> common, declining with age (about 10% at age 5, falling steadily); more common in boys.</li>
+  </ul>
+  <div class="assoc"><h4>Comorbidities</h4><p>These disorders co-occur heavily. <b>ADHD</b> co-occurs with conduct/oppositional disorder, learning disorders, tics and anxiety. <b>Conduct disorder</b> co-occurs with ADHD, mood disorders and substance use. <b>Tourette</b> co-occurs with ADHD and OCD. Childhood <b>emotional disorders</b> co-occur with each other and predict adult anxiety/depression. ICD-11's move to allow <b>multiple diagnoses across groupings</b> (e.g. ADHD + conduct-dissocial + a tic disorder) fits this reality better than the old block did.</p></div>
+  <h3>Treatment (shared principles)</h3>
+  <ul class="t">
+    <li><b>Psychosocial first for most:</b> parent training/behavioural management (conduct, ADHD, ODD), CBT (childhood anxiety), habit-reversal training (tics), and bladder/bowel behavioural programmes (enuresis/encopresis).</li>
+    <li><b>Medication where indicated:</b> stimulants (methylphenidate) or atomoxetine for ADHD; antipsychotics (e.g. risperidone, aripiprazole) or clonidine for severe/impairing tics; desmopressin/enuresis alarm for enuresis. Medication is generally <b>adjunctive</b> for conduct and emotional disorders.</li>
+    <li><b>Treat comorbidity</b>, support the family and school, and safeguard where maltreatment underlies attachment disorders.</li>
+  </ul>
+</section>
+
+
+<!-- ═══════════════════════ F90 HYPERKINETIC ═══════════════════════ -->
+<section id="f90">
+  <h2>F90 &middot; Hyperkinetic disorders (ADHD)</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F90 is the hyperkinetic/attention group of F90&ndash;F98. In ICD-11 it becomes <b>6A05 Attention deficit hyperactivity disorder</b>, moved into the <b>Neurodevelopmental disorders</b> grouping.</p>
+  <p>Characterised by a combination of <b>overactive, poorly modulated behaviour with marked inattention and lack of persistent task involvement</b>, that is <b>pervasive over situations and persistent over time</b>. Constitutional (neurodevelopmental) abnormalities are thought crucial. ICD-10 deliberately used &ldquo;hyperkinetic disorder&rdquo; rather than &ldquo;attention deficit disorder&rdquo;, but the two describe the same clinical picture.</p>
+  <div class="g2">
+    <div class="panel10"><h4><span class="tag t10">ICD-10 general guidelines (F90)</span></h4>
+      <p>The <b>cardinal features</b> are <b>impaired attention</b> and <b>overactivity</b> &mdash; <b>both are necessary</b> and must be evident in <b>more than one situation</b> (e.g. home, classroom, clinic):</p>
+      <ul class="t">
+        <li><b>Impaired attention:</b> prematurely breaking off tasks, leaving activities unfinished, changing frequently from one activity to another. Diagnosed only if excessive for the child's age and IQ.</li>
+        <li><b>Overactivity:</b> excessive restlessness &mdash; running/jumping, getting up when expected to stay seated, excessive talkativeness/noisiness, fidgeting &mdash; judged excessive against the situation and other children of the same age and IQ.</li>
+        <li><b>Impulsivity</b> (a supporting feature): social disinhibition, recklessness in danger, intruding/interrupting, answering before questions are complete, difficulty waiting turns.</li>
+      </ul>
+      <p style="margin-top:6px"><b>Onset before age 6</b> and <b>long duration</b>. Learning disorders and motor clumsiness (F80&ndash;F89) are noted separately, not as part of the diagnosis.</p>
+    </div>
+    <div class="panel11"><h4><span class="tag t11">ICD-11 (6A05)</span></h4>
+      <p><b>ADHD</b> requires a persistent pattern (&ge;6 months) of <b>inattention</b> and/or <b>hyperactivity-impulsivity</b>, directly impairing functioning, with onset in the <b>developmental period</b> (typically before age 12), present across multiple situations, and excessive for age/developmental level. Presentations:</p>
+      <ul class="t">
+        <li><b>6A05.0 predominantly inattentive</b></li>
+        <li><b>6A05.1 predominantly hyperactive-impulsive</b></li>
+        <li><b>6A05.2 combined</b></li>
+      </ul>
+      <p style="margin-top:6px">Changes from ICD-10: onset threshold relaxed to <b>before 12</b> (not 6); an <b>inattentive-only</b> presentation is explicitly recognised; ADHD may be diagnosed <b>together with autism</b> and other neurodevelopmental disorders.</p>
+    </div>
+  </div>
+  <div class="unique"><h4>Unique / identifying features</h4><p>The requirement that symptoms be <b>pervasive across settings</b> (not just at school or just at home) and <b>developmentally excessive</b>. Reckless, accident-prone, socially disinhibited behaviour and unpopularity with peers; frequent comorbid learning and motor problems. Symptoms often attenuate but persist into adulthood.</p></div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>From age-appropriate high activity; from <b>conduct disorder (F91)</b> (rule-breaking is deliberate/defiant there, versus unthinking here &mdash; the two often coexist); from <b>anxiety/agitated depression</b> (restlessness situational and mood-driven); from <b>autism (F84)</b>; from <b>hyperthyroidism</b>, hearing problems and the effects of an understimulating or chaotic environment. In ICD-11, ADHD and autism can be coded together.</p></div>
+  <div class="remember"><h4>Remember &mdash; the ADHD triad</h4><p><b>I&ndash;H&ndash;I:</b> <b>I</b>nattention + <b>H</b>yperactivity + <b>I</b>mpulsivity, <b>pervasive</b> (&gt;1 setting) and <b>early-onset</b> (ICD-10: before 6; ICD-11: before 12). ICD-10 needs BOTH inattention and overactivity; ICD-11 allows an inattentive-only presentation.</p></div>
+  <h3>Treatment</h3>
+  <ul class="t"><li><b>Psychosocial:</b> parent training/behavioural management, classroom behavioural strategies, and (in older children) organisational/CBT skills.</li><li><b>Pharmacological:</b> <b>stimulants (methylphenidate, lisdexamfetamine)</b> first-line for moderate-severe ADHD; <b>atomoxetine</b> or guanfacine as alternatives; combine with behavioural support.</li></ul>
+</section>
+
+<section id="f90-0">
+  <h2>F90.0 &middot; Disturbance of activity and attention</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F90 Hyperkinetic disorders &rarr; hyperkinesis <b>without</b> conduct disorder.</p>
+  <div class="panel10"><h4><span class="tag t10">ICD-10 (F90.0)</span></h4><p>Used when the overall criteria for <b>hyperkinetic disorder (F90)</b> are met but the criteria for <b>conduct disorder (F91)</b> are <b>not</b>. <b>Includes:</b> attention deficit disorder/hyperactivity disorder without conduct disorder.</p></div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11</span></h4><p>Coded as <b>6A05 ADHD</b> at the appropriate presentation; any co-occurring conduct-dissocial disorder is coded <b>separately</b> (6C91) rather than combined into one code.</p></div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>From <b>hyperkinetic conduct disorder (F90.1)</b> (conduct disorder also present); from conduct disorder alone (F91) without the pervasive inattention/overactivity.</p></div>
+  <div class="remember"><h4>Remember</h4><p>&ldquo;<b>ADHD, no conduct disorder</b>&rdquo; &mdash; hyperkinesis on its own.</p></div>
+</section>
+
+<section id="f90-1">
+  <h2>F90.1 &middot; Hyperkinetic conduct disorder</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F90 Hyperkinetic disorders &rarr; hyperkinesis <b>plus</b> conduct disorder &mdash; the combination that predicts a worse outcome.</p>
+  <div class="panel10"><h4><span class="tag t10">ICD-10 (F90.1)</span></h4><p>Used when the overall criteria for <b>both hyperkinetic disorder (F90) and conduct disorder (F91)</b> are met. The presence or absence of conduct disorder is the basis for subdividing hyperkinetic disorder in ICD-10.</p></div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11</span></h4><p>Coded as <b>6A05 ADHD + 6C91 Conduct-dissocial disorder</b> (two separate diagnoses) &mdash; ICD-11 does not use a single combined code.</p></div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>From <b>F90.0</b> (no conduct disorder) and from <b>conduct disorder alone (F91)</b> (no pervasive hyperkinesis). This combined presentation carries a higher risk of progression to antisocial outcomes.</p></div>
+  <div class="remember"><h4>Remember</h4><p>&ldquo;<b>ADHD + conduct disorder together</b>&rdquo; &mdash; ICD-11 splits it into two codes; worse prognosis.</p></div>
+</section>
+
+
+<!-- ═══════════════════════ F91 CONDUCT ═══════════════════════ -->
+<section id="f91">
+  <h2>F91 &middot; Conduct disorders</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F91 is the conduct group of F90&ndash;F98. In ICD-11 it moves to a new grouping, <b>Disruptive behaviour or dissocial disorders</b> (oppositional defiant disorder 6C90; conduct-dissocial disorder 6C91).</p>
+  <p>Characterised by a <b>repetitive and persistent pattern of dissocial, aggressive, or defiant conduct</b> that, at its most extreme, amounts to major violations of age-appropriate social expectations &mdash; more severe than ordinary childish mischief or adolescent rebelliousness. <b>Isolated dissocial or criminal acts are not grounds for the diagnosis</b>, which implies an enduring pattern. It may proceed to <b>dissocial personality disorder (F60.2)</b> in adulthood.</p>
+  <div class="panel10"><h4><span class="tag t10">ICD-10 general guidelines (F91)</span></h4>
+    <p>Diagnosis takes the child's <b>developmental level</b> into account. Examples on which the diagnosis is based include: excessive fighting or bullying; cruelty to animals or people; severe destructiveness to property; fire-setting; stealing; repeated lying; truancy and running away; unusually frequent/severe temper tantrums; defiant provocative behaviour; persistent severe disobedience. <b>Any one of these, if marked, is sufficient</b>; isolated acts are not. <b>Duration of 6 months or longer</b> is required.</p>
+    <div class="excl" style="margin-top:8px"><b>Excludes:</b> conduct disorders associated with emotional disorders (F92.-) or hyperkinetic disorders (F90.-); mood disorders (F30&ndash;F39); pervasive developmental disorders (F84.-); schizophrenia (F20.-).</div>
+  </div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11 (6C91)</span></h4>
+    <p><b>Conduct-dissocial disorder:</b> a repetitive, persistent pattern of behaviour that violates the basic rights of others or major age-appropriate societal norms/rules (aggression, destruction, deceit/theft, serious rule violation), sustained over a substantial period. Specified by <b>childhood-onset vs adolescent-onset</b>, and importantly by a <b>&ldquo;with limited prosocial emotions&rdquo;</b> qualifier (the callous-unemotional trait: lack of remorse/empathy) that marks a more severe, persistent subgroup.</p>
+  </div>
+  <div class="psych"><h4>Psychological understanding</h4><p><span class="tag tother">Other evidence</span> Coercive family-interaction cycles (Patterson) and social-learning of aggression maintain conduct problems; the callous-unemotional variant has a stronger heritable/temperamental basis and predicts persistence &mdash; which is why ICD-11 added the &ldquo;limited prosocial emotions&rdquo; qualifier.</p></div>
+  <div class="assoc"><h4>Comorbidities</h4><p>ADHD (very common), mood and anxiety disorders, substance use, and learning disorders. Conduct disorder is the strongest childhood predictor of adult dissocial personality disorder and substance use.</p></div>
+  <div class="ddx"><h5>Differential diagnosis (general)</h5><p>From <b>mixed disorder of conduct and emotions (F92)</b> (significant coexisting emotional disorder); from <b>hyperkinetic conduct disorder (F90.1)</b> (if ADHD criteria are also met, code that); from conduct symptoms secondary to <b>mood disorder, PDD/autism or schizophrenia</b> (code the underlying disorder); from isolated delinquent acts without an enduring pattern.</p></div>
+  <div class="remember"><h4>Remember &mdash; conduct disorder &ldquo;&ge;6 months, major violations&rdquo;</h4><p>Enduring (&ge;6 months) pattern of aggression to people/animals, destruction, deceit/theft, serious rule violation. ICD-11 adds the <b>callous-unemotional (&ldquo;limited prosocial emotions&rdquo;)</b> qualifier.</p></div>
+</section>
+
+<section id="f91-0">
+  <h2>F91.0 &middot; Conduct disorder confined to the family context</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F91 Conduct disorders &rarr; conduct problems limited to the home.</p>
+  <div class="panel10"><h4><span class="tag t10">ICD-10 (F91.0)</span></h4><p>Dissocial or aggressive behaviour (not merely oppositional/defiant) that is <b>entirely or almost entirely confined to the home and/or interactions with the immediate family</b>, while the overall F91 criteria are met. There may be stealing from the home (often targeting one or two individuals), deliberate destruction of specific family members' possessions, violence against family members, or fire-setting confined to the home. Requires <b>no significant conduct disturbance outside the family</b> and normal-range social relationships outside it.</p></div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11</span></h4><p>Subsumed within <b>6C91 Conduct-dissocial disorder</b>; the context is described clinically rather than given its own code.</p></div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>From <b>unsocialized/socialized conduct disorder (F91.1/F91.2)</b> (behaviour extends beyond the family); from a purely <b>relational/family problem</b> without meeting F91 criteria; from adjustment reactions (e.g. to a new step-parent).</p></div>
+  <div class="remember"><h4>Remember</h4><p>&ldquo;<b>Trouble only at home, normal outside</b>&rdquo; &mdash; conduct disorder confined to the family.</p></div>
+</section>
+
+<section id="f91-1">
+  <h2>F91.1 &middot; Unsocialized conduct disorder</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F91 Conduct disorders &rarr; conduct problems <b>plus</b> a pervasive failure to integrate with peers.</p>
+  <div class="panel10"><h4><span class="tag t10">ICD-10 (F91.1)</span></h4><p>Persistent dissocial/aggressive behaviour combined with a <b>significant pervasive abnormality in the individual's relationships with other children</b> &mdash; the child is <b>isolated from, rejected by, or unpopular with peers</b> and lacks close reciprocal friendships. Behaviour is typically solitary (bullying, fighting, defiance carried out alone). <b>Includes:</b> unsocialized aggressive disorder; solitary aggressive type.</p></div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11</span></h4><p>Subsumed within <b>6C91 Conduct-dissocial disorder</b>; the socialised/unsocialised distinction is not a separate code but may be described (and overlaps with the &ldquo;limited prosocial emotions&rdquo; qualifier for the more callous, isolated group).</p></div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>From <b>socialized conduct disorder (F91.2)</b> (there the child is integrated into a peer/delinquent group); from autism-related social isolation (F84); from depression-related withdrawal.</p></div>
+  <div class="remember"><h4>Remember</h4><p>&ldquo;<b>Aggressive AND a loner</b>&rdquo; &mdash; unsocialized: rejected by peers, acts alone.</p></div>
+</section>
+
+<section id="f91-2">
+  <h2>F91.2 &middot; Socialized conduct disorder</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F91 Conduct disorders &rarr; conduct problems in a child who <b>is</b> integrated with a peer group.</p>
+  <div class="panel10"><h4><span class="tag t10">ICD-10 (F91.2)</span></h4><p>Persistent dissocial/aggressive/defiant behaviour in individuals who are <b>generally well integrated into a peer group</b> &mdash; often a delinquent peer group whose activities include the antisocial behaviour. The child typically has adequate, lasting friendships with peers of similar age. Delinquency in company, truancy and (often) group offending are characteristic. <b>Includes:</b> group delinquency; offences in the context of gang membership; stealing/truancy in company.</p></div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11</span></h4><p>Subsumed within <b>6C91 Conduct-dissocial disorder</b>.</p></div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>From <b>unsocialized conduct disorder (F91.1)</b> (peer-rejected, solitary); from delinquency that is a normative, transient adolescent-group phenomenon without meeting full criteria; from conduct symptoms secondary to another disorder.</p></div>
+  <div class="remember"><h4>Remember</h4><p>&ldquo;<b>Delinquent, but has friends / a gang</b>&rdquo; &mdash; socialized: integrated peer group, often better prognosis than unsocialized.</p></div>
+</section>
+
+<section id="f91-3">
+  <h2>F91.3 &middot; Oppositional defiant disorder (ODD)</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F91 Conduct disorders &rarr; the milder, younger-child variant. ICD-11 gives it its own code, <b>6C90 Oppositional defiant disorder</b>.</p>
+  <div class="panel10"><h4><span class="tag t10">ICD-10 (F91.3)</span></h4><p>Characteristically seen in children <b>below age 9&ndash;10</b>. Defined by <b>markedly defiant, disobedient, provocative behaviour</b> and by the <b>absence of the more severe dissocial or aggressive acts that violate the law or the rights of others</b>. The overall F91 criteria must be met; even severely naughty behaviour is not in itself sufficient. Essential feature: a pattern of persistently <b>negativistic, hostile, defiant, provocative and disruptive</b> behaviour, clearly outside the normal range for the child's age and sociocultural context. Many regard ODD as a <b>less severe form</b> of conduct disorder rather than a qualitatively distinct type; caution is advised in using it for older children.</p></div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11 (6C90)</span></h4><p><b>Oppositional defiant disorder:</b> a persistent pattern (&ge;6 months) of markedly defiant, disobedient, provocative or spiteful behaviour, more frequent/intense than expected for age. ICD-11 adds a <b>&ldquo;with chronic irritability-anger&rdquo;</b> qualifier (a predominantly angry/irritable mood presentation) and a <b>&ldquo;with limited prosocial emotions&rdquo;</b> qualifier.</p></div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>From <b>conduct disorder (F91.0&ndash;F91.2)</b> (which includes serious rights-violating/aggressive acts); from normal developmental defiance; from irritability in a <b>mood or anxiety disorder</b> or in <b>ADHD</b> (often comorbid); from disruptive mood dysregulation presentations (captured by ICD-11's chronic irritability-anger qualifier).</p></div>
+  <div class="remember"><h4>Remember</h4><p>&ldquo;<b>Defiant &amp; provocative, but no serious law/rights violations</b>&rdquo; &mdash; ODD is the milder, younger form; ICD-11 adds irritability-anger and callous qualifiers.</p></div>
+</section>
+
+<!-- ═══════════════════════ F92 MIXED ═══════════════════════ -->
+<section id="f92">
+  <h2>F92 &middot; Mixed disorders of conduct and emotions</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F92 bridges conduct and emotional disorders of F90&ndash;F98 &mdash; used when both are prominent together.</p>
+  <div class="panel10"><h4><span class="tag t10">ICD-10 (F92)</span></h4>
+    <p>Characterised by the combination of <b>persistent aggressive, dissocial or defiant behaviour</b> (meeting conduct-disorder criteria, F91) <b>with overt and marked symptoms of depression, anxiety or other emotional disturbance</b> (meeting an F93 emotional-disorder or F40&ndash;F48 neurotic-disorder criteria).</p>
+    <ul class="t">
+      <li><b>F92.0 Depressive conduct disorder:</b> conduct disorder (F91) combined with persistent and marked <b>depression of mood</b> (e.g. excessive misery, loss of interest and pleasure, self-blame, hopelessness), disturbance of sleep or appetite.</li>
+      <li><b>F92.8 Other mixed disorders of conduct and emotions:</b> conduct disorder (F91) combined with persistent and marked emotional symptoms such as anxiety, fears, obsessions/compulsions, depersonalisation/derealisation, phobias or hypochondriasis.</li>
+    </ul>
+  </div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11</span></h4><p>No single &ldquo;mixed&rdquo; code: ICD-11 <b>codes the conduct-dissocial disorder (6C91) and the mood/anxiety disorder separately</b>, consistent with allowing multiple diagnoses.</p></div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>From <b>conduct disorder alone (F91)</b> (minor emotional upset does not qualify); from an <b>emotional/mood disorder alone (F93/F30&ndash;F39)</b> without a conduct disorder; from adjustment disorder.</p></div>
+  <div class="remember"><h4>Remember</h4><p>&ldquo;<b>Conduct disorder + a full emotional disorder</b>&rdquo; (e.g. depressive conduct disorder) &mdash; ICD-11 codes the two components separately.</p></div>
+</section>
+
+
+<!-- ═══════════════════════ F93 EMOTIONAL ═══════════════════════ -->
+<section id="f93">
+  <h2>F93 &middot; Emotional disorders with onset specific to childhood</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F93 is the childhood-emotional group of F90&ndash;F98. In ICD-11 these are mostly folded into the lifespan <b>Anxiety or fear-related disorders</b> (separation anxiety 6B05; the phobic/social forms into 6B01/6B04).</p>
+  <p>The key ICD-10 concept: these are largely <b>exaggerations of normal developmental trends</b> rather than qualitatively abnormal phenomena, and they differ from adult neurotic disorders. Many resolve; they are distinguished from normal childhood fears/worries by their <b>severity, persistence and resulting impairment</b>.</p>
+  <div class="ddx"><h5>Differential diagnosis (whole F93 group)</h5><p>From <b>normal developmental fears/anxieties</b> (which are milder, transient, non-impairing); from <b>adult-type anxiety disorders (F40&ndash;F48)</b> with childhood onset; from a <b>pervasive developmental disorder (F84)</b> or a <b>mood disorder</b>; from <b>mixed conduct-and-emotions (F92)</b> where conduct disorder coexists.</p></div>
+</section>
+
+<section id="f93-0">
+  <h2>F93.0 &middot; Separation anxiety disorder of childhood</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F93 Childhood emotional &rarr; the prototype. ICD-11: <b>6B05 Separation anxiety disorder</b> (now a lifespan anxiety diagnosis).</p>
+  <div class="g2">
+    <div class="panel10"><h4><span class="tag t10">ICD-10 (F93.0)</span></h4>
+      <p>Some separation anxiety is <b>normal</b> in toddlers/preschoolers. This is diagnosed <b>only when fear over separation is the focus of the anxiety</b>, it arises in the <b>early years</b>, and it is of a severity that is <b>statistically unusual</b> (including abnormal persistence beyond the usual age) with <b>significant impairment in social functioning</b>. The anxiety may take the form of:</p>
+      <ul class="t">
+        <li><b>(a)</b> unrealistic worry about harm befalling attachment figures, or that they will leave and not return;</li>
+        <li><b>(b)</b> worry that an event (being lost, kidnapped, hospitalised, killed) will separate the child from a major attachment figure;</li>
+        <li><b>(c)</b> reluctance/refusal to go to school because of separation fear (not other reasons);</li>
+        <li><b>(d)</b> reluctance/refusal to go to sleep without being near an attachment figure;</li>
+        <li><b>(e)</b> persistent inappropriate fear of being alone/without the attachment figure at home;</li>
+        <li><b>(f)</b> repeated nightmares about separation;</li>
+        <li><b>(g)</b> repeated physical symptoms (nausea, stomachache, headache, vomiting) on occasions of separation (e.g. leaving for school);</li>
+        <li><b>(h)</b> excessive recurrent distress in anticipation of, during, or after separation.</li>
+      </ul>
+    </div>
+    <div class="panel11"><h4><span class="tag t11">ICD-11 (6B05)</span></h4><p><b>Separation anxiety disorder:</b> marked, developmentally inappropriate fear/anxiety about separation from specific attachment figures, with worry about harm to them or about events causing separation, reluctance to separate, and physical symptoms. ICD-11 recognises it <b>across the lifespan</b> (not only childhood).</p></div>
+  </div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>From <b>normal separation anxiety</b> (age-appropriate, non-impairing); from <b>generalized anxiety</b> (worry not focused on separation); from <b>school refusal due to other causes</b> (e.g. bullying, social anxiety); from <b>autism</b>-related distress at change.</p></div>
+  <div class="remember"><h4>Remember</h4><p>&ldquo;<b>Fear is specifically about separation from attachment figures</b>&rdquo; &mdash; school refusal, sleep refusal, nightmares and tummy-aches on parting. ICD-11 makes it a lifespan anxiety disorder.</p></div>
+  <p><b>Treatment:</b> CBT (graded exposure, parent involvement, return-to-school planning); treat comorbid anxiety/depression; SSRIs only for severe cases.</p>
+</section>
+
+<section id="f93-1">
+  <h2>F93.1 &middot; Phobic anxiety disorder of childhood</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F93 Childhood emotional &rarr; developmentally-phase-specific fears in exaggerated form.</p>
+  <div class="panel10"><h4><span class="tag t10">ICD-10 (F93.1)</span></h4><p>Fears in childhood that show a marked <b>developmental-phase specificity</b> (e.g. fears of animals, the dark, monsters) and arise at a broadly appropriate age, but are <b>abnormal in degree</b> and associated with significant impairment. It is distinguished from a normal developmental fear by severity/persistence, and from adult-type specific phobia by its developmental-phase-appropriate content.</p></div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11</span></h4><p>Folded into <b>6B01 Specific phobia</b> (a single lifespan diagnosis); ICD-11 does not keep a separate &ldquo;of childhood&rdquo; category.</p></div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>From <b>normal developmental fears</b> (mild, transient); from <b>adult-type specific phobia (F40.2)</b>; from separation anxiety (F93.0) where the fear is separation-focused.</p></div>
+  <div class="remember"><h4>Remember</h4><p>&ldquo;<b>Age-typical fear, but excessive</b>&rdquo; &mdash; ICD-11 just calls it specific phobia.</p></div>
+</section>
+
+<section id="f93-2">
+  <h2>F93.2 &middot; Social anxiety disorder of childhood</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F93 Childhood emotional &rarr; wariness of strangers/social situations beyond the normal phase.</p>
+  <div class="panel10"><h4><span class="tag t10">ICD-10 (F93.2)</span></h4><p>A <b>persistent or recurrent fear and/or avoidance of strangers</b> (adults and/or peers) that is beyond the normal developmental phase (some stranger-wariness is normal in infancy) and is associated with significant social impairment. The child shows <b>social wariness or distress in new, strange or socially threatening situations</b>. Onset is in the developmental-appropriate period.</p></div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11</span></h4><p>Folded into <b>6B04 Social anxiety disorder</b> (lifespan); no separate childhood category.</p></div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>From <b>normal stranger-wariness</b> of infancy; from <b>selective mutism (F94.0)</b> (there the child speaks in some settings but not others); from <b>autism (F84)</b> (pervasive social-communication deficit); from separation anxiety.</p></div>
+  <div class="remember"><h4>Remember</h4><p>&ldquo;<b>Excessive wariness of strangers/social situations</b>&rdquo; &mdash; ICD-11 calls it social anxiety disorder.</p></div>
+</section>
+
+<section id="f93-3">
+  <h2>F93.3 &middot; Sibling rivalry disorder</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F93 Childhood emotional &rarr; emotional disturbance following the birth of a younger sibling.</p>
+  <div class="panel10"><h4><span class="tag t10">ICD-10 (F93.3)</span></h4><p>Some degree of emotional disturbance following the birth of an immediately younger sibling is <b>normal</b>. Sibling rivalry disorder is diagnosed when the disturbance is <b>unusual in degree and/or persistence</b> and is associated with psychosocial problems. Features may include: marked <b>rivalry or jealousy</b>, unusually negative feelings toward the younger sibling, deliberate harm/hostility, attention-seeking, and <b>regression</b> (loss of previously acquired skills such as bowel/bladder control, reverting to baby-like behaviour, and often oppositional behaviour with the parents), with anxiety, misery or social withdrawal.</p></div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11</span></h4><p><b>No specific equivalent code.</b> Such presentations are assessed as an <b>adjustment disorder</b> or captured under relational/psychosocial problem codes; ICD-11 did not retain a &ldquo;sibling rivalry disorder&rdquo; category.</p></div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>From <b>normal sibling jealousy</b> (mild, transient); from a broader <b>emotional or conduct disorder</b>; from an <b>adjustment disorder</b> to family change.</p></div>
+  <div class="remember"><h4>Remember</h4><p>&ldquo;<b>Excessive jealousy + regression after a new baby</b>&rdquo; &mdash; ICD-11 drops the specific category (uses adjustment/relational codes).</p></div>
+</section>
+
+
+<!-- ═══════════════════════ F94 SOCIAL FUNCTIONING ═══════════════════════ -->
+<section id="f94">
+  <h2>F94 &middot; Disorders of social functioning with onset specific to childhood and adolescence</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F94 covers abnormalities of social functioning beginning in childhood, without the pervasive constitutional deficit of autism. ICD-11 disperses them: selective mutism &rarr; anxiety (6B06); the attachment disorders &rarr; disorders associated with stress (6B44 / 6B45).</p>
+  <div class="ddx"><h5>Differential diagnosis (whole F94 group)</h5><p>From <b>autism spectrum disorder (F84)</b> (there the social deficit is pervasive and constitutional, not situational or deprivation-related); from <b>intellectual disability</b>; from primary <b>anxiety disorders</b>.</p></div>
+</section>
+
+<section id="f94-0">
+  <h2>F94.0 &middot; Elective (selective) mutism</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F94 Social functioning &rarr; consistent failure to speak in specific situations. ICD-11: <b>6B06 Selective mutism</b> (now within anxiety disorders).</p>
+  <div class="g2">
+    <div class="panel10"><h4><span class="tag t10">ICD-10 (F94.0)</span></h4>
+      <p>A <b>marked, emotionally determined selectivity in speaking</b>, such that the child demonstrates language competence in some situations but <b>fails to speak in other (definable) situations</b>. Most often first manifest in early childhood, occurring with about equal frequency in the two sexes, and usually associated with <b>marked personality features involving social anxiety, withdrawal, sensitivity or resistance</b>. Typically the child speaks at home or with close friends but is mute at school or with strangers.</p>
+    </div>
+    <div class="panel11"><h4><span class="tag t11">ICD-11 (6B06)</span></h4><p><b>Selective mutism:</b> consistent selectivity in speaking &mdash; adequate language in some social situations (typically home) but a consistent failure to speak in others (typically school), of sufficient duration and severity to impair functioning. ICD-11 places it among the <b>anxiety or fear-related disorders</b>, recognising its anxiety basis.</p></div>
+  </div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>From a <b>developmental language disorder (F80)</b> (there language is impaired in <i>all</i> settings); from <b>autism (F84)</b>; from transient mutism when starting school or after migration/new language (allow an adjustment period); from <b>social anxiety disorder</b> (overlaps &mdash; ICD-11 classes mutism as anxiety-related).</p></div>
+  <div class="remember"><h4>Remember</h4><p>&ldquo;<b>Talks at home, silent at school</b>&rdquo; &mdash; selective mutism; the language ability is intact, the failure is situational and anxiety-driven.</p></div>
+  <p><b>Treatment:</b> behavioural/CBT approaches (graded exposure, stimulus fading, positive reinforcement of speaking); an SSRI may help in persistent cases.</p>
+</section>
+
+<section id="f94-1">
+  <h2>F94.1 &middot; Reactive attachment disorder of childhood</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F94 Social functioning &rarr; the &ldquo;inhibited/withdrawn&rdquo; attachment pattern after grossly inadequate care. ICD-11: <b>6B44 Reactive attachment disorder</b> (within disorders associated with stress).</p>
+  <div class="panel10"><h4><span class="tag t10">ICD-10 (F94.1)</span></h4>
+    <p>Occurring in infants and young children, characterised by <b>persistent abnormalities in the child's pattern of social relationships</b> associated with emotional disturbance and reactive to changes in circumstances. <b>Fearfulness and hypervigilance that do not respond to comforting</b> are characteristic; poor social interaction with peers, aggression toward self and others, misery, and in some cases growth failure. It probably arises as a <b>direct result of severe parental neglect, abuse or serious mishandling.</b></p>
+  </div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11 (6B44)</span></h4><p><b>Reactive attachment disorder:</b> grossly abnormal, inhibited/emotionally withdrawn attachment behaviour in a young child (rarely seeks or responds to comfort), with reduced positive affect and episodes of unexplained fearfulness/irritability, developing in the context of <b>grossly inadequate care</b> (neglect, deprivation). Placed among the stress-related disorders because a defined pathogenic care experience is required.</p></div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>From <b>disinhibited attachment disorder (F94.2)</b> (over-familiar, indiscriminate &mdash; the opposite pattern); from <b>autism (F84)</b> (constitutional, not caused by neglect; social reciprocity deficit present even with good care); from <b>intellectual disability</b>; from depression.</p></div>
+  <div class="remember"><h4>Remember</h4><p>&ldquo;<b>Neglected child, withdrawn &amp; fearful, won't be comforted</b>&rdquo; &mdash; reactive (inhibited) attachment.</p></div>
+</section>
+
+<section id="f94-2">
+  <h2>F94.2 &middot; Disinhibited attachment disorder of childhood</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F94 Social functioning &rarr; the &ldquo;over-familiar/indiscriminate&rdquo; attachment pattern. ICD-11: <b>6B45 Disinhibited social engagement disorder</b> (within disorders associated with stress).</p>
+  <div class="panel10"><h4><span class="tag t10">ICD-10 (F94.2)</span></h4>
+    <p>A particular pattern of abnormal social functioning arising in the first five years, characterised by <b>diffuse, non-selectively focused attachment behaviour, attention-seeking and indiscriminately friendly behaviour</b>. Typically the young child shows <b>clinging in infancy that gives way to indiscriminate friendliness</b> and attention-seeking in early/middle childhood, with poorly modulated peer interactions. It tends to arise following <b>institutional rearing or repeated changes of caregiver</b>. <b>Includes:</b> affectionless psychopathy; institutional syndrome.</p>
+  </div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11 (6B45)</span></h4><p><b>Disinhibited social engagement disorder:</b> grossly abnormal social behaviour in which the child <b>approaches and interacts with unfamiliar adults with a lack of the normal reticence</b> (over-familiarity, willingness to go off with a stranger), developing after grossly inadequate care. Placed among the stress-related disorders.</p></div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>From <b>reactive attachment disorder (F94.1)</b> (withdrawn/inhibited &mdash; opposite pattern); from <b>ADHD</b> (impulsive social intrusion but not the indiscriminate-attachment quality); from <b>autism (F84)</b>. The over-familiar approach to strangers is the signature.</p></div>
+  <div class="remember"><h4>Remember</h4><p>&ldquo;<b>Indiscriminately friendly, goes off with strangers</b>&rdquo; &mdash; disinhibited (over-familiar) attachment; classic after institutional rearing.</p></div>
+</section>
+
+
+<!-- ═══════════════════════ F95 TICS ═══════════════════════ -->
+<section id="f95">
+  <h2>F95 &middot; Tic disorders</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F95 is the tic group of F90&ndash;F98. In ICD-11 tic disorders move to <b>Chapter 08, Diseases of the nervous system (8A05)</b> &mdash; recognised as neurological &mdash; and are cross-listed under neurodevelopmental disorders.</p>
+  <p>A <b>tic</b> is an involuntary, rapid, recurrent, non-rhythmic <b>motor movement</b> (usually involving a discrete muscle group) or <b>vocal production</b> that is sudden in onset and serves no apparent purpose. Tics tend to be experienced as irresistible but can usually be <b>suppressed for varying periods</b>, are exacerbated by stress, and typically disappear during sleep. Common simple motor tics: eye-blinking, neck-jerking, shoulder-shrugging, facial grimacing. Common simple vocal tics: throat-clearing, sniffing, grunting.</p>
+  <div class="panel10"><h4><span class="tag t10">ICD-10 general guidelines (F95)</span></h4><p>The major distinctions are between (1) single vs multiple tics, (2) motor vs vocal tics, and (3) duration (transient vs chronic). Onset is almost always in childhood/adolescence.</p></div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11 (8A05)</span></h4><p><b>Tic disorders</b> (including Tourette syndrome) are classified as <b>neurological</b> conditions in Chapter 08, cross-listed in the neurodevelopmental grouping &mdash; reflecting their basis in fronto-striatal circuitry.</p></div>
+  <div class="ddx"><h5>Differential diagnosis (whole F95 group)</h5><p>From <b>stereotypies</b> (F98.4 &mdash; rhythmic, prolonged, often soothing, seen in intellectual disability/autism) &mdash; tics are sudden and non-rhythmic; from <b>chorea, dystonia, myoclonus</b> and other movement disorders; from <b>compulsions in OCD</b> (goal-directed, to neutralise an obsession); from medication-induced movements.</p></div>
+</section>
+
+<section id="f95-0">
+  <h2>F95.0 &middot; Transient tic disorder</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F95 Tic disorders &rarr; the briefest, commonest form.</p>
+  <div class="panel10"><h4><span class="tag t10">ICD-10 (F95.0)</span></h4><p>Meets the general criteria for a tic disorder but the tics <b>do not persist for longer than 12 months</b>. Usually takes the form of eye-blinking, facial grimacing or head-jerking. The commonest tic disorder, most frequent around age 4&ndash;5 years.</p></div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11</span></h4><p>Corresponds to a <b>provisional/transient tic disorder</b> within 8A05.</p></div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>From <b>chronic tic disorder (F95.1)</b> and <b>Tourette (F95.2)</b> (duration &gt;1 year); from stereotypies; from habit movements.</p></div>
+  <div class="remember"><h4>Remember</h4><p>&ldquo;<b>Tics &lt; 12 months</b>&rdquo; &mdash; transient, usually simple, often self-limiting.</p></div>
+</section>
+
+<section id="f95-1">
+  <h2>F95.1 &middot; Chronic motor or vocal tic disorder</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F95 Tic disorders &rarr; long-lasting tics of one type only.</p>
+  <div class="panel10"><h4><span class="tag t10">ICD-10 (F95.1)</span></h4><p>Meets the general criteria for a tic disorder, with <b>motor OR vocal tics (but not both)</b>, either single or multiple (but usually multiple), that persist for <b>more than a year</b>. The presence of <b>both</b> motor and vocal tics would instead indicate Tourette syndrome (F95.2).</p></div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11</span></h4><p><b>Chronic motor or vocal tic disorder</b> within 8A05 (single-modality tics persisting &gt;1 year).</p></div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>From <b>Tourette (F95.2)</b> (needs both multiple motor <i>and</i> vocal tics); from <b>transient tic disorder (F95.0)</b> (&lt;1 year); from other movement disorders.</p></div>
+  <div class="remember"><h4>Remember</h4><p>&ldquo;<b>Motor OR vocal (not both), &gt; 1 year</b>&rdquo; &mdash; chronic tic disorder.</p></div>
+</section>
+
+<section id="f95-2">
+  <h2>F95.2 &middot; Combined vocal and multiple motor tic disorder (Tourette's syndrome)</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F95 Tic disorders &rarr; the most severe, defining form. ICD-11: <b>Tourette syndrome (8A05.00)</b> in the nervous-system chapter.</p>
+  <div class="panel10"><h4><span class="tag t10">ICD-10 (F95.2)</span></h4>
+    <p>A form of tic disorder in which there are, or have been, <b>multiple motor tics and one or more vocal tics</b>, although these need not have occurred concurrently. <b>Onset is almost always in childhood or adolescence</b>; a history of motor tics before the development of vocal tics is common; symptoms frequently <b>worsen during adolescence</b> and commonly persist into adult life. The vocal tics are often multiple, with explosive repetitive vocalisations, throat-clearing and grunting, and there may be use of <b>obscene words or phrases (coprolalia)</b>. Sometimes there is associated <b>gestural echopraxia</b>, which may also be obscene (<b>copropraxia</b>).</p>
+  </div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11 (8A05.00)</span></h4><p><b>Tourette syndrome:</b> combined multiple motor and one or more phonic (vocal) tics (not necessarily concurrent) persisting &gt;1 year, with childhood onset &mdash; classified as a neurological disease, cross-listed with neurodevelopmental disorders.</p></div>
+  <div class="unique"><h4>Unique features</h4><p>The combination of <b>multiple motor + vocal tics</b>, waxing-and-waning course, worsening in adolescence, and the (often over-emphasised, actually minority) feature of <b>coprolalia</b>. Strong comorbidity with <b>ADHD and OCD</b>.</p></div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>From <b>chronic motor OR vocal tic disorder (F95.1)</b> (single modality); from <b>OCD</b> (compulsions are goal-directed); from other movement disorders (chorea, dystonia, myoclonus); from stereotypies.</p></div>
+  <div class="remember"><h4>Remember</h4><p>&ldquo;<b>Multiple motor + &ge;1 vocal tic, &gt;1 year, childhood onset</b>&rdquo; &mdash; Tourette; think comorbid ADHD + OCD; coprolalia is characteristic but not required or common.</p></div>
+  <h3>Treatment (tic disorders)</h3>
+  <ul class="t"><li><b>Psychoeducation</b> and watchful waiting for mild tics; <b>habit-reversal training / comprehensive behavioural intervention for tics (CBIT)</b> first-line behavioural treatment.</li><li><b>Medication</b> for impairing tics: alpha-2 agonists (clonidine, guanfacine) or antipsychotics (risperidone, aripiprazole, haloperidol); treat comorbid ADHD and OCD.</li></ul>
+</section>
+
+<!-- ═══════════════════════ F98 OTHER ═══════════════════════ -->
+<section id="f98">
+  <h2>F98 &middot; Other behavioural and emotional disorders with onset usually in childhood and adolescence</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F98 is the mixed &ldquo;other&rdquo; group of F90&ndash;F98 &mdash; elimination, feeding, movement and speech-fluency problems. ICD-11 disperses them: enuresis/encopresis &rarr; elimination disorders; feeding/pica &rarr; feeding &amp; eating; stereotypies &rarr; neurodevelopmental; stuttering &rarr; speech fluency.</p>
+</section>
+
+<section id="f98-0">
+  <h2>F98.0 &middot; Nonorganic enuresis</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F98 Other &rarr; involuntary wetting. ICD-11: <b>6C00 Enuresis</b> (own elimination-disorders grouping).</p>
+  <div class="g2">
+    <div class="panel10"><h4><span class="tag t10">ICD-10 (F98.0)</span></h4>
+      <p>Involuntary <b>voiding of urine, by day and/or by night</b>, that is abnormal in relation to the child's <b>mental age</b>, and is <b>not a consequence of neurological disorder, epileptic attacks or any structural abnormality of the urinary tract</b>. It may be <b>primary</b> (present from birth &mdash; an abnormal extension of infantile incontinence) or <b>secondary</b> (following a period of acquired bladder control, usually beginning about age 5&ndash;7). Not usually diagnosed under a mental age of about 4 (chronological age about 5). May be monosymptomatic or associated with a wider emotional/behavioural disorder.</p>
+    </div>
+    <div class="panel11"><h4><span class="tag t11">ICD-11 (6C00)</span></h4><p><b>Enuresis:</b> repeated voiding of urine into clothes or bed, voluntary or involuntary, in a child whose developmental age makes bladder control expected, not due to a physical condition. Specified as <b>6C00.0 nocturnal, 6C00.1 diurnal, 6C00.2 nocturnal and diurnal</b>.</p></div>
+  </div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>From wetting due to a <b>urinary-tract abnormality, urinary infection, diabetes, or neurological disorder/epilepsy</b> (excluded before this diagnosis); from developmentally normal wetting below the expected age.</p></div>
+  <div class="remember"><h4>Remember</h4><p>&ldquo;<b>Wetting past the expected age, no physical cause</b>&rdquo; &mdash; primary (never dry) vs secondary (relapse after being dry). ICD-11 splits nocturnal/diurnal/both.</p></div>
+  <p><b>Treatment:</b> reassurance, fluid/toileting advice, <b>enuresis alarm</b> (best long-term), <b>desmopressin</b> for short-term/nocturnal control; treat any comorbid emotional disorder.</p>
+</section>
+
+<section id="f98-1">
+  <h2>F98.1 &middot; Nonorganic encopresis</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F98 Other &rarr; involuntary soiling. ICD-11: <b>6C01 Encopresis</b>.</p>
+  <div class="panel10"><h4><span class="tag t10">ICD-10 (F98.1)</span></h4><p>Repeated <b>voluntary or involuntary passage of faeces</b>, usually of normal or near-normal consistency, in places <b>not appropriate for that purpose</b> in the child's sociocultural setting. It may be an abnormal continuation of normal infantile incontinence, or a loss of continence after a period of bowel control, or the deliberate deposition of faeces in inappropriate places despite normal control. It may occur alone or with a wider emotional/behavioural disorder, and is not due to an organic condition. Usually diagnosed from a mental age of about 4.</p></div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11 (6C01)</span></h4><p><b>Encopresis:</b> repeated passage of faeces in inappropriate places, in a child of a developmental age at which bowel control is expected, not due to a physical condition (other than one producing overflow around constipation, which is noted).</p></div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>From soiling due to <b>organic constipation with overflow</b>, anorectal malformation, or a neurological/gastrointestinal disease; from developmentally normal lack of control below the expected age.</p></div>
+  <div class="remember"><h4>Remember</h4><p>&ldquo;<b>Soiling past the expected age, no organic cause</b>&rdquo; &mdash; always check for constipation-with-overflow.</p></div>
+  <p><b>Treatment:</b> treat constipation (disimpaction + maintenance laxatives), toileting programme, positive reinforcement; address emotional factors.</p>
+</section>
+
+<section id="f98-2">
+  <h2>F98.2 &middot; Feeding disorder of infancy and childhood</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F98 Other &rarr; a feeding problem of early childhood. ICD-11: absorbed into <b>Feeding and eating disorders</b> (e.g. 6B83 ARFID).</p>
+  <div class="panel10"><h4><span class="tag t10">ICD-10 (F98.2)</span></h4><p>A feeding disorder of varying manifestations usually specific to infancy and early childhood, generally involving <b>food refusal and extreme faddiness</b> in the presence of an adequate food supply, a reasonably competent caregiver, and the absence of organic disease. There may be associated rumination (repeated regurgitation without nausea/GI illness). Not diagnosed where the feeding difficulty is due to organic disease or to another disorder.</p></div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11</span></h4><p>Reframed within feeding/eating disorders &mdash; most such presentations map to <b>6B83 Avoidant/restrictive food intake disorder (ARFID)</b>, recognised across ages, or to rumination-regurgitation disorder (6B85).</p></div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>From feeding problems due to <b>organic disease</b> (GI, oromotor); from <b>pica (F98.3)</b>; from an <b>eating disorder</b> in older children; from feeding problems secondary to autism or intellectual disability.</p></div>
+  <div class="remember"><h4>Remember</h4><p>&ldquo;<b>Food refusal/faddiness, no organic cause</b>&rdquo; &mdash; ICD-11 largely calls it ARFID.</p></div>
+</section>
+
+<section id="f98-3">
+  <h2>F98.3 &middot; Pica of infancy and childhood</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F98 Other &rarr; eating non-nutritive substances. ICD-11: <b>6B84 Pica</b> (feeding &amp; eating disorders, all ages).</p>
+  <div class="panel10"><h4><span class="tag t10">ICD-10 (F98.3)</span></h4><p>The <b>persistent eating of non-nutritive substances</b> (soil, paint flakes, etc.). It may occur as one symptom of a wider psychiatric disorder (such as autism) or as a relatively isolated behaviour; it is coded here only when it is essentially the isolated psychopathology. The phenomenon is commonest in children with intellectual disability.</p></div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11 (6B84)</span></h4><p><b>Pica:</b> regular eating of non-nutritive, non-food substances that is persistent/severe enough to warrant clinical attention and is developmentally inappropriate &mdash; now recognised <b>across the lifespan</b> within feeding and eating disorders.</p></div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>From culturally sanctioned practices; from developmentally normal mouthing in infants; from <b>iron/zinc deficiency</b> states (investigate and treat); from pica occurring within autism or intellectual disability (code the context).</p></div>
+  <div class="remember"><h4>Remember</h4><p>&ldquo;<b>Eating non-food substances</b>&rdquo; &mdash; check for iron/zinc deficiency; ICD-11 makes pica a lifespan eating-disorder diagnosis.</p></div>
+</section>
+
+<section id="f98-4">
+  <h2>F98.4 &middot; Stereotyped movement disorders</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F98 Other &rarr; repetitive, non-functional movements. ICD-11: <b>6A06 Stereotyped movement disorder</b> (neurodevelopmental).</p>
+  <div class="panel10"><h4><span class="tag t10">ICD-10 (F98.4)</span></h4><p>Voluntary, repetitive, stereotyped, <b>non-functional (and often rhythmic) movements</b> that are not part of any recognised psychiatric or neurological condition. Examples: body-rocking, head-rocking, hair-plucking, hair-twisting, finger-flicking, and hand-flapping. <b>Self-injurious</b> stereotypies include repeated head-banging, face-slapping, eye-poking and biting of the hands, lips or other body parts. These occur most in children with intellectual disability. When they occur as part of another disorder, only the overall disorder is coded.</p></div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11 (6A06)</span></h4><p><b>Stereotyped movement disorder:</b> persistent (typically early-onset) voluntary, repetitive, non-functional and often rhythmic movements, with a specifier for <b>with vs without self-injury</b> &mdash; placed among neurodevelopmental disorders.</p></div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>From <b>tics (F95)</b> (sudden, non-rhythmic, suppressible &mdash; stereotypies are rhythmic, prolonged and often soothing); from compulsions in <b>OCD</b>; from movements within <b>autism</b> or a neurological disorder; from trichotillomania (hair-pulling as an impulse/body-focused behaviour).</p></div>
+  <div class="remember"><h4>Remember</h4><p>&ldquo;<b>Rhythmic, soothing, repetitive (rocking, flapping, head-banging)</b>&rdquo; &mdash; stereotypies, not tics; specify with/without self-injury.</p></div>
+</section>
+
+<section id="f98-5">
+  <h2>F98.5 &middot; Stuttering (stammering)</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F98 Other &rarr; a disorder of speech fluency. ICD-11: <b>6A01.1 Developmental speech fluency disorder</b> (moved to the neurodevelopmental speech/language group).</p>
+  <div class="panel10"><h4><span class="tag t10">ICD-10 (F98.5)</span></h4><p>Speech that is characterised by <b>frequent repetition or prolongation of sounds, syllables or words, or by frequent hesitations or pauses</b> that disrupt the rhythmic flow of speech. It should be classified as a disorder only if its severity is such as to markedly disturb the fluency of speech. May be accompanied by associated movements of the face and/or other body parts.</p>
+    <div class="excl" style="margin-top:8px"><b>Excludes:</b> tics (F95.-); cluttering (F98.6).</div>
+  </div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11 (6A01.1)</span></h4><p><b>Developmental speech fluency disorder:</b> frequent, marked disruptions of the rhythm/flow of speech (sound/syllable repetitions and prolongations, blocking, word substitutions, hesitations) with onset in the developmental period, inconsistent with age &mdash; classified among the developmental speech/language (neurodevelopmental) disorders.</p></div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>From <b>cluttering (F98.6)</b> (rapid, disorganised, arrhythmic speech with the person often unaware); from normal developmental dysfluency (mild, transient); from tics; from acquired (neurogenic) stuttering after brain injury.</p></div>
+  <div class="remember"><h4>Remember</h4><p>&ldquo;<b>Repetitions/prolongations/blocks disrupting flow</b>&rdquo; &mdash; ICD-11 renames it developmental speech fluency disorder and moves it to the neurodevelopmental group.</p></div>
+</section>
+
+<section id="f98-6">
+  <h2>F98.6 &middot; Cluttering</h2>
+  <p class="si" style="color:#5d6d7e;margin:0 0 8px"><b>Group:</b> F98 Other &rarr; a fluency disorder distinct from stuttering.</p>
+  <div class="panel10"><h4><span class="tag t10">ICD-10 (F98.6)</span></h4><p>A <b>rapid rate of speech with breakdown in fluency, but no repetitions or hesitations</b>, of a severity that leads to reduced speech intelligibility. Speech is <b>erratic and dysrhythmic</b>, with rapid jerky spurts that usually involve faulty phrasing patterns. Unlike stuttering, the person is often <b>unaware</b> of the problem.</p>
+    <div class="excl" style="margin-top:8px"><b>Excludes:</b> stuttering (F98.5); tics (F95.-).</div>
+  </div>
+  <div class="panel11"><h4><span class="tag t11">ICD-11</span></h4><p>Addressed within <b>developmental speech fluency disorder (6A01.1)</b>, which encompasses the range of fluency disturbances.</p></div>
+  <div class="ddx"><h5>Differential diagnosis</h5><p>From <b>stuttering (F98.5)</b> (repetitions/prolongations/blocks, with awareness) &mdash; cluttering is rapid, disorganised and typically without awareness; from a general language disorder.</p></div>
+  <div class="remember"><h4>Remember</h4><p>&ldquo;<b>Too fast, jumbled, unaware</b>&rdquo; &mdash; cluttering (versus the blocking/repetition and awareness of stuttering).</p></div>
+</section>
+
+
+<!-- ═══════════════════════ REFERENCES ═══════════════════════ -->
+<section id="references">
+  <h2>References and Source Attribution</h2>
+  <p>Diagnostic terminology and criteria (including the includes/excludes and differential-diagnosis notes) are drawn strictly from the two official WHO classifications; clinical elaboration and psychological theories are drawn from standard psychiatric and psychological texts and peer-reviewed literature, each labelled inline with a source tag. A central teaching point of this block is that ICD-11 <b>dissolves the age-based childhood-onset block</b> and reclassifies its disorders by phenomenology across lifespan groupings (ADHD and stereotypies to neurodevelopmental; conduct/oppositional to disruptive behaviour or dissocial disorders; separation anxiety and selective mutism to anxiety; attachment disorders to stress-related; tics to neurology; enuresis/encopresis to elimination disorders; stuttering to speech fluency).</p>
+  <ul class="t">
+    <li><span class="tag t10">ICD-10</span> World Health Organization. <i>The ICD-10 Classification of Mental and Behavioural Disorders: Clinical Descriptions and Diagnostic Guidelines.</i> Geneva: World Health Organization, 1992.</li>
+    <li><span class="tag t11">ICD-11</span> World Health Organization. <i>Clinical Descriptions and Diagnostic Requirements for ICD-11 Mental, Behavioural and Neurodevelopmental Disorders</i>, and the ICD-11 chapter on Diseases of the nervous system (tic disorders). Geneva: World Health Organization.</li>
+    <li><span class="tag tks">Kaplan &amp; Sadock</span> Sadock BJ, Sadock VA, Ruiz P. <i>Kaplan &amp; Sadock's Synopsis of Psychiatry</i> and <i>Comprehensive Textbook of Psychiatry</i> (etiology, epidemiology, clinical features and treatment; content paraphrased).</li>
+    <li><span class="tag tother">Other evidence</span> Foundational developmental theory (Bowlby &amp; Ainsworth on attachment; Patterson &amp; Bandura on social learning of aggression; Barkley's self-regulation model of ADHD; behavioural models of tics) and peer-reviewed epidemiological literature. Content was rephrased for compliance with licensing restrictions.</li>
+  </ul>
+  <div class="warn"><b>Note on use.</b> This is an educational study reference for M.Phil. Clinical Psychology. Diagnostic criteria are paraphrased from the ICD sources without reproducing copyrighted text at length; secondary-source content has been rephrased for compliance with licensing restrictions. It is not a substitute for the full official classifications or for individual clinical and medical judgement, and it is not a prescribing guide.</div>
+  <div class="top"><a href="#top">Back to top</a></div>
+</section>
+
+</main>
+</div>
+
+<footer>
+  <p><strong>ICD-10 &amp; ICD-11 Comparative Clinical Handbook &mdash; F90&ndash;F98 Behavioural &amp; Emotional Disorders with Onset Usually in Childhood and Adolescence</strong></p>
+  <p>Fully comprehensive edition &middot; every disorder and subtype detailed with its own ICD-10 criteria and ICD-11 counterpart, includes/excludes and differential diagnosis &middot; the dissolution of the age-based childhood block across ICD-11 lifespan groupings &middot; etiology (with psychological theories), epidemiology, comorbidities, mnemonics and treatment &middot; terminology explained in plain language.</p>
+  <p style="margin-top:14px;font-size:1rem;color:#fff;letter-spacing:.04em">Made by <strong>Tejas Dangodra</strong></p>
+</footer>
+
+</body>
+</html>
