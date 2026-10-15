@@ -52,16 +52,18 @@
   .instr li { margin-bottom: 2px; }
   .hinglish { color: var(--accent); }
 
+  /* White cards + colored chip on the left; all text dark on white */
   .suds-scale { width: 100%; border-collapse: separate; border-spacing: 5px; margin: 4px 0; font-size: 9.5px; text-align: left; }
-  .suds-scale td { border: 1px solid var(--grid); border-radius: 6px; padding: 7px 9px; vertical-align: top; }
+  .suds-scale td { background: #fff; border: 1px solid var(--grid); border-radius: 6px; padding: 7px 9px 7px 16px; vertical-align: top; position: relative; }
+  .suds-scale td::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 7px; border-radius: 6px 0 0 6px; }
   .suds-scale .range { font-size: 12px; font-weight: bold; color: var(--ink); display:block; }
   .suds-scale .en { font-weight: bold; color: var(--ink); }
   .suds-scale .hi { color: var(--ink-soft); font-size: 8.5px; }
-  .q0  { background: #dcf3e1; }
-  .q20 { background: #edf5d6; }
-  .q40 { background: #fff7d6; }
-  .q60 { background: #ffe8d6; }
-  .q80 { background: #ffdede; }
+  .q0::before  { background: #5cb87e; }
+  .q20::before { background: #b3c654; }
+  .q40::before { background: #f2c240; }
+  .q60::before { background: #f28f4d; }
+  .q80::before { background: #e66b73; }
 
   table.main { width: 100%; border-collapse: collapse; margin-top: 4px; font-size: 9px; }
   table.main th { background: var(--lav); color: #fff; border: 1px solid var(--grid); padding: 5px 4px; vertical-align: middle; font-size: 8.5px; font-weight: bold; }
