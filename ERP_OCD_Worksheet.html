@@ -2,142 +2,123 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>ERP OCD Worksheet</title>
+<title>ERP OCD Worksheet - Dango_Psych</title>
 <style>
-  @page { size: A4 landscape; margin: 12mm 10mm; }
+  @page { size: A4 landscape; margin: 11mm 10mm; }
   * { box-sizing: border-box; }
   body {
     font-family: "Helvetica Neue", Arial, sans-serif;
-    color: #1a1a1a;
+    color: #45485f;
     font-size: 10.5px;
-    line-height: 1.4;
+    line-height: 1.45;
     margin: 0;
   }
-  h1 {
-    font-size: 20px;
-    margin: 0 0 2px 0;
-    color: #1f4e79;
+  /* Pastel palette */
+  :root {
+    --lav: #998dc7;
+    --lav-bg: #ece8fa;
+    --mint-bg: #e6f5ed;
+    --peach-bg: #fcede6;
+    --cream: #fdf8ea;
+    --ink: #45485f;
+    --ink-soft: #73768c;
+    --accent: #6b999e;
+    --grid: #ccc7e0;
   }
+  h1 { font-size: 19px; margin: 0; color: var(--lav); }
+  .band {
+    background: var(--lav-bg);
+    border-left: 5px solid var(--lav);
+    border-radius: 6px;
+    padding: 8px 14px;
+    margin: 0 0 10px 0;
+  }
+  .subtitle { font-size: 9px; color: var(--ink-soft); margin: 2px 0 0 0; }
+  .source { font-size: 8.5px; color: var(--ink-soft); font-style: italic; margin: 0 0 10px 0; }
+
   h2 {
-    font-size: 13px;
-    color: #1f4e79;
-    border-bottom: 2px solid #1f4e79;
-    padding-bottom: 2px;
-    margin: 14px 0 6px 0;
+    font-size: 11px; color: var(--lav); margin: 14px 0 6px 0;
+    background: var(--lav-bg); border-left: 4px solid var(--lav);
+    border-radius: 5px; padding: 4px 10px;
   }
-  .subtitle { font-size: 11px; color: #555; margin: 0 0 2px 0; }
-  .source { font-size: 9px; color: #777; font-style: italic; margin: 0 0 8px 0; }
-  .client-info {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 8px 0 4px 0;
-    font-size: 10px;
-  }
-  .client-info td { padding: 4px 6px; border: 1px solid #bbb; }
-  .label { background: #eef3f8; font-weight: bold; width: 14%; }
 
-  .instr {
-    background: #f7f9fc;
-    border: 1px solid #cdd9e8;
-    border-radius: 5px;
-    padding: 8px 12px;
-    margin: 6px 0;
-  }
-  .instr ol { margin: 4px 0 4px 18px; padding: 0; }
-  .instr li { margin-bottom: 3px; }
-  .hinglish { color: #0d5c6b; }
+  .client-info { width: 100%; border-collapse: separate; border-spacing: 4px; margin: 8px 0; font-size: 9.5px; }
+  .client-info td { padding: 5px 7px; border: 1px solid var(--grid); border-radius: 4px; }
+  .lav { background: var(--lav-bg); font-weight: bold; width: 11%; }
+  .mint { background: var(--mint-bg); font-weight: bold; width: 11%; }
+  .fill { background: #fff; }
 
-  .suds-scale {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 6px 0;
-    font-size: 9.5px;
-    text-align: center;
-  }
-  .suds-scale td, .suds-scale th { border: 1px solid #999; padding: 4px 3px; }
-  .suds-scale th { background: #1f4e79; color: #fff; }
-  .s0 { background: #d6f5d6; }
-  .s2 { background: #eaf7c9; }
-  .s4 { background: #fff6cc; }
-  .s6 { background: #ffe7c7; }
-  .s8 { background: #ffdacc; }
-  .s10 { background: #ffd1d1; }
-  .suds-scale .hinglish { color: #333; }
+  .instr ol { margin: 2px 0 4px 18px; padding: 0; }
+  .instr li { margin-bottom: 2px; }
+  .hinglish { color: var(--accent); }
 
-  table.main {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 6px;
-    font-size: 9px;
-    page-break-inside: auto;
-  }
-  table.main th {
-    background: #1f4e79;
-    color: #fff;
-    border: 1px solid #16395a;
-    padding: 5px 4px;
-    vertical-align: middle;
-    font-size: 9px;
-  }
-  table.main td {
-    border: 1px solid #999;
-    padding: 10px 4px;
-    height: 34px;
-    vertical-align: top;
-  }
-  table.main tr:nth-child(even) td { background: #f4f7fb; }
-  .rownum { text-align: center; font-weight: bold; width: 3%; background: #eef3f8 !important; }
-  .note { font-size: 9px; color: #555; margin-top: 6px; }
-  .footer { margin-top: 10px; font-size: 8.5px; color: #888; border-top: 1px solid #ccc; padding-top: 5px; }
+  .suds-scale { width: 100%; border-collapse: separate; border-spacing: 5px; margin: 4px 0; font-size: 9.5px; text-align: left; }
+  .suds-scale td { border: 1px solid var(--grid); border-radius: 6px; padding: 7px 9px; vertical-align: top; }
+  .suds-scale .range { font-size: 12px; font-weight: bold; color: var(--ink); display:block; }
+  .suds-scale .en { font-weight: bold; color: var(--ink); }
+  .suds-scale .hi { color: var(--ink-soft); font-size: 8.5px; }
+  .q0  { background: #dcf3e1; }
+  .q20 { background: #edf5d6; }
+  .q40 { background: #fff7d6; }
+  .q60 { background: #ffe8d6; }
+  .q80 { background: #ffdede; }
+
+  table.main { width: 100%; border-collapse: collapse; margin-top: 4px; font-size: 9px; }
+  table.main th { background: var(--lav); color: #fff; border: 1px solid var(--grid); padding: 5px 4px; vertical-align: middle; font-size: 8.5px; font-weight: bold; }
+  table.main td { border: 1px solid var(--grid); padding: 11px 4px; height: 30px; vertical-align: top; }
+  table.main tr:nth-child(even) td { background: #f8f6fd; }
+  .rownum { text-align: center; font-weight: bold; width: 3%; background: var(--lav-bg) !important; color: var(--lav); }
+  .note { font-size: 8.5px; color: var(--ink-soft); margin-top: 5px; }
+  .footer { margin-top: 10px; font-size: 8px; color: var(--ink-soft); border-top: 1px solid var(--grid); padding-top: 5px; }
+  .brand { margin-top: 8px; }
+  .brand .name { font-size: 13px; font-weight: bold; color: var(--lav); }
+  .brand .by { font-size: 8.5px; color: var(--ink-soft); }
   .pagebreak { page-break-before: always; }
-  .tag { display:inline-block; background:#1f4e79; color:#fff; border-radius:3px; padding:1px 5px; font-size:8.5px; }
 </style>
 </head>
 <body>
 
-<h1>ERP Worksheet — Obsessions & Compulsions Monitoring Log</h1>
-<p class="subtitle">Exposure &amp; Response (Ritual) Prevention (EX/RP) for OCD &nbsp;|&nbsp; Obsessions, Compulsions, Triggers &amp; SUDS Rating</p>
-<p class="source">Based on: Foa, E. B., Yadin, E., &amp; Lichner, T. K. — <i>Exposure and Response (Ritual) Prevention for Obsessive-Compulsive Disorder: Therapist Guide</i> (2nd ed.), Treatments That Work / Oxford University Press. SUDS = Subjective Units of Distress Scale (Wolpe, 1969).</p>
+<div class="band">
+  <h1>ERP Worksheet &nbsp;-&nbsp; Obsessions &amp; Compulsions Log</h1>
+  <p class="subtitle">Exposure &amp; Response (Ritual) Prevention for OCD &nbsp;|&nbsp; Obsessions &middot; Triggers &middot; Compulsions &middot; SUDS (0&ndash;100)</p>
+</div>
+<p class="source">Based on: Foa, E. B., Yadin, E., &amp; Lichner, T. K. — <i>Exposure and Response (Ritual) Prevention for OCD: Therapist Guide</i> (2nd ed.), Oxford University Press. SUDS = Subjective Units of Distress Scale (Wolpe, 1969).</p>
 
 <table class="client-info">
   <tr>
-    <td class="label">Name / Naam</td><td></td>
-    <td class="label">Date / Tareekh</td><td></td>
-    <td class="label">Therapist</td><td></td>
+    <td class="lav">Name / Naam</td><td class="fill"></td>
+    <td class="lav">Date / Tareekh</td><td class="fill"></td>
+    <td class="lav">Therapist</td><td class="fill"></td>
   </tr>
   <tr>
-    <td class="label">Age / Umar</td><td></td>
-    <td class="label">Session No.</td><td></td>
-    <td class="label">Week</td><td></td>
+    <td class="mint">Age / Umar</td><td class="fill"></td>
+    <td class="mint">Session No.</td><td class="fill"></td>
+    <td class="mint">Week</td><td class="fill"></td>
   </tr>
 </table>
 
 <h2>How to use this sheet &nbsp;/&nbsp; Ise kaise bharna hai</h2>
 <div class="instr">
 <ol>
-<li><b>List your obsessions.</b> <span class="hinglish">Jo bhi baar-baar aane wale khayal, images, dar ya doubts (jaise "haath gande hain", "darwaza khula reh gaya", "mujhse kisi ko nuksaan ho jayega") aate hain, unhe column 2 mein likho.</span></li>
-<li><b>Write the trigger.</b> <span class="hinglish">Column 3 mein likho ki yeh khayal kis cheez se shuru hota hai — koi jagah, cheez, time, person ya situation (jaise public toilet, gas stove, number 13, bachcha akela).</span></li>
-<li><b>List the compulsion / ritual.</b> <span class="hinglish">Column 4 mein likho ki us khayal ke baad aap kya karte ho taki tension kam ho — jaise haath dhona, check karna, counting, praying, reassurance maangna, mentally repeat karna. Mental rituals bhi likho.</span></li>
-<li><b>Rate the distress (SUDS 0–10).</b> <span class="hinglish">Column 5 mein likho ki agar aap woh ritual <u>na karo</u> to kitni tension / bechaini hogi — 0 (bilkul nahi) se 10 (bahut zyada). Neeche di gayi scale dekho.</span></li>
-<li><b>Avoidance.</b> <span class="hinglish">Column 6 mein likho — kya aap us trigger ya situation se <u>bachte</u> ho (avoid karte ho)? Haan / Nahi, aur kaise.</span></li>
-<li><b>Did you resist the compulsion?</b> <span class="hinglish">Column 7 mein likho — kya aapne ritual rokne ki koshish ki? (Haan poora roka / Thoda roka / Nahi rok paaye).</span></li>
-<li><b>Frequency &amp; time.</b> <span class="hinglish">Column 8 mein likho din bhar mein kitni baar aur kitna time (minutes) us ritual mein jaata hai.</span></li>
+<li><b>List your obsessions.</b> <span class="hinglish">Baar-baar aane wale khayal, images, dar ya doubts (jaise "haath gande hain", "darwaza khula reh gaya") column 2 mein likho.</span></li>
+<li><b>Write the trigger.</b> <span class="hinglish">Column 3 mein likho yeh khayal kis cheez se shuru hota hai — jagah, cheez, time, person ya situation (public toilet, gas stove, number 13).</span></li>
+<li><b>List the compulsion / ritual.</b> <span class="hinglish">Column 4 mein likho khayal ke baad aap kya karte ho — haath dhona, check karna, counting, praying, reassurance. Mental rituals bhi likho.</span></li>
+<li><b>Rate distress (SUDS 0&ndash;100).</b> <span class="hinglish">Column 5 mein likho ritual <u>na karo</u> to kitni tension hogi — 0 (bilkul nahi) se 100 (sabse zyada). Neeche scale dekho.</span></li>
+<li><b>Avoidance.</b> <span class="hinglish">Column 6 mein likho — kya aap us trigger/situation se <u>bachte</u> ho (avoid karte ho)? Haan / Nahi, aur kaise.</span></li>
+<li><b>Did you resist the compulsion?</b> <span class="hinglish">Column 7 mein likho — kya ritual rokne ki koshish ki? (Poora roka / Thoda roka / Nahi rok paaye).</span></li>
+<li><b>Frequency &amp; time.</b> <span class="hinglish">Column 8 mein likho din bhar mein kitni baar aur kitna time (minutes) ritual mein jaata hai.</span></li>
 </ol>
-<p style="margin:4px 0 0 0;"><b>Golden rule / Yaad rakho:</b> Pehle sabse aasaan (low SUDS) item se shuru karo, phir dheere-dheere higher SUDS wale items pe jao. Exposure ke time ritual mat karo — tension apne aap kam ho jayegi (habituation). Yeh koi test nahi hai, honestly bharo. <span class="hinglish">Galat/sahi kuch nahi hota — sach likhna hi theek hona ka pehla kadam hai.</span></p>
+<p style="margin:2px 0 0 0;"><b>Golden rule / Yaad rakho:</b> Pehle sabse aasaan (low SUDS) item se shuru karo, phir dheere-dheere higher SUDS wale items pe jao. Exposure ke time ritual mat karo — tension apne aap kam ho jayegi (habituation). Honestly bharo.</p>
 </div>
 
-<h2>SUDS — Subjective Units of Distress Scale (0–10) &nbsp;/&nbsp; Tension ka scale</h2>
+<h2>SUDS &nbsp;-&nbsp; Subjective Units of Distress (0&ndash;100) &nbsp;/&nbsp; Tension ka scale</h2>
 <table class="suds-scale">
   <tr>
-    <th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>10</th>
-  </tr>
-  <tr>
-    <td class="s0" colspan="2">No distress<br><span class="hinglish">Bilkul tension nahi</span></td>
-    <td class="s2" colspan="2">Mild<br><span class="hinglish">Halki</span></td>
-    <td class="s4" colspan="2">Moderate<br><span class="hinglish">Thodi zyada</span></td>
-    <td class="s6" colspan="2">Strong<br><span class="hinglish">Kaafi zyada</span></td>
-    <td class="s8" colspan="2">Severe<br><span class="hinglish">Bahut zyada</span></td>
-    <td class="s10" colspan="1">Worst ever<br><span class="hinglish">Sabse zyada</span></td>
+    <td class="q0"><span class="range">0&ndash;20</span><span class="en">None / Minimal</span><br><span class="hi">Bilkul nahi</span></td>
+    <td class="q20"><span class="range">21&ndash;40</span><span class="en">Mild</span><br><span class="hi">Halki</span></td>
+    <td class="q40"><span class="range">41&ndash;60</span><span class="en">Moderate</span><br><span class="hi">Thodi zyada</span></td>
+    <td class="q60"><span class="range">61&ndash;80</span><span class="en">Strong / Severe</span><br><span class="hi">Kaafi zyada</span></td>
+    <td class="q80"><span class="range">81&ndash;100</span><span class="en">Worst ever</span><br><span class="hi">Sabse zyada</span></td>
   </tr>
 </table>
 
@@ -146,13 +127,13 @@
   <thead>
   <tr>
     <th class="rownum">#</th>
-    <th style="width:19%">Obsession<br>(thought / image / doubt)<br><span class="hinglish">Khayal / dar / doubt</span></th>
-    <th style="width:14%">Trigger<br>(what sets it off)<br><span class="hinglish">Kis se shuru hua</span></th>
-    <th style="width:19%">Compulsion / Ritual<br>(what you do)<br><span class="hinglish">Aap kya karte ho</span></th>
-    <th style="width:8%">SUDS<br>0–10<br><span class="hinglish">Tension</span></th>
-    <th style="width:11%">Avoidance?<br>Haan/Nahi<br><span class="hinglish">Bachte ho?</span></th>
-    <th style="width:12%">Resisted ritual?<br>Poora/Thoda/Nahi<br><span class="hinglish">Roka?</span></th>
-    <th style="width:11%">Freq. &amp; time/day<br><span class="hinglish">Kitni baar / time</span></th>
+    <th style="width:19%">Obsession (thought / image / doubt)<br><span class="hinglish">Khayal / dar</span></th>
+    <th style="width:14%">Trigger (what sets it off)<br><span class="hinglish">Kis se shuru</span></th>
+    <th style="width:19%">Compulsion / Ritual (what you do)<br><span class="hinglish">Kya karte ho</span></th>
+    <th style="width:8%">SUDS 0&ndash;100<br><span class="hinglish">Tension</span></th>
+    <th style="width:11%">Avoidance? Haan/Nahi<br><span class="hinglish">Bachte ho?</span></th>
+    <th style="width:12%">Resisted? Poora/Thoda/Nahi<br><span class="hinglish">Roka?</span></th>
+    <th style="width:11%">Freq &amp; time/day<br><span class="hinglish">Kitni baar</span></th>
   </tr>
   </thead>
   <tbody>
@@ -169,24 +150,26 @@
 
   </tbody>
 </table>
-<p class="note"><b>Example / Udaharan:</b> Obsession: "Haath germs se gande hain" | Trigger: "Public door handle chhuna" | Compulsion: "20 min tak baar-baar haath dhona" | SUDS: 8 | Avoidance: "Haan, public jagah avoid karta hoon" | Resisted: "Nahi" | Freq: "15 baar/din, ~90 min".</p>
+<p class="note"><b>Example / Udaharan:</b> Obsession: "Haath germs se gande" | Trigger: "Public door handle chhuna" | Compulsion: "20 min haath dhona" | SUDS: 80 | Avoidance: "Haan" | Resisted: "Nahi" | Freq: "15x/din ~90min".</p>
 
 <div class="pagebreak"></div>
-<h1>ERP Worksheet — Page 2</h1>
-<p class="subtitle">Continuation table &amp; Exposure practice log &nbsp;/&nbsp; Agle items aur exposure practice</p>
+<div class="band">
+  <h1>ERP Worksheet &nbsp;-&nbsp; Page 2</h1>
+  <p class="subtitle">Continuation table &amp; Exposure practice log &nbsp;/&nbsp; Agle items aur exposure practice</p>
+</div>
 
 <h2>Obsessions &amp; Compulsions Table (continued)</h2>
 <table class="main">
   <thead>
   <tr>
     <th class="rownum">#</th>
-    <th style="width:19%">Obsession<br><span class="hinglish">Khayal / dar / doubt</span></th>
-    <th style="width:14%">Trigger<br><span class="hinglish">Kis se shuru hua</span></th>
-    <th style="width:19%">Compulsion / Ritual<br><span class="hinglish">Aap kya karte ho</span></th>
-    <th style="width:8%">SUDS<br>0–10</th>
+    <th style="width:19%">Obsession<br><span class="hinglish">Khayal / dar</span></th>
+    <th style="width:14%">Trigger<br><span class="hinglish">Kis se shuru</span></th>
+    <th style="width:19%">Compulsion / Ritual<br><span class="hinglish">Kya karte ho</span></th>
+    <th style="width:8%">SUDS 0&ndash;100</th>
     <th style="width:11%">Avoidance?<br><span class="hinglish">Bachte ho?</span></th>
-    <th style="width:12%">Resisted ritual?<br><span class="hinglish">Roka?</span></th>
-    <th style="width:11%">Freq. &amp; time/day</th>
+    <th style="width:12%">Resisted?<br><span class="hinglish">Roka?</span></th>
+    <th style="width:11%">Freq &amp; time/day</th>
   </tr>
   </thead>
   <tbody>
@@ -205,17 +188,17 @@
 </table>
 
 <h2>Exposure Practice Log &nbsp;/&nbsp; Exposure ki practice (Response Prevention)</h2>
-<p class="note"><span class="hinglish">Jab aap kisi item ka exposure karo (ritual na karte hue), to niche SUDS note karo — start mein, 5 min baad, aur end mein. Dekhoge ki tension apne aap girti hai.</span></p>
+<p class="note hinglish">Exposure karte waqt (ritual na karte hue) SUDS note karo — start mein, 5 min baad, aur end mein. Dekhoge tension apne aap girti hai.</p>
 <table class="main">
   <thead>
   <tr>
     <th class="rownum">#</th>
     <th style="width:14%">Date / Tareekh</th>
-    <th style="width:28%">Exposure task<br><span class="hinglish">Kya exposure kiya</span></th>
+    <th style="width:30%">Exposure task<br><span class="hinglish">Kya exposure kiya</span></th>
     <th style="width:11%">SUDS start</th>
-    <th style="width:11%">SUDS after 5 min</th>
-    <th style="width:11%">SUDS end</th>
-    <th style="width:14%">Ritual rokha?<br><span class="hinglish">Poora/Thoda/Nahi</span></th>
+    <th style="width:12%">SUDS 5 min</th>
+    <th style="width:10%">SUDS end</th>
+    <th style="width:17%">Ritual rokha?<br><span class="hinglish">Poora/Thoda/Nahi</span></th>
   </tr>
   </thead>
   <tbody>
@@ -233,9 +216,12 @@
 
 <div class="footer">
 Educational / clinical worksheet for use under the guidance of a trained mental-health professional. Not a substitute for therapy or diagnosis.
-Structure adapted from the EX/RP (Exposure and Response Ritual Prevention) protocol — Foa, Yadin &amp; Lichner, <i>Therapist Guide</i>, 2nd ed. (Treatments That Work, Oxford University Press). SUDS scale after Wolpe (1969).
-<i>Content was rephrased/adapted for compliance with licensing restrictions.</i>
-<div style="margin-top:8px; font-size:11px; font-weight:bold; color:#1f4e79;">Made by Tejas Dangodra</div>
+Structure adapted from the EX/RP protocol — Foa, Yadin &amp; Lichner, <i>Therapist Guide</i>, 2nd ed. (Oxford University Press). SUDS after Wolpe (1969).
+<i>Content was adapted for compliance with licensing restrictions.</i>
+</div>
+<div class="brand">
+  <div class="name">Dango_Psych</div>
+  <div class="by">by Tejas Dangodra</div>
 </div>
 
 </body>
