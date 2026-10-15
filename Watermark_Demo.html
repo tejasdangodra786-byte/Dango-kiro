@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Watermark Demo — Tejas Dangodra</title>
+<style>
+  :root{ --lav:#ece7fb; --ink:#2f2b3a; --muted:#6a6478; --line:#e6e2ef; }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; font-family:"Segoe UI",Roboto,Helvetica,Arial,sans-serif; color:var(--ink);
+    background:linear-gradient(180deg,#faf9fd,#f4f1fa); line-height:1.6;
+    -webkit-user-select:none; -moz-user-select:none; -ms-user-select:none; user-select:none;
+  }
+  .wrap{max-width:820px; margin:0 auto; padding:30px 22px 70px;}
+  .card{background:#fff; border:1px solid var(--line); border-radius:18px; padding:24px 26px;
+    box-shadow:0 6px 22px rgba(80,70,120,.09); margin:18px 0;}
+  h1{font-size:1.8rem; margin:0 0 6px;}
+  h2{font-size:1.2rem; margin:22px 0 8px;}
+  code{background:#f2eefb; padding:1px 6px; border-radius:6px; font-size:.9em;}
+  .demo-slider{width:100%;}
+  .row{display:flex; align-items:center; gap:12px; flex-wrap:wrap; margin:10px 0;}
+  .row label{min-width:150px; font-weight:600;}
+  footer{background:linear-gradient(135deg,var(--lav),#f0e6fa); border-radius:16px; padding:22px;
+    text-align:center; border:1px solid var(--line); margin-top:30px;}
+  footer .a{font-weight:800; color:#5a4aa8; margin-top:6px;}
+
+  /* ===== Sparse subtle watermark (the reusable bit) ===== */
+  #wmLayer{
+    position:fixed; inset:0; z-index:9999; pointer-events:none; background-repeat:repeat;
+    background-size:50vw 50vh;   /* 2x2 grid = ~4 marks */
+  }
+  @media print{
+    body{background:#fff;}
+    #wmLayer{ -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+    .card,footer{box-shadow:none;}
+  }
+</style>
+</head>
+<body>
+
+<!-- watermark overlay -->
+<div id="wmLayer" aria-hidden="true"></div>
+
+<div class="wrap">
+  <div class="card">
+    <h1>Watermark Demo</h1>
+    <p class="muted">This page uses Tejas Dangodra's signature subtle watermark. Try to select or copy the text
+    below, or open print-preview — the faint diagonal "Tejas Dangodra" mark stays behind everything and does not
+    block clicks.</p>
+  </div>
+
+  <div class="card">
+    <h2>Live preview — tweak the dials</h2>
+    <p class="muted">Move the sliders to see how the watermark's visibility and density change. Copy the resulting
+    values into the CSS in <code>Watermark_Style_Guide.md</code>.</p>
+    <div class="row">
+      <label>Opacity: <span id="opVal">0.10</span></label>
+      <input class="demo-slider" id="op" type="range" min="0.01" max="0.20" step="0.005" value="0.10">
+    </div>
+    <div class="row">
+      <label>Marks on page: <span id="marksVal">9</span></label>
+      <input class="demo-slider" id="marks" type="range" min="1" max="16" step="1" value="9">
+    </div>
+    <div class="row">
+      <label>Font size: <span id="fsVal">15</span> px</label>
+      <input class="demo-slider" id="fs" type="range" min="10" max="30" step="1" value="15">
+    </div>
+    <div class="row">
+      <label>Angle: <span id="angVal">-24</span>°</label>
+      <input class="demo-slider" id="ang" type="range" min="-45" max="0" step="1" value="-24">
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Sample body text — try copying it</h2>
+    <p>The Binet-Kamat Test is an individually administered age-scale intelligence test. Selecting and copying are
+    blocked here — if any text does reach the clipboard, it is replaced with a "Made by Tejas Dangodra — All Rights
+    Reserved" notice. Right-click, drag and copy/save/view-source shortcuts are also disabled.</p>
+    <p>Adjust the opacity slider toward <code>0.05</code> for softer, or toward <code>0.15</code> for stronger.
+    My default is <code>0.10</code> with about <strong>9 tiled marks</strong> so it is clearly visible in the background.</p>
+  </div>
+
+  <footer>
+    <div>Watermark &amp; Copy-Protection Demo</div>
+    <div class="a">Made by Tejas Dangodra</div>
+  </footer>
+</div>
+
+<script>
+/* ---- Build the sparse watermark from current dial values ---- */
+function buildWatermark(){
+  var op    = document.getElementById('op').value;
+  var marks = parseInt(document.getElementById('marks').value,10);
+  var fs    = document.getElementById('fs').value;
+  var ang   = document.getElementById('ang').value;
+
+  document.getElementById('opVal').textContent    = op;
+  document.getElementById('marksVal').textContent = marks;
+  document.getElementById('fsVal').textContent    = fs;
+  document.getElementById('angVal').textContent   = ang;
+
+  // number of marks = grid^2, so grid = round(sqrt(marks)); size = 100/grid vw/vh
+  var grid = Math.max(1, Math.round(Math.sqrt(marks)));
+  var pct  = (100/grid).toFixed(2);
+  var W=800, H=560, cx=W/2, cy=H/2;
+
+  var svg = "<svg xmlns='http://www.w3.org/2000/svg' width='"+W+"' height='"+H+"'>"
+          + "<text x='"+cx+"' y='"+cy+"' font-family='Segoe UI,Arial,sans-serif' font-size='"+fs+"'"
+          + " font-weight='600' letter-spacing='1' fill='rgba(120,100,175,"+op+")'"
+          + " text-anchor='middle' transform='rotate("+ang+" "+cx+" "+cy+")'>Made by Tejas Dangodra</text></svg>";
+  var wm = document.getElementById('wmLayer');
+  wm.style.backgroundSize  = pct+"vw "+pct+"vh";
+  wm.style.backgroundImage = "url(\"data:image/svg+xml;utf8," + svg + "\")";
+}
+['op','marks','fs','ang'].forEach(function(id){
+  document.getElementById(id).addEventListener('input', buildWatermark);
+});
+buildWatermark();
+
+/* ---- Copying is BLOCKED; clipboard is replaced with a rights-reserved notice ---- */
+(function(){
+  var NOTICE = "Made by Tejas Dangodra — All Rights Reserved.\n"
+             + "© Tejas Dangodra. This content is protected. Unauthorised copying is not permitted.";
+  ['copy','cut'].forEach(function(evt){
+    document.addEventListener(evt, function(e){
+      try{ e.clipboardData.setData('text/plain', NOTICE); e.preventDefault(); }catch(err){}
+    });
+  });
+  ['contextmenu','dragstart'].forEach(function(evt){
+    document.addEventListener(evt, function(e){ e.preventDefault(); }, {passive:false});
+  });
+  document.addEventListener('keydown', function(e){
+    var k=(e.key||'').toLowerCase();
+    var block = ((e.ctrlKey||e.metaKey) && ['c','x','s','u','p','a'].indexOf(k)!==-1) ||
+                k==='f12' || ((e.ctrlKey||e.metaKey)&&e.shiftKey&&['i','j','c'].indexOf(k)!==-1);
+    if(block){ e.preventDefault(); e.stopPropagation(); return false; }
+  }, {passive:false});
+})();
+</script>
+</body>
+</html>
