@@ -1,0 +1,1091 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rosenzweig Picture-Frustration Study (Adult Form) — Clinical Study &amp; Practical Guide</title>
+<style>
+  :root{
+    --lav:#efe9fb; --lav-deep:#c9bce8; --lav-ink:#5b4b86;
+    --blue:#e6f0fb; --blue-deep:#b9d3ef; --blue-ink:#3f6595;
+    --peach:#fdeee2; --peach-deep:#f4cfae; --peach-ink:#a5643a;
+    --sage:#e8f3ea; --sage-deep:#bfe0c6; --sage-ink:#3f6f4d;
+    --pink:#fce8ef; --pink-deep:#f3c3d5; --pink-ink:#9c496b;
+    --cream:#fdf6e3; --cream-deep:#efe1b8; --cream-ink:#8a7534;
+    --lilac:#f3ecf8; --lilac-deep:#dcc7ec; --lilac-ink:#6f4d86;
+    --mint:#e6f5f1; --mint-ink:#356b60;
+    --grey:#f5f6f8; --line:#e4e2ee; --text:#33313d; --muted:#6b6878;
+    --card:#ffffff; --bg:#fbfaf6;
+    --radius:16px; --shadow:0 6px 22px rgba(90,80,130,.08);
+    --shadow-sm:0 2px 8px rgba(90,80,130,.07);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0; background:var(--bg); color:var(--text);
+    font-family:"Inter","Poppins","Source Sans 3",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.72; font-size:16.5px; -webkit-font-smoothing:antialiased;
+    -webkit-user-select:none; -moz-user-select:none; -ms-user-select:none; user-select:none;
+  }
+  /* ---- sparse watermark overlay ---- */
+  #wm{
+    position:fixed; inset:0; z-index:9999; pointer-events:none;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='460' height='300'><text x='50%25' y='50%25' font-family='Inter,Arial,sans-serif' font-size='13' font-weight='500' fill='rgba(120,100,175,0.04)' transform='rotate(-24 230 150)' text-anchor='middle' dominant-baseline='middle'>Made by Tejas Dangodra</text></svg>");
+    background-size:50vw 50vh; background-repeat:repeat;
+    -webkit-print-color-adjust:exact; print-color-adjust:exact;
+  }
+  .wrap{max-width:1000px; margin:0 auto; padding:0 20px 80px;}
+  h1,h2,h3,h4{line-height:1.28; color:#2c2740; font-weight:700;}
+  h2{font-size:1.7rem; margin:2.6rem 0 1rem; padding-bottom:.4rem; border-bottom:2px solid var(--line);}
+  h3{font-size:1.24rem; margin:1.8rem 0 .6rem;}
+  h4{font-size:1.05rem; margin:1.2rem 0 .4rem; color:#443d5e;}
+  p{margin:.6rem 0;}
+  a{color:var(--lav-ink); text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  code{background:var(--grey); border:1px solid var(--line); border-radius:6px; padding:.05em .4em; font-family:"SFMono-Regular",Consolas,Menlo,monospace; font-size:.92em; color:#4a3f6b;}
+  .scode{font-family:"SFMono-Regular",Consolas,Menlo,monospace; font-weight:600; color:#4a3f6b; white-space:nowrap;}
+  blockquote{margin:1rem 0; padding:.8rem 1.1rem; border-left:4px solid var(--lav-deep); background:var(--lav); border-radius:0 12px 12px 0; font-family:Georgia,"Times New Roman",serif; font-style:italic; color:#463c66;}
+
+  /* ---- cover ---- */
+  .cover{
+    background:linear-gradient(140deg,var(--lav) 0%,var(--blue) 45%,var(--sage) 100%);
+    border-radius:26px; margin:26px 0 12px; padding:66px 40px 54px; text-align:center;
+    box-shadow:var(--shadow); border:1px solid #e7e2f2; position:relative; overflow:hidden;
+  }
+  .cover .badge{display:inline-block; background:rgba(255,255,255,.7); color:var(--lav-ink); font-weight:600; font-size:.8rem; letter-spacing:.14em; text-transform:uppercase; padding:.4em 1em; border-radius:999px; margin-bottom:22px;}
+  .cover h1{font-size:2.55rem; margin:.2rem 0 .4rem; color:#3a2f63; letter-spacing:.01em;}
+  .cover .sub{font-size:1.15rem; color:#4f6488; font-weight:600; margin:.2rem 0;}
+  .cover .sub2{font-size:1rem; color:#5a6a7d; margin:.5rem 0 1.4rem;}
+  .cover .meta{display:inline-flex; flex-wrap:wrap; gap:10px; justify-content:center; margin-top:8px;}
+  .cover .meta span{background:rgba(255,255,255,.66); border:1px solid #e2dcf0; border-radius:10px; padding:.4em .8em; font-size:.86rem; color:#4a4560;}
+  .cover .prep{margin-top:26px; font-size:.95rem; color:#5b5470;}
+  .cover .credit{margin-top:6px; font-weight:700; color:#5b4b86; letter-spacing:.02em;}
+
+  /* ---- callout cards ---- */
+  .box{border-radius:var(--radius); padding:16px 18px 14px; margin:1.1rem 0; box-shadow:var(--shadow-sm); border:1px solid rgba(0,0,0,.04);}
+  .box .lab{display:block; font-size:.72rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; margin-bottom:.35rem;}
+  .box p:first-of-type{margin-top:0;} .box p:last-child{margin-bottom:0;}
+  .key{background:var(--blue);} .key .lab{color:var(--blue-ink);}
+  .imp{background:var(--peach);} .imp .lab{color:var(--peach-ink);}
+  .pearl{background:var(--sage);} .pearl .lab{color:var(--sage-ink);}
+  .err{background:var(--pink);} .err .lab{color:var(--pink-ink);}
+  .rem{background:var(--cream);} .rem .lab{color:var(--cream-ink);}
+  .note{background:var(--lilac);} .note .lab{color:var(--lilac-ink);}
+
+  /* ---- section tinting ---- */
+  section{scroll-margin-top:20px;}
+  .sec-theory h2{border-color:var(--lav-deep);} 
+  .sec-admin h2{border-color:var(--blue-deep);}
+  .sec-scoring h2{border-color:var(--peach-deep);}
+  .sec-interp h2{border-color:var(--sage-deep);}
+  .sec-clin h2{border-color:var(--pink-deep);}
+  .sec-case h2{border-color:var(--cream-deep);}
+  .sec-revise h2{border-color:var(--lilac-deep);}
+
+  /* ---- tables ---- */
+  .tw{overflow-x:auto; margin:1.1rem 0; border-radius:14px; box-shadow:var(--shadow-sm); border:1px solid var(--line);}
+  table{border-collapse:collapse; width:100%; min-width:520px; background:var(--card); font-size:.94rem;}
+  th,td{padding:.6rem .7rem; text-align:left; border-bottom:1px solid var(--line); vertical-align:top;}
+  thead th{background:var(--lav); color:#493c70; font-weight:700; border-bottom:2px solid var(--lav-deep); position:sticky; top:0;}
+  tbody tr:nth-child(even){background:#faf9fd;}
+  tbody tr:hover{background:var(--blue);}
+  table.peach thead th{background:var(--peach); border-color:var(--peach-deep); color:var(--peach-ink);}
+  table.sage thead th{background:var(--sage); border-color:var(--sage-deep); color:var(--sage-ink);}
+  caption{caption-side:top; text-align:left; font-weight:600; color:var(--muted); padding:.3rem 0 .5rem; font-size:.9rem;}
+
+  /* ---- TOC ---- */
+  .toc{background:var(--card); border:1px solid var(--line); border-radius:var(--radius); padding:20px 24px; box-shadow:var(--shadow-sm); margin:22px 0;}
+  .toc h2{margin-top:0; border:none;}
+  .toc ol{margin:0; padding-left:1.2rem; columns:2; column-gap:34px;}
+  .toc li{margin:.28rem 0; break-inside:avoid;}
+  @media(max-width:680px){.toc ol{columns:1;}}
+
+  /* ---- steps ---- */
+  .steps{counter-reset:st; display:grid; gap:12px; margin:1.2rem 0;}
+  .step{display:flex; gap:14px; background:var(--card); border:1px solid var(--line); border-left:5px solid var(--blue-deep); border-radius:12px; padding:12px 16px; box-shadow:var(--shadow-sm);}
+  .step .n{flex:0 0 auto; width:34px; height:34px; border-radius:9px; background:var(--blue); color:var(--blue-ink); font-weight:700; display:flex; align-items:center; justify-content:center; font-size:.95rem;}
+  .step .b{flex:1;} .step .b b{color:#3b3555;}
+
+  /* ---- case cards ---- */
+  .case{background:linear-gradient(180deg,#fffdf5,#fdf6e3); border:1px solid var(--cream-deep); border-radius:var(--radius); padding:18px 20px; margin:1.2rem 0; box-shadow:var(--shadow-sm);}
+  .case .ct{font-weight:700; color:var(--cream-ink); letter-spacing:.06em; text-transform:uppercase; font-size:.78rem; margin-bottom:.4rem;}
+  .flow{display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin:.6rem 0; font-size:.9rem;}
+  .flow span{background:#fff; border:1px solid var(--line); border-radius:8px; padding:.3em .6em;}
+  .flow .arw{color:var(--peach-ink); font-weight:700; border:none; background:none; padding:0;}
+
+  .grid2{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
+  @media(max-width:680px){.grid2{grid-template-columns:1fr;}}
+  .mini{background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; box-shadow:var(--shadow-sm);}
+  .mini h4{margin-top:0;}
+  .pill{display:inline-block; font-size:.75rem; font-weight:700; padding:.2em .7em; border-radius:999px; margin-right:.3em;}
+  .pill.e{background:var(--pink); color:var(--pink-ink);}
+  .pill.i{background:var(--blue); color:var(--blue-ink);}
+  .pill.m{background:var(--sage); color:var(--sage-ink);}
+
+  hr{border:none; border-top:1px dashed var(--line); margin:2rem 0;}
+  .small{font-size:.86rem; color:var(--muted);}
+  ul,ol{padding-left:1.3rem;} li{margin:.25rem 0;}
+  .lead{font-size:1.06rem; color:#4a4560;}
+
+  footer{margin-top:50px; padding:26px 20px; text-align:center; background:linear-gradient(140deg,var(--lav),var(--blue)); border-radius:20px; color:#4a4265;}
+  footer .cr{font-weight:700; color:#5b4b86; font-size:1.05rem; margin-top:6px;}
+
+  @media print{
+    body{font-size:11.5pt; background:#fff;}
+    #wm{position:fixed;}
+    .cover{box-shadow:none;} .box,.mini,.step,.case,.tw{box-shadow:none;}
+    h2,h3,h4{page-break-after:avoid;} .box,.case,.step,table,.mini{page-break-inside:avoid;}
+    a{color:#333;} thead th{position:static;}
+    .toc ol{columns:2;}
+  }
+</style>
+</head>
+<body>
+<div id="wm" aria-hidden="true"></div>
+<div class="wrap">
+
+<!-- ================= COVER ================= -->
+<header class="cover">
+  <span class="badge">Clinical Psychology Study Guide</span>
+  <h1>Rosenzweig Picture-Frustration Study</h1>
+  <div class="sub">Administration &nbsp;•&nbsp; Scoring &nbsp;•&nbsp; Interpretation &nbsp;•&nbsp; Clinical Application</div>
+  <div class="sub2">Comprehensive Study &amp; Practical Guide — <b>Adult Form (Indian Adaptation)</b></div>
+  <div class="meta">
+    <span>Pareek, Devi &amp; Rosenzweig (1968)</span>
+    <span>Rupa Psychological Corporation, Varanasi</span>
+    <span>24 situations · ~20 min</span>
+  </div>
+  <div class="prep">Prepared for Clinical Psychology Training</div>
+  <div class="credit">Made by Tejas Dangodra</div>
+</header>
+
+<p class="lead">This guide is built <b>directly and only</b> from the manual held in this repository —
+<i>The Indian Adaptation of the Rosenzweig Picture-Frustration Study (Adult Form)</i> by Udai Pareek,
+R. S. Devi &amp; Saul Rosenzweig (Rupa Psychological Corporation, Varanasi, 1968). Where a clinical point
+is a reasonable teaching elaboration rather than a manual statement, it is flagged. Anything the manual does
+not establish is marked plainly so you never present it as fact.</p>
+
+<div class="box note">
+  <span class="lab">Source &amp; scope</span>
+  <p>The scoring rules, factor definitions, norms (Tables 3–6), GCR procedure, trend formula and interpretive
+  principles below are taken from this specific <b>Adult Form Indian adaptation</b>. Rules can differ in the
+  Children's Form and in other editions; where an edition matters, it is named. Copyrighted stimulus plates,
+  full answer keys and large numeric tables are <b>paraphrased or summarised</b>, not reproduced.</p>
+</div>
+
+<!-- ================= TOC ================= -->
+<nav class="toc">
+  <h2>Contents</h2>
+  <ol>
+    <li><a href="#part1">Part I — What the test is &amp; its theory</a></li>
+    <li><a href="#part2">Part II — When to use it (and when not)</a></li>
+    <li><a href="#part3">Part III — Forms &amp; the Indian adaptation</a></li>
+    <li><a href="#part4">Part IV — Test structure &amp; ego/superego situations</a></li>
+    <li><a href="#part5">Part V — Administration</a></li>
+    <li><a href="#part6">Part VI — The scoring system (E/I/M · O-D/E-D/N-P)</a></li>
+    <li><a href="#part7">Part VII — Item-by-item scoring &amp; hard cases</a></li>
+    <li><a href="#part8">Part VIII — The Score Sheet &amp; calculations</a></li>
+    <li><a href="#part9">Part IX — GCR (Group Conformity Rating)</a></li>
+    <li><a href="#part10">Part X — Trends</a></li>
+    <li><a href="#part11">Part XI — Norms (Tables 3–6)</a></li>
+    <li><a href="#part12">Part XII — Interpretation</a></li>
+    <li><a href="#part13">Part XIII — Worked master case</a></li>
+    <li><a href="#part14">Part XIV — Mini cases (profile patterns)</a></li>
+    <li><a href="#part15">Part XV — Report writing</a></li>
+    <li><a href="#part16">Part XVI — Language bank &amp; common errors</a></li>
+    <li><a href="#part17">Part XVII — Psychometrics &amp; cultural notes</a></li>
+    <li><a href="#part18">Part XVIII — Practical 16-step algorithm</a></li>
+    <li><a href="#part19">Part XIX — Quick revision</a></li>
+  </ol>
+</nav>
+
+<!-- ==================== PART I ==================== -->
+<section id="part1" class="sec-theory">
+<h2>Part I — What the P-F Study Is, and the Theory Behind It</h2>
+
+<h3>1. In one line, one paragraph, and in depth</h3>
+<div class="box key">
+  <span class="lab">One-sentence</span>
+  <p>The Rosenzweig Picture-Frustration Study (P-F Study) is a <b>semi-projective</b>, cartoon-based
+  instrument that measures a person's characteristic <b>reactions to everyday frustration</b> along two
+  dimensions — the <b>direction</b> of aggression and the <b>type</b> of aggression.</p>
+</div>
+
+<p><b>One paragraph.</b> Developed by Saul Rosenzweig out of his experimental work on frustration and
+repression, the P-F Study presents 24 cartoon-like drawings, each showing two people in a mildly frustrating
+situation. One figure speaks words that frustrate (or describe the frustration of) the other; the second
+figure has an empty speech balloon. The examinee writes the first reply that comes to mind for that blank
+figure. Because people tend to identify with the frustrated figure and project their own habitual style, the
+replies are scored for the <b>direction</b> in which aggression is turned (outward, inward, or turned aside)
+and the <b>type</b> of reaction (dwelling on the obstacle, defending the ego, or persisting toward a
+solution). The manual describes it as a <b>controlled projective technique</b> that "stands midway in design
+between the word-association and the thematic apperception techniques" — it keeps the objectivity of
+word-association while reaching some of the personality material the TAT probes.</p>
+
+<div class="box pearl">
+  <span class="lab">The 5-minute version</span>
+  <ul>
+    <li><b>Developer:</b> Saul Rosenzweig; first paper introducing the technique, 1945. Grew out of his theory of frustration (1934, 1938, 1944).</li>
+    <li><b>Full name lineage:</b> "Picture-Association Study for Assessing Reactions to Frustration" → shortened to "Picture-Frustration Study" → popularly the <b>P-F Study</b>.</li>
+    <li><b>Nature:</b> semi-projective / "controlled projective." Objective enough to score reliably, projective enough to reveal habitual style.</li>
+    <li><b>What it captures:</b> not a diagnosis — a <b>sample of a person's habitual mode of reacting to frustration</b>.</li>
+    <li><b>Forms:</b> Children's, Adolescent (covered by the Adult Form for ages 14+), Adult. This guide is the Adult Form, Indian adaptation.</li>
+  </ul>
+</div>
+
+<h3>2. History &amp; development (kept brief)</h3>
+<p>The P-F Study emerged from Rosenzweig's laboratory studies of frustration and repression. An earlier,
+simpler version (1945) had a first section that was developed into the full "Picture-Association Method." The
+<b>Adult Form was introduced first</b> and later revised (1948); the <b>Children's Form</b> followed.
+Adaptations exist in French, German, Italian and Japanese. The Indian adaptation described here was published by
+Rupa Psychological Corporation (Varanasi, 1968); a notable change in this edition was a <b>more consistent
+terminology for the types and directions of aggression</b> (detailed in Part VI).</p>
+
+<h3>3. Theoretical foundation — step by step</h3>
+<div class="steps">
+  <div class="step"><div class="n">1</div><div class="b"><b>Frustration</b> arises when an obstacle blocks a need or goal. The 24 pictures each stage a common, mild frustration.</div></div>
+  <div class="step"><div class="n">2</div><div class="b"><b>Frustration provokes aggression</b> — but in the manual's usage "aggression" is the broad genus (enterprise/assertion), of which hostility is only one negative species.</div></div>
+  <div class="step"><div class="n">3</div><div class="b"><b>Projection / identification:</b> the subject is assumed to identify with the frustrated figure and to project his own bias into the reply.</div></div>
+  <div class="step"><div class="n">4</div><div class="b"><b>Direction of aggression</b> — is it turned <i>outward</i> (Extraggression, E-A), <i>inward on the self</i> (Intropression, I-A), or <i>turned aside / glossed over</i> (Impression, M-A)?</div></div>
+  <div class="step"><div class="n">5</div><div class="b"><b>Type of aggression</b> — does the reply dwell on the <i>obstacle</i> (Obstacle-Dominance, O-D), <i>defend the ego</i> (Ego-Defence, E-D), or <i>persist toward a solution</i> (Need-Persistence, N-P)?</div></div>
+  <div class="step"><div class="n">6</div><div class="b">Crossing 3 directions × 3 types yields the <b>nine scoring factors</b> (plus two variants), which are the whole quantitative engine of the test.</div></div>
+</div>
+
+<h3>4. What it does — and does not — establish</h3>
+<div class="grid2">
+  <div class="mini"><h4>Can contribute to understanding</h4>
+    <ul><li>Habitual direction of aggression under frustration</li><li>Reaction type (obstacle-focus vs ego-defence vs problem-solving)</li><li>Defensiveness, self-blame vs external attribution</li><li>Persistence / conformity / avoidance</li><li>Conformity to the group's modal responses (GCR)</li><li>Shifts across the protocol (Trends)</li></ul></div>
+  <div class="mini"><h4>Cannot establish on its own</h4>
+    <ul><li>A psychiatric diagnosis</li><li>That a person is or will become violent</li><li>Risk of suicide or harm</li><li>Fixed personality "labels"</li><li>Deep unconscious content (the manual explicitly discourages "deep" interpretation)</li></ul></div>
+</div>
+<div class="box imp"><span class="lab">Important</span><p>The P-F Study is <b>one component</b> of assessment. The manual is explicit that interpretation should rest on the explicit meaning of the words and the quantitative profile, not on speculative depth analysis.</p></div>
+</section>
+
+<!-- ==================== PART II ==================== -->
+<section id="part2" class="sec-clin">
+<h2>Part II — When to Use It (and When Not)</h2>
+<h3>5. Clinical &amp; applied uses (from the manual)</h3>
+<p>The Adult Form is meant for adults of both sexes and can be used with adolescents; it is designed for
+subjects <b>aged 14 and over</b>. The manual lists these applications:</p>
+<div class="grid2">
+  <div class="mini"><h4>Clinical</h4><p>Used as a <b>probe for diagnosis</b> and with special groups — e.g. delinquents, stutterers, sexual offenders, suicidal cases, patients, the aged, the physically handicapped, and the mentally retarded. Always alongside interview and other data.</p></div>
+  <div class="mini"><h4>Cross-cultural</h4><p>Directions/types of aggression are available for several nationalities (Indian, Japanese, French, Italian, German), enabling national, cultural and religious comparisons.</p></div>
+  <div class="mini"><h4>Industrial / applied</h4><p>Applied for personnel selection, job adjustment and related industrial purposes.</p></div>
+  <div class="mini"><h4>Research</h4><p>Widely used in systematic research on projective technique and human motivation. The Adult and Children's forms are roughly comparable, with 16 parallel items, so they can be used together for special clinical or research purposes.</p></div>
+</div>
+
+<h3>6. When it should not be your primary tool</h3>
+<div class="box err"><span class="lab">Common error to avoid</span>
+<p>Do not lean on the P-F Study where comprehension or the projective set breaks down or where a decision cannot wait. It presupposes that the subject can read the situation, write a first reply, and respond to all 24 items <b>in sequence</b>.</p></div>
+<ul>
+  <li>Acute psychiatric emergencies or gross disorganisation.</li>
+  <li>Severe cognitive impairment, severe language/comprehension problems (the subject cannot grasp the pictured situation).</li>
+  <li>Any situation needing <b>immediate risk assessment</b>.</li>
+</ul>
+<p>P-F findings never replace a suicide/violence risk assessment, the mental status examination, the diagnostic
+interview, or a full psychological assessment.</p>
+</section>
+
+<!-- ==================== PART III ==================== -->
+<section id="part3" class="sec-theory">
+<h2>Part III — Forms &amp; the Indian Adaptation</h2>
+
+<h3>7. Forms of the P-F Study</h3>
+<div class="tw"><table>
+<caption>Comparison of forms — from the manual, plus clearly-flagged notes.</caption>
+<thead><tr><th>Feature</th><th>Children's Form</th><th>Adolescent</th><th>Adult Form (this manual)</th></tr></thead>
+<tbody>
+<tr><td>Intended age</td><td>Children</td><td>Covered by the Adult Form for ages ~14+ (the Adult Form "can be used with adolescents also")</td><td>Adults of both sexes; usable from age 14 up</td></tr>
+<tr><td>Number of items</td><td>24 situations</td><td>—</td><td>24 situations</td></tr>
+<tr><td>Frustrated figure</td><td>Always the child</td><td>—</td><td>Adult figure with a blank balloon</td></tr>
+<tr><td>Scoring dimensions</td><td>Same architecture (E/I/M × O-D/E-D/N-P)</td><td>Same</td><td>Same architecture</td></tr>
+<tr><td>Norms used here</td><td>Separate (Indian children standardised earlier, Pareek 1959)</td><td>Not separately established here — <span class="small">Not established from the available repository source</span></td><td>800 Indian adults (400 M, 400 F)</td></tr>
+<tr><td>Parallelism</td><td colspan="3">16 Adult↔Child parallel items (e.g. A1:C3, A2:C9, A4:C5, A5:C19, A6:C24, A7:C11, A8:C6, A10:C12, A11:C20, A13:C21, A15:C23, A17:C7, A18:C1, A19:C13, A22:C15, A24:C16).</td></tr>
+</tbody>
+</table></div>
+<div class="box note"><span class="lab">Edition honesty</span><p>The manual treats "adolescent" use as an extension of the Adult Form (age 14+), not as a separately-normed booklet. There is no distinct Adolescent norm table in this manual — so any adolescent interpretation here rests on Adult norms and should say so.</p></div>
+
+<h3>8. What the Indian adaptation changed</h3>
+<p>Care was taken to keep the original situations with minimal change, but <b>more changes were needed for the
+Adult Form than for the Children's Form</b>. Beyond dress/furniture details in almost every picture,
+<b>nine situations had major changes</b> to fit Indian culture:</p>
+<div class="tw"><table class="peach">
+<caption>The nine substantially re-worked situations (original → Indian adaptation).</caption>
+<thead><tr><th>Sit.</th><th>Original edition</th><th>Indian adaptation</th></tr></thead>
+<tbody>
+<tr><td>7</td><td>A waiter accusing a customer of being fussy</td><td>A tailor accusing a customer of being fussy</td></tr>
+<tr><td>8</td><td>Explaining that the companion's girl-friend invited him to dance</td><td>Explaining that the companion's wife was his classmate for many years</td></tr>
+<tr><td>9</td><td>A pawn-shop clerk refusing goods until the manager arrives</td><td>A laundry attendant refusing a customer his coat until the manager arrives</td></tr>
+<tr><td>11</td><td>A 7 a.m. wrong-number phone-booth apology</td><td>A man at 2 a.m. apologising while looking for "Ram's house", to someone just awakened</td></tr>
+<tr><td>16</td><td>Automobile-accident: one motorist accusing another of wrongful passing</td><td>Cycle-accident: one man accusing another of wrongful passing</td></tr>
+<tr><td>17</td><td>Woman beside an automobile reprimanding a man for losing the keys</td><td>Woman beside a house door reprimanding a man for losing the keys</td></tr>
+<tr><td>19</td><td>Motorcycle policeman stopping a driver for speeding past a school</td><td>Policeman stopping a cyclist for riding without a light</td></tr>
+<tr><td>23</td><td>Woman interrupting a phone call — a relative wants them to wait for her blessings</td><td>Woman reading out that an "auntie" wants them to wait to be blessed</td></tr>
+</tbody>
+</table></div>
+<p class="small">The manual lists nine situations as substantially changed; eight are tabulated above from the text, with the ninth noted among the "almost all situations" minor-to-major changes. The full plates are copyrighted and are not reproduced here.</p>
+
+<div class="box key"><span class="lab">Standardisation snapshot</span>
+<p>Final Indian adaptation standardised on <b>800 adults</b>. Age: composite range 17–53, <b>mean 25.20</b>,
+median 25.20, SD 6.05 (Women n=400: mean 23.00; Men n=400: mean 27.35). Reliability (Pareek &amp; Devi, 1965):
+scoring reliability high; stability coefficients <b>.27–.82</b>.</p></div>
+</section>
+
+<!-- ==================== PART IV ==================== -->
+<section id="part4" class="sec-theory">
+<h2>Part IV — Test Structure &amp; Ego / Superego Situations</h2>
+<h3>Test material</h3>
+<ul>
+  <li><b>24 cartoon-like drawings</b>, each with two figures in a mildly frustrating everyday situation.</li>
+  <li>The <b>left figure speaks</b> words that create or describe the frustration; the <b>right figure has a blank speech balloon</b>.</li>
+  <li><b>Facial features and other personality cues are deliberately omitted</b> — this keeps the task ambiguous and encourages projection.</li>
+  <li>The subject writes the <b>first reply</b> the blank figure might give.</li>
+</ul>
+
+<h3>9. Ego-blocking vs. superego-blocking situations</h3>
+<div class="grid2">
+  <div class="box key"><span class="lab">Ego-blocking</span><p>Some obstacle — personal or impersonal — <b>directly interrupts, disappoints, deprives, or frustrates</b> the subject.</p>
+  <p class="small"><b>16 situations:</b> 1, 3, 4, 6, 8, 9, 11, 12, 13, 14, 15, 18, 20, 22, 23, 24.</p></div>
+  <div class="box imp"><span class="lab">Superego-blocking</span><p>Someone <b>accuses, charges or incriminates</b> the subject — the frustration is a reaction to something the subject himself has (or is said to have) done.</p>
+  <p class="small"><b>8 situations:</b> 2, 5, 7, 10, 16, 17, 19, 21.</p></div>
+</div>
+<div class="box pearl"><span class="lab">Clinical pearl</span>
+<p>In superego situations there is usually an <b>implied prior ego-blocking</b> — the present accuser was, in effect, first frustrated by the subject. The ego/superego distinction is <b>not absolute</b>: a subject may read a superego situation as ego-blocking or vice-versa. When that happens, <b>score according to the subject's own bent</b>, not the situation's official type. This is exactly why superego items get special scoring rules (Part VI).</p></div>
+</section>
+
+<!-- ==================== PART V ==================== -->
+<section id="part5" class="sec-admin">
+<h2>Part V — Administration</h2>
+
+<h3>10. Before you begin</h3>
+<ul>
+  <li><b>Materials:</b> the standard P-F Study Booklet. The subject should write on the standard booklet — substitute answer sheets can change results.</li>
+  <li><b>Setting &amp; rapport:</b> a quiet setting; enough rapport that the subject will write freely and quickly.</li>
+  <li><b>Mode:</b> individual or group; the whole test takes <b>about 20 minutes</b>. For clinical work, <b>individual administration is preferred</b> because it allows the <b>Inquiry</b>, which makes scoring and interpretation much more reliable.</li>
+  <li><b>Even in individual administration the subject writes his own responses.</b></li>
+</ul>
+
+<h3>11. Standard administration, step by step</h3>
+<div class="steps">
+  <div class="step"><div class="n">1</div><div class="b"><b>Distribute / hand over the booklet</b> and read the instructions from the cover page while the subject follows along in his own copy.</div></div>
+  <div class="step"><div class="n">2</div><div class="b"><b>Read the standard instructions</b> (below), orienting the subject toward a quick, objective, first-association reply.</div></div>
+  <div class="step"><div class="n">3</div><div class="b"><b>Demonstrate with the first picture</b> — show how a reply is arrived at, then ask the subject to open the booklet, look at situation 1, think of the first reply the blank figure might give, and write it.</div></div>
+  <div class="step"><div class="n">4</div><div class="b"><b>Insist on sequence &amp; completeness:</b> make clear orally that items are answered <b>in order</b> (the trend analysis depends on order) and that <b>no situation is left blank</b>.</div></div>
+  <div class="step"><div class="n">5</div><div class="b"><b>Signal on finishing:</b> ask the subject to raise a hand (or signal) when done, so total time can be recorded and revision of first replies is discouraged; the tester then collects the booklet.</div></div>
+  <div class="step"><div class="n">6</div><div class="b"><b>Record total time</b> on the cover page.</div></div>
+  <div class="step"><div class="n">7</div><div class="b"><b>Read-back &amp; Inquiry (individual):</b> after completion, have the subject read his written replies aloud; note voice inflections; ask <b>non-leading</b> questions to clarify brief or ambiguous replies.</div></div>
+</div>
+
+<h3>12. The standardised instructions (paraphrased)</h3>
+<blockquote>In each picture two people are shown talking. The words of one person are given. Imagine what the
+other person would answer, and write in the blank box the very first reply that comes into your mind. Work as
+fast as you can.</blockquote>
+<p class="small">Purpose of the wording: to move the subject away from a self-critical attitude toward an
+"objective" identification with the anonymous figures, so that the <b>first association</b> — with less
+censorship — is captured. Do not invent or alter the wording.</p>
+
+<h3>13. Handling difficulties during administration</h3>
+<div class="grid2">
+  <div class="mini"><h4>Questions / clarification</h4><p>Permissible clarification is limited to what keeps the standard set; the examiner must not suggest content.</p></div>
+  <div class="mini"><h4>Erased / changed replies</h4><p>If a reply was erased or crossed out and another substituted, <b>score the first reply</b> if it can still be deciphered.</p></div>
+  <div class="mini"><h4>Too brief / ambiguous</h4><p>Use the Inquiry to amplify enough for scoring — and to detect emotion in the voice not evident in the words.</p></div>
+  <div class="mini"><h4>Misunderstood situation</h4><p>If a situation is descriptively misunderstood it cannot be scored normally; the Inquiry reveals the misunderstanding and elicits a reply to the <b>intended</b> meaning (though the misreading itself can be qualitatively revealing).</p></div>
+  <div class="mini"><h4>Group administration</h4><p>The Inquiry is largely sacrificed; occasionally a reply must be marked <b>unscorable</b> for ambiguity or clear misreading.</p></div>
+  <div class="mini"><h4>What the examiner must NOT do</h4><p>Do not lead or prompt content, do not change the instructions, do not let the subject revise first replies, do not leave items unanswered.</p></div>
+</div>
+
+<div class="box imp"><span class="lab">Why verbatim recording matters</span>
+<p>Because scoring rests on the <b>explicit words</b>, and because qualitative analysis draws on vocabulary,
+tone and emotional intensity, responses are recorded verbatim — with spontaneous comments, pauses, refusals,
+and emotional reactions noted. The written booklet <i>is</i> the record; the Inquiry supplements it.</p></div>
+</section>
+
+<!-- ==================== PART VI ==================== -->
+<section id="part6" class="sec-scoring">
+<h2>Part VI — The Scoring System</h2>
+<p class="lead">Every reply is scored for <b>direction of aggression</b> (E-A / I-A / M-A) and <b>type of
+aggression</b> (O-D / E-D / N-P). Crossing them gives the <b>nine factors</b> (plus two denial variants).</p>
+
+<h3>14. The two dimensions</h3>
+<div class="grid2">
+  <div class="box pink" style="background:var(--pink)"><span class="lab" style="color:var(--pink-ink)">Direction of aggression</span>
+  <ul>
+    <li><b>Extraggression (E-A):</b> aggression turned <b>outward</b> onto the environment.</li>
+    <li><b>Intropression (I-A):</b> aggression turned <b>inward</b>, on the self.</li>
+    <li><b>Impression (M-A):</b> aggression <b>evaded / glossed over</b> to minimise the frustration.</li>
+  </ul></div>
+  <div class="box sage" style="background:var(--sage)"><span class="lab" style="color:var(--sage-ink)">Type of aggression</span>
+  <ul>
+    <li><b>Obstacle-Dominance (O-D):</b> the barrier itself <b>stands out</b> in the reply.</li>
+    <li><b>Ego-Defence (E-D):</b> the <b>ego of the subject predominates</b> (blame/guilt/denial).</li>
+    <li><b>Need-Persistence (N-P):</b> the reply emphasises <b>solving the problem</b>.</li>
+  </ul></div>
+</div>
+
+<div class="box note"><span class="lab">Terminology (this edition)</span>
+<p>This edition adopts a consistent terminology in which O-D, E-D and N-P are all treated as forms of
+<b>aggression</b> (the broad "enterprise/assertion" sense). Constructive aggression = Need-Persistence;
+negative aggression = Ego-Defence; Obstacle-Dominance is a curtailed reaction where the response is inhibited
+before either of the other modes takes over. The three directions are called <b>extraggressive, introgressive,
+impressive</b>; the older words <b>extrapunitive, intropunitive, impunitive</b> are now reserved for the
+<b>Ego-Defensive</b> factors specifically.</p></div>
+
+<h3>15. Notation you must be fluent in</h3>
+<div class="box key"><span class="lab">The columnar convention</span>
+<ul>
+  <li>Written as <span class="scode">O-D / E-D / N-P</span> — Obstacle-dominance first, Ego-defence second, Need-persistence third.</li>
+  <li><b>O-D factors take an apostrophe:</b> <span class="scode">E&#39;</span>, <span class="scode">I&#39;</span>, <span class="scode">M&#39;</span>.</li>
+  <li><b>E-D factors are capitals:</b> <span class="scode">E</span>, <span class="scode">I</span>, <span class="scode">M</span>.</li>
+  <li><b>N-P factors are lowercase:</b> <span class="scode">e</span>, <span class="scode">i</span>, <span class="scode">m</span>.</li>
+  <li>Examples: <span class="scode">E&#39;/I</span> = extrapeditive O-D + intropunitive E-D; <span class="scode">I/e</span> = intropunitive E-D + extrapersistive N-P.</li>
+  <li>Two factors <b>within one column</b> are separated by a semicolon: <span class="scode">/E;M/</span>.</li>
+  <li><b>Intrinsic combination scores</b> — where a thinly-veiled underlying (usually compensatory) trend affects scoring — are boxed in a rectangle to show they are a single unit, e.g. <span class="scode">[/E;M/]</span> (outward aggression built on self-doubt) or <span class="scode">[/M&#39;E/]</span> ("sour grapes": reducing frustration by belittling the goal).</li>
+</ul></div>
+
+<h3>16. The nine factors + two variants — definitions</h3>
+<div class="tw"><table class="peach">
+<caption>The 11 scoring factors, as defined in the manual, with short recognition cues and original examples.</caption>
+<thead><tr><th>Factor</th><th>Name</th><th>Definition (paraphrased)</th><th>Recognition cue</th></tr></thead>
+<tbody>
+<tr><td class="scode">E&#39;</td><td>Extrapeditive (O-D)</td><td>Insistently points out the presence/severity of the frustrating obstacle; irritation rather than blame or solution.</td><td>"This is really a nuisance / how obstructive!"</td></tr>
+<tr><td class="scode">I&#39;</td><td>Intropeditive (O-D)</td><td>Construes the obstacle as not frustrating or even beneficial; or stresses one's own embarrassment at causing another's frustration.</td><td>"It's no trouble at all / actually this suits me."</td></tr>
+<tr><td class="scode">M&#39;</td><td>Impeditive (O-D)</td><td>Minimises the obstacle almost to the point of denying it is there.</td><td>"There's hardly any problem."</td></tr>
+<tr><td class="scode">E</td><td>Extrapunitive (E-D)</td><td>Blame, hostility, etc. turned outward onto a person or thing.</td><td>"You are very careless!"</td></tr>
+<tr><td class="scode">E&#772;<span class="small">(D-E)</span></td><td>Denial variant of E</td><td>Subject aggressively denies responsibility for an offence charged to him (mostly superego situations).</td><td>"I did nothing wrong."</td></tr>
+<tr><td class="scode">I</td><td>Intropunitive (E-D)</td><td>Blame, censure, guilt directed by the subject upon himself.</td><td>"I'm so sorry, it was my mistake."</td></tr>
+<tr><td class="scode">I&#772;<span class="small">(D-I)</span></td><td>Denial variant of I</td><td>Admits guilt but denies essential fault by citing unavoidable circumstances (mostly superego situations).</td><td>"It slipped — I couldn't help it."</td></tr>
+<tr><td class="scode">M</td><td>Impunitive (E-D)</td><td>Blame is evaded altogether; the situation is treated as unavoidable and the frustrater is absolved.</td><td>"Never mind, it couldn't be helped."</td></tr>
+<tr><td class="scode">e</td><td>Extrapersistive (N-P)</td><td>A solution is emphatically expected of <b>someone else</b>; also constructive suggestions without aggression.</td><td>"Please arrange another for me."</td></tr>
+<tr><td class="scode">i</td><td>Intropersistive (N-P)</td><td>The subject offers amends, usually from a sense of guilt, to solve the problem.</td><td>"I'll replace it — tell me how to compensate."</td></tr>
+<tr><td class="scode">m</td><td>Impersistive (N-P)</td><td>Hope that time or normal circumstances will resolve it; patience and conformity.</td><td>"Let's wait, it'll sort itself out."</td></tr>
+</tbody>
+</table></div>
+
+<h3>17. Extraggressive scores — E&#39; vs E vs e</h3>
+<div class="grid2">
+  <div class="mini"><h4><span class="scode">E&#39;</span> extrapeditive</h4><p>Stresses the severity of the frustration or shows irritation — <b>not</b> blame, guilt or solution.</p></div>
+  <div class="mini"><h4><span class="scode">E</span> extrapunitive</h4><p>Aggression toward a <b>person</b> is evident. Note the split: protest against an inanimate object or fate ("Damn it!", "We are unlucky") → <span class="scode">E&#39;</span>; aggression aimed at a person ("Damn you!", "You are very careless") → <span class="scode">E</span>.</p></div>
+  <div class="mini"><h4><span class="scode">e</span> extrapersistive</h4><p>Demands action <b>from the other person</b>, or insists the problem be solved the way the speaker wants; also plain constructive suggestions (e.g. "Please ask someone else").</p></div>
+</div>
+
+<h3>Introgressive scores — I&#39; vs I vs i</h3>
+<div class="grid2">
+  <div class="mini"><h4><span class="scode">I&#39;</span> intropeditive</h4><p>Denies any frustration exists (often a refusal to let others know of one's concern); or a martyr-like claim that the frustration is really an advantage. A blended reply with strong overt guilt is scored <span class="scode">I</span>, not <span class="scode">I&#39;</span>.</p></div>
+  <div class="mini"><h4><span class="scode">I</span> intropunitive</h4><p>Remorse, guilt, self-blame. When conventional "sorry" accompanies an offer to amend, <b>i alone</b> may suffice; if the guilt is more than conventional, use <b>both I and i</b>.</p></div>
+  <div class="mini"><h4><span class="scode">i</span> intropersistive</h4><p>Emphasises the speaker's own activity to solve the problem / make amends.</p></div>
+</div>
+
+<h3>Impressive scores — M&#39; vs M vs m</h3>
+<div class="grid2">
+  <div class="mini"><h4><span class="scode">M&#39;</span> impeditive</h4><p>Minimises the frustration; conveys no embarrassment and that the situation is unimportant.</p></div>
+  <div class="mini"><h4><span class="scode">M</span> impunitive</h4><p>"Explains" or excuses the situation, absolving the frustrater.</p></div>
+  <div class="mini"><h4><span class="scode">m</span> impersistive</h4><p>Acceptance and conformity. If conformity is direct and unqualified → <span class="scode">m</span> alone. If it carries a request for permission/satisfaction-now with a promise to comply later → <span class="scode">e</span> + <span class="scode">m</span>. If grudging, with discomfort noted → <span class="scode">E&#39;//m</span>.</p></div>
+</div>
+<div class="box rem"><span class="lab">Remember</span><p>Introductory softeners like "All right", "O.K.", "I don't care" that merely preface a stronger statement are <b>not</b> enough on their own to add <span class="scode">M</span>; they are usually casual and are omitted from the final score (though they would score <span class="scode">M</span> if standing alone). Situations 1, 6, 13 and 24 most often elicit these.</p></div>
+
+<h3>18. Special rules for superego situations</h3>
+<div class="box imp"><span class="lab">Superego scoring — memorise these</span>
+<ul>
+  <li>A reply that would be <span class="scode">E&#39;</span> in an ego situation is scored <span class="scode">I&#39;</span> here, because the consternation is a reaction to what the <b>subject himself</b> did (e.g. Sit. 2: "Oh, how awful" / "I wish I hadn't done it" → <span class="scode">I&#39;</span>).</li>
+  <li><b>Belittling the damage one caused</b> is impertinent and scores <span class="scode">E</span>, not <span class="scode">M&#39;</span> (Sit. 2: "Don't worry, throw these pieces out" → <span class="scode">E</span>).</li>
+  <li><b>Excuse for oneself</b> → <span class="scode">I</span> (Sit. 10: "I just wasn't careful about what I was saying"). <b>Excuse that shifts to the other / claims misunderstanding</b> → <span class="scode">M</span> (Sit. 10: "You have misunderstood me").</li>
+</ul></div>
+
+<h3>Choosing between O-D, E-D and N-P in one reply</h3>
+<div class="box pearl"><span class="lab">The developmental rule</span>
+<p>Within a reply a subject may first register the block (O-D), then attack self/other (E-D), then move to a
+solution (N-P). When a single blended reply seems to involve two, <b>favour the later factor developmentally</b>
+— e.g. Obstacle-dominant elements are usually <b>absorbed</b> by Ego-defensive ones (so between <span class="scode">E&#39;</span> and <span class="scode">E</span>, or <span class="scode">M&#39;</span> and <span class="scode">M</span>, the E-D score wins if Ego-defence is clearly present). <b>Two distinct statements</b>, however, get <b>two scores</b>.</p></div>
+
+<h3>19. Number of factors &amp; the Inquiry</h3>
+<ul>
+  <li>Most replies need <b>one factor</b>. Two distinct phrases/sentences are usually needed before a second factor is scored.</li>
+  <li>A third factor is rare; treat as a two-factor combination, scoring the predominant factors.</li>
+  <li>When in doubt about how many factors, <b>prefer the simpler scoring</b>.</li>
+  <li>A minor element that merely introduces a clearly stronger statement is <b>absorbed</b> by the major emphasis.</li>
+  <li><b>Intrinsic combination scores</b> (boxed) are reserved for thinly-veiled, essentially manifest underlying trends — the manual otherwise <b>discourages deep interpretation</b>; score the explicit meaning.</li>
+</ul>
+</section>
+
+<!-- ==================== PART VII ==================== -->
+<section id="part7" class="sec-scoring">
+<h2>Part VII — Item-by-Item Scoring &amp; Hard Cases</h2>
+<p>The manual gives, for each of the 24 situations, a bank of real sample replies grouped by their score. That
+is the master reference — match a reply to a sample of similar meaning, then apply the definitions. Below is
+the fixed reasoning chain, then worked examples built on the manual's own situations and sample replies.</p>
+
+<div class="steps">
+  <div class="step"><div class="n">1</div><div class="b"><b>Read the reply against the situation</b> (and note whether the situation is ego- or superego-blocking).</div></div>
+  <div class="step"><div class="n">2</div><div class="b"><b>Direction?</b> outward (E), on self (I), or turned aside (M).</div></div>
+  <div class="step"><div class="n">3</div><div class="b"><b>Type?</b> obstacle stands out (&#39;/O-D), ego defended (capital/E-D), or solution pursued (lowercase/N-P).</div></div>
+  <div class="step"><div class="n">4</div><div class="b"><b>Apply special &amp; choice rules</b> (superego rules; "favour the later factor"; absorb minor introducers).</div></div>
+  <div class="step"><div class="n">5</div><div class="b"><b>Write the code</b> in <span class="scode">O-D/E-D/N-P</span> form; one factor unless two distinct statements.</div></div>
+</div>
+
+<div class="case">
+  <div class="ct">Worked example A — superego situation (Sit. 2: hostess, broken vase)</div>
+  <p><b>Situation:</b> a hostess is upset that the guest has broken her mother's favourite vase.</p>
+  <div class="grid2">
+    <div class="mini"><b>Reply:</b> "I am very sorry, it was my mistake." <div class="flow"><span>Direction: on self</span><span class="arw">→</span><span>Type: ego-defence (guilt)</span><span class="arw">→</span><span class="scode">/I/</span></div><p class="small">Self-blame with remorse → intropunitive E-D.</p></div>
+    <div class="mini"><b>Reply:</b> "I'm sorry — I'll replace it, tell me how to compensate." <div class="flow"><span>Sorry (conventional)</span><span class="arw">+</span><span>offer to amend</span><span class="arw">→</span><span class="scode">/i</span></div><p class="small">Conventional "sorry" + amends → <span class="scode">i</span> may suffice; add <span class="scode">I</span> only if guilt is more than conventional.</p></div>
+    <div class="mini"><b>Reply:</b> "Don't worry, throw these pieces out." <div class="flow"><span>Belittles own damage</span><span class="arw">→</span><span class="scode">/E/</span></div><p class="small">Superego rule: belittling the damage one caused is impertinent → <span class="scode">E</span>, not <span class="scode">M&#39;</span>.</p></div>
+    <div class="mini"><b>Reply:</b> "I wish I hadn't done it." <div class="flow"><span>Consternation at own act</span><span class="arw">→</span><span class="scode">I&#39;/</span></div><p class="small">Superego rule: what would be <span class="scode">E&#39;</span> in an ego situation becomes <span class="scode">I&#39;</span> here.</p></div>
+  </div>
+</div>
+
+<div class="case">
+  <div class="ct">Worked example B — the E&#39; vs E distinction</div>
+  <div class="grid2">
+    <div class="mini"><b>Reply:</b> "Damn it — we are so unlucky!" <div class="flow"><span>Protest at fate/object</span><span class="arw">→</span><span class="scode">E&#39;/</span></div></div>
+    <div class="mini"><b>Reply:</b> "Damn you — you are very careless!" <div class="flow"><span>Aggression at a person</span><span class="arw">→</span><span class="scode">/E/</span></div></div>
+  </div>
+  <p class="small"><b>Alternative considered &amp; rejected:</b> scoring the first as <span class="scode">E</span> — rejected because no <i>person</i> is blamed; irritation at circumstance is extrapeditive (<span class="scode">E&#39;</span>).</p>
+</div>
+
+<h3>18b. Ambiguous / difficult responses — how the manual handles them</h3>
+<div class="tw"><table class="sage">
+<thead><tr><th>Response type</th><th>Manual guidance</th></tr></thead>
+<tbody>
+<tr><td>Very short / vague</td><td>Use the Inquiry to amplify before scoring; in groups, mark unscorable if it cannot be resolved.</td></tr>
+<tr><td>Two distinct ideas</td><td>Score two factors (semicolon within a column if same type).</td></tr>
+<tr><td>Mixed self + other blame</td><td>Score both directions if both are distinct statements; otherwise the predominant one.</td></tr>
+<tr><td>Denial of responsibility (superego)</td><td>Aggressive denial → denial-variant of E; admits act but pleads unavoidable circumstance → denial-variant of I.</td></tr>
+<tr><td>Passive acceptance / conformity</td><td><span class="scode">m</span> (direct, unqualified); grudging with discomfort → <span class="scode">E&#39;//m</span>; "comply now, satisfaction later" → <span class="scode">e</span>+<span class="scode">m</span>.</td></tr>
+<tr><td>Problem-solving / amends</td><td>Solution expected of another → <span class="scode">e</span>; own amends → <span class="scode">i</span>; wait-and-see → <span class="scode">m</span>.</td></tr>
+<tr><td>Minimising the frustration</td><td>Obstacle minimised → <span class="scode">M&#39;</span>; goal belittled ("sour grapes") → boxed intrinsic combination such as <span class="scode">[/M&#39;E/]</span>.</td></tr>
+<tr><td>Softeners ("O.K.", "I don't care")</td><td>Absorbed/omitted if merely introducing a stronger statement; score <span class="scode">M</span> only if standing alone.</td></tr>
+<tr><td>Misunderstood situation</td><td>Not scorable in the ordinary way; clarify via Inquiry (the misreading may still be qualitatively noted).</td></tr>
+<tr><td>Erased &amp; replaced</td><td>Score the <b>first</b> reply if legible.</td></tr>
+</tbody>
+</table></div>
+</section>
+
+<!-- ==================== PART VIII ==================== -->
+<section id="part8" class="sec-scoring">
+<h2>Part VIII — The Score Sheet &amp; Calculations</h2>
+<p>Once every item is scored, the codes are transferred to the <b>Score Sheet</b> (Section VI of the manual),
+which is the main basis for interpretation. The Score Sheet has five working parts.</p>
+
+<div class="tw"><table>
+<thead><tr><th>#</th><th>Part of the Score Sheet</th><th>What it holds</th></tr></thead>
+<tbody>
+<tr><td>1</td><td><b>Item Scores</b> (1–24) + GCR marks</td><td>Each item's code entered in its O-D / E-D / N-P column; GCR agreement marked in the margin.</td></tr>
+<tr><td>2</td><td><b>Profile &amp; Deviation Pattern</b></td><td>Frequencies &amp; percentages of the six categories (E-A, I-A, M-A × O-D, E-D, N-P), split by first/second half.</td></tr>
+<tr><td>3</td><td><b>Super-Ego (S-E) Patterns</b></td><td>Defensiveness indices from the superego factors.</td></tr>
+<tr><td>4</td><td><b>Trends</b></td><td>The five within/cross trends across the two halves.</td></tr>
+<tr><td>5</td><td><b>Total Pattern &amp; GCR</b></td><td>The three most frequent factors ordered; the GCR percentage.</td></tr>
+</tbody>
+</table></div>
+
+<h3>20. Frequencies &amp; percentages</h3>
+<div class="box key"><span class="lab">The rules that trip people up</span>
+<ul>
+  <li>A <b>split score</b> (e.g. <span class="scode">/E;e</span>) contributes <b>.5</b> to each factor — each factor gets equal weight.</li>
+  <li><b>Profile percentages use a denominator of 24</b> (each item = one unit). If items are omitted/unscorable, lower the denominator accordingly.</li>
+  <li><b>GCR percentages use a denominator of 12</b> — and here unscorable/unanswered items count as <b>failures to meet the criterion</b> (the base stays 12).</li>
+  <li><b>Appendix A</b> (Percentage Calculation Table) converts counts to percentages for both the profile and the GCR.</li>
+</ul></div>
+
+<p>Entry method: each category square (e.g. the O-D × E-A cell) is divided into four cells — <b>first-half totals
+(items 1–12) go top-left; second-half totals (13–24) go bottom-right</b>. Row and column totals give the six
+category totals; those become the profile percentages.</p>
+
+<div class="case">
+  <div class="ct">Worked fragment — entering E&#39; (from the manual's sample protocol)</div>
+  <p>E&#39; occurs in the first half as a full score 4 times (Sits. 3, 8, 11, 12) and once as a half score (Sit. 6) → <b>4.5</b> in the top-left cell. In the second half it occurs once full (Sit. 14) and three times as half scores (18, 20, 23) → 1 + 1½ = <b>2.5</b> in the bottom-right cell.</p>
+</div>
+
+<h3>21. Super-Ego (S-E) Patterns</h3>
+<p>These gauge <b>defensiveness</b> — denying the act (E&#772;, the denial variant of E) or repudiating the
+blameworthy motive (I&#772;). The superego deviants are considered against factors E and I and the M-A category,
+because M-A and I both involve <b>absolution from blame</b> (excusing someone else, or excusing oneself). The
+sheet records: <span class="scode">E</span>, <span class="scode">I</span>, <span class="scode">E+I</span>,
+<span class="scode">E&#772;&minus;E</span>, <span class="scode">I&#772;&minus;I</span>, and
+<span class="scode">M-A+I</span>, each as a count and a percentage.</p>
+
+<h3>24. The Total Pattern</h3>
+<p>Take the <b>three factors occurring most often in the record</b>, regardless of type or direction, and write
+them in order of frequency joined by &gt; / &lt; / = symbols. In the manual's sample, <span class="scode">E&#39;</span>
+occurs 7 times (highest), then <span class="scode">I</span> (4.5), then <span class="scode">I&#39;</span> and
+<span class="scode">E</span> tie at 3 — giving the total pattern <span class="scode">E&#39; &gt; I &gt; I&#39; = E</span>.</p>
+</section>
+
+<!-- ==================== PART IX ==================== -->
+<section id="part9" class="sec-scoring">
+<h2>Part IX — GCR (Group Conformity Rating)</h2>
+<div class="box key"><span class="lab">Definition</span>
+<p>GCR is a <b>measure of how far an individual's scores conform to the modal (most typical) responses of the
+normative group</b>. It is one index of the subject's adjustment to a normal group.</p></div>
+
+<h3>How the criterion (modal) responses are set</h3>
+<div class="steps">
+  <div class="step"><div class="n">1</div><div class="b">For each item, find the <b>most frequent scored response</b> in the standardisation sample.</div></div>
+  <div class="step"><div class="n">2</div><div class="b">Test whether it exceeds the <b>next most frequent</b> by a difference that is statistically significant — a <b>critical ratio ≥ 3.0</b> (using the standard error of the difference between percentages).</div></div>
+  <div class="step"><div class="n">3</div><div class="b">If the CR is <b>below 3.0</b>, add the <b>second</b> most frequent response as an alternative criterion; test the 2nd vs 3rd the same way, adding a third only if needed. <b>Never more than three</b> modal responses; two are rarely exceeded.</div></div>
+  <div class="step"><div class="n">4</div><div class="b">In the Indian data, a 40% plurality held exactly for 11 items; item 9 was added (E&#39; 38% / E 34%, plus American precedent), giving <b>12 composite GCR criterion items</b> — matching the American version's count. (Items 14 &amp; 15, at 39%, were deliberately omitted.)</div></div>
+</div>
+
+<h3>Scoring a subject's GCR</h3>
+<ul>
+  <li>Compare the subject's score on each of the 12 criterion items to the criterion response(s).</li>
+  <li><b>Full agreement → "+"</b> (counts 1). Where a combination score only partly matches, <b>part credit "½"</b> (counts 0.5).</li>
+  <li>Where several criterion responses are listed, any one — or any combination — counts as full agreement.</li>
+  <li>Sum the credits and convert to a percentage of <b>12</b> (unscorable items count as failures; base stays 12). Use Appendix A.</li>
+</ul>
+
+<div class="case">
+  <div class="ct">Worked GCR — the manual's sample protocol</div>
+  <div class="flow"><span>Full agreement on 9 items (1, 2, 3, 9, 10, 16, 19, 21, 24)</span><span class="arw">+</span><span>half-agreement on item 5 (½)</span></div>
+  <div class="flow"><span>Total credit = 9 + 0.5 = <b>9.5</b></span><span class="arw">→</span><span>9.5 ÷ 12</span><span class="arw">→</span><span><b>GCR = 79%</b></span></div>
+</div>
+
+<div class="box imp"><span class="lab">Interpretive caution</span><p>GCR is "one measure of the individual's adjustment to a normal group." A high GCR is <b>not</b> proof of a healthy personality, nor is a low GCR proof of maladjustment — interpret it against the whole profile and the case context.</p></div>
+</section>
+
+<!-- ==================== PART X ==================== -->
+<section id="part10" class="sec-scoring">
+<h2>Part X — Trends</h2>
+<p>A trend is a <b>consistent shift</b> across the protocol — e.g. beginning extrapunitive and, after guilt
+accumulates, becoming intropunitive. Because the subject answers <b>in sequence</b>, trends are computed by
+comparing the <b>first half (items 1–12)</b> with the <b>second half (items 13–24)</b>.</p>
+
+<h3>23. The five trends</h3>
+<div class="tw"><table class="peach">
+<thead><tr><th>Trend</th><th>Concerned with</th><th>Kind</th></tr></thead>
+<tbody>
+<tr><td>1</td><td><span class="scode">E&#39;</span>, <span class="scode">I&#39;</span>, <span class="scode">M&#39;</span> (the O-D column)</td><td>Within-column</td></tr>
+<tr><td>2</td><td><span class="scode">E</span>, <span class="scode">I</span>, <span class="scode">M</span> (the E-D column)</td><td>Within-column</td></tr>
+<tr><td>3</td><td><span class="scode">e</span>, <span class="scode">i</span>, <span class="scode">m</span> (the N-P column)</td><td>Within-column</td></tr>
+<tr><td>4</td><td><span class="scode">E-A</span>, <span class="scode">I-A</span>, <span class="scode">M-A</span> (directions)</td><td>Cross-trend</td></tr>
+<tr><td>5</td><td><span class="scode">O-D</span>, <span class="scode">E-D</span>, <span class="scode">N-P</span> (types)</td><td>Cross-trend</td></tr>
+</tbody>
+</table></div>
+<p>There are <b>15 possible trends</b> in all, each capable of being positive or negative.</p>
+
+<h3>The formula</h3>
+<div class="box key"><span class="lab">Trend value</span>
+<p style="font-size:1.15rem;text-align:center;margin:.4rem 0;"><b>Trend = (a &minus; b) / (a + b)</b></p>
+<p><b>a</b> = amount of the factor/category in the <b>first half</b> (items 1–12); <b>b</b> = amount in the
+<b>second half</b> (items 13–24). A <b>positive</b> value means a shift <b>away from</b> that factor (higher
+early, lower late); a <b>negative</b> value means a shift <b>towards</b> it. <b>Appendix B</b> is a lookup table
+giving trend values of .20 and above (enter the higher of a/b in the first column, the lower in the first row).</p></div>
+
+<h3>Two requirements for a trend to count</h3>
+<ol>
+  <li><b>Base of at least 4 items</b> — a + b (for categories) must be ≥ 4.</li>
+  <li><b>Minimum value</b> — the trend must reach the significance value in Table 2 (below), worked out for the Indian population (Pareek &amp; Kumar, 1965).</li>
+</ol>
+
+<div class="tw"><table>
+<caption>Table 2 — minimum trend values to qualify as significant (composite group). "+" = away-from, "&minus;" = towards.</caption>
+<thead><tr><th>1st (O-D)</th><th>2nd (E-D)</th><th>3rd (N-P)</th><th>4th (Directions)</th><th>5th (Types)</th></tr></thead>
+<tbody>
+<tr><td>E&#39;+ .40 / E&#39;&minus; .20</td><td>E+ .25 / E&minus; .20</td><td>e+ .50 / e&minus; .20</td><td>E-A+ .20 / E-A&minus; .20</td><td>O-D+ .20 / O-D&minus; .25</td></tr>
+<tr><td>I&#39;+ .20 / I&#39;&minus; .50</td><td>I+ .20 / I&minus; .40</td><td>i+ .50 / i&minus; .20</td><td>I-A+ .25 / I-A&minus; .20</td><td>E-D+ .20 / E-D&minus; .20</td></tr>
+<tr><td>M&#39;+ .20 / M&#39;&minus; .20</td><td>M+ .20 / M&minus; .33</td><td>m+ .20 / m&minus; .25</td><td>M-A+ .20 / M-A&minus; .25</td><td>N-P+ .40 / N-P&minus; .20</td></tr>
+</tbody>
+</table></div>
+
+<div class="case">
+  <div class="ct">Worked trend (manual's sample, 4th trend = directions)</div>
+  <p><b>E-A:</b> first half 7.5, second half 4 → higher early → positive → value <b>+.30</b> (Appendix B): a significant shift <b>away from</b> E-A.<br>
+  <b>I-A:</b> 3 then 5 → <b>&minus;.25</b>: shift <b>towards</b> I-A.<br>
+  <b>M-A:</b> 1.5 then 3 → <b>&minus;.33</b>: shift <b>towards</b> M-A.</p>
+  <p class="small">Notation: an arrow with the <b>left</b>-hand mark = "away from" (positive); <b>right</b>-hand mark = "towards" (negative).</p>
+</div>
+<div class="box pearl"><span class="lab">Clinical pearl</span><p>A protocol with <b>many trends</b> may indicate <b>inadequate adjustment and instability</b> — the person keeps changing how he reacts to his own reactions. But read this against the whole picture, not in isolation.</p></div>
+</section>
+
+<!-- ==================== PART XI ==================== -->
+<section id="part11" class="sec-interp">
+<h2>Part XI — Norms (Indian Adaptation, N = 800)</h2>
+<p>These are the norm tables against which a subject's percentages/frequencies are compared. All values are from
+the Indian adaptation (400 men, 400 women). Compare a subject's figure to the <b>composite</b> mean unless a
+sex-specific comparison is intended, and read deviations in <b>standard-deviation</b> units.</p>
+
+<h3>Table 3 — Scoring categories (by percentage)</h3>
+<div class="tw"><table>
+<thead><tr><th rowspan="2">Category</th><th colspan="3">Men</th><th colspan="3">Women</th><th colspan="3">Composite</th></tr>
+<tr><th>Mean</th><th>Median</th><th>S.D.</th><th>Mean</th><th>Median</th><th>S.D.</th><th>Mean</th><th>Median</th><th>S.D.</th></tr></thead>
+<tbody>
+<tr><td><b>E-A</b></td><td>47.73</td><td>48.28</td><td>16.02</td><td>46.80</td><td>47.06</td><td>15.34</td><td>47.25</td><td>47.58</td><td>15.70</td></tr>
+<tr><td><b>I-A</b></td><td>28.33</td><td>28.26</td><td>9.68</td><td>28.28</td><td>27.80</td><td>8.82</td><td>28.29</td><td>28.03</td><td>9.27</td></tr>
+<tr><td><b>M-A</b></td><td>23.85</td><td>23.95</td><td>10.75</td><td>24.69</td><td>24.79</td><td>10.17</td><td>24.28</td><td>24.37</td><td>10.49</td></tr>
+<tr><td><b>O-D</b></td><td>25.41</td><td>24.89</td><td>8.96</td><td>26.04</td><td>25.51</td><td>8.73</td><td>25.72</td><td>25.23</td><td>8.82</td></tr>
+<tr><td><b>E-D</b></td><td>51.68</td><td>51.58</td><td>10.48</td><td>51.28</td><td>51.70</td><td>9.77</td><td>51.50</td><td>51.64</td><td>10.17</td></tr>
+<tr><td><b>N-P</b></td><td>22.84</td><td>22.92</td><td>10.13</td><td>22.66</td><td>22.50</td><td>10.26</td><td>22.75</td><td>22.96</td><td>10.21</td></tr>
+</tbody>
+</table></div>
+<p class="small">Composite ranges: E-A 4–96, I-A 0–56, M-A 0–54, O-D 4–54, E-D 19–91, N-P 0–52.</p>
+<div class="box rem"><span class="lab">Remember the typical shape</span><p>In this Indian adult sample the <b>average protocol is E-D dominant</b> (~51%), with E-A the leading direction (~47%). So "high E-D" only matters relative to ~51%; judge every score against its own norm and S.D.</p></div>
+
+<h3>Table 4 — Scoring factors (by frequency)</h3>
+<div class="tw"><table class="peach">
+<thead><tr><th rowspan="2">Factor</th><th colspan="3">Men</th><th colspan="3">Women</th><th colspan="3">Composite</th></tr>
+<tr><th>Mean</th><th>Median</th><th>S.D.</th><th>Mean</th><th>Median</th><th>S.D.</th><th>Mean</th><th>Median</th><th>S.D.</th></tr></thead>
+<tbody>
+<tr><td><span class="scode">E&#39;</span></td><td>3.43</td><td>3.20</td><td>1.88</td><td>3.67</td><td>3.41</td><td>1.88</td><td>3.53</td><td>3.30</td><td>1.90</td></tr>
+<tr><td><span class="scode">E</span></td><td>6.74</td><td>6.25</td><td>3.42</td><td>6.28</td><td>6.01</td><td>3.16</td><td>6.50</td><td>6.13</td><td>3.30</td></tr>
+<tr><td><span class="scode">e</span></td><td>1.42</td><td>1.14</td><td>1.03</td><td>1.50</td><td>1.20</td><td>1.06</td><td>1.46</td><td>1.16</td><td>1.05</td></tr>
+<tr><td><span class="scode">I&#39;</span></td><td>1.80</td><td>1.62</td><td>1.11</td><td>1.55</td><td>1.35</td><td>1.04</td><td>1.68</td><td>1.50</td><td>1.09</td></tr>
+<tr><td><span class="scode">I</span></td><td>3.17</td><td>2.94</td><td>1.37</td><td>3.35</td><td>3.05</td><td>1.30</td><td>3.26</td><td>3.01</td><td>1.34</td></tr>
+<tr><td><span class="scode">i</span></td><td>1.80</td><td>1.40</td><td>1.35</td><td>1.87</td><td>1.50</td><td>1.34</td><td>1.84</td><td>1.44</td><td>1.35</td></tr>
+<tr><td><span class="scode">M&#39;</span></td><td>0.81</td><td>0.63</td><td>0.85</td><td>1.00</td><td>0.78</td><td>0.91</td><td>0.90</td><td>0.70</td><td>0.88</td></tr>
+<tr><td><span class="scode">M</span></td><td>2.65</td><td>2.34</td><td>1.66</td><td>2.87</td><td>2.58</td><td>1.64</td><td>2.76</td><td>2.47</td><td>1.65</td></tr>
+<tr><td><span class="scode">m</span></td><td>2.25</td><td>2.00</td><td>1.41</td><td>2.02</td><td>1.76</td><td>1.33</td><td>2.14</td><td>1.86</td><td>1.38</td></tr>
+</tbody>
+</table></div>
+
+<h3>Table 5 — Super-ego factors &amp; patterns (by percentage)</h3>
+<div class="tw"><table class="sage">
+<thead><tr><th rowspan="2">Pattern</th><th colspan="2">Men</th><th colspan="2">Women</th><th colspan="2">Composite</th></tr>
+<tr><th>Mean</th><th>S.D.</th><th>Mean</th><th>S.D.</th><th>Mean</th><th>S.D.</th></tr></thead>
+<tbody>
+<tr><td><span class="scode">E&#772;</span></td><td>3.90</td><td>3.78</td><td>3.72</td><td>3.57</td><td>3.81</td><td>3.67</td></tr>
+<tr><td><span class="scode">I&#772;</span></td><td>6.58</td><td>5.99</td><td>7.55</td><td>5.21</td><td>7.07</td><td>5.25</td></tr>
+<tr><td><span class="scode">E&#772;+I&#772;</span></td><td>10.69</td><td>6.51</td><td>11.23</td><td>5.85</td><td>10.96</td><td>6.20</td></tr>
+<tr><td><span class="scode">E&#772;&minus;E</span></td><td>23.40</td><td>14.25</td><td>21.30</td><td>12.30</td><td>22.35</td><td>13.35</td></tr>
+<tr><td><span class="scode">I&#772;&minus;I</span></td><td>6.16</td><td>4.14</td><td>6.08</td><td>4.04</td><td>6.11</td><td>4.36</td></tr>
+<tr><td><span class="scode">M-A+I</span></td><td>30.80</td><td>12.00</td><td>32.30</td><td>12.00</td><td>31.50</td><td>12.00</td></tr>
+</tbody>
+</table></div>
+
+<h3>Table 6 — GCR criterion (modal) responses</h3>
+<p>The 12 composite GCR criterion items (with the sex-wise criteria that back them). Where a "composite" cell is
+shown as a dash, the manual retained sex-wise criteria; the count of composite GCR criterion items is <b>12</b>
+(see Part IX). Percentages of occurrence are given in parentheses.</p>
+<div class="tw"><table>
+<thead><tr><th>Sit.</th><th>Men</th><th>Women</th><th>Composite</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>E(46); M(42)</td><td>M(51)</td><td>M(46); E(41)</td></tr>
+<tr><td>2</td><td>I(75)</td><td>I(80)</td><td>I(78)</td></tr>
+<tr><td>3</td><td>E&#39;(52)</td><td>E&#39;(51)</td><td>E&#39;(52)</td></tr>
+<tr><td>4</td><td>M(26); E(22); m(20)</td><td>m(24); M(23)</td><td>&mdash;</td></tr>
+<tr><td>5</td><td>i(44)</td><td>i(48)</td><td>i(46)</td></tr>
+<tr><td>6</td><td>m(33)</td><td>m(27); e(20); i(19)</td><td>&mdash;</td></tr>
+<tr><td>7</td><td>E(80)</td><td>E(47); I(40)</td><td>E(48)</td></tr>
+<tr><td>8</td><td>E&#39;(30); I&#39;(33); E;M(20)</td><td>M(34)</td><td>&mdash;</td></tr>
+<tr><td>9</td><td>E&#39;(34); E(34)</td><td>E&#39;(43)</td><td>E&#39;(38); E(34)</td></tr>
+<tr><td>10</td><td>E(78)</td><td>E(83)</td><td>E(80)</td></tr>
+<tr><td>11</td><td>m(36)</td><td>m(35)</td><td>m(36)</td></tr>
+<tr><td>12</td><td>E&#39;(29)</td><td>E&#39;(33)</td><td>E&#39;(31)</td></tr>
+<tr><td>13</td><td>m(26); E(25)</td><td>E(24); I(19); E&#39;(18)</td><td>&mdash;</td></tr>
+<tr><td>14</td><td>M(37)</td><td>m(17)</td><td>&mdash;</td></tr>
+<tr><td>15</td><td>E(46)</td><td>M(40)</td><td>M(39)</td></tr>
+<tr><td>16</td><td>I(61)</td><td>E(32)</td><td>E(39)</td></tr>
+<tr><td>17</td><td>E(25); I&#39;(24)</td><td>I(58)</td><td>I(60)</td></tr>
+<tr><td>18</td><td>e(33)</td><td>E(26)</td><td>E(25); I&#39;(22)</td></tr>
+<tr><td>19</td><td>I(48)</td><td>I(48)</td><td>I(48)</td></tr>
+<tr><td>20</td><td>M(42)</td><td>I(45)</td><td>M(44)</td></tr>
+<tr><td>21</td><td>I&#39;(37)</td><td>I&#39;(49)</td><td>I&#39;(47)</td></tr>
+<tr><td>22</td><td>I&#39;(37)</td><td>I&#39;(35)</td><td>I&#39;(36)</td></tr>
+<tr><td>23</td><td>E(24); E&#39;(25)</td><td>E(29); E&#39;(27)</td><td>&mdash;</td></tr>
+<tr><td>24</td><td>M(41); E(33)</td><td>M(42)</td><td>M(42)</td></tr>
+</tbody>
+</table></div>
+<p class="small">Reproduced to support scoring; the full stimulus plates and complete answer keys remain copyrighted and are not reproduced. For GCR you use the <b>composite</b> criteria unless a sex-specific rating is intended.</p>
+</section>
+
+<!-- ==================== PART XII ==================== -->
+<section id="part12" class="sec-interp">
+<h2>Part XII — Interpretation</h2>
+<h3>25. General principles</h3>
+<div class="box key"><span class="lab">The "level" question</span>
+<p>The core interpretive question is the <b>behavioural level</b> a protocol reflects. The manual sets out three
+possibilities: (1) a self-critical, censored picture; (2) what the person would actually <b>say</b> in the
+situation; (3) a more covert/latent orientation. For general purposes the <b>second level</b> — a sample of the
+person's <b>gross, observable behaviour</b> — is assumed. Use the end-of-test Inquiry ("Of whom were you
+thinking?"; "Is this what you'd really say?") to gauge the level, but treat those answers as themselves
+partly rationalised.</p></div>
+<div class="box imp"><span class="lab">Do not over-read</span><p>The manual <b>discourages deep/content analysis</b>: the quantitative figures (factors, GCR, trends, pattern) already give a fairly dynamic picture, and the test is presumed to tap the second (behavioural) level. Interpret from the <b>explicit words + the Score Sheet</b>, always against the norms — never diagnose from a single score.</p></div>
+
+<h3>The manual's anchor interpretations</h3>
+<div class="grid2">
+  <div class="mini"><h4>Total E-D</h4><p>May be taken to represent <b>strength or weakness of the ego</b>.</p></div>
+  <div class="mini"><h4>High N-P</h4><p>May show <b>adaptive adequacy</b> (a problem-solving orientation).</p></div>
+  <div class="mini"><h4>GCR</h4><p>"One measure of the individual's <b>adjustment to a normal group</b>."</p></div>
+  <div class="mini"><h4>Many trends</h4><p>May indicate <b>inadequate adjustment and instability</b>.</p></div>
+  <div class="mini"><h4>High O-D</h4><p>Tends to be <b>obsessed by the barrier</b>; the manual's worked case links very high O-D to "anxiety" and embarrassment.</p></div>
+  <div class="mini"><h4>S-E patterns</h4><p>Gauge <b>defensiveness</b> — denying the act or repudiating the motive.</p></div>
+</div>
+
+<h3>26–29. Reading directions, types, frustration &amp; aggression — cautiously</h3>
+<div class="tw"><table class="sage">
+<thead><tr><th>Finding</th><th>Possible meaning</th><th>Alternative / caution</th></tr></thead>
+<tbody>
+<tr><td>Predominantly E-A</td><td>Tends to turn aggression outward / externalise blame under frustration</td><td>May reflect the situation set, culture, or a defensive stance — <b>not</b> evidence of violence</td></tr>
+<tr><td>Predominantly I-A</td><td>Tends to turn blame/guilt on the self</td><td>Not equivalent to "depression"; consider conscientiousness, culture</td></tr>
+<tr><td>Predominantly M-A</td><td>Tends to gloss over / minimise frustration</td><td>Not automatically "good adjustment"; may be avoidance</td></tr>
+<tr><td>High O-D</td><td>Preoccupation with the obstacle; possible anxiety/embarrassment</td><td>Consider transient stress, item content</td></tr>
+<tr><td>High E-D</td><td>Ego-defensive emphasis; read against ~51% norm</td><td>Only meaningful as deviation from the norm/S.D.</td></tr>
+<tr><td>High N-P</td><td>Problem-solving, adaptive orientation</td><td>Confirm with behaviour/history</td></tr>
+</tbody>
+</table></div>
+<div class="box err"><span class="lab">Aggression — the critical caution</span><p>The P-F Study measures the <b>direction and type of aggressive response to frustration</b>. It does <b>not</b> establish that a person is violent or will become violent. Extrapunitiveness is about where blame is <i>directed in words</i>, not about dangerousness.</p></div>
+
+<h3>Qualitative analysis (permitted, second)</h3>
+<p>A fuller clinical reading may consider vocabulary choice, tone/emotional intensity, whether the frustrater is
+adult or child, humour, sarcasm, passivity, persistence and recurrent themes — <b>where these can be confirmed
+against the case history or other test results</b>. State plainly what can and cannot be inferred.</p>
+</section>
+
+<!-- ==================== PART XIII ==================== -->
+<section id="part13" class="sec-case">
+<h2>Part XIII — Worked Master Case</h2>
+<p>This walks the full chain <b>raw response → scoring → quantitative profile → qualitative pattern →
+interpretation</b>, using the manual's own illustrative individual record (a young woman) so the numbers stay
+faithful to the source. Identifying details are fictional placeholders.</p>
+
+<div class="case">
+  <div class="ct">Protocol summary (illustrative — from the manual's Example of an Individual Record)</div>
+  <ul>
+    <li><b>Subject:</b> "Ms. A", female, 21, graduate; individual administration; duration ~22 min.</li>
+    <li><b>GCR:</b> high (the manual's narrative example cites ~66%), suggesting adequate adjustment to her group.</li>
+    <li><b>Categories:</b> a <b>strong O-D deviation</b> — nearly <b>2 S.D. above</b> her sex-group mean, driven by elevated <span class="scode">E&#39;</span> and <span class="scode">I&#39;</span> (~2 S.D. up each).</li>
+    <li><b>E</b> about <b>1 S.D. below</b> the mean; <b>I</b> about <b>1 S.D. above</b>.</li>
+    <li><b>N-P and M-A low.</b></li>
+    <li><b>Super-ego:</b> a very significant deviation — essentially <b>no E&#772;</b> in the profile.</li>
+    <li><b>Trends:</b> the 4th and 5th trends show a shift <b>away from extraggression toward intropression/impression</b>, and from ego-defence toward seeking solutions.</li>
+    <li><b>Total pattern:</b> <span class="scode">E&#39; &gt; I</span> (obsession with the obstacle, then self-directed blame).</li>
+  </ul>
+</div>
+
+<h4>Scoring → Quantitative → Qualitative → Interpretation</h4>
+<div class="steps">
+  <div class="step"><div class="n">1</div><div class="b"><b>Scoring:</b> each item coded in O-D/E-D/N-P; split scores weighted .5.</div></div>
+  <div class="step"><div class="n">2</div><div class="b"><b>Quantitative:</b> O-D strongly elevated (≈2 S.D.), carried by <span class="scode">E&#39;</span> and <span class="scode">I&#39;</span>; <span class="scode">E</span> low, <span class="scode">I</span> raised; N-P and M-A low; no <span class="scode">E&#772;</span>; GCR high; total pattern <span class="scode">E&#39; &gt; I</span>.</div></div>
+  <div class="step"><div class="n">3</div><div class="b"><b>Qualitative:</b> she does not blame others or objects; she takes blame onto herself (more than necessary), makes efforts not to blame others, and is particular about not denying personal responsibility.</div></div>
+  <div class="step"><div class="n">4</div><div class="b"><b>Interpretation (manual's wording, paraphrased):</b> a <b>highly developed super-ego with strong guilt</b>; tends to be <b>obsessed by the frustrating barrier</b> (anxiety/embarrassment); passively submits rather than actively solving; yet <b>superficially well-adjusted to her group</b> (high GCR), with a <b>potential to develop a problem-solving orientation</b> (the trend away from ego-defence toward solutions).</div></div>
+</div>
+
+<div class="box pearl"><span class="lab">Formulation chain — never skip a link</span>
+<p><b>Raw response → scoring → quantitative profile → qualitative pattern → clinical interpretation → integration → report.</b> Never jump from <b>score → diagnosis</b>.</p></div>
+</section>
+
+<!-- ==================== PART XIV ==================== -->
+<section id="part14" class="sec-case">
+<h2>Part XIV — Mini Cases (Profile Patterns)</h2>
+<p>Compact illustrations of how a leading pattern reads. All are fictional teaching examples; scores are read
+against the Indian composite norms (Part XI). Each notes the <b>alternative explanation</b> and <b>what to check
+next</b> — because no single pattern is a diagnosis.</p>
+
+<div class="grid2">
+  <div class="mini"><h4><span class="pill e">E</span>Predominantly Extraggressive</h4><p>E-A well above ~47%. Reads as an outward, blame-externalising style under frustration. <i>Alt:</i> situational/cultural; not violence. <i>Check:</i> interview, behaviour across settings.</p></div>
+  <div class="mini"><h4><span class="pill i">I</span>Predominantly Introgressive</h4><p>I-A above ~28%, with raised <span class="scode">I</span>. Self-blame/guilt style; strong super-ego. <i>Alt:</i> conscientiousness, culture — not "depression" per se. <i>Check:</i> mood assessment.</p></div>
+  <div class="mini"><h4><span class="pill m">M</span>Predominantly Impressive</h4><p>M-A above ~24%. Minimising/glossing-over style. <i>Alt:</i> could be genuine tolerance or avoidance. <i>Check:</i> whether problems get solved in real life.</p></div>
+  <div class="mini"><h4>Mixed / balanced</h4><p>No category far from its norm. Flexible responding — interpret from trends, GCR, qualitative tone.</p></div>
+  <div class="mini"><h4>High O-D</h4><p>O-D ≫ ~26%, often via <span class="scode">E&#39;</span>/<span class="scode">I&#39;</span>. Preoccupation with the barrier; possible anxiety/embarrassment. <i>Check:</i> current stressors.</p></div>
+  <div class="mini"><h4>High E-D</h4><p>E-D above ~51%. Ego-defensive emphasis. <i>Caution:</i> only meaningful as deviation in S.D. units.</p></div>
+  <div class="mini"><h4>High N-P</h4><p>N-P above ~23%. Adaptive, problem-solving orientation. Corroborate with history.</p></div>
+  <div class="mini"><h4>High GCR</h4><p>Conforms to modal group responses → superficial adjustment to the group. <i>Not</i> proof of health.</p></div>
+  <div class="mini"><h4>Low GCR</h4><p>Diverges from modal responses. <i>Not</i> proof of maladjustment; read with the profile and context.</p></div>
+  <div class="mini"><h4>Significant trend</h4><p>e.g. away-from E-A, toward I-A across the halves → a consistent shift of style during the test; many trends → possible instability.</p></div>
+</div>
+</section>
+
+<!-- ==================== PART XV ==================== -->
+<section id="part15" class="sec-clin">
+<h2>Part XV — Writing the Psychological Report</h2>
+<h3>Report structure</h3>
+<div class="tw"><table class="peach">
+<thead><tr><th>Section</th><th>What belongs here</th></tr></thead>
+<tbody>
+<tr><td>Identifying information</td><td>Initials, age, sex, education/occupation, date, examiner, referral source, setting.</td></tr>
+<tr><td>Reason for referral</td><td>The specific question (e.g. "assessment of characteristic responses to frustration and interpersonal response tendencies").</td></tr>
+<tr><td>Relevant background</td><td>Brief, only what bears on interpretation.</td></tr>
+<tr><td>Behavioural observations</td><td>Rapport, cooperation, comprehension, response latency, spontaneity, emotional reactions, need for clarification — <b>observation, not inference</b>.</td></tr>
+<tr><td>Test &amp; administration</td><td>Form used (Adult Form, Indian adaptation), date, standardised administration, whether Inquiry was done, any deviation stated transparently.</td></tr>
+<tr><td>Quantitative findings</td><td>Category %s vs norms, factor frequencies, GCR, trends, total pattern (table below).</td></tr>
+<tr><td>Qualitative analysis</td><td>Vocabulary, tone, blame direction, persistence, avoidance — confirmed against other data.</td></tr>
+<tr><td>Integrated interpretation</td><td>Quantitative → qualitative → cautious clinical inference. P-F finding ≠ diagnosis.</td></tr>
+<tr><td>Impression, limitations, recommendations</td><td>Concise impression; limitations of a semi-projective tool; recommendations only where independently indicated.</td></tr>
+</tbody>
+</table></div>
+
+<h3>46. Quantitative results — report table shell</h3>
+<div class="tw"><table>
+<thead><tr><th>Dimension</th><th>Subject</th><th>Composite norm (mean, S.D.)</th><th>Interpretation</th></tr></thead>
+<tbody>
+<tr><td>E-A %</td><td>—</td><td>47.25 (15.70)</td><td>direction of aggression</td></tr>
+<tr><td>I-A %</td><td>—</td><td>28.29 (9.27)</td><td>&nbsp;</td></tr>
+<tr><td>M-A %</td><td>—</td><td>24.28 (10.49)</td><td>&nbsp;</td></tr>
+<tr><td>O-D %</td><td>—</td><td>25.72 (8.82)</td><td>type of reaction</td></tr>
+<tr><td>E-D %</td><td>—</td><td>51.50 (10.17)</td><td>&nbsp;</td></tr>
+<tr><td>N-P %</td><td>—</td><td>22.75 (10.21)</td><td>&nbsp;</td></tr>
+<tr><td>GCR %</td><td>—</td><td>&mdash;</td><td>conformity to group modes</td></tr>
+<tr><td>Trends</td><td>—</td><td>Table 2 significance</td><td>consistency of shift</td></tr>
+<tr><td>Total pattern</td><td>—</td><td>&mdash;</td><td>three most frequent factors</td></tr>
+</tbody>
+</table></div>
+
+<h3>47. Turning scores into cautious prose</h3>
+<p>Prefer <i>"may suggest", "appears consistent with", "the profile indicates", "should be interpreted in
+conjunction with…"</i>; avoid <i>"proves", "definitely has", "will become"</i>.</p>
+
+<h3>53. Sample report skeletons</h3>
+<div class="grid2">
+  <div class="mini"><h4>Report 1 — Adult</h4><p>Adult Form, Indian adaptation; composite adult norms; e.g. "E-D within one S.D. of the norm; a significant away-from-E-A / toward-I-A trend; GCR consistent with adequate group adjustment — to be read with interview data."</p></div>
+  <div class="mini"><h4>Report 2 — Adolescent (age 14+)</h4><p>Adult Form used (the manual extends it to age 14+); <b>state explicitly</b> that Adult composite norms are applied and that no separate adolescent norm exists in this manual.</p></div>
+  <div class="mini"><h4>Report 3 — Child</h4><p>Requires the <b>Children's Form</b> (separate booklet/norms). <span class="small">Children's-Form specifics are Not established from the available repository source (this repository holds the Adult Form only).</span></p></div>
+</div>
+</section>
+
+<!-- ==================== PART XVI ==================== -->
+<section id="part16" class="sec-clin">
+<h2>Part XVI — Language Bank &amp; Common Errors</h2>
+<div class="grid2">
+  <div class="mini"><h4>Phrase bank — findings</h4><ul>
+    <li>"The profile shows a relative predominance of extraggressive responses…"</li>
+    <li>"Ego-defensive responses fall within one S.D. of the composite norm…"</li>
+    <li>"A significant trend away from E-A and toward I-A was observed across the protocol…"</li>
+    <li>"The GCR is consistent with adequate conformity to group modal responses…"</li>
+  </ul></div>
+  <div class="mini"><h4>Phrase bank — interpretation/limits</h4><ul>
+    <li>"These findings are suggestive of… and should be interpreted alongside the clinical interview."</li>
+    <li>"As a semi-projective measure, the P-F Study samples habitual verbal reactions, not diagnoses."</li>
+    <li>"Norms are Indian adult norms; caution applies for other groups."</li>
+  </ul></div>
+</div>
+<div class="tw"><table class="peach">
+<thead><tr><th>Avoid</th><th>Prefer</th><th>Why</th></tr></thead>
+<tbody>
+<tr><td>"The patient is aggressive."</td><td>"The profile shows a relative predominance of extraggressive responses, suggesting a tendency to direct blame outward under frustration."</td><td>Describes the response tendency, not a trait/dangerousness claim.</td></tr>
+<tr><td>"High I means depression."</td><td>"Elevated intropunitive responses suggest a self-blaming style; mood should be assessed separately."</td><td>Avoids equating a P-F factor with a diagnosis.</td></tr>
+<tr><td>"High GCR = normal."</td><td>"High GCR suggests conformity to group modal responses."</td><td>GCR is adjustment-to-group, not normality.</td></tr>
+</tbody>
+</table></div>
+<div class="box err"><span class="lab">Error checklist</span>
+<p><b>Administration:</b> leading/prompting, changing instructions, allowing revision, breaking sequence.
+<b>Scoring:</b> wrong direction/type, mis-handling superego rules, wrong split-score weighting, wrong denominator (24 vs 12), GCR/trend errors.
+<b>Interpretation:</b> diagnosing from one score, equating E with violence / I with depression / M with adjustment / GCR with normality, ignoring culture and current circumstances.</p></div>
+</section>
+
+<!-- ==================== PART XVII ==================== -->
+<section id="part17" class="sec-clin">
+<h2>Part XVII — Psychometrics &amp; Cultural Notes</h2>
+<div class="grid2">
+  <div class="mini"><h4>Reliability (this adaptation)</h4><p>Scoring (inter-scorer) reliability was reported high (two independent scorers). Stability coefficients ranged <b>.27–.82</b> (Pareek &amp; Devi, 1965). Consistency values ~46–74. Do not overstate: some coefficients are modest.</p></div>
+  <div class="mini"><h4>Validity / utility</h4><p>The manual and its bibliography cite wide clinical, cross-cultural and research use; the guide keeps validity claims modest, in line with the source.</p></div>
+  <div class="mini"><h4>Cultural considerations</h4><p>Nine situations were substantially re-worked for Indian culture, plus dress/setting changes throughout — evidence that <b>Western norms cannot be assumed to transfer</b>. Use the Indian composite norms for Indian adults; consider gender, social expectations and the culturally-shaped expression of aggression.</p></div>
+  <div class="mini"><h4>Semi-projective method</h4><p>Findings presume the "second (behavioural) level"; corroboration from interview/other tests is expected, not optional.</p></div>
+</div>
+</section>
+
+<!-- ==================== PART XVIII ==================== -->
+<section id="part18" class="sec-admin">
+<h2>Part XVIII — The Practical 16-Step Algorithm</h2>
+<div class="steps">
+  <div class="step"><div class="n">01</div><div class="b"><b>Select the correct form</b> — Adult Form (Indian adaptation) for ages 14+.</div></div>
+  <div class="step"><div class="n">02</div><div class="b"><b>Establish rapport</b> and set up a quiet, standard setting.</div></div>
+  <div class="step"><div class="n">03</div><div class="b"><b>Standard administration</b> — read the cover instructions; demonstrate with item 1.</div></div>
+  <div class="step"><div class="n">04</div><div class="b"><b>Ensure sequence &amp; completeness</b>; subject writes his own first replies; record total time.</div></div>
+  <div class="step"><div class="n">05</div><div class="b"><b>Read-back &amp; Inquiry</b> (individual) — note tone; clarify with non-leading questions.</div></div>
+  <div class="step"><div class="n">06</div><div class="b"><b>Score every item</b> for direction (E/I/M).</div></div>
+  <div class="step"><div class="n">07</div><div class="b"><b>Score every item</b> for type (O-D/E-D/N-P); apply superego &amp; "later-factor" rules.</div></div>
+  <div class="step"><div class="n">08</div><div class="b"><b>Enter item scores</b> on the Score Sheet (split scores weighted .5).</div></div>
+  <div class="step"><div class="n">09</div><div class="b"><b>Compute category frequencies</b> for both halves.</div></div>
+  <div class="step"><div class="n">10</div><div class="b"><b>Convert to percentages</b> (denominator 24; Appendix A).</div></div>
+  <div class="step"><div class="n">11</div><div class="b"><b>Compute GCR</b> vs the 12 composite criteria (denominator 12).</div></div>
+  <div class="step"><div class="n">12</div><div class="b"><b>Compute S-E patterns</b> and <b>Trends</b> ( (a&minus;b)/(a+b); Table 2 significance ).</div></div>
+  <div class="step"><div class="n">13</div><div class="b"><b>Derive the Total Pattern</b> (three most frequent factors ordered).</div></div>
+  <div class="step"><div class="n">14</div><div class="b"><b>Interpret the profile</b> against norms (E-D=ego strength; N-P=adaptive adequacy; GCR=group adjustment; many trends=instability).</div></div>
+  <div class="step"><div class="n">15</div><div class="b"><b>Qualitative analysis</b> &amp; integrate with interview / other tests.</div></div>
+  <div class="step"><div class="n">16</div><div class="b"><b>Write the report</b> — cautious language, clear limitations, no score-to-diagnosis leaps.</div></div>
+</div>
+</section>
+
+<!-- ==================== PART XIX ==================== -->
+<section id="part19" class="sec-revise">
+<h2>Part XIX — Quick Revision</h2>
+<div class="grid2">
+  <div class="box lilac" style="background:var(--lilac)"><span class="lab" style="color:var(--lilac-ink)">P-F Study in 5 minutes</span>
+  <p>24 cartoon frustrations; write the frustrated figure's first reply. Score <b>direction</b> (E-A/I-A/M-A) ×
+  <b>type</b> (O-D/E-D/N-P) → 9 factors (+2 denial variants). O-D = apostrophe, E-D = capitals, N-P = lowercase.
+  Compute profile %s (÷24), <b>GCR</b> (÷12, 12 criteria), <b>S-E patterns</b>, <b>trends</b> ((a&minus;b)/(a+b)),
+  and the <b>total pattern</b>. Interpret against Indian adult norms; never diagnose from one score.</p></div>
+  <div class="box blue" style="background:var(--blue)"><span class="lab" style="color:var(--blue-ink)">P-F Study in 10 minutes</span>
+  <ul>
+    <li>16 ego-blocking, 8 superego-blocking situations; superego items have special rules (E&#39;→I&#39;; belittling damage→E; self-excuse→I, misunderstanding→M).</li>
+    <li>Choice rule: favour the <b>later</b> factor; E-D absorbs O-D when clear.</li>
+    <li>Norms: average protocol is <b>E-D dominant (~51%)</b>, E-A leading direction (~47%).</li>
+    <li>GCR high = adjusted to group; low = divergent (neither = diagnosis).</li>
+    <li>Trend + = away-from, &minus; = towards; needs base ≥4 items and Table-2 value.</li>
+  </ul></div>
+</div>
+<div class="box rem"><span class="lab">One-page master summary</span>
+<p><b>Purpose:</b> habitual reactions to frustration. <b>Dimensions:</b> direction × type. <b>Factors:</b>
+E&#39; I&#39; M&#39; / E I M / e i m. <b>Indices:</b> profile %, GCR, S-E patterns, 5 trends, total pattern.
+<b>Anchors:</b> E-D≈ego strength/weakness; N-P high≈adaptive; GCR≈group adjustment; many trends≈instability.
+<b>Golden rule:</b> raw response → scoring → quantitative → qualitative → interpretation → integration → report;
+<b>never</b> score → diagnosis.</p></div>
+
+<h3>Master component table</h3>
+<div class="tw"><table>
+<thead><tr><th>Component</th><th>Definition</th><th>Identify by</th><th>Interpretive anchor</th><th>Caution</th></tr></thead>
+<tbody>
+<tr><td>E-A</td><td>Aggression outward</td><td>Blame/irritation at others/things</td><td>Externalising style</td><td>≠ violence</td></tr>
+<tr><td>I-A</td><td>Aggression on self</td><td>Guilt/self-blame</td><td>Self-critical style / super-ego</td><td>≠ depression</td></tr>
+<tr><td>M-A</td><td>Aggression turned aside</td><td>Minimising/excusing</td><td>Glossing-over</td><td>≠ good adjustment</td></tr>
+<tr><td>O-D</td><td>Obstacle stands out</td><td>Apostrophe factors</td><td>Preoccupation with barrier</td><td>May be transient</td></tr>
+<tr><td>E-D</td><td>Ego predominates</td><td>Capital factors</td><td>Ego strength/weakness</td><td>Read vs ~51% norm</td></tr>
+<tr><td>N-P</td><td>Solution emphasised</td><td>Lowercase factors</td><td>Adaptive adequacy</td><td>Confirm behaviourally</td></tr>
+<tr><td>GCR</td><td>Conformity to group modes</td><td>12 criteria, ÷12</td><td>Adjustment to normal group</td><td>Not normality per se</td></tr>
+<tr><td>Trends</td><td>Half-to-half shift</td><td>(a&minus;b)/(a+b)</td><td>Consistency / instability</td><td>Needs base ≥4 &amp; Table 2</td></tr>
+</tbody>
+</table></div>
+
+<div class="box pearl"><span class="lab">Examiner traps (conceptual confusions)</span>
+<ul>
+  <li>Confusing <span class="scode">E&#39;</span> (obstacle/irritation) with <span class="scode">E</span> (blaming a person).</li>
+  <li>Forgetting that superego items flip <span class="scode">E&#39;</span>→<span class="scode">I&#39;</span>.</li>
+  <li>Using denominator 24 for GCR (it is 12) or 12 for the profile (it is 24).</li>
+  <li>Treating "extrapunitive" as a synonym for the whole E-A direction — it names only the <b>E-D</b> factor.</li>
+  <li>Reading a raw percentage without comparing it to the norm and S.D.</li>
+</ul></div>
+</section>
+
+<footer>
+  <div>Rosenzweig Picture-Frustration Study — Clinical Psychology Study Guide</div>
+  <div class="small" style="margin-top:6px;">Built from <i>The Indian Adaptation of the Rosenzweig Picture-Frustration Study (Adult Form)</i> — Pareek, Devi &amp; Rosenzweig, Rupa Psychological Corporation, Varanasi, 1968. Stimulus plates, full keys and large tables are copyrighted and are paraphrased, not reproduced.</div>
+  <div class="cr">Made by Tejas Dangodra</div>
+</footer>
+
+</div>
+
+<script>
+/* Content protection. Client-side deterrent only — it discourages casual
+   copying but cannot fully stop a determined user. */
+(function(){
+  var NOTICE = "Made by Tejas Dangodra — All Rights Reserved. \u00A9 Tejas Dangodra. "
+             + "This content is protected. Unauthorised copying is not permitted.";
+
+  // Replace clipboard payload on copy / cut.
+  function guardClipboard(e){
+    try{
+      if(e.clipboardData){
+        e.clipboardData.setData('text/plain', NOTICE);
+        e.preventDefault();
+      }
+    }catch(err){/* ignore */}
+  }
+  document.addEventListener('copy', guardClipboard);
+  document.addEventListener('cut', guardClipboard);
+
+  // Block right-click context menu and drag of content.
+  document.addEventListener('contextmenu', function(e){ e.preventDefault(); });
+  document.addEventListener('dragstart', function(e){ e.preventDefault(); });
+
+  // Block common copy / save / print / view-source / devtools shortcuts.
+  document.addEventListener('keydown', function(e){
+    var k = (e.key || '').toLowerCase();
+    var ctrl = e.ctrlKey || e.metaKey;
+    // F12 -> devtools
+    if(e.key === 'F12'){ e.preventDefault(); return; }
+    if(ctrl && ['c','x','s','u','p','a'].indexOf(k) !== -1){ e.preventDefault(); return; }
+    // Ctrl/Cmd+Shift+I / J / C -> devtools
+    if(ctrl && e.shiftKey && ['i','j','c'].indexOf(k) !== -1){ e.preventDefault(); return; }
+  });
+})();
+</script>
+</body>
+</html>
