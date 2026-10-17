@@ -15,8 +15,11 @@ body{margin:0; font-family:"Segoe UI",Candara,Calibri,system-ui,Arial,sans-serif
   line-height:1.6; font-size:11.3pt; background:#fff;}
 /* ---- PAGE SETUP ---- */
 @page{ size:A4; margin:17mm 15mm 18mm; }
-.page{ page-break-after:always; }
-.page:last-child{ page-break-after:auto; }
+/* Cover gets its own page; long content sections flow naturally and start fresh
+   at each major heading, avoiding half-empty pages after over-length blocks. */
+.cover{ page-break-after:always; break-after:page; }
+.page > h2.sec{ page-break-before:always; break-before:page; }
+.page.closing{ page-break-before:always; break-before:page; }
 /* ---- COVER ---- */
 .cover{ display:flex; flex-direction:column; justify-content:center; align-items:center;
   text-align:center; min-height:255mm; background:linear-gradient(160deg,var(--lavender),var(--powder) 55%,var(--mint));
@@ -112,7 +115,7 @@ h2.sec, h3, .tech, table, .scriptcard, .callout{ break-inside:avoid; }
     <li>Glossary of difficult terms</li>
   </ol>
   <div class="callout tip"><b>How to use the set.</b> <b>Book One</b> (this volume) teaches you the <i>theory and techniques</i>. <b>Book Two</b> is the <i>session-by-session guide and worksheet pack</i> — it shows exactly which technique to use in which session, and provides long, comprehensive, ready-to-use worksheets (including MET short-term and long-term goal worksheets).</div>
-  <div class="footer-note">Dango_Psych — Tejas Dangodra · MET Book One: Theory &amp; Techniques</div>
+  <div class="footer-note">MET · Book One — Theory &amp; Techniques</div>
 </div>
 
 <!-- ========== 1-2 ABOUT & SOURCES ========== -->
@@ -132,7 +135,7 @@ h2.sec, h3, .tech, table, .scriptcard, .callout{ break-inside:avoid; }
   <h3>Tags used</h3>
   <p><span class="pill model">MANUAL MODEL</span> established MET/MI procedure · <span class="pill supp">SUPPLEMENTARY</span> clinical extension for de-addiction/extended practice · <span class="pill ad">ADOLESCENT</span> youth adaptation.</p>
   <div class="callout safety"><strong>⚠ Safety (throughout both books):</strong> MET does <b>not</b> replace medical assessment, detoxification <span class="defn">(medically-supervised withdrawal)</span>, overdose prevention, pharmacotherapy <span class="defn">(treatment with medicines)</span>, or emergency psychiatric care. For opioids assess overdose risk and arrange naloxone <span class="defn">(antidote reversing opioid overdose)</span> and medications for opioid use disorder (MOUD). MET <i>complements</i> medical &amp; addiction treatment.</div>
-  <div class="footer-note">Dango_Psych — Tejas Dangodra · MET Book One: Theory &amp; Techniques</div>
+  <div class="footer-note">MET · Book One — Theory &amp; Techniques</div>
 </div>
 
 <!-- ========== 3-4 WHAT MET IS ========== -->
@@ -160,7 +163,7 @@ h2.sec, h3, .tech, table, .scriptcard, .callout{ break-inside:avoid; }
         <td>MI spirit + systematic feedback + defined structure.</td></tr>
   </table>
   <div class="callout key"><b>One-line summary:</b> <b>MET = MI style + personalised feedback + a defined brief structure.</b> Every MET session uses MI; not every use of MI is MET.</div>
-  <div class="footer-note">Dango_Psych — Tejas Dangodra · MET Book One: Theory &amp; Techniques</div>
+  <div class="footer-note">MET · Book One — Theory &amp; Techniques</div>
 </div>
 
 <!-- ========== 5 THEORETICAL FOUNDATIONS ========== -->
@@ -195,7 +198,7 @@ h2.sec, h3, .tech, table, .scriptcard, .callout{ break-inside:avoid; }
 
   <h3>5.6 Self-determination theory (Deci &amp; Ryan)</h3>
   <p>Durable motivation depends on satisfying three needs: <b>autonomy, competence</b> <span class="defn">(feeling capable)</span> and <b>relatedness</b> <span class="defn">(feeling connected)</span>. MET feeds all three: autonomy via choice, competence via self-efficacy work, relatedness via the empathic alliance. This is why <i>intrinsic</i> motivation (internalised, self-endorsed) outlasts <i>extrinsic</i> pressure (court, family).</p>
-  <div class="footer-note">Dango_Psych — Tejas Dangodra · MET Book One: Theory &amp; Techniques</div>
+  <div class="footer-note">MET · Book One — Theory &amp; Techniques</div>
 </div>
 
 <!-- ========== 6 CORE CONCEPTS ========== -->
@@ -221,7 +224,7 @@ h2.sec, h3, .tech, table, .scriptcard, .callout{ break-inside:avoid; }
 
   <h3>Self-efficacy &amp; personal responsibility</h3>
   <p>The responsibility and the choice to change remain with the patient throughout. This both respects autonomy and, paradoxically, increases the likelihood of change.</p>
-  <div class="footer-note">Dango_Psych — Tejas Dangodra · MET Book One: Theory &amp; Techniques</div>
+  <div class="footer-note">MET · Book One — Theory &amp; Techniques</div>
 </div>
 
 <!-- ========== 7-8 SPIRIT & RIGHTING REFLEX ========== -->
@@ -248,7 +251,7 @@ h2.sec, h3, .tech, table, .scriptcard, .callout{ break-inside:avoid; }
   <h3>Why confrontation, arguing, blaming &amp; lecturing backfire</h3>
   <p>The <b>“righting reflex”</b> <span class="defn">(the helper's natural urge to fix things and set the person straight)</span> is the most common clinical trap. When a clinician argues for change, <b>psychological reactance</b> leads the patient to argue the other side — effectively talking themselves <i>into</i> continued use. Labelling (“you're an addict in denial”) provokes shame and defence. In MET, if the patient is defending use, the <b>therapist changes course</b> — reflect, roll with it, re-affirm autonomy.</p>
   <div class="callout key"><b>The MET maxim:</b> arguments for change should come from the <i>patient's</i> mouth, not the therapist's.</div>
-  <div class="footer-note">Dango_Psych — Tejas Dangodra · MET Book One: Theory &amp; Techniques</div>
+  <div class="footer-note">MET · Book One — Theory &amp; Techniques</div>
 </div>
 
 <!-- ========== 9 TECHNIQUES A & B ========== -->
@@ -284,7 +287,7 @@ h2.sec, h3, .tech, table, .scriptcard, .callout{ break-inside:avoid; }
   <div class="tech"><h4>Double-sided reflection <span class="tag">B3</span></h4><p><b>What/How:</b> hold both sides of ambivalence in one sentence, ending on the change side (recency effect). <b>Example:</b> “You enjoy how it relaxes you, <i>and</i> you're worried about your health.”</p></div>
   <div class="tech"><h4>Amplified reflection <span class="tag">B4</span></h4><p><b>What/How:</b> reflect sustain talk slightly over-stated so the patient self-corrects — use sparingly &amp; without sarcasm. <b>Example:</b> P: “It's not that bad.” → T: “So there's really no downside at all.” → P: “Well, the debt <i>is</i> bad…”</p></div>
   <div class="tech"><h4>Reflection of feeling <span class="tag">B5</span></h4><p><b>What/How:</b> name the emotion to deepen empathy. <b>Example:</b> “That really frightened you.”</p></div>
-  <div class="footer-note">Dango_Psych — Tejas Dangodra · MET Book One: Theory &amp; Techniques</div>
+  <div class="footer-note">MET · Book One — Theory &amp; Techniques</div>
 </div>
 
 <!-- ========== 9 TECHNIQUES C ========== -->
@@ -299,7 +302,7 @@ h2.sec, h3, .tech, table, .scriptcard, .callout{ break-inside:avoid; }
   <div class="tech"><h4>Elaborating / asking for examples <span class="tag">C6</span></h4><p><b>What/How:</b> when change talk appears, deepen it. <b>Example:</b> “Tell me more about that.” / “When was the last time that happened?”</p></div>
   <div class="tech"><h4>The key question <span class="tag">C7</span></h4><p><b>What/How:</b> an open question that opens the transition to planning, asked after a good summary. <b>Example:</b> “So, where does this leave you?”</p></div>
   <div class="tech"><h4>Affirming &amp; summarising change talk (the “bouquet”) <span class="tag">C8</span></h4><p><b>What/How:</b> gather the patient's change statements and hand them back. <b>Example:</b> “You've named three strong reasons — your health, your marriage, and the money.”</p></div>
-  <div class="footer-note">Dango_Psych — Tejas Dangodra · MET Book One: Theory &amp; Techniques</div>
+  <div class="footer-note">MET · Book One — Theory &amp; Techniques</div>
 </div>
 
 <!-- ========== 9 TECHNIQUES D & E ========== -->
@@ -319,7 +322,7 @@ h2.sec, h3, .tech, table, .scriptcard, .callout{ break-inside:avoid; }
   <div class="tech"><h4>Personalised assessment feedback <span class="tag">E2</span></h4><p><b>What:</b> the defining MET “enhancement” — present the patient's assessment results against norms, neutrally, one finding at a time. <b>Example:</b> “Your reported use is in the high-risk range compared with most men your age. How does that land?”</p></div>
   <div class="tech"><h4>Ask permission <span class="tag">E3</span></h4><p><b>What/How:</b> always precede advice/info with a request — protects autonomy. <b>Example:</b> “Would it be okay if I shared something I've seen help others?”</p></div>
   <div class="tech"><h4>Menu of options <span class="tag">E4</span></h4><p><b>What/How:</b> offer choices rather than a single prescription. <b>Example:</b> “Some people try X, others Y or Z — what fits you best?”</p></div>
-  <div class="footer-note">Dango_Psych — Tejas Dangodra · MET Book One: Theory &amp; Techniques</div>
+  <div class="footer-note">MET · Book One — Theory &amp; Techniques</div>
 </div>
 
 <!-- ========== 9 TECHNIQUES F & G ========== -->
@@ -347,7 +350,7 @@ h2.sec, h3, .tech, table, .scriptcard, .callout{ break-inside:avoid; }
     <li><b>Confidentiality balanced with safeguarding</b> and age-appropriate family involvement.</li>
   </ul>
   <p class="src" style="font-size:9pt;color:var(--muted)">Techniques drawn from Miller &amp; Rollnick (MI 3e), the Project MATCH MET Manual, Naar-King &amp; Suarez, and relapse-prevention literature (Marlatt &amp; Gordon).</p>
-  <div class="footer-note">Dango_Psych — Tejas Dangodra · MET Book One: Theory &amp; Techniques</div>
+  <div class="footer-note">MET · Book One — Theory &amp; Techniques</div>
 </div>
 
 <!-- ========== 10 DARN-CAT ========== -->
@@ -382,7 +385,7 @@ h2.sec, h3, .tech, table, .scriptcard, .callout{ break-inside:avoid; }
     <tr><td>“You need rehab now.”</td><td>“There are a few options — shall we walk through them together?”</td></tr>
     <tr><td>“Stop lying about how much you use.”</td><td>“Exact amounts are hard to pin down. Roughly, on a heavy day?”</td></tr>
   </table>
-  <div class="footer-note">Dango_Psych — Tejas Dangodra · MET Book One: Theory &amp; Techniques</div>
+  <div class="footer-note">MET · Book One — Theory &amp; Techniques</div>
 </div>
 
 <!-- ========== 11 EVIDENCE ========== -->
@@ -406,7 +409,7 @@ h2.sec, h3, .tech, table, .scriptcard, .callout{ break-inside:avoid; }
     <li><b>Appropriate referral &amp; multidisciplinary care</b> — coordinate with physicians, psychiatry, social work and community resources.</li>
     <li>Do <b>not overstate efficacy</b> or claim motivation alone resolves dependence.</li>
   </ul>
-  <div class="footer-note">Dango_Psych — Tejas Dangodra · MET Book One: Theory &amp; Techniques</div>
+  <div class="footer-note">MET · Book One — Theory &amp; Techniques</div>
 </div>
 
 <!-- ========== 12 GLOSSARY ========== -->
