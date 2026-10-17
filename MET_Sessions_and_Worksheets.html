@@ -32,8 +32,20 @@ body{margin:0; font-family:"Segoe UI",Candara,Calibri,system-ui,Arial,sans-serif
 .ws.compact .ws-review{ padding:7px 10px; margin-top:8px; font-size:8.6pt; }
 .ws.compact p{ margin:4px 0; }
 .ws.compact .checkrow{ margin:3px 0; font-size:9pt; }
-.page > h2.sec{ page-break-before:always; break-before:page; }
+/* Major Part dividers and the closing page start fresh; ordinary section
+   headings do NOT force a break, so content flows and fills each page. */
+.page.breakbefore{ page-break-before:always; break-before:page; }
 .page.closing{ page-break-before:always; break-before:page; }
+/* Session content flows continuously to fill every page (no large trailing
+   gaps). We only avoid orphaned headings: keep a session's phase title and its
+   techniques line with the text that follows, and never break right after a
+   heading. */
+.sess{ page-break-inside:auto; }
+.sess .phase, .sess .sessionhead{ break-inside:avoid; break-after:avoid; }
+.sess .phase{ break-before:auto; }
+h4{ break-after:avoid; }
+h2.sec{ break-after:avoid; }
+.scriptcard, .step-list, table{ break-inside:avoid; }
 
 /* cover */
 .cover{ display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center;
@@ -115,7 +127,7 @@ h2.sec,h3,table,.scriptcard,.callout,.sessionhead,.step-list li{ break-inside:av
 </div>
 
 <!-- CONTENTS -->
-<div class="page">
+<div class="page breakbefore">
   <h2 class="sec">Contents — Book Two</h2>
   <div class="grid2">
     <div class="box">
@@ -165,7 +177,7 @@ h2.sec,h3,table,.scriptcard,.callout,.sessionhead,.step-list li{ break-inside:av
 </div>
 
 <!-- HOW TO USE + ASSESSMENT -->
-<div class="page">
+<div class="page breakbefore">
   <h2 class="sec">Part A · How to Use This Guide</h2>
   <p class="lead">This book turns the theory and techniques of Book One into action. Each session lists the <b>techniques used</b> (with their Book-One codes, e.g. A3 = reflective listening, C2 = rulers) so you can see exactly which skill to apply when.</p>
   <div class="callout tip"><b>Technique code key (full detail in Book One §9).</b> <b>A</b> = OARS (A1 open Qs, A2 affirmations, A3 reflections, A4 summaries); <b>B</b> = reflections (B1 simple…B5 feeling); <b>C</b> = evoking (C1 evocative Qs, C2 rulers, C3 extremes, C4 look back/forward, C5 values, C6 elaborate, C7 key question, C8 bouquet); <b>D</b> = sustain talk/discord (D1 roll, D2 autonomy, D3 reframe, D4 agree-with-twist, D5 shift, D6 come alongside, D7 repair); <b>E</b> = info (E1 E-P-E, E2 feedback, E3 permission, E4 menu); <b>F</b> = planning/relapse (F1 decisional balance … F13 boosters).</div>
@@ -187,9 +199,9 @@ h2.sec,h3,table,.scriptcard,.callout,.sessionhead,.step-list li{ break-inside:av
 </div>
 
 <!-- PHASE I -->
-<div class="page">
+<div class="page breakbefore">
   <h2 class="sec">Phase I · Engagement &amp; Assessment Feedback (S1–3)</h2>
-  <div class="phase">Session 1 · Engagement &amp; Rapport</div>
+  <div class="sess"><div class="phase">Session 1 · Engagement &amp; Rapport</div>
   <div class="sessionhead"><div class="n">Session 1</div><div class="tech"><b>Techniques used:</b> A1 open questions · A3 reflective listening · A2 affirmations · A4 summaries · D2 autonomy · B2 complex reflection &nbsp;|&nbsp; <b>Worksheet:</b> #1</div></div>
   <p><b>Objectives:</b> establish a trusting, collaborative alliance; orient the patient to MET; understand their world; instil hope. <b>Rationale:</b> engagement predicts retention — nothing works without it. <b>Preparation:</b> private space; review referral; set a non-rushed tone; prepare consent/confidentiality points.</p>
   <h4>Step-by-step</h4>
@@ -197,7 +209,7 @@ h2.sec,h3,table,.scriptcard,.callout,.sessionhead,.step-list li{ break-inside:av
   <div class="scriptcard"><span class="t">T:</span> “Thanks for coming in. Before anything else — what's been going on in your life lately, in your own words?”<br><span class="p">P:</span> <span class="st">“Honestly, I'm only here because my wife pushed me.”</span><br><span class="t">T (D2 + B2):</span> “You came partly for her — and whatever we do here is still your choice. While you're here, what would make this time worth it for <i>you</i>?”<br><span class="p">P:</span> <span class="ct">“I suppose I'm tired of the arguments.”</span></div>
   <p><b>Common mistakes:</b> rushing to forms before rapport; siding with family against the patient; correcting denial; filling silences. <b>Homework:</b> notice one thing about use they'd want different. <b>Documentation:</b> engagement quality, stated reason for attending, early change/sustain talk, agenda, risk screen. <b>Move on when:</b> a working alliance exists &amp; the patient will continue.</p>
 
-  <div class="phase">Session 2 · Personalised Assessment Feedback</div>
+  </div><div class="sess"><div class="phase">Session 2 · Personalised Assessment Feedback</div>
   <div class="sessionhead"><div class="n">Session 2</div><div class="tech"><b>Techniques used:</b> E3 ask permission · E2 personalised feedback · E1 Elicit-Provide-Elicit · B3 double-sided reflection · A4 summary · C2 rulers &nbsp;|&nbsp; <b>Worksheets:</b> #2, #4, #5, #6</div></div>
   <p><b>Objectives:</b> deliver structured, personalised assessment feedback in MI style (the “enhancement”); let the patient draw their own conclusions. <b>Rationale:</b> objective feedback given without argument raises motivation while protecting autonomy. <b>Preparation:</b> a one-page feedback sheet (levels vs norms, risk markers, consequences); rulers ready.</p>
   <h4>Step-by-step (E-P-E)</h4>
@@ -205,20 +217,20 @@ h2.sec,h3,table,.scriptcard,.callout,.sessionhead,.step-list li{ break-inside:av
   <div class="scriptcard"><span class="t">T (E2):</span> “Your reported use is in the high-risk range compared with most men your age. How does that land?”<br><span class="p">P:</span> <span class="st">“I don't use more than my friends.”</span><br><span class="t">T (B3):</span> “Among your circle this feels normal — and seeing it in the high-risk range is a surprise.”<br><span class="p">P:</span> <span class="ct">“The liver result did scare me a bit.”</span></div>
   <p><b>Mistakes:</b> lecturing from the sheet; dumping all findings at once; pushing a goal too early. <b>Homework:</b> reflect on which feedback felt most relevant. <b>Move on when:</b> the patient engages with the feedback and voices some concern.</p>
 
-  <div class="phase">Session 3 · Developing Discrepancy &amp; Mapping Readiness</div>
+  </div><div class="sess"><div class="phase">Session 3 · Developing Discrepancy &amp; Mapping Readiness</div>
   <div class="sessionhead"><div class="n">Session 3</div><div class="tech"><b>Techniques used:</b> C2 rulers · C5 values/discrepancy · A3 reflection · C8 summarise change talk · B2 complex reflection &nbsp;|&nbsp; <b>Worksheets:</b> #4, #5, #6, #8</div></div>
   <p><b>Objectives:</b> develop discrepancy between use and the patient's goals/values; map importance, confidence &amp; readiness. <b>Rationale:</b> discrepancy felt in the patient's own terms is the motor of change. <b>Preparation:</b> ruler &amp; “why this number” prompts.</p>
   <h4>Step-by-step</h4>
   <ol class="step-list"><li>Review the week &amp; any homework.</li><li>Importance ruler → “why that number?” → “why not lower?” (C2).</li><li>Confidence ruler the same way (C2).</li><li>Reflect/summarise all change talk (C8).</li><li>Gently hold up the gap: current use vs stated hopes (C5).</li></ol>
   <div class="scriptcard"><span class="t">T:</span> “On 0–10, how important is changing right now?” → <span class="p">P:</span> “Maybe a 6.” → <span class="t">T:</span> “Why a 6 and not a 3?” → <span class="p">P:</span> <span class="ct">“My health scares me and my wife's at her limit.”</span> → <span class="t">T:</span> “What would move it from a 6 to an 8?”</div>
-  <p><b>Mistakes:</b> creating discrepancy by lecturing; treating ruler numbers as diagnoses. <b>Move on to Phase II when:</b> the patient voices meaningful discrepancy and some desire/reason to change.</p>
+  <p><b>Mistakes:</b> creating discrepancy by lecturing; treating ruler numbers as diagnoses. <b>Move on to Phase II when:</b> the patient voices meaningful discrepancy and some desire/reason to change.</p></div>
   <div class="footer-note">MET · Book Two — Session-by-Session Guide &amp; Worksheet Pack</div>
 </div>
 
 <!-- PHASE II -->
 <div class="page">
   <h2 class="sec">Phase II · Evoking Motivation (S4–6)</h2>
-  <div class="phase">Session 4 · Exploring Ambivalence &amp; Decisional Balance</div>
+  <div class="sess"><div class="phase">Session 4 · Exploring Ambivalence &amp; Decisional Balance</div>
   <div class="sessionhead"><div class="n">Session 4</div><div class="tech"><b>Techniques used:</b> F1 decisional balance · C1 evocative questions · B3 double-sided reflection · D2 autonomy · C7 key question &nbsp;|&nbsp; <b>Worksheets:</b> #7, #11</div></div>
   <p><b>Objectives:</b> explore the real benefits <i>and</i> costs of using and of changing; let the balance tip in the patient's own words. <b>Rationale:</b> honouring perceived benefits first lowers defensiveness. <b>Preparation:</b> decisional-balance worksheet; resist arguing the pro-change side.</p>
   <h4>Step-by-step</h4>
@@ -226,7 +238,7 @@ h2.sec,h3,table,.scriptcard,.callout,.sessionhead,.step-list li{ break-inside:av
   <div class="scriptcard"><span class="t">T:</span> “What are the good things about using — the things you'd miss?” → <span class="p">P:</span> “It calms me after work.” → <span class="t">T:</span> “And the not-so-good side?” → <span class="p">P:</span> <span class="ct">“I'm broke, and we fight about it.”</span> → <span class="t">T (C7):</span> “Given both sides, where does that leave you?”</div>
   <p><b>Mistakes:</b> listing only cons of use; taking the pro-change side (patient then argues for use). <b>Move on when:</b> costs of using and benefits of change feature prominently in the patient's speech.</p>
 
-  <div class="phase">Session 5 · Personal Values &amp; Developing Discrepancy</div>
+  </div><div class="sess"><div class="phase">Session 5 · Personal Values &amp; Developing Discrepancy</div>
   <div class="sessionhead"><div class="n">Session 5</div><div class="tech"><b>Techniques used:</b> C5 values/discrepancy · C4 looking back/forward · A3 reflection · C6 elaborate · C8 bouquet &nbsp;|&nbsp; <b>Worksheets:</b> #8, #9</div></div>
   <p><b>Objectives:</b> connect change to core values &amp; life goals; deepen discrepancy; strengthen intrinsic motivation. <b>Rationale:</b> change rooted in values is more durable than change driven by fear or pressure. <b>Preparation:</b> values worksheet; allow silences to work.</p>
   <h4>Step-by-step</h4>
@@ -234,20 +246,20 @@ h2.sec,h3,table,.scriptcard,.callout,.sessionhead,.step-list li{ break-inside:av
   <div class="scriptcard"><span class="t">T:</span> “Being a good father is everything to you. How does using fit with the father you want to be?” → <span class="p">P:</span> <span class="ct">“It doesn't. That's not who I want to be.”</span> → <span class="t">T:</span> “There's a real gap between how you're living and who you want to be — and you want to close it.”</div>
   <p><b>Mistakes:</b> imposing your values/moralising; rushing past emotion. <b>Move on when:</b> the patient articulates a values-based reason for change.</p>
 
-  <div class="phase">Session 6 · Building Confidence &amp; Self-Efficacy</div>
+  </div><div class="sess"><div class="phase">Session 6 · Building Confidence &amp; Self-Efficacy</div>
   <div class="sessionhead"><div class="n">Session 6</div><div class="tech"><b>Techniques used:</b> C2 confidence ruler · F10 supporting self-efficacy · A2 affirmations · C4 looking back · C6 elaborate &nbsp;|&nbsp; <b>Worksheets:</b> #5, #9, #12</div></div>
   <p><b>Objectives:</b> raise confidence that change is possible; address the “I want to but I can't” gap; surface strengths, supports &amp; past successes. <b>Rationale:</b> importance and confidence are independent — high importance + low confidence needs efficacy-building, not more reasons. <b>Preparation:</b> confidence ruler; strengths worksheet.</p>
   <h4>Step-by-step</h4>
   <ol class="step-list"><li>Confidence ruler → “why that number?” → “why not lower?” (C2).</li><li>Review past successes (any domain) &amp; how they were achieved (C4, F10).</li><li>Elicit strengths, skills &amp; supports.</li><li>Ask “What would raise your confidence by one point?”.</li><li>Affirm; summarise ability change talk (A2).</li></ol>
   <div class="scriptcard"><span class="t">T:</span> “Confidence 0–10 that you could change if you decided?” → <span class="p">P:</span> “About a 3.” → <span class="t">T:</span> “Why a 3 and not a 0?” → <span class="p">P:</span> <span class="ct">“I did stop for three weeks once.”</span> → <span class="t">T (A2+F10):</span> “You've already proven you can — that's a strength. What would nudge the 3 toward a 5?”</div>
-  <p><b>Mistakes:</b> hollow reassurance; jumping to planning before confidence is adequate. <b>Move on to Phase III when:</b> importance <i>and</i> confidence are both reasonably present and the patient signals readiness.</p>
+  <p><b>Mistakes:</b> hollow reassurance; jumping to planning before confidence is adequate. <b>Move on to Phase III when:</b> importance <i>and</i> confidence are both reasonably present and the patient signals readiness.</p></div>
   <div class="footer-note">MET · Book Two — Session-by-Session Guide &amp; Worksheet Pack</div>
 </div>
 
 <!-- PHASE III -->
 <div class="page">
   <h2 class="sec">Phase III · Planning &amp; Action (S7–9)</h2>
-  <div class="phase">Session 7 · Negotiating the Change Plan</div>
+  <div class="sess"><div class="phase">Session 7 · Negotiating the Change Plan</div>
   <div class="sessionhead"><div class="n">Session 7</div><div class="tech"><b>Techniques used:</b> C7 key question · F2 change-plan negotiation · F3 SMART goals · E4 menu of options · C8 bouquet &nbsp;|&nbsp; <b>Worksheets:</b> #14, #15, ★#22, ★#23</div></div>
   <p><b>Objectives:</b> confirm readiness &amp; the chosen goal; co-create a concrete, patient-authored change plan. <b>Rationale:</b> a plan the patient writes carries commitment; a prescribed plan does not. <b>Preparation:</b> change-plan &amp; goal worksheets; know local treatment options.</p>
   <h4>Step-by-step</h4>
@@ -255,7 +267,7 @@ h2.sec,h3,table,.scriptcard,.callout,.sessionhead,.step-list li{ break-inside:av
   <div class="scriptcard"><span class="t">T (C7):</span> “Given all we've discussed, what do you think you'll do?” → <span class="p">P:</span> <span class="ct">“I want to stop the smack. I'll ask the doctor about the medicine.”</span> → <span class="t">T:</span> “What's the very first step this week — the appointment, telling your wife, or changing your evenings?”</div>
   <p><b>Mistakes:</b> writing the plan <i>for</i> the patient; over-ambitious goals. <b>Move on when:</b> a written, patient-owned plan with a concrete first step exists.</p>
 
-  <div class="phase">Session 8 · Triggers, High-Risk Situations &amp; Coping</div>
+  </div><div class="sess"><div class="phase">Session 8 · Triggers, High-Risk Situations &amp; Coping</div>
   <div class="sessionhead"><div class="n">Session 8</div><div class="tech"><b>Techniques used:</b> F4 functional analysis · F5 if-then plans · F6 urge-surfing · F7 play-the-tape · F8 refusal rehearsal &nbsp;|&nbsp; <b>Worksheets:</b> #10, #12, #13, #11</div></div>
   <p><b>Objectives:</b> identify triggers &amp; high-risk situations; build a personalised coping toolkit; begin craving management. <b>Rationale:</b> most lapses occur in predictable high-risk situations; planning for them protects the change. <b>Preparation:</b> triggers &amp; coping worksheets.</p>
   <h4>Step-by-step</h4>
@@ -263,44 +275,44 @@ h2.sec,h3,table,.scriptcard,.callout,.sessionhead,.step-list li{ break-inside:av
   <div class="scriptcard"><span class="t">T:</span> “When a craving hits in the evening, what tends to happen?” → <span class="p">P:</span> “I message my old group.” → <span class="t">T (F5):</span> “That message is the risky moment. What could you do in the 10 minutes before you'd normally send it?” → <span class="p">P:</span> <span class="ct">“Call my brother or go for a walk.”</span></div>
   <p><b>Mistakes:</b> generic advice not tied to real triggers; skipping rehearsal. <b>Move on when:</b> the patient has a concrete coping plan for their main triggers.</p>
 
-  <div class="phase">Session 9 · Social Support &amp; Pharmacotherapy Coordination</div>
+  </div><div class="sess"><div class="phase">Session 9 · Social Support &amp; Pharmacotherapy Coordination</div>
   <div class="sessionhead"><div class="n">Session 9</div><div class="tech"><b>Techniques used:</b> F11 social support · F12 pharmacotherapy coordination · E1 E-P-E · E4 menu · D2 autonomy &nbsp;|&nbsp; <b>Worksheets:</b> #12, #16</div></div>
   <p><b>Objectives:</b> strengthen the support network; address treatment adherence; coordinate medical &amp; pharmacological care; involve family where helpful. <b>Rationale:</b> social support and appropriate medication (MOUD, naltrexone, NRT) markedly improve outcomes. <b>Preparation:</b> referral pathways; optional family session.</p>
   <h4>Step-by-step</h4>
   <ol class="step-list"><li>Map who supports the patient &amp; how (F11).</li><li>Discuss medication neutrally via E-P-E; coordinate with the doctor (F12, E1).</li><li>Address adherence barriers — cost, transport, stigma, side-effects.</li><li>If appropriate, plan a supportive family session.</li><li>For opioids: naloxone counselling &amp; overdose-prevention plan.</li></ol>
   <div class="scriptcard"><span class="t">T (E1):</span> “What do you know about the medicine for opioid cravings? … May I add a little? … Buprenorphine can ease withdrawal so the counselling has room to work. What do you make of that?” → <span class="p">P:</span> <span class="ct">“If it helps the withdrawal, I'd try it.”</span></div>
-  <p><b>Mistakes:</b> pushing medication rather than offering via E-P-E; ignoring access barriers. <b>Move on to Phase IV when:</b> supports &amp; treatment are in place and the patient is enacting the plan.</p>
+  <p><b>Mistakes:</b> pushing medication rather than offering via E-P-E; ignoring access barriers. <b>Move on to Phase IV when:</b> supports &amp; treatment are in place and the patient is enacting the plan.</p></div>
   <div class="footer-note">MET · Book Two — Session-by-Session Guide &amp; Worksheet Pack</div>
 </div>
 
 <!-- PHASE IV -->
 <div class="page">
   <h2 class="sec">Phase IV · Maintenance &amp; Consolidation (S10–12 + boosters)</h2>
-  <div class="phase">Session 10 · Reviewing Early Change &amp; Reinforcing Self-Efficacy</div>
+  <div class="sess"><div class="phase">Session 10 · Reviewing Early Change &amp; Reinforcing Self-Efficacy</div>
   <div class="sessionhead"><div class="n">Session 10</div><div class="tech"><b>Techniques used:</b> A2 affirmations · F10 self-efficacy · A3 reflection · C6 elaborate &nbsp;|&nbsp; <b>Worksheet:</b> #17</div></div>
   <p><b>Objectives:</b> review progress &amp; setbacks without judgement; reinforce self-efficacy; adjust the plan. <b>Rationale:</b> early change is fragile; affirming genuine gains builds durable confidence.</p>
   <h4>Step-by-step</h4><ol class="step-list"><li>“What's gone well? What's been hard?”</li><li>Affirm concrete successes; attribute to effort (A2).</li><li>Explore any slips with curiosity, not blame.</li><li>Adjust steps/goals as needed.</li></ol>
   <div class="scriptcard"><span class="t">T:</span> “Two weeks with just one slip — real progress. What helped most?” → <span class="p">P:</span> <span class="ct">“Avoiding the market lane and calling my brother.”</span> → <span class="t">T (A2):</span> “You used your plan at the exact right moment — a skill you can repeat.”</div>
   <p><b>Mistakes:</b> focusing on slips over successes; generic praise.</p>
 
-  <div class="phase">Session 11 · Relapse Prevention &amp; Learning from Lapses</div>
+  </div><div class="sess"><div class="phase">Session 11 · Relapse Prevention &amp; Learning from Lapses</div>
   <div class="sessionhead"><div class="n">Session 11</div><div class="tech"><b>Techniques used:</b> F9 lapse-vs-relapse reframing · F5 if-then plans · F8 rehearsal · A2 affirmations &nbsp;|&nbsp; <b>Worksheets:</b> #18, #19</div></div>
   <p><b>Objectives:</b> strengthen relapse-prevention; distinguish a lapse from a relapse; create an emergency “if-then” plan; de-shame slips. <b>Rationale:</b> treating a lapse as total failure (abstinence-violation effect) is a key relapse driver.</p>
   <h4>Step-by-step</h4><ol class="step-list"><li>Identify remaining high-risk situations &amp; early warning signs.</li><li>Build “if-then” coping plans for each (F5).</li><li>Normalise lapses; separate lapse from relapse (F9).</li><li>Create an emergency plan (who to call, what to do).</li><li>Rehearse a difficult scenario (F8).</li></ol>
   <div class="scriptcard"><span class="t">T (F9):</span> “You used once last week and then stopped yourself. That slip doesn't erase three good weeks — what helped you get back on track?” → <span class="p">P:</span> <span class="ct">“I called my brother instead of my old friends.”</span></div>
   <p><b>Mistakes:</b> treating a lapse as failure; vague unrehearsed plans.</p>
 
-  <div class="phase">Session 12 · Consolidation, Continuing Care &amp; Discharge</div>
+  </div><div class="sess"><div class="phase">Session 12 · Consolidation, Continuing Care &amp; Discharge</div>
   <div class="sessionhead"><div class="n">Session 12</div><div class="tech"><b>Techniques used:</b> C8 bouquet/summary · A2 affirmations · F13 booster planning · C5 values &nbsp;|&nbsp; <b>Worksheets:</b> #20, #21, ★#22, ★#23</div></div>
   <p><b>Objectives:</b> consolidate gains; review the whole journey; arrange continuing care &amp; follow-up; close respectfully &amp; hopefully. <b>Rationale:</b> structured continuing care protects against drop-off after active treatment ends.</p>
   <h4>Step-by-step</h4><ol class="step-list"><li>Review progress from Session 1 to now; highlight growth (C8).</li><li>Surface remaining ambivalence; revisit the plan.</li><li>Agree a continuing-care pathway (clinic, group, follow-up dates, family role).</li><li>Affirm agency; leave the door open (A2).</li><li>Set booster/follow-up schedule (F13).</li></ol>
   <div class="scriptcard"><span class="t">T:</span> “Twelve weeks ago you were unsure change was even possible. Look at what you've built. What are you proudest of?” → <span class="p">P:</span> <span class="ct">“That my daughter trusts me again.”</span></div>
-  <div class="callout tip"><b>Booster sessions (F13):</b> brief contacts at <b>1, 3, 6 &amp; 12 months</b> — review progress → re-rate rulers → re-affirm change talk → update plan → reinforce continuing care. Especially valuable for opioids (relapse-overdose risk) and adolescents.</div>
+  <div class="callout tip"><b>Booster sessions (F13):</b> brief contacts at <b>1, 3, 6 &amp; 12 months</b> — review progress → re-rate rulers → re-affirm change talk → update plan → reinforce continuing care. Especially valuable for opioids (relapse-overdose risk) and adolescents.</div></div>
   <div class="footer-note">MET · Book Two — Session-by-Session Guide &amp; Worksheet Pack</div>
 </div>
 
 <!-- SUBSTANCE / ADO / CHALLENGES -->
-<div class="page">
+<div class="page breakbefore">
   <h2 class="sec">Substance-Specific Notes · Adolescents · Challenges</h2>
   <h3>Substance-specific adaptation (method constant, content differs)</h3>
   <table>
@@ -331,7 +343,7 @@ h2.sec,h3,table,.scriptcard,.callout,.sessionhead,.step-list li{ break-inside:av
 </div>
 
 <!-- ============ PART B WORKSHEETS ============ -->
-<div class="page">
+<div class="page breakbefore">
   <h2 class="sec">Part B · The Worksheet Pack</h2>
   <p class="lead">24 comprehensive, printable worksheets. Each starts on its own page with a clear <b>purpose</b>, step-by-step <b>“How to fill this in”</b> guidance, a worked example, generous space to write, and a clinician review note. Select worksheets by the patient's readiness — do not use all of them with every patient.</p>
   <div class="callout tip"><b>Choosing worksheets by phase:</b> Phase I–II (awareness/ambivalence): #1–#9. Phase III (planning/action): #10–#16, ★#22. Phase IV (maintenance): #17–#21, ★#23. The clinician session note (#24) is used after every session.</div>
