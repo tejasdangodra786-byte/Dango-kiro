@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Motivational Enhancement Therapy (MET) — Clinical Guide, Session Manual & Worksheets</title>
+<style>
+:root{
+  --lavender:#e8e4f3; --lilac:#d9cdeb; --powder:#dbe8f2; --sage:#dde8d8;
+  --mint:#d6efe4; --peach:#fbe6d4; --cream:#fdf9f0;
+  --ink:#2f2a3d; --muted:#6a6478; --line:#cfc6df;
+  --accent:#7c6aae; --accent2:#5b8a9b; --warn:#c6704a; --good:#4f8a6b;
+  --card:#ffffff; --shadow:0 2px 10px rgba(80,60,120,.10);
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0; font-family:"Segoe UI",system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif;
+  color:var(--ink); background:linear-gradient(180deg,var(--cream),#f3eefb);
+  line-height:1.6; font-size:16px;
+}
+header.hero{
+  background:linear-gradient(135deg,var(--lilac),var(--powder) 55%,var(--mint));
+  padding:48px 24px 40px; text-align:center; border-bottom:3px solid var(--line);
+}
+header.hero h1{margin:0 0 8px; font-size:2.1rem; letter-spacing:.3px; color:var(--ink);}
+header.hero p.sub{margin:4px 0; color:var(--muted); font-size:1.05rem;}
+.byline{display:inline-block; margin-top:14px; padding:8px 18px; background:rgba(255,255,255,.6);
+  border:1px solid var(--line); border-radius:40px; font-weight:600; color:var(--accent);}
+.layout{display:flex; max-width:1180px; margin:0 auto; gap:22px; padding:22px;}
+nav.toc{
+  position:sticky; top:12px; align-self:flex-start; flex:0 0 260px; max-height:calc(100vh - 24px);
+  overflow:auto; background:var(--card); border:1px solid var(--line); border-radius:14px;
+  padding:16px; box-shadow:var(--shadow); font-size:.92rem;
+}
+nav.toc h3{margin:4px 0 10px; font-size:.8rem; text-transform:uppercase; letter-spacing:1px; color:var(--accent2);}
+nav.toc a{display:block; padding:5px 8px; color:var(--ink); text-decoration:none; border-radius:7px; margin-bottom:1px;}
+nav.toc a:hover{background:var(--lavender);}
+nav.toc a.sub{padding-left:20px; font-size:.86rem; color:var(--muted);}
+#searchBox{width:100%; padding:9px 10px; border:1px solid var(--line); border-radius:9px; margin-bottom:12px; font-size:.9rem;}
+main{flex:1 1 auto; min-width:0;}
+section.card{background:var(--card); border:1px solid var(--line); border-radius:16px;
+  padding:26px 28px; margin-bottom:26px; box-shadow:var(--shadow);}
+section.card>h2{margin-top:0; font-size:1.5rem; color:var(--accent); border-bottom:2px solid var(--lavender); padding-bottom:8px;}
+h3{color:var(--accent2); margin-top:26px;}
+h4{color:var(--ink); margin-bottom:4px;}
+a{color:var(--accent);}
+.lead{font-size:1.05rem; color:var(--muted);}
+.pill{display:inline-block; padding:2px 10px; border-radius:20px; font-size:.78rem; font-weight:600; margin:2px 4px 2px 0;}
+.pill.model{background:var(--lilac); color:#4a3b73;}
+.pill.supp{background:var(--peach); color:#8a4a28;}
+.callout{border-left:5px solid var(--accent2); background:var(--powder); padding:12px 16px; border-radius:0 10px 10px 0; margin:14px 0;}
+.callout.safety{border-color:var(--warn); background:#fbe8e0;}
+.callout.safety strong{color:var(--warn);}
+.callout.tip{border-color:var(--good); background:var(--mint);}
+.grid2{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
+@media(max-width:720px){.grid2{grid-template-columns:1fr;}}
+table{width:100%; border-collapse:collapse; margin:14px 0; font-size:.92rem;}
+th,td{border:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+th{background:var(--lavender); color:#43356e;}
+tr:nth-child(even) td{background:#faf7fe;}
+details.session{border:1px solid var(--line); border-radius:12px; margin:12px 0; overflow:hidden; background:#fcfaff;}
+details.session>summary{cursor:pointer; padding:14px 18px; font-weight:700; font-size:1.1rem;
+  background:linear-gradient(90deg,var(--lavender),#f6f1fc); color:#43356e; list-style:none;}
+details.session>summary::-webkit-details-marker{display:none;}
+details.session>summary::before{content:"▸ "; color:var(--accent);}
+details.session[open]>summary::before{content:"▾ ";}
+details.session .body{padding:6px 20px 18px;}
+.scriptcard{border:1px dashed var(--accent2); border-radius:10px; padding:12px 14px; margin:10px 0; background:#f3f8fb;}
+.scriptcard .t{color:var(--accent); font-weight:600;}
+.scriptcard .p{color:var(--accent2); font-weight:600;}
+.ct{color:var(--good); font-weight:600;}
+.st{color:var(--warn); font-weight:600;}
+ul.tight{margin:6px 0 6px 0; padding-left:22px;}
+ul.tight li{margin:3px 0;}
+.ruler{display:flex; gap:4px; margin:10px 0; flex-wrap:wrap;}
+.ruler span{flex:1; min-width:34px; text-align:center; padding:8px 0; border:1px solid var(--line); border-radius:7px; background:var(--cream); font-weight:600;}
+.ruler span.z{background:#fbe8e0;} .ruler span.m{background:var(--peach);} .ruler span.h{background:var(--mint);}
+.worksheet{border:2px solid var(--lilac); border-radius:14px; padding:20px 22px; margin:20px 0; background:#fffdfb; page-break-inside:avoid;}
+.worksheet h3{margin-top:0; color:#5a4790;}
+.worksheet .meta{font-size:.9rem; color:var(--muted);}
+.blankline{border-bottom:1px solid #b9afce; height:26px; margin:6px 0;}
+.example{background:var(--mint); border-radius:9px; padding:10px 14px; margin:10px 0; font-size:.93rem;}
+.example b{color:var(--good);}
+.fieldbox{border:1px solid var(--line); border-radius:8px; min-height:46px; padding:8px; margin:6px 0; background:#fff;}
+.checkrow{display:flex; align-items:center; gap:8px; margin:5px 0;}
+.checkrow .box{width:16px;height:16px;border:1.5px solid var(--accent); border-radius:4px; flex:0 0 auto;}
+.flow{display:flex; flex-direction:column; gap:0; margin:16px 0;}
+.flow .step{background:var(--powder); border:1px solid var(--line); border-radius:10px; padding:10px 14px; position:relative;}
+.flow .arrow{text-align:center; color:var(--accent); font-size:1.3rem; line-height:1;}
+.vignette{border-left:5px solid var(--lilac); background:#faf7fe; border-radius:0 12px 12px 0; padding:14px 18px; margin:16px 0;}
+.quickref{background:linear-gradient(135deg,var(--mint),var(--powder)); border:2px solid var(--accent2); border-radius:16px; padding:22px;}
+.quickref h3{color:#2f6476;}
+footer{text-align:center; padding:30px 20px; color:var(--muted); border-top:3px solid var(--line); background:var(--lavender); margin-top:20px;}
+footer .byline{background:#fff;}
+.src{font-size:.85rem; color:var(--muted);}
+.backtop{position:fixed; right:18px; bottom:18px; background:var(--accent); color:#fff; border:none; border-radius:50%; width:46px; height:46px; font-size:1.2rem; cursor:pointer; box-shadow:var(--shadow); display:none;}
+mark{background:#ffe9a8;}
+.badge{font-size:.72rem; padding:2px 8px; border-radius:12px; background:var(--sage); color:#3f5c38; font-weight:600;}
+@media print{
+  nav.toc,.backtop,#searchBox{display:none!important;}
+  .layout{display:block; padding:0;}
+  body{background:#fff; font-size:12px;}
+  section.card,.worksheet,details.session{box-shadow:none; break-inside:avoid;}
+  details.session{open:true;} details.session>.body{display:block!important;}
+  a{color:var(--ink); text-decoration:none;}
+  header.hero{background:#fff; border-bottom:2px solid #000;}
+}
+</style>
+</head>
+<body>
+<header class="hero">
+  <h1>Motivational Enhancement Therapy (MET)</h1>
+  <p class="sub">A Practical Clinical Guide, Session-by-Session Manual &amp; Worksheet Pack</p>
+  <p class="sub">For substance-use disorders &amp; de-addiction settings — opioids/smack, alcohol, tobacco &amp; other substances</p>
+  <div class="byline">Made by Tejas Dangodra &nbsp;•&nbsp; M.Phil. Clinical Psychology</div>
+</header>
+
+<div class="layout">
+<nav class="toc" aria-label="Table of contents">
+  <input id="searchBox" type="search" placeholder="🔍 Search handbook…" aria-label="Search">
+  <h3>Contents</h3>
+  <a href="#sources">0 · Sources &amp; Model</a>
+  <a href="#intro">1 · Introduction &amp; Theory</a>
+  <a href="#assessment">2 · Assessment Before MET</a>
+  <a href="#sessions">3 · Session-by-Session Guide</a>
+  <a href="#s1" class="sub">Session 1 · Feedback</a>
+  <a href="#s2" class="sub">Session 2 · Ambivalence</a>
+  <a href="#s3" class="sub">Session 3 · Change Plan</a>
+  <a href="#s4" class="sub">Session 4 · Continuing Care</a>
+  <a href="#skills">4 · MI Skills (OARS)</a>
+  <a href="#darn">5 · Change &amp; Sustain Talk</a>
+  <a href="#worksheets">6 · Worksheet Pack (22)</a>
+  <a href="#goals" class="sub">★ Short- &amp; Long-term Goals</a>
+  <a href="#substance">7 · Substance-Specific MET</a>
+  <a href="#challenges">8 · Clinical Challenges</a>
+  <a href="#vignettes">9 · Case Vignettes</a>
+  <a href="#docs">10 · Documentation</a>
+  <a href="#compare">11 · MET vs Other Approaches</a>
+  <a href="#evidence">12 · Evidence &amp; Ethics</a>
+  <a href="#quickref">★ Quick-Reference Guide</a>
+</nav>
+<main>
+
+<!-- ============ 0 SOURCES ============ -->
+<section class="card" id="sources">
+  <h2>0 · Sources, Model &amp; How to Read This Handbook</h2>
+  <p class="lead">This handbook teaches the practical clinical application of Motivational Enhancement Therapy, with a focus on de-addiction settings.</p>
+
+  <h3>Primary sources this handbook follows</h3>
+  <ul class="tight">
+    <li><b>Miller, W.R., Zweben, A., DiClemente, C.C., &amp; Rychtarik, R.G. (1992/1995).</b> <i>Motivational Enhancement Therapy Manual: A Clinical Research Guide for Therapists Treating Individuals With Alcohol Abuse and Dependence.</i> Project MATCH Monograph Series, Vol. 2. NIAAA (NIH Publication No. 94-3723). <span class="badge">manual model</span></li>
+    <li><b>Miller, W.R., &amp; Rollnick, S.</b> <i>Motivational Interviewing: Helping People Change</i> (3rd ed., 2013). Guilford Press. <span class="badge">MI method</span></li>
+    <li><b>Prochaska, J.O., &amp; DiClemente, C.C.</b> Transtheoretical / Stages of Change model.</li>
+    <li><b>WHO</b> — mhGAP and ASSIST (Alcohol, Smoking and Substance Involvement Screening Test) guidance; <b>NIDA</b> — <i>Principles of Drug Addiction Treatment</i>.</li>
+  </ul>
+  <p class="src">A scanned <i>Motivational_Enhancement_Therapy_Manual.pdf</i> and a NIMHANS substance-use text are present in this repository. The PDF is an image-only (OCR-unavailable) scan, so manual-specific procedures below are drawn from the published, verifiable Project MATCH MET Manual rather than invented from the scan.</p>
+
+  <div class="callout">
+    <b>MET is <u>not</u> the same as MI — but it is built from it.</b>
+    <table>
+      <tr><th>Motivational Interviewing (MI)</th><th>Motivational Enhancement Therapy (MET)</th></tr>
+      <tr><td>A <b>communication style / clinical method</b> — a way of being with people to evoke their own motivation. Not time-limited; it has no fixed number of sessions.</td>
+          <td>A <b>brief, manualised treatment</b> that <i>applies</i> MI and adds a key ingredient: <b>structured, personalised assessment feedback</b> delivered motivationally. In Project MATCH it was 4 sessions over 12 weeks.</td></tr>
+      <tr><td>Spirit: partnership, acceptance, compassion, evocation.</td>
+          <td>Spirit of MI + systematic feedback (the "E" = enhancement) + a negotiated change plan.</td></tr>
+    </table>
+    <p style="margin:4px 0 0">In short: <b>MET = MI style + personalised feedback + a defined brief structure.</b> Every MET session uses MI; not every use of MI is MET.</p>
+  </div>
+
+  <p><span class="pill model">MANUAL MODEL</span> = established Project MATCH / published procedure. &nbsp; <span class="pill supp">SUPPLEMENTARY</span> = my clinical suggestion for de-addiction practice, clearly distinguished as the prompt requires.</p>
+
+  <div class="callout safety"><strong>⚠ Safety note (applies throughout):</strong> MET does <b>not</b> replace medical evaluation, withdrawal (detox) management, overdose prevention, pharmacotherapy, or emergency psychiatric care. For opioids assess overdose risk and arrange naloxone and medications for opioid use disorder (OUD) where indicated. MET <i>complements</i> appropriate medical and addiction treatment.</div>
+</section>
+
+<!-- ============ 1 INTRODUCTION ============ -->
+<section class="card" id="intro">
+  <h2>1 · Introduction &amp; Theoretical Foundation</h2>
+
+  <h3>Definition, purpose &amp; rationale</h3>
+  <p>MET is a <b>brief, person-centred, directive</b> counselling approach that mobilises the patient's own motivation and resources for change. Its purpose is not to teach coping skills (that is CBT) but to <b>resolve ambivalence</b> and build commitment so the patient initiates and sustains change. The rationale: motivation is one of the strongest predictors of treatment engagement and outcome, and it can be <i>influenced</i> by the clinician's style.</p>
+
+  <h3>Person-centred, collaborative treatment</h3>
+  <p>The therapist is a <b>partner, not an expert fixing a passive patient</b>. Change is drawn <i>out of</i> the person (evocation), not installed. The patient is the authority on their own life.</p>
+
+  <div class="grid2">
+    <div>
+      <h4>Motivation is a changeable state, not a trait</h4>
+      <p>"Unmotivated" describes a <i>moment in an interaction</i>, not a fixed personality. The clinician's style can increase or decrease it.</p>
+      <h4>Ambivalence</h4>
+      <p>Feeling two ways ("I want to quit <i>and</i> I don't") is the <b>normal core of addiction</b>, not denial or pathology. MET works <i>through</i> ambivalence rather than treating it as an obstacle.</p>
+      <h4>Intrinsic vs extrinsic motivation</h4>
+      <p>Extrinsic (court, family, job) can get a person in the door; <b>intrinsic</b> reasons (their own values, health, children) sustain change. MET converts external pressure into internal reasons.</p>
+    </div>
+    <div>
+      <h4>Change talk vs sustain talk</h4>
+      <p><span class="ct">Change talk</span> = the patient's own statements favouring change. <span class="st">Sustain talk</span> = statements favouring the status quo. MET selectively evokes and reinforces change talk.</p>
+      <h4>Self-efficacy &amp; personal responsibility</h4>
+      <p>Belief that change is possible predicts it. The <b>responsibility and choice</b> to change stay with the patient — this reduces resistance.</p>
+      <h4>Empathy &amp; alliance</h4>
+      <p>Accurate, non-judgemental empathy is the single most consistent therapist factor linked to better substance-use outcomes.</p>
+    </div>
+  </div>
+
+  <h3>Why confrontation backfires</h3>
+  <p>Arguing, blaming, labelling ("you're an addict in denial"), and lecturing provoke <b>psychological reactance</b>: the patient defends the status quo and talks themselves <i>into</i> continued use. In MET, if the patient is arguing for not changing, the <b>therapist is doing something wrong</b> — step back, reflect, emphasise autonomy. "Roll with resistance" rather than meet it head-on.</p>
+
+  <h3>Core clinical frameworks (useful, not diagnostic)</h3>
+  <table>
+    <tr><th>Stage of change</th><th>What it looks like</th><th>MET task</th></tr>
+    <tr><td>Precontemplation</td><td>Not considering change; may feel coerced.</td><td>Raise awareness gently; build rapport; evoke concern. Do not push a plan.</td></tr>
+    <tr><td>Contemplation</td><td>Ambivalent — "yes but".</td><td>Tip the decisional balance; develop discrepancy; evoke change talk.</td></tr>
+    <tr><td>Preparation</td><td>Intending to act soon; some steps.</td><td>Strengthen commitment; negotiate a change plan.</td></tr>
+    <tr><td>Action</td><td>Actively changing.</td><td>Support self-efficacy; problem-solve; affirm.</td></tr>
+    <tr><td>Maintenance</td><td>Sustaining the change.</td><td>Relapse prevention; continuing care.</td></tr>
+    <tr><td>(Lapse/Relapse)</td><td>Return to use.</td><td>Normalise, de-shame, re-engage, learn from it.</td></tr>
+  </table>
+  <div class="callout safety"><strong>Caution:</strong> Stage, readiness, and the importance/confidence rulers are <b>clinical frameworks and conversation tools, not diagnostic tests</b>. A single ruler number is never a diagnosis and must not label a patient as "resistant" or "unmotivated."</div>
+  <p><b>Decisional balance</b> weighs the pros/cons of using vs changing. <b>Importance &amp; confidence rulers (0–10)</b> quickly map <i>why change matters</i> and <i>whether the person believes they can</i> — two independent dimensions that need different responses.</p>
+</section>
+
+<!-- ============ 2 ASSESSMENT ============ -->
+<section class="card" id="assessment">
+  <h2>2 · Assessment Before MET</h2>
+  <p class="lead">In the Project MATCH model, a structured assessment precedes MET, and its results are fed back to the patient in Session 1. Good assessment is itself motivational when done in MI style.</p>
+
+  <h3>Domains to cover</h3>
+  <table>
+    <tr><th>Domain</th><th>What to establish</th><th>Example questions &amp; probes</th></tr>
+    <tr><td>Present use</td><td>Substance(s), amount, frequency, <b>route</b> (oral/smoked/IV), duration, pattern.</td><td>"Walk me through a typical day of using." Probe: "How much on a heavy day vs a light day?"</td></tr>
+    <tr><td>Last use &amp; cravings</td><td>Recency, intensity/frequency of cravings, cue reactivity.</td><td>"When did you last use?" "On a 0–10, how strong do cravings get, and what sets them off?"</td></tr>
+    <tr><td>Triggers</td><td>People, places, emotions, times.</td><td>"What's usually happening right before you use?"</td></tr>
+    <tr><td>Consequences</td><td>Physical, psychological, family, work, legal, financial.</td><td>"What has using cost you — anything you've noticed, even small?"</td></tr>
+    <tr><td>Previous attempts &amp; treatment</td><td>What was tried, what helped, why it stopped.</td><td>"Tell me about a time you cut down or stopped. What worked even for a while?"</td></tr>
+    <tr><td>Withdrawal &amp; overdose risk</td><td>Past withdrawal severity, seizures/DTs, overdose history, injecting, mixing (opioids+benzos/alcohol).</td><td>"What happens to your body when you go without?" "Have you ever overdosed or passed out?"</td></tr>
+    <tr><td>Patient's understanding</td><td>Their own view of the problem.</td><td>"What's your sense of how the drug fits into your life right now?"</td></tr>
+    <tr><td>Readiness / importance / confidence</td><td>Rulers 0–10 for each.</td><td>"How important is changing, 0–10?" "How confident are you that you could, 0–10?"</td></tr>
+    <tr><td>Strengths &amp; supports</td><td>Skills, past successes, family, faith, employment.</td><td>"Who's in your corner?" "What have you succeeded at before, in or outside this?"</td></tr>
+    <tr><td>Barriers</td><td>Housing, peers, pain, co-use, stigma, access to care.</td><td>"What would make change hard?"</td></tr>
+    <tr><td>Goals &amp; preferences</td><td>Abstinence vs reduction; the patient's own goal.</td><td>"If things went well, what would you want to be different?"</td></tr>
+  </table>
+
+  <h3>Instruments commonly used</h3>
+  <p>WHO <b>ASSIST</b>, <b>AUDIT</b> (alcohol), <b>Fagerström</b> (nicotine), timeline follow-back, readiness ruler / <b>SOCRATES</b>, and a drinker/user profile for feedback. <span class="pill supp">SUPPLEMENTARY</span> In Indian de-addiction settings, combine with a clinical history, physical exam, and labs (LFTs, viral serology for injectors).</p>
+
+  <h3>Sample clinical documentation (de-identified)</h3>
+  <div class="scriptcard">
+    <p>28-y/o male, inhaled "smack"/heroin ~0.5 g/day ×3 yrs, also smokes 20 cig/day. Last use 6 h ago. Cravings 8/10, triggered by peer group &amp; evening boredom. One prior detox (relapsed in 3 wks). Withdrawal: body aches, insomnia; no seizures; <b>no injecting, no reported overdose</b>. Consequences: debt, conflict with wife, missed work. Patient view: "It relaxes me; I know it's a problem but I'm not sure I can stop." Importance 6/10, Confidence 3/10. Strengths: steady job history, supportive wife, stopped once before. Goal: initially "cut down." <b>Plan:</b> medical review for OUD pharmacotherapy; MET to build confidence; naloxone counselling given injecting peers.</p>
+  </div>
+  <div class="callout safety"><strong>⚠</strong> Flag immediately for medical/psychiatric care: suicidal ideation, overdose risk, severe alcohol/benzo withdrawal risk (seizure/DT history), pregnancy, acute medical illness.</div>
+</section>
+
+<!-- ============ 3 SESSIONS ============ -->
+<section class="card" id="sessions">
+  <h2>3 · MET Structure &amp; Session-by-Session Guide</h2>
+  <p class="lead"><span class="pill model">MANUAL MODEL</span> Project MATCH MET = pre-treatment assessment battery → <b>4 individual sessions over 12 weeks</b> (Sessions 1–2 in the first fortnight; Sessions 3–4 as follow-through/booster at ~weeks 6 and 12). This structure is not sacred: in de-addiction OPDs the themes below can be delivered in fewer or more contacts. Adapt order and number to your programme and the patient's readiness — do <b>not</b> force every patient into four fixed sessions.</p>
+
+  <div class="flow">
+    <div class="step"><b>Assessment battery</b> — structured, in MI style</div>
+    <div class="arrow">↓</div>
+    <div class="step"><b>Session 1</b> — Engagement + personalised feedback + evoke reasons for change</div>
+    <div class="arrow">↓</div>
+    <div class="step"><b>Session 2</b> — Explore ambivalence, develop discrepancy, strengthen change talk</div>
+    <div class="arrow">↓</div>
+    <div class="step"><b>Session 3</b> — Negotiate a concrete change plan; identify triggers &amp; coping</div>
+    <div class="arrow">↓</div>
+    <div class="step"><b>Session 4</b> (when appropriate) — Consolidate, relapse-prevention, continuing care</div>
+  </div>
+
+  <!-- SESSION 1 -->
+  <details class="session" id="s1" open>
+    <summary>Session 1 · Engagement, Assessment Feedback &amp; Motivation</summary>
+    <div class="body">
+      <h4>1. Objectives</h4>
+      <ul class="tight"><li>Build a collaborative, non-judgemental alliance.</li><li>Deliver personalised assessment feedback (the "enhancement").</li><li>Elicit the patient's own concerns and reasons for change.</li><li>Begin developing discrepancy; map importance &amp; confidence.</li></ul>
+      <h4>2. Clinical rationale</h4>
+      <p>Objective feedback given <i>without</i> argument lets the patient draw their own conclusions, raising intrinsic motivation while preserving autonomy.</p>
+      <h4>3. Preparation</h4>
+      <p>Compile assessment results into a simple feedback sheet (use levels vs norms, risk markers, consequences). Have importance/confidence rulers ready.</p>
+      <h4>4. Step-by-step</h4>
+      <ol class="tight"><li>Welcome; set agenda collaboratively; clarify confidentiality &amp; limits.</li><li>Ask permission to share feedback: <i>Elicit–Provide–Elicit.</i></li><li>Present one finding at a time; pause; reflect the patient's reaction.</li><li>Summarise; ask "What do you make of all this?"</li><li>Use importance &amp; confidence rulers; follow with "why that number?" and "why not lower?"</li><li>Elicit reasons for change; end with a summary of their change talk.</li></ol>
+      <h4>5–9. Scripts, questions &amp; responses</h4>
+      <div class="scriptcard"><span class="t">Therapist (asking permission):</span> "Would it be okay if I shared what the assessment showed, and then you tell me what fits and what doesn't?"<br>
+      <span class="p">Patient:</span> "I guess."<br>
+      <span class="t">Therapist (provide, neutral):</span> "Your reported use puts you in the high-risk range compared with most men your age. How does that land for you?"<br>
+      <span class="p">Patient:</span> <span class="st">"I don't drink more than my friends."</span> (sustain talk)<br>
+      <span class="t">Therapist (double-sided reflection):</span> "So on one hand this feels normal in your circle, and on the other, seeing it in the high-risk range is a bit of a surprise."<br>
+      <span class="p">Patient:</span> <span class="ct">"Yeah… the liver thing did scare me a little."</span> (change talk — reasons)<br>
+      <span class="t">Therapist (reflect + evoke):</span> "Your health matters to you. What else worries you?"</div>
+      <h4>Change talk to listen for:</h4> <p><span class="ct">"The money's getting bad." "My daughter asked why I'm always tired."</span> &nbsp; <b>Sustain talk:</b> <span class="st">"It's the only way I relax." "Everyone I know uses."</span></p>
+      <h4>10. Worksheet</h4><p>Pair with <a href="#ws2">#2 Reasons for Change</a>, <a href="#ws6">#6/7 Rulers</a>, <a href="#ws8">#8/9 Why this number</a>.</p>
+      <h4>11. Common mistakes</h4><ul class="tight"><li>Lecturing from the feedback sheet; arguing with denial.</li><li>Pushing abstinence before the patient is ready.</li><li>Filling silences instead of reflecting.</li></ul>
+      <h4>12. Homework (optional)</h4><p>Notice reasons for change during the week; optional <a href="#ws11">#11 How use affects my life</a>.</p>
+      <h4>13. Documentation</h4><p>Record importance/confidence, key change &amp; sustain talk, agreed next step. (See <a href="#docs">§10</a>.)</p>
+      <h4>14. Move on when…</h4><p>Rapport is established and the patient has voiced some concern — even small. If still precontemplative, keep eliciting; do not jump to planning.</p>
+    </div>
+  </details>
+
+  <!-- SESSION 2 -->
+  <details class="session" id="s2">
+    <summary>Session 2 · Exploring Ambivalence &amp; Strengthening Commitment</summary>
+    <div class="body">
+      <h4>1. Objectives</h4><ul class="tight"><li>Review the week.</li><li>Explore pros/cons of using and of changing (decisional balance).</li><li>Develop discrepancy between use and personal values.</li><li>Evoke &amp; strengthen change talk; respond to sustain talk without arguing.</li><li>Explore confidence and barriers.</li></ul>
+      <h4>2. Rationale</h4><p>Resolving ambivalence in the patient's own words shifts the balance toward change and increases commitment.</p>
+      <h4>3. Preparation</h4><p>Review Session 1 notes and any homework; have decisional-balance and values worksheets ready.</p>
+      <h4>4. Step-by-step</h4><ol class="tight"><li>Open-ended review: "How have things been since we met?"</li><li>Explore the good things <i>and</i> the less-good things about use (balance).</li><li>Explore benefits/costs of changing.</li><li>Connect to values ("What kind of father do you want to be?").</li><li>Selectively reflect &amp; summarise change talk; ask the key question: "Where does this leave you?"</li></ol>
+      <h4>5–9. Scripts</h4>
+      <div class="scriptcard"><span class="t">Therapist (eliciting both sides):</span> "What are the good things about using — the things you'd miss?"<br>
+      <span class="p">Patient:</span> "It calms me down after work."<br>
+      <span class="t">Therapist:</span> "It helps you unwind. And the not-so-good side?"<br>
+      <span class="p">Patient:</span> <span class="ct">"I'm broke, and my wife and I fight about it."</span><br>
+      <span class="t">Therapist (develop discrepancy via values):</span> "You've told me family is the most important thing to you. How does the fighting sit with that?"<br>
+      <span class="p">Patient:</span> <span class="ct">"It's not who I want to be. I need to sort this out."</span> (need + commitment)</div>
+      <div class="scriptcard"><span class="t">Responding to sustain talk (no argument):</span><br><span class="p">Patient:</span> <span class="st">"I can stop any time I want."</span><br><span class="t">Therapist (reflect + autonomy):</span> "You're confident you have control over this — and it's completely your call what you do with it. If you did decide to test that, what might you try first?"</div>
+      <h4>DARN change talk to evoke:</h4><p><span class="ct">Desire</span> "I want…" · <span class="ct">Ability</span> "I could…" · <span class="ct">Reasons</span> "because…" · <span class="ct">Need</span> "I have to…"</p>
+      <h4>10. Worksheet</h4><p><a href="#ws3">#3/4 Benefits &amp; costs</a>, <a href="#ws5">#5 Decisional balance</a>, <a href="#ws10">#10 Values &amp; goals</a>, <a href="#ws14">#14 Barriers</a>.</p>
+      <h4>11. Mistakes</h4><ul class="tight"><li>Taking the "pro-change" side of an argument (patient then defends use).</li><li>Only logging cons of use — ignoring the real benefits the patient perceives.</li></ul>
+      <h4>12. Homework</h4><p>Complete decisional balance; notice one value that conflicts with use.</p>
+      <h4>13–14.</h4><p>Document shift in change talk. Move to planning when the patient signals readiness ("I need to do something").</p>
+    </div>
+  </details>
+
+  <!-- SESSION 3 -->
+  <details class="session" id="s3">
+    <summary>Session 3 · Developing a Change Plan</summary>
+    <div class="body">
+      <h4>1. Objectives</h4><ul class="tight"><li>Confirm readiness &amp; chosen goal.</li><li>Identify high-risk situations/triggers.</li><li>Explore coping strategies &amp; supports.</li><li>Negotiate realistic, specific steps &amp; treatment options; address adherence barriers.</li></ul>
+      <h4>2. Rationale</h4><p>A plan the patient authors (not one prescribed) carries commitment. Planning only works once readiness is present.</p>
+      <h4>3. Preparation</h4><p>Review change talk so far; have the Change Plan and First-Three-Steps worksheets ready; know local referral options (OST/MOUD, detox, groups).</p>
+      <h4>4. Step-by-step</h4><ol class="tight"><li>Recap motivation: "Last time you said… where are you now?"</li><li>Clarify the goal in the patient's words (abstinence or reduction).</li><li>Map triggers &amp; high-risk situations.</li><li>Brainstorm coping options; the patient chooses.</li><li>Agree first concrete steps, who/what/when; discuss referrals &amp; adherence barriers.</li><li>Affirm; summarise the plan back.</li></ol>
+      <h4>5–9. Scripts</h4>
+      <div class="scriptcard"><span class="t">Therapist (key question):</span> "Given everything we've talked about, what do you think you'll do?"<br>
+      <span class="p">Patient:</span> <span class="ct">"I want to stop the smack. I'll talk to the doctor about the medicine."</span> (commitment + taking steps)<br>
+      <span class="t">Therapist (elicit plan, menu of options):</span> "Great. What's the very first step this week — the doctor's appointment, telling your wife, or changing your evening routine? What feels doable?"<br>
+      <span class="p">Patient:</span> "Book the doctor and avoid my old group in the evenings."<br>
+      <span class="t">Therapist (anticipate barrier):</span> "If a friend turns up with it anyway, what's your plan?"</div>
+      <h4>10. Worksheet</h4><p><a href="#ws13">#13 Triggers</a>, <a href="#ws15">#15 Coping &amp; support</a>, <a href="#ws16">#16 Change plan</a>, <a href="#ws17">#17 First three steps</a>, <a href="#goals">★ Short- &amp; long-term goals</a>.</p>
+      <h4>11. Mistakes</h4><ul class="tight"><li>Writing the plan <i>for</i> the patient.</li><li>Over-ambitious steps that set up failure.</li><li>Ignoring medical/pharmacotherapy coordination for opioids/alcohol.</li></ul>
+      <h4>12. Homework</h4><p>Carry out the first step; keep a trigger log.</p>
+      <h4>13–14.</h4><p>Document the plan verbatim. Proceed to Session 4 if consolidation/continuing care is appropriate.</p>
+    </div>
+  </details>
+
+  <!-- SESSION 4 -->
+  <details class="session" id="s4">
+    <summary>Session 4 · Consolidation &amp; Continuing-Care Planning <span class="pill supp">include only when appropriate</span></summary>
+    <div class="body">
+      <h4>1. Objectives</h4><ul class="tight"><li>Review progress &amp; setbacks without judgement.</li><li>Reinforce self-efficacy; affirm effort.</li><li>Surface remaining ambivalence; revisit the plan.</li><li>Strengthen relapse-prevention; arrange follow-up/continuing care/referral.</li></ul>
+      <h4>2. Rationale</h4><p>Early change is fragile; consolidating gains and planning for lapses protects against discouragement and dropout.</p>
+      <h4>3. Preparation</h4><p>Review the change plan and interim progress; have relapse-prevention and continuing-care worksheets ready.</p>
+      <h4>4. Step-by-step</h4><ol class="tight"><li>Review: "What's gone well? What's been hard?"</li><li>Affirm concrete successes; attribute them to the patient's effort.</li><li>Normalise any lapse; extract learning.</li><li>Update plan; identify ongoing supports.</li><li>Arrange continuing care (OST clinic, group, follow-up date, family involvement).</li></ol>
+      <h4>5–9. Scripts</h4>
+      <div class="scriptcard"><span class="t">Therapist (after a lapse):</span> "You used once last week and then stopped yourself. That slip doesn't erase three good weeks — what helped you get back on track?"<br>
+      <span class="p">Patient:</span> <span class="ct">"I called my brother instead of my old friends."</span><br>
+      <span class="t">Therapist (affirm + build efficacy):</span> "You reached for support at the exact right moment. That's a skill you can use again."</div>
+      <h4>10. Worksheet</h4><p><a href="#ws18">#18 Progress review</a>, <a href="#ws19">#19 Learning from a lapse</a>, <a href="#ws20">#20 Continuing-care plan</a>.</p>
+      <h4>11. Mistakes</h4><ul class="tight"><li>Treating a lapse as failure/shaming.</li><li>Ending without a concrete follow-up pathway.</li></ul>
+      <h4>12–14.</h4><p>Homework: keep continuing-care appointments. Document outcome, residual ambivalence, referrals, follow-up plan. Revisit earlier themes if ambivalence has resurged.</p>
+    </div>
+  </details>
+</section>
+
+<!-- ============ 4 SKILLS ============ -->
+<section class="card" id="skills">
+  <h2>4 · Motivational Interviewing Skills Used in MET</h2>
+  <p class="lead">The engine of MET is <b>OARS</b> delivered in the MI spirit. For each skill: <b>Purpose → Therapist example → Patient response → Appropriate follow-up.</b></p>
+
+  <h3>OARS — the core micro-skills</h3>
+  <div class="scriptcard"><b>O — Open questions.</b> <i>Purpose:</i> invite elaboration, not yes/no.<br>
+  <span class="t">T:</span> "What's it like for you on a day you don't use?" → <span class="p">P:</span> "Restless, honestly." → <span class="t">Follow-up:</span> reflect: "Hard to settle without it."</div>
+  <div class="scriptcard"><b>A — Affirmations.</b> <i>Purpose:</i> recognise genuine strengths/effort (not flattery).<br>
+  <span class="t">T:</span> "You came today even though it's uncomfortable — that takes resolve." → <span class="p">P:</span> "Didn't think of it that way." → <span class="t">Follow-up:</span> "What does that say about how you handle hard things?"</div>
+  <div class="scriptcard"><b>R — Reflective listening.</b> <i>Purpose:</i> show understanding; steer gently by what you choose to reflect.<br>
+  <span class="t">T:</span> "You're worried this is slipping out of your control." → <span class="p">P:</span> "Exactly." → <span class="t">Follow-up:</span> deepen: "And part of you wants to grab the wheel back."</div>
+  <div class="scriptcard"><b>S — Summaries.</b> <i>Purpose:</i> collect change talk, show listening, transition.<br>
+  <span class="t">T:</span> "So the money, your health, and your daughter are all pulling you toward change, while the one pull back is how it helps you relax. Did I get that right?" → <span class="p">P:</span> "Yeah." → <span class="t">Follow-up:</span> key question: "Where does that leave you?"</div>
+
+  <h3>Reflection types</h3>
+  <table>
+    <tr><th>Type</th><th>Purpose</th><th>Example</th></tr>
+    <tr><td>Simple</td><td>Repeat/rephrase content.</td><td>P: "I'm tired of it." → T: "You've had enough."</td></tr>
+    <tr><td>Complex</td><td>Add meaning / feeling / guess.</td><td>P: "I'm tired of it." → T: "Part of you is ready for something different."</td></tr>
+    <tr><td>Double-sided</td><td>Hold both sides of ambivalence; end on change side.</td><td>"You enjoy how it relaxes you, <i>and</i> you're worried about your health."</td></tr>
+    <tr><td>Amplified (use sparingly)</td><td>Reflect sustain talk slightly over-stated so patient self-corrects.</td><td>P: "It's not that bad." → T: "So there's really no downside at all." → P: "Well, the debt is bad…"</td></tr>
+  </table>
+
+  <h3>Other key skills</h3>
+  <ul class="tight">
+    <li><b>Emphasising autonomy:</b> "It's up to you — nobody can decide this for you." <i>→ reduces reactance.</i></li>
+    <li><b>Eliciting change talk:</b> evocative questions — "Why might you want to change? How would you do it if you decided to? What are the best reasons?"</li>
+    <li><b>Responding to sustain talk:</b> reflect, emphasise autonomy, reframe, shift focus — <i>never argue.</i></li>
+    <li><b>Developing discrepancy:</b> hold up the gap between current use and the patient's own goals/values.</li>
+    <li><b>Importance &amp; confidence rulers:</b> "0–10, how important/confident?" then "Why not lower?" to pull change talk.</li>
+    <li><b>Elicit–Provide–Elicit:</b> ask permission &amp; what they know → give focused info neutrally → ask what they make of it. The MET way to give feedback/advice.</li>
+    <li><b>Supporting self-efficacy:</b> recall past successes; affirm small steps; "You've done hard things before."</li>
+  </ul>
+
+  <h3>Rewriting unhelpful statements into MET-consistent responses (10)</h3>
+  <table>
+    <tr><th>Unhelpful (confrontational / expert trap)</th><th>MET-consistent rewrite</th></tr>
+    <tr><td>"You're in denial about being an addict."</td><td>"It sounds like you see this differently from the way others do. Tell me how <i>you</i> see it."</td></tr>
+    <tr><td>"You have to quit, period."</td><td>"What you do is your call. What are you thinking might work for you?"</td></tr>
+    <tr><td>"If you keep this up you'll end up dead."</td><td>"Can I share one health finding? … What do you make of it?"</td></tr>
+    <tr><td>"Why do you keep making excuses?"</td><td>"There are real reasons it's hard to stop. What are the biggest ones?"</td></tr>
+    <tr><td>"Your family's right to be fed up."</td><td>"The tension at home weighs on you. How would you want things to be?"</td></tr>
+    <tr><td>"That's just the addiction talking."</td><td>"Part of you wants to keep using and part of you doesn't — that's the tug-of-war."</td></tr>
+    <tr><td>"You failed last time because you weren't serious."</td><td>"Last time you managed three weeks. What worked, even briefly?"</td></tr>
+    <tr><td>"You need to go to rehab now."</td><td>"There are a few options — would it help to walk through them together?"</td></tr>
+    <tr><td>"Don't you care about your kids?"</td><td>"You've said your kids matter most. How does using fit with that?"</td></tr>
+    <tr><td>"Stop lying about how much you use."</td><td>"It can be hard to pin down exact amounts. Roughly, on a heavy day?"</td></tr>
+  </table>
+</section>
+
+<!-- ============ 5 DARN-CAT ============ -->
+<section class="card" id="darn">
+  <h2>5 · Change Talk &amp; Sustain Talk — DARN-CAT</h2>
+  <p class="lead">Change talk is the patient's own language favouring change. <b>Preparatory</b> change talk = <b>DARN</b>; <b>mobilising</b> change talk = <b>CAT</b>. Evoking and reflecting it predicts behaviour change.</p>
+  <table>
+    <tr><th>Code</th><th>Meaning</th><th>Substance-use example</th></tr>
+    <tr><td class="ct">D — Desire</td><td>Want, wish, like.</td><td>"I <b>want</b> to be clean for my kids."</td></tr>
+    <tr><td class="ct">A — Ability</td><td>Can, could, able.</td><td>"I <b>could</b> probably cut the evening dose."</td></tr>
+    <tr><td class="ct">R — Reasons</td><td>Specific if/then arguments.</td><td>"If I stop smoking, my chest will clear up."</td></tr>
+    <tr><td class="ct">N — Need</td><td>Must, have to, got to.</td><td>"I <b>have to</b> do something — the debt is out of hand."</td></tr>
+    <tr><td class="ct">C — Commitment</td><td>Will, going to, promise.</td><td>"I'<b>m going to</b> talk to the doctor on Monday."</td></tr>
+    <tr><td class="ct">A — Activation</td><td>Ready, willing, prepared.</td><td>"I'<b>m ready</b> to give it a real try."</td></tr>
+    <tr><td class="ct">T — Taking steps</td><td>Already acting.</td><td>"I <b>threw out</b> my stash yesterday."</td></tr>
+  </table>
+
+  <h3>Recognising &amp; responding to sustain talk — without confrontation</h3>
+  <div class="scriptcard"><span class="p">Patient:</span> <span class="st">"Smoking is the only thing that calms my nerves."</span><br>
+  <span class="t">Therapist (reflect, don't challenge):</span> "Right now it's your main way to cope with stress."<br>
+  <span class="p">Patient:</span> "Yeah."<br>
+  <span class="t">Therapist (open the door gently):</span> "If you did decide to change someday, what other things have helped you relax, even a little?" <span class="ct">→ patient supplies alternatives (change talk).</span></div>
+  <div class="scriptcard"><span class="p">Patient:</span> <span class="st">"My family forced me here. I don't have a problem."</span><br>
+  <span class="t">Therapist (autonomy + reflect):</span> "You're here because of them, not because you've decided anything — and whether this is a problem is yours to judge. While you're here, what would make this hour worth your time?"<br>
+  <span class="p">Patient:</span> <span class="ct">"I suppose getting them off my back… and I am tired of the arguments."</span></div>
+  <p><b>Principle:</b> evoke the patient's <i>own</i> motivation rather than supply arguments. When you hear sustain talk, the move is almost always <b>reflect → emphasise autonomy → ask an evocative question</b>, never "but you should…".</p>
+</section>
+
+<!-- ============ 6 WORKSHEETS ============ -->
+<section class="card" id="worksheets">
+  <h2>6 · Complete Worksheet Pack</h2>
+  <p class="lead">Printable, patient-friendly worksheets. Each has: <b>Purpose · When to use · Patient instructions · A fictional completed example · Blank template · How the therapist reviews · Common difficulties.</b></p>
+  <div class="callout"><b>Not all worksheets, not every session.</b> Select by readiness: precontemplation/contemplation → #1–#12 (awareness, ambivalence, values); preparation/action → #13–#17 (triggers, coping, plan, goals); maintenance → #18–#22 (progress, lapse, continuing care). Offer, never impose. The two goal worksheets (★) are highlighted below as specifically requested.</div>
+
+  <!-- WS1 -->
+  <div class="worksheet" id="ws1">
+    <h3>1 · My Substance-Use History</h3>
+    <p class="meta"><b>Purpose:</b> build a shared, non-judgemental picture of use. <b>When:</b> assessment / Session 1. <b>Instructions:</b> fill in what you can; "don't know/not sure" is fine.</p>
+    <div class="example"><b>Example:</b> Main substance: Heroin (smack), inhaled · Started: age 25 · Typical use: 0.4–0.6 g/day · Also: 20 cigarettes/day · Last use: this morning · Longest clean period: 3 weeks (after detox last year).</div>
+    <b>Blank:</b>
+    <div class="fieldbox">Main substance &amp; route: </div>
+    <div class="fieldbox">Age first used / years using: </div>
+    <div class="fieldbox">Typical amount &amp; frequency now: </div>
+    <div class="fieldbox">Other substances (incl. tobacco/alcohol): </div>
+    <div class="fieldbox">Last use / longest period not using: </div>
+    <p class="meta"><b>Therapist review:</b> reflect patterns, affirm honesty, note route/overdose markers. <b>Difficulties:</b> if the patient under-reports, don't challenge — "roughly on a heavy day?" and revisit later.</p>
+  </div>
+
+  <!-- WS2 -->
+  <div class="worksheet" id="ws2">
+    <h3>2 · My Reasons for Considering Change</h3>
+    <p class="meta"><b>Purpose:</b> surface the patient's <i>own</i> reasons. <b>When:</b> Session 1–2. <b>Instructions:</b> list anything — big or small — that makes you wonder about changing.</p>
+    <div class="example"><b>Example:</b> "Money problems · Fights with my wife · My daughter noticed · My chest hurts in the mornings · I'm tired of hiding it."</div>
+    <b>Blank:</b>
+    <div class="fieldbox"></div><div class="fieldbox"></div><div class="fieldbox"></div>
+    <p class="meta"><b>Therapist review:</b> reflect &amp; amplify each reason (change talk); link to values. <b>Difficulties:</b> none listed → "Even a small, nagging reason counts — what first made you willing to talk today?"</p>
+  </div>
+
+  <!-- WS3 -->
+  <div class="worksheet" id="ws3">
+    <h3>3 · Benefits &amp; Costs of Continuing Substance Use</h3>
+    <p class="meta"><b>Purpose:</b> honour the real benefits <i>and</i> name costs. <b>When:</b> Session 2. <b>Instructions:</b> be honest about both columns.</p>
+    <div class="example"><b>Example — Benefits:</b> relaxes me, fits in with friends, numbs stress. <b>Costs:</b> debt, arguments, poor sleep, shame.</div>
+    <table><tr><th>Benefits of continuing</th><th>Costs of continuing</th></tr>
+    <tr><td><div class="fieldbox"></div></td><td><div class="fieldbox"></div></td></tr></table>
+    <p class="meta"><b>Therapist review:</b> validate benefits first (reduces defensiveness), then reflect costs. <b>Difficulties:</b> if only benefits appear, that's data on stage of change — stay curious, don't argue.</p>
+  </div>
+
+  <!-- WS4 -->
+  <div class="worksheet" id="ws4">
+    <h3>4 · Benefits &amp; Costs of Changing</h3>
+    <p class="meta"><b>Purpose:</b> balance the other side. <b>When:</b> Session 2. <b>Instructions:</b> what would be good — and hard — about changing?</p>
+    <div class="example"><b>Example — Benefits:</b> save money, peace at home, better health, pride. <b>Costs:</b> losing my friend group, boredom, facing stress raw.</div>
+    <table><tr><th>Benefits of changing</th><th>Costs/worries about changing</th></tr>
+    <tr><td><div class="fieldbox"></div></td><td><div class="fieldbox"></div></td></tr></table>
+    <p class="meta"><b>Therapist review:</b> the "costs of changing" are the barriers to solve later (link to #14/#15). <b>Difficulties:</b> normalise fear of losing a coping tool.</p>
+  </div>
+
+  <!-- WS5 -->
+  <div class="worksheet" id="ws5">
+    <h3>5 · Decisional Balance Worksheet</h3>
+    <p class="meta"><b>Purpose:</b> see all four quadrants together. <b>When:</b> contemplation. <b>Instructions:</b> combine #3 &amp; #4 into one grid; then read it back to yourself.</p>
+    <table>
+      <tr><th></th><th>Continuing use</th><th>Changing</th></tr>
+      <tr><td><b>Pros</b></td><td><div class="fieldbox"></div></td><td><div class="fieldbox"></div></td></tr>
+      <tr><td><b>Cons</b></td><td><div class="fieldbox"></div></td><td><div class="fieldbox"></div></td></tr>
+    </table>
+    <p class="meta"><b>Therapist review:</b> summarise, then ask the key question "Where does this leave you?" <b>Difficulties:</b> avoid tallying scores — meaning matters more than count; don't argue if balance favours use.</p>
+  </div>
+
+  <!-- WS6 -->
+  <div class="worksheet" id="ws6">
+    <h3>6 · Importance Ruler (0–10)</h3>
+    <p class="meta"><b>Purpose:</b> gauge how much change matters. <b>When:</b> Session 1 onward. <b>Instructions:</b> circle the number: "How important is it to you to change right now?"</p>
+    <div class="ruler"><span class="z">0</span><span class="z">1</span><span class="z">2</span><span class="m">3</span><span class="m">4</span><span class="m">5</span><span class="m">6</span><span class="h">7</span><span class="h">8</span><span class="h">9</span><span class="h">10</span></div>
+    <div class="example"><b>Example:</b> circled <b>6</b>.</div>
+    <p class="meta"><b>Therapist review:</b> follow with #8/#9. <b>Difficulties:</b> a single number is a conversation starter, <u>not</u> a diagnosis.</p>
+  </div>
+
+  <!-- WS7 -->
+  <div class="worksheet" id="ws7">
+    <h3>7 · Confidence Ruler (0–10)</h3>
+    <p class="meta"><b>Purpose:</b> gauge belief in ability (self-efficacy). <b>When:</b> throughout. <b>Instructions:</b> "If you decided to change, how confident are you that you could?"</p>
+    <div class="ruler"><span class="z">0</span><span class="z">1</span><span class="z">2</span><span class="m">3</span><span class="m">4</span><span class="m">5</span><span class="m">6</span><span class="h">7</span><span class="h">8</span><span class="h">9</span><span class="h">10</span></div>
+    <div class="example"><b>Example:</b> circled <b>3</b> → low confidence; focus work on building efficacy (#12, past successes).</div>
+    <p class="meta"><b>Therapist review:</b> importance and confidence are <i>different</i> — high importance + low confidence needs skill/support building, not more reasons. <b>Difficulties:</b> if 0, explore what one tiny step could lift it.</p>
+  </div>
+
+  <!-- WS8 -->
+  <div class="worksheet" id="ws8">
+    <h3>8 · Why Am I at This Number?</h3>
+    <p class="meta"><b>Purpose:</b> pull out the reasons behind the ruler score (change talk). <b>When:</b> right after rulers. <b>Instructions:</b> "You said [N]. What makes it that high and not 0?"</p>
+    <div class="example"><b>Example (importance 6):</b> "Because my health scares me and my wife is at her limit."</div>
+    <div class="fieldbox"></div>
+    <p class="meta"><b>Therapist review:</b> every answer here is change talk — reflect and summarise it. <b>Difficulties:</b> redirect from "why so low" (which pulls sustain talk) to "why not lower".</p>
+  </div>
+
+  <!-- WS9 -->
+  <div class="worksheet" id="ws9">
+    <h3>9 · Why Not a Lower Number?</h3>
+    <p class="meta"><b>Purpose:</b> same, deliberately phrased to evoke change talk. <b>When:</b> paired with #8. <b>Instructions:</b> "Why a 6 and not a 3?"</p>
+    <div class="example"><b>Example:</b> "A 3 would mean I don't care — but I do, especially about my daughter."</div>
+    <div class="fieldbox"></div>
+    <p class="meta"><b>Therapist review:</b> amplify. To raise a number: "What would it take to move from a 6 to an 8?" <b>Difficulties:</b> never ask "why not higher?" — it elicits sustain talk.</p>
+  </div>
+
+  <!-- WS10 -->
+  <div class="worksheet" id="ws10">
+    <h3>10 · My Personal Values &amp; Goals</h3>
+    <p class="meta"><b>Purpose:</b> anchor change in what matters to the patient (develops discrepancy). <b>When:</b> Session 2. <b>Instructions:</b> list what matters most, then note how use fits (or doesn't).</p>
+    <div class="example"><b>Example:</b> Values — being a good father, honesty, financial security. "Using clashes with all three."</div>
+    <div class="fieldbox">My top values: </div>
+    <div class="fieldbox">How does substance use fit with these? </div>
+    <p class="meta"><b>Therapist review:</b> hold up the gap gently; let the patient name the discrepancy. <b>Difficulties:</b> if use <i>supports</i> a value (e.g., social belonging), explore other ways to meet it.</p>
+  </div>
+
+  <!-- WS11 -->
+  <div class="worksheet" id="ws11">
+    <h3>11 · How Does Substance Use Affect My Life?</h3>
+    <p class="meta"><b>Purpose:</b> map consequences across domains. <b>When:</b> Session 1–2. <b>Instructions:</b> jot effects in each area.</p>
+    <table><tr><th>Area</th><th>Effect</th></tr>
+      <tr><td>Health/body</td><td><div class="fieldbox"></div></td></tr>
+      <tr><td>Family/relationships</td><td><div class="fieldbox"></div></td></tr>
+      <tr><td>Work/finances</td><td><div class="fieldbox"></div></td></tr>
+      <tr><td>Mood/self</td><td><div class="fieldbox"></div></td></tr>
+      <tr><td>Legal/other</td><td><div class="fieldbox"></div></td></tr>
+    </table>
+    <p class="meta"><b>Therapist review:</b> reflect without piling on; let the list speak. <b>Difficulties:</b> if "no effects," explore a close other's view: "What might your wife write here?"</p>
+  </div>
+
+  <!-- WS12 -->
+  <div class="worksheet" id="ws12">
+    <h3>12 · My Strengths &amp; Previous Successes</h3>
+    <p class="meta"><b>Purpose:</b> build self-efficacy. <b>When:</b> when confidence is low. <b>Instructions:</b> list strengths and any past success (any area of life).</p>
+    <div class="example"><b>Example:</b> "Held a job 6 years · quit smoking for a year once · stubborn when I decide something · my brother believes in me."</div>
+    <div class="fieldbox"></div><div class="fieldbox"></div>
+    <p class="meta"><b>Therapist review:</b> affirm specifically; connect strengths to the change goal. <b>Difficulties:</b> if none offered, ask about non-addiction successes (work, parenting, sport).</p>
+  </div>
+
+  <!-- WS13 -->
+  <div class="worksheet" id="ws13">
+    <h3>13 · My Triggers &amp; High-Risk Situations</h3>
+    <p class="meta"><b>Purpose:</b> identify cues that precede use. <b>When:</b> preparation / Session 3. <b>Instructions:</b> list people, places, feelings, and times linked to use.</p>
+    <div class="example"><b>Example:</b> People — old using friends · Places — the lane behind the market · Feelings — stress, boredom · Times — evenings after work · Money — payday.</div>
+    <table><tr><th>People</th><th>Places</th><th>Feelings</th><th>Times/other</th></tr>
+    <tr><td><div class="fieldbox"></div></td><td><div class="fieldbox"></div></td><td><div class="fieldbox"></div></td><td><div class="fieldbox"></div></td></tr></table>
+    <p class="meta"><b>Therapist review:</b> link each trigger to a coping option in #15. <b>Difficulties:</b> if vague, use a recent episode: "Walk me through the last time."</p>
+  </div>
+
+  <!-- WS14 -->
+  <div class="worksheet" id="ws14">
+    <h3>14 · My Barriers to Change</h3>
+    <p class="meta"><b>Purpose:</b> name obstacles so they can be planned for. <b>When:</b> Session 2–3. <b>Instructions:</b> what might get in the way?</p>
+    <div class="example"><b>Example:</b> "Withdrawal symptoms · friends who use · no money for the clinic · fear of failing again."</div>
+    <div class="fieldbox"></div><div class="fieldbox"></div>
+    <p class="meta"><b>Therapist review:</b> treat barriers as problems to solve <i>with</i> the patient, not reasons it won't work. <b>Difficulties:</b> for medical barriers (withdrawal), coordinate with the treating doctor.</p>
+  </div>
+
+  <!-- WS15 -->
+  <div class="worksheet" id="ws15">
+    <h3>15 · My Coping Options &amp; Support Network</h3>
+    <p class="meta"><b>Purpose:</b> match coping strategies and supports to triggers/barriers. <b>When:</b> Session 3. <b>Instructions:</b> for each trigger, note a coping option and who can help.</p>
+    <div class="example"><b>Example:</b> Trigger "evening boredom" → walk/call brother · Trigger "payday" → give money to wife · Support: wife, brother, OST clinic counsellor, helpline.</div>
+    <table><tr><th>Trigger</th><th>My coping option</th><th>Who/what supports me</th></tr>
+    <tr><td><div class="fieldbox"></div></td><td><div class="fieldbox"></div></td><td><div class="fieldbox"></div></td></tr></table>
+    <p class="meta"><b>Therapist review:</b> ensure strategies are the patient's own choices; rehearse one. <b>Difficulties:</b> thin network → explore formal supports (clinic, groups, helplines).</p>
+  </div>
+
+  <!-- WS16 -->
+  <div class="worksheet" id="ws16">
+    <h3>16 · My Change Plan</h3>
+    <p class="meta"><b>Purpose:</b> capture the patient-authored plan. <b>When:</b> Session 3 (readiness present). <b>Instructions:</b> complete each line in your own words.</p>
+    <div class="example"><b>Example:</b> "The change I want: stop smack, cut cigarettes by half. The most important reasons: my daughter, my health, money. Steps I'll take: see the doctor about medicine, avoid the old group, tell my wife. Others can help by: wife holding the money, brother checking in. I'll know it's working when: I sleep better and save ₹X/month. What could get in the way: cravings, payday, old friends — and I'll handle it by: calling my brother, keeping busy."</div>
+    <div class="fieldbox">The change I want to make: </div>
+    <div class="fieldbox">The most important reasons: </div>
+    <div class="fieldbox">The steps I'll take: </div>
+    <div class="fieldbox">Others can help by: </div>
+    <div class="fieldbox">I'll know it's working when: </div>
+    <div class="fieldbox">Possible obstacles &amp; how I'll handle them: </div>
+    <p class="meta"><b>Therapist review:</b> read it back; affirm commitment language; keep a copy with the patient. <b>Difficulties:</b> if the plan is the therapist's, not the patient's, it won't hold — re-elicit.</p>
+  </div>
+
+  <!-- WS17 -->
+  <div class="worksheet" id="ws17">
+    <h3>17 · My First Three Steps</h3>
+    <p class="meta"><b>Purpose:</b> turn the plan into immediate, concrete action. <b>When:</b> end of Session 3. <b>Instructions:</b> write three steps you can start <i>this week</i>, with when &amp; who.</p>
+    <div class="example"><b>Example:</b> 1) Book doctor's appointment — tomorrow. 2) Tell my wife about the plan — tonight. 3) Avoid the market lane after work — all week.</div>
+    <table><tr><th>Step</th><th>When</th><th>Who/what helps</th></tr>
+    <tr><td><div class="fieldbox"></div></td><td><div class="fieldbox"></div></td><td><div class="fieldbox"></div></td></tr>
+    <tr><td><div class="fieldbox"></div></td><td><div class="fieldbox"></div></td><td><div class="fieldbox"></div></td></tr>
+    <tr><td><div class="fieldbox"></div></td><td><div class="fieldbox"></div></td><td><div class="fieldbox"></div></td></tr></table>
+    <p class="meta"><b>Therapist review:</b> keep steps small &amp; specific; set a check-in. <b>Difficulties:</b> over-ambitious steps → scale down to guarantee an early success.</p>
+  </div>
+
+  <!-- WS18 -->
+  <div class="worksheet" id="ws18">
+    <h3>18 · My Progress Review</h3>
+    <p class="meta"><b>Purpose:</b> review gains and setbacks. <b>When:</b> Session 4 / follow-up. <b>Instructions:</b> reflect honestly on since-last-time.</p>
+    <div class="example"><b>Example:</b> "Went 18 of 21 days without smack. One slip on payday. Cigarettes down to 10/day. Sleeping better. Hardest part: evenings."</div>
+    <div class="fieldbox">What went well: </div>
+    <div class="fieldbox">What was hard / any slips: </div>
+    <div class="fieldbox">What I want to adjust: </div>
+    <p class="meta"><b>Therapist review:</b> affirm effort; attribute success to the patient; frame slips as learning (→ #19). <b>Difficulties:</b> discouragement → reinforce self-efficacy with concrete evidence from the sheet.</p>
+  </div>
+
+  <!-- WS19 -->
+  <div class="worksheet" id="ws19">
+    <h3>19 · Learning from a Lapse</h3>
+    <p class="meta"><b>Purpose:</b> de-shame a lapse and extract learning (prevents a lapse becoming a full relapse). <b>When:</b> after any lapse. <b>Instructions:</b> no blame — just understand it.</p>
+    <div class="example"><b>Example:</b> Trigger: payday + met old friend. Warning signs I missed: carrying extra cash. What I'll do differently: give wife the money, avoid that route on payday. What I handled well: I stopped after one, called my brother.</div>
+    <div class="fieldbox">What led to the lapse (trigger/situation): </div>
+    <div class="fieldbox">Warning signs I can watch for next time: </div>
+    <div class="fieldbox">What I'll do differently: </div>
+    <div class="fieldbox">What I did well / how I recovered: </div>
+    <p class="meta"><b>Therapist review:</b> normalise ("lapses are common, not failure"); separate lapse (a slip) from relapse (giving up the goal); update the plan. <b>Difficulties:</b> shame/all-or-nothing thinking → "One slip doesn't erase your progress."</p>
+  </div>
+
+  <!-- WS20 -->
+  <div class="worksheet" id="ws20">
+    <h3>20 · My Continuing-Care Plan</h3>
+    <p class="meta"><b>Purpose:</b> secure support beyond MET. <b>When:</b> final session. <b>Instructions:</b> write down your ongoing supports, appointments, and emergency plan.</p>
+    <div class="example"><b>Example:</b> Follow-up: OST clinic monthly · Group: NA meeting Fridays · Keep: naloxone at home · If I'm struggling, I'll call: brother, then clinic helpline · Review date: 4 weeks.</div>
+    <div class="fieldbox">Ongoing treatment / appointments: </div>
+    <div class="fieldbox">Support people &amp; groups: </div>
+    <div class="fieldbox">Emergency plan (who I call, crisis/overdose steps): </div>
+    <div class="fieldbox">Next review date: </div>
+    <p class="meta"><b>Therapist review:</b> confirm referrals are real &amp; booked; include overdose/crisis steps for opioid users. <b>Difficulties:</b> poor access → use available community/helpline/family resources; document the gap.</p>
+  </div>
+
+  <!-- ★ GOAL WORKSHEETS -->
+  <div class="worksheet" id="goals" style="border-color:var(--accent2); background:linear-gradient(180deg,#f3f8fb,#fffdfb);">
+    <h3>★ 21 · My Short-Term Goals in Therapy</h3>
+    <p class="meta"><b>Purpose:</b> set small, concrete, achievable goals for the next few days to weeks that build momentum and early success. <b>When:</b> Session 3 onward, alongside the Change Plan (#16). <b>Instructions:</b> write 2–4 goals you can realistically reach <i>soon</i>. Keep them <b>SMART</b> — Specific, Measurable, Achievable, Relevant, Time-bound.</p>
+    <div class="callout tip"><b>Short-term = next 1–4 weeks.</b> These are stepping stones toward your long-term goals. It's fine to aim for <i>reduction</i> or <i>stabilisation</i>, not only abstinence, if that's where you are.</div>
+    <div class="example"><b>Fictional completed example (opioid/smack user):</b>
+      <table>
+        <tr><th>Short-term goal</th><th>By when</th><th>How I'll measure it</th><th>Support/first step</th></tr>
+        <tr><td>Attend doctor's appointment for OUD medicine</td><td>This week</td><td>Appointment attended; prescription started</td><td>Wife reminds me; I book tomorrow</td></tr>
+        <tr><td>Cut cigarettes from 20 → 10/day</td><td>2 weeks</td><td>Daily tally in phone</td><td>Nicotine gum; keep count</td></tr>
+        <tr><td>Avoid the market lane after work</td><td>Daily, this week</td><td>Did I avoid it today? Y/N</td><td>Take the longer route; call brother at 6pm</td></tr>
+        <tr><td>Attend all 4 MET sessions</td><td>Over 4 weeks</td><td>Sessions attended</td><td>Put dates on the wall calendar</td></tr>
+      </table>
+    </div>
+    <b>Blank template:</b>
+    <table>
+      <tr><th>Short-term goal (next 1–4 weeks)</th><th>By when</th><th>How I'll measure it</th><th>Support / first step</th></tr>
+      <tr><td><div class="fieldbox"></div></td><td><div class="fieldbox"></div></td><td><div class="fieldbox"></div></td><td><div class="fieldbox"></div></td></tr>
+      <tr><td><div class="fieldbox"></div></td><td><div class="fieldbox"></div></td><td><div class="fieldbox"></div></td><td><div class="fieldbox"></div></td></tr>
+      <tr><td><div class="fieldbox"></div></td><td><div class="fieldbox"></div></td><td><div class="fieldbox"></div></td><td><div class="fieldbox"></div></td></tr>
+      <tr><td><div class="fieldbox"></div></td><td><div class="fieldbox"></div></td><td><div class="fieldbox"></div></td><td><div class="fieldbox"></div></td></tr>
+    </table>
+    <div class="checkrow"><span class="box"></span> My short-term goals are things <b>I</b> chose, not goals imposed on me.</div>
+    <div class="checkrow"><span class="box"></span> Each goal is small enough that I'm fairly confident I can do it.</div>
+    <p class="meta"><b>How the therapist reviews:</b> check goals are the patient's own, specific, and realistically scaled for an early win; link each to a trigger/coping option (#13/#15) and to a long-term goal; review attainment at the next contact and affirm effort. Use the confidence ruler (#7) on each goal — if confidence &lt;7, shrink the goal. <b>Common difficulties &amp; how to respond:</b> <i>Goals too big/abstract</i> ("be a better person") → help break into a concrete behaviour this week. <i>Patient only wants abstinence immediately but confidence is low</i> → honour the aim, add a smaller stepping-stone goal so success is likely. <i>Patient sets a therapist-pleasing goal</i> → "What would <i>you</i> actually find useful this week?" <i>Goal not met</i> → treat as information, adjust downward, avoid blame.</p>
+  </div>
+
+  <div class="worksheet" id="goals-long" style="border-color:var(--accent2); background:linear-gradient(180deg,#f3f8fb,#fffdfb);">
+    <h3>★ 22 · My Long-Term Goals in Therapy</h3>
+    <p class="meta"><b>Purpose:</b> connect day-to-day change to the bigger life the patient wants — the "why" that sustains effort over months. <b>When:</b> Session 3–4 and continuing care; revisit periodically. <b>Instructions:</b> picture 3, 6, and 12 months ahead. What do you want your life to look like? Link each long-term goal to the value behind it and to the short-term steps that build toward it.</p>
+    <div class="callout tip"><b>Long-term = 3 months to a year+.</b> These are usually about <i>life</i>, not just the substance — relationships, work, health, self-respect. Long-term goals give short-term goals their meaning.</div>
+    <div class="example"><b>Fictional completed example (alcohol user, recognises consequences):</b>
+      <table>
+        <tr><th>Long-term goal</th><th>Timeframe</th><th>Why it matters (my value)</th><th>Short-term steps that build toward it</th></tr>
+        <tr><td>Stay alcohol-free and rebuild trust at home</td><td>6–12 months</td><td>Being a reliable husband and father</td><td>No drinking on weekdays now → full abstinence; weekly check-in with wife</td></tr>
+        <tr><td>Clear my debts and manage money</td><td>12 months</td><td>Security &amp; self-respect</td><td>Give salary to joint account; track spending monthly</td></tr>
+        <tr><td>Return to playing cricket on weekends</td><td>3–6 months</td><td>Health &amp; belonging without alcohol</td><td>Join Sunday team; replace the pub with the ground</td></tr>
+        <tr><td>Attend a support group regularly</td><td>Ongoing</td><td>Staying accountable</td><td>Find local AA/SMART meeting; go once this month</td></tr>
+      </table>
+    </div>
+    <b>Blank template:</b>
+    <table>
+      <tr><th>Long-term goal (3–12+ months)</th><th>Timeframe</th><th>Why it matters (my value)</th><th>Short-term steps toward it</th></tr>
+      <tr><td><div class="fieldbox"></div></td><td><div class="fieldbox"></div></td><td><div class="fieldbox"></div></td><td><div class="fieldbox"></div></td></tr>
+      <tr><td><div class="fieldbox"></div></td><td><div class="fieldbox"></div></td><td><div class="fieldbox"></div></td><td><div class="fieldbox"></div></td></tr>
+      <tr><td><div class="fieldbox"></div></td><td><div class="fieldbox"></div></td><td><div class="fieldbox"></div></td><td><div class="fieldbox"></div></td></tr>
+    </table>
+    <div class="fieldbox">In one sentence, the life I'm working toward is: </div>
+    <div class="checkrow"><span class="box"></span> My long-term goals reflect <b>my</b> values and the life <b>I</b> want.</div>
+    <div class="checkrow"><span class="box"></span> I can see how my short-term goals connect to these.</div>
+    <p class="meta"><b>How the therapist reviews:</b> use long-term goals to develop discrepancy (gap between current use and the desired life) and to anchor motivation when it dips; ensure each long-term goal is tied to a value (#10) and to concrete short-term goals (#21) so the path is visible; revisit and update at follow-ups. <b>Common difficulties &amp; how to respond:</b> <i>No long-term vision ("I can't think past today")</i> → start with values (#10) and one hope for the future, however modest. <i>Goals feel unrealistic/overwhelming</i> → affirm the aspiration, then focus on the next short-term step. <i>Only externally-imposed goals (court/family)</i> → explore whether any personal benefit overlaps ("getting the court off your back <i>and</i> keeping your licence to work") to build intrinsic motivation. <i>Setback shakes long-term goals</i> → reframe as a detour, not a dead end; the destination can stay the same.</p>
+  </div>
+</section>
+
+<!-- ============ 7 SUBSTANCE-SPECIFIC ============ -->
+<section class="card" id="substance">
+  <h2>7 · Substance-Specific Applications of MET</h2>
+  <p class="lead">The MET method is the same; triggers, perceived benefits, consequences, realistic goals, and barriers differ by substance. Adapt feedback and planning accordingly.</p>
+  <table>
+    <tr><th>Substance</th><th>Common triggers</th><th>Perceived benefits</th><th>Key consequences</th><th>Goal &amp; barriers</th></tr>
+    <tr><td><b>Opioids (heroin/smack)</b></td><td>Withdrawal fear, using peers, pain, cues</td><td>Relief of pain/withdrawal, euphoria, calm</td><td>Overdose, injecting infections (HIV/HCV), debt, legal</td><td>Often abstinence <i>with</i> OST/MOUD; barriers: withdrawal, access to medication, stigma</td></tr>
+    <tr><td><b>Alcohol</b></td><td>Social settings, stress, routine, mood</td><td>Relaxation, social lubrication, sleep</td><td>Liver disease, accidents, violence, dependence/withdrawal</td><td>Abstinence or reduction; barriers: social norms, withdrawal risk (seizures/DTs)</td></tr>
+    <tr><td><b>Tobacco</b></td><td>After meals, with tea/alcohol, stress, breaks</td><td>Alertness, stress relief, habit</td><td>Cardiorespiratory disease, cancer, cost</td><td>Reduction→quit; NRT; barriers: strong habit, weight worry</td></tr>
+    <tr><td><b>Cannabis</b></td><td>Boredom, peers, evenings, sleep</td><td>Relaxation, creativity, sleep</td><td>Amotivation, anxiety/psychosis risk, cognition</td><td>Often reduction; barriers: "it's natural/harmless" belief</td></tr>
+    <tr><td><b>Stimulants (cocaine/amphetamine)</b></td><td>Parties, work pressure, binges</td><td>Energy, confidence, performance</td><td>Crash/depression, cardiac risk, binge pattern</td><td>Abstinence; barriers: strong craving in binge cycles, no agonist therapy</td></tr>
+    <tr><td><b>Polysubstance</b></td><td>Overlapping cues; one triggers another</td><td>Varies; often self-medication</td><td>Compounded risk (e.g., opioids+benzos+alcohol → respiratory depression)</td><td>Prioritise highest-risk substance; barriers: complex withdrawal, needs medical lead</td></tr>
+  </table>
+  <div class="callout safety"><strong>⚠ Opioids — emphasise:</strong> assess <b>overdose risk</b> (recent abstinence lowers tolerance → high relapse-overdose danger), injecting and mixing with sedatives; provide <b>naloxone</b> and counselling; facilitate <b>medications for OUD</b> (e.g., buprenorphine, methadone) where clinically indicated. MET complements — never replaces — this medical treatment.</div>
+  <div class="callout safety"><strong>⚠ Alcohol:</strong> history of seizures or delirium tremens means <b>medically supervised withdrawal</b> — do not encourage abrupt cessation without medical cover.</div>
+</section>
+
+<!-- ============ 8 CHALLENGES ============ -->
+<section class="card" id="challenges">
+  <h2>8 · Common Clinical Challenges</h2>
+  <p class="lead">For each, a short dialogue showing empathy, reflective listening, autonomy support, and follow-up. The underlying move is almost always: <b>reflect → affirm autonomy → evoke, don't argue.</b></p>
+
+  <div class="scriptcard"><b>"I don't have a problem."</b><br>
+  <span class="t">T:</span> "From where you stand, this isn't a problem. I'm not here to label you. What made others feel it might be?" → <span class="p">P:</span> "My wife keeps on about the money." → <span class="t">T:</span> "So money is one thing even you can see is tight."</div>
+
+  <div class="scriptcard"><b>"I can stop whenever I want."</b><br>
+  <span class="t">T:</span> "You feel in control of this — and it really is your choice. If you ever did test that, what might you try first?"</div>
+
+  <div class="scriptcard"><b>"My family forced me to come."</b><br>
+  <span class="t">T:</span> "You're here for them, not because you've decided anything — and that's honest. While you're here, what would make this hour worth it for <i>you</i>?"</div>
+
+  <div class="scriptcard"><b>"Substance use is the only thing that helps me."</b><br>
+  <span class="t">T:</span> "Right now it's your main way to cope — that's important to understand. What else has ever given you even a bit of that relief?"</div>
+
+  <div class="scriptcard"><b>"I don't want to quit."</b><br>
+  <span class="t">T:</span> "You're not looking to quit, and I won't push that. Is there anything about your use you <i>would</i> want to be different — even a little?"</div>
+
+  <div class="scriptcard"><b>"I tried before and failed."</b><br>
+  <span class="t">T:</span> "That stung. And you did stay clean three weeks last time — that's not nothing. What worked, even for a while?"</div>
+
+  <div class="scriptcard"><b>"I'll think about it."</b><br>
+  <span class="t">T:</span> "It's a big decision and you want to weigh it — fair enough. What might you turn over in your mind this week?"</div>
+
+  <div class="scriptcard"><b>Missed sessions.</b><br>
+  <span class="t">T (on return, warm, no scolding):</span> "Good to see you back — I'm glad you came. What's been happening?" <i>Explore barriers (transport, cravings, ambivalence) collaboratively.</i></div>
+
+  <div class="scriptcard"><b>Minimal participation.</b><br>
+  <span class="t">T:</span> "You're pretty quiet today — that's okay. Would it be more useful to just sit with one thing, or would you rather we stop early?" <i>Offer control; reduce pressure.</i></div>
+
+  <div class="scriptcard"><b>Anger / defensiveness.</b><br>
+  <span class="t">T:</span> "I've touched a nerve, and I'm sorry — that wasn't my aim. This is your call entirely. What <i>would</i> be helpful to talk about?" <i>Reflect feeling, drop the agenda, restore autonomy.</i></div>
+
+  <div class="scriptcard"><b>Conflicting family expectations.</b><br>
+  <span class="t">T:</span> "Your family wants one thing and you're not sure you want the same. Both of those are real. What do <i>you</i> want for yourself here?" <i>Avoid siding against the patient; consider separate family session.</i></div>
+
+  <div class="scriptcard"><b>A lapse after making a change plan.</b><br>
+  <span class="t">T:</span> "You slipped once and then stopped yourself — that recovery matters. Slips are common and they don't erase your progress. What can we learn from it?" <i>→ use Worksheet #19.</i></div>
+</section>
+
+<!-- ============ 9 VIGNETTES ============ -->
+<section class="card" id="vignettes">
+  <h2>9 · Case Vignettes &amp; Role-Play (fictional)</h2>
+
+  <div class="vignette">
+    <h3>Case 1 — Opioid/smack user, ambivalent about treatment</h3>
+    <p><b>Initial assessment:</b> 29-y/o male, inhaled heroin ~0.5 g/day ×4 yrs, 15 cig/day; one prior detox (relapsed). Cravings 8/10. No injecting, no OD. Importance 6/10, confidence 3/10. Supportive wife; job at risk.</p>
+    <p><b>Motivational formulation:</b> Contemplation; health &amp; family are strong intrinsic pulls; <b>low confidence</b> is the main obstacle, not low importance.</p>
+    <div class="scriptcard"><span class="t">T:</span> "You've told me your health and your wife matter most — and that using is clashing with both." → <span class="p">P:</span> <span class="ct">"Yeah… I do want to stop, I just don't think I can."</span> → <span class="t">T:</span> "You want to — the question is whether you can. Last time you managed three weeks. What helped?" → <span class="p">P:</span> <span class="ct">"Staying away from my old group."</span></div>
+    <p><b>Change talk:</b> <span class="ct">"I want to stop." "My wife deserves better."</span> <b>Sustain talk:</b> <span class="st">"I don't think I can." "Withdrawal is hell."</span></p>
+    <p><b>Worksheet selection:</b> #12 Strengths/successes &amp; #7 Confidence ruler (target low confidence), #13 Triggers, #16 Change plan, ★#21 short-term goals.</p>
+    <p><b>Session goals:</b> raise confidence; coordinate medical review for OUD medication &amp; naloxone; one small early-success goal.</p>
+    <p><b>Documentation:</b> "Contemplation→preparation. Importance 6, confidence 3→5 after affirming past success. Referred for buprenorphine assessment. Plan: short-term goal to attend appointment."</p>
+    <p><b>Next step:</b> Session 3 change plan once medication started.</p>
+  </div>
+
+  <div class="vignette">
+    <h3>Case 2 — Alcohol user, recognises consequences, low confidence</h3>
+    <p><b>Initial assessment:</b> 42-y/o male, ~750 ml spirits/day ×8 yrs; raised LFTs; marital strain; two failed quit attempts; one withdrawal with tremor (no seizure). Importance 8/10, confidence 2/10.</p>
+    <p><b>Formulation:</b> High importance, very low confidence; needs efficacy-building and <b>medically supervised withdrawal</b>.</p>
+    <div class="scriptcard"><span class="t">T:</span> "You're very clear this matters — an 8. What makes you doubt you can do it?" → <span class="p">P:</span> <span class="st">"I always go back."</span> → <span class="t">T (reframe + affirm):</span> "You've started several times — that's persistence, not failure. This time we add medical support for the withdrawal so it's safer." → <span class="p">P:</span> <span class="ct">"If the withdrawal was handled, I'd try again."</span></div>
+    <p><b>Worksheet:</b> #12 Strengths, #7 Confidence, #15 Coping/support, #20 Continuing care, ★#22 long-term goals (rebuild trust at home).</p>
+    <p><b>Goals:</b> arrange supervised detox; build confidence; connect to support group.</p>
+    <p><b>Documentation:</b> "Preparation. Importance 8, confidence 2→4. Referred for inpatient-assisted withdrawal given tremor history. Long-term goal: family trust."</p>
+    <p><b>Next step:</b> coordinate detox, then relapse-prevention planning.</p>
+  </div>
+
+  <div class="vignette">
+    <h3>Case 3 — Attending under family pressure, no personal reason to change</h3>
+    <p><b>Initial assessment:</b> 23-y/o, daily cannabis + occasional alcohol; brought by parents; "I'm only here because of them." Importance 2/10, confidence 7/10.</p>
+    <p><b>Formulation:</b> Precontemplation; extrinsic pressure only. Task: engage, build rapport, evoke any personal concern — <b>no planning yet</b>.</p>
+    <div class="scriptcard"><span class="t">T:</span> "You're here for your parents, not because you've decided anything — and I respect that it's your choice. What would make this worth your while today?" → <span class="p">P:</span> <span class="st">"Just getting them to back off."</span> → <span class="t">T:</span> "The constant pressure is exhausting. If the fighting eased, what difference would that make for you?" → <span class="p">P:</span> <span class="ct">"I'd actually have some peace… and maybe focus on my studies."</span> (first personal reason)</div>
+    <p><b>Change talk:</b> <span class="ct">"I'd have peace." "Focus on studies."</span> <b>Sustain talk:</b> <span class="st">"I don't have a problem." "Everyone my age smokes."</span></p>
+    <p><b>Worksheet:</b> #10 Values/goals, #2 Reasons, rulers #6/#7 — <i>no change plan yet</i>.</p>
+    <p><b>Goals:</b> engagement; one personal value surfaced; leave the door open.</p>
+    <p><b>Documentation:</b> "Precontemplation. Attends under family pressure. Began to voice a personal interest (studies/peace). No plan imposed. Plan: continue engagement."</p>
+    <p><b>Next step:</b> re-invite; explore studies/autonomy as intrinsic motivators.</p>
+  </div>
+
+  <h3>Role-play instructions</h3>
+  <div class="grid2">
+    <div><h4>Therapist</h4><ul class="tight"><li>Use OARS; aim for a high reflection-to-question ratio.</li><li>Elicit change talk; never argue with sustain talk.</li><li>Ask permission before advice; use Elicit–Provide–Elicit.</li><li>Emphasise autonomy at least once.</li></ul></div>
+    <div><h4>Patient</h4><ul class="tight"><li>Play the assigned stage realistically; include genuine ambivalence.</li><li>Push back if the therapist lectures or confronts.</li><li>Offer change talk when the therapist evokes it well.</li></ul></div>
+  </div>
+  <div><h4>Observer</h4><ul class="tight"><li>Tally OARS use and change-talk vs sustain-talk moments.</li><li>Note any confrontation/righting-reflex slips and the patient's reaction.</li><li>Give one specific affirmation and one suggestion in feedback.</li></ul></div>
+</section>
+
+<!-- ============ 10 DOCUMENTATION ============ -->
+<section class="card" id="docs">
+  <h2>10 · Progress Monitoring &amp; Documentation</h2>
+  <p class="lead">A concise MET session-note template. Document observations and the patient's words — not labels.</p>
+  <div class="worksheet">
+    <h3>MET Session Note</h3>
+    <div class="fieldbox">Session number &amp; date: </div>
+    <div class="fieldbox">Presenting concerns: </div>
+    <div class="fieldbox">Patient's perspective (in their words): </div>
+    <div class="fieldbox">Motivation / readiness (stage): </div>
+    <div class="fieldbox">Importance (0–10) &amp; Confidence (0–10): </div>
+    <div class="fieldbox">Change talk noted: </div>
+    <div class="fieldbox">Sustain talk / ambivalence noted: </div>
+    <div class="fieldbox">Interventions used (OARS, feedback, rulers, plan): </div>
+    <div class="fieldbox">Patient response: </div>
+    <div class="fieldbox">Agreed action / homework: </div>
+    <div class="fieldbox">Safety concerns (OD risk, suicidality, withdrawal): </div>
+    <div class="fieldbox">Referral / treatment coordination: </div>
+    <div class="fieldbox">Plan for next session: </div>
+  </div>
+  <div class="callout"><b>Documenting ambivalence without labelling.</b> Write what you observed, not a verdict:
+    <table>
+      <tr><th>Avoid (labelling)</th><th>Prefer (descriptive, non-stigmatising)</th></tr>
+      <tr><td>"Patient is resistant/unmotivated/in denial."</td><td>"Patient is weighing reasons for and against change; importance 6, confidence 3. Voiced concern about finances and health."</td></tr>
+      <tr><td>"Non-compliant."</td><td>"Has not yet started medication; identified cost and transport as barriers."</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- ============ 11 COMPARISON ============ -->
+<section class="card" id="compare">
+  <h2>11 · MET vs Other Approaches</h2>
+  <p class="lead">These approaches are often <b>complementary</b>, not rivals; MET is frequently used to engage a patient before or alongside skills-based treatment.</p>
+  <table>
+    <tr><th>Approach</th><th>Primary goal</th><th>Therapist stance</th><th>Core techniques</th><th>Structure</th><th>Best used when…</th></tr>
+    <tr><td><b>MET</b></td><td>Resolve ambivalence, build motivation &amp; a change plan</td><td>Collaborative, evocative, directive-but-gentle</td><td>MI + personalised feedback, rulers, change plan</td><td>Brief (≈4 sessions)</td><td>Low/ambivalent motivation; engagement phase</td></tr>
+    <tr><td><b>Motivational Interviewing</b></td><td>Evoke the person's own motivation</td><td>Partnership, acceptance, compassion, evocation</td><td>OARS, change talk, rolling with resistance</td><td>Not time-fixed; a style</td><td>Any point ambivalence appears; integratable into other therapies</td></tr>
+    <tr><td><b>CBT for SUD</b></td><td>Change thoughts/behaviours maintaining use</td><td>Active teacher-collaborator</td><td>Functional analysis, cognitive restructuring, skills training</td><td>Structured, multi-session</td><td>Patient ready; needs coping skills</td></tr>
+    <tr><td><b>Relapse Prevention</b></td><td>Maintain change, prevent/manage lapses</td><td>Coach</td><td>Trigger ID, coping rehearsal, lapse management</td><td>Maintenance-focused</td><td>After initial change achieved</td></tr>
+    <tr><td><b>Psychoeducation</b></td><td>Provide knowledge about substances/effects</td><td>Informer</td><td>Didactic teaching, materials</td><td>Flexible/group</td><td>Information gaps; adjunct (deliver in E-P-E style)</td></tr>
+    <tr><td><b>Twelve-Step Facilitation</b></td><td>Engage with AA/NA &amp; the 12 steps</td><td>Facilitator/supporter</td><td>Step work, sponsorship, meetings, abstinence focus</td><td>Structured, ongoing fellowship</td><td>Patient open to mutual-help &amp; spiritual/fellowship model</td></tr>
+  </table>
+</section>
+
+<!-- ============ 12 EVIDENCE ============ -->
+<section class="card" id="evidence">
+  <h2>12 · Evidence, Limitations &amp; Ethical Practice</h2>
+  <h3>Evidence (summary)</h3>
+  <p>MET and MI have a substantial evidence base in substance-use treatment. In <b>Project MATCH</b>, 4-session MET produced drinking outcomes broadly comparable to longer CBT and Twelve-Step Facilitation — notable given fewer sessions. Reviews and the <b>Cochrane</b> literature on MI/MET report benefits for engagement, retention, and reduced use, though effect sizes vary by substance, population, setting, and comparison condition, and some effects are modest or short-lived without follow-up. (Prioritise the original Project MATCH reports, Miller &amp; Rollnick, and Cochrane reviews as verifiable sources; figures above are summarised, not exact statistics.)</p>
+  <div class="callout tip"><b>What MET can do:</b> improve engagement/retention, strengthen motivation and commitment, reduce use for many, and serve as a low-intensity entry point. <b>What it cannot do:</b> replace detox, pharmacotherapy, or management of severe dependence; guarantee abstinence; or "cure" addiction through motivation alone.</div>
+  <h3>Limitations</h3>
+  <ul class="tight">
+    <li>Outcomes vary across substances (e.g., evidence stronger for alcohol/cannabis engagement than for some stimulant outcomes) and populations.</li>
+    <li>Effects depend heavily on treatment context and <b>follow-up/continuing care</b>.</li>
+    <li>Motivation is necessary but not sufficient — pair with medical treatment and skills where indicated.</li>
+  </ul>
+  <h3>Ethical practice</h3>
+  <ul class="tight">
+    <li><b>Informed consent &amp; confidentiality</b> — explain purpose, voluntariness, and limits (risk to self/others, legal mandates).</li>
+    <li><b>Respect for autonomy</b> — the patient chooses goals; avoid coercion and confrontation.</li>
+    <li><b>Non-stigmatising language</b> — "a person who uses heroin," not "an addict/junkie"; describe behaviour, not identity.</li>
+    <li><b>Cultural sensitivity</b> — adapt to family structure, religion, gender, and local norms (important in Indian de-addiction settings).</li>
+    <li><b>Appropriate referral &amp; multidisciplinary care</b> — coordinate with physicians, psychiatry, social work, and community/mutual-help resources.</li>
+    <li>Do <b>not overstate efficacy</b> or claim motivation alone resolves dependence.</li>
+  </ul>
+</section>
+
+<!-- ============ QUICK REFERENCE ============ -->
+<section class="card quickref" id="quickref">
+  <h2 style="color:#2f6476;">★ One-Page Quick-Reference Guide</h2>
+  <div class="grid2">
+    <div>
+      <h3>MET session workflow</h3>
+      <ol class="tight"><li>Assess (structured, MI style)</li><li>S1: Engage + personalised feedback (E-P-E) + evoke reasons</li><li>S2: Explore ambivalence, develop discrepancy, build change talk</li><li>S3: Negotiate change plan + triggers/coping + short-term goals</li><li>S4: Consolidate, relapse-prevention, continuing care</li></ol>
+      <h3>OARS</h3>
+      <p><b>O</b>pen questions · <b>A</b>ffirmations · <b>R</b>eflective listening · <b>S</b>ummaries</p>
+      <h3>Golden rules</h3>
+      <ul class="tight"><li>Evoke, don't install. Reflect, don't argue.</li><li>Emphasise autonomy &amp; choice.</li><li>If the patient defends use, change <i>your</i> approach.</li><li>Ask permission before advice (Elicit–Provide–Elicit).</li></ul>
+    </div>
+    <div>
+      <h3>Change talk — DARN-CAT</h3>
+      <p><b>Preparatory:</b> Desire · Ability · Reasons · Need<br><b>Mobilising:</b> Commitment · Activation · Taking steps</p>
+      <h3>Rulers (0–10)</h3>
+      <p><b>Importance:</b> "How important is change?" <b>Confidence:</b> "If you decided, could you?"<br>Then: <i>"Why that number?"</i> and <i>"Why not lower?"</i> (both pull change talk). Never ask "why not higher?"</p>
+      <h3>Change planning</h3>
+      <p>Goal (patient's words) → reasons → steps → supports → how you'll know it's working → obstacles &amp; responses → <b>short-term goals</b> that build toward <b>long-term goals</b>.</p>
+      <div class="callout safety" style="margin-top:8px"><strong>⚠ Always:</strong> screen OD/withdrawal/suicide risk; coordinate medical care &amp; (for opioids) naloxone + MOUD.</div>
+    </div>
+  </div>
+  <p style="text-align:center; margin-top:16px;"><span class="byline" style="background:#fff;">Made by Tejas Dangodra · M.Phil. Clinical Psychology</span></p>
+</section>
+
+</main>
+</div>
+
+<footer>
+  <p><b>Motivational Enhancement Therapy — Clinical Guide, Session Manual &amp; Worksheets</b></p>
+  <p class="src">Built on Miller, Zweben, DiClemente &amp; Rychtarik's <i>MET Manual</i> (Project MATCH Monograph Vol. 2, NIAAA) and Miller &amp; Rollnick's <i>Motivational Interviewing</i>. Educational/clinical-training use. Not a substitute for medical care, supervision, or local clinical guidelines.</p>
+  <div class="byline">Made by Tejas Dangodra &nbsp;•&nbsp; M.Phil. Clinical Psychology</div>
+</footer>
+
+<button class="backtop" id="backtop" title="Back to top">↑</button>
+
+<script>
+// Back-to-top
+var bt=document.getElementById('backtop');
+window.addEventListener('scroll',function(){bt.style.display=window.scrollY>500?'block':'none';});
+bt.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+
+// Search: highlight matches and expand sessions containing them
+var box=document.getElementById('searchBox');
+var sections=document.querySelectorAll('main section.card, main .worksheet, main details.session');
+box.addEventListener('input',function(){
+  var q=this.value.trim().toLowerCase();
+  // reset
+  document.querySelectorAll('main').forEach(function(m){});
+  sections.forEach(function(el){ el.style.outline=''; });
+  if(!q){ return; }
+  var firstHit=null;
+  sections.forEach(function(el){
+    var hit=el.textContent.toLowerCase().indexOf(q)!==-1;
+    if(hit){
+      el.style.outline='3px solid var(--accent)';
+      var det=el.closest('details.session'); if(det) det.open=true;
+      if(el.tagName==='DETAILS') el.open=true;
+      if(!firstHit) firstHit=el;
+    }
+  });
+  if(firstHit) firstHit.scrollIntoView({behavior:'smooth',block:'start'});
+});
+// expand all sessions when printing
+window.addEventListener('beforeprint',function(){document.querySelectorAll('details.session').forEach(function(d){d.open=true;});});
+</script>
+</body>
+</html>

@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>MET — Session-by-Session Guide & Worksheet Pack | Dango_Psych</title>
+<style>
+:root{
+  --lavender:#ece7f6; --lilac:#dccdee; --lilac2:#cbb6e4; --powder:#dcebf6; --powder2:#c6def0;
+  --sage:#dde9d7; --mint:#d4efe4; --peach:#fbe4d2; --peach2:#f4c9ad; --cream:#fdf9f0; --rose:#f7dceb;
+  --ink:#312b40; --muted:#5f586e; --line:#cdc1e2;
+  --accent:#6f58a0; --accent-d:#523f78; --accent2:#44798c; --warn:#bd6440; --good:#47805f;
+}
+*{box-sizing:border-box;}
+body{margin:0; font-family:"Segoe UI",Candara,Calibri,system-ui,Arial,sans-serif; color:var(--ink);
+  line-height:1.58; font-size:11pt; background:#fff;}
+@page{ size:A4; margin:16mm 14mm 16mm; }
+/* Cover and each worksheet occupy their own page; long content sections flow
+   naturally and start on a fresh page at each major heading — this avoids the
+   half-empty pages caused by forcing a break after over-length blocks. */
+.cover{ page-break-after:always; break-after:page; }
+.ws{ page-break-before:always; break-before:page; }
+/* compact modifier for content-dense worksheets so each fits on a single A4 page */
+.ws.compact{ font-size:9.6pt; line-height:1.4; }
+.ws.compact h2{ font-size:14pt; margin:2px 0 1px; }
+.ws.compact .purpose, .ws.compact .howto{ padding:6px 10px; margin:6px 0; font-size:9pt; }
+.ws.compact .howto ol, .ws.compact .purpose{ margin:3px 0; }
+.ws.compact .example{ padding:6px 10px; margin:6px 0; font-size:8.8pt; }
+.ws.compact table{ margin:6px 0; font-size:8.8pt; }
+.ws.compact th, .ws.compact td{ padding:4px 6px; }
+.ws.compact .fieldbox{ min-height:30px; margin:4px 0; }
+.ws.compact .fieldbox.sm{ min-height:20px; }
+.ws.compact .ws-review{ padding:7px 10px; margin-top:8px; font-size:8.6pt; }
+.ws.compact p{ margin:4px 0; }
+.ws.compact .checkrow{ margin:3px 0; font-size:9pt; }
+/* Major Part dividers and the closing page start fresh; ordinary section
+   headings do NOT force a break, so content flows and fills each page. */
+.page.breakbefore{ page-break-before:always; break-before:page; }
+.page.closing{ page-break-before:always; break-before:page; }
+/* Session content flows continuously to fill every page (no large trailing
+   gaps). We only avoid orphaned headings: keep a session's phase title and its
+   techniques line with the text that follows, and never break right after a
+   heading. */
+.sess{ page-break-inside:auto; }
+.sess .phase, .sess .sessionhead{ break-inside:avoid; break-after:avoid; }
+.sess .phase{ break-before:auto; }
+h4{ break-after:avoid; }
+h2.sec{ break-after:avoid; }
+.scriptcard, .step-list, table{ break-inside:avoid; }
+
+/* cover */
+.cover{ display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center;
+  min-height:255mm; background:linear-gradient(160deg,var(--mint),var(--powder) 55%,var(--lavender));
+  border:3px solid var(--lilac2); border-radius:14px; padding:30mm 18mm; }
+.cover .kicker{ letter-spacing:4px; color:var(--accent2); font-weight:700; font-size:12pt; }
+.cover h1{ font-size:28pt; color:var(--accent-d); margin:14px 0 6px; line-height:1.15; }
+.cover h2{ font-size:15pt; color:var(--muted); font-weight:600; margin:4px 0; }
+.cover .vol{ margin-top:24px; padding:10px 24px; background:#fff; border:2px solid var(--accent); border-radius:40px; font-weight:800; color:var(--accent-d); font-size:13pt; }
+.cover .brand{ margin-top:38px; font-size:13pt; font-weight:800; color:var(--accent-d); letter-spacing:1px; }
+.cover .brand small{ display:block; font-weight:600; color:var(--muted); font-size:10pt; margin-top:3px;}
+.cover .sub{ margin-top:16px; font-size:10pt; color:var(--muted); max-width:150mm;}
+h2.sec{ font-size:16pt; color:#fff; background:linear-gradient(90deg,var(--accent),var(--accent2)); padding:9px 15px; border-radius:9px; margin:0 0 12px; }
+h3{ font-size:12.5pt; color:var(--accent-d); border-bottom:2px solid var(--lilac); padding-bottom:4px; margin:18px 0 7px;}
+h4{ font-size:11pt; color:var(--accent2); margin:12px 0 3px;}
+p{ margin:6px 0; } .lead{ font-size:11.5pt; color:var(--muted); }
+.defn{ color:var(--muted); font-style:italic; font-size:.95em; }
+ul,ol{ margin:6px 0; padding-left:20px;} li{ margin:2px 0;}
+table{ width:100%; border-collapse:collapse; margin:10px 0; font-size:9.8pt; }
+th,td{ border:1px solid var(--line); padding:6px 8px; text-align:left; vertical-align:top; }
+th{ background:var(--lavender); color:var(--accent-d); }
+tr:nth-child(even) td{ background:#faf7fe; }
+.callout{ border-left:5px solid var(--accent2); background:var(--powder); padding:9px 13px; border-radius:0 9px 9px 0; margin:10px 0; }
+.callout.safety{ border-color:var(--warn); background:#fbe7df; } .callout.safety strong{ color:var(--warn); }
+.callout.tip{ border-color:var(--good); background:var(--mint); }
+.callout.key{ border-color:var(--accent); background:var(--rose); }
+.scriptcard{ border:1px dashed var(--accent2); border-radius:9px; padding:8px 12px; margin:8px 0; background:#f2f8fb; font-size:10pt;}
+.scriptcard .t{ color:var(--accent); font-weight:700; } .scriptcard .p{ color:var(--accent2); font-weight:700; }
+.ct{ color:var(--good); font-weight:700; } .st{ color:var(--warn); font-weight:700; }
+.pill{ display:inline-block; padding:1px 8px; border-radius:14px; font-size:8.3pt; font-weight:700; }
+.pill.model{ background:var(--lilac2); color:#3b2c62;} .pill.supp{ background:var(--peach); color:#7a3c1c;} .pill.ad{ background:var(--powder2); color:#2b5466;}
+.tag{ font-size:8.3pt; background:var(--sage); color:#3d5938; padding:1px 7px; border-radius:10px; font-weight:700;}
+.phase{ background:linear-gradient(90deg,var(--lilac2),var(--powder2)); color:#352257; padding:8px 14px; border-radius:9px; font-weight:800; font-size:12pt; margin:4px 0 10px;}
+.sessionhead{ background:var(--lavender); border:1px solid var(--lilac2); border-radius:10px; padding:8px 13px; margin-bottom:8px;}
+.sessionhead .n{ font-weight:800; color:var(--accent-d); font-size:12.5pt;}
+.sessionhead .tech{ font-size:9pt; color:var(--accent2); margin-top:3px;}
+.grid2{ display:grid; grid-template-columns:1fr 1fr; gap:11px;} .box{ border:1px solid var(--line); border-radius:9px; padding:9px 12px; background:#fcfaff;}
+.footer-note{ font-size:8.3pt; color:var(--muted); text-align:center; border-top:1px solid var(--line); margin-top:14px; padding-top:5px;}
+h2.sec,h3,table,.scriptcard,.callout,.sessionhead,.step-list li{ break-inside:avoid; }
+.step-list{ counter-reset:st; list-style:none; padding-left:0;}
+.step-list li{ position:relative; padding:4px 0 4px 30px; margin:3px 0;}
+.step-list li::before{ counter-increment:st; content:counter(st); position:absolute; left:0; top:3px; width:21px; height:21px; background:var(--accent); color:#fff; border-radius:50%; text-align:center; font-size:9pt; font-weight:700; line-height:21px;}
+/* ---- WORKSHEET (each on its own page) ---- */
+.ws{ /* breaks handled by the shared .page,.ws rule above */ }
+.ws-brand{ text-align:center; border-bottom:2px solid var(--accent); padding-bottom:7px; margin-bottom:12px;}
+.ws-brand .b1{ font-size:14pt; font-weight:800; color:var(--accent-d); letter-spacing:1px;}
+.ws-brand .b2{ font-size:9pt; color:var(--muted);}
+.ws h2{ font-size:16pt; color:var(--accent-d); margin:4px 0 2px;}
+.ws .purpose{ background:var(--lavender); border-radius:9px; padding:8px 12px; font-size:9.8pt; margin:8px 0;}
+.ws .howto{ background:var(--mint); border-left:4px solid var(--good); border-radius:0 9px 9px 0; padding:9px 13px; margin:9px 0; font-size:9.8pt;}
+.ws .howto ol{ margin:5px 0;}
+.example{ background:#eef7f1; border:1px dashed var(--good); border-radius:9px; padding:9px 12px; margin:9px 0; font-size:9.6pt;}
+.example b.lab{ color:var(--good);}
+.fieldbox{ border:1px solid var(--line); border-radius:8px; min-height:40px; padding:7px; margin:5px 0; background:#fff;}
+.fieldbox.sm{ min-height:28px;} .fieldbox.lg{ min-height:70px;} .fieldbox.xl{ min-height:110px;}
+.lines{ margin:6px 0;}
+.lines .ln{ border-bottom:1px solid #b4a8cd; height:26px; }
+.checkrow{ display:flex; align-items:flex-start; gap:8px; margin:4px 0; font-size:10pt;}
+.checkrow .cb{ width:15px;height:15px;border:1.5px solid var(--accent); border-radius:3px; flex:0 0 auto; margin-top:2px;}
+.rulerline{ display:flex; gap:3px; margin:8px 0; }
+.rulerline span{ flex:1; text-align:center; padding:7px 0; border:1px solid var(--line); border-radius:6px; font-weight:700; font-size:10pt;}
+.rulerline .z{ background:#fbe7df;} .rulerline .m{ background:var(--peach);} .rulerline .h{ background:var(--mint);}
+.ws-review{ font-size:9.3pt; color:var(--muted); background:#f7f3fd; border-radius:8px; padding:9px 12px; margin-top:11px;}
+.ws-foot{ text-align:center; margin-top:14px; padding-top:6px; border-top:1px solid var(--line); font-size:8.3pt; color:var(--muted);}
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="page">
+  <div class="cover">
+    <div class="kicker">CLINICAL PSYCHOLOGY · DE-ADDICTION</div>
+    <h1>Motivational Enhancement Therapy</h1>
+    <h2>Book Two — Session-by-Session Guide &amp; Worksheet Pack</h2>
+    <div class="vol">12-Session Program · Techniques per Session · 24 Ready-to-Use Worksheets</div>
+    <p class="sub">Exactly what to do from the first session to the last, which technique to use in which session, and a complete pack of long, comprehensive, printable worksheets — including MET short-term and long-term goal worksheets. Companion to Book One (Theory &amp; Techniques).</p>
+    <div class="brand">Dango_Psych — Tejas Dangodra<small>M.Phil. Clinical Psychology</small></div>
+  </div>
+</div>
+
+<!-- CONTENTS -->
+<div class="page breakbefore">
+  <h2 class="sec">Contents — Book Two</h2>
+  <div class="grid2">
+    <div class="box">
+      <h4 style="margin-top:0">Part A · Session Guide</h4>
+      <ul>
+        <li>How to use this guide + technique key</li>
+        <li>Assessment before MET</li>
+        <li>The 12-session program at a glance</li>
+        <li><b>Phase I · Engagement (S1–3)</b></li>
+        <li><b>Phase II · Evoking (S4–6)</b></li>
+        <li><b>Phase III · Planning (S7–9)</b></li>
+        <li><b>Phase IV · Maintenance (S10–12)</b> + boosters</li>
+        <li>Substance-specific notes · adolescents</li>
+        <li>Common clinical challenges · session note</li>
+      </ul>
+    </div>
+    <div class="box">
+      <h4 style="margin-top:0">Part B · Worksheet Pack (24)</h4>
+      <ol style="font-size:9.5pt">
+        <li>My Substance-Use Story</li>
+        <li>How Use Affects My Life</li>
+        <li>My Reasons for Considering Change</li>
+        <li>Importance Ruler</li><li>Confidence Ruler</li>
+        <li>Why This Number / Why Not Lower</li>
+        <li>Decisional Balance (4-quadrant)</li>
+        <li>My Personal Values &amp; Goals</li>
+        <li>My Strengths &amp; Past Successes</li>
+        <li>My Triggers &amp; High-Risk Situations</li>
+        <li>My Barriers to Change</li>
+        <li>My Coping Options &amp; Support Network</li>
+        <li>Craving Management Plan</li>
+        <li>My Change Plan</li>
+        <li>My First Steps (action)</li>
+        <li>Family / Support-Person Involvement</li>
+        <li>My Progress Review</li>
+        <li>Learning from a Lapse</li>
+        <li>Relapse-Prevention &amp; Emergency Plan</li>
+        <li>My Treatment Journey Review</li>
+        <li>My Continuing-Care Plan</li>
+        <li><b>★ My SHORT-TERM Goals (MET)</b></li>
+        <li><b>★ My LONG-TERM Goals (MET)</b></li>
+        <li>Clinician MET Session Note</li>
+      </ol>
+    </div>
+  </div>
+  <div class="footer-note">MET · Book Two — Session-by-Session Guide &amp; Worksheet Pack</div>
+</div>
+
+<!-- HOW TO USE + ASSESSMENT -->
+<div class="page breakbefore">
+  <h2 class="sec">Part A · How to Use This Guide</h2>
+  <p class="lead">This book turns the theory and techniques of Book One into action. Each session lists the <b>techniques used</b> (with their Book-One codes, e.g. A3 = reflective listening, C2 = rulers) so you can see exactly which skill to apply when.</p>
+  <div class="callout tip"><b>Technique code key (full detail in Book One §9).</b> <b>A</b> = OARS (A1 open Qs, A2 affirmations, A3 reflections, A4 summaries); <b>B</b> = reflections (B1 simple…B5 feeling); <b>C</b> = evoking (C1 evocative Qs, C2 rulers, C3 extremes, C4 look back/forward, C5 values, C6 elaborate, C7 key question, C8 bouquet); <b>D</b> = sustain talk/discord (D1 roll, D2 autonomy, D3 reframe, D4 agree-with-twist, D5 shift, D6 come alongside, D7 repair); <b>E</b> = info (E1 E-P-E, E2 feedback, E3 permission, E4 menu); <b>F</b> = planning/relapse (F1 decisional balance … F13 boosters).</div>
+
+  <h3>Assessment before MET</h3>
+  <p>A structured assessment precedes MET; its results feed the Session-2 feedback. Cover: present use (type/amount/frequency/<b>route</b>/duration), last use &amp; cravings, triggers, consequences (physical/psychological/family/work/legal), previous attempts, withdrawal &amp; overdose risk, patient's own understanding, readiness/importance/confidence, strengths &amp; supports, barriers, and goals/preferences. Instruments: WHO ASSIST, AUDIT, Fagerström, timeline follow-back, SOCRATES.</p>
+  <div class="callout safety"><strong>⚠ Flag immediately</strong> for medical/psychiatric care: suicidal ideation, overdose risk, severe alcohol/benzodiazepine withdrawal risk (seizure/DT history), pregnancy, acute illness. MET complements — never replaces — medical treatment.</div>
+
+  <h3>The 12-session program at a glance</h3>
+  <table>
+    <tr><th>Phase</th><th>Sessions</th><th>MI process</th><th>Primary tasks</th><th>Main techniques</th></tr>
+    <tr><td><b>I · Engagement &amp; Feedback</b></td><td>1–3</td><td>Engaging + Focusing</td><td>Rapport, assessment feedback, build discrepancy, map readiness</td><td>A1–A4, B1–B3, E1–E3, C2, C5</td></tr>
+    <tr><td><b>II · Evoking Motivation</b></td><td>4–6</td><td>Evoking</td><td>Decisional balance, values, resolve ambivalence, build confidence</td><td>F1, C1–C8, D1–D7, B3–B4</td></tr>
+    <tr><td><b>III · Planning &amp; Action</b></td><td>7–9</td><td>Planning</td><td>Change plan, triggers &amp; coping, support, pharmacotherapy</td><td>C7, F2–F8, F11–F12, E4</td></tr>
+    <tr><td><b>IV · Maintenance</b></td><td>10–12 (+boosters)</td><td>Planning / re-engaging</td><td>Review change, relapse prevention, continuing care, discharge</td><td>A2, F9–F10, F13, C8</td></tr>
+  </table>
+  <p><span class="pill supp">SUPPLEMENTARY structure</span> The published MET is brief (~4 sessions); this 12-session version spreads the same evidence-based tasks over more time for complex/opioid/adolescent cases. Adapt the number to the patient — the <i>sequence of tasks</i> matters more than the exact count.</p>
+  <div class="footer-note">MET · Book Two — Session-by-Session Guide &amp; Worksheet Pack</div>
+</div>
+
+<!-- PHASE I -->
+<div class="page breakbefore">
+  <h2 class="sec">Phase I · Engagement &amp; Assessment Feedback (S1–3)</h2>
+  <div class="sess"><div class="phase">Session 1 · Engagement &amp; Rapport</div>
+  <div class="sessionhead"><div class="n">Session 1</div><div class="tech"><b>Techniques used:</b> A1 open questions · A3 reflective listening · A2 affirmations · A4 summaries · D2 autonomy · B2 complex reflection &nbsp;|&nbsp; <b>Worksheet:</b> #1</div></div>
+  <p><b>Objectives:</b> establish a trusting, collaborative alliance; orient the patient to MET; understand their world; instil hope. <b>Rationale:</b> engagement predicts retention — nothing works without it. <b>Preparation:</b> private space; review referral; set a non-rushed tone; prepare consent/confidentiality points.</p>
+  <h4>Step-by-step</h4>
+  <ol class="step-list"><li>Warm welcome; introduce MET collaboratively.</li><li>Explain confidentiality &amp; its limits.</li><li>Open-ended invitation to tell their story (A1).</li><li>Listen with OARS; reflect far more than you ask (A3).</li><li>Elicit hopes/concerns; affirm attending (A2, D2).</li><li>Agree a loose agenda for the sessions ahead.</li></ol>
+  <div class="scriptcard"><span class="t">T:</span> “Thanks for coming in. Before anything else — what's been going on in your life lately, in your own words?”<br><span class="p">P:</span> <span class="st">“Honestly, I'm only here because my wife pushed me.”</span><br><span class="t">T (D2 + B2):</span> “You came partly for her — and whatever we do here is still your choice. While you're here, what would make this time worth it for <i>you</i>?”<br><span class="p">P:</span> <span class="ct">“I suppose I'm tired of the arguments.”</span></div>
+  <p><b>Common mistakes:</b> rushing to forms before rapport; siding with family against the patient; correcting denial; filling silences. <b>Homework:</b> notice one thing about use they'd want different. <b>Documentation:</b> engagement quality, stated reason for attending, early change/sustain talk, agenda, risk screen. <b>Move on when:</b> a working alliance exists &amp; the patient will continue.</p>
+
+  </div><div class="sess"><div class="phase">Session 2 · Personalised Assessment Feedback</div>
+  <div class="sessionhead"><div class="n">Session 2</div><div class="tech"><b>Techniques used:</b> E3 ask permission · E2 personalised feedback · E1 Elicit-Provide-Elicit · B3 double-sided reflection · A4 summary · C2 rulers &nbsp;|&nbsp; <b>Worksheets:</b> #2, #4, #5, #6</div></div>
+  <p><b>Objectives:</b> deliver structured, personalised assessment feedback in MI style (the “enhancement”); let the patient draw their own conclusions. <b>Rationale:</b> objective feedback given without argument raises motivation while protecting autonomy. <b>Preparation:</b> a one-page feedback sheet (levels vs norms, risk markers, consequences); rulers ready.</p>
+  <h4>Step-by-step (E-P-E)</h4>
+  <ol class="step-list"><li>Ask permission to share results (E3).</li><li>Elicit what the patient already knows/expects.</li><li>Provide one finding at a time, neutrally; pause (E2).</li><li>Reflect their reaction; avoid defending the data (B3).</li><li>Summarise; ask “What do you make of all this?” (A4).</li></ol>
+  <div class="scriptcard"><span class="t">T (E2):</span> “Your reported use is in the high-risk range compared with most men your age. How does that land?”<br><span class="p">P:</span> <span class="st">“I don't use more than my friends.”</span><br><span class="t">T (B3):</span> “Among your circle this feels normal — and seeing it in the high-risk range is a surprise.”<br><span class="p">P:</span> <span class="ct">“The liver result did scare me a bit.”</span></div>
+  <p><b>Mistakes:</b> lecturing from the sheet; dumping all findings at once; pushing a goal too early. <b>Homework:</b> reflect on which feedback felt most relevant. <b>Move on when:</b> the patient engages with the feedback and voices some concern.</p>
+
+  </div><div class="sess"><div class="phase">Session 3 · Developing Discrepancy &amp; Mapping Readiness</div>
+  <div class="sessionhead"><div class="n">Session 3</div><div class="tech"><b>Techniques used:</b> C2 rulers · C5 values/discrepancy · A3 reflection · C8 summarise change talk · B2 complex reflection &nbsp;|&nbsp; <b>Worksheets:</b> #4, #5, #6, #8</div></div>
+  <p><b>Objectives:</b> develop discrepancy between use and the patient's goals/values; map importance, confidence &amp; readiness. <b>Rationale:</b> discrepancy felt in the patient's own terms is the motor of change. <b>Preparation:</b> ruler &amp; “why this number” prompts.</p>
+  <h4>Step-by-step</h4>
+  <ol class="step-list"><li>Review the week &amp; any homework.</li><li>Importance ruler → “why that number?” → “why not lower?” (C2).</li><li>Confidence ruler the same way (C2).</li><li>Reflect/summarise all change talk (C8).</li><li>Gently hold up the gap: current use vs stated hopes (C5).</li></ol>
+  <div class="scriptcard"><span class="t">T:</span> “On 0–10, how important is changing right now?” → <span class="p">P:</span> “Maybe a 6.” → <span class="t">T:</span> “Why a 6 and not a 3?” → <span class="p">P:</span> <span class="ct">“My health scares me and my wife's at her limit.”</span> → <span class="t">T:</span> “What would move it from a 6 to an 8?”</div>
+  <p><b>Mistakes:</b> creating discrepancy by lecturing; treating ruler numbers as diagnoses. <b>Move on to Phase II when:</b> the patient voices meaningful discrepancy and some desire/reason to change.</p></div>
+  <div class="footer-note">MET · Book Two — Session-by-Session Guide &amp; Worksheet Pack</div>
+</div>
+
+<!-- PHASE II -->
+<div class="page">
+  <h2 class="sec">Phase II · Evoking Motivation (S4–6)</h2>
+  <div class="sess"><div class="phase">Session 4 · Exploring Ambivalence &amp; Decisional Balance</div>
+  <div class="sessionhead"><div class="n">Session 4</div><div class="tech"><b>Techniques used:</b> F1 decisional balance · C1 evocative questions · B3 double-sided reflection · D2 autonomy · C7 key question &nbsp;|&nbsp; <b>Worksheets:</b> #7, #11</div></div>
+  <p><b>Objectives:</b> explore the real benefits <i>and</i> costs of using and of changing; let the balance tip in the patient's own words. <b>Rationale:</b> honouring perceived benefits first lowers defensiveness. <b>Preparation:</b> decisional-balance worksheet; resist arguing the pro-change side.</p>
+  <h4>Step-by-step</h4>
+  <ol class="step-list"><li>Review week.</li><li>Explore “good things / things you'd miss” about use.</li><li>Explore “less-good things” about use.</li><li>Explore benefits &amp; worries about changing.</li><li>Summarise all four quadrants; ask the key question (C7).</li></ol>
+  <div class="scriptcard"><span class="t">T:</span> “What are the good things about using — the things you'd miss?” → <span class="p">P:</span> “It calms me after work.” → <span class="t">T:</span> “And the not-so-good side?” → <span class="p">P:</span> <span class="ct">“I'm broke, and we fight about it.”</span> → <span class="t">T (C7):</span> “Given both sides, where does that leave you?”</div>
+  <p><b>Mistakes:</b> listing only cons of use; taking the pro-change side (patient then argues for use). <b>Move on when:</b> costs of using and benefits of change feature prominently in the patient's speech.</p>
+
+  </div><div class="sess"><div class="phase">Session 5 · Personal Values &amp; Developing Discrepancy</div>
+  <div class="sessionhead"><div class="n">Session 5</div><div class="tech"><b>Techniques used:</b> C5 values/discrepancy · C4 looking back/forward · A3 reflection · C6 elaborate · C8 bouquet &nbsp;|&nbsp; <b>Worksheets:</b> #8, #9</div></div>
+  <p><b>Objectives:</b> connect change to core values &amp; life goals; deepen discrepancy; strengthen intrinsic motivation. <b>Rationale:</b> change rooted in values is more durable than change driven by fear or pressure. <b>Preparation:</b> values worksheet; allow silences to work.</p>
+  <h4>Step-by-step</h4>
+  <ol class="step-list"><li>Elicit top values (“What matters most to you?”).</li><li>Explore how the patient wants to be seen/remembered (C4).</li><li>Explore how use fits — or clashes — with those values (C5).</li><li>Reflect the discrepancy; let <i>them</i> name it (A3).</li></ol>
+  <div class="scriptcard"><span class="t">T:</span> “Being a good father is everything to you. How does using fit with the father you want to be?” → <span class="p">P:</span> <span class="ct">“It doesn't. That's not who I want to be.”</span> → <span class="t">T:</span> “There's a real gap between how you're living and who you want to be — and you want to close it.”</div>
+  <p><b>Mistakes:</b> imposing your values/moralising; rushing past emotion. <b>Move on when:</b> the patient articulates a values-based reason for change.</p>
+
+  </div><div class="sess"><div class="phase">Session 6 · Building Confidence &amp; Self-Efficacy</div>
+  <div class="sessionhead"><div class="n">Session 6</div><div class="tech"><b>Techniques used:</b> C2 confidence ruler · F10 supporting self-efficacy · A2 affirmations · C4 looking back · C6 elaborate &nbsp;|&nbsp; <b>Worksheets:</b> #5, #9, #12</div></div>
+  <p><b>Objectives:</b> raise confidence that change is possible; address the “I want to but I can't” gap; surface strengths, supports &amp; past successes. <b>Rationale:</b> importance and confidence are independent — high importance + low confidence needs efficacy-building, not more reasons. <b>Preparation:</b> confidence ruler; strengths worksheet.</p>
+  <h4>Step-by-step</h4>
+  <ol class="step-list"><li>Confidence ruler → “why that number?” → “why not lower?” (C2).</li><li>Review past successes (any domain) &amp; how they were achieved (C4, F10).</li><li>Elicit strengths, skills &amp; supports.</li><li>Ask “What would raise your confidence by one point?”.</li><li>Affirm; summarise ability change talk (A2).</li></ol>
+  <div class="scriptcard"><span class="t">T:</span> “Confidence 0–10 that you could change if you decided?” → <span class="p">P:</span> “About a 3.” → <span class="t">T:</span> “Why a 3 and not a 0?” → <span class="p">P:</span> <span class="ct">“I did stop for three weeks once.”</span> → <span class="t">T (A2+F10):</span> “You've already proven you can — that's a strength. What would nudge the 3 toward a 5?”</div>
+  <p><b>Mistakes:</b> hollow reassurance; jumping to planning before confidence is adequate. <b>Move on to Phase III when:</b> importance <i>and</i> confidence are both reasonably present and the patient signals readiness.</p></div>
+  <div class="footer-note">MET · Book Two — Session-by-Session Guide &amp; Worksheet Pack</div>
+</div>
+
+<!-- PHASE III -->
+<div class="page">
+  <h2 class="sec">Phase III · Planning &amp; Action (S7–9)</h2>
+  <div class="sess"><div class="phase">Session 7 · Negotiating the Change Plan</div>
+  <div class="sessionhead"><div class="n">Session 7</div><div class="tech"><b>Techniques used:</b> C7 key question · F2 change-plan negotiation · F3 SMART goals · E4 menu of options · C8 bouquet &nbsp;|&nbsp; <b>Worksheets:</b> #14, #15, ★#22, ★#23</div></div>
+  <p><b>Objectives:</b> confirm readiness &amp; the chosen goal; co-create a concrete, patient-authored change plan. <b>Rationale:</b> a plan the patient writes carries commitment; a prescribed plan does not. <b>Preparation:</b> change-plan &amp; goal worksheets; know local treatment options.</p>
+  <h4>Step-by-step</h4>
+  <ol class="step-list"><li>Recap motivation (“Last time you said… where are you now?”).</li><li>Clarify the goal in the patient's words (abstinence or reduction).</li><li>Offer a menu of options; the patient chooses (E4).</li><li>Draft steps: who/what/when (F2, F3).</li><li>Elicit commitment language; summarise the plan back (C8).</li></ol>
+  <div class="scriptcard"><span class="t">T (C7):</span> “Given all we've discussed, what do you think you'll do?” → <span class="p">P:</span> <span class="ct">“I want to stop the smack. I'll ask the doctor about the medicine.”</span> → <span class="t">T:</span> “What's the very first step this week — the appointment, telling your wife, or changing your evenings?”</div>
+  <p><b>Mistakes:</b> writing the plan <i>for</i> the patient; over-ambitious goals. <b>Move on when:</b> a written, patient-owned plan with a concrete first step exists.</p>
+
+  </div><div class="sess"><div class="phase">Session 8 · Triggers, High-Risk Situations &amp; Coping</div>
+  <div class="sessionhead"><div class="n">Session 8</div><div class="tech"><b>Techniques used:</b> F4 functional analysis · F5 if-then plans · F6 urge-surfing · F7 play-the-tape · F8 refusal rehearsal &nbsp;|&nbsp; <b>Worksheets:</b> #10, #12, #13, #11</div></div>
+  <p><b>Objectives:</b> identify triggers &amp; high-risk situations; build a personalised coping toolkit; begin craving management. <b>Rationale:</b> most lapses occur in predictable high-risk situations; planning for them protects the change. <b>Preparation:</b> triggers &amp; coping worksheets.</p>
+  <h4>Step-by-step</h4>
+  <ol class="step-list"><li>Map triggers (people/places/feelings/times) using a recent episode (F4).</li><li>Rank the top high-risk situations.</li><li>Brainstorm coping options per trigger; the patient selects.</li><li>Rehearse one (refusal, delay, distraction, call support) (F8).</li><li>Introduce craving skills: urge-surfing &amp; play-the-tape (F6, F7).</li></ol>
+  <div class="scriptcard"><span class="t">T:</span> “When a craving hits in the evening, what tends to happen?” → <span class="p">P:</span> “I message my old group.” → <span class="t">T (F5):</span> “That message is the risky moment. What could you do in the 10 minutes before you'd normally send it?” → <span class="p">P:</span> <span class="ct">“Call my brother or go for a walk.”</span></div>
+  <p><b>Mistakes:</b> generic advice not tied to real triggers; skipping rehearsal. <b>Move on when:</b> the patient has a concrete coping plan for their main triggers.</p>
+
+  </div><div class="sess"><div class="phase">Session 9 · Social Support &amp; Pharmacotherapy Coordination</div>
+  <div class="sessionhead"><div class="n">Session 9</div><div class="tech"><b>Techniques used:</b> F11 social support · F12 pharmacotherapy coordination · E1 E-P-E · E4 menu · D2 autonomy &nbsp;|&nbsp; <b>Worksheets:</b> #12, #16</div></div>
+  <p><b>Objectives:</b> strengthen the support network; address treatment adherence; coordinate medical &amp; pharmacological care; involve family where helpful. <b>Rationale:</b> social support and appropriate medication (MOUD, naltrexone, NRT) markedly improve outcomes. <b>Preparation:</b> referral pathways; optional family session.</p>
+  <h4>Step-by-step</h4>
+  <ol class="step-list"><li>Map who supports the patient &amp; how (F11).</li><li>Discuss medication neutrally via E-P-E; coordinate with the doctor (F12, E1).</li><li>Address adherence barriers — cost, transport, stigma, side-effects.</li><li>If appropriate, plan a supportive family session.</li><li>For opioids: naloxone counselling &amp; overdose-prevention plan.</li></ol>
+  <div class="scriptcard"><span class="t">T (E1):</span> “What do you know about the medicine for opioid cravings? … May I add a little? … Buprenorphine can ease withdrawal so the counselling has room to work. What do you make of that?” → <span class="p">P:</span> <span class="ct">“If it helps the withdrawal, I'd try it.”</span></div>
+  <p><b>Mistakes:</b> pushing medication rather than offering via E-P-E; ignoring access barriers. <b>Move on to Phase IV when:</b> supports &amp; treatment are in place and the patient is enacting the plan.</p></div>
+  <div class="footer-note">MET · Book Two — Session-by-Session Guide &amp; Worksheet Pack</div>
+</div>
+
+<!-- PHASE IV -->
+<div class="page">
+  <h2 class="sec">Phase IV · Maintenance &amp; Consolidation (S10–12 + boosters)</h2>
+  <div class="sess"><div class="phase">Session 10 · Reviewing Early Change &amp; Reinforcing Self-Efficacy</div>
+  <div class="sessionhead"><div class="n">Session 10</div><div class="tech"><b>Techniques used:</b> A2 affirmations · F10 self-efficacy · A3 reflection · C6 elaborate &nbsp;|&nbsp; <b>Worksheet:</b> #17</div></div>
+  <p><b>Objectives:</b> review progress &amp; setbacks without judgement; reinforce self-efficacy; adjust the plan. <b>Rationale:</b> early change is fragile; affirming genuine gains builds durable confidence.</p>
+  <h4>Step-by-step</h4><ol class="step-list"><li>“What's gone well? What's been hard?”</li><li>Affirm concrete successes; attribute to effort (A2).</li><li>Explore any slips with curiosity, not blame.</li><li>Adjust steps/goals as needed.</li></ol>
+  <div class="scriptcard"><span class="t">T:</span> “Two weeks with just one slip — real progress. What helped most?” → <span class="p">P:</span> <span class="ct">“Avoiding the market lane and calling my brother.”</span> → <span class="t">T (A2):</span> “You used your plan at the exact right moment — a skill you can repeat.”</div>
+  <p><b>Mistakes:</b> focusing on slips over successes; generic praise.</p>
+
+  </div><div class="sess"><div class="phase">Session 11 · Relapse Prevention &amp; Learning from Lapses</div>
+  <div class="sessionhead"><div class="n">Session 11</div><div class="tech"><b>Techniques used:</b> F9 lapse-vs-relapse reframing · F5 if-then plans · F8 rehearsal · A2 affirmations &nbsp;|&nbsp; <b>Worksheets:</b> #18, #19</div></div>
+  <p><b>Objectives:</b> strengthen relapse-prevention; distinguish a lapse from a relapse; create an emergency “if-then” plan; de-shame slips. <b>Rationale:</b> treating a lapse as total failure (abstinence-violation effect) is a key relapse driver.</p>
+  <h4>Step-by-step</h4><ol class="step-list"><li>Identify remaining high-risk situations &amp; early warning signs.</li><li>Build “if-then” coping plans for each (F5).</li><li>Normalise lapses; separate lapse from relapse (F9).</li><li>Create an emergency plan (who to call, what to do).</li><li>Rehearse a difficult scenario (F8).</li></ol>
+  <div class="scriptcard"><span class="t">T (F9):</span> “You used once last week and then stopped yourself. That slip doesn't erase three good weeks — what helped you get back on track?” → <span class="p">P:</span> <span class="ct">“I called my brother instead of my old friends.”</span></div>
+  <p><b>Mistakes:</b> treating a lapse as failure; vague unrehearsed plans.</p>
+
+  </div><div class="sess"><div class="phase">Session 12 · Consolidation, Continuing Care &amp; Discharge</div>
+  <div class="sessionhead"><div class="n">Session 12</div><div class="tech"><b>Techniques used:</b> C8 bouquet/summary · A2 affirmations · F13 booster planning · C5 values &nbsp;|&nbsp; <b>Worksheets:</b> #20, #21, ★#22, ★#23</div></div>
+  <p><b>Objectives:</b> consolidate gains; review the whole journey; arrange continuing care &amp; follow-up; close respectfully &amp; hopefully. <b>Rationale:</b> structured continuing care protects against drop-off after active treatment ends.</p>
+  <h4>Step-by-step</h4><ol class="step-list"><li>Review progress from Session 1 to now; highlight growth (C8).</li><li>Surface remaining ambivalence; revisit the plan.</li><li>Agree a continuing-care pathway (clinic, group, follow-up dates, family role).</li><li>Affirm agency; leave the door open (A2).</li><li>Set booster/follow-up schedule (F13).</li></ol>
+  <div class="scriptcard"><span class="t">T:</span> “Twelve weeks ago you were unsure change was even possible. Look at what you've built. What are you proudest of?” → <span class="p">P:</span> <span class="ct">“That my daughter trusts me again.”</span></div>
+  <div class="callout tip"><b>Booster sessions (F13):</b> brief contacts at <b>1, 3, 6 &amp; 12 months</b> — review progress → re-rate rulers → re-affirm change talk → update plan → reinforce continuing care. Especially valuable for opioids (relapse-overdose risk) and adolescents.</div></div>
+  <div class="footer-note">MET · Book Two — Session-by-Session Guide &amp; Worksheet Pack</div>
+</div>
+
+<!-- SUBSTANCE / ADO / CHALLENGES -->
+<div class="page breakbefore">
+  <h2 class="sec">Substance-Specific Notes · Adolescents · Challenges</h2>
+  <h3>Substance-specific adaptation (method constant, content differs)</h3>
+  <table>
+    <tr><th>Substance</th><th>Triggers</th><th>Perceived benefits</th><th>Key consequences</th><th>Goal &amp; barriers</th></tr>
+    <tr><td><b>Opioids/smack</b></td><td>Withdrawal fear, peers, pain</td><td>Relief of pain/withdrawal, euphoria</td><td>Overdose, injecting infections, debt</td><td>Often abstinence + MOUD; barriers: withdrawal, access, stigma</td></tr>
+    <tr><td><b>Alcohol</b></td><td>Social, stress, routine</td><td>Relaxation, social ease, sleep</td><td>Liver disease, accidents, dependence</td><td>Abstinence/reduction; barriers: norms, withdrawal risk (seizures/DTs)</td></tr>
+    <tr><td><b>Tobacco</b></td><td>After meals, tea, stress</td><td>Alertness, stress relief</td><td>Heart/lung disease, cost</td><td>Reduction→quit + NRT; barriers: strong habit</td></tr>
+    <tr><td><b>Cannabis</b></td><td>Boredom, peers, sleep</td><td>Relaxation, sleep</td><td>Amotivation, anxiety/psychosis risk</td><td>Often reduction; barriers: “harmless” belief</td></tr>
+    <tr><td><b>Stimulants</b></td><td>Parties, work pressure</td><td>Energy, confidence</td><td>Crash, cardiac risk, bingeing</td><td>Abstinence; barriers: binge-cycle cravings</td></tr>
+    <tr><td><b>Polysubstance</b></td><td>Overlapping cues</td><td>Varies; self-medication</td><td>Compounded risk (opioids+sedatives)</td><td>Prioritise highest-risk; needs medical lead</td></tr>
+  </table>
+  <div class="callout safety"><strong>⚠ Opioids:</strong> tolerance falls after any abstinence → relapse carries high overdose risk; provide naloxone &amp; facilitate MOUD. <strong>Alcohol:</strong> seizure/DT history needs medically-supervised withdrawal — never abrupt cessation without medical cover.</div>
+
+  <h3>Adolescents &amp; young adults <span class="pill ad">ADOLESCENT</span></h3>
+  <p>Same spirit &amp; skills, adapted delivery: autonomy first and loudest; present-focused motivators (money, image, sport, school) over distant health risks; longer engagement, shorter sessions; confidentiality balanced with safeguarding and age-appropriate family involvement.</p>
+
+  <h3>Common clinical challenges (reflect → affirm autonomy → evoke)</h3>
+  <table>
+    <tr><th>Patient says…</th><th>MET-consistent response</th></tr>
+    <tr><td>“I don't have a problem.”</td><td>“From where you stand, this isn't a problem. What made others feel it might be?”</td></tr>
+    <tr><td>“I can stop whenever I want.”</td><td>“You feel in control — and it's your choice. If you did test that, what might you try first?”</td></tr>
+    <tr><td>“My family forced me to come.”</td><td>“You're here for them. While you're here, what would make it worth it for <i>you</i>?”</td></tr>
+    <tr><td>“It's the only thing that helps me.”</td><td>“Right now it's your main way to cope. What else has ever given you a bit of that relief?”</td></tr>
+    <tr><td>“I tried before and failed.”</td><td>“You did stay clean three weeks — what worked, even briefly?”</td></tr>
+    <tr><td>A lapse after the plan.</td><td>“You slipped once then stopped yourself — that recovery matters. What can we learn?”</td></tr>
+  </table>
+  <div class="footer-note">MET · Book Two — Session-by-Session Guide &amp; Worksheet Pack</div>
+</div>
+
+<!-- ============ PART B WORKSHEETS ============ -->
+<div class="page breakbefore">
+  <h2 class="sec">Part B · The Worksheet Pack</h2>
+  <p class="lead">24 comprehensive, printable worksheets. Each starts on its own page with a clear <b>purpose</b>, step-by-step <b>“How to fill this in”</b> guidance, a worked example, generous space to write, and a clinician review note. Select worksheets by the patient's readiness — do not use all of them with every patient.</p>
+  <div class="callout tip"><b>Choosing worksheets by phase:</b> Phase I–II (awareness/ambivalence): #1–#9. Phase III (planning/action): #10–#16, ★#22. Phase IV (maintenance): #17–#21, ★#23. The clinician session note (#24) is used after every session.</div>
+  <div class="footer-note">MET · Book Two — Session-by-Session Guide &amp; Worksheet Pack</div>
+</div>
+
+<!-- WS1 -->
+<div class="ws">
+  <div class="ws-brand"><div class="b1">MET Worksheet 1</div><div class="b2">Motivational Enhancement Therapy · Worksheet Pack</div></div>
+  <h2>Worksheet 1 · My Substance-Use Story</h2>
+  <div class="purpose"><b>Purpose:</b> to build an honest, shared, non-judgemental picture of your substance use so you and your therapist understand the full situation. <b>Best used in:</b> assessment / Session 1.</div>
+  <div class="howto"><b>How to fill this in:</b>
+    <ol><li>Work through each box slowly — there are no right or wrong answers.</li><li>Write what you can; “not sure” or “don't remember” is completely fine.</li><li>Think about a <i>typical</i> week, not your best or worst day.</li><li>Include tobacco, alcohol and any medicines you use to feel different — not just the “main” drug.</li></ol>
+  </div>
+  <div class="example"><b class="lab">Worked example:</b> Main substance: heroin (“smack”), inhaled. Started at 25, using about 4 years. Typical use: 0.4–0.6 g/day, mostly evenings. Also: 20 cigarettes/day; occasional alcohol at weekends. Last use: this morning. Longest period not using: 3 weeks, after a detox last year. How I take it: foil (chasing), never injected.</div>
+  <h4>Over to you:</h4>
+  <p>Main substance &amp; how you take it (route):</p><div class="fieldbox"></div>
+  <p>Age you first used · how many years you've been using:</p><div class="fieldbox sm"></div>
+  <p>Typical amount &amp; how often now (a usual week):</p><div class="fieldbox"></div>
+  <p>Other substances you use (tobacco, alcohol, medicines, others):</p><div class="fieldbox"></div>
+  <p>When you last used · the longest you've ever gone without:</p><div class="fieldbox sm"></div>
+  <p>Anything about your use you'd like your therapist to understand:</p><div class="fieldbox lg"></div>
+  <div class="ws-review"><b>Clinician review:</b> reflect patterns and affirm honesty; note route, injecting and overdose markers for safety. If use seems under-reported, don't challenge — ask “roughly, on a heavy day?” and revisit once trust grows.</div>
+  <div class="ws-foot">MET Worksheet Pack · not a substitute for medical care</div>
+</div>
+
+<!-- WS2 -->
+<div class="ws">
+  <div class="ws-brand"><div class="b1">MET Worksheet 2</div><div class="b2">Motivational Enhancement Therapy · Worksheet Pack</div></div>
+  <h2>Worksheet 2 · How Substance Use Affects My Life</h2>
+  <div class="purpose"><b>Purpose:</b> to notice, across every area of life, how substance use is affecting you — the good and the costly. This often surfaces reasons to change in your own words. <b>Best used in:</b> Session 2.</div>
+  <div class="howto"><b>How to fill this in:</b>
+    <ol><li>Go area by area. For each, write any effect you've noticed — even small ones.</li><li>Be honest about helpful effects too; this isn't about judging yourself.</li><li>If you can't think of an effect in an area, imagine what someone close to you might write there.</li></ol>
+  </div>
+  <div class="example"><b class="lab">Worked example (one row):</b> Family/relationships — “My wife and I argue about money most nights; my daughter asked why I'm always tired.”</div>
+  <table>
+    <tr><th style="width:28%">Area of life</th><th>How my use affects it (good &amp; not-so-good)</th></tr>
+    <tr><td>Health &amp; body</td><td><div class="fieldbox"></div></td></tr>
+    <tr><td>Family &amp; relationships</td><td><div class="fieldbox"></div></td></tr>
+    <tr><td>Work / studies / money</td><td><div class="fieldbox"></div></td></tr>
+    <tr><td>Mood &amp; how I feel about myself</td><td><div class="fieldbox"></div></td></tr>
+    <tr><td>Legal / safety / other</td><td><div class="fieldbox"></div></td></tr>
+  </table>
+  <p>Looking at everything above, the one effect that bothers me most is:</p><div class="fieldbox"></div>
+  <div class="ws-review"><b>Clinician review:</b> reflect without piling on — let the list speak. Highlight any effect the patient flags as most bothersome (strong change talk). If “no effects”, explore a close other's likely view.</div>
+  <div class="ws-foot">MET Worksheet Pack</div>
+</div>
+
+<!-- WS3 -->
+<div class="ws">
+  <div class="ws-brand"><div class="b1">MET Worksheet 3</div><div class="b2">Motivational Enhancement Therapy · Worksheet Pack</div></div>
+  <h2>Worksheet 3 · My Reasons for Considering Change</h2>
+  <div class="purpose"><b>Purpose:</b> to gather <i>your own</i> reasons for thinking about change — the motivators that will matter most to you. <b>Best used in:</b> Sessions 1–3.</div>
+  <div class="howto"><b>How to fill this in:</b>
+    <ol><li>List anything, big or small, that makes you wonder about changing — nothing is too minor.</li><li>Write in your own words; these are <i>your</i> reasons, not anyone else's.</li><li>Then rank your top three by circling or numbering them.</li></ol>
+  </div>
+  <div class="example"><b class="lab">Worked example:</b> “Money is always short · fights with my wife · my daughter noticed · my chest hurts in the mornings · I'm tired of hiding it · I want to feel in control again.” Top three: money, daughter, feeling in control.</div>
+  <p>My reasons for considering change (write as many as you can):</p>
+  <div class="fieldbox xl"></div>
+  <p>My top three reasons (the ones that matter most to me):</p>
+  <div class="lines"><div class="ln"></div><div class="ln"></div><div class="ln"></div></div>
+  <div class="ws-review"><b>Clinician review:</b> reflect &amp; amplify each reason (this is change talk); link reasons to values (Worksheet 8). If none offered, ask “Even a small nagging reason counts — what first made you willing to talk?”</div>
+  <div class="ws-foot">MET Worksheet Pack</div>
+</div>
+
+<!-- WS4 -->
+<div class="ws">
+  <div class="ws-brand"><div class="b1">MET Worksheet 4</div><div class="b2">Motivational Enhancement Therapy · Worksheet Pack</div></div>
+  <h2>Worksheet 4 · Importance Ruler</h2>
+  <div class="purpose"><b>Purpose:</b> to measure, in your own view, how <b>important</b> it feels to change your substance use right now. <b>Best used in:</b> Sessions 2–3 and whenever motivation is being reviewed.</div>
+  <div class="howto"><b>How to fill this in:</b>
+    <ol><li>Read the question, then circle the number that fits you today (0 = not important at all, 10 = the most important thing in my life right now).</li><li>Answer the two questions below the ruler — these are the important part.</li><li>There is no “correct” number; it can change week to week.</li></ol>
+  </div>
+  <p style="font-weight:700;text-align:center;margin-top:10px">“How important is it to you to change your substance use right now?”</p>
+  <div class="rulerline"><span class="z">0</span><span class="z">1</span><span class="z">2</span><span class="m">3</span><span class="m">4</span><span class="m">5</span><span class="m">6</span><span class="h">7</span><span class="h">8</span><span class="h">9</span><span class="h">10</span></div>
+  <div class="example"><b class="lab">Worked example:</b> circled 6. “Why a 6 and not a 3? Because my health scares me and my wife is at her limit.” “What would move it to an 8? If the money problems got worse, or if my daughter said something again.”</div>
+  <p><b>Why did you choose that number, and not a lower one?</b></p><div class="fieldbox lg"></div>
+  <p><b>What would move your number one or two points higher?</b></p><div class="fieldbox"></div>
+  <div class="ws-review"><b>Clinician review:</b> the number is a conversation starter, <u>never</u> a diagnosis. “Why not lower?” pulls change talk; avoid “why not higher?”. If importance is high but confidence low, move to confidence-building (Worksheet 5, 9).</div>
+  <div class="ws-foot">MET Worksheet Pack</div>
+</div>
+
+<!-- WS5 -->
+<div class="ws">
+  <div class="ws-brand"><div class="b1">MET Worksheet 5</div><div class="b2">Motivational Enhancement Therapy · Worksheet Pack</div></div>
+  <h2>Worksheet 5 · Confidence Ruler</h2>
+  <div class="purpose"><b>Purpose:</b> to measure how <b>confident</b> you feel that you <i>could</i> change if you decided to. Importance and confidence are different — you can badly want change yet doubt you can do it. <b>Best used in:</b> Session 6 and throughout.</div>
+  <div class="howto"><b>How to fill this in:</b>
+    <ol><li>Circle the number for how confident you feel today (0 = not at all confident, 10 = completely confident).</li><li>Answer the questions below — especially what would raise your confidence.</li><li>Low confidence is normal and workable; it tells us where to build skills and support.</li></ol>
+  </div>
+  <p style="font-weight:700;text-align:center;margin-top:10px">“If you decided to change, how confident are you that you could?”</p>
+  <div class="rulerline"><span class="z">0</span><span class="z">1</span><span class="z">2</span><span class="m">3</span><span class="m">4</span><span class="m">5</span><span class="m">6</span><span class="h">7</span><span class="h">8</span><span class="h">9</span><span class="h">10</span></div>
+  <div class="example"><b class="lab">Worked example:</b> circled 3. “Why a 3 and not a 0? Because I did stop for three weeks once.” “What would raise it to a 5? Medicine for the withdrawal, and my brother checking in on me.”</div>
+  <p><b>Why that number, and not a lower one?</b></p><div class="fieldbox lg"></div>
+  <p><b>What would raise your confidence by one or two points?</b></p><div class="fieldbox"></div>
+  <p><b>A time I succeeded at something hard before (and how I did it):</b></p><div class="fieldbox"></div>
+  <div class="ws-review"><b>Clinician review:</b> high importance + low confidence needs skills/support, not more reasons. Mine past successes for self-efficacy; translate “what would raise it” into concrete plan steps (Worksheet 14).</div>
+  <div class="ws-foot">MET Worksheet Pack</div>
+</div>
+
+<!-- WS6 -->
+<div class="ws">
+  <div class="ws-brand"><div class="b1">MET Worksheet 6</div><div class="b2">Motivational Enhancement Therapy · Worksheet Pack</div></div>
+  <h2>Worksheet 6 · Why This Number? / Why Not Lower?</h2>
+  <div class="purpose"><b>Purpose:</b> to draw out, in detail, the thinking behind your ruler scores — because the reasons you give are exactly the motivation that drives change. <b>Best used in:</b> straight after the rulers (Worksheets 4 &amp; 5).</div>
+  <div class="howto"><b>How to fill this in:</b>
+    <ol><li>Write your importance number and your confidence number at the top.</li><li>For each, explain why it isn't <i>lower</i> — list every reason you can.</li><li>Then write what a higher number would look like in real life.</li></ol>
+  </div>
+  <div class="example"><b class="lab">Worked example:</b> Importance 6 — “A 3 would mean I don't care, but I do, especially about my daughter and my health.” A higher number would look like “me actually booking the clinic and telling my wife”.</div>
+  <table>
+    <tr><th>My importance number: ____ / 10</th><th>My confidence number: ____ / 10</th></tr>
+    <tr><td>Why not lower? (all my reasons)<div class="fieldbox lg"></div></td><td>Why not lower? (all my reasons)<div class="fieldbox lg"></div></td></tr>
+  </table>
+  <p><b>What a higher number would look like in my real life:</b></p><div class="fieldbox"></div>
+  <div class="ws-review"><b>Clinician review:</b> everything written here is change talk — reflect and summarise it back (“the bouquet”). Use “what would a higher number look like” to bridge toward the change plan.</div>
+  <div class="ws-foot">MET Worksheet Pack</div>
+</div>
+
+<!-- WS7 -->
+<div class="ws">
+  <div class="ws-brand"><div class="b1">MET Worksheet 7</div><div class="b2">Motivational Enhancement Therapy · Worksheet Pack</div></div>
+  <h2>Worksheet 7 · Decisional Balance (Four-Quadrant)</h2>
+  <div class="purpose"><b>Purpose:</b> to weigh the full picture — the pros and cons of <i>continuing</i> use and of <i>changing</i> — so you can see where the balance really sits for you. <b>Best used in:</b> Session 4 (contemplation).</div>
+  <div class="howto"><b>How to fill this in:</b>
+    <ol><li>Start with the top-left box (good things about using) — it's important to be honest about what use does <i>for</i> you.</li><li>Then fill the costs of using, the benefits of changing, and the worries about changing.</li><li>Don't count or score the boxes — read them over and notice what stands out.</li><li>Write your overall sense at the bottom.</li></ol>
+  </div>
+  <div class="example"><b class="lab">Worked example:</b> Pros of using: “relaxes me, fits in with friends.” Cons of using: “debt, arguments, poor sleep, shame.” Pros of changing: “save money, peace at home, better health, pride.” Worries about changing: “losing my friends, boredom, facing stress without it.”</div>
+  <table>
+    <tr><th></th><th>Continuing to use</th><th>Changing</th></tr>
+    <tr><td style="width:14%"><b>Good things / Pros</b></td><td><div class="fieldbox lg"></div></td><td><div class="fieldbox lg"></div></td></tr>
+    <tr><td><b>Costs / Cons</b></td><td><div class="fieldbox lg"></div></td><td><div class="fieldbox lg"></div></td></tr>
+  </table>
+  <p><b>When I read all four boxes together, my overall sense is:</b></p><div class="fieldbox"></div>
+  <div class="ws-review"><b>Clinician review:</b> validate the benefits of use first (lowers defensiveness), then reflect costs. Summarise all four quadrants and ask the key question “Where does this leave you?”. Never argue if the balance currently favours use — stay curious.</div>
+  <div class="ws-foot">MET Worksheet Pack</div>
+</div>
+
+<!-- WS8 -->
+<div class="ws">
+  <div class="ws-brand"><div class="b1">MET Worksheet 8</div><div class="b2">Motivational Enhancement Therapy · Worksheet Pack</div></div>
+  <h2>Worksheet 8 · My Personal Values &amp; Goals</h2>
+  <div class="purpose"><b>Purpose:</b> to connect any change to what matters most to you as a person. Change rooted in your own values lasts far longer than change driven by pressure or fear. <b>Best used in:</b> Session 5.</div>
+  <div class="howto"><b>How to fill this in:</b>
+    <ol><li>List your most important values — the things that make life meaningful (e.g., family, honesty, faith, health, respect, freedom).</li><li>For each, write one line on how you'd like to be living it.</li><li>Then honestly note how your substance use fits — or clashes — with each value.</li></ol>
+  </div>
+  <div class="example"><b class="lab">Worked example:</b> Value: “being a good father” → want to be present and trusted → “using clashes badly — I'm distant and my daughter noticed.” Value: “financial security” → “using has put us in debt.”</div>
+  <table>
+    <tr><th style="width:30%">What I value most</th><th style="width:38%">How I want to live it</th><th>How use fits or clashes with it</th></tr>
+    <tr><td><div class="fieldbox"></div></td><td><div class="fieldbox"></div></td><td><div class="fieldbox"></div></td></tr>
+    <tr><td><div class="fieldbox"></div></td><td><div class="fieldbox"></div></td><td><div class="fieldbox"></div></td></tr>
+    <tr><td><div class="fieldbox"></div></td><td><div class="fieldbox"></div></td><td><div class="fieldbox"></div></td></tr>
+  </table>
+  <p><b>The gap between how I'm living now and the person I want to be is:</b></p><div class="fieldbox"></div>
+  <div class="ws-review"><b>Clinician review:</b> this develops discrepancy — hold up the gap gently and let the patient name it. If use <i>supports</i> a value (e.g., belonging), explore other ways to meet that need.</div>
+  <div class="ws-foot">MET Worksheet Pack</div>
+</div>
+
+<!-- WS9 -->
+<div class="ws">
+  <div class="ws-brand"><div class="b1">MET Worksheet 9</div><div class="b2">Motivational Enhancement Therapy · Worksheet Pack</div></div>
+  <h2>Worksheet 9 · My Strengths &amp; Past Successes</h2>
+  <div class="purpose"><b>Purpose:</b> to build your confidence by remembering the strengths and successes you already have. If you've overcome hard things before, you can again. <b>Best used in:</b> Session 6 / whenever confidence is low.</div>
+  <div class="howto"><b>How to fill this in:</b>
+    <ol><li>List personal strengths — qualities, skills, habits (e.g., determined, caring, good with my hands, loyal).</li><li>List things you've succeeded at in <i>any</i> part of life — work, parenting, sport, past quit attempts.</li><li>For your biggest success, write <i>how</i> you did it — those are skills you can reuse.</li><li>List people who believe in you.</li></ol>
+  </div>
+  <div class="example"><b class="lab">Worked example:</b> Strengths: “stubborn in a good way, reliable, love my family.” Successes: “held a job 6 years; quit smoking for a year once; stopped smack for 3 weeks.” How: “kept busy, avoided old friends, leaned on my brother.” Believers: “my wife and brother.”</div>
+  <p>My personal strengths:</p><div class="fieldbox"></div>
+  <p>Things I've succeeded at before (any area of life):</p><div class="fieldbox"></div>
+  <p>My biggest success and exactly how I achieved it:</p><div class="fieldbox lg"></div>
+  <p>People who believe in me:</p><div class="fieldbox sm"></div>
+  <div class="ws-review"><b>Clinician review:</b> affirm specifically and link strengths to the change goal. If the patient offers none, ask about non-addiction successes. Carry the “how I did it” skills into the change plan.</div>
+  <div class="ws-foot">MET Worksheet Pack</div>
+</div>
+
+<!-- WS10 -->
+<div class="ws">
+  <div class="ws-brand"><div class="b1">MET Worksheet 10</div><div class="b2">Motivational Enhancement Therapy · Worksheet Pack</div></div>
+  <h2>Worksheet 10 · My Triggers &amp; High-Risk Situations</h2>
+  <div class="purpose"><b>Purpose:</b> to spot the situations, feelings and people that make using most likely — because once you can see a trigger coming, you can plan for it. <b>Best used in:</b> Session 8.</div>
+  <div class="howto"><b>How to fill this in:</b>
+    <ol><li>Think of the last few times you used. What was happening just before each time?</li><li>Fill each column with your real triggers — be specific (not “stress” but “stress after a shift when I have cash”).</li><li>Then rank your top three riskiest situations at the bottom.</li></ol>
+  </div>
+  <div class="example"><b class="lab">Worked example:</b> People: old using friends, a particular dealer. Places: the lane behind the market. Feelings: boredom, stress, loneliness. Times/situations: evenings after work, payday, weekends. Top three: payday, evening boredom, meeting old friends.</div>
+  <table>
+    <tr><th>People</th><th>Places</th><th>Feelings</th><th>Times / situations</th></tr>
+    <tr><td><div class="fieldbox lg"></div></td><td><div class="fieldbox lg"></div></td><td><div class="fieldbox lg"></div></td><td><div class="fieldbox lg"></div></td></tr>
+  </table>
+  <p><b>My top three highest-risk situations:</b></p>
+  <div class="lines"><div class="ln"></div><div class="ln"></div><div class="ln"></div></div>
+  <div class="ws-review"><b>Clinician review:</b> link each high-risk situation to a coping option (Worksheet 12). If triggers are vague, walk through the most recent episode step by step (functional analysis).</div>
+  <div class="ws-foot">MET Worksheet Pack</div>
+</div>
+
+<!-- WS11 -->
+<div class="ws">
+  <div class="ws-brand"><div class="b1">MET Worksheet 11</div><div class="b2">Motivational Enhancement Therapy · Worksheet Pack</div></div>
+  <h2>Worksheet 11 · My Barriers to Change</h2>
+  <div class="purpose"><b>Purpose:</b> to name the obstacles that could get in the way, so they can be planned for rather than derail you later. <b>Best used in:</b> Sessions 4 &amp; 8.</div>
+  <div class="howto"><b>How to fill this in:</b>
+    <ol><li>List everything that might make change hard — practical, physical, social and emotional.</li><li>Beside each, jot one idea for how it might be handled (even a rough one).</li><li>Mark any barrier that needs medical help (e.g., withdrawal) so your therapist can involve the doctor.</li></ol>
+  </div>
+  <div class="example"><b class="lab">Worked example:</b> Barrier “withdrawal symptoms” → possible solution “ask doctor about medicine” (medical). Barrier “friends who use” → “avoid the lane, tell them I'm off it.” Barrier “no money for the clinic” → “ask about free services.”</div>
+  <table>
+    <tr><th style="width:48%">What might get in the way (barrier)</th><th>One idea for handling it</th></tr>
+    <tr><td><div class="fieldbox"></div></td><td><div class="fieldbox"></div></td></tr>
+    <tr><td><div class="fieldbox"></div></td><td><div class="fieldbox"></div></td></tr>
+    <tr><td><div class="fieldbox"></div></td><td><div class="fieldbox"></div></td></tr>
+    <tr><td><div class="fieldbox"></div></td><td><div class="fieldbox"></div></td></tr>
+  </table>
+  <div class="ws-review"><b>Clinician review:</b> treat barriers as problems to solve <i>with</i> the patient, not reasons change won't work. Route medical barriers (withdrawal, pain) to the treating doctor; carry social barriers into the coping plan.</div>
+  <div class="ws-foot">MET Worksheet Pack</div>
+</div>
+
+<!-- WS12 -->
+<div class="ws">
+  <div class="ws-brand"><div class="b1">MET Worksheet 12</div><div class="b2">Motivational Enhancement Therapy · Worksheet Pack</div></div>
+  <h2>Worksheet 12 · My Coping Options &amp; Support Network</h2>
+  <div class="purpose"><b>Purpose:</b> to match a practical coping response and a source of support to each of your main triggers, so you're never caught without a plan. <b>Best used in:</b> Sessions 8–9.</div>
+  <div class="howto"><b>How to fill this in:</b>
+    <ol><li>Copy your top triggers from Worksheet 10 into the first column.</li><li>For each, write a coping option <i>you</i> would actually use (distraction, leaving, calling someone, a routine change).</li><li>Name a specific person or service who can support you with that trigger.</li><li>Then list your overall support network at the bottom.</li></ol>
+  </div>
+  <div class="example"><b class="lab">Worked example:</b> Trigger “evening boredom” → coping “go for a walk / call my brother” → support “brother”. Trigger “payday” → coping “give the money to my wife the same day” → support “wife”.</div>
+  <table>
+    <tr><th>My trigger</th><th>My coping response</th><th>Who/what supports me</th></tr>
+    <tr><td><div class="fieldbox"></div></td><td><div class="fieldbox"></div></td><td><div class="fieldbox"></div></td></tr>
+    <tr><td><div class="fieldbox"></div></td><td><div class="fieldbox"></div></td><td><div class="fieldbox"></div></td></tr>
+    <tr><td><div class="fieldbox"></div></td><td><div class="fieldbox"></div></td><td><div class="fieldbox"></div></td></tr>
+  </table>
+  <p><b>My overall support network (people, groups, clinic, helpline):</b></p><div class="fieldbox"></div>
+  <div class="ws-review"><b>Clinician review:</b> ensure coping options are the patient's own choices and rehearse at least one in session. If the network is thin, build in formal supports (clinic, mutual-help groups, helplines).</div>
+  <div class="ws-foot">MET Worksheet Pack</div>
+</div>
+
+<!-- WS13 -->
+<div class="ws">
+  <div class="ws-brand"><div class="b1">MET Worksheet 13</div><div class="b2">Motivational Enhancement Therapy · Worksheet Pack</div></div>
+  <h2>Worksheet 13 · My Craving Management Plan</h2>
+  <div class="purpose"><b>Purpose:</b> to have a clear, practised plan for when a craving hits — because cravings are strong but temporary, and they pass. <b>Best used in:</b> Session 8.</div>
+  <div class="howto"><b>How to fill this in:</b>
+    <ol><li>Rate how strong your cravings usually get (0–10) and note what usually sets them off.</li><li>Learn the two skills in the boxes, then write how you'll use each.</li><li>Fill the “delay plan”: what you'll do in the first 10–15 minutes of a craving — the window where urges peak and fall.</li></ol>
+  </div>
+  <div class="example"><b class="lab">Worked example:</b> Usual strength 8/10, set off by evening boredom. Urge-surfing: “I'll sit, breathe, and watch the craving like a wave for 10 minutes.” Play-the-tape: “I'll picture the debt and the argument that always follows.” Delay plan: “walk to the shop, call my brother, drink water.”</div>
+  <p>How strong my cravings usually get (0–10) &amp; what sets them off:</p><div class="fieldbox sm"></div>
+  <div class="grid2">
+    <div class="box"><b>Urge-surfing</b> — ride the craving out like a wave; it rises, peaks and falls without you acting. <br>My urge-surfing plan:<div class="fieldbox"></div></div>
+    <div class="box"><b>Play the tape forward</b> — before using, picture the <i>whole</i> outcome, not just the first high.<br>My “tape”:<div class="fieldbox"></div></div>
+  </div>
+  <p><b>My delay plan — what I'll do in the first 10–15 minutes of a craving:</b></p><div class="fieldbox lg"></div>
+  <div class="ws-review"><b>Clinician review:</b> rehearse urge-surfing in session; make the delay plan concrete and portable. Reinforce that acting on the plan — not the absence of cravings — is success.</div>
+  <div class="ws-foot">MET Worksheet Pack</div>
+</div>
+
+<!-- WS14 -->
+<div class="ws">
+  <div class="ws-brand"><div class="b1">MET Worksheet 14</div><div class="b2">Motivational Enhancement Therapy · Worksheet Pack</div></div>
+  <h2>Worksheet 14 · My Change Plan</h2>
+  <div class="purpose"><b>Purpose:</b> to put your decision into a clear plan — in your own words. This is <i>your</i> plan, not one handed to you, which is exactly why it works. <b>Best used in:</b> Session 7 (once you feel ready).</div>
+  <div class="howto"><b>How to fill this in:</b>
+    <ol><li>Write the change you want in your own words — it can be stopping completely or cutting down.</li><li>Fill every line; keep the steps small and realistic.</li><li>Name real people who'll help and exactly how.</li><li>Finish the obstacle line — knowing what could go wrong is how you stay ready.</li></ol>
+  </div>
+  <div class="example"><b class="lab">Worked example:</b> Change: “stop smack, halve my cigarettes.” Reasons: “my daughter, my health, money.” Steps: “see the doctor about medicine; avoid the market lane; tell my wife.” Help: “wife holds the money; brother checks in daily.” I'll know it's working when: “I sleep better and start saving.” Obstacles &amp; response: “cravings and payday → call my brother, keep busy.”</div>
+  <p>The change I want to make:</p><div class="fieldbox"></div>
+  <p>My most important reasons for this change:</p><div class="fieldbox"></div>
+  <p>The specific steps I'll take:</p><div class="fieldbox"></div>
+  <p>How others can help, and who:</p><div class="fieldbox"></div>
+  <p>I'll know the plan is working when:</p><div class="fieldbox sm"></div>
+  <p>Things that could get in the way, and how I'll handle them:</p><div class="fieldbox"></div>
+  <div class="ws-review"><b>Clinician review:</b> read the plan back and affirm commitment language. The patient keeps a copy. If the plan sounds like the therapist's rather than the patient's, re-elicit it in their words.</div>
+  <div class="ws-foot">MET Worksheet Pack</div>
+</div>
+
+<!-- WS15 -->
+<div class="ws">
+  <div class="ws-brand"><div class="b1">MET Worksheet 15</div><div class="b2">Motivational Enhancement Therapy · Worksheet Pack</div></div>
+  <h2>Worksheet 15 · My First Steps (Action)</h2>
+  <div class="purpose"><b>Purpose:</b> to turn your change plan into small, concrete actions you can start <i>this week</i> — early wins that build momentum. <b>Best used in:</b> end of Session 7.</div>
+  <div class="howto"><b>How to fill this in:</b>
+    <ol><li>Choose 2–4 actions you can realistically start in the next 7 days.</li><li>For each, write exactly <i>when</i> you'll do it and <i>who/what</i> will help.</li><li>Keep them small enough that you're fairly sure you'll succeed — success builds confidence.</li></ol>
+  </div>
+  <div class="example"><b class="lab">Worked example:</b> 1) “Book the doctor's appointment — tomorrow morning — wife reminds me.” 2) “Tell my wife the plan — tonight.” 3) “Avoid the market lane after work — every day this week — take the longer route.”</div>
+  <table>
+    <tr><th>Step I'll take this week</th><th style="width:22%">When</th><th style="width:28%">Who/what helps</th></tr>
+    <tr><td><div class="fieldbox"></div></td><td><div class="fieldbox"></div></td><td><div class="fieldbox"></div></td></tr>
+    <tr><td><div class="fieldbox"></div></td><td><div class="fieldbox"></div></td><td><div class="fieldbox"></div></td></tr>
+    <tr><td><div class="fieldbox"></div></td><td><div class="fieldbox"></div></td><td><div class="fieldbox"></div></td></tr>
+    <tr><td><div class="fieldbox"></div></td><td><div class="fieldbox"></div></td><td><div class="fieldbox"></div></td></tr>
+  </table>
+  <p>How I'll reward myself for completing a step:</p><div class="fieldbox sm"></div>
+  <div class="ws-review"><b>Clinician review:</b> keep steps small, specific and time-bound; agree a check-in. If a step is over-ambitious, scale it down to guarantee an early success.</div>
+  <div class="ws-foot">MET Worksheet Pack</div>
+</div>
+
+<!-- WS16 -->
+<div class="ws">
+  <div class="ws-brand"><div class="b1">MET Worksheet 16</div><div class="b2">Motivational Enhancement Therapy · Worksheet Pack</div></div>
+  <h2>Worksheet 16 · Family / Support-Person Involvement</h2>
+  <div class="purpose"><b>Purpose:</b> to plan how the people around you can genuinely help — <i>supporting</i> you, not policing you. <b>Best used in:</b> Session 9, with your consent (and the support person present if you wish).</div>
+  <div class="howto"><b>How to fill this in:</b>
+    <ol><li>Name your key support people.</li><li>Write the specific, <i>helpful</i> things they can do.</li><li>Write the things that are <i>not</i> helpful, so everyone is clear.</li><li>Note what you'd like them to know about your plan.</li></ol>
+  </div>
+  <div class="example"><b class="lab">Worked example:</b> Helpful: “hold the money, celebrate my clean days, drive me to the clinic.” Not helpful: “checking my pockets, bringing up old failures during arguments.”</div>
+  <p>My key support people:</p><div class="fieldbox sm"></div>
+  <p>Specific helpful things they can do:</p><div class="fieldbox"></div>
+  <p>Things that are NOT helpful (to avoid):</p><div class="fieldbox"></div>
+  <p>What I'd like them to know about my plan:</p><div class="fieldbox"></div>
+  <div class="ws-review"><b>Clinician review:</b> protect the patient's autonomy and confidentiality; avoid turning supports into surveillance. Consider a joint session. If the family is conflictual, keep the patient's goals central and refer for family work if needed.</div>
+  <div class="ws-foot">MET Worksheet Pack</div>
+</div>
+
+<!-- WS17 -->
+<div class="ws">
+  <div class="ws-brand"><div class="b1">MET Worksheet 17</div><div class="b2">Motivational Enhancement Therapy · Worksheet Pack</div></div>
+  <h2>Worksheet 17 · My Progress Review</h2>
+  <div class="purpose"><b>Purpose:</b> to look honestly at how things have gone — celebrating what worked and learning from what didn't. <b>Best used in:</b> Session 10 and at follow-ups.</div>
+  <div class="howto"><b>How to fill this in:</b>
+    <ol><li>Think back over the time since your last session.</li><li>Record your wins first — including small ones.</li><li>Note anything hard or any slips, without judging yourself.</li><li>Decide one thing to adjust going forward.</li></ol>
+  </div>
+  <div class="example"><b class="lab">Worked example:</b> Went well: “18 of 21 days without smack; cigarettes down to 10/day; sleeping better.” Hard/slips: “one slip on payday.” Adjust: “give my wife the money on payday itself.”</div>
+  <p>What went well since last time:</p><div class="fieldbox lg"></div>
+  <p>What was hard, and any slips (no blame — just facts):</p><div class="fieldbox"></div>
+  <p>One thing I want to adjust going forward:</p><div class="fieldbox sm"></div>
+  <div class="ws-review"><b>Clinician review:</b> affirm effort and attribute success to the patient. Frame slips as learning (route to Worksheet 18). If discouraged, point to concrete evidence of progress to rebuild self-efficacy.</div>
+  <div class="ws-foot">MET Worksheet Pack</div>
+</div>
+
+<!-- WS18 -->
+<div class="ws">
+  <div class="ws-brand"><div class="b1">MET Worksheet 18</div><div class="b2">Motivational Enhancement Therapy · Worksheet Pack</div></div>
+  <h2>Worksheet 18 · Learning from a Lapse</h2>
+  <div class="purpose"><b>Purpose:</b> to understand a slip without shame, and turn it into useful learning — so one lapse doesn't become a full relapse. <b>Best used in:</b> after any lapse.</div>
+  <div class="howto"><b>How to fill this in:</b>
+    <ol><li>Remember: a lapse is a single slip; it does not erase your progress or mean failure.</li><li>Describe what led up to it — the trigger and situation.</li><li>Spot the early warning signs you can watch for next time.</li><li>Note what you'll do differently — and importantly, what you did <i>well</i> (like stopping or reaching out).</li></ol>
+  </div>
+  <div class="example"><b class="lab">Worked example:</b> Trigger: “payday and I bumped into an old friend.” Warning sign missed: “I was carrying extra cash.” Differently: “give the money to my wife; avoid that route on payday.” Did well: “I stopped after one and called my brother.”</div>
+  <p>What led to the lapse (trigger &amp; situation):</p><div class="fieldbox"></div>
+  <p>Early warning signs I can watch for next time:</p><div class="fieldbox"></div>
+  <p>What I'll do differently:</p><div class="fieldbox"></div>
+  <p>What I did well / how I recovered:</p><div class="fieldbox"></div>
+  <div class="ws-review"><b>Clinician review:</b> normalise lapses as common, not failure; separate lapse from relapse; de-shame. Update the change &amp; relapse-prevention plans with what was learned.</div>
+  <div class="ws-foot">MET Worksheet Pack</div>
+</div>
+
+<!-- WS19 -->
+<div class="ws">
+  <div class="ws-brand"><div class="b1">MET Worksheet 19</div><div class="b2">Motivational Enhancement Therapy · Worksheet Pack</div></div>
+  <h2>Worksheet 19 · Relapse-Prevention &amp; Emergency Plan</h2>
+  <div class="purpose"><b>Purpose:</b> to prepare clear “if-this-then-that” responses for high-risk moments, plus an emergency plan you can act on instantly. <b>Best used in:</b> Session 11. Keep a copy on your phone or in your wallet.</div>
+  <div class="howto"><b>How to fill this in:</b>
+    <ol><li>In each row, write a likely high-risk situation or warning sign, then exactly what you'll do (your “if-then” plan).</li><li>Fill in your emergency contacts.</li><li>Complete the crisis/overdose steps — vital if you use opioids.</li></ol>
+  </div>
+  <div class="example"><b class="lab">Worked example:</b> If “offered at a function” → then “say I'm off it and step outside to call my brother.” If “skipping clinic appointments” → then “tell my wife and rebook immediately.” Opioid safety: “keep naloxone at home; never use alone.”</div>
+  <table>
+    <tr><th style="width:50%">If this happens (high-risk situation / warning sign)</th><th>Then I will… (my response)</th></tr>
+    <tr><td><div class="fieldbox"></div></td><td><div class="fieldbox"></div></td></tr>
+    <tr><td><div class="fieldbox"></div></td><td><div class="fieldbox"></div></td></tr>
+    <tr><td><div class="fieldbox"></div></td><td><div class="fieldbox"></div></td></tr>
+  </table>
+  <p>My emergency contacts (name &amp; number):</p><div class="fieldbox sm"></div>
+  <p>Crisis / overdose steps (opioids: naloxone location; call emergency services; never use alone):</p><div class="fieldbox"></div>
+  <div class="ws-review"><b>Clinician review:</b> rehearse at least one scenario in session; keep the plan concrete and portable. For opioid users, confirm naloxone access and overdose-prevention knowledge.</div>
+  <div class="ws-foot">MET Worksheet Pack</div>
+</div>
+
+<!-- WS20 -->
+<div class="ws">
+  <div class="ws-brand"><div class="b1">MET Worksheet 20</div><div class="b2">Motivational Enhancement Therapy · Worksheet Pack</div></div>
+  <h2>Worksheet 20 · My Treatment Journey Review</h2>
+  <div class="purpose"><b>Purpose:</b> to look back over the whole journey, recognise how far you've come, and carry a strong sense of “who I am now” into the future. <b>Best used in:</b> Session 12.</div>
+  <div class="howto"><b>How to fill this in:</b>
+    <ol><li>Think back to how you felt in the very first session.</li><li>Name the biggest changes you've made.</li><li>Write what you've learned about yourself.</li><li>Note what you're proudest of and how you'll protect it.</li></ol>
+  </div>
+  <div class="example"><b class="lab">Worked example:</b> Started: “unsure change was even possible.” Biggest changes: “10 weeks clean, trust rebuilt with my daughter, back at work steadily.” Learned: “I'm more determined than I thought.” Proudest: “my daughter trusts me again — I'll protect it by keeping my routines and support.”</div>
+  <p>Where I started:</p><div class="fieldbox"></div>
+  <p>The biggest changes I've made:</p><div class="fieldbox"></div>
+  <p>What I've learned about myself:</p><div class="fieldbox"></div>
+  <p>What I'm proudest of &amp; how I'll protect it:</p><div class="fieldbox"></div>
+  <div class="ws-review"><b>Clinician review:</b> reinforce identity/consolidation change talk (“I'm the kind of person who…”). Link to the continuing-care plan (Worksheet 21). If the patient minimises progress, point to concrete evidence from earlier worksheets.</div>
+  <div class="ws-foot">MET Worksheet Pack</div>
+</div>
+
+<!-- WS21 -->
+<div class="ws">
+  <div class="ws-brand"><div class="b1">MET Worksheet 21</div><div class="b2">Motivational Enhancement Therapy · Worksheet Pack</div></div>
+  <h2>Worksheet 21 · My Continuing-Care Plan</h2>
+  <div class="purpose"><b>Purpose:</b> to make sure you have ongoing support in place after these sessions end — the stage where many people drift without a plan. <b>Best used in:</b> Session 12 / discharge.</div>
+  <div class="howto"><b>How to fill this in:</b>
+    <ol><li>List any ongoing treatment and your next appointments.</li><li>Name the people and groups who'll support you going forward.</li><li>Write a clear emergency plan — who you'll call and what you'll do if you're struggling.</li><li>Set a specific date to review how you're doing.</li></ol>
+  </div>
+  <div class="example"><b class="lab">Worked example:</b> Treatment: “OST clinic monthly.” Support: “NA meeting on Fridays; brother; wife.” Emergency: “if struggling, call my brother, then the clinic helpline; keep naloxone at home.” Review date: “in 4 weeks.”</div>
+  <p>Ongoing treatment &amp; appointments:</p><div class="fieldbox"></div>
+  <p>Support people &amp; groups:</p><div class="fieldbox"></div>
+  <p>Emergency plan (who I call; crisis/overdose steps):</p><div class="fieldbox"></div>
+  <p>My next review date:</p><div class="fieldbox sm"></div>
+  <div class="ws-review"><b>Clinician review:</b> confirm referrals are real and booked; include overdose/crisis steps for opioid users. If access is poor, build in community, helpline and family resources and document the gap.</div>
+  <div class="ws-foot">MET Worksheet Pack</div>
+</div>
+
+<!-- ★ WS22 SHORT-TERM GOALS -->
+<div class="ws compact">
+  <div class="ws-brand"><div class="b1">MET Worksheet 22</div><div class="b2">Motivational Enhancement Therapy · Worksheet Pack</div></div>
+  <h2>★ Worksheet 22 · My SHORT-TERM Goals (MET)</h2>
+  <div class="purpose"><b>Purpose:</b> to set small, clear, achievable goals for the <b>next 1–4 weeks</b> that build momentum and early success toward your bigger aims. In MET, short-term goals turn motivation into movement. <b>Best used in:</b> Session 7 onward, alongside the Change Plan (Worksheet 14).</div>
+  <div class="howto"><b>How to fill this in (step by step):</b>
+    <ol><li>Pick <b>2–4</b> goals you can realistically reach soon — stepping stones, not the whole mountain.</li><li>Make each goal <b>SMART</b>: <b>S</b>pecific (exactly what), <b>M</b>easurable (how you'll know), <b>A</b>chievable (within reach), <b>R</b>elevant (matters to you), <b>T</b>ime-bound (by when).</li><li>For each, write how you'll measure it and the first support/step.</li><li>Rate your confidence (0–10) for each goal. If a goal is under 7, make it smaller so you're likely to succeed.</li><li>Remember: aiming to <i>reduce</i> or <i>stabilise</i> is a valid short-term goal if that's where you are — it doesn't have to be full abstinence yet.</li></ol>
+  </div>
+  <div class="example"><b class="lab">Worked example (opioid/smack user):</b>
+    <table style="margin-top:5px">
+      <tr><th>Short-term goal</th><th>By when</th><th>How I'll measure it</th><th>Support / first step</th><th>Conf.</th></tr>
+      <tr><td>Attend doctor's appointment for OUD medicine</td><td>This week</td><td>Appointment attended; prescription started</td><td>Wife reminds me; I book tomorrow</td><td>8</td></tr>
+      <tr><td>Cut cigarettes 20 → 10/day</td><td>2 weeks</td><td>Daily tally in phone</td><td>Nicotine gum; keep count</td><td>6→smaller</td></tr>
+      <tr><td>Avoid the market lane after work</td><td>Daily this week</td><td>Avoided it today? Y/N</td><td>Longer route; call brother at 6pm</td><td>7</td></tr>
+    </table>
+  </div>
+  <table>
+    <tr><th>My short-term goal (next 1–4 weeks)</th><th style="width:14%">By when</th><th style="width:22%">How I'll measure it</th><th style="width:22%">Support / first step</th><th style="width:9%">Conf. /10</th></tr>
+    <tr><td><div class="fieldbox"></div></td><td><div class="fieldbox"></div></td><td><div class="fieldbox"></div></td><td><div class="fieldbox"></div></td><td><div class="fieldbox"></div></td></tr>
+    <tr><td><div class="fieldbox"></div></td><td><div class="fieldbox"></div></td><td><div class="fieldbox"></div></td><td><div class="fieldbox"></div></td><td><div class="fieldbox"></div></td></tr>
+    <tr><td><div class="fieldbox"></div></td><td><div class="fieldbox"></div></td><td><div class="fieldbox"></div></td><td><div class="fieldbox"></div></td><td><div class="fieldbox"></div></td></tr>
+    <tr><td><div class="fieldbox"></div></td><td><div class="fieldbox"></div></td><td><div class="fieldbox"></div></td><td><div class="fieldbox"></div></td><td><div class="fieldbox"></div></td></tr>
+  </table>
+  <div class="checkrow"><span class="cb"></span> These goals are things <b>I</b> chose, not goals imposed on me.</div>
+  <div class="checkrow"><span class="cb"></span> Each goal is small enough that I'm fairly confident I can do it.</div>
+  <div class="checkrow"><span class="cb"></span> Each short-term goal connects to one of my long-term goals (Worksheet 23).</div>
+  <div class="ws-review"><b>Clinician review:</b> confirm goals are the patient's own, specific and scaled for an early win; use the confidence ruler on each — if under 7, shrink the goal. Link each short-term goal to a trigger/coping option (Worksheets 10/12) and to a long-term goal (23). Review attainment at the next contact and affirm effort. <b>Common difficulties:</b> goal too big/abstract (“be a better person”) → break into a concrete behaviour this week; wants immediate abstinence but low confidence → honour the aim and add a smaller stepping-stone; therapist-pleasing goal → “What would <i>you</i> find useful this week?”; goal not met → treat as information, scale down, no blame.</div>
+  <div class="ws-foot">MET Worksheet Pack · short-term goals build toward long-term goals (Worksheet 23)</div>
+</div>
+
+<!-- ★ WS23 LONG-TERM GOALS -->
+<div class="ws compact">
+  <div class="ws-brand"><div class="b1">MET Worksheet 23</div><div class="b2">Motivational Enhancement Therapy · Worksheet Pack</div></div>
+  <h2>★ Worksheet 23 · My LONG-TERM Goals (MET)</h2>
+  <div class="purpose"><b>Purpose:</b> to connect your day-to-day efforts to the <b>bigger life you want (3 months to a year or more)</b> — the deeper “why” that keeps you going when motivation dips. In MET, long-term goals give short-term goals their meaning. <b>Best used in:</b> Sessions 7 &amp; 12 and continuing care; revisit regularly.</div>
+  <div class="howto"><b>How to fill this in (step by step):</b>
+    <ol><li>Picture yourself 3, 6 and 12 months from now. What do you want your <i>life</i> to look like — not just your substance use, but relationships, work, health, self-respect?</li><li>Write each long-term goal, with a rough timeframe.</li><li>For each, write <b>why it matters</b> — the value behind it (link to Worksheet 8). This is the engine of your motivation.</li><li>List the <b>short-term steps</b> (from Worksheet 22) that build toward each long-term goal, so the path is visible.</li><li>Finish the single sentence at the bottom — your overall vision.</li></ol>
+  </div>
+  <div class="example"><b class="lab">Worked example (alcohol user):</b>
+    <table style="margin-top:5px">
+      <tr><th>Long-term goal</th><th>Timeframe</th><th>Why it matters (my value)</th><th>Short-term steps toward it</th></tr>
+      <tr><td>Stay alcohol-free &amp; rebuild trust at home</td><td>6–12 months</td><td>Being a reliable husband &amp; father</td><td>No weekday drinking now → full abstinence; weekly check-in with wife</td></tr>
+      <tr><td>Clear my debts &amp; manage money</td><td>12 months</td><td>Security &amp; self-respect</td><td>Salary into joint account; track spending monthly</td></tr>
+      <tr><td>Return to weekend cricket</td><td>3–6 months</td><td>Health &amp; belonging without alcohol</td><td>Join the Sunday team; replace the bar with the ground</td></tr>
+    </table>
+  </div>
+  <table>
+    <tr><th>My long-term goal (3–12+ months)</th><th style="width:15%">Timeframe</th><th style="width:26%">Why it matters (my value)</th><th style="width:26%">Short-term steps toward it</th></tr>
+    <tr><td><div class="fieldbox"></div></td><td><div class="fieldbox"></div></td><td><div class="fieldbox"></div></td><td><div class="fieldbox"></div></td></tr>
+    <tr><td><div class="fieldbox"></div></td><td><div class="fieldbox"></div></td><td><div class="fieldbox"></div></td><td><div class="fieldbox"></div></td></tr>
+    <tr><td><div class="fieldbox"></div></td><td><div class="fieldbox"></div></td><td><div class="fieldbox"></div></td><td><div class="fieldbox"></div></td></tr>
+  </table>
+  <p><b>In one sentence, the life I'm working toward is:</b></p><div class="fieldbox"></div>
+  <div class="checkrow"><span class="cb"></span> My long-term goals reflect <b>my</b> values and the life <b>I</b> want.</div>
+  <div class="checkrow"><span class="cb"></span> I can see how my short-term goals (Worksheet 22) connect to these.</div>
+  <div class="ws-review"><b>Clinician review:</b> use long-term goals to develop discrepancy and to anchor motivation when it dips. Tie each goal to a value (Worksheet 8) and to concrete short-term goals (22) so the route is visible; revisit at follow-ups and boosters. <b>Common difficulties:</b> no vision (“can't think past today”) → start from values and one modest hope; unrealistic/overwhelming → affirm the aspiration, focus on the next short-term step; only externally-imposed goals → find an overlapping personal benefit to build intrinsic motivation; a setback shakes the goals → reframe as a detour, not a dead end.</div>
+  <div class="ws-foot">MET Worksheet Pack</div>
+</div>
+
+<!-- WS24 CLINICIAN NOTE -->
+<div class="ws compact">
+  <div class="ws-brand"><div class="b1">MET Worksheet 24 (Clinician)</div><div class="b2">Motivational Enhancement Therapy · Worksheet Pack</div></div>
+  <h2>Worksheet 24 · Clinician MET Session Note</h2>
+  <div class="purpose"><b>Purpose:</b> concise, non-stigmatising clinical documentation after each MET session. <b>For:</b> the clinician. <b>Used:</b> after every session.</div>
+  <div class="howto"><b>How to complete:</b> record the patient's own words and your observations — not labels. Write “weighing reasons for and against change; importance 6, confidence 3” rather than “resistant/unmotivated”. Note safety and coordination explicitly.</div>
+  <table>
+    <tr><td style="width:40%"><b>Session number &amp; date</b></td><td><div class="fieldbox sm"></div></td></tr>
+    <tr><td><b>Presenting concerns</b></td><td><div class="fieldbox sm"></div></td></tr>
+    <tr><td><b>Patient's perspective (their words)</b></td><td><div class="fieldbox sm"></div></td></tr>
+    <tr><td><b>Stage / readiness</b></td><td><div class="fieldbox sm"></div></td></tr>
+    <tr><td><b>Importance (0–10) &amp; Confidence (0–10)</b></td><td><div class="fieldbox sm"></div></td></tr>
+    <tr><td><b>Change talk noted</b></td><td><div class="fieldbox sm"></div></td></tr>
+    <tr><td><b>Sustain talk / ambivalence noted</b></td><td><div class="fieldbox sm"></div></td></tr>
+    <tr><td><b>Techniques / interventions used</b></td><td><div class="fieldbox sm"></div></td></tr>
+    <tr><td><b>Worksheets used</b></td><td><div class="fieldbox sm"></div></td></tr>
+    <tr><td><b>Patient response</b></td><td><div class="fieldbox sm"></div></td></tr>
+    <tr><td><b>Agreed action / homework</b></td><td><div class="fieldbox sm"></div></td></tr>
+    <tr><td><b>Safety concerns (OD, suicidality, withdrawal)</b></td><td><div class="fieldbox sm"></div></td></tr>
+    <tr><td><b>Referral / treatment coordination</b></td><td><div class="fieldbox sm"></div></td></tr>
+    <tr><td><b>Plan for next session</b></td><td><div class="fieldbox sm"></div></td></tr>
+  </table>
+  <div class="ws-review"><b>Note:</b> document ambivalence descriptively, never as a character judgement. Flag any safety concern for immediate medical/psychiatric action.</div>
+  <div class="ws-foot">MET Worksheet Pack</div>
+</div>
+
+<!-- CLOSING -->
+<div class="page closing">
+  <div style="text-align:center; margin-top:80px;">
+    <div style="display:inline-block; padding:18px 40px; background:linear-gradient(135deg,var(--mint),var(--lavender)); border:2px solid var(--accent); border-radius:40px;">
+      <div style="font-size:16pt; font-weight:800; color:var(--accent-d); letter-spacing:1px;">Dango_Psych — Tejas Dangodra</div>
+      <div style="font-size:10pt; color:var(--muted); margin-top:4px;">M.Phil. Clinical Psychology</div>
+      <div style="font-size:10pt; color:var(--muted);">MET Book Two · Session-by-Session Guide &amp; Worksheet Pack</div>
+    </div>
+    <p style="font-size:9.5pt; color:var(--muted); max-width:150mm; margin:24px auto 0;">Built on the Project MATCH MET Manual (Miller, Zweben, DiClemente &amp; Rychtarik), Miller &amp; Rollnick's <i>Motivational Interviewing</i> (3rd ed.), and Naar-King &amp; Suarez's <i>Motivational Interviewing with Adolescents and Young Adults</i>. The 12-session structure is a supplementary clinical extension of the brief published model. Educational/clinical-training use — not a substitute for medical care, supervision, or local clinical guidelines. MET complements, and does not replace, medical evaluation, detox, overdose prevention and pharmacotherapy.</p>
+  </div>
+</div>
+</body>
+</html>
