@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Motivational Enhancement Therapy — Theory & Techniques | Dango_Psych</title>
+<style>
+:root{
+  --lavender:#ece7f6; --lilac:#dccdee; --lilac2:#cbb6e4; --powder:#dcebf6; --powder2:#c6def0;
+  --sage:#dde9d7; --mint:#d4efe4; --peach:#fbe4d2; --cream:#fdf9f0; --rose:#f7dceb;
+  --ink:#312b40; --muted:#5f586e; --line:#cdc1e2;
+  --accent:#6f58a0; --accent-d:#523f78; --accent2:#44798c; --warn:#bd6440; --good:#47805f;
+}
+*{box-sizing:border-box;}
+body{margin:0; font-family:"Segoe UI",Candara,Calibri,system-ui,Arial,sans-serif; color:var(--ink);
+  line-height:1.6; font-size:11.3pt; background:#fff;}
+/* ---- PAGE SETUP ---- */
+@page{ size:A4; margin:17mm 15mm 18mm; }
+.page{ page-break-after:always; }
+.page:last-child{ page-break-after:auto; }
+/* ---- COVER ---- */
+.cover{ display:flex; flex-direction:column; justify-content:center; align-items:center;
+  text-align:center; min-height:255mm; background:linear-gradient(160deg,var(--lavender),var(--powder) 55%,var(--mint));
+  border:3px solid var(--lilac2); border-radius:14px; padding:30mm 18mm; }
+.cover .kicker{ letter-spacing:4px; color:var(--accent2); font-weight:700; font-size:12pt; }
+.cover h1{ font-size:30pt; color:var(--accent-d); margin:14px 0 6px; line-height:1.15; }
+.cover h2{ font-size:15pt; color:var(--muted); font-weight:600; margin:4px 0; }
+.cover .vol{ margin-top:26px; padding:10px 26px; background:#fff; border:2px solid var(--accent); border-radius:40px; font-weight:800; color:var(--accent-d); font-size:14pt; }
+.cover .brand{ margin-top:40px; font-size:13pt; font-weight:800; color:var(--accent-d); letter-spacing:1px; }
+.cover .brand small{ display:block; font-weight:600; color:var(--muted); font-size:10pt; letter-spacing:.5px; margin-top:3px;}
+.cover .sub{ margin-top:18px; font-size:10pt; color:var(--muted); max-width:150mm;}
+/* ---- RUNNING HEADINGS ---- */
+h2.sec{ font-size:17pt; color:#fff; background:linear-gradient(90deg,var(--accent),var(--accent2));
+  padding:9px 15px; border-radius:9px; margin:0 0 12px; }
+h3{ font-size:13pt; color:var(--accent-d); border-bottom:2px solid var(--lilac); padding-bottom:4px; margin:20px 0 8px;}
+h4{ font-size:11.5pt; color:var(--accent2); margin:14px 0 4px;}
+p{ margin:7px 0; }
+.lead{ font-size:11.8pt; color:var(--muted); }
+.defn{ color:var(--muted); font-style:italic; font-size:.95em; }
+ul,ol{ margin:7px 0; padding-left:20px;} li{ margin:3px 0;}
+table{ width:100%; border-collapse:collapse; margin:11px 0; font-size:10pt; }
+th,td{ border:1px solid var(--line); padding:6px 8px; text-align:left; vertical-align:top; }
+th{ background:var(--lavender); color:var(--accent-d); }
+tr:nth-child(even) td{ background:#faf7fe; }
+.callout{ border-left:5px solid var(--accent2); background:var(--powder); padding:9px 13px; border-radius:0 9px 9px 0; margin:11px 0; }
+.callout.safety{ border-color:var(--warn); background:#fbe7df; }
+.callout.safety strong{ color:var(--warn); }
+.callout.tip{ border-color:var(--good); background:var(--mint); }
+.callout.key{ border-color:var(--accent); background:var(--rose); }
+.scriptcard{ border:1px dashed var(--accent2); border-radius:9px; padding:9px 12px; margin:9px 0; background:#f2f8fb; font-size:10.3pt;}
+.scriptcard .t{ color:var(--accent); font-weight:700; } .scriptcard .p{ color:var(--accent2); font-weight:700; }
+.ct{ color:var(--good); font-weight:700; } .st{ color:var(--warn); font-weight:700; }
+.pill{ display:inline-block; padding:1px 9px; border-radius:14px; font-size:8.5pt; font-weight:700; }
+.pill.model{ background:var(--lilac2); color:#3b2c62;} .pill.supp{ background:var(--peach); color:#7a3c1c;} .pill.ad{ background:var(--powder2); color:#2b5466;}
+.toc li{ margin:5px 0; font-size:11pt;}
+.toc a{ color:var(--ink); text-decoration:none;}
+.footer-note{ font-size:8.5pt; color:var(--muted); text-align:center; border-top:1px solid var(--line); margin-top:16px; padding-top:6px;}
+.grid2{ display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+.box{ border:1px solid var(--line); border-radius:9px; padding:10px 13px; background:#fcfaff;}
+.tech{ border:1px solid var(--line); border-radius:9px; padding:9px 12px; margin:9px 0; background:#fcfaff; break-inside:avoid;}
+.tech h4{ margin-top:0;}
+.tag{ font-size:8.5pt; background:var(--sage); color:#3d5938; padding:1px 7px; border-radius:10px; font-weight:700;}
+.avoid-use td:first-child{ background:#fbe7df;} .avoid-use td:last-child{ background:var(--mint);}
+h2.sec, h3, .tech, table, .scriptcard, .callout{ break-inside:avoid; }
+</style>
+</head>
+<body>
+
+<!-- ========== COVER ========== -->
+<div class="page">
+  <div class="cover">
+    <div class="kicker">CLINICAL PSYCHOLOGY · DE-ADDICTION</div>
+    <h1>Motivational Enhancement Therapy</h1>
+    <h2>Book One — Theory, Foundations &amp; Techniques</h2>
+    <div class="vol">What MET Is · Its Theories · All Its Techniques</div>
+    <p class="sub">A detailed, exam- and practice-ready guide to the nature of MET, the theories it rests on, the Motivational Interviewing method behind it, and every clinical technique it uses — for substance-use disorders (opioids/smack, alcohol, tobacco, cannabis, stimulants) and adolescents.</p>
+    <div class="brand">Dango_Psych — Tejas Dangodra<small>M.Phil. Clinical Psychology</small></div>
+  </div>
+</div>
+
+<!-- ========== CONTENTS ========== -->
+<div class="page">
+  <h2 class="sec">Contents — Book One</h2>
+  <ol class="toc">
+    <li>About this book &amp; the two-book set</li>
+    <li>Sources, the MET model &amp; honesty note</li>
+    <li>What MET is: definition, purpose &amp; rationale</li>
+    <li>MET versus Motivational Interviewing (MI)</li>
+    <li>Theoretical foundations
+      <ul>
+        <li>Rogerian / person-centred roots</li>
+        <li>The Transtheoretical (Stages of Change) model</li>
+        <li>Self-perception &amp; cognitive-dissonance theory</li>
+        <li>Self-efficacy theory (Bandura)</li>
+        <li>Psychological reactance theory</li>
+        <li>Self-determination theory</li>
+      </ul></li>
+    <li>Core concepts: ambivalence, motivation, change &amp; sustain talk, discrepancy</li>
+    <li>The MI spirit (PACE) &amp; the four processes</li>
+    <li>Why confrontation backfires (the righting reflex)</li>
+    <li>The complete technique compendium
+      <ul>
+        <li>A · OARS foundational skills</li>
+        <li>B · Reflection techniques</li>
+        <li>C · Evoking &amp; strengthening change talk</li>
+        <li>D · Responding to sustain talk &amp; discord</li>
+        <li>E · Information, feedback &amp; advice (E-P-E)</li>
+        <li>F · Planning, action &amp; relapse-prevention techniques</li>
+        <li>G · Adolescent-specific technique adaptations</li>
+      </ul></li>
+    <li>Change talk in depth — DARN-CAT</li>
+    <li>Evidence, limitations &amp; ethics</li>
+    <li>Glossary of difficult terms</li>
+  </ol>
+  <div class="callout tip"><b>How to use the set.</b> <b>Book One</b> (this volume) teaches you the <i>theory and techniques</i>. <b>Book Two</b> is the <i>session-by-session guide and worksheet pack</i> — it shows exactly which technique to use in which session, and provides long, comprehensive, ready-to-use worksheets (including MET short-term and long-term goal worksheets).</div>
+  <div class="footer-note">Dango_Psych — Tejas Dangodra · MET Book One: Theory &amp; Techniques</div>
+</div>
+
+<!-- ========== 1-2 ABOUT & SOURCES ========== -->
+<div class="page">
+  <h2 class="sec">1 · About This Book &amp; 2 · Sources</h2>
+  <p class="lead">This is a deep reference on <b>what Motivational Enhancement Therapy is, the theories it is built on, and the full set of techniques it uses</b>. The practical session guide and worksheets live in the companion volume (Book Two).</p>
+
+  <h3>Primary published sources</h3>
+  <ul>
+    <li><b>Miller, W.R., Zweben, A., DiClemente, C.C., &amp; Rychtarik, R.G. (1992/1995).</b> <i>Motivational Enhancement Therapy Manual.</i> Project MATCH Monograph Series Vol. 2, NIAAA (NIH Pub. 94-3723). <span class="pill model">MET model</span></li>
+    <li><b>Miller, W.R., &amp; Rollnick, S. (2013).</b> <i>Motivational Interviewing: Helping People Change</i> (3rd ed.). Guilford Press. <span class="pill model">MI method</span></li>
+    <li><b>Naar-King, S., &amp; Suarez, M. (2011).</b> <i>Motivational Interviewing with Adolescents and Young Adults.</i> Guilford Press. <span class="pill ad">adolescent MI</span></li>
+    <li><b>Prochaska &amp; DiClemente</b> — Transtheoretical model; <b>Bandura</b> — self-efficacy; <b>Rogers</b> — person-centred therapy; <b>WHO</b> ASSIST/mhGAP; <b>NIDA</b> <i>Principles of Drug Addiction Treatment.</i></li>
+  </ul>
+  <div class="callout"><b>Honesty note.</b> The repository's <i>Motivational_Enhancement_Therapy_Manual.pdf</i> is an <b>image-only scanned book</b> (a Google-Books digitisation, no machine-readable text) and offline OCR <span class="defn">(turning scanned images into text)</span> is unavailable here; the two Motivational Interviewing books referenced are <b>not present as files</b> in the repository. All material below is therefore grounded in the <b>published, verifiable editions</b> of these works, not invented from a scan or absent files. Supplementary clinical extensions are tagged <span class="pill supp">SUPPLEMENTARY</span>.</div>
+
+  <h3>Tags used</h3>
+  <p><span class="pill model">MANUAL MODEL</span> established MET/MI procedure · <span class="pill supp">SUPPLEMENTARY</span> clinical extension for de-addiction/extended practice · <span class="pill ad">ADOLESCENT</span> youth adaptation.</p>
+  <div class="callout safety"><strong>⚠ Safety (throughout both books):</strong> MET does <b>not</b> replace medical assessment, detoxification <span class="defn">(medically-supervised withdrawal)</span>, overdose prevention, pharmacotherapy <span class="defn">(treatment with medicines)</span>, or emergency psychiatric care. For opioids assess overdose risk and arrange naloxone <span class="defn">(antidote reversing opioid overdose)</span> and medications for opioid use disorder (MOUD). MET <i>complements</i> medical &amp; addiction treatment.</div>
+  <div class="footer-note">Dango_Psych — Tejas Dangodra · MET Book One: Theory &amp; Techniques</div>
+</div>
+
+<!-- ========== 3-4 WHAT MET IS ========== -->
+<div class="page">
+  <h2 class="sec">3 · What MET Is &amp; 4 · MET vs MI</h2>
+  <h3>Definition</h3>
+  <p>Motivational Enhancement Therapy (MET) is a <b>brief, structured, person-centred yet directive</b> counselling approach that systematically builds a patient's <b>intrinsic motivation</b> <span class="defn">(motivation coming from within — the person's own values &amp; reasons)</span> to change substance use. It combines the clinical style of <b>Motivational Interviewing</b> with <b>structured, personalised assessment feedback</b> and a <b>negotiated change plan</b>.</p>
+
+  <h3>Purpose</h3>
+  <ul>
+    <li>To <b>resolve ambivalence</b> <span class="defn">(settle the mixed feelings of wanting and not wanting to change)</span> that keeps people stuck.</li>
+    <li>To <b>mobilise</b> <span class="defn">(set in motion)</span> the person's own motivation and commitment, rather than impose the clinician's agenda.</li>
+    <li>To <b>strengthen self-efficacy</b> <span class="defn">(belief in one's own ability to succeed)</span> and personal responsibility for change.</li>
+  </ul>
+
+  <h3>Rationale — why it works</h3>
+  <p>Motivation is among the strongest predictors of treatment engagement and outcome, and crucially it is <b>not fixed</b> — the clinician's style can raise or lower it within a single conversation. People are more persuaded by what <i>they themselves</i> say than by what they are told; MET is built to make the patient voice their own arguments for change (“change talk”).</p>
+
+  <h3>MET versus Motivational Interviewing — related but not identical</h3>
+  <table>
+    <tr><th>Motivational Interviewing (MI)</th><th>Motivational Enhancement Therapy (MET)</th></tr>
+    <tr><td>A <b>clinical style/method</b> of conversation that evokes a person's own motivation. Not time-limited; no fixed number of sessions. Can be woven into any treatment.</td>
+        <td>A <b>brief, manualised treatment</b> that <i>applies</i> MI and adds two defining ingredients: <b>(1) structured personalised assessment feedback</b> (the “enhancement”, delivered motivationally) and <b>(2) a negotiated change plan</b>. In Project MATCH it was 4 sessions.</td></tr>
+    <tr><td>Spirit: partnership, acceptance, compassion, evocation.</td>
+        <td>MI spirit + systematic feedback + defined structure.</td></tr>
+  </table>
+  <div class="callout key"><b>One-line summary:</b> <b>MET = MI style + personalised feedback + a defined brief structure.</b> Every MET session uses MI; not every use of MI is MET.</div>
+  <div class="footer-note">Dango_Psych — Tejas Dangodra · MET Book One: Theory &amp; Techniques</div>
+</div>
+
+<!-- ========== 5 THEORETICAL FOUNDATIONS ========== -->
+<div class="page">
+  <h2 class="sec">5 · Theoretical Foundations of MET</h2>
+  <p class="lead">MET is not a single theory but an integration of several. Understanding each explains <i>why</i> MET techniques are designed the way they are.</p>
+
+  <h3>5.1 Rogerian / person-centred roots (Carl Rogers)</h3>
+  <p>MET inherits Rogers' conviction that people have an innate capacity for growth that is released by a particular relationship: <b>accurate empathy</b> <span class="defn">(deeply understanding and reflecting the person's experience)</span>, <b>unconditional positive regard</b> <span class="defn">(non-judgemental acceptance of worth)</span>, and <b>genuineness</b>. MET keeps these conditions but adds a <b>directional</b> element — it deliberately steers toward change talk. Hence MET is often called <i>“person-centred but goal-directed.”</i></p>
+
+  <h3>5.2 The Transtheoretical Model — Stages of Change (Prochaska &amp; DiClemente)</h3>
+  <p>Change is understood as movement through stages rather than a single event. MET matches its tasks to the patient's stage.</p>
+  <table>
+    <tr><th>Stage</th><th>Description</th><th>MET task matched to the stage</th></tr>
+    <tr><td>Precontemplation <span class="defn">(not yet considering change)</span></td><td>Doesn't see a problem; may feel coerced.</td><td>Engage; raise awareness gently; evoke concern — <b>no change plan</b>.</td></tr>
+    <tr><td>Contemplation <span class="defn">(thinking about it)</span></td><td>Ambivalent — “yes, but”.</td><td>Tip the decisional balance; develop discrepancy; evoke change talk.</td></tr>
+    <tr><td>Preparation</td><td>Intends to act soon; small steps begun.</td><td>Strengthen commitment; negotiate a plan.</td></tr>
+    <tr><td>Action</td><td>Actively changing behaviour.</td><td>Support self-efficacy; problem-solve; affirm.</td></tr>
+    <tr><td>Maintenance</td><td>Sustaining the change over time.</td><td>Relapse prevention; continuing care.</td></tr>
+    <tr><td>Relapse / lapse <span class="defn">(fuller return / a single slip)</span></td><td>Return to use.</td><td>Normalise, de-shame, re-engage, extract learning.</td></tr>
+  </table>
+  <div class="callout safety"><strong>Caution:</strong> stages, readiness and the rulers are <b>clinical frameworks, not diagnostic tests</b>. A single number must never label someone “resistant” or “unmotivated”.</div>
+
+  <h3>5.3 Self-perception &amp; cognitive-dissonance theory</h3>
+  <p>People partly learn their attitudes by <b>hearing what they themselves say</b> (self-perception). When a person voices change talk, they come to believe it more. <b>Cognitive dissonance</b> <span class="defn">(the discomfort of holding two conflicting ideas)</span> is harnessed when MET develops <b>discrepancy</b> between current use and valued goals — the discomfort motivates change, provided it is not forced (which triggers defensiveness instead).</p>
+
+  <h3>5.4 Self-efficacy theory (Albert Bandura)</h3>
+  <p>Believing one <i>can</i> change predicts whether one does. MET deliberately builds self-efficacy by affirming strengths, recalling past successes, and setting achievable early goals. Importantly, <b>importance</b> and <b>confidence</b> are independent: a person can badly want to change (high importance) yet doubt they can (low confidence) — each requires a different response.</p>
+
+  <h3>5.5 Psychological reactance theory</h3>
+  <p>When people feel their freedom is threatened (“you must quit”), they <b>push back</b> to restore it — often by defending the very behaviour targeted. This is why MET relentlessly protects <b>autonomy</b> <span class="defn">(the person's right to choose)</span> and avoids argument.</p>
+
+  <h3>5.6 Self-determination theory (Deci &amp; Ryan)</h3>
+  <p>Durable motivation depends on satisfying three needs: <b>autonomy, competence</b> <span class="defn">(feeling capable)</span> and <b>relatedness</b> <span class="defn">(feeling connected)</span>. MET feeds all three: autonomy via choice, competence via self-efficacy work, relatedness via the empathic alliance. This is why <i>intrinsic</i> motivation (internalised, self-endorsed) outlasts <i>extrinsic</i> pressure (court, family).</p>
+  <div class="footer-note">Dango_Psych — Tejas Dangodra · MET Book One: Theory &amp; Techniques</div>
+</div>
+
+<!-- ========== 6 CORE CONCEPTS ========== -->
+<div class="page">
+  <h2 class="sec">6 · Core Concepts</h2>
+  <h3>Ambivalence — the normal core of addiction</h3>
+  <p>“I want to quit <i>and</i> I don't” is the expected state, not denial or weakness. MET treats ambivalence as the natural starting point and works <i>through</i> it rather than fighting it. Resolving ambivalence in the patient's own words is the central mechanism of change.</p>
+
+  <h3>Motivation — a changeable state, not a trait</h3>
+  <p>“Unmotivated” describes a moment in an interaction, not a personality. The clinician's style is part of the patient's motivation.</p>
+
+  <h3>Intrinsic vs extrinsic motivation</h3>
+  <div class="grid2">
+    <div class="box"><b>Extrinsic</b> — from outside pressure (court order, family ultimatum, job). Gets people <i>through the door</i>; rarely sustains change alone.</div>
+    <div class="box"><b>Intrinsic</b> — from within (own values, health, children, self-respect). <i>Sustains</i> change. MET's job is to convert extrinsic pressure into intrinsic reasons.</div>
+  </div>
+
+  <h3>Change talk vs sustain talk</h3>
+  <p><span class="ct">Change talk</span> = the patient's own statements favouring change. <span class="st">Sustain talk</span> <span class="defn">(statements defending the status quo — keeping things as they are)</span> = statements favouring continued use. The frequency and strength of change talk predicts behaviour change; MET selectively evokes and reinforces it while never arguing against sustain talk.</p>
+
+  <h3>Discrepancy</h3>
+  <p>The felt <b>gap between current behaviour and important goals/values</b>. MET <i>develops</i> this gap — but from the patient's own perspective, never by lecturing. The patient, not the therapist, should voice the discrepancy.</p>
+
+  <h3>Self-efficacy &amp; personal responsibility</h3>
+  <p>The responsibility and the choice to change remain with the patient throughout. This both respects autonomy and, paradoxically, increases the likelihood of change.</p>
+  <div class="footer-note">Dango_Psych — Tejas Dangodra · MET Book One: Theory &amp; Techniques</div>
+</div>
+
+<!-- ========== 7-8 SPIRIT & RIGHTING REFLEX ========== -->
+<div class="page">
+  <h2 class="sec">7 · The MI Spirit &amp; Four Processes · 8 · Why Confrontation Backfires</h2>
+  <h3>The MI spirit — PACE (the attitude behind every technique)</h3>
+  <table>
+    <tr><th>Element</th><th>Meaning</th></tr>
+    <tr><td><b>P — Partnership</b></td><td>Work <i>with</i> the patient as collaborators, not <i>on</i> them as an expert fixing a problem.</td></tr>
+    <tr><td><b>A — Acceptance</b></td><td>Absolute worth, accurate empathy, autonomy support, and affirmation of strengths.</td></tr>
+    <tr><td><b>C — Compassion</b></td><td>Actively prioritise the patient's welfare, not the clinician's or institution's agenda.</td></tr>
+    <tr><td><b>E — Evocation</b></td><td>Draw motivation <i>out of</i> the patient (“you already have what you need”), rather than install it.</td></tr>
+  </table>
+
+  <h3>The four processes of MI/MET</h3>
+  <p>These flow in order but you can loop back any time:</p>
+  <ol>
+    <li><b>Engaging</b> — build a trusting, collaborative relationship.</li>
+    <li><b>Focusing</b> — agree a direction/goal for the work.</li>
+    <li><b>Evoking</b> — elicit the patient's own motivations (change talk). <i>This is the heart of MET.</i></li>
+    <li><b>Planning</b> — develop commitment and a concrete change plan.</li>
+  </ol>
+
+  <h3>Why confrontation, arguing, blaming &amp; lecturing backfire</h3>
+  <p>The <b>“righting reflex”</b> <span class="defn">(the helper's natural urge to fix things and set the person straight)</span> is the most common clinical trap. When a clinician argues for change, <b>psychological reactance</b> leads the patient to argue the other side — effectively talking themselves <i>into</i> continued use. Labelling (“you're an addict in denial”) provokes shame and defence. In MET, if the patient is defending use, the <b>therapist changes course</b> — reflect, roll with it, re-affirm autonomy.</p>
+  <div class="callout key"><b>The MET maxim:</b> arguments for change should come from the <i>patient's</i> mouth, not the therapist's.</div>
+  <div class="footer-note">Dango_Psych — Tejas Dangodra · MET Book One: Theory &amp; Techniques</div>
+</div>
+
+<!-- ========== 9 TECHNIQUES A & B ========== -->
+<div class="page">
+  <h2 class="sec">9 · The Complete Technique Compendium</h2>
+  <p class="lead">Every technique MET/MI uses, grouped by purpose. For each: <b>what it is · why/when to use it · how to do it · an example.</b> Book Two shows which technique belongs in which session.</p>
+
+  <h3>Group A · OARS — the foundational micro-skills</h3>
+  <div class="tech">
+    <h4>Open questions <span class="tag">A1</span></h4>
+    <p><b>What:</b> questions that cannot be answered yes/no and invite elaboration. <b>Why:</b> open topics, hand the floor to the patient, gather change talk. <b>How:</b> start with “what”, “how”, “tell me about…”; avoid stacking questions. Aim for a high ratio of reflections to questions.</p>
+    <div class="scriptcard"><span class="t">T:</span> “What's a day like for you when you don't use?”</div>
+  </div>
+  <div class="tech">
+    <h4>Affirmations <span class="tag">A2</span></h4>
+    <p><b>What:</b> genuine recognition of the patient's strengths, efforts or intentions — <i>not</i> praise or flattery. <b>Why:</b> builds self-efficacy and the alliance; counters shame. <b>How:</b> comment on a specific strength or effort you have actually observed; frame around the patient (“you…”), not yourself (“I'm proud of you”).</p>
+    <div class="scriptcard"><span class="t">T:</span> “You came in today even though it's uncomfortable — that takes real resolve.”</div>
+  </div>
+  <div class="tech">
+    <h4>Reflective listening <span class="tag">A3</span></h4>
+    <p><b>What:</b> saying back the <i>meaning</i> you heard, as a statement (not a question). <b>Why:</b> conveys empathy, checks understanding, and <i>selectively</i> steers by choosing what to reflect. <b>How:</b> make a reasonable guess at meaning; let your voice drop at the end so it lands as a statement.</p>
+    <div class="scriptcard"><span class="t">T:</span> “You're worried this is slipping out of your control.”</div>
+  </div>
+  <div class="tech">
+    <h4>Summaries <span class="tag">A4</span></h4>
+    <p><b>What:</b> pulling several threads together. Three kinds: <b>collecting</b> (gather change talk), <b>linking</b> (connect current to earlier statements), <b>transitional</b> (shift to a new phase). <b>Why:</b> demonstrates listening, concentrates change talk, bridges to planning. <b>How:</b> end with a “key question”.</p>
+    <div class="scriptcard"><span class="t">T:</span> “So money, your health and your daughter all pull you toward change, while the one pull back is how it helps you relax. Where does that leave you?”</div>
+  </div>
+
+  <h3>Group B · Reflection techniques (the skill most used in MET)</h3>
+  <div class="tech"><h4>Simple reflection <span class="tag">B1</span></h4><p><b>What/How:</b> repeat or lightly rephrase content; keeps conversation moving, low risk. <b>Example:</b> P: “I'm tired of it.” → T: “You've had enough.”</p></div>
+  <div class="tech"><h4>Complex reflection <span class="tag">B2</span></h4><p><b>What/How:</b> add meaning, feeling, or “continue the paragraph” — a deeper guess. <b>Example:</b> P: “I'm tired of it.” → T: “Part of you is ready for something different.”</p></div>
+  <div class="tech"><h4>Double-sided reflection <span class="tag">B3</span></h4><p><b>What/How:</b> hold both sides of ambivalence in one sentence, ending on the change side (recency effect). <b>Example:</b> “You enjoy how it relaxes you, <i>and</i> you're worried about your health.”</p></div>
+  <div class="tech"><h4>Amplified reflection <span class="tag">B4</span></h4><p><b>What/How:</b> reflect sustain talk slightly over-stated so the patient self-corrects — use sparingly &amp; without sarcasm. <b>Example:</b> P: “It's not that bad.” → T: “So there's really no downside at all.” → P: “Well, the debt <i>is</i> bad…”</p></div>
+  <div class="tech"><h4>Reflection of feeling <span class="tag">B5</span></h4><p><b>What/How:</b> name the emotion to deepen empathy. <b>Example:</b> “That really frightened you.”</p></div>
+  <div class="footer-note">Dango_Psych — Tejas Dangodra · MET Book One: Theory &amp; Techniques</div>
+</div>
+
+<!-- ========== 9 TECHNIQUES C ========== -->
+<div class="page">
+  <h2 class="sec">9 · Techniques — Group C · Evoking Change Talk</h2>
+  <p class="lead">Evoking is the engine of MET. These techniques pull the patient's own motivational language into the room.</p>
+  <div class="tech"><h4>Evocative questions (DARN) <span class="tag">C1</span></h4><p><b>What:</b> directly ask for Desire, Ability, Reasons, Need. <b>How:</b> “Why might you want to change? How could you, if you decided? What are the best reasons? How important is it?” <b>Example:</b> “If you did decide to cut down, how might you go about it?”</p></div>
+  <div class="tech"><h4>Importance &amp; confidence rulers <span class="tag">C2</span></h4><p><b>What:</b> a 0–10 scale for how important change is, and how confident the patient feels. <b>How:</b> ask the number, then <b>“Why that number and not a lower one?”</b> (pulls change talk) and “What would move you one point higher?” Never ask “why not higher?” (pulls sustain talk). <b>Example:</b> “You said importance is 6 — why a 6 and not a 3?”</p></div>
+  <div class="tech"><h4>Querying extremes <span class="tag">C3</span></h4><p><b>What/How:</b> ask about the best and worst possible outcomes to surface motivation. <b>Example:</b> “What's the worst that could happen if nothing changes? And the best if it did?”</p></div>
+  <div class="tech"><h4>Looking back / looking forward <span class="tag">C4</span></h4><p><b>What/How:</b> contrast life before the problem, or imagine a changed future. <b>Example:</b> “How were things before all this? Where would you like to be a year from now?”</p></div>
+  <div class="tech"><h4>Exploring goals &amp; values <span class="tag">C5</span></h4><p><b>What/How:</b> elicit core values, then explore how use fits — develops discrepancy. <b>Example:</b> “Being a good father is everything to you — how does using fit with that?”</p></div>
+  <div class="tech"><h4>Elaborating / asking for examples <span class="tag">C6</span></h4><p><b>What/How:</b> when change talk appears, deepen it. <b>Example:</b> “Tell me more about that.” / “When was the last time that happened?”</p></div>
+  <div class="tech"><h4>The key question <span class="tag">C7</span></h4><p><b>What/How:</b> an open question that opens the transition to planning, asked after a good summary. <b>Example:</b> “So, where does this leave you?”</p></div>
+  <div class="tech"><h4>Affirming &amp; summarising change talk (the “bouquet”) <span class="tag">C8</span></h4><p><b>What/How:</b> gather the patient's change statements and hand them back. <b>Example:</b> “You've named three strong reasons — your health, your marriage, and the money.”</p></div>
+  <div class="footer-note">Dango_Psych — Tejas Dangodra · MET Book One: Theory &amp; Techniques</div>
+</div>
+
+<!-- ========== 9 TECHNIQUES D & E ========== -->
+<div class="page">
+  <h2 class="sec">9 · Techniques — Group D · Sustain Talk &amp; Discord · Group E · Information</h2>
+  <p class="lead">Discord <span class="defn">(tension/strain in the relationship — distinct from the patient's own ambivalence)</span> and sustain talk are signals to change <i>your</i> approach, not to push harder.</p>
+  <div class="tech"><h4>Rolling with resistance <span class="tag">D1</span></h4><p><b>What/How:</b> don't oppose; move alongside and let momentum shift. Reflect instead of counter-arguing. <b>Example:</b> P: “I'm not quitting.” → T: “Quitting isn't on the table for you right now.”</p></div>
+  <div class="tech"><h4>Emphasising personal autonomy <span class="tag">D2</span></h4><p><b>What/How:</b> explicitly affirm the patient's right to choose — defuses reactance. <b>Example:</b> “It's completely your call — nobody can decide this for you.”</p></div>
+  <div class="tech"><h4>Reframing <span class="tag">D3</span></h4><p><b>What/How:</b> offer a new, more useful meaning for the same facts. <b>Example:</b> “Your family's nagging — maybe that's a sign of how much they want you back.”</p></div>
+  <div class="tech"><h4>Agreement with a twist <span class="tag">D4</span></h4><p><b>What/How:</b> reflect/agree, then gently add a new angle. <b>Example:</b> “You're right it's your decision — and you're clearly weighing it carefully.”</p></div>
+  <div class="tech"><h4>Shifting focus <span class="tag">D5</span></h4><p><b>What/How:</b> move away from a stuck point to reduce friction. <b>Example:</b> “Let's set the big decision aside and just look at this week.”</p></div>
+  <div class="tech"><h4>Coming alongside <span class="tag">D6</span></h4><p><b>What/How:</b> briefly side with the status quo to defuse a stand-off. <b>Example:</b> “Maybe using matters so much right now that giving it up isn't worth it.”</p></div>
+  <div class="tech"><h4>Repair (apologise / affirm) in discord <span class="tag">D7</span></h4><p><b>What/How:</b> when tension rises, mend the alliance. <b>Example:</b> “I've pushed too hard — I'm sorry. This is your call.”</p></div>
+
+  <h3>Group E · Information, feedback &amp; advice</h3>
+  <div class="tech"><h4>Elicit–Provide–Elicit (E-P-E) <span class="tag">E1</span></h4><p><b>What:</b> the MET way to give information or advice without lecturing. <b>How:</b> <b>Elicit</b> permission &amp; what the patient already knows → <b>Provide</b> focused, neutral information → <b>Elicit</b> their reaction. <b>Example:</b> “What do you know about the medicine for cravings? … May I add a little? … What do you make of that?”</p></div>
+  <div class="tech"><h4>Personalised assessment feedback <span class="tag">E2</span></h4><p><b>What:</b> the defining MET “enhancement” — present the patient's assessment results against norms, neutrally, one finding at a time. <b>Example:</b> “Your reported use is in the high-risk range compared with most men your age. How does that land?”</p></div>
+  <div class="tech"><h4>Ask permission <span class="tag">E3</span></h4><p><b>What/How:</b> always precede advice/info with a request — protects autonomy. <b>Example:</b> “Would it be okay if I shared something I've seen help others?”</p></div>
+  <div class="tech"><h4>Menu of options <span class="tag">E4</span></h4><p><b>What/How:</b> offer choices rather than a single prescription. <b>Example:</b> “Some people try X, others Y or Z — what fits you best?”</p></div>
+  <div class="footer-note">Dango_Psych — Tejas Dangodra · MET Book One: Theory &amp; Techniques</div>
+</div>
+
+<!-- ========== 9 TECHNIQUES F & G ========== -->
+<div class="page">
+  <h2 class="sec">9 · Techniques — Group F · Planning &amp; Relapse-Prevention · Group G · Adolescents</h2>
+  <div class="tech"><h4>Decisional balance <span class="tag">F1</span></h4><p><b>What/How:</b> explicitly weigh pros &amp; cons of using vs changing (best in contemplation). Honour the real benefits of use first. <b>Example:</b> four-quadrant exercise (see Book Two worksheet 7).</p></div>
+  <div class="tech"><h4>Change-plan negotiation <span class="tag">F2</span></h4><p><b>What/How:</b> co-author (not prescribe) goal, reasons, steps, supports, obstacles. The patient's words carry the commitment.</p></div>
+  <div class="tech"><h4>SMART goal-setting <span class="tag">F3</span></h4><p><b>What/How:</b> make steps Specific, Measurable, Achievable, Relevant, Time-bound. Underpins the short-term &amp; long-term goal worksheets in Book Two.</p></div>
+  <div class="tech"><h4>Functional analysis of triggers <span class="tag">F4</span></h4><p><b>What/How:</b> map antecedents → use → consequences to reveal patterns. <b>Example:</b> “What's usually happening right before you use?”</p></div>
+  <div class="tech"><h4>“If-then” coping plans (implementation intentions) <span class="tag">F5</span></h4><p><b>What/How:</b> pre-decide a response to each high-risk situation. <b>Example:</b> “<i>If</i> I'm offered at a function, <i>then</i> I step out and call my brother.”</p></div>
+  <div class="tech"><h4>Urge-surfing <span class="tag">F6</span></h4><p><b>What/How:</b> observe a craving rise, peak and fall like a wave without acting on it; it passes. </p></div>
+  <div class="tech"><h4>“Play the tape forward” <span class="tag">F7</span></h4><p><b>What/How:</b> imagine the full sequence and consequences of using before acting. <b>Example:</b> “Picture how tonight actually ends if you use.”</p></div>
+  <div class="tech"><h4>Refusal-skills rehearsal / role-play <span class="tag">F8</span></h4><p><b>What/How:</b> practise saying no and leaving situations; therapist plays the offering friend.</p></div>
+  <div class="tech"><h4>Lapse-vs-relapse reframing <span class="tag">F9</span></h4><p><b>What/How:</b> prevent the <b>abstinence-violation effect</b> <span class="defn">(the all-or-nothing reaction that turns one slip into a full relapse)</span>. <b>Example:</b> “One slip doesn't erase your progress.”</p></div>
+  <div class="tech"><h4>Supporting self-efficacy <span class="tag">F10</span></h4><p><b>What/How:</b> recall past successes, affirm small wins, break goals down. <b>Example:</b> “You've done hard things before.”</p></div>
+  <div class="tech"><h4>Social-support &amp; family involvement <span class="tag">F11</span></h4><p><b>What/How:</b> recruit helpful (non-policing) support with the patient's consent.</p></div>
+  <div class="tech"><h4>Pharmacotherapy coordination <span class="tag">F12</span></h4><p><b>What/How:</b> link MET with MOUD / NRT / naltrexone via the treating doctor; MET complements medication.</p></div>
+  <div class="tech"><h4>Booster sessions <span class="tag">F13</span></h4><p><b>What/How:</b> brief repeat MET cycles at 1/3/6/12 months — review, re-rate rulers, re-plan.</p></div>
+
+  <h3>Group G · Adolescent-specific adaptations <span class="pill ad">ADOLESCENT</span></h3>
+  <ul>
+    <li><b>Autonomy first &amp; loudest</b> — teens are developmentally primed to resist authority; avoid the parent/expert stance.</li>
+    <li><b>Present-focused evoking</b> — use money, freedom, image, sport, school rather than distant health risks.</li>
+    <li><b>Longer engagement, shorter sessions</b>, the young person's own language, comfort with silence.</li>
+    <li><b>Confidentiality balanced with safeguarding</b> and age-appropriate family involvement.</li>
+  </ul>
+  <p class="src" style="font-size:9pt;color:var(--muted)">Techniques drawn from Miller &amp; Rollnick (MI 3e), the Project MATCH MET Manual, Naar-King &amp; Suarez, and relapse-prevention literature (Marlatt &amp; Gordon).</p>
+  <div class="footer-note">Dango_Psych — Tejas Dangodra · MET Book One: Theory &amp; Techniques</div>
+</div>
+
+<!-- ========== 10 DARN-CAT ========== -->
+<div class="page">
+  <h2 class="sec">10 · Change Talk in Depth — DARN-CAT</h2>
+  <p class="lead">Change talk comes in two layers. <b>Preparatory</b> change talk (DARN) signals the person is <i>considering</i> change; <b>mobilising</b> change talk (CAT) signals they are <i>moving</i>. Mobilising talk best predicts action.</p>
+  <table>
+    <tr><th>Code</th><th>Layer</th><th>Meaning</th><th>Substance-use example</th></tr>
+    <tr><td class="ct">D — Desire</td><td>Preparatory</td><td>want, wish, would like</td><td>“I <b>want</b> to be clean for my kids.”</td></tr>
+    <tr><td class="ct">A — Ability</td><td>Preparatory</td><td>can, could, able to</td><td>“I <b>could</b> probably cut the evening dose.”</td></tr>
+    <tr><td class="ct">R — Reasons</td><td>Preparatory</td><td>specific if/then arguments</td><td>“If I stop smoking, my chest will clear up.”</td></tr>
+    <tr><td class="ct">N — Need</td><td>Preparatory</td><td>must, have to, need to</td><td>“I <b>have to</b> do something — the debt is out of hand.”</td></tr>
+    <tr><td class="ct">C — Commitment</td><td>Mobilising</td><td>will, going to, promise, intend</td><td>“I'<b>m going to</b> see the doctor on Monday.”</td></tr>
+    <tr><td class="ct">A — Activation</td><td>Mobilising</td><td>ready, willing, prepared</td><td>“I'<b>m ready</b> to give it a real try.”</td></tr>
+    <tr><td class="ct">T — Taking steps</td><td>Mobilising</td><td>already acting</td><td>“I <b>threw out</b> my stash yesterday.”</td></tr>
+  </table>
+
+  <h3>Recognising &amp; responding to sustain talk — without confrontation</h3>
+  <div class="scriptcard"><span class="p">P:</span> <span class="st">“Smoking is the only thing that calms my nerves.”</span><br>
+  <span class="t">T (reflect, don't challenge):</span> “Right now it's your main way to cope with stress.” → <span class="p">P:</span> “Yeah.” → <span class="t">T (evoke):</span> “If you ever did decide to change, what else has helped you relax, even a little?” <span class="ct">→ patient supplies alternatives (change talk).</span></div>
+  <div class="callout key"><b>Core move for sustain talk:</b> <b>reflect → emphasise autonomy → ask an evocative question.</b> Never “but you should…”.</div>
+
+  <h3>Rewriting unhelpful statements into MET-consistent ones</h3>
+  <table class="avoid-use">
+    <tr><th>Unhelpful (confrontational / righting reflex)</th><th>MET-consistent rewrite</th></tr>
+    <tr><td>“You're in denial about being an addict.”</td><td>“You see this differently from others. Tell me how <i>you</i> see it.”</td></tr>
+    <tr><td>“You have to quit, period.”</td><td>“What you do is your call. What are you thinking might work for you?”</td></tr>
+    <tr><td>“Keep this up and you'll end up dead.”</td><td>“Can I share one health finding? … What do you make of it?”</td></tr>
+    <tr><td>“Why do you keep making excuses?”</td><td>“There are real reasons it's hard to stop. What are the biggest ones?”</td></tr>
+    <tr><td>“That's just the addiction talking.”</td><td>“Part of you wants to keep using and part doesn't — that's the tug-of-war.”</td></tr>
+    <tr><td>“You failed last time because you weren't serious.”</td><td>“Last time you managed three weeks. What worked, even briefly?”</td></tr>
+    <tr><td>“You need rehab now.”</td><td>“There are a few options — shall we walk through them together?”</td></tr>
+    <tr><td>“Stop lying about how much you use.”</td><td>“Exact amounts are hard to pin down. Roughly, on a heavy day?”</td></tr>
+  </table>
+  <div class="footer-note">Dango_Psych — Tejas Dangodra · MET Book One: Theory &amp; Techniques</div>
+</div>
+
+<!-- ========== 11 EVIDENCE ========== -->
+<div class="page">
+  <h2 class="sec">11 · Evidence, Limitations &amp; Ethics</h2>
+  <h3>Evidence (summary)</h3>
+  <p>MET and MI have a substantial evidence base in substance-use treatment. In <b>Project MATCH</b>, 4-session MET produced drinking outcomes broadly comparable to longer CBT and Twelve-Step Facilitation — notable given fewer sessions. Reviews and the <b>Cochrane</b> literature on MI/MET report benefits for engagement, treatment retention <span class="defn">(staying in treatment)</span> and reduced use, though effect sizes vary by substance, population, setting and comparison condition, and some effects are modest or short-lived without follow-up. Prioritise the original Project MATCH reports, Miller &amp; Rollnick, Naar-King &amp; Suarez, and Cochrane reviews as verifiable sources; figures here are summarised, not exact statistics.</p>
+  <div class="callout tip"><b>MET can:</b> improve engagement/retention, strengthen motivation and commitment, reduce use for many, and act as a low-intensity entry point. <b>MET cannot:</b> replace detox, pharmacotherapy or management of severe dependence; guarantee abstinence; or “cure” addiction through motivation alone.</div>
+  <h3>Limitations</h3>
+  <ul>
+    <li>Outcomes vary across substances (stronger engagement evidence for alcohol/cannabis than for some stimulant outcomes) and populations.</li>
+    <li>Effects depend heavily on treatment context and <b>continuing care/follow-up</b>.</li>
+    <li>Motivation is necessary but not sufficient — pair with medical treatment and skills where indicated.</li>
+  </ul>
+  <h3>Ethical practice</h3>
+  <ul>
+    <li><b>Informed consent &amp; confidentiality</b> — explain purpose, voluntariness and limits (risk to self/others, legal mandates; for minors, clarify with the young person and caregivers).</li>
+    <li><b>Respect for autonomy</b> — the patient chooses goals; avoid coercion and confrontation.</li>
+    <li><b>Non-stigmatising language</b> — “a person who uses heroin”, not “addict/junkie”; describe behaviour, not identity.</li>
+    <li><b>Cultural sensitivity</b> — adapt to family structure, religion, gender and local norms.</li>
+    <li><b>Appropriate referral &amp; multidisciplinary care</b> — coordinate with physicians, psychiatry, social work and community resources.</li>
+    <li>Do <b>not overstate efficacy</b> or claim motivation alone resolves dependence.</li>
+  </ul>
+  <div class="footer-note">Dango_Psych — Tejas Dangodra · MET Book One: Theory &amp; Techniques</div>
+</div>
+
+<!-- ========== 12 GLOSSARY ========== -->
+<div class="page">
+  <h2 class="sec">12 · Glossary of Difficult Terms</h2>
+  <div class="grid2">
+    <div class="box"><ul>
+      <li><b>Abstinence</b> — stopping use completely.</li>
+      <li><b>Abstinence-violation effect</b> — all-or-nothing reaction turning one slip into a full relapse.</li>
+      <li><b>Adherence</b> — sticking to agreed treatment.</li>
+      <li><b>Ambivalence</b> — mixed feelings; wanting and not wanting change at once.</li>
+      <li><b>Autonomy</b> — a person's right to make their own choices.</li>
+      <li><b>Cognitive dissonance</b> — discomfort of holding two conflicting ideas.</li>
+      <li><b>Cue reactivity</b> — how strongly reminders trigger urges.</li>
+      <li><b>Decisional balance</b> — weighing pros &amp; cons of using vs changing.</li>
+      <li><b>Delirium tremens (DTs)</b> — severe, dangerous alcohol-withdrawal state.</li>
+      <li><b>Detoxification (detox)</b> — medically-supervised withdrawal.</li>
+      <li><b>Discord</b> — tension/strain in the therapeutic relationship.</li>
+      <li><b>Discrepancy</b> — gap between current behaviour and goals/values.</li>
+      <li><b>Empathy</b> — understanding and reflecting another's feelings.</li>
+      <li><b>Evocation</b> — drawing motivation out of the patient.</li>
+    </ul></div>
+    <div class="box"><ul>
+      <li><b>Extrinsic / Intrinsic motivation</b> — from outside pressure / from within.</li>
+      <li><b>Euphoria</b> — intense pleasure or “high”.</li>
+      <li><b>MOUD</b> — medications for opioid use disorder (e.g., buprenorphine, methadone).</li>
+      <li><b>Naloxone</b> — antidote that reverses opioid overdose.</li>
+      <li><b>NRT</b> — nicotine replacement therapy (patch, gum, etc.).</li>
+      <li><b>OCR</b> — optical character recognition (scanned images → text).</li>
+      <li><b>Overdose</b> — a dangerous excess dose.</li>
+      <li><b>Pharmacotherapy</b> — treatment with medicines.</li>
+      <li><b>Psychological reactance</b> — pushing back when freedom feels threatened.</li>
+      <li><b>Relapse / lapse</b> — fuller return to use / a single slip.</li>
+      <li><b>Retention</b> — staying in treatment.</li>
+      <li><b>Righting reflex</b> — the helper's urge to fix/correct the person.</li>
+      <li><b>Self-efficacy</b> — belief in one's own ability to succeed.</li>
+      <li><b>Sustain talk</b> — the patient's words defending the status quo.</li>
+      <li><b>Tolerance</b> — body needing more drug for the same effect.</li>
+      <li><b>Urge-surfing</b> — riding out a craving until it passes.</li>
+    </ul></div>
+  </div>
+  <div style="text-align:center; margin-top:40px;">
+    <div style="display:inline-block; padding:14px 34px; background:linear-gradient(135deg,var(--lavender),var(--mint)); border:2px solid var(--accent); border-radius:40px;">
+      <div style="font-size:14pt; font-weight:800; color:var(--accent-d); letter-spacing:1px;">Dango_Psych — Tejas Dangodra</div>
+      <div style="font-size:10pt; color:var(--muted);">M.Phil. Clinical Psychology · MET Book One: Theory &amp; Techniques</div>
+    </div>
+    <p style="font-size:9pt; color:var(--muted); margin-top:14px;">Continue to <b>Book Two — Session-by-Session Guide &amp; Worksheet Pack</b> for applying these techniques session by session.</p>
+  </div>
+</div>
+</body>
+</html>
