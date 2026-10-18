@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Psychotherapy — Unit I: Introduction to Psychotherapy</title>
+<style>
+:root {
+  --ink: #1b2330;
+  --muted: #4a5568;
+  --accent: #2b4c7e;
+  --accent-soft: #e8eef7;
+  --line: #b9c4d4;
+  --flow-bg: #eef3fb;
+  --flow-border: #2b4c7e;
+  --mnem-bg: #fff6e6;
+  --mnem-border: #c98a1b;
+  --note-bg: #fdecef;
+  --note-border: #b23a48;
+}
+* { box-sizing: border-box; }
+html, body {
+  margin: 0; padding: 0;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 10.5pt; line-height: 1.42;
+}
+.page {
+  width: 210mm; min-height: 297mm;
+  margin: 0 auto; padding: 18mm 16mm 20mm 16mm;
+  background: #fff;
+}
+.sheet { background: #d7dce3; padding: 8mm 0; }
+h1, h2, h3 { font-family: "Segoe UI", Arial, Helvetica, sans-serif; color: var(--accent); }
+h2.section-title {
+  font-size: 15pt; margin: 18pt 0 6pt; padding-bottom: 3pt;
+  border-bottom: 2px solid var(--accent);
+}
+.section-num { color: var(--muted); }
+h3.subhead {
+  font-size: 11.5pt; margin: 11pt 0 3pt; color: var(--ink);
+  border-left: 4px solid var(--accent); padding-left: 7px;
+}
+p { margin: 4pt 0; }
+ul { margin: 3pt 0 6pt 0; padding-left: 20px; }
+ul ul { margin: 2pt 0 2pt 0; }
+li { margin: 2pt 0; }
+
+/* Cover */
+.cover { text-align: center; display: flex; flex-direction: column;
+  justify-content: center; min-height: 261mm; }
+.cover .eyebrow { letter-spacing: 3px; text-transform: uppercase;
+  color: var(--muted); font-family: "Segoe UI", Arial, sans-serif; font-size: 11pt; }
+.cover h1 { font-size: 27pt; line-height: 1.25; margin: 14pt 24pt; color: var(--accent); }
+.cover .subtitle { font-size: 15pt; color: var(--ink); margin-top: 4pt; }
+.cover .rule { width: 60mm; height: 3px; background: var(--accent); margin: 20pt auto; }
+.cover .credit { font-family: "Segoe UI", Arial, sans-serif; font-size: 12.5pt;
+  margin-top: 8pt; color: var(--ink); font-weight: bold; }
+.cover .scope { margin: 18pt auto 0; max-width: 150mm; color: var(--muted);
+  font-size: 10pt; text-align: left; }
+
+/* Footer credit (repeats via running element in print; shown on every page div for screen) */
+.page-footer { margin-top: 10mm; padding-top: 4pt; border-top: 1px solid var(--line);
+  font-family: "Segoe UI", Arial, sans-serif; font-size: 8.5pt; color: var(--muted);
+  display: flex; justify-content: space-between; }
+
+/* Note / source box */
+.note { background: var(--note-bg); border: 1px solid var(--note-border);
+  border-left: 5px solid var(--note-border); border-radius: 4px;
+  padding: 6pt 10pt; margin: 8pt 0; }
+.note-title { font-family: "Segoe UI", Arial, sans-serif; font-weight: bold;
+  color: var(--note-border); margin-bottom: 2pt; }
+
+/* Flow chart */
+.flow { background: var(--flow-bg); border: 1px solid var(--line);
+  border-radius: 5px; padding: 8pt 10pt 10pt; margin: 10pt 0;
+  text-align: center; }
+.flow-title { font-family: "Segoe UI", Arial, sans-serif; font-weight: bold;
+  color: var(--accent); margin-bottom: 6pt; font-size: 10.5pt; }
+.flow-node { display: inline-block; background: #fff; border: 1.5px solid var(--flow-border);
+  border-radius: 5px; padding: 5pt 10pt; margin: 0 auto; max-width: 150mm;
+  font-family: "Segoe UI", Arial, sans-serif; font-size: 9.5pt; }
+.branch-node { background: var(--accent-soft); }
+.flow-arrow { color: var(--flow-border); font-size: 14pt; line-height: 1; margin: 2pt 0; }
+.flow-arrow.small { font-size: 11pt; }
+.flow-branches { display: flex; flex-wrap: wrap; justify-content: center; gap: 6pt; }
+.flow-branch { border: 1px dashed var(--line); border-radius: 5px; padding: 5pt;
+  flex: 1 1 44%; min-width: 60mm; background: rgba(255,255,255,0.5); }
+.flow-branch-label { font-family: "Segoe UI", Arial, sans-serif; font-size: 8.5pt;
+  color: var(--muted); font-style: italic; }
+
+/* Mnemonic */
+.mnemonic { background: var(--mnem-bg); border: 1px solid var(--mnem-border);
+  border-left: 5px solid var(--mnem-border); border-radius: 4px;
+  padding: 6pt 10pt; margin: 10pt 0; }
+.mnemonic-head { font-family: "Segoe UI", Arial, sans-serif; font-weight: bold;
+  color: #8a5a00; margin-bottom: 4pt; }
+.mnemonic-head .acronym { font-size: 13pt; letter-spacing: 1px; color: var(--mnem-border); }
+.mnemonic-table { border-collapse: collapse; width: 100%; }
+.mnemonic-table td { padding: 2pt 6pt; vertical-align: top;
+  font-family: "Segoe UI", Arial, sans-serif; font-size: 9.5pt; }
+.m-letter { font-weight: bold; color: var(--mnem-border); width: 28pt;
+  font-size: 12pt; text-align: center; }
+.m-word { font-weight: bold; width: 32%; }
+.m-meaning { color: var(--muted); }
+
+.toc { font-family: "Segoe UI", Arial, sans-serif; }
+.toc h2 { border: none; }
+.toc ol { font-size: 11pt; line-height: 1.8; }
+
+.avoid-break { page-break-inside: avoid; break-inside: avoid; }
+.topic { page-break-inside: auto; }
+section.topic { margin-bottom: 4pt; }
+
+@page {
+  size: A4;
+  margin: 16mm 14mm 16mm 14mm;
+  @bottom-center {
+    content: "Made by Tejas Dangodra | M.Phil. Clinical Psychology";
+    font-family: Arial, sans-serif; font-size: 8pt; color: #4a5568;
+  }
+}
+@media print {
+  .sheet { background: #fff; padding: 0; }
+  .page { width: auto; min-height: auto; margin: 0; padding: 0; box-shadow: none; }
+  .page-break { page-break-before: always; }
+  .cover { min-height: 250mm; }
+  h2.section-title { page-break-after: avoid; }
+  h3.subhead { page-break-after: avoid; }
+}
+@media screen {
+  .page { box-shadow: 0 1px 6px rgba(0,0,0,0.25); margin-bottom: 8mm; }
+}
+</style>
+</head>
+<body>
+<div class="sheet">
+<div class="page cover-page">
+<div class="cover">
+<div class="eyebrow">M.Phil. Clinical Psychology &bull; Study Notes</div>
+<h1>Psychotherapy — Unit I: Introduction to Psychotherapy</h1>
+<div class="subtitle">M.Phil. Clinical Psychology</div>
+<div class="rule"></div>
+<div class="credit">Made by Tejas Dangodra | M.Phil. Clinical Psychology</div>
+<div class="scope">
+<strong>Scope &mdash; Unit I: Introduction to Psychotherapy.</strong> Definitions; objectives; training of professional therapists; ethical and legal issues; rights and responsibilities; consent and assent (minors); planning and recording of sessions; structuring and goal setting; pre- and post-assessment; and the practice of evidence-based therapies. Bullet-point study format, with a flow chart and a mnemonic for each of the ten topics.
+</div>
+</div>
+<div class="page-footer"><span>Made by Tejas Dangodra | M.Phil. Clinical Psychology</span><span>Unit I &bull; Cover</span></div>
+</div>
+<div class="page page-break toc">
+<h2>Contents</h2>
+<ol>
+<li>Definitions of Psychotherapy</li>
+<li>Objectives (Goals) of Psychotherapy</li>
+<li>Issues in Training Professional Therapists</li>
+<li>Ethical and Legal Issues in Therapy Work</li>
+<li>Rights and Responsibilities in Psychotherapy</li>
+<li>Consent and Assent (Including Minors)</li>
+<li>Planning and Recording of Therapy Sessions</li>
+<li>Structuring Therapy and Setting Goals</li>
+<li>Pre- and Post-Assessment</li>
+<li>Practice of Evidence-Based Therapies (EBP)</li>
+</ol>
+<div class="note avoid-break">
+<div class="note-title">A note on sources (read first)</div>
+<ul>
+<li>PRIMARY (used directly): the course backbone &quot;Psychotherapy Exam Notes&quot; (Unit I), which is the organised spine of these notes, plus a secondary set of typed psychotherapy notes used for supporting definitions.</li>
+<li>SUPPORTED and stated as such: RCI (Rehabilitation Council of India Act, 1992), the APA Ethical Principles and the APA (2006) definition of evidence-based practice, and WHO mhGAP / task-shifting. These appear in the backbone and are presented directly.</li>
+<li>SECONDARY / paraphrased: IACP (Indian Association of Clinical Psychologists) code of ethics was NOT accessible and is absent from the extracted sources. Every IACP mention below is flagged SECONDARY and paraphrased from general knowledge only — no clause numbers, no quoted text, no dates are asserted for it.</li>
+<li>Integrity: no laws, citations, clause numbers, page numbers or statistics have been invented. Where the backbone gives figures (Lambert&#x27;s percentages; Eysenck 1952; Smith &amp; Glass 1977) they are reproduced and flagged as approximate / debated, exactly as the backbone frames them.</li>
+</ul>
+</div>
+<div class="page-footer"><span>Made by Tejas Dangodra | M.Phil. Clinical Psychology</span><span>Unit I &bull; Contents</span></div>
+</div>
+<div class="page page-break">
+<section class="topic">
+<h2 class="section-title"><span class="section-num">1.</span> Definitions of Psychotherapy</h2>
+<h3 class="subhead">Classic definitions</h3>
+<ul>
+<li>Wolberg (1954): a form of treatment for problems of an emotional nature, in which a trained person deliberately establishes a professional relationship with the patient in order to:
+<ul>
+<li>remove, modify or retard existing symptoms;</li>
+<li>mediate (change) disturbed patterns of behaviour;</li>
+<li>promote positive personality growth and development.</li>
+</ul>
+</li>
+<li>Jerome Frank (1961, Persuasion and Healing): a planned, emotionally charged, confiding interaction between a trained, socially sanctioned healer and a sufferer; aims to change the sufferer&#x27;s feelings, attitudes and behaviour.
+</li>
+<li>Norcross (1990): the informed and intentional application of clinical methods and interpersonal stances derived from established psychological principles, to help people modify behaviours, cognitions, emotions and other characteristics in directions the participants deem desirable.
+</li>
+<li>Strupp: a learning process in which a trained person uses the relationship to help the patient overcome distress and develop more adaptive functioning.
+</li>
+</ul>
+<h3 class="subhead">Key elements common to all definitions</h3>
+<ul>
+<li>A trained, professional therapist.</li>
+<li>A help-seeking client.</li>
+<li>A psychological (non-medical) method.</li>
+<li>A planned, systematic, theory-based process.</li>
+<li>A confiding, therapeutic relationship.</li>
+<li>The aim of change (symptom relief, behaviour change, growth).</li>
+</ul>
+<h3 class="subhead">Psychotherapy vs counselling vs medical treatment</h3>
+<ul>
+<li>Psychotherapy vs counselling:
+<ul>
+<li>Counselling: usually normal developmental, situational and adjustment problems; more present- and problem-focused; shorter.</li>
+<li>Psychotherapy: deeper, more enduring or pathological problems and personality reconstruction; usually longer.</li>
+<li>The overlap is large; the distinction is mostly one of degree.</li>
+</ul>
+</li>
+<li>Psychotherapy vs medical treatment:
+<ul>
+<li>Psychotherapy works through communication, relationship and learning rather than drugs.</li>
+<li>Both are often combined (e.g. for depression or psychosis).</li>
+</ul>
+</li>
+</ul>
+<div class="flow avoid-break">
+<div class="flow-title">Flow chart: Flow: from help-seeking to change</div>
+<div class="flow-node">Help-seeking client in distress</div>
+<div class="flow-arrow">&#8595;</div>
+<div class="flow-node">Trained, socially sanctioned therapist</div>
+<div class="flow-arrow">&#8595;</div>
+<div class="flow-node">Professional relationship established (confiding, planned)</div>
+<div class="flow-arrow">&#8595;</div>
+<div class="flow-node">Psychological, theory-based method applied</div>
+<div class="flow-arrow">&#8595;</div>
+<div class="flow-node">Symptom relief • behaviour change • growth</div>
+</div>
+<div class="mnemonic avoid-break">
+<div class="mnemonic-head">Mnemonic: <span class="acronym">PROMPT</span> &mdash; the six common elements of every definition</div>
+<table class="mnemonic-table">
+<tr><td class="m-letter">P</td><td class="m-word">Professional</td><td class="m-meaning">a trained professional therapist</td></tr>
+<tr><td class="m-letter">R</td><td class="m-word">Relationship</td><td class="m-meaning">a confiding therapeutic relationship</td></tr>
+<tr><td class="m-letter">O</td><td class="m-word">One seeking help</td><td class="m-meaning">a help-seeking client</td></tr>
+<tr><td class="m-letter">M</td><td class="m-word">Method (psychological)</td><td class="m-meaning">a non-medical, psychological method</td></tr>
+<tr><td class="m-letter">P</td><td class="m-word">Planned</td><td class="m-meaning">a planned, systematic, theory-based process</td></tr>
+<tr><td class="m-letter">T</td><td class="m-word">Transformation</td><td class="m-meaning">the aim of change / growth</td></tr>
+</table>
+</div>
+</section>
+<div class="page-footer"><span>Made by Tejas Dangodra | M.Phil. Clinical Psychology</span><span>Unit I &bull; Topic 1</span></div>
+</div>
+<div class="page page-break">
+<section class="topic">
+<h2 class="section-title"><span class="section-num">2.</span> Objectives (Goals) of Psychotherapy</h2>
+<ul>
+<li>Relieve symptoms and distress (anxiety, depression, obsessions, etc.).</li>
+<li>Modify maladaptive behaviour, thoughts and emotions (change).</li>
+<li>Gain insight into the origin and meaning of problems (esp. psychodynamic work).</li>
+<li>Improve interpersonal relationships and social functioning.</li>
+<li>Strengthen coping, problem solving and adaptive defences; improve self-esteem and self-efficacy.</li>
+<li>Resolve inner conflicts and past trauma; foster emotional expression and regulation.</li>
+<li>Promote personal growth, self-actualisation and a sense of meaning.</li>
+<li>Prevent relapse and improve quality of life; in severe illness, maintain functioning and prevent hospitalisation.</li>
+</ul>
+<div class="note avoid-break">
+<div class="note-title">Where WHO fits (supported)</div>
+<ul>
+<li>WHO&#x27;s rights-based, recovery-oriented view frames broader objectives: restoring functioning, participation and quality of life, not only symptom removal (consistent with mhGAP and task-shifting goals discussed under evidence-based practice).</li>
+</ul>
+</div>
+<div class="flow avoid-break">
+<div class="flow-title">Flow chart: Flow: goals cascade</div>
+<div class="flow-node">Presenting distress / impairment</div>
+<div class="flow-arrow">&#8595;</div>
+<div class="flow-node">Immediate: safety, symptom relief, engagement</div>
+<div class="flow-arrow">&#8595;</div>
+<div class="flow-node">Intermediate: change in behaviour, cognition, emotion; insight</div>
+<div class="flow-arrow">&#8595;</div>
+<div class="flow-node">Ultimate: growth, functioning, quality of life</div>
+<div class="flow-arrow">&#8595;</div>
+<div class="flow-node">Maintenance: relapse prevention, follow-up</div>
+</div>
+<div class="mnemonic avoid-break">
+<div class="mnemonic-head">Mnemonic: <span class="acronym">RICHER</span> &mdash; the aims of therapy</div>
+<table class="mnemonic-table">
+<tr><td class="m-letter">R</td><td class="m-word">Relieve</td><td class="m-meaning">relieve symptoms and distress</td></tr>
+<tr><td class="m-letter">I</td><td class="m-word">Insight</td><td class="m-meaning">insight into origin and meaning of problems</td></tr>
+<tr><td class="m-letter">C</td><td class="m-word">Change</td><td class="m-meaning">change maladaptive behaviour, thoughts, emotions</td></tr>
+<tr><td class="m-letter">H</td><td class="m-word">Harmony</td><td class="m-meaning">improve relationships and social functioning</td></tr>
+<tr><td class="m-letter">E</td><td class="m-word">Empower</td><td class="m-meaning">strengthen coping, self-esteem, self-efficacy</td></tr>
+<tr><td class="m-letter">R</td><td class="m-word">Relapse prevention</td><td class="m-meaning">prevent relapse; protect quality of life</td></tr>
+</table>
+</div>
+</section>
+<div class="page-footer"><span>Made by Tejas Dangodra | M.Phil. Clinical Psychology</span><span>Unit I &bull; Topic 2</span></div>
+</div>
+<div class="page page-break">
+<section class="topic">
+<h2 class="section-title"><span class="section-num">3.</span> Issues in Training Professional Therapists</h2>
+<h3 class="subhead">Who may practise (India)</h3>
+<ul>
+<li>Rehabilitation Council of India (RCI) Act, 1992 (amended 2000) regulates training and registration of clinical psychologists (supported).
+<ul>
+<li>The RCI-recognised M.Phil in Clinical Psychology (two years, with supervised clinical practice) is the entry qualification.</li>
+<li>Practitioners must hold a Central Rehabilitation Register (CRR) number.</li>
+</ul>
+</li>
+<li>Mental Healthcare Act (MHCA), 2017 recognises the clinical psychologist as a mental health professional.</li>
+</ul>
+<h3 class="subhead">Components of training</h3>
+<ul>
+<li>Theoretical knowledge (psychopathology, theories of therapy, assessment).</li>
+<li>Supervised clinical practice (direct observation, audio/video review, case conferences).</li>
+<li>Personal therapy / self-awareness work (manage countertransference and blind spots).</li>
+<li>Learning ethics and law.</li>
+<li>Research literacy and evidence-based practice.</li>
+<li>Cultural competence.</li>
+<li>Lifelong learning and continuing education.</li>
+</ul>
+<h3 class="subhead">Competencies expected</h3>
+<ul>
+<li>Relationship (alliance) skills; assessment and case formulation.</li>
+<li>Intervention skills in at least one major model.</li>
+<li>Ethical decision making; record keeping.</li>
+<li>Working with diversity; use of supervision; reflective practice.</li>
+</ul>
+<h3 class="subhead">Issues and challenges</h3>
+<ul>
+<li>Wide variation in quality, duration and supervision of training; shortage of trained supervisors.</li>
+<li>Over-reliance on Western models with limited cultural adaptation.</li>
+<li>Whether personal therapy for trainees should be mandatory.</li>
+<li>Gate-keeping: judging suitability (empathy, maturity, integrity) and remediating or dismissing unfit trainees.</li>
+<li>Training vs licensing gap: unregulated practice by untrained persons; need to protect the public.</li>
+<li>Therapist stress, burnout, vicarious traumatisation, compassion fatigue; self-care and peer support.</li>
+<li>Boundaries and dual relationships in trainee-supervisor and small-community settings.</li>
+<li>Training in tele-therapy and its ethics.</li>
+<li>Practising within the limits of one&#x27;s competence; knowing when to refer.</li>
+</ul>
+<div class="flow avoid-break">
+<div class="flow-title">Flow chart: Flow: the training pipeline</div>
+<div class="flow-node">Selection / gate-keeping (suitability, personal qualities)</div>
+<div class="flow-arrow">&#8595;</div>
+<div class="flow-node">Theory + ethics + research literacy</div>
+<div class="flow-arrow">&#8595;</div>
+<div class="flow-node">Supervised practice (observation, audio/video, case conferences)</div>
+<div class="flow-arrow">&#8595;</div>
+<div class="flow-node">Personal therapy / self-awareness; cultural competence</div>
+<div class="flow-arrow">&#8595;</div>
+<div class="flow-node">RCI registration (CRR number) → competent practice</div>
+<div class="flow-arrow">&#8595;</div>
+<div class="flow-node">Continuing education, supervision, self-care</div>
+</div>
+<div class="mnemonic avoid-break">
+<div class="mnemonic-head">Mnemonic: <span class="acronym">SCRIPT</span> &mdash; the pillars of therapist training</div>
+<table class="mnemonic-table">
+<tr><td class="m-letter">S</td><td class="m-word">Supervision</td><td class="m-meaning">supervised clinical practice</td></tr>
+<tr><td class="m-letter">C</td><td class="m-word">Competence &amp; culture</td><td class="m-meaning">competencies and cultural competence</td></tr>
+<tr><td class="m-letter">R</td><td class="m-word">Research &amp; RCI</td><td class="m-meaning">research literacy; RCI registration</td></tr>
+<tr><td class="m-letter">I</td><td class="m-word">Insight</td><td class="m-meaning">personal therapy / self-awareness</td></tr>
+<tr><td class="m-letter">P</td><td class="m-word">Principles</td><td class="m-meaning">ethics and law</td></tr>
+<tr><td class="m-letter">T</td><td class="m-word">Theory</td><td class="m-meaning">theoretical knowledge base</td></tr>
+</table>
+</div>
+</section>
+<div class="page-footer"><span>Made by Tejas Dangodra | M.Phil. Clinical Psychology</span><span>Unit I &bull; Topic 3</span></div>
+</div>
+<div class="page page-break">
+<section class="topic">
+<h2 class="section-title"><span class="section-num">4.</span> Ethical and Legal Issues in Therapy Work</h2>
+<h3 class="subhead">Core ethical principles (APA Ethical Principles)</h3>
+<ul>
+<li>Beneficence and non-maleficence: do good; avoid harm.</li>
+<li>Fidelity and responsibility: trust, professional and scientific responsibility, accountability.</li>
+<li>Integrity: honesty, accuracy, truthfulness; no deception or exaggerated claims.</li>
+<li>Justice: fairness, equal access to quality services; no discrimination.</li>
+<li>Respect for people&#x27;s rights and dignity: privacy, confidentiality, autonomy, self-determination.</li>
+</ul>
+<div class="note avoid-break">
+<div class="note-title">IACP — SECONDARY / paraphrased</div>
+<ul>
+<li>The IACP (Indian Association of Clinical Psychologists) is the national professional body of clinical psychologists in India and is generally understood to publish a code of ethics for its members.</li>
+<li>Its code of ethics was NOT accessible and is absent from the extracted sources, so it is cited here only as SECONDARY / paraphrased general knowledge. No clause numbers, quotations or dates are asserted. Its broad themes (competence, confidentiality, consent, avoiding exploitation, professional conduct) overlap with the APA principles and the RCI code of conduct and should be read as such.</li>
+</ul>
+</div>
+<h3 class="subhead">Major ethical issues</h3>
+<ul>
+<li>Competence: practise only within the limits of training; refer when needed; keep updated.</li>
+<li>Informed consent: obtained before assessment and treatment (see Section 6).</li>
+<li>Confidentiality and its limits: private information shared only with consent; exceptions below.</li>
+<li>Dual (multiple) relationships and boundaries:
+<ul>
+<li>Avoid social, business, financial or sexual relationships with clients.</li>
+<li>Sexual intimacy with a client (or former client, at least for a specified period) is unethical and prohibited.</li>
+<li>Avoid exploitation and misuse of power; manage gifts, self-disclosure, touch and social media contact carefully.</li>
+</ul>
+</li>
+<li>Fees and contracts: clear and honest about fees, missed sessions and payment; do not exploit.</li>
+<li>Record keeping and data security.</li>
+<li>Termination and referral: do not abandon clients; terminate when the client no longer needs or benefits; provide referrals and handover.</li>
+<li>Cultural sensitivity and respect for diversity (gender, caste, religion, sexuality, disability, socio-economic status).</li>
+<li>Supervision and consultation: use regularly; seek help in ethical dilemmas.</li>
+<li>Advertising and claims: avoid false or unsubstantiated claims about outcomes.</li>
+<li>Research ethics: consent, no harm, confidentiality, ethics committee approval.</li>
+</ul>
+<h3 class="subhead">Ethical decision-making steps</h3>
+<ul>
+<li>Identify the problem and the people affected.</li>
+<li>Consult codes and law; consult supervisor / colleagues.</li>
+<li>Consider options and consequences.</li>
+<li>Decide and act; document; evaluate.</li>
+</ul>
+<h3 class="subhead">Limits of confidentiality</h3>
+<ul>
+<li>Tarasoff v. Regents of the University of California (1976) established a duty to warn and protect identifiable third parties from serious threats of violence by a client.</li>
+<li>In India:
+<ul>
+<li>MHCA 2017 protects confidentiality of information about mental illness and treatment (disclosure allowed with consent, for the treatment, for safety, or by court order).</li>
+<li>POCSO Act, 2012 makes reporting of known or suspected child sexual abuse mandatory.</li>
+<li>Right to Privacy recognised as a fundamental right by the Supreme Court in Puttaswamy (2017).</li>
+</ul>
+</li>
+</ul>
+<h3 class="subhead">Legal issues in therapy work (India)</h3>
+<ul>
+<li>RCI Act, 1992: regulates training, registration and conduct; practising without registration is an offence.</li>
+<li>Mental Healthcare Act, 2017 (rights-based law):
+<ul>
+<li>Rights of persons with mental illness: access to mental healthcare; community living; protection from cruel, inhuman or degrading treatment; equality and non-discrimination; information; confidentiality; access to medical records; personal contacts and communication; legal aid; and complaints about services.</li>
+<li>Advance directive and nominated representative.</li>
+<li>Capacity to make treatment decisions is presumed unless shown otherwise.</li>
+<li>Suicide attempt presumed under severe stress and not punishable (Section 115); the government must provide care and rehabilitation.</li>
+<li>Restrictions on ECT (none without anaesthesia and muscle relaxant; not for minors); prohibition of sterilisation as treatment; limited use of restraints.</li>
+</ul>
+</li>
+<li>Rights of Persons with Disabilities Act, 2016 (includes mental illness and intellectual disability).</li>
+<li>POCSO Act, 2012 (mandatory reporting) and the Juvenile Justice Act (care of children).</li>
+<li>Consumer Protection Act and civil/criminal law on negligence (professional malpractice); courts may seek records or testimony.</li>
+<li>Tele-mental health: Telemedicine Practice Guidelines (2020) and tele-psychiatry guidance apply.</li>
+<li>Legal vs ethical: law sets the minimum enforceable standard; ethics sets the higher aspirational standard.</li>
+</ul>
+<div class="flow avoid-break">
+<div class="flow-title">Flow chart: Confidentiality decision flow</div>
+<div class="flow-node">Client discloses information</div>
+<div class="flow-arrow">&#8595;</div>
+<div class="flow-node">Default: keep confidential</div>
+<div class="flow-arrow">&#8595;</div>
+<div class="flow-branches">
+<div class="flow-branch">
+<div class="flow-branch-label">Client gives valid consent to share</div>
+<div class="flow-arrow small">&#8595;</div>
+<div class="flow-node branch-node">Disclose only what is agreed</div>
+</div>
+<div class="flow-branch">
+<div class="flow-branch-label">Serious, identifiable threat to a third party (Tarasoff)</div>
+<div class="flow-arrow small">&#8595;</div>
+<div class="flow-node branch-node">Duty to warn / protect</div>
+</div>
+<div class="flow-branch">
+<div class="flow-branch-label">Risk to self / safety</div>
+<div class="flow-arrow small">&#8595;</div>
+<div class="flow-node branch-node">Act to protect; least disclosure needed</div>
+</div>
+<div class="flow-branch">
+<div class="flow-branch-label">Child abuse known/suspected (POCSO)</div>
+<div class="flow-arrow small">&#8595;</div>
+<div class="flow-node branch-node">Mandatory report</div>
+</div>
+<div class="flow-branch">
+<div class="flow-branch-label">Court order</div>
+<div class="flow-arrow small">&#8595;</div>
+<div class="flow-node branch-node">Disclose as legally required</div>
+</div>
+</div>
+</div>
+<div class="mnemonic avoid-break">
+<div class="mnemonic-head">Mnemonic: <span class="acronym">FIRBJ</span> &mdash; the APA ethical principles</div>
+<table class="mnemonic-table">
+<tr><td class="m-letter">F</td><td class="m-word">Fidelity</td><td class="m-meaning">fidelity and responsibility</td></tr>
+<tr><td class="m-letter">I</td><td class="m-word">Integrity</td><td class="m-meaning">honesty, accuracy, no deception</td></tr>
+<tr><td class="m-letter">R</td><td class="m-word">Respect</td><td class="m-meaning">respect for rights and dignity</td></tr>
+<tr><td class="m-letter">B</td><td class="m-word">Beneficence</td><td class="m-meaning">beneficence and non-maleficence</td></tr>
+<tr><td class="m-letter">J</td><td class="m-word">Justice</td><td class="m-meaning">fairness and equal access</td></tr>
+</table>
+</div>
+<div class="mnemonic avoid-break">
+<div class="mnemonic-head">Mnemonic: <span class="acronym">CCS-PC</span> &mdash; when confidentiality may be breached</div>
+<table class="mnemonic-table">
+<tr><td class="m-letter">C</td><td class="m-word">Consent</td><td class="m-meaning">client gives valid consent</td></tr>
+<tr><td class="m-letter">C</td><td class="m-word">Child abuse</td><td class="m-meaning">mandatory reporting under POCSO</td></tr>
+<tr><td class="m-letter">S</td><td class="m-word">Safety / self-harm</td><td class="m-meaning">risk to self or others</td></tr>
+<tr><td class="m-letter">P</td><td class="m-word">Protect third party</td><td class="m-meaning">Tarasoff duty to warn / protect</td></tr>
+<tr><td class="m-letter">C</td><td class="m-word">Court order</td><td class="m-meaning">legally compelled disclosure</td></tr>
+</table>
+</div>
+</section>
+<div class="page-footer"><span>Made by Tejas Dangodra | M.Phil. Clinical Psychology</span><span>Unit I &bull; Topic 4</span></div>
+</div>
+<div class="page page-break">
+<section class="topic">
+<h2 class="section-title"><span class="section-num">5.</span> Rights and Responsibilities in Psychotherapy</h2>
+<h3 class="subhead">Client rights</h3>
+<ul>
+<li>Right to competent, respectful, non-discriminatory treatment.</li>
+<li>Right to informed consent and to adequate information about therapy.</li>
+<li>Right to confidentiality (within its legal limits).</li>
+<li>Right to autonomy and self-determination, including the right to withdraw or refuse treatment without penalty.</li>
+<li>Right to privacy and dignity; right to safety (no exploitation or harm).</li>
+<li>Right to access one&#x27;s records (consistent with MHCA 2017) and to make complaints about services.</li>
+<li>Right to a clear contract (fees, frequency, duration, cancellation).</li>
+</ul>
+<h3 class="subhead">Client responsibilities</h3>
+<ul>
+<li>Attend sessions, be punctual, give notice of cancellation.</li>
+<li>Participate actively and honestly; complete agreed homework / tasks.</li>
+<li>Pay agreed fees; respect the therapeutic frame and boundaries.</li>
+</ul>
+<h3 class="subhead">Therapist responsibilities</h3>
+<ul>
+<li>Practise competently and within the limits of training; refer when needed.</li>
+<li>Obtain valid informed consent; protect confidentiality and its limits.</li>
+<li>Maintain boundaries; avoid dual relationships and exploitation.</li>
+<li>Keep accurate, secure records; honour reporting obligations.</li>
+<li>Provide continuity of care; avoid abandonment; arrange referral and handover.</li>
+<li>Use supervision; engage in self-care; keep up to date (continuing education).</li>
+</ul>
+<div class="note avoid-break">
+<div class="note-title">Codes behind these rights/duties</div>
+<ul>
+<li>APA Ethical Principles and the RCI code of conduct underpin these rights and responsibilities (supported).</li>
+<li>IACP themes are broadly consistent (SECONDARY / paraphrased — no clause numbers asserted).</li>
+</ul>
+</div>
+<div class="flow avoid-break">
+<div class="flow-title">Flow chart: Flow: rights and duties in balance</div>
+<div class="flow-node">Contract sets the frame (fees, time, boundaries)</div>
+<div class="flow-arrow">&#8595;</div>
+<div class="flow-node">Client rights &lt;-&gt; Therapist duties (consent, confidentiality, competence)</div>
+<div class="flow-arrow">&#8595;</div>
+<div class="flow-node">Shared responsibilities (attendance, honesty, participation)</div>
+<div class="flow-arrow">&#8595;</div>
+<div class="flow-node">Breach? → repair, refer, or complaint / review mechanism</div>
+</div>
+<div class="mnemonic avoid-break">
+<div class="mnemonic-head">Mnemonic: <span class="acronym">CARED</span> &mdash; what the client is owed</div>
+<table class="mnemonic-table">
+<tr><td class="m-letter">C</td><td class="m-word">Consent &amp; confidentiality</td><td class="m-meaning">informed consent; confidentiality</td></tr>
+<tr><td class="m-letter">A</td><td class="m-word">Autonomy</td><td class="m-meaning">self-determination; right to withdraw</td></tr>
+<tr><td class="m-letter">R</td><td class="m-word">Respect &amp; records</td><td class="m-meaning">dignity; access to own records</td></tr>
+<tr><td class="m-letter">E</td><td class="m-word">Equality</td><td class="m-meaning">non-discriminatory, competent care</td></tr>
+<tr><td class="m-letter">D</td><td class="m-word">Dignity &amp; safety</td><td class="m-meaning">privacy; no exploitation or harm</td></tr>
+</table>
+</div>
+</section>
+<div class="page-footer"><span>Made by Tejas Dangodra | M.Phil. Clinical Psychology</span><span>Unit I &bull; Topic 5</span></div>
+</div>
+<div class="page page-break">
+<section class="topic">
+<h2 class="section-title"><span class="section-num">6.</span> Consent and Assent (Including Minors)</h2>
+<p>Informed consent is the client&#x27;s voluntary agreement to assessment or therapy after receiving and understanding adequate information. Consent is a process, not a one-time signature.</p>
+<h3 class="subhead">Elements of informed consent</h3>
+<ul>
+<li>Capacity (competence): ability to understand, appreciate, reason and express a choice.</li>
+<li>Disclosure of information:
+<ul>
+<li>purpose and nature of therapy; methods; expected benefits;</li>
+<li>possible risks and discomfort; alternatives (including no treatment);</li>
+<li>duration; fees; confidentiality and its limits;</li>
+<li>recording / observation; supervision; therapist&#x27;s qualifications;</li>
+<li>the right to withdraw without penalty.</li>
+</ul>
+</li>
+<li>Comprehension: simple, understandable language; check understanding.</li>
+<li>Voluntariness: free from coercion or undue pressure.</li>
+<li>Documentation: written (or recorded) consent, revisited when the plan changes.</li>
+</ul>
+<h3 class="subhead">Special issues</h3>
+<ul>
+<li>Minors (&lt;18 years in India):
+<ul>
+<li>Legal consent comes from the parent or legal guardian.</li>
+<li>The child&#x27;s assent (affirmative, informed agreement to the extent of the child&#x27;s developing capacity) is also sought.</li>
+<li>Assent respects autonomy, increases cooperation and strengthens the alliance.</li>
+<li>Guidelines (for example ICMR 2017) generally require assent for children roughly 7-18 years, with simpler language for younger children and more weight to the wishes of older, mature adolescents.</li>
+<li>If a child refuses, explore concerns and, unless safety requires otherwise, respect it.</li>
+</ul>
+</li>
+<li>Adults lacking capacity: involve the nominated representative / legal guardian under MHCA 2017; still seek the person&#x27;s views; use the least restrictive approach.</li>
+<li>Separate, specific consent for recording, observation, supervision, research or publication; case material is anonymised.</li>
+<li>Emergency (immediate risk to life) can justify action without full consent, with documentation.</li>
+<li>Cultural context: family involvement is common in collectivist settings; still ensure the client&#x27;s own consent and confidentiality.</li>
+</ul>
+<div class="flow avoid-break">
+<div class="flow-title">Flow chart: Consent and assent decision flow</div>
+<div class="flow-node">Is the client an adult with capacity?</div>
+<div class="flow-arrow">&#8595;</div>
+<div class="flow-branches">
+<div class="flow-branch">
+<div class="flow-branch-label">Adult, has capacity</div>
+<div class="flow-arrow small">&#8595;</div>
+<div class="flow-node branch-node">Informed consent from the client</div>
+</div>
+<div class="flow-branch">
+<div class="flow-branch-label">Minor (&lt;18)</div>
+<div class="flow-arrow small">&#8595;</div>
+<div class="flow-node branch-node">Guardian consent + child&#x27;s assent</div>
+</div>
+<div class="flow-branch">
+<div class="flow-branch-label">Adult lacking capacity</div>
+<div class="flow-arrow small">&#8595;</div>
+<div class="flow-node branch-node">Nominated representative (MHCA) + seek the person&#x27;s views</div>
+</div>
+<div class="flow-branch">
+<div class="flow-branch-label">Emergency, risk to life</div>
+<div class="flow-arrow small">&#8595;</div>
+<div class="flow-node branch-node">Act in best interests; document; obtain consent as soon as possible</div>
+</div>
+<div class="flow-branch">
+<div class="flow-branch-label">Refusal by a minor</div>
+<div class="flow-arrow small">&#8595;</div>
+<div class="flow-node branch-node">Explore concerns; respect unless safety requires otherwise</div>
+</div>
+</div>
+</div>
+<div class="mnemonic avoid-break">
+<div class="mnemonic-head">Mnemonic: <span class="acronym">CIVIC</span> &mdash; the elements of valid consent</div>
+<table class="mnemonic-table">
+<tr><td class="m-letter">C</td><td class="m-word">Capacity</td><td class="m-meaning">capacity / competence to decide</td></tr>
+<tr><td class="m-letter">I</td><td class="m-word">Information</td><td class="m-meaning">full disclosure of relevant information</td></tr>
+<tr><td class="m-letter">V</td><td class="m-word">Voluntariness</td><td class="m-meaning">free from coercion or undue pressure</td></tr>
+<tr><td class="m-letter">I</td><td class="m-word">Insight / comprehension</td><td class="m-meaning">the client understands the information</td></tr>
+<tr><td class="m-letter">C</td><td class="m-word">Consent documented</td><td class="m-meaning">documented and revisited as a process</td></tr>
+</table>
+</div>
+</section>
+<div class="page-footer"><span>Made by Tejas Dangodra | M.Phil. Clinical Psychology</span><span>Unit I &bull; Topic 6</span></div>
+</div>
+<div class="page page-break">
+<section class="topic">
+<h2 class="section-title"><span class="section-num">7.</span> Planning and Recording of Therapy Sessions</h2>
+<h3 class="subhead">Planning</h3>
+<ul>
+<li>Intake and assessment: presenting complaints, history, risk assessment, mental status, test results, diagnosis.</li>
+<li>Case formulation: an integrated hypothesis explaining the problem using the &quot;4 Ps&quot;:
+<ul>
+<li>Predisposing factors;</li>
+<li>Precipitating factors;</li>
+<li>Perpetuating factors;</li>
+<li>Protective factors.</li>
+</ul>
+</li>
+<li>Treatment plan: goals, chosen therapy, frequency (usually weekly), session length (usually 45-50 minutes), expected duration, measures of progress, emergency plan, criteria for termination.</li>
+<li>Therapeutic frame: time, place, fee, boundaries, cancellation policy, contact between sessions.</li>
+<li>Session planning: prepare using previous notes; plan aims per session but stay responsive to the client&#x27;s needs.</li>
+</ul>
+<h3 class="subhead">Structure of a typical session (e.g. CBT)</h3>
+<ul>
+<li>Brief check-in and mood check.</li>
+<li>Bridge from the previous session.</li>
+<li>Agenda setting (collaboratively).</li>
+<li>Review of homework.</li>
+<li>Work on agenda items (main therapeutic work).</li>
+<li>Capsule summaries during the session.</li>
+<li>Assign new homework.</li>
+<li>Feedback from the client on the session.</li>
+</ul>
+<h3 class="subhead">Recording</h3>
+<ul>
+<li>Types of records: intake / case history; assessment reports and test data; treatment plan; consent forms; progress notes; process notes (private reflections, kept separate); risk assessments; referral and termination summaries; correspondence.</li>
+<li>Formats of progress notes:
+<ul>
+<li>SOAP: Subjective, Objective, Assessment, Plan;</li>
+<li>DAP: Data, Assessment, Plan;</li>
+<li>BIRP: Behaviour, Intervention, Response, Plan.</li>
+</ul>
+</li>
+<li>Good records are timely, accurate, objective, factual, brief but complete, free of judgemental language, signed and dated.</li>
+<li>Purposes: continuity of care, monitoring progress, supervision, communication with other professionals, evidence in legal/ethical review, research and quality improvement.</li>
+<li>Security and confidentiality: secure storage (locked cabinets, password-protected files), restricted access, coded identifiers; retention per law or policy; safe disposal.</li>
+<li>Audio/video recording needs explicit written consent; used only for the agreed purpose and destroyed as agreed.</li>
+</ul>
+<div class="flow avoid-break">
+<div class="flow-title">Flow chart: Flow: a typical session</div>
+<div class="flow-node">Check-in + mood check</div>
+<div class="flow-arrow">&#8595;</div>
+<div class="flow-node">Bridge from previous session</div>
+<div class="flow-arrow">&#8595;</div>
+<div class="flow-node">Collaborative agenda setting</div>
+<div class="flow-arrow">&#8595;</div>
+<div class="flow-node">Review homework</div>
+<div class="flow-arrow">&#8595;</div>
+<div class="flow-node">Work on agenda items</div>
+<div class="flow-arrow">&#8595;</div>
+<div class="flow-node">Summaries + new homework</div>
+<div class="flow-arrow">&#8595;</div>
+<div class="flow-node">Client feedback → write progress note (SOAP/DAP/BIRP)</div>
+</div>
+<div class="mnemonic avoid-break">
+<div class="mnemonic-head">Mnemonic: <span class="acronym">SOAP</span> &mdash; the classic progress-note format</div>
+<table class="mnemonic-table">
+<tr><td class="m-letter">S</td><td class="m-word">Subjective</td><td class="m-meaning">the client&#x27;s reported experience</td></tr>
+<tr><td class="m-letter">O</td><td class="m-word">Objective</td><td class="m-meaning">observed, measurable data</td></tr>
+<tr><td class="m-letter">A</td><td class="m-word">Assessment</td><td class="m-meaning">clinical interpretation / progress</td></tr>
+<tr><td class="m-letter">P</td><td class="m-word">Plan</td><td class="m-meaning">next steps, homework, plan for next session</td></tr>
+</table>
+</div>
+</section>
+<div class="page-footer"><span>Made by Tejas Dangodra | M.Phil. Clinical Psychology</span><span>Unit I &bull; Topic 7</span></div>
+</div>
+<div class="page page-break">
+<section class="topic">
+<h2 class="section-title"><span class="section-num">8.</span> Structuring Therapy and Setting Goals</h2>
+<ul>
+<li>Structure gives therapy direction, safety and efficiency: a clear frame (contract), a clear agenda each session, phases, and regular review of progress.</li>
+<li>Phases of therapy:
+<ul>
+<li>Beginning: engagement, assessment, formulation, contracting, goal setting.</li>
+<li>Middle: active intervention and working through.</li>
+<li>End: consolidation, relapse prevention, termination, follow-up.</li>
+</ul>
+</li>
+<li>Goal setting: collaborative (jointly negotiated), derived from the case formulation, expressed in the client&#x27;s own words.</li>
+</ul>
+<h3 class="subhead">Characteristics of good goals (SMART)</h3>
+<ul>
+<li>Specific; Measurable; Achievable; Realistic/Relevant; Time-bound.</li>
+<li>Also stated positively, under the client&#x27;s control, and ordered by priority.</li>
+</ul>
+<h3 class="subhead">Types of goals and measurement</h3>
+<ul>
+<li>Ultimate vs intermediate vs immediate (session) goals.</li>
+<li>Outcome goals (symptom relief, behaviour change) vs process goals (insight, alliance, skills).</li>
+<li>Short-term vs long-term.</li>
+<li>Goal Attainment Scaling (Kiresuk and Sherman, 1968): each goal scaled from -2 (much worse) to +2 (much better than expected) for individualised measurement.</li>
+</ul>
+<h3 class="subhead">Why structure and goals matter</h3>
+<ul>
+<li>Goal consensus is a component of the therapeutic alliance (Bordin) and predicts outcome.</li>
+<li>Clear goals increase motivation and signal when therapy is complete.</li>
+<li>Goals are revisited and revised as new information or progress emerges.</li>
+</ul>
+<div class="flow avoid-break">
+<div class="flow-title">Flow chart: Flow: structuring the course of therapy</div>
+<div class="flow-node">Beginning: engage, assess, formulate, contract</div>
+<div class="flow-arrow">&#8595;</div>
+<div class="flow-node">Set collaborative SMART goals (from formulation)</div>
+<div class="flow-arrow">&#8595;</div>
+<div class="flow-node">Middle: intervene, work through, scale progress (GAS)</div>
+<div class="flow-arrow">&#8595;</div>
+<div class="flow-node">Review and revise goals</div>
+<div class="flow-arrow">&#8595;</div>
+<div class="flow-node">End: consolidate, relapse prevention, terminate, follow-up</div>
+</div>
+<div class="mnemonic avoid-break">
+<div class="mnemonic-head">Mnemonic: <span class="acronym">SMART</span> &mdash; the characteristics of good goals</div>
+<table class="mnemonic-table">
+<tr><td class="m-letter">S</td><td class="m-word">Specific</td><td class="m-meaning">clearly defined</td></tr>
+<tr><td class="m-letter">M</td><td class="m-word">Measurable</td><td class="m-meaning">progress can be measured</td></tr>
+<tr><td class="m-letter">A</td><td class="m-word">Achievable</td><td class="m-meaning">attainable for the client</td></tr>
+<tr><td class="m-letter">R</td><td class="m-word">Realistic / Relevant</td><td class="m-meaning">meaningful and feasible</td></tr>
+<tr><td class="m-letter">T</td><td class="m-word">Time-bound</td><td class="m-meaning">has a time frame</td></tr>
+</table>
+</div>
+</section>
+<div class="page-footer"><span>Made by Tejas Dangodra | M.Phil. Clinical Psychology</span><span>Unit I &bull; Topic 8</span></div>
+</div>
+<div class="page page-break">
+<section class="topic">
+<h2 class="section-title"><span class="section-num">9.</span> Pre- and Post-Assessment</h2>
+<h3 class="subhead">Purpose</h3>
+<ul>
+<li>Pre-assessment (baseline): diagnosis, severity, risk, strengths, and a benchmark.</li>
+<li>Post-assessment: evaluates change after therapy; follow-up checks maintenance.</li>
+<li>Ongoing session-by-session monitoring (e.g. OQ-45, CORE-OM, Outcome Rating Scale / Session Rating Scale) gives feedback so therapy can be adjusted (feedback-informed treatment); reduces deterioration, especially in clients &quot;not on track&quot;.</li>
+</ul>
+<h3 class="subhead">Methods</h3>
+<ul>
+<li>Structured and unstructured interviews; behavioural observation.</li>
+<li>Self-report scales; clinician-rated scales; projective or other tests when relevant.</li>
+<li>Collateral information; physiological measures; client diaries / self-monitoring.</li>
+</ul>
+<h3 class="subhead">Commonly used measures (from the backbone)</h3>
+<ul>
+<li>Depression: BDI-II, PHQ-9, HAM-D.</li>
+<li>Anxiety: BAI, GAD-7, HAM-A.</li>
+<li>OCD: Y-BOCS. PTSD: PCL-5 / CAPS-5.</li>
+<li>General distress: SCL-90-R, GHQ.</li>
+<li>Well-being / quality of life: WHO-5, WHOQOL-BREF.</li>
+<li>Functioning: GAF / WHODAS 2.0. Global: CGI.</li>
+<li>Target-complaint ratings; therapeutic alliance (WAI).</li>
+</ul>
+<h3 class="subhead">Evaluating change</h3>
+<ul>
+<li>Statistical significance (group level) vs clinical significance (individual level).</li>
+<li>Reliable Change Index (RCI; Jacobson and Truax, 1991): the change must exceed measurement error (RCI &gt; 1.96).</li>
+<li>Clinically significant change: the client crosses a cutoff between the dysfunctional and functional populations.</li>
+<li>Effect size (Cohen&#x27;s d) and percentage improvement.</li>
+<li>Single-case designs (AB, ABAB, multiple baseline) for individual evaluation.</li>
+</ul>
+<div class="note avoid-break">
+<div class="note-title">Two different RCIs — do not confuse them</div>
+<ul>
+<li>RCI (Act): Rehabilitation Council of India Act, 1992 — the regulator (Sections 3-4-10).</li>
+<li>RCI (statistic): Reliable Change Index (Jacobson &amp; Truax, 1991) — used here to judge whether an individual&#x27;s change is reliable (&gt; 1.96).</li>
+</ul>
+</div>
+<h3 class="subhead">Good practice</h3>
+<ul>
+<li>Use reliable and valid measures suited to the client&#x27;s language, culture and literacy.</li>
+<li>Use the same measures before and after.</li>
+<li>Interpret with caution (placebo, regression to the mean, practice effects, response bias).</li>
+<li>Share results with the client and use them to plan further care.</li>
+</ul>
+<div class="flow avoid-break">
+<div class="flow-title">Flow chart: Flow: measuring change across therapy</div>
+<div class="flow-node">Pre-assessment (baseline): diagnosis, severity, risk, strengths</div>
+<div class="flow-arrow">&#8595;</div>
+<div class="flow-node">Session-by-session monitoring (feedback-informed)</div>
+<div class="flow-arrow">&#8595;</div>
+<div class="flow-node">Post-assessment with the SAME measures</div>
+<div class="flow-arrow">&#8595;</div>
+<div class="flow-node">Reliable change? RCI &gt; 1.96</div>
+<div class="flow-arrow">&#8595;</div>
+<div class="flow-branches">
+<div class="flow-branch">
+<div class="flow-branch-label">Yes + crosses clinical cutoff</div>
+<div class="flow-arrow small">&#8595;</div>
+<div class="flow-node branch-node">Clinically significant change</div>
+</div>
+<div class="flow-branch">
+<div class="flow-branch-label">No / partial</div>
+<div class="flow-arrow small">&#8595;</div>
+<div class="flow-node branch-node">Revise plan; continue or refer</div>
+</div>
+</div>
+</div>
+<div class="mnemonic avoid-break">
+<div class="mnemonic-head">Mnemonic: <span class="acronym">BASE</span> &mdash; the logic of pre/post assessment</div>
+<table class="mnemonic-table">
+<tr><td class="m-letter">B</td><td class="m-word">Baseline</td><td class="m-meaning">pre-assessment benchmark</td></tr>
+<tr><td class="m-letter">A</td><td class="m-word">Assess ongoing</td><td class="m-meaning">session-by-session monitoring</td></tr>
+<tr><td class="m-letter">S</td><td class="m-word">Same measures</td><td class="m-meaning">same valid tools before and after</td></tr>
+<tr><td class="m-letter">E</td><td class="m-word">Evaluate change</td><td class="m-meaning">RCI, clinical significance, effect size</td></tr>
+</table>
+</div>
+</section>
+<div class="page-footer"><span>Made by Tejas Dangodra | M.Phil. Clinical Psychology</span><span>Unit I &bull; Topic 9</span></div>
+</div>
+<div class="page page-break">
+<section class="topic">
+<h2 class="section-title"><span class="section-num">10.</span> Practice of Evidence-Based Therapies (EBP)</h2>
+<h3 class="subhead">Definition and origins</h3>
+<ul>
+<li>APA Presidential Task Force (2006): EBP is the integration of the best available research with clinical expertise in the context of patient characteristics, culture and preferences (supported).</li>
+<li>The concept came from evidence-based medicine (Sackett).</li>
+</ul>
+<h3 class="subhead">Empirically supported treatments (ESTs)</h3>
+<ul>
+<li>Division 12 (Society of Clinical Psychology, APA); Chambless and Hollon (1998) criteria:
+<ul>
+<li>well-established (≥ 2 good between-group studies by independent researchers, or a large series of single-case studies, showing superiority to placebo or another treatment, with manuals and clear samples);</li>
+<li>probably efficacious.</li>
+</ul>
+</li>
+</ul>
+<h3 class="subhead">Hierarchy of evidence</h3>
+<ul>
+<li>Systematic reviews / meta-analyses of RCTs; then RCTs; controlled trials without randomisation; cohort and case-control; single-case studies; expert opinion.</li>
+<li>Efficacy (controlled conditions) vs effectiveness (real-world) vs clinical utility (feasible, acceptable, cost-effective).</li>
+</ul>
+<h3 class="subhead">Examples of well-supported treatments</h3>
+<ul>
+<li>CBT for depression, panic, social anxiety, GAD.</li>
+<li>ERP for OCD; prolonged exposure, cognitive processing therapy and EMDR for PTSD.</li>
+<li>Behavioural activation and IPT for depression; DBT for borderline personality disorder.</li>
+<li>Family-based treatment for adolescent anorexia; parent management training for child conduct problems; CBT for insomnia.</li>
+<li>Social skills training, family psychoeducation and cognitive remediation for schizophrenia.</li>
+</ul>
+<h3 class="subhead">Guidelines and scaling up (WHO / India)</h3>
+<ul>
+<li>NICE (UK), APA, and WHO mhGAP recommend specific treatments (supported).</li>
+<li>In India, culturally adapted low-intensity interventions delivered by lay counsellors (e.g. the Healthy Activity Programme in the PREMIUM trials in Goa, and the Thinking Healthy Programme) show evidence-based care can be scaled up (task-shifting).</li>
+</ul>
+<h3 class="subhead">Steps of EBP in the clinic</h3>
+<ul>
+<li>Ask a clear clinical question.</li>
+<li>Search for the best evidence.</li>
+<li>Appraise it.</li>
+<li>Integrate it with clinical expertise and the client&#x27;s values.</li>
+<li>Apply; evaluate the outcome.</li>
+</ul>
+<h3 class="subhead">The evidence debate and common factors</h3>
+<ul>
+<li>Eysenck (1952) claimed psychotherapy was no more effective than spontaneous remission.</li>
+<li>Smith and Glass (1977) meta-analysed 375 studies and found a mean effect size of about 0.68 (the average treated person better off than about 75% of untreated persons).</li>
+<li>The &quot;Dodo bird verdict&quot; (Rosenzweig; Luborsky): all bona fide therapies work about equally, pointing to common factors.</li>
+<li>Lambert (1992) estimated contributions (approximate and debated, as the backbone frames them):
+<ul>
+<li>extratherapeutic / client factors ~40%;</li>
+<li>relationship ~30%;</li>
+<li>expectancy ~15%;</li>
+<li>technique ~15%.</li>
+</ul>
+</li>
+<li>Balance: both specific (model-based) and common (relationship) factors matter; evidence-based techniques work best within a strong relationship.</li>
+</ul>
+<h3 class="subhead">Criticisms and challenges of EBP</h3>
+<ul>
+<li>RCT samples often unrepresentative (strict exclusion, no comorbidity); limited generalisability to diverse and Indian populations.</li>
+<li>Manuals can reduce flexibility; researcher allegiance effects; publication bias.</li>
+<li>Under-emphasis of common factors and the therapist&#x27;s contribution.</li>
+<li>Outcome focus on symptom measures rather than broader well-being or meaning.</li>
+<li>Practice-based evidence and routine outcome monitoring complement RCTs; cultural adaptation and task shifting are important in India.</li>
+</ul>
+<div class="flow avoid-break">
+<div class="flow-title">Flow chart: Flow: EBP in the clinic (Ask-Acquire-Appraise-Apply-Assess)</div>
+<div class="flow-node">Ask a focused clinical question</div>
+<div class="flow-arrow">&#8595;</div>
+<div class="flow-node">Acquire the best available research evidence</div>
+<div class="flow-arrow">&#8595;</div>
+<div class="flow-node">Appraise the evidence (hierarchy: meta-analysis &gt; RCT &gt; ...)</div>
+<div class="flow-arrow">&#8595;</div>
+<div class="flow-node">Integrate with clinical expertise + client values/culture</div>
+<div class="flow-arrow">&#8595;</div>
+<div class="flow-node">Apply the intervention</div>
+<div class="flow-arrow">&#8595;</div>
+<div class="flow-node">Assess the outcome (monitor, revise)</div>
+</div>
+<div class="mnemonic avoid-break">
+<div class="mnemonic-head">Mnemonic: <span class="acronym">5 A&#x27;s</span> &mdash; the steps of evidence-based practice</div>
+<table class="mnemonic-table">
+<tr><td class="m-letter">A</td><td class="m-word">Ask</td><td class="m-meaning">ask a clear clinical question</td></tr>
+<tr><td class="m-letter">A</td><td class="m-word">Acquire</td><td class="m-meaning">search for the best evidence</td></tr>
+<tr><td class="m-letter">A</td><td class="m-word">Appraise</td><td class="m-meaning">critically appraise the evidence</td></tr>
+<tr><td class="m-letter">A</td><td class="m-word">Apply</td><td class="m-meaning">integrate with expertise + client values, then apply</td></tr>
+<tr><td class="m-letter">A</td><td class="m-word">Assess</td><td class="m-meaning">evaluate and revise the outcome</td></tr>
+</table>
+</div>
+</section>
+<div class="page-footer"><span>Made by Tejas Dangodra | M.Phil. Clinical Psychology</span><span>Unit I &bull; Topic 10</span></div>
+</div>
+</div>
+</body>
+</html>
