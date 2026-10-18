@@ -25,7 +25,7 @@ TITLE and CREDIT are the byte-exact brand strings (shared by both deliverables).
 """
 
 TITLE = "Psychotherapy \u2014 Unit I: Introduction to Psychotherapy"
-CREDIT = "Made by Tejas Dangodra | M.Phil. Clinical Psychology"
+CREDIT = "Dango_Psych by Tejas Dangodra | M.Phil. Clinical Psychology"
 
 # Cover / title-page sub-heading used by both deliverables.
 SUBTITLE = "M.Phil. Clinical Psychology \u2014 short-form study notes (bullet style)"
@@ -94,12 +94,15 @@ def _s(sid, num, title, blocks):
 # ========================= 1. DEFINITIONS =================================
 _s("t1", "1", "Definitions of psychotherapy", [
     {"t": "lead", "text": "Psychotherapy = a planned, systematic, psychological (non-medical) treatment in which a trained professional uses a confiding relationship and theory-based methods to help a help-seeking client change feelings, thoughts and behaviour."},
+    {"t": "fig", "key": "def_map", "caption": "Concept map: the five elements every modern definition of psychotherapy shares (trained person, relationship, approach, purpose, shared direction)."},
     {"t": "h3", "text": "Classic definitions"},
     {"t": "ul", "items": [
-        "{{THEORY}} Wolberg (1954): treatment of problems of an emotional nature in which a trained person deliberately establishes a professional relationship to (1) remove, modify or retard existing symptoms, (2) mediate disturbed patterns of behaviour, and (3) promote positive personality growth. {{c:Wolberg, PDF p.29}}",
-        "{{THEORY}} Jerome Frank (1961, Persuasion and Healing): a planned, emotionally charged, confiding interaction between a trained, socially sanctioned healer and a sufferer, aiming to change the sufferer's feelings, attitudes and behaviour.",
-        "{{THEORY}} Norcross (1990): the informed and intentional application of clinical methods and interpersonal stances derived from established psychological principles, to help people modify behaviours, cognitions, emotions and/or personal characteristics in directions the participants deem desirable.",
-        "{{THEORY}} Strupp: a learning process in which a trained person uses the relationship to help the patient overcome distress and develop more adaptive functioning.",
+        "{{THEORY}} Wolberg (1954) defines psychotherapy as the treatment of problems of an emotional nature in which a trained person deliberately establishes a professional relationship to help a client change. {{c:Wolberg, PDF p.29}}",
+        "Wolberg's definition sets three explicit aims, namely to remove, modify or retard existing symptoms, to mediate [[disturbed patterns of behaviour|long-standing unhelpful ways of acting and relating]], and to promote positive personality growth.",
+        "{{THEORY}} Jerome Frank (1961) describes therapy as a planned, [[emotionally charged|involving strong, genuine feeling]], confiding interaction between a trained, socially sanctioned healer and a sufferer that aims to change the sufferer's feelings and attitudes.",
+        "{{THEORY}} Norcross (1990) calls it the informed and intentional application of clinical methods and [[interpersonal stances|the therapist's deliberate way of relating to the client]] drawn from established psychological principles to help people change.",
+        "{{THEORY}} Strupp views psychotherapy as a [[learning process|change achieved through new experience and understanding, not through drugs]] in which a trained person uses the relationship to help the patient overcome distress and function better.",
+        "Across these authorities the emphasis shifts but the core is constant, because each insists on a trained helper, a client in distress, a psychological method and a goal of desirable, agreed change.",
     ]},
     {"t": "box", "kind": "key", "title": "Elements common to all definitions", "items": [
         "A trained, professional therapist (socially sanctioned).",
@@ -109,11 +112,20 @@ _s("t1", "1", "Definitions of psychotherapy", [
         "A confiding, therapeutic relationship (alliance).",
         "The aim of change: symptom relief, behaviour change and growth.",
     ]},
+    {"t": "h3", "text": "Common elements in sentences (exam form)"},
+    {"t": "ul", "items": [
+        "Every definition requires a trained, socially sanctioned therapist, meaning a professional whose education and registration give them both the competence and the public authority to treat.",
+        "Every definition assumes a help-seeking client in distress, because psychotherapy is a voluntary treatment entered into by someone who recognises a problem and wants help with it.",
+        "The method is psychological rather than [[pharmacological or surgical|using medication or physical operations]], so change is pursued through talking, relationship and new learning instead of through the body.",
+        "The process is planned, systematic and theory-based, which distinguishes professional therapy from ordinary advice, friendship or informal emotional support.",
+        "A confiding therapeutic relationship, often called the [[alliance|the bond and agreement on goals and tasks between therapist and client]], is the vehicle through which techniques take effect.",
+        "The shared aim is change the client endorses, whether that is symptom relief, altered behaviour or personal growth, so direction is negotiated rather than imposed.",
+    ]},
     {"t": "h3", "text": "Wolberg's three aims"},
     {"t": "ul", "items": [
-        "Remove, modify or retard existing symptoms.",
-        "Mediate (correct) disturbed patterns of behaviour.",
-        "Promote positive personality growth and development. {{c:Wolberg, PDF p.29}}",
+        "Wolberg's first aim is to remove, modify or retard existing symptoms, that is to reduce the client's current suffering such as anxiety, low mood or compulsive behaviour.",
+        "His second aim is to mediate, meaning to correct, disturbed patterns of behaviour that keep the client stuck in unhelpful ways of acting and relating.",
+        "His third aim is to promote positive personality growth and development, so that therapy builds strengths and maturity rather than only subtracting symptoms. {{c:Wolberg, PDF p.29}}",
     ]},
     {"t": "h3", "text": "Psychotherapy vs counselling vs medical treatment"},
     {"t": "table", "caption": "Overlapping but distinguishable helping activities (difference is mostly of degree).",
@@ -125,12 +137,16 @@ _s("t1", "1", "Definitions of psychotherapy", [
         ["Overlap", "Large overlap with psychotherapy", "Often combined with medication", "Often combined with psychotherapy (e.g. depression, psychosis)"],
      ]},
     {"t": "ul", "items": [
-        "Counselling usually deals with normal developmental, situational and adjustment problems, is more present- and problem-focused, and is shorter.",
-        "Psychotherapy deals with deeper, more enduring or pathological problems and personality reconstruction, and is usually longer; the overlap is large and the distinction is mostly one of degree.",
-        "Psychotherapy works through communication, relationship and learning rather than drugs; both are often combined (for example for depression or psychosis).",
+        "Counselling usually deals with normal developmental, situational and [[adjustment problems|difficulty coping with an identifiable life change or stress]], is more present- and problem-focused, and tends to be shorter in duration.",
+        "Psychotherapy addresses deeper, more enduring or pathological problems and [[personality reconstruction|reshaping long-standing traits and ways of relating]], usually runs longer, and may explore the client's past as well as the present.",
+        "The counselling-psychotherapy boundary is one of degree rather than a sharp line, because the methods overlap heavily and many practitioners use the two terms almost interchangeably in practice.",
+        "Psychotherapy works through communication, relationship and learning rather than drugs or surgery, which distinguishes it from the [[biological route|treatment by medication, physical procedures or other bodily means]] of medical care.",
+        "Psychological and medical treatments are frequently combined, for example pairing antidepressant medication with CBT for depression or antipsychotics with psychosocial therapy for psychosis.",
+        "{{THEORY}} Because the distinction is mostly of degree, examiners expect you to name the overlap first, then separate the activities by focus, time frame and method rather than by a rigid wall.",
     ]},
+    {"t": "mn", "word": "TRAPS", "text": "Trained person, Relationship (confiding, professional), Approach (psychological, theory-based), Purpose (symptom relief and behaviour change), Shared direction (change the client endorses) \u2014 the five elements common to all definitions."},
     {"t": "box", "kind": "info", "title": "Exam pointer", "items": [
-        "If asked to \u201cdefine psychotherapy\u201d, give one classic definition (Wolberg or Frank), then list the six common elements.",
+        "If asked to \u201cdefine psychotherapy\u201d, give one classic definition (Wolberg or Frank), then list the five common elements (TRAPS).",
         "If asked to \u201cdistinguish\u201d, use the table rows: focus, time frame, method and overlap.",
     ]},
 ])
@@ -138,15 +154,18 @@ _s("t1", "1", "Definitions of psychotherapy", [
 # ========================= 2. OBJECTIVES ==================================
 _s("t2", "2", "Objectives (goals) of psychotherapy", [
     {"t": "lead", "text": "Objectives run from immediate symptom relief to long-term growth; most therapies pursue several at once, weighted by the model and the client's needs."},
+    {"t": "fig", "key": "aims_tree", "caption": "Hierarchy of aims: from the overall goal of less distress down through Wolberg's three aims to specific, measurable objectives."},
     {"t": "ul", "items": [
-        "Relieve symptoms and distress (anxiety, depression, obsessions, etc.).",
-        "Modify maladaptive behaviour, thoughts and emotions (change).",
-        "Gain insight into the origin and meaning of problems (especially psychodynamic work).",
-        "Improve interpersonal relationships and social functioning.",
-        "Strengthen coping, problem solving and adaptive defences; improve self-esteem and self-efficacy.",
-        "Resolve inner conflicts and past trauma; foster emotional expression and regulation.",
-        "Promote personal growth, self-actualisation and a sense of meaning.",
-        "Prevent relapse and improve quality of life; in severe illness, maintain functioning and prevent hospitalisation.",
+        "The first objective is to relieve the client's symptoms and distress, such as anxiety, low mood, [[obsessions|unwanted, intrusive and repetitive thoughts]] or sleep disturbance, so that daily suffering is reduced.",
+        "A second objective is to modify [[maladaptive|unhelpful and self-defeating]] behaviour, thoughts and emotions, replacing patterns that maintain the problem with more adaptive and flexible responses.",
+        "Many therapies aim to help the client gain [[insight|an accurate understanding of the origins and meaning of one's difficulties]], which is especially central to psychodynamic work and supports lasting change.",
+        "Therapy frequently seeks to improve interpersonal relationships and social functioning, because distress is often created and maintained within the client's close relationships and wider social roles.",
+        "A further objective is to strengthen the client's coping, problem-solving and [[adaptive defences|healthy ways of managing stress and difficult feelings]], while raising self-esteem and [[self-efficacy|the belief that one can succeed at a task]].",
+        "Some objectives focus on resolving inner conflicts and past trauma and on fostering [[emotional regulation|the capacity to notice, tolerate and manage one's feelings]] rather than being overwhelmed by them.",
+        "At the growth end, therapy promotes personal development, [[self-actualisation|realising one's fuller potential and becoming more fully oneself]] and a renewed sense of meaning and purpose in living.",
+        "A long-term objective is to prevent relapse and improve quality of life, and in severe or enduring illness to maintain functioning in the community and prevent avoidable hospitalisation.",
+        "Objectives are always negotiated with the client rather than imposed, so that the ends pursued are ones the client genuinely values and is motivated to work towards.",
+        "Because objectives compete for limited time, the therapist orders them, placing safety and symptom stabilisation before the deeper work of insight, relationships and personal growth.",
     ]},
     {"t": "box", "kind": "info", "title": "Outcome vs process goals", "items": [
         "Outcome goals = the end the client wants (less panic, better sleep).",
@@ -155,17 +174,21 @@ _s("t2", "2", "Objectives (goals) of psychotherapy", [
     ]},
     {"t": "h3", "text": "How objectives differ by model"},
     {"t": "ul", "items": [
-        "Psychodynamic: insight into unconscious conflict, working through, more adaptive defences and object relations.",
-        "Cognitive-behavioural: symptom reduction, changed thoughts and behaviour, new coping skills and relapse prevention.",
-        "Humanistic: self-actualisation, congruence, self-acceptance, autonomy and a sense of meaning.",
-        "Systemic/family: changed interaction patterns, clearer boundaries and improved relationships.",
+        "In psychodynamic therapy the central objective is [[insight|understanding how past relationships and unconscious conflict shape present difficulties]], together with working through and the development of more mature defences.",
+        "In cognitive-behavioural therapy the objectives are symptom reduction, the changing of unhelpful thoughts and behaviours, the learning of new coping skills, and the prevention of relapse.",
+        "In humanistic therapy the objectives are [[self-actualisation|realising one's fuller potential]], [[congruence|being genuine and consistent between inner experience and outward expression]], self-acceptance, autonomy and a sense of meaning.",
+        "In systemic or family therapy the objectives shift from the individual to the system, aiming to change repeating interaction patterns, clarify boundaries and improve relationships.",
+        "Because models weight objectives differently, the therapist chooses and sequences goals in line with the client's problem, preferences and the model being used rather than applying one fixed list.",
     ]},
+    {"t": "box", "kind": "ex", "title": "Illustrative example (fictional)", "text":
+        "{{EG}} A client with panic names her outcome goal as travelling to work without a panic attack. The therapist adds process goals of building the alliance, practising interoceptive exposure and learning to tolerate anxiety, and together they order safety and symptom relief before deeper relationship work. Details invented."},
     {"t": "box", "kind": "info", "title": "Ordering objectives in practice", "items": [
         "Safety first: manage risk (suicidality, harm, abuse) before other goals.",
         "Then stabilise symptoms and distress, and build the alliance and coping skills.",
         "Then address underlying patterns, relationships and growth.",
         "Finally consolidate gains and plan relapse prevention and maintenance.",
     ]},
+    {"t": "mn", "word": "RICHE-S", "text": "Relieve symptoms, Insight, Change maladaptive patterns, Healthy relationships, Enhance coping and self-esteem, Self-actualisation and growth \u2014 the ladder of objectives from relief to growth."},
     {"t": "note", "text": "{{GUIDE}} WHO frames mental-health care around functioning, participation and rights, not symptom removal alone \u2014 consistent with objectives such as social functioning and quality of life. {{c:WHO}}"},
 ])
 
@@ -233,16 +256,16 @@ _s("t4", "4", "Issues related to the training of professional therapists", [
     ]},
     {"t": "h3", "text": "Issues and challenges"},
     {"t": "ul", "items": [
-        "Wide variation in quality, duration and supervision of training; shortage of trained supervisors.",
-        "Over-reliance on Western models with limited cultural adaptation; need for indigenous, culturally sensitive approaches.",
-        "Whether personal therapy for trainees should be mandatory (to manage countertransference and blind spots).",
-        "Gate-keeping: judging suitability (empathy, maturity, integrity) and remediating or dismissing unfit trainees.",
-        "Training vs licensing gap: unregulated practice by untrained persons (\u201cquacks\u201d); need to protect the public.",
-        "Therapist stress, burnout, vicarious traumatisation and compassion fatigue; importance of self-care and peer support.",
-        "Boundaries and dual relationships in trainee-supervisor and small-community settings.",
-        "Training in tele-therapy and its ethics.",
-        "Practising within the limits of one's competence; knowing when to refer.",
-        "Keeping evidence-based: integrating new research into continuing professional development.",
+        "There is wide variation in the quality, duration and supervision of training across institutions, and a shortage of trained supervisors limits how many competent therapists can be produced each year.",
+        "Indian training relies heavily on Western models that may not fit local realities, so there is a pressing need for culturally adapted and [[indigenous|developed from and suited to the local culture]] approaches.",
+        "It is debated whether personal therapy should be compulsory for trainees, the argument being that it helps them manage [[countertransference|the therapist's own feelings stirred up by the client]] and their personal blind spots.",
+        "Programmes must act as gatekeepers, judging suitability on empathy, maturity and integrity, and must be willing to remediate or, in the last resort, dismiss trainees who are unfit to practise.",
+        "A training-versus-licensing gap allows untrained persons to practise, so protecting the public from [[quacks|unqualified practitioners posing as therapists]] through registration and enforcement is an ongoing concern.",
+        "Therapist stress, burnout, [[vicarious traumatisation|distress absorbed from repeatedly hearing clients' trauma]] and compassion fatigue are real risks that make self-care and peer support part of competent training.",
+        "Boundaries and [[dual relationships|having more than one kind of relationship with the same person]] are especially tricky in trainee-supervisor pairings and in small communities where people are already acquainted.",
+        "Training must now include tele-therapy and its particular ethics, since remote delivery raises fresh questions about privacy, consent, jurisdiction and crisis management.",
+        "Throughout their careers therapists must practise within the limits of their competence and recognise when a case should be referred to a more suitable or more senior colleague.",
+        "Staying evidence-based requires therapists to integrate new research into their continuing professional development rather than relying indefinitely on what they first learned.",
     ]},
     {"t": "mn", "word": "TRAIN", "text": "Theory, Relationship skills, Assessment, Intervention, iNtegrity/ethics \u2014 the core domains a programme must build."},
     {"t": "box", "kind": "info", "title": "WHO: task-sharing and scaling training", "text":
@@ -273,24 +296,20 @@ _s("t5", "5", "Ethical issues in therapy work", [
     {"t": "note", "text": "{{CODE}} These five principles are aspirational; APA's numbered Standards (e.g. 2.01, 3.04, 3.05, 3.10, 4.01\u20134.07) are enforceable for members. The RCI Code of Conduct reflects similar duties. {{c:APA 2017}}"},
     {"t": "h3", "text": "Major ethical issues"},
     {"t": "ul", "items": [
-        "Competence: practise only within the limits of one's training and experience; refer when the problem is outside one's competence; keep knowledge and skills updated. {{c:APA 2017, Std 2.01}}",
-        "Informed consent must be obtained before assessment and treatment and treated as an ongoing process (see Section 8).",
-        ("Confidentiality and its limits:", [
-            "{{CODE}} Private information shared only with consent (APA Std 4.01\u20134.02).",
-            "Exceptions: serious risk to self/others, abuse of a child, court order.",
-        ]),
-        ("Dual (multiple) relationships and boundaries:", [
-            "{{CODE}} Avoid social, business, financial or sexual relationships with clients (APA Std 3.05\u20133.08).",
-            "Sexual intimacy with a current client, and with a former client for a specified period, is prohibited.",
-            "Manage gifts, self-disclosure, touch and social-media contact carefully.",
-        ]),
-        "Fees and contracts: be clear and honest; do not exploit.",
-        "Record keeping and data security.",
-        "Termination and referral: do not abandon clients; provide handover.",
-        "Cultural sensitivity: avoid bias by gender, caste, religion, sexuality, disability, socio-economic status.",
-        "Supervision and consultation in ethical dilemmas.",
-        "Advertising and claims: no false or unsubstantiated outcome claims.",
-        "Research ethics: consent, no harm, confidentiality, ethics-committee approval.",
+        "Competence requires the therapist to practise only within the limits of their training and experience, to refer problems that fall outside that scope, and to keep knowledge and skills current. {{c:APA 2017, Std 2.01}}",
+        "Informed consent must be obtained before any assessment or treatment and treated as an ongoing process rather than a single signature, so the client agrees freely and understands what is proposed (see Section 8).",
+        "Confidentiality means private information is shared only with the client's consent, and the therapist must explain its limits at the outset so trust is not later broken by surprise. {{c:APA 2017, Std 4.01-4.02}}",
+        "Confidentiality has recognised exceptions, namely serious risk to the client or an identifiable other, suspected abuse of a child, and a lawful [[court order|a direction from a court that legally compels disclosure]].",
+        "Avoiding harmful [[dual (multiple) relationships|having a second role with a client, such as friend, employer or lover, alongside being their therapist]] is essential, so social, business, financial and sexual ties with clients are prohibited. {{c:APA 2017, Std 3.05-3.08}}",
+        "Sexual intimacy with a current client is absolutely forbidden, and with a former client it is prohibited for a specified period, because the power imbalance makes genuine consent doubtful and the risk of harm high.",
+        "Boundary issues such as gifts, [[self-disclosure|the therapist revealing personal information]], physical touch and social-media contact must be managed thoughtfully so that the work stays focused on the client's needs.",
+        "Fees and contracts must be clear, honest and agreed in advance, and the therapist must never exploit the client's dependence for financial, personal or other advantage.",
+        "Record keeping and data security are ethical duties, because inaccurate, careless or insecurely stored records can harm the client and breach confidentiality.",
+        "Termination and referral must be handled so that clients are not abandoned, which means giving notice, summarising progress and arranging a proper handover to continuing care.",
+        "Cultural sensitivity requires the therapist to avoid bias linked to gender, caste, religion, sexuality, disability or socio-economic status and to adapt methods to the client's context.",
+        "Seeking supervision and consultation when facing an ethical dilemma is itself an ethical duty, since a second professional view guards against blind spots and self-serving reasoning.",
+        "Advertising and public claims must be truthful, so the therapist makes no false or [[unsubstantiated|not backed by evidence]] promises about cure rates or guaranteed outcomes.",
+        "Research with clients carries its own duties of informed consent, avoidance of harm, confidentiality and prior approval by an ethics committee before the study begins.",
     ]},
     {"t": "box", "kind": "key", "title": "Ethical decision-making steps", "items": [
         "Identify the problem and the people affected.",
@@ -301,7 +320,13 @@ _s("t5", "5", "Ethical issues in therapy work", [
         "Document, then evaluate the outcome.",
     ]},
     {"t": "h3", "text": "Limits of confidentiality"},
-    {"t": "fig", "key": "conf_tree", "caption": "When confidentiality may or must be broken."},
+    {"t": "fig", "key": "conf_tree", "caption": "Decision tree for confidentiality: screen for a legal duty, then serious risk to life or others, then consent, before deciding to disclose the minimum necessary or maintain confidentiality."},
+    {"t": "box", "kind": "info", "title": "Confidentiality decision as steps (DOCX view)", "items": [
+        "Step 1: If a legal duty applies (for example POCSO s.19, or a court or Board order), comply, share only the minimum needed, and document.",
+        "Step 2: Else if there is a serious, real risk to life or of harm to another that disclosure could prevent, release only what is needed to prevent the harm.",
+        "Step 3: Else seek the client's consent for any disclosure that would help them, such as involving family or a psychiatrist.",
+        "Step 4: Otherwise maintain confidentiality, keep a safety plan, monitor, and review the situation in supervision.",
+    ]},
     {"t": "ul", "items": [
         "{{LAW}} Tarasoff v. Regents of the University of California (1976) established a duty to warn and protect identifiable third parties from a client's serious threats of violence. {{c:Tarasoff 1976}}",
         "{{LAW}} MHCA 2017 protects confidentiality of information about a person's mental illness and treatment; disclosure is allowed with consent, for the treatment, for safety, or by court order. {{c:MHCA 2017, s.23}}",
@@ -318,36 +343,59 @@ _s("t5", "5", "Ethical issues in therapy work", [
         "{{SEC}} IACP: members' code of conduct (secondary summary only).",
         "{{GUIDE}} BPS (UK) states four principles: respect, competence, responsibility, integrity \u2014 a useful cross-check.",
     ]},
+    {"t": "mn", "word": "FIBRE (A-E)", "text": "Fidelity and responsibility (B), Integrity (C), Beneficence and non-maleficence (A), Respect for rights and dignity (E), and justicE / Equity (D) \u2014 one word recalling the APA's five general principles A to E."},
 ])
 
 # ========================= 6. LEGAL (INDIA) ================================
 _s("t6", "6", "Legal issues in therapy work (India)", [
     {"t": "lead", "text": "Indian psychotherapy practice is governed by a statutory registration law, a rights-based mental-health law, child-protection law, disability law, consumer law and tele-practice guidelines."},
+    {"t": "fig", "key": "authority_stack", "caption": "Hierarchy of authorities that bind a therapist, from binding statutes at the top down to personal values at the base; higher legal layers prevail where layers conflict."},
+    {"t": "box", "kind": "info", "title": "Reading the authority stack (DOCX step view)", "items": [
+        "Step 1: Binding law \u2014 RCI Act 1992, MHCA 2017, POCSO 2012 and court orders sit at the top and must always be obeyed.",
+        "Step 2: Statutory regulations \u2014 the RCI's conduct and ethics regulations made under s.21 apply next.",
+        "Step 3: Professional codes \u2014 APA Ethics Code, the IACP code and institutional rules bind members.",
+        "Step 4: Guidelines \u2014 aspirational best practice such as APA record-keeping and telepsychology guidance.",
+        "Step 5: Personal values and clinical judgement operate only inside all the layers above; where they conflict, the higher legal layer prevails.",
+    ]},
     {"t": "ul", "items": [
-        "{{LAW}} RCI Act, 1992: regulates training, registration and conduct of rehabilitation professionals including clinical psychologists; practising without registration is an offence. {{c:RCI Act 1992}}",
-        ("{{LAW}} Mental Healthcare Act, 2017 \u2014 rights-based law: {{c:MHCA 2017}}", [
-            "Rights of persons with mental illness: access to affordable quality care, community living, protection from cruel or degrading treatment, equality and non-discrimination, information, confidentiality, access to records, personal contacts, legal aid, and to make complaints.",
-            "Advance directive: a person may state how they wish to be treated and name a nominated representative.",
-            "Capacity to make treatment decisions is presumed unless shown otherwise.",
-            "{{LAW}} Section 115: a person who attempts suicide is presumed to be under severe stress and is not punishable; the government must provide care and rehabilitation. {{c:MHCA 2017, s.115}}",
-            "Restrictions on ECT (no ECT without anaesthesia and muscle relaxant; not for minors), prohibition of sterilisation as treatment, and limited use of restraints.",
-        ]),
-        "{{LAW}} Rights of Persons with Disabilities Act, 2016 (includes mental illness and intellectual disability).",
-        "{{LAW}} POCSO Act, 2012 (mandatory reporting) and the Juvenile Justice Act (care of children).",
-        "{{LAW}} Consumer Protection Act and civil/criminal law on negligence (professional malpractice); courts may seek records or testimony.",
-        "{{GUIDE}} Tele-mental health: the Telemedicine Practice Guidelines (2020) and guidance on tele-psychiatry apply.",
+        "{{LAW}} The RCI Act 1992 regulates the training, registration and conduct of rehabilitation professionals including clinical psychologists, and practising without registration on the Central Rehabilitation Register is a punishable offence. {{c:RCI Act 1992}}",
+        "{{LAW}} The Mental Healthcare Act 2017 is a rights-based law that reframes mental-health care around the dignity, autonomy and legal entitlements of the person rather than around institutional control. {{c:MHCA 2017}}",
+        "Under the MHCA every person with mental illness has rights to affordable quality care, community living, confidentiality, access to their own records, equality and freedom from cruel or [[degrading treatment|treatment that humiliates or demeans the person]].",
+        "The MHCA lets a person make an [[advance directive|a statement, made while well, of how one wishes to be treated during a future crisis]] and name a [[nominated representative|a trusted person chosen to take treatment decisions on one's behalf]].",
+        "The Act presumes that every adult has the capacity to make their own treatment decisions unless the contrary is properly established, protecting clients from being overridden without good reason.",
+        "{{LAW}} Section 115 presumes that a person who attempts suicide is under severe stress and is not to be punished, and it places a duty on government to provide care and rehabilitation. {{c:MHCA 2017, s.115}}",
+        "The MHCA restricts [[ECT|electroconvulsive therapy, a medical treatment passing a brief electric current through the brain]], barring it without anaesthesia and muscle relaxant and barring it for minors, and limits the use of restraints and sterilisation.",
+        "{{LAW}} The Rights of Persons with Disabilities Act 2016 covers mental illness and intellectual disability and underpins non-discrimination, reasonable accommodation and access to services.",
+        "{{LAW}} The POCSO Act 2012 makes reporting of known or suspected child sexual abuse mandatory, and the Juvenile Justice Act governs the care and protection of children. {{c:POCSO 2012, s.19}}",
+        "{{LAW}} The Consumer Protection Act and the civil and criminal law on [[negligence|failing to take the care a reasonably competent professional would take, causing harm]] expose therapists to malpractice claims, and courts may require records or testimony.",
+        "{{GUIDE}} For tele-mental health the Telemedicine Practice Guidelines 2020 and guidance on tele-psychiatry apply, adding duties around identity verification, consent and secure technology.",
+        "{{LAW}} The right to privacy is a fundamental right after Puttaswamy (2017), which strengthens the legal basis for confidentiality and careful handling of client data. {{c:Puttaswamy 2017}}",
     ]},
     {"t": "box", "kind": "key", "title": "Legal vs ethical", "items": [
         "Law sets the minimum enforceable standard; breach can mean penalty or loss of registration.",
         "Ethics sets the higher aspirational standard of conduct.",
         "Therapist's legal duties: valid consent, confidentiality, competent practice, accurate records, reporting obligations, no exploitation, referral when needed.",
     ]},
+    {"t": "ul", "items": [
+        "Law and ethics overlap but are not identical, because the law states the enforceable floor below which conduct becomes punishable while ethics describes the higher standard a good therapist aspires to.",
+        "Where a legal duty and an ethical value appear to clash, the therapist clarifies the true legal obligation, seeks consultation, and documents the reasoning rather than acting on assumption.",
+        "A therapist's core legal duties include obtaining valid consent, protecting confidentiality within its limits, practising competently, keeping accurate records and meeting mandatory-reporting obligations.",
+    ]},
+    {"t": "mn", "word": "RM-PCDT", "text": "RCI Act, MHCA 2017, POCSO 2012, Consumer/negligence law, Disability (RPwD 2016) Act, Telemedicine guidelines \u2014 the chain of Indian legal sources a therapist must respect."},
 ])
 
 # ========================= 7. RIGHTS & RESPONSIBILITIES ====================
 _s("t7", "7", "Rights and responsibilities in psychotherapy", [
     {"t": "lead", "text": "Therapy is a contract: both parties hold rights and duties. Clarifying them at the start supports the alliance and informed consent."},
-    {"t": "fig", "key": "rights_resp", "caption": "Balance of client and therapist rights and responsibilities."},
+    {"t": "fig", "key": "rights_resp", "caption": "Each client right (PRIDE) maps to a matching therapist duty: Privacy, Respect, Information, Decide (consent), Exit/Escalate."},
+    {"t": "box", "kind": "info", "title": "Rights map to duties (DOCX step view)", "items": [
+        "Privacy and confidentiality (client right) -> therapist keeps information secure and discloses only the minimum necessary.",
+        "Respect and non-discrimination -> therapist practises in a culturally competent, non-exploitative way with no boundary violations.",
+        "Information about treatment -> therapist describes approach, risks, benefits, alternatives, fees and qualifications.",
+        "Decide (consent, refuse, withdraw) -> therapist obtains valid consent and assent and never coerces the client.",
+        "Exit and Escalate (end therapy, complain) -> therapist terminates ethically, refers, and tells clients how to raise concerns.",
+    ]},
+    {"t": "mn", "word": "PRIDE", "text": "Privacy/confidentiality, Respect and dignity, Information about treatment, Decide (consent, refuse, withdraw), Exit and Escalate (end therapy, complain) \u2014 the client's core rights, each mirrored by a therapist duty."},
     {"t": "table", "caption": "Client rights and client responsibilities.",
      "head": ["Client rights", "Client responsibilities"],
      "rows": [
@@ -369,6 +417,19 @@ _s("t7", "7", "Rights and responsibilities in psychotherapy", [
         ["Continue supervision and learning; practise self-care"],
         ["Terminate appropriately; ensure continuity of care"],
      ]},
+    {"t": "h3", "text": "Expanded in sentences (exam form)"},
+    {"t": "ul", "items": [
+        "Psychotherapy is best understood as a [[therapeutic contract|an explicit mutual agreement about aims, methods, fees and boundaries]] in which both parties knowingly accept rights and matching responsibilities.",
+        "The client has a right to informed consent, which means knowing the therapist's training, approach, likely duration, fees and the alternatives before agreeing to proceed.",
+        "The client has a right to confidentiality subject to its known limits, so disclosures made in therapy are protected except where law or serious risk requires a narrow breach.",
+        "The client has a right to be treated with respect and dignity and to be free from discrimination based on gender, caste, religion, disability, sexuality or socio-economic status.",
+        "The client retains the right to refuse or withdraw from therapy at any time without penalty, which keeps participation genuinely voluntary throughout the work.",
+        "The client has a right to access their own records, to seek a second opinion and to make a complaint through a recognised grievance route if dissatisfied.",
+        "In return the client is responsible for attending regularly, giving notice of cancellation, being honest about history and progress, and completing agreed [[homework|tasks practised between sessions to extend therapy into daily life]].",
+        "The therapist is responsible for working only within their competence, obtaining valid consent, protecting confidentiality and maintaining clear professional boundaries at all times.",
+        "The therapist is further responsible for keeping accurate records, respecting diversity, using supervision, practising self-care, and ensuring continuity of care when therapy ends.",
+        "The therapist also holds rights, including the right to set a safe working frame, to be free from abuse or harassment, and to decline work that cannot be conducted ethically or competently.",
+    ]},
     {"t": "note", "text": "{{LAW}} Many client rights are also statutory under MHCA 2017 ss.18\u201325 (information, confidentiality, access to records, complaints). {{c:MHCA 2017}}"},
     {"t": "box", "kind": "key", "title": "Why this matters", "items": [
         "Spelling out rights and duties at the first session operationalises informed consent and the therapeutic contract.",
@@ -402,8 +463,28 @@ _s("t8", "8", "Consent and assent (including minors)", [
         "Documentation: written (or recorded) consent, revisited when the plan changes.",
     ]},
     {"t": "note", "text": "{{CODE}} APA Std 3.10 (informed consent) and 10.01 (consent to therapy) set out these duties; Std 3.10(b) lists four duties when a person cannot consent. {{c:APA 2017, Std 3.10 & 10.01}}"},
+    {"t": "h3", "text": "Elements in sentences (exam form)"},
+    {"t": "ul", "items": [
+        "Valid consent first requires [[capacity|the mental ability to understand information, weigh it and communicate a choice]], which is presumed in adults unless a specific impairment is shown.",
+        "The therapist must disclose adequate information, covering the nature and purpose of therapy, its expected benefits, foreseeable risks and the realistic alternatives including no treatment.",
+        "Disclosure must also state the likely duration, the fees, the limits of confidentiality, any recording or supervision, and the client's right to withdraw without penalty.",
+        "Comprehension matters as much as disclosure, so the therapist uses plain language, avoids jargon, and checks understanding rather than assuming the client has grasped the information.",
+        "Consent must be voluntary, meaning it is given freely and without coercion, undue pressure or inducement from the therapist, family members or an institution.",
+        "Consent is an ongoing process rather than a one-time signature, so it is revisited whenever the treatment plan, the risks or the therapeutic methods change materially.",
+        "Consent should normally be documented in writing, and the record should note what was explained, what the client agreed to, and that their questions were answered.",
+        "For a minor, legal consent is given by the parent or guardian while the child's own [[assent|the child's affirmative agreement, sought to the extent of their developing understanding]] is sought alongside it.",
+    ]},
     {"t": "h3", "text": "Special issues"},
-    {"t": "fig", "key": "consent_flow", "caption": "Consent and assent decision flow for minors and adults lacking capacity."},
+    {"t": "fig", "key": "consent_flow", "caption": "Consent-and-assent flow for a minor: check age/capacity, take guardian consent, seek the minor's assent, agree confidentiality limits, handle disagreement and mandatory reporting."},
+    {"t": "box", "kind": "info", "title": "Consent-assent flow as steps (DOCX view)", "items": [
+        "Step 1: Check whether the client is under 18 (a minor under MHCA and a child under POCSO); if an adult, use the normal adult-capacity consent process.",
+        "Step 2: Explain aims, methods, risks, alternatives, fees and confidentiality limits to the parent or legal guardian and obtain informed consent.",
+        "Step 3: Explain therapy to the minor in age-appropriate words, invite questions and seek assent, weighing the minor's preferences and best interests.",
+        "Step 4: Agree a confidentiality contract with both about what stays private, what parents are told, and when safety overrides privacy.",
+        "Step 5: If guardian and minor disagree or the minor declines, explore reasons without coercion, consult a supervisor, and consider the legal route.",
+        "Step 6: Begin therapy, documenting both consent and assent; if abuse is disclosed, follow the POCSO s.19 reporting duty.",
+    ]},
+    {"t": "mn", "word": "CARVED", "text": "Capacity, Adequate disclosure, Reasoning/comprehension, Voluntariness, Enduring process (not one-off), Documentation \u2014 the elements that make consent valid; for minors add Assent on top of guardian consent."},
     {"t": "ul", "items": [
         ("Minors (<18 years in India):", [
             "Legal consent comes from the parent or legal guardian.",
@@ -446,6 +527,16 @@ _s("t9", "9", "Planning and recording of therapy sessions", [
         "Session planning: prepare using previous notes; plan the aims for each session but stay responsive to the client's needs.",
     ]},
     {"t": "note", "text": "{{THEORY}} Jongsma's Treatment Planner sets out a 6-step planning sequence (problem selection \u2192 definition \u2192 goals \u2192 objectives \u2192 interventions \u2192 diagnosis). {{c:Jongsma, PDF p.24-26}}"},
+    {"t": "h3", "text": "Planning in sentences (exam form)"},
+    {"t": "ul", "items": [
+        "Planning begins with a thorough intake and assessment in which presenting complaints, history, risk, mental state and any test results are gathered to understand the problem fully.",
+        "The assessment is then organised into a [[case formulation|an integrated working hypothesis explaining why the problem began and why it persists]], which links the findings into a coherent story.",
+        "A useful formulation weighs the [[four Ps|predisposing, precipitating, perpetuating and protective factors]], distinguishing vulnerabilities and triggers from what maintains the problem and what protects the client.",
+        "From the formulation flows a treatment plan stating the goals, the chosen therapy, the frequency and length of sessions, the measures of progress and the criteria for ending therapy.",
+        "The plan also sets the therapeutic frame of time, place, fee and boundaries, and it includes a plan for emergencies so that risk is managed rather than improvised.",
+    ]},
+    {"t": "box", "kind": "ex", "title": "Illustrative example (fictional)", "text":
+        "{{EG}} For a client with low mood, the formulation notes a family history (predisposing), a recent job loss (precipitating), social withdrawal (perpetuating) and a supportive partner (protective); the plan is weekly behavioural activation for twelve sessions with PHQ-9 monitoring. Details invented."},
     {"t": "h3", "text": "Structure of a typical CBT session"},
     {"t": "ol", "items": [
         "Brief check-in and mood check.",
@@ -474,7 +565,18 @@ _s("t9", "9", "Planning and recording of therapy sessions", [
         ]),
         "Audio/video recording needs explicit written consent; recordings are used only for the agreed purpose (such as supervision) and destroyed as agreed.",
     ]},
-    {"t": "fig", "key": "soap_dap", "caption": "SOAP and DAP progress-note formats compared."},
+    {"t": "h3", "text": "Recording in sentences (exam form)"},
+    {"t": "ul", "items": [
+        "Clinical records exist to support continuity of care, so that another professional, or the same therapist after a gap, can understand what has happened and continue the work safely.",
+        "Records serve accountability, because accurate, dated and signed notes provide evidence of what was done and why if the work is later questioned clinically, ethically or legally.",
+        "Good [[progress notes|the brief factual record written after each session]] are timely, accurate, objective and free of judgemental language, recording what was said, observed, judged and planned.",
+        "Several structured formats exist, including SOAP, DAP and [[BIRP|Behaviour, Intervention, Response, Plan]], each giving a consistent skeleton so that important information is not omitted.",
+        "[[Process notes|the therapist's private reflections, hunches and reactions]] are kept separate from the formal clinical record and generally receive greater protection from disclosure.",
+        "Records must be stored securely, for example in locked cabinets or password-protected files with restricted access, because a confidentiality breach can seriously harm the client.",
+        "Records are retained for the period required by law or institutional policy and then disposed of safely, so that out-of-date files do not become a lingering privacy risk.",
+        "{{LAW}} The client generally has a right to access their own records, a right made statutory in India by the Mental Healthcare Act 2017 s.25. {{c:MHCA 2017, s.25}}",
+    ]},
+    {"t": "fig", "key": "soap_dap", "caption": "SOAP (four parts) versus DAP (three parts): how the Subjective and Objective of SOAP combine into the single Data section of DAP."},
     {"t": "box", "kind": "info", "title": "APA guidance on records", "items": [
         "{{CODE}} APA Std 6.01\u20136.02 \u2014 create, maintain and dispose of records to protect confidentiality. {{c:APA 2017}}",
         "{{GUIDE}} APA Record Keeping Guidelines (2007) \u2014 content, retention and security best practice. {{c:APA Record Keeping}}",
@@ -490,13 +592,21 @@ _s("t9", "9", "Planning and recording of therapy sessions", [
 _s("t10", "10", "Structuring therapy and setting goals", [
     {"t": "lead", "text": "Structure gives therapy direction, safety and efficiency; collaborative goals increase motivation and show when therapy is complete."},
     {"t": "ul", "items": [
-        "A clear frame (contract), a clear agenda each session, defined phases, and regular review of progress.",
-        "Phases: (1) Beginning \u2014 engagement, assessment, formulation, contracting, goal setting; (2) Middle \u2014 active intervention and working through; (3) End \u2014 consolidation, relapse prevention, termination, follow-up.",
+        "Structure begins with a clear [[frame|the agreed boundaries of therapy: time, place, fee, length, confidentiality and contact rules]], which creates the predictable, safe container within which change can take place.",
+        "Each session is itself structured with an agenda, so that limited time is spent on the client's priorities rather than drifting without direction or purpose.",
+        "A course of therapy is structured into three broad phases, namely a beginning, a middle and an end, each with its own characteristic tasks and emphasis.",
+        "The beginning phase covers engagement, assessment, [[case formulation|a working explanation of the client's problem that guides the plan]], contracting and the setting of collaborative goals.",
+        "The middle phase is where active intervention and [[working through|repeatedly facing and resolving a problem until change becomes stable]] occur, using the techniques of the chosen model.",
+        "The end phase covers consolidation of gains, [[relapse prevention|planning ahead to recognise and manage early warning signs of a setback]], termination and arrangements for follow-up.",
+        "Regular review of progress is built into the structure, so that goals and methods are revised in light of outcome data rather than left unchanged out of habit.",
     ]},
     {"t": "fig", "key": "therapy_phases", "caption": "The three phases of a course of therapy."},
     {"t": "h3", "text": "Goal setting"},
     {"t": "ul", "items": [
-        "Goals are collaborative (jointly negotiated), derived from the formulation, and in the client's own words.",
+        "Goals should be collaborative, meaning they are jointly negotiated with the client rather than dictated, because goals the client owns carry far more motivation and commitment.",
+        "Goals are derived from the case formulation and expressed where possible in the client's own words, so they stay relevant to the problem and meaningful to the person.",
+        "Well-formed goals are SMART, that is Specific, Measurable, Achievable, Realistic or Relevant, and Time-bound, which turns a vague wish into a concrete target that progress can be checked against.",
+        "Goals are also best stated positively as something to move towards, kept under the client's own control, and ordered by priority so the most pressing targets come first.",
         ("Good goals are SMART:", [
             "Specific, Measurable, Achievable, Realistic/Relevant, Time-bound.",
             "Also stated positively, under the client's control, and ordered by priority.",
@@ -527,13 +637,15 @@ _s("t10", "10", "Structuring therapy and setting goals", [
 # ========================= 11. PRE/POST ASSESSMENT =========================
 _s("t11", "11", "Pre- and post-assessment", [
     {"t": "lead", "text": "A baseline (pre) gives diagnosis, severity, risk and a benchmark; the post-assessment evaluates change; follow-up checks maintenance. Repeated monitoring lets therapy be adjusted (feedback-informed treatment)."},
-    {"t": "fig", "key": "assess_chart", "caption": "Pre, during, post and follow-up measurement points."},
+    {"t": "fig", "key": "assess_chart", "caption": "Illustrative PHQ-9 trajectory across baseline, weekly monitoring, post-treatment and follow-up, with the moderate-severity threshold marked."},
     {"t": "h3", "text": "Why assess before, during and after"},
     {"t": "ul", "items": [
-        "Pre-assessment (baseline) provides diagnosis, severity, risk, strengths and a benchmark against which change is judged.",
-        "Post-assessment evaluates change at the end of therapy; follow-up assessment checks whether gains are maintained.",
-        "Ongoing session-by-session monitoring (for example OQ-45, CORE-OM, Outcome Rating Scale / Session Rating Scale) gives feedback so therapy can be adjusted (feedback-informed treatment).",
-        "Tracking progress reduces deterioration, especially for clients who are flagged as \u201cnot on track\u201d.",
+        "Pre-assessment establishes a [[baseline|the client's starting level before therapy, used as the benchmark for later comparison]], giving diagnosis, severity, risk and strengths against which all change is judged.",
+        "Post-assessment, conducted at the end of therapy, measures how far the client has changed from baseline and whether the agreed goals have actually been met.",
+        "Follow-up assessment some weeks or months later checks whether gains have been maintained or whether the client has begun to relapse and needs further support.",
+        "Ongoing session-by-session monitoring with brief measures, such as the OQ-45, CORE-OM or the Outcome and Session Rating Scales, feeds results back so therapy can be adjusted in real time.",
+        "This continuous feedback, known as [[feedback-informed treatment|routinely using the client's own outcome scores to guide and adjust therapy]], reduces deterioration, especially for clients flagged as not on track.",
+        "Repeated measurement also supports accountability and supervision, because objective scores give a shared, less biased picture of progress than clinical impression alone.",
     ]},
     {"t": "h3", "text": "Methods and measures"},
     {"t": "ul", "items": [
@@ -545,6 +657,15 @@ _s("t11", "11", "Pre- and post-assessment", [
             "Functioning: GAF, WHODAS 2.0; global impression: CGI; alliance: WAI.",
         ]),
     ]},
+    {"t": "h3", "text": "Methods in sentences (exam form)"},
+    {"t": "ul", "items": [
+        "Assessment draws on multiple methods, including clinical interviews, [[behavioural observation|systematically watching and recording what the client actually does]], self-report questionnaires and clinician-rated scales.",
+        "[[Self-report scales|questionnaires the client completes about their own symptoms]] such as the PHQ-9 and GAD-7 are quick, standardised and easy to repeat, making them ideal for tracking change over time.",
+        "[[Clinician-rated scales|measures scored by the therapist from interview and observation]] such as the Hamilton scales add an expert perspective that can complement the client's own account.",
+        "[[Collateral information|accounts from family, teachers or other professionals who know the client]] can be sought with consent to give a fuller and more balanced picture of functioning.",
+        "The same measures should be used before and after therapy so that pre and post scores are directly comparable and genuine change can be distinguished from noise.",
+        "Measures must be chosen for their reliability and validity and for their fit with the client's language, culture and literacy, because an unsuitable test yields misleading numbers.",
+    ]},
     {"t": "note", "text": "{{GUIDE}} WHO-5 and WHODAS 2.0 are WHO instruments for well-being and functioning. {{c:WHO}}"},
     {"t": "table", "caption": "Two widely used screeners and their severity bands.",
      "head": ["Scale", "Construct", "Severity bands"],
@@ -554,12 +675,14 @@ _s("t11", "11", "Pre- and post-assessment", [
      ]},
     {"t": "h3", "text": "Evaluating change"},
     {"t": "ul", "items": [
-        "Statistical significance (group level) vs clinical significance (individual level).",
-        "{{THEORY}} Reliable Change Index (RCI; Jacobson & Truax, 1991): change must exceed measurement error (RCI > 1.96). {{c:Jacobson & Truax 1991}}",
-        "Clinically significant change: the client crosses a cutoff from the dysfunctional into the functional range.",
-        "Effect size (Cohen's d) and percentage improvement.",
-        "Single-case designs (AB, ABAB, multiple baseline) for individual evaluation.",
+        "[[Statistical significance|a result unlikely to be due to chance across a group]] answers whether a treatment works on average, but it does not tell you whether an individual client meaningfully improved.",
+        "[[Clinical significance|a change large enough to matter in the client's real life]] asks whether this particular client crossed from the dysfunctional into the functional range on the measure used.",
+        "{{THEORY}} The Reliable Change Index (Jacobson & Truax, 1991) tests whether an individual's change exceeds measurement error, with a value above 1.96 taken as reliable rather than random fluctuation. {{c:Jacobson & Truax 1991}}",
+        "[[Effect size|a standardised number showing how large a change is, such as Cohen's d]] and simple percentage improvement give a sense of the magnitude of change beyond mere statistical testing.",
+        "[[Single-case designs|research designs that track one client repeatedly, such as AB, ABAB or multiple-baseline]] let the clinician evaluate change for an individual rather than only for a group.",
+        "Change should be judged on several measures and on the client's own account of functioning, because any one score can move for reasons unrelated to genuine therapeutic gain.",
     ]},
+    {"t": "mn", "word": "BE-MAF", "text": "Baseline (pre), Evaluate at end (post), Monitor each session, Appraise change (clinical vs statistical, RCI), Follow-up to check maintenance \u2014 the measurement points and tests of change."},
     {"t": "box", "kind": "warn", "title": "Interpret with caution", "items": [
         "Placebo, regression to the mean, practice effects, response bias.",
         "Use reliable, valid measures suited to the client's language, culture and literacy.",
@@ -570,6 +693,16 @@ _s("t11", "11", "Pre- and post-assessment", [
 # ========================= 12. EVIDENCE-BASED PRACTICE =====================
 _s("t12", "12", "Evidence-based practice (EBP) of therapies", [
     {"t": "lead", "text": "EBP integrates the best research with clinical expertise in the context of the patient's characteristics, culture and preferences."},
+    {"t": "h3", "text": "Core ideas in sentences (exam form)"},
+    {"t": "ul", "items": [
+        "{{GUIDE}} The APA (2006) defines evidence-based practice as the integration of the best available research with clinical expertise in the context of the patient's characteristics, culture and preferences. {{c:APA EBPP 2006}}",
+        "The idea was borrowed from [[evidence-based medicine|Sackett's approach of using the best current research to inform clinical decisions]] and adapted so that psychology weighs research alongside judgement and client values.",
+        "[[Empirically supported treatments|specific therapies shown effective for specific disorders in controlled trials]] form one pillar, judged by criteria such as those of APA Division 12 (Chambless and Hollon, 1998).",
+        "A treatment is called well-established when at least two good independent trials show it superior to placebo or another treatment, using manuals and clearly defined client samples.",
+        "The [[hierarchy of evidence|a ranking of study designs by how far they guard against bias]] places systematic reviews and randomised trials above cohort studies, single-case designs and expert opinion.",
+        "A key distinction is between [[efficacy|how well a treatment works under controlled trial conditions]] and [[effectiveness|how well it works in ordinary, messy clinical practice]], since trial results do not always transfer.",
+        "EBP is carried out as a repeating cycle, namely asking a clear clinical question, searching for the best evidence, appraising it, integrating it with expertise and client values, applying it and evaluating the outcome.",
+    ]},
     {"t": "ul", "items": [
         "{{GUIDE}} Definition (APA Presidential Task Force, 2006): the integration of the best available research with clinical expertise in the context of patient characteristics, culture and preferences. The concept came from evidence-based medicine (Sackett). {{c:APA EBPP 2006}}",
         ("{{THEORY}} Empirically supported treatments (ESTs):", [
@@ -597,9 +730,11 @@ _s("t12", "12", "Evidence-based practice (EBP) of therapies", [
     ]},
     {"t": "h3", "text": "The outcome debate and common factors"},
     {"t": "ul", "items": [
-        "{{THEORY}} Eysenck (1952) claimed psychotherapy was no better than spontaneous remission.",
-        "{{THEORY}} Smith & Glass (1977) meta-analysed 375 studies, finding a mean effect size of about 0.68 (the average treated person better off than ~75% of untreated persons).",
-        "{{THEORY}} \u201cDodo bird verdict\u201d (Rosenzweig; Luborsky): all bona fide therapies work about equally \u2014 pointing to common factors.",
+        "{{THEORY}} Eysenck (1952) provocatively claimed that psychotherapy was no more effective than [[spontaneous remission|natural recovery that happens over time without any treatment]], which stung the field into gathering better outcome evidence.",
+        "{{THEORY}} Smith and Glass (1977) answered with a [[meta-analysis|a statistical pooling of many separate studies into one overall estimate]] of 375 studies, finding a mean effect size of about 0.68 favouring therapy.",
+        "That effect size means the average treated person ended up better off than roughly seventy-five per cent of untreated people, providing strong aggregate evidence that psychotherapy works.",
+        "{{THEORY}} The so-called Dodo bird verdict (Rosenzweig; Luborsky) holds that all [[bona fide|genuine, properly delivered]] therapies produce about equal benefit, which points towards shared common factors rather than unique techniques.",
+        "This debate matters for practice because it warns against assuming that a favoured technique is the main active ingredient when the relationship and the client may matter more.",
     ]},
     {"t": "fig", "key": "variance_bars", "caption": "Lambert's approximate outcome-variance estimates."},
     {"t": "ul", "items": [
