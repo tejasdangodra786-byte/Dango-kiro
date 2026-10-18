@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Psychotherapy — Unit I: Introduction to Psychotherapy</title>
+<style>
+  /* ============================================================
+     Self-contained, OFFLINE academic study notes.
+     No external fonts, scripts, images, or stylesheets are loaded.
+     System font stack + CSS/emoji/inline-SVG accents only.
+     ============================================================ */
+  :root {
+    --bg:        #f4f6fb;
+    --surface:   #ffffff;
+    --ink:       #20283a;
+    --muted:     #566074;
+    --primary:   #3f4d8c;      /* deep periwinkle */
+    --primary-d: #2c3766;
+    --accent:    #5b8a72;      /* sage */
+    --lav:       #ece9f7;      /* lavender pastel */
+    --lav-b:     #d8d1ee;
+    --mint:      #e4f2ec;
+    --mint-b:    #bfe0d1;
+    --sky:       #e6effb;
+    --sky-b:     #c3d8f2;
+    --peach:     #fcefe3;
+    --peach-b:   #f2d2b3;
+    --rose:      #fbe8ef;
+    --rose-b:    #efc1d3;
+    --amber-bg:  #fff6e0;
+    --amber-b:   #e8cf8c;
+    --amber-tx:  #7a5a05;
+    --border:    #dde3ef;
+    --shadow:    0 1px 3px rgba(30,40,70,.06), 0 6px 20px rgba(30,40,70,.05);
+    --radius:    14px;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body {
+    background:var(--bg); color:var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+    font-size:16px; line-height:1.72; -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4 { font-family: Georgia, "Times New Roman", "Noto Serif", serif; line-height:1.25; }
+
+  /* mark highlight target for anchor jumps */
+  :target { animation: flash 1.6s ease; }
+  @keyframes flash { 0%{ background:var(--amber-bg);} 100%{ background:transparent;} }
+
+  /* ─── COVER ─── */
+  .cover {
+    background: linear-gradient(135deg,#2c3766 0%,#3f4d8c 45%,#5b8a72 120%);
+    color:#fff; padding:72px 40px 60px; text-align:center; position:relative; overflow:hidden;
+  }
+  .cover::before{ content:""; position:absolute; inset:0;
+    background: radial-gradient(ellipse at 20% 15%, rgba(255,255,255,.10) 0%, transparent 55%),
+                radial-gradient(ellipse at 85% 90%, rgba(255,255,255,.08) 0%, transparent 55%); }
+  .cover-inner{ position:relative; z-index:1; max-width:860px; margin:0 auto; }
+  .cover .eyebrow{ letter-spacing:4px; text-transform:uppercase; font-size:12px; font-weight:600; color:rgba(255,255,255,.72); margin-bottom:20px; }
+  .cover h1{ font-size:clamp(28px,5vw,46px); font-weight:700; margin-bottom:16px; text-wrap:balance; }
+  .cover .tagline{ font-size:17px; color:rgba(255,255,255,.85); max-width:640px; margin:0 auto 26px; }
+  .cover-badges{ display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin-bottom:30px; }
+  .cover-badge{ background:rgba(255,255,255,.14); border:1px solid rgba(255,255,255,.25); border-radius:22px; padding:6px 15px; font-size:12.5px; }
+  .cover-credit{ display:inline-block; margin-top:10px; padding:10px 22px; border:1px solid rgba(255,255,255,.35); border-radius:30px; font-size:14px; font-weight:600; background:rgba(255,255,255,.08); }
+  .cover-note{ margin-top:22px; font-size:12px; color:rgba(255,255,255,.6); max-width:620px; margin-left:auto; margin-right:auto; }
+
+  /* ─── SEARCH + TOC BAR ─── */
+  .toolbar{ position:sticky; top:0; z-index:50; background:var(--primary-d); padding:10px 18px; display:flex; gap:12px; align-items:center; box-shadow:0 2px 8px rgba(0,0,0,.12); }
+  .toolbar .brand{ color:#fff; font-weight:700; font-size:14px; white-space:nowrap; }
+  .search-wrap{ flex:1; position:relative; max-width:520px; }
+  #searchBox{ width:100%; padding:9px 34px 9px 14px; border-radius:22px; border:1px solid rgba(255,255,255,.3); background:rgba(255,255,255,.95); font-size:14px; color:var(--ink); }
+  #searchBox:focus{ outline:2px solid var(--accent); }
+  .search-wrap .ico{ position:absolute; right:12px; top:50%; transform:translateY(-50%); font-size:14px; opacity:.6; pointer-events:none; }
+  #searchStatus{ color:rgba(255,255,255,.85); font-size:12.5px; white-space:nowrap; min-width:96px; }
+
+  .layout{ max-width:1180px; margin:0 auto; display:grid; grid-template-columns:270px 1fr; gap:0; }
+  /* ─── TOC SIDEBAR ─── */
+  .toc{ position:sticky; top:58px; align-self:start; max-height:calc(100vh - 70px); overflow-y:auto; padding:26px 16px 40px 24px; }
+  .toc h2{ font-size:13px; text-transform:uppercase; letter-spacing:1.5px; color:var(--muted); margin-bottom:12px; }
+  .toc ol{ list-style:none; }
+  .toc li{ margin:1px 0; }
+  .toc a{ display:block; color:var(--ink); text-decoration:none; font-size:13.5px; padding:6px 10px; border-radius:8px; border-left:3px solid transparent; }
+  .toc a:hover{ background:var(--lav); border-left-color:var(--primary); }
+  .toc .toc-sub a{ padding-left:22px; font-size:12.8px; color:var(--muted); }
+  .toc .toc-head{ margin-top:14px; font-size:11px; letter-spacing:1px; text-transform:uppercase; color:var(--accent); font-weight:700; padding:4px 10px; }
+
+  .main{ padding:30px 36px 90px; min-width:0; }
+
+  /* ─── SECTIONS ─── */
+  .section{ background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow); padding:30px 32px; margin-bottom:30px; scroll-margin-top:64px; }
+  .section > h2{ font-size:26px; color:var(--primary-d); margin-bottom:6px; display:flex; align-items:baseline; gap:12px; flex-wrap:wrap; }
+  .section .kicker{ font-size:12px; letter-spacing:2px; text-transform:uppercase; color:var(--accent); font-weight:700; }
+  .section h3{ font-size:19px; color:var(--primary); margin:26px 0 10px; padding-bottom:6px; border-bottom:2px solid var(--lav); }
+  .section h4{ font-size:16px; color:var(--primary-d); margin:18px 0 6px; }
+  .section p{ margin:10px 0; }
+  .section ul, .section ol{ margin:10px 0 10px 24px; }
+  .section li{ margin:6px 0; }
+  .lead{ font-size:17px; color:var(--muted); }
+
+  .term{ font-style:italic; color:var(--primary-d); font-weight:600; }
+  .def-inline{ color:var(--muted); font-style:italic; }
+  .cite{ font-size:12.5px; color:var(--accent); font-weight:600; white-space:nowrap; }
+  .abbr{ border-bottom:1px dotted var(--muted); cursor:help; }
+
+  /* ─── CALLOUTS ─── */
+  .callout{ border-radius:12px; padding:16px 18px; margin:16px 0; border:1px solid; }
+  .callout .c-title{ font-weight:700; font-size:13px; letter-spacing:.5px; text-transform:uppercase; margin-bottom:6px; display:flex; align-items:center; gap:8px; }
+  .def-box{ background:var(--sky); border-color:var(--sky-b); }
+  .def-box .c-title{ color:var(--primary-d); }
+  .example-box{ background:var(--mint); border-color:var(--mint-b); }
+  .example-box .c-title{ color:#2f6b52; }
+  .revision-box{ background:var(--amber-bg); border-color:var(--amber-b); }
+  .revision-box .c-title{ color:var(--amber-tx); }
+  .caution-box{ background:var(--rose); border-color:var(--rose-b); }
+  .caution-box .c-title{ color:#8a2149; }
+  .law-box{ background:var(--peach); border-color:var(--peach-b); }
+  .law-box .c-title{ color:#8a4a12; }
+
+  /* ─── MNEMONIC CARD ─── */
+  .mnemonic{ background:linear-gradient(135deg,var(--lav) 0%,#f6f3fc 100%); border:1px solid var(--lav-b); border-radius:12px; padding:18px 20px; margin:18px 0; }
+  .mnemonic .m-head{ display:flex; align-items:center; gap:10px; margin-bottom:10px; }
+  .mnemonic .m-word{ font-family:Georgia,serif; font-size:22px; font-weight:700; color:var(--primary-d); letter-spacing:1px; }
+  .mnemonic .m-tag{ font-size:11px; background:var(--primary); color:#fff; padding:2px 10px; border-radius:20px; letter-spacing:1px; text-transform:uppercase; }
+  .mnemonic ul{ list-style:none; margin:0; }
+  .mnemonic li{ margin:5px 0; padding-left:30px; position:relative; }
+  .mnemonic li .letter{ position:absolute; left:0; top:0; font-weight:700; color:var(--accent); font-family:Georgia,serif; font-size:16px; }
+  .mnemonic .apply{ margin-top:10px; font-size:13.5px; color:var(--muted); font-style:italic; border-top:1px dashed var(--lav-b); padding-top:8px; }
+
+  /* ─── TABLES ─── */
+  .table-scroll{ overflow-x:auto; margin:16px 0; border-radius:10px; border:1px solid var(--border); }
+  table{ border-collapse:collapse; width:100%; font-size:14px; min-width:560px; }
+  th,td{ border:1px solid var(--border); padding:10px 12px; text-align:left; vertical-align:top; }
+  thead th{ background:var(--primary); color:#fff; font-family:inherit; font-weight:600; position:sticky; left:auto; }
+  tbody tr:nth-child(even){ background:#f8f9fd; }
+  caption{ caption-side:top; text-align:left; font-weight:600; color:var(--muted); font-size:13px; margin-bottom:8px; }
+
+  /* ─── COLLAPSIBLE ─── */
+  details{ border:1px solid var(--border); border-radius:10px; margin:14px 0; background:#fafbfe; overflow:hidden; }
+  details > summary{ cursor:pointer; padding:12px 16px; font-weight:600; color:var(--primary-d); background:var(--lav); list-style:none; display:flex; align-items:center; gap:8px; }
+  details > summary::-webkit-details-marker{ display:none; }
+  details > summary::before{ content:"▸"; color:var(--accent); font-size:13px; transition:transform .2s; }
+  details[open] > summary::before{ transform:rotate(90deg); }
+  details .d-body{ padding:6px 18px 16px; }
+
+  .stub{ color:var(--muted); font-style:italic; background:var(--peach); border:1px dashed var(--peach-b); border-radius:10px; padding:14px 18px; }
+
+  .footer{ background:var(--primary-d); color:rgba(255,255,255,.9); text-align:center; padding:30px 20px; font-size:14px; }
+  .footer .credit{ font-weight:700; color:#fff; margin-bottom:6px; }
+  .footer .small{ font-size:12px; color:rgba(255,255,255,.6); margin-top:8px; }
+
+  .exam-q{ margin:8px 0 8px 0; }
+  .exam-q li{ margin:7px 0; }
+
+  .hidden{ display:none !important; }
+  mark.sr{ background:#ffe38a; color:inherit; padding:0 2px; border-radius:3px; }
+  .no-results{ background:var(--rose); border:1px solid var(--rose-b); border-radius:12px; padding:18px; margin:20px 0; color:#8a2149; font-weight:600; }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 920px){
+    .layout{ grid-template-columns:1fr; }
+    .toc{ position:static; max-height:none; order:-1; border-bottom:1px solid var(--border); margin:0 10px; }
+    .main{ padding:22px 16px 70px; }
+    .section{ padding:22px 18px; }
+    .toolbar{ flex-wrap:wrap; }
+    #searchStatus{ order:3; }
+  }
+  @media (max-width: 520px){
+    body{ font-size:15px; }
+    .cover{ padding:50px 20px 44px; }
+    .section > h2{ font-size:22px; }
+  }
+
+  /* ─── PRINT ─── */
+  @media print{
+    :root{ --bg:#fff; }
+    body{ background:#fff; font-size:11.5pt; }
+    .toolbar, .toc, .cover-note{ display:none !important; }
+    .layout{ display:block; max-width:none; }
+    .section{ box-shadow:none; border:1px solid #ccc; break-inside:avoid; page-break-inside:avoid; margin-bottom:16px; }
+    .section > h2{ break-after:avoid; }
+    details{ break-inside:avoid; }
+    details[open] .d-body, details .d-body{ display:block; }
+    details:not([open]) > summary ~ *{ display:block !important; }
+    .cover{ color:#000; background:#fff; border-bottom:3px solid var(--primary); }
+    .cover .eyebrow, .cover .tagline, .cover-badge, .cover-credit{ color:#333; border-color:#999; }
+    a{ color:#000; text-decoration:none; }
+    .mnemonic, .callout, table{ break-inside:avoid; }
+    .footer{ background:#fff; color:#000; border-top:2px solid var(--primary); }
+  }
+</style>
+</head>
+<body>
+
+<!-- ====================== COVER ====================== -->
+<header class="cover" id="cover">
+  <div class="cover-inner">
+    <div class="eyebrow">M.Phil. Clinical Psychology · Comprehensive Study Notes</div>
+    <h1>Psychotherapy — Unit I: Introduction to Psychotherapy</h1>
+    <p class="tagline">An exceptionally detailed, source-grounded, exam-oriented revision resource integrating multiple standard psychotherapy texts.</p>
+    <div class="cover-badges">
+      <span class="cover-badge">📘 10 Syllabus Topics</span>
+      <span class="cover-badge">🧠 Mnemonic Cards</span>
+      <span class="cover-badge">📊 Comparison Tables</span>
+      <span class="cover-badge">🔍 Offline Search</span>
+      <span class="cover-badge">🖨️ Print-Friendly</span>
+    </div>
+    <div class="cover-credit">Made by Tejas Dangodra | M.Phil. Clinical Psychology</div>
+    <p class="cover-note">Self-contained offline document. All citations use the short-key (filename, p.N) style, where <em>p.N</em> is the PDF page observed during source review. Indian statutory references are stated at a general level and must be verified against the primary statute. Clinical vignettes are illustrative teaching examples.</p>
+  </div>
+</header>
+
+<!-- ====================== TOOLBAR / SEARCH ====================== -->
+<div class="toolbar">
+  <span class="brand">Unit I</span>
+  <div class="search-wrap">
+    <input id="searchBox" type="search" placeholder="Search these notes (e.g. informed consent, Wolberg, mnemonic)…" aria-label="Search notes" autocomplete="off">
+    <span class="ico">🔍</span>
+  </div>
+  <span id="searchStatus" aria-live="polite"></span>
+</div>
+
+<div class="layout">
+  <!-- ====================== TABLE OF CONTENTS ====================== -->
+  <nav class="toc" aria-label="Table of contents">
+    <h2>Contents</h2>
+    <ol>
+      <li class="toc-head">Topics (A–J)</li>
+      <li><a href="#topic-1">1 · Definitions of Psychotherapy</a></li>
+      <li><a href="#topic-2">2 · Objectives of Psychotherapy</a></li>
+      <li><a href="#topic-3">3 · Training Professional Therapists</a></li>
+      <li><a href="#topic-4">4 · Ethical &amp; Legal Issues</a></li>
+      <li><a href="#topic-5">5 · Rights &amp; Responsibilities</a></li>
+      <li><a href="#topic-6">6 · Consent &amp; Minors</a></li>
+      <li><a href="#topic-7">7 · Treatment Planning &amp; Recording</a></li>
+      <li><a href="#topic-8">8 · Structuring the Session</a></li>
+      <li><a href="#topic-9">9 · Pre- &amp; Post-Assessment</a></li>
+      <li><a href="#topic-10">10 · Evidence-Based Practice</a></li>
+      <li class="toc-head">Revision</li>
+      <li><a href="#mnemonic-master">🧠 Mnemonic Master Sheet</a></li>
+      <li><a href="#exam-section">📝 Exam Section</a></li>
+      <li><a href="#references">📚 References &amp; Source Map</a></li>
+    </ol>
+  </nav>
+
+  <main class="main" id="searchRoot">
+
+    <!-- ================= TOPIC 1 — DEFINITIONS ================= -->
+    <section class="section" id="topic-1">
+      <h2><span class="kicker">Topic A</span> 1 · Definitions of Psychotherapy</h2>
+      <p class="lead">What psychotherapy <em>is</em> — the problem of definition, the canonical working definition, and how different traditions circumscribe the term.</p>
+
+      <h3>1.1 Introduction</h3>
+      <p><span class="term">Psychotherapy</span> <span class="def-inline">(literally "treatment of the mind/soul"; broadly, the treatment of psychological problems by psychological means)</span> is one of the most ambiguous terms in the mental-health lexicon. Everyday speech blends it with helping, treating, advising, guiding, educating and influencing, and different schools attach different meanings. Wolberg observes that the term is genuinely slippery and that published definitions agree on only one point — that psychotherapy addresses <em>problems of an emotional nature</em> — while disagreeing on almost everything else. <span class="cite">(Wolberg-Technique, p.29; p.41)</span></p>
+      <p>For the trainee, a precise definition matters because it <em>circumscribes the boundaries of operation</em> — it tells us who may practise, on whom, by what means, and towards what end — which in turn makes the activity teachable, regulable and researchable.</p>
+
+      <h3>1.2 Definitions (identify source / author)</h3>
+      <div class="callout def-box">
+        <div class="c-title">💬 Canonical working definition — Wolberg</div>
+        <p>"Psychotherapy is the <strong>treatment, by psychological means, of problems of an emotional nature</strong> in which a trained person deliberately establishes a professional relationship with the patient with the object of <strong>(1) removing, modifying, or retarding existing symptoms, (2) mediating disturbed patterns of behavior,</strong> and <strong>(3) promoting positive personality growth and development.</strong>" <span class="cite">(Wolberg-Technique, p.29)</span></p>
+      </div>
+      <p>Wolberg deconstructs the definition clause by clause: <span class="term">"treatment"</span> <span class="def-inline">(it is a form of treatment, not merely re-education, helping or guidance — those words only describe what happens inside it)</span>; and <span class="term">"psychological means"</span> <span class="def-inline">(a generic umbrella covering the whole spectrum of psychological methods, e.g. interpretation, support, behavioural techniques)</span>. <span class="cite">(Wolberg-Technique, p.29)</span></p>
+
+      <div class="callout caution-box">
+        <div class="c-title">⚠️ The sceptical "definition" — Boulder Conference (1949)</div>
+        <p>Corsini quotes the wry Boulder-era description of psychotherapy as "<em>an undefined technique which is applied to unspecified problems with a nonpredictable outcome. For this technique we recommend rigorous training</em>" (Lehner, 1952). Corsini stresses there is still "no general agreement about the definition, methodology, or value" of evidence-based psychotherapy. The <span class="term">Boulder Conference</span> <span class="def-inline">(the 1949 conference that established the scientist-practitioner model of clinical-psychology training)</span> arose from the APA's Shakow committee, appointed under then-president Carl Rogers. <span class="cite">(Corsini, p.592)</span></p>
+      </div>
+
+      <h4>Other framings observed across sources</h4>
+      <ul>
+        <li><strong>Problem-centred (Wolberg-506Q).</strong> The recurring "general aspects" of psychotherapy are its basic ingredients, the factors producing therapeutic change, the <span class="term">therapeutic alliance</span> <span class="def-inline">(the collaborative, affective working bond between therapist and client)</span>, insight, resistance and termination. <span class="cite">(Wolberg-506Q, p.16)</span></li>
+        <li><strong>Person-centred / anti-reductionist (McWilliams).</strong> Treatment "ought to flow from a comprehensive understanding of the client" rather than fitting patients "à la Procrustes" to a fixed technique — a caution against defining therapy as a single method. <span class="cite">(McWilliams, p.8)</span></li>
+      </ul>
+
+      <h3>1.3 Core concepts within the definition</h3>
+      <ul>
+        <li><strong>A trained person.</strong> Competence and training are built into the definition (hence Topic 3). An untrained listener giving advice is not doing psychotherapy.</li>
+        <li><strong>Deliberate, professional relationship.</strong> Distinguishes therapy from friendship or spontaneous emotional support; the relationship is purposeful, bounded and ethically governed (Topics 4–5).</li>
+        <li><strong>Psychological means.</strong> Change is sought through psychological processes (learning, relationship, insight, emotional processing) rather than primarily physical means such as medication or surgery.</li>
+        <li><strong>Problems of an emotional nature.</strong> The target is psychological distress, maladaptive patterns and impaired functioning.</li>
+        <li><strong>Defined objectives.</strong> Symptom change, behavioural change and personality growth (expanded in Topic 2).</li>
+      </ul>
+
+      <h3>1.4 Theoretical foundations: why traditions define it differently</h3>
+      <p>The definitional disagreement maps onto the major theoretical families. The CBT/empirical tradition (Wolberg's operational stance) prefers a precise, bounded definition so the activity can be measured and studied; the psychodynamic/humanistic voice resists reducing a deeply personal, relational process to a replicable "technique." <span class="cite">(Wolberg-Technique, p.29; McWilliams, p.8)</span> This is a classic exam contrast: <em>operational definition vs. understanding-based practice</em>.</p>
+
+      <h3>1.5 Comparison table — psychotherapy vs. related interventions</h3>
+      <p>A frequent exam demand is to distinguish psychotherapy from counselling, psychological assessment and psychiatric (biological) treatment. The table below summarises typical distinctions; note these are <em>characteristic tendencies</em>, not rigid walls — the activities overlap heavily in real practice.</p>
+      <div class="table-scroll">
+        <table>
+          <caption>Table 1.1 — Psychotherapy compared with related interventions (characteristic tendencies)</caption>
+          <thead>
+            <tr><th>Dimension</th><th>Psychotherapy</th><th>Counselling</th><th>Psychological assessment</th><th>Psychiatric (biological) treatment</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Primary aim</td><td>Modify symptoms, maladaptive patterns &amp; promote growth <span class="cite">(Wolberg-Technique, p.29)</span></td><td>Support adjustment, problem-solving &amp; decision-making around specific life issues</td><td>Describe, measure &amp; diagnose psychological functioning (inform the plan)</td><td>Alter brain/physiology to reduce symptoms (e.g. medication)</td></tr>
+            <tr><td>Typical focus</td><td>Deeper/enduring patterns; emotional &amp; relational change</td><td>Present, situational concerns; everyday problems in living</td><td>Current functioning, traits, cognition, symptom severity</td><td>Neurochemical / physiological targets</td></tr>
+            <tr><td>Method</td><td>Psychological means within a professional relationship</td><td>Psychological means; often shorter, more guidance-oriented</td><td>Standardised tests, interview, observation</td><td>Pharmacology, ECT and other somatic methods</td></tr>
+            <tr><td>Core practitioner</td><td>Trained psychotherapist / clinical psychologist</td><td>Counsellor / counselling psychologist</td><td>Clinical psychologist / assessor</td><td>Psychiatrist (medical doctor)</td></tr>
+            <tr><td>Relationship to therapy</td><td>—</td><td>Overlaps; the line is "ambiguous" and blurred <span class="cite">(Wolberg-Technique, p.29)</span></td><td>Often a <em>pre/post</em> step feeding the plan (see Topic 9)</td><td>Frequently <em>combined</em> with psychotherapy</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout caution-box">
+        <div class="c-title">⚠️ Caveat</div>
+        <p>Wolberg explicitly notes the term's ambiguity and overlap with helping, advising and guiding. Treat the table as a teaching heuristic; many authors use "counselling and psychotherapy" interchangeably (e.g. Corey's title). <span class="cite">(Wolberg-Technique, p.29; Corey)</span></p>
+      </div>
+
+      <h3>1.6 Clinical application</h3>
+      <div class="callout example-box">
+        <div class="c-title">🧩 Illustrative example</div>
+        <p><em>Illustrative teaching vignette.</em> A trainee receives a referral for "a 28-year-old with panic attacks." Applying the definition operationally, the trainee asks: is a <em>trained</em> person forming a <em>deliberate professional relationship</em>, using <em>psychological means</em>, targeting <em>emotional problems</em>, with <em>defined objectives</em>? If medication alone were offered with no psychological work, it would be psychiatric treatment, not psychotherapy; if a friend simply offered reassurance, it would be neither.</p>
+      </div>
+
+      <h3>1.7 Mnemonic</h3>
+      <div class="mnemonic">
+        <div class="m-head"><span class="m-word">TRIP-E</span><span class="m-tag">Definition</span></div>
+        <ul>
+          <li><span class="letter">T</span><strong>Trained</strong> person delivers it (competence is built in).</li>
+          <li><span class="letter">R</span><strong>Relationship</strong> — a deliberate, professional therapeutic relationship.</li>
+          <li><span class="letter">I</span><strong>Intentional objectives</strong> — remove/modify symptoms, change patterns, promote growth.</li>
+          <li><span class="letter">P</span><strong>Psychological means</strong> (not primarily physical/biological).</li>
+          <li><span class="letter">E</span><strong>Emotional problems</strong> are the target.</li>
+        </ul>
+        <div class="apply"><strong>Apply:</strong> Asked "Is X psychotherapy?", run TRIP-E — a GP prescribing an antidepressant in a 5-minute visit fails "Psychological means" and "Relationship," so it is treatment but not psychotherapy.</div>
+      </div>
+
+      <h3>1.8 Advantages, limitations &amp; challenges of defining psychotherapy</h3>
+      <ul>
+        <li><strong>Advantage of a tight definition:</strong> enables regulation, training standards and outcome research.</li>
+        <li><strong>Limitation:</strong> an overly narrow definition may exclude legitimate relational/humanistic work that resists manualisation (McWilliams). <span class="cite">(McWilliams, p.8)</span></li>
+        <li><strong>Challenge:</strong> boundary overlap with counselling, coaching and psychiatric care makes any single definition contestable (Boulder critique). <span class="cite">(Corsini, p.592)</span></li>
+      </ul>
+
+      <details>
+        <summary>Supplementary depth — "What is psychotherapy?" as an exam essay spine</summary>
+        <div class="d-body">
+          <p>A strong answer (i) opens with the definitional ambiguity (Wolberg; Boulder), (ii) gives Wolberg's working definition verbatim, (iii) unpacks its five core concepts, (iv) contrasts operational vs understanding-based traditions, and (v) closes by situating it against counselling, assessment and psychiatric treatment. This structure doubles as revision scaffolding for Topics 1–2.</p>
+        </div>
+      </details>
+
+      <h3>1.9 Possible examination questions</h3>
+      <ol class="exam-q">
+        <li>Define psychotherapy. Why is it considered one of the most ambiguous terms in mental health? <span class="cite">(Wolberg)</span></li>
+        <li>Differentiate psychotherapy from counselling, psychological assessment and psychiatric treatment.</li>
+        <li>"Psychotherapy is an undefined technique…" — critically discuss the Boulder-era view of definition. <span class="cite">(Corsini)</span></li>
+      </ol>
+
+      <div class="callout revision-box">
+        <div class="c-title">⭐ Exam-oriented summary</div>
+        <ul>
+          <li><strong>One-line definition:</strong> treatment, by <em>psychological means</em>, of <em>emotional problems</em>, by a <em>trained person</em> in a <em>deliberate professional relationship</em>, aiming at symptom change + pattern change + growth (Wolberg, p.29).</li>
+          <li><strong>Key tension:</strong> operational/CBT definition vs anti-reductionist psychodynamic/humanistic view.</li>
+          <li><strong>Boulder critique:</strong> no universal agreement on definition, method or value.</li>
+          <li><strong>Mnemonic:</strong> TRIP-E.</li>
+        </ul>
+      </div>
+      <h3>1.10 References</h3>
+      <p class="cite">Wolberg-Technique p.29, p.41 · Corsini p.592 · Wolberg-506Q p.16 · McWilliams p.8. (Full source map in References section.)</p>
+    </section>
+
+    <!-- ================= TOPIC 2 — OBJECTIVES ================= -->
+    <section class="section" id="topic-2">
+      <h2><span class="kicker">Topic A</span> 2 · Objectives of Psychotherapy</h2>
+      <p class="lead">Why we do it — the canonical goal statement, how goals are framed across traditions, and how global goals become measurable objectives.</p>
+
+      <h3>2.1 Introduction</h3>
+      <p>The <span class="term">objectives</span> <span class="def-inline">(the intended ends or purposes of the treatment)</span> of psychotherapy follow directly from the definition. Clear objectives guide technique selection, allow progress to be monitored, and protect the client from aimless or interminable treatment. Objectives are negotiated <em>collaboratively</em>, not imposed. <span class="cite">(Corey, p.63)</span></p>
+
+      <h3>2.2 The canonical objectives (source: Wolberg)</h3>
+      <div class="callout def-box">
+        <div class="c-title">💬 Wolberg's three objectives</div>
+        <ol>
+          <li><strong>Removing, modifying or retarding existing symptoms</strong> — e.g. reducing panic attacks or low mood.</li>
+          <li><strong>Mediating (changing) disturbed patterns of behaviour</strong> — altering maladaptive interpersonal or coping patterns.</li>
+          <li><strong>Promoting positive personality growth and development</strong> — fostering maturation, resilience and fuller functioning.</li>
+        </ol>
+        <p class="cite">(Wolberg-Technique, p.29)</p>
+      </div>
+
+      <h3>2.3 Core concepts &amp; theoretical foundations</h3>
+      <ul>
+        <li><strong>Adaptive change in affect, behaviour and mentation.</strong> Corsini (Dumont) frames the "core objectives" as adaptive change across feeling, action and thought, helping the patient "fashion alternative and future memories" and build social, interpersonal, self-disciplinary and technical skills — described neurologically as learning-driven neuronal restructuring. <span class="cite">(Corsini, p.23)</span></li>
+        <li><strong>Collaborative goal-setting.</strong> Corey: the therapist should discuss general goals (and length, duration, confidentiality and methods) early, developing goals <em>with</em> the client. <span class="cite">(Corey, p.63)</span></li>
+        <li><strong>Over-responsibility is a risk.</strong> Assuming full responsibility for outcomes disempowers clients and courts <span class="term">burnout</span> <span class="def-inline">(emotional exhaustion and reduced efficacy from chronic occupational stress)</span>. <span class="cite">(Corey, p.63)</span></li>
+      </ul>
+
+      <h3>2.4 From goals to measurable objectives (Jongsma)</h3>
+      <p>Treatment planning distinguishes two levels, a key exam distinction:</p>
+      <div class="table-scroll">
+        <table>
+          <caption>Table 2.1 — Long-term goals vs short-term objectives (Jongsma)</caption>
+          <thead><tr><th>Feature</th><th>Long-term goals</th><th>Short-term objectives</th></tr></thead>
+          <tbody>
+            <tr><td>Scope</td><td>Broad, global</td><td>Narrow, specific</td></tr>
+            <tr><td>Measurability</td><td><em>Need not</em> be measurable</td><td>Behavioural, measurable / quantifiable (e.g. attach a target number)</td></tr>
+            <tr><td>Function</td><td>State the desired positive outcome / direction</td><td>Track incremental, demonstrable progress</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="cite">(Jongsma, p.24; p.25)</p>
+
+      <h3>2.5 Clinical application &amp; examples</h3>
+      <div class="callout example-box">
+        <div class="c-title">🧩 Illustrative example</div>
+        <p><em>Illustrative teaching vignette.</em> For a client with social anxiety, a <strong>long-term goal</strong> might be "reduce social anxiety and participate comfortably in work meetings." A matched <strong>short-term objective</strong> might be "attend 2 team meetings per week and speak at least once, rated for anxiety 0–10, over 4 weeks." The goal gives direction; the objective makes progress auditable (links to Topics 7 and 9).</p>
+      </div>
+
+      <h3>2.6 Mnemonic</h3>
+      <div class="mnemonic">
+        <div class="m-head"><span class="m-word">SMP-G</span><span class="m-tag">Objectives</span></div>
+        <ul>
+          <li><span class="letter">S</span><strong>Symptom</strong> removal / modification / retardation.</li>
+          <li><span class="letter">M</span><strong>Maladaptive-pattern</strong> mediation (behaviour change).</li>
+          <li><span class="letter">P</span><strong>Personality growth</strong> and development.</li>
+          <li><span class="letter">G</span><strong>Goals set collaboratively &amp; measurably</strong> (Corey + Jongsma).</li>
+        </ul>
+        <div class="apply"><strong>Apply:</strong> Writing a treatment plan, SMP-G reminds you to cover symptom relief, pattern change and growth, then operationalise each as a measurable objective agreed with the client.</div>
+      </div>
+
+      <h3>2.7 Advantages, limitations &amp; challenges</h3>
+      <ul>
+        <li><strong>Advantage:</strong> explicit objectives enable outcome measurement and third-party accountability.</li>
+        <li><strong>Limitation / tension:</strong> symptom-focused measurable objectives (CBT/behavioural) may under-represent insight and personality-growth aims valued by psychodynamic work.</li>
+        <li><strong>Challenge:</strong> balancing the client's priorities with clinically indicated goals without the therapist over-owning the outcome. <span class="cite">(Corey, p.63)</span></li>
+      </ul>
+
+      <h3>2.8 Possible examination questions</h3>
+      <ol class="exam-q">
+        <li>Enumerate and explain Wolberg's three objectives of psychotherapy. <span class="cite">(Wolberg)</span></li>
+        <li>Distinguish long-term goals from short-term objectives with examples. <span class="cite">(Jongsma)</span></li>
+        <li>How are therapeutic goals set collaboratively, and why is over-responsibility a risk? <span class="cite">(Corey)</span></li>
+      </ol>
+
+      <div class="callout revision-box">
+        <div class="c-title">⭐ Exam-oriented summary</div>
+        <ul>
+          <li><strong>Three objectives (Wolberg):</strong> symptom change · pattern change · personality growth.</li>
+          <li><strong>Corsini:</strong> adaptive change in affect, behaviour, mentation.</li>
+          <li><strong>Jongsma:</strong> goals = broad (not necessarily measurable); objectives = behavioural, measurable.</li>
+          <li><strong>Corey:</strong> set goals collaboratively; avoid over-responsibility.</li>
+          <li><strong>Mnemonic:</strong> SMP-G.</li>
+        </ul>
+      </div>
+      <h3>2.9 References</h3>
+      <p class="cite">Wolberg-Technique p.29 · Corsini p.23 · Corey p.63 · Jongsma p.24, p.25. (Full source map in References section.)</p>
+    </section>
+
+    <!-- ================= TOPIC 3 — TRAINING ================= -->
+    <section class="section" id="topic-3">
+      <h2><span class="kicker">Topic B</span> 3 · Training Professional Therapists</h2>
+      <p class="lead">How therapists are made — the self as instrument, structure of training, supervision, personal therapy, continuing professional development and competence measurement.</p>
+
+      <h3>3.1 Introduction</h3>
+      <p>Because the definition of psychotherapy builds in "a trained person," the quality of <span class="term">training</span> <span class="def-inline">(the formal, supervised preparation of therapists)</span> is central to the field's legitimacy and to client safety. Training is unusual among professions because the practitioner's own personality is a primary working tool.</p>
+
+      <h3>3.2 Core concept — the self as instrument</h3>
+      <div class="callout def-box">
+        <div class="c-title">💬 Lister-Ford</div>
+        <p>"The chief instrument for most psychotherapists is the self." Effective practice is a "well-blended synthesis of art, science and reflection," and trainees must "come to know themselves at least as well as the theories they are studying," usually through <span class="term">personal therapy</span> <span class="def-inline">(the trainee undergoing their own therapy to increase self-awareness and manage personal reactions)</span>. <span class="cite">(Lister-Ford, p.120)</span></p>
+      </div>
+
+      <h3>3.3 Structure and length of training</h3>
+      <ul>
+        <li><strong>UK / Europe (Lister-Ford).</strong> The <span class="abbr" title="UK Council for Psychotherapy">UKCP</span> (UK Council for Psychotherapy) requires trainees to be 25 before commencing; minimum training length is 3–4 years depending on the regulatory body; the European minimum (<span class="abbr" title="European Association for Psychotherapy">EAP</span>, European Association for Psychotherapy) is 4 years; most qualify around age 30. Required personal qualities: maturity, sensitivity, and the capacity for self-reflection — using one's own responses as a "barometer." <span class="cite">(Lister-Ford, p.121)</span></li>
+      </ul>
+      <div class="callout caution-box">
+        <div class="c-title">⚠️ Context note</div>
+        <p>These age/length figures are UK/European regulatory requirements reported by Lister-Ford (2007); Indian training routes (e.g. the RCI-regulated M.Phil. Clinical Psychology) differ. See Topic 4 for the Indian regulatory frame, stated at a general level.</p>
+      </div>
+
+      <h3>3.4 Supervision, personal therapy &amp; CPD</h3>
+      <ul>
+        <li><strong>Supervision &amp; monitoring.</strong> The <span class="abbr" title="Clinical Outcomes in Routine Evaluation">CORE</span> (Clinical Outcomes in Routine Evaluation) system monitors effectiveness and helps identify <span class="term">continuing professional development</span> <span class="abbr" title="Continuing Professional Development">(CPD)</span> <span class="def-inline">(ongoing, lifelong learning to maintain and extend competence after qualification)</span> needs. <span class="cite">(Lister-Ford, p.118)</span></li>
+        <li><strong>Personal therapy &amp; countertransference.</strong> Corey: personal therapy helps the counsellor recognise and manage <span class="term">countertransference</span> <span class="def-inline">(the therapist's own, often unconscious, emotional reactions to the client that can distort the work)</span>; beginning-therapist issues include anxiety, perfectionism and tolerating ambiguity. <span class="cite">(Corey, p.63; p.12)</span></li>
+        <li><strong>Oral tradition &amp; workforce risk.</strong> McWilliams warns new therapists may carry caseloads of ~60 patients "with no provision for supervision or continuing education," and that much learning is an "oral tradition" transmitted by supervisors and personal therapy. <span class="cite">(McWilliams, p.8; p.9)</span></li>
+        <li><strong>Manualised training.</strong> The MET manual notes therapists require "intensive training and supervision" on a standardised protocol; Project MATCH documented procedures to select, train and supervise therapists. <span class="cite">(MET, p.13)</span></li>
+      </ul>
+
+      <h3>3.5 Measuring competence &amp; fidelity</h3>
+      <ul>
+        <li><strong>CTRS (Beck).</strong> The <span class="term">Cognitive Therapy Rating Scale</span> <span class="abbr" title="Cognitive Therapy Rating Scale">(CTRS)</span> is "used in many research studies and training programs to measure therapist competency," alongside a Cognitive Case Write-Up based on the Academy of Cognitive Therapy certification template. <span class="cite">(Beck-CBT, p.16)</span></li>
+        <li><strong>Fidelity vs competence.</strong> <span class="term">Fidelity</span> <span class="def-inline">(adherence — delivering the protocol as intended)</span> and <span class="term">competence</span> <span class="def-inline">(skilful delivery)</span> are distinct; EBP dissemination depends on both (see Topic 10). The 1995 Division 12 report was titled <em>Training in and Dissemination of Empirically-Validated Psychological Treatments</em>. <span class="cite">(Hofmann-ArtScience, p.53)</span></li>
+      </ul>
+
+      <h3>3.6 Comparison table — how traditions train &amp; assess competence</h3>
+      <div class="table-scroll">
+        <table>
+          <caption>Table 3.1 — Training emphases across traditions</caption>
+          <thead><tr><th>Element</th><th>CBT / behavioural</th><th>Psychodynamic</th><th>Shared pillars</th></tr></thead>
+          <tbody>
+            <tr><td>Competence measure</td><td>Rating scales &amp; certification (CTRS) <span class="cite">(Beck-CBT, p.16)</span></td><td>Supervisory judgement; "oral tradition" <span class="cite">(McWilliams, p.9)</span></td><td>Supervised practice</td></tr>
+            <tr><td>Self-work</td><td>Reflective practice, self-monitoring</td><td>Personal analysis / therapy central <span class="cite">(Lister-Ford, p.120)</span></td><td>Personal therapy for self-awareness</td></tr>
+            <tr><td>Protocol use</td><td>Manuals &amp; fidelity checks <span class="cite">(MET, p.13)</span></td><td>Frame &amp; process, less manualised</td><td>Ethics &amp; CPD throughout <span class="cite">(Lister-Ford, p.118)</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>3.7 Clinical application</h3>
+      <div class="callout example-box">
+        <div class="c-title">🧩 Illustrative example</div>
+        <p><em>Illustrative teaching vignette.</em> A first-year trainee notices intense irritation towards a demanding client. Rather than acting on it, she brings it to supervision and personal therapy, recognising it as countertransference. She also audio-records a session (with consent) to be rated on the CTRS, converting self-awareness into measurable competence feedback.</p>
+      </div>
+
+      <h3>3.8 Mnemonic</h3>
+      <div class="mnemonic">
+        <div class="m-head"><span class="m-word">SUPER-V</span><span class="m-tag">Training</span></div>
+        <ul>
+          <li><span class="letter">S</span><strong>Self-awareness</strong> — the self is the chief instrument.</li>
+          <li><span class="letter">U</span><strong>Understanding of theory</strong> — know theories as well as yourself.</li>
+          <li><span class="letter">P</span><strong>Personal therapy</strong> — manage countertransference.</li>
+          <li><span class="letter">E</span><strong>Evaluation of competence</strong> — fidelity/competence measures (CTRS).</li>
+          <li><span class="letter">R</span><strong>Reflective practice &amp; CPD</strong> — lifelong learning (CORE).</li>
+          <li><span class="letter">V</span><strong>(Super)Vision</strong> — ongoing supervision anchors it all.</li>
+        </ul>
+        <div class="apply"><strong>Apply:</strong> Audit your own development with SUPER-V — e.g. a trainee lacking supervision provision (the "V") is a safety risk McWilliams warns about.</div>
+      </div>
+
+      <h3>3.9 Advantages, limitations &amp; challenges</h3>
+      <ul>
+        <li><strong>Advantage:</strong> supervised, self-aware, CPD-driven training protects clients and sustains competence.</li>
+        <li><strong>Limitation:</strong> competence measures (CTRS) fit manualised CBT better than open-ended psychodynamic work.</li>
+        <li><strong>Challenge:</strong> under-resourced services may provide little supervision/CPD, risking harm and burnout. <span class="cite">(McWilliams, p.8)</span></li>
+      </ul>
+
+      <h3>3.10 Possible examination questions</h3>
+      <ol class="exam-q">
+        <li>"The chief instrument for most psychotherapists is the self." Discuss the implications for training. <span class="cite">(Lister-Ford)</span></li>
+        <li>Describe the role of personal therapy and supervision in managing countertransference. <span class="cite">(Corey, McWilliams)</span></li>
+        <li>How is therapist competence/fidelity measured? Discuss the CTRS. <span class="cite">(Beck)</span></li>
+      </ol>
+
+      <div class="callout revision-box">
+        <div class="c-title">⭐ Exam-oriented summary</div>
+        <ul>
+          <li><strong>Self as instrument</strong> → personal therapy + self-knowledge (Lister-Ford p.120).</li>
+          <li><strong>Pillars:</strong> training length/standards · supervision · personal therapy · CPD (CORE).</li>
+          <li><strong>Competence:</strong> CTRS measures CBT therapist competency (Beck p.16); fidelity ≠ competence.</li>
+          <li><strong>Risk:</strong> no supervision/CPD + huge caseloads (McWilliams).</li>
+          <li><strong>Mnemonic:</strong> SUPER-V.</li>
+        </ul>
+      </div>
+      <h3>3.11 References</h3>
+      <p class="cite">Lister-Ford p.118, p.120, p.121 · Corey p.12, p.63 · McWilliams p.8, p.9 · MET p.13 · Beck-CBT p.16 · Hofmann-ArtScience p.53. (Full source map in References section.)</p>
+    </section>
+
+    <!-- ================= TOPIC 4 — ETHICS & LAW ================= -->
+    <section class="section" id="topic-4">
+      <h2><span class="kicker">Topic C</span> 4 · Ethical &amp; Legal Issues</h2>
+      <p class="lead">The ethical spine of practice — informed consent, confidentiality vs privilege, exceptions/duty to report, boundaries and dual relationships, technology ethics, a decision-making framework, and the Indian legal frame (general level).</p>
+
+      <h3>4.1 Introduction</h3>
+      <p><span class="term">Ethics</span> <span class="def-inline">(professional standards of right conduct that protect clients and the profession)</span> and <span class="term">law</span> <span class="def-inline">(binding rules enforced by the state)</span> overlap but are not identical. A key exam skill is distinguishing <em>ethical guidance</em> (professional codes, aspirational) from <em>binding law</em> (statutes, enforceable). Where they conflict, practitioners must reason carefully, document, and often consult.</p>
+
+      <h3>4.2 Informed consent (source: Corey)</h3>
+      <div class="callout def-box">
+        <div class="c-title">💬 Corey</div>
+        <p>"Informed consent is an ethical and legal requirement that is an integral part of the therapeutic process." It establishes the foundation for the working alliance and is "far broader than simply making sure clients sign the appropriate forms." <span class="cite">(Corey, p.75)</span></p>
+      </div>
+      <p><span class="term">Informed consent</span> <span class="def-inline">(the client's voluntary, knowing agreement to treatment after disclosure of relevant information)</span> elements include: general goals, counsellor and client responsibilities, the <strong>limitations of and exceptions to confidentiality</strong>, legal/ethical parameters, and the practitioner's qualifications. Consent may be written, oral or combined; if oral, the therapist <strong>must document</strong> its nature and extent in the clinical record. <span class="cite">(Corey, p.75; p.76)</span></p>
+
+      <h3>4.3 Confidentiality vs privileged communication</h3>
+      <div class="table-scroll">
+        <table>
+          <caption>Table 4.1 — Confidentiality vs privileged communication (Corey)</caption>
+          <thead><tr><th></th><th>Confidentiality</th><th>Privileged communication</th></tr></thead>
+          <tbody>
+            <tr><td>Nature</td><td><em>Ethical</em> concept (and in most jurisdictions a legal duty)</td><td><em>Legal</em> concept</td></tr>
+            <tr><td>Protects</td><td>Client information from disclosure generally</td><td>Client from having confidential communications revealed <em>in court</em></td></tr>
+            <tr><td>Key limit</td><td>Has exceptions (see 4.4)</td><td>Generally does <strong>not</strong> apply to group, couples, family, or child/adolescent therapy (&gt;2 people in the room)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="cite">(Corey, p.76)</p>
+
+      <h3>4.4 Exceptions to confidentiality / duty to report</h3>
+      <div class="callout caution-box">
+        <div class="c-title">⚠️ Mandatory breaches (Corey)</div>
+        <p>Confidentiality must be broken, as a legal requirement, for: <strong>child abuse, elder abuse, abuse of dependent adults, and danger to self or others.</strong> <span class="cite">(Corey, p.77)</span></p>
+      </div>
+
+      <h3>4.5 Boundaries &amp; dual/multiple relationships</h3>
+      <ul>
+        <li><strong>Sexual involvement — absolute prohibition.</strong> Corsini (Pope &amp; Wedding): "No circumstances or rationale justify sexual involvement with a patient"; the prohibition predates the Hippocratic Oath. Harm clusters into ten areas (e.g. guilt, emptiness/isolation, impaired trust, confused roles/boundaries, emotional lability, suppressed rage, increased suicidal risk, cognitive dysfunction). A survey of 5,148 therapists found ~4.4% reported sex with a patient (male 6.8% vs female 1.6%). <span class="cite">(Corsini, p.597; p.598)</span></li>
+        <li><strong>Nonsexual touch &amp; multiple relationships.</strong> <span class="term">Dual / multiple relationship</span> <span class="def-inline">(having a second, non-therapeutic role with a client, e.g. business or social, that risks impaired judgement or exploitation)</span>. Nonsexual touch is distinct from sexual involvement and has no inherent harm, but context, culture, competence and consent must be weighed; the same gender patterns extend to supervisor–supervisee and professor–student relationships. <span class="cite">(Corsini, p.597; p.598)</span></li>
+      </ul>
+
+      <h3>4.6 Technology / telepsychology ethics</h3>
+      <p>Corey notes that Section H of the ACA (American Counseling Association) Code of Ethics (2014) governs <span class="term">technology</span> and <span class="term">telepsychology</span> <span class="def-inline">(delivering psychological services remotely via phone/video/internet)</span> — covering computer-mediated communication, social media as a delivery platform, distance-counselling informed consent and security, client verification, records, and professional boundaries. <span class="cite">(Corey, p.76; p.77)</span></p>
+
+      <h3>4.7 An ethical decision-making framework (with mnemonic)</h3>
+      <p>When codes do not give a clear answer, trainees apply a structured <span class="term">ethical decision-making</span> process. The mnemonic below maps a defensible, documentable sequence; it operationalises Corey's emphasis that clients should be <em>included</em> in ethical decisions and that reasoning be documented. <span class="cite">(Corey, p.75; p.76)</span></p>
+      <div class="mnemonic">
+        <div class="m-head"><span class="m-word">IDENTIFY</span><span class="m-tag">Ethical framework</span></div>
+        <ul>
+          <li><span class="letter">I</span><strong>Identify</strong> the problem and who is affected.</li>
+          <li><span class="letter">D</span><strong>Determine</strong> the relevant ethical codes <em>and</em> laws (separate the two).</li>
+          <li><span class="letter">E</span><strong>Examine</strong> client rights, autonomy and context (culture, capacity, minors).</li>
+          <li><span class="letter">N</span><strong>Name</strong> the possible courses of action.</li>
+          <li><span class="letter">T</span><strong>Think through</strong> consequences of each option for all parties.</li>
+          <li><span class="letter">I</span><strong>Involve</strong> the client and consult a supervisor/colleague.</li>
+          <li><span class="letter">F</span><strong>Finalise</strong> and act on the best-reasoned option.</li>
+          <li><span class="letter">Y</span><strong>Yield a record</strong> — document the reasoning and review the outcome.</li>
+        </ul>
+        <div class="apply"><strong>Apply:</strong> A client hints at harming an ex-partner. IDENTIFY → you separate the legal duty-to-warn/report from ethical confidentiality (D), involve a supervisor (I), act, and document (Y) — matching Corey's duty-to-report exceptions (p.77).</div>
+      </div>
+
+      <h3>4.8 Indian legal &amp; professional frame (general level)</h3>
+      <div class="callout law-box">
+        <div class="c-title">⚖️ Indian statutes — general, non-clause-specific overview</div>
+        <p>The following are <strong>statutes/guidelines relevant to Indian practice</strong>. They are stated at a general, accurate level only; they are <em>binding law</em>, distinct from professional ethical guidance, and are <strong>not</strong> among the repository source texts. <strong>Always verify against the primary statute</strong> — specific section/clause numbers are deliberately not quoted here.</p>
+        <ul>
+          <li><strong>Rehabilitation Council of India (RCI) Act, 1992</strong> — governs training standards and the register of rehabilitation professionals, including clinical psychologists in India (regulatory/statutory). <em>Ethical guidance vs binding law: the Act is binding; professional codes layer on top.</em></li>
+          <li><strong>Mental Healthcare Act (MHCA), 2017</strong> — rights-based mental-health law addressing, at a general level, the rights of persons with mental illness, informed consent, confidentiality of records, and advance directives.</li>
+          <li><strong>Protection of Children from Sexual Offences (POCSO) Act, 2012</strong> — child-protection statute; relevant to mandatory reporting duties when working with minors.</li>
+          <li><strong>Digital Personal Data Protection (DPDP) Act, 2023</strong> — data-protection law relevant to the storage and processing of clients' personal/health data (records, telepsychology).</li>
+        </ul>
+        <p><strong>Caution:</strong> the above are summarised from general professional knowledge, not the repository PDFs. Scope, definitions and obligations must be confirmed in the current official text of each statute before relying on them in practice or in an answer.</p>
+      </div>
+
+      <h3>4.9 Clinical application</h3>
+      <div class="callout example-box">
+        <div class="c-title">🧩 Illustrative example</div>
+        <p><em>Illustrative teaching vignette.</em> During intake, a therapist explains (and documents) the limits of confidentiality. Three sessions in, an adolescent client discloses ongoing abuse. The therapist recognises this triggers a mandatory-report exception (danger/child abuse, Corey p.77; in India, child-protection obligations — verify against the primary statute), consults a supervisor, informs the client within the consent framework already set, and records the decision.</p>
+      </div>
+
+      <h3>4.10 Advantages, limitations &amp; challenges</h3>
+      <ul>
+        <li><strong>Advantage:</strong> clear ethics + informed consent build trust and protect both parties.</li>
+        <li><strong>Limitation:</strong> codes vary by jurisdiction; privilege rules differ across settings.</li>
+        <li><strong>Challenge:</strong> genuine conflicts between confidentiality and duty to protect; evolving telepsychology and data-protection risks. <span class="cite">(Corey, p.76–77; Corsini, p.597–598)</span></li>
+      </ul>
+
+      <h3>4.11 Possible examination questions</h3>
+      <ol class="exam-q">
+        <li>Discuss informed consent as an ethical and legal requirement. What must it include? <span class="cite">(Corey)</span></li>
+        <li>Differentiate confidentiality from privileged communication and list the exceptions to confidentiality. <span class="cite">(Corey)</span></li>
+        <li>Why is sexual involvement with a client absolutely prohibited? Discuss boundary and dual-relationship issues. <span class="cite">(Corsini)</span></li>
+        <li>Outline an ethical decision-making framework and apply it to a duty-to-report scenario.</li>
+      </ol>
+
+      <div class="callout revision-box">
+        <div class="c-title">⭐ Exam-oriented summary</div>
+        <ul>
+          <li><strong>Informed consent</strong> = ethical + legal; broader than a signed form (Corey p.75).</li>
+          <li><strong>Confidentiality</strong> (ethical/legal duty) vs <strong>privilege</strong> (legal, court; not in group/family/child therapy) — Corey p.76.</li>
+          <li><strong>Mandatory breaches:</strong> child/elder/dependent-adult abuse; danger to self/others (Corey p.77).</li>
+          <li><strong>Boundaries:</strong> absolute ban on sexual involvement; weigh dual relationships (Corsini p.597–598).</li>
+          <li><strong>Indian law (general):</strong> RCI 1992 · MHCA 2017 · POCSO 2012 · DPDP 2023 — binding law, verify the primary statute.</li>
+          <li><strong>Mnemonic:</strong> IDENTIFY.</li>
+        </ul>
+      </div>
+      <h3>4.12 References</h3>
+      <p class="cite">Corey p.75, p.76, p.77 · Corsini p.592, p.597, p.598. Indian statutes = general knowledge (verify primary statute). (Full source map in References section.)</p>
+    </section>
+
+    <!-- ================= TOPIC 5 — RIGHTS & RESPONSIBILITIES ================= -->
+    <section class="section" id="topic-5">
+      <h2><span class="kicker">Topic D</span> 5 · Rights &amp; Responsibilities</h2>
+      <p class="lead">The collaborative contract — client rights, shared responsibilities, the therapist's duties, and how these map onto informed consent.</p>
+
+      <h3>5.1 Introduction</h3>
+      <p>Rights and responsibilities make the therapeutic relationship a <span class="term">collaborative partnership</span> <span class="def-inline">(a working alliance in which duties and decisions are explicitly shared rather than imposed)</span>. Corey frames informed consent itself as the vehicle for client rights: it "involves the right of clients to be informed about their therapy and to make autonomous decisions pertaining to it," turning clients into "active partners and true collaborators." <span class="cite">(Corey, p.75)</span></p>
+
+      <h3>5.2 Client rights (source: Corey)</h3>
+      <ul>
+        <li><strong>Right to be informed &amp; to decide.</strong> Clients have the right to information about therapy and to make autonomous decisions about it; educating clients about rights and responsibilities empowers them and builds trust. <span class="cite">(Corey, p.75)</span></li>
+        <li><strong>Right to know about supervision.</strong> Clients have a right to know their therapist may discuss details of the relationship with a supervisor or colleague. <span class="cite">(Corey, p.76)</span></li>
+        <li><strong>Rights embedded in consent elements.</strong> The "client bill of rights" maps directly onto the informed-consent elements — goals, responsibilities, confidentiality limits, parameters and qualifications (Topic 4). <span class="cite">(Corey, p.75)</span></li>
+      </ul>
+
+      <h3>5.3 Shared &amp; therapist responsibilities</h3>
+      <ul>
+        <li><strong>Two responsibility errors (Corey).</strong> (a) Assuming <em>full</em> responsibility for direction/outcome — disempowers clients and risks burnout; (b) <em>refusing</em> responsibility for accurate assessment and treatment planning. How responsibility is shared "should be addressed early in the course of counseling." <span class="cite">(Corey, p.63)</span></li>
+        <li><strong>Therapist's explicit duties.</strong> Discuss length and duration of sessions, confidentiality, general goals, and methods. <span class="cite">(Corey, p.63)</span></li>
+        <li><strong>Responsibility for the whole person (Corsini/Dumont).</strong> Therapists are "responsible to some degree for both the natural and nurturant components of the patients' lives"; prescribing psychoactive medication "without assuming responsibility for the patient's concurrent experience" is described as irresponsible. <span class="cite">(Corsini, p.23; p.24)</span></li>
+      </ul>
+
+      <h3>5.4 Comparison table — rights vs responsibilities</h3>
+      <div class="table-scroll">
+        <table>
+          <caption>Table 5.1 — Client rights mapped against responsibilities (both parties)</caption>
+          <thead><tr><th>Domain</th><th>Client rights</th><th>Client responsibilities</th><th>Therapist responsibilities</th></tr></thead>
+          <tbody>
+            <tr><td>Information &amp; consent</td><td>To be informed; to give/withhold consent; autonomy <span class="cite">(Corey, p.75)</span></td><td>To engage honestly; to ask questions; to decide</td><td>To disclose goals, methods, qualifications, confidentiality limits <span class="cite">(Corey, p.75)</span></td></tr>
+            <tr><td>Confidentiality</td><td>To privacy within legal limits</td><td>To understand the exceptions</td><td>To protect records &amp; explain limits/exceptions <span class="cite">(Corey, p.76–77)</span></td></tr>
+            <tr><td>Direction of work</td><td>To participate in goal-setting</td><td>To share responsibility for progress (homework, attendance)</td><td>Accurate assessment &amp; planning; avoid over/under-responsibility <span class="cite">(Corey, p.63)</span></td></tr>
+            <tr><td>Oversight</td><td>To know about supervision <span class="cite">(Corey, p.76)</span></td><td>To raise concerns</td><td>To seek supervision; practise within competence</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>5.5 Mnemonic</h3>
+      <div class="mnemonic">
+        <div class="m-head"><span class="m-word">RIGHTS</span><span class="m-tag">Rights &amp; duties</span></div>
+        <ul>
+          <li><span class="letter">R</span><strong>Right to information</strong> about therapy.</li>
+          <li><span class="letter">I</span><strong>Informed, autonomous decisions</strong> (consent/refusal).</li>
+          <li><span class="letter">G</span><strong>Goals set together</strong> (collaborative direction).</li>
+          <li><span class="letter">H</span><strong>Honesty &amp; shared responsibility</strong> (client's part).</li>
+          <li><span class="letter">T</span><strong>Transparency about supervision</strong> &amp; limits.</li>
+          <li><span class="letter">S</span><strong>Safety &amp; competence</strong> — therapist's duty to assess, plan &amp; protect.</li>
+        </ul>
+        <div class="apply"><strong>Apply:</strong> At intake, run RIGHTS to script your opening contract — e.g. "T" reminds you to tell the client you discuss cases in supervision (Corey p.76).</div>
+      </div>
+
+      <h3>5.6 Clinical application</h3>
+      <div class="callout example-box">
+        <div class="c-title">🧩 Illustrative example</div>
+        <p><em>Illustrative teaching vignette.</em> A client expects the therapist to "fix" them passively. Using the shared-responsibility principle, the therapist clarifies early that progress depends on the client's active participation (e.g. between-session tasks), while the therapist remains responsible for competent assessment and planning — avoiding both over-responsibility (burnout) and under-responsibility (poor planning). <span class="cite">(Corey, p.63)</span></p>
+      </div>
+
+      <h3>5.7 Advantages, limitations &amp; challenges</h3>
+      <ul>
+        <li><strong>Advantage:</strong> explicit, early negotiation of rights/responsibilities empowers clients and prevents disputes.</li>
+        <li><strong>Limitation:</strong> capacity issues (minors, serious illness) complicate "autonomous decisions" (see Topic 6).</li>
+        <li><strong>Challenge:</strong> balancing client autonomy with therapist duty to protect and to maintain standards.</li>
+      </ul>
+
+      <h3>5.8 Possible examination questions</h3>
+      <ol class="exam-q">
+        <li>Discuss client rights and therapist responsibilities as expressed through informed consent. <span class="cite">(Corey)</span></li>
+        <li>What are the two errors therapists make regarding responsibility, and why do they matter? <span class="cite">(Corey)</span></li>
+        <li>Construct a rights-vs-responsibilities table for the therapeutic relationship.</li>
+      </ol>
+
+      <div class="callout revision-box">
+        <div class="c-title">⭐ Exam-oriented summary</div>
+        <ul>
+          <li><strong>Rights</strong> flow from informed consent: information + autonomous decisions + knowing about supervision (Corey p.75–76).</li>
+          <li><strong>Shared responsibility</strong>: avoid over-responsibility (burnout) and under-responsibility (poor planning); settle it early (Corey p.63).</li>
+          <li><strong>Therapist duties</strong>: disclose goals/methods/qualifications/confidentiality limits; assess, plan, supervise.</li>
+          <li><strong>Mnemonic:</strong> RIGHTS.</li>
+        </ul>
+      </div>
+      <h3>5.9 References</h3>
+      <p class="cite">Corey p.63, p.75, p.76, p.77 · Corsini p.23, p.24. (Full source map in References section.)</p>
+    </section>
+
+    <!-- ================= STUBS: TOPICS 6–10 (filled by FEAT-003) ================= -->
+    <section class="section" id="topic-6">
+      <h2><span class="kicker">Topic E</span> 6 · Consent &amp; Minors</h2>
+      <p class="stub">📝 <strong>Content pending (to be completed in the next build phase).</strong> This section will cover consent and assent with minors: privilege does not extend to child/adolescent therapy (Corey p.76); duty to report child abuse (Corey p.77); involving a family member in assessment (Beck-CBT); and Indian age-of-majority/consent provisions stated at a general level (Majority Act 1875, POCSO 2012, MHCA 2017) — labelled as statutes to be verified against the primary text, with no invented clause numbers.</p>
+    </section>
+
+    <section class="section" id="topic-7">
+      <h2><span class="kicker">Topic F</span> 7 · Treatment Planning &amp; Recording</h2>
+      <p class="stub">📝 <strong>Content pending.</strong> Will cover Jongsma's six-step treatment plan (p.24–26), progress-note/documentation tools, Wolberg's verbatim recording (p.845), and documenting informed consent and ethical decisions (Corey p.75–76).</p>
+    </section>
+
+    <section class="section" id="topic-8">
+      <h2><span class="kicker">Topic G</span> 8 · Structuring the Session</h2>
+      <p class="stub">📝 <strong>Content pending.</strong> Will cover CBT session structure and goal-setting (Beck-CBT), the psychodynamic "frame" contrast (Gabbard), and homework/termination.</p>
+    </section>
+
+    <section class="section" id="topic-9">
+      <h2><span class="kicker">Topic H</span> 9 · Pre- &amp; Post-Assessment</h2>
+      <p class="stub">📝 <strong>Content pending.</strong> Will cover baseline and repeated outcome measurement (MET / Project MATCH), outcome research and meta-analysis (Lister-Ford p.62–64), efficacy vs effectiveness vs practice-based evidence, and clinical significance.</p>
+    </section>
+
+    <section class="section" id="topic-10">
+      <h2><span class="kicker">Topic I/J</span> 10 · Evidence-Based Practice</h2>
+      <p class="stub">📝 <strong>Content pending.</strong> Will cover the EST movement and the RCT "gold standard" (Hofmann-ArtScience p.53), the EBP controversy (Corsini p.592), manualisation/fidelity, common factors, and Norcross's four routes to integration (Handbook p.29–30).</p>
+    </section>
+
+    <!-- ================= REVISION STUBS ================= -->
+    <section class="section" id="mnemonic-master">
+      <h2><span class="kicker">Revision</span> 🧠 Mnemonic Master Sheet</h2>
+      <p class="stub">📝 <strong>Content pending.</strong> A consolidated one-page sheet of every mnemonic in these notes (TRIP-E, SMP-G, SUPER-V, IDENTIFY, RIGHTS, and those for Topics 6–10) with letter mappings and apply-lines, to be completed in the next build phase.</p>
+    </section>
+
+    <section class="section" id="exam-section">
+      <h2><span class="kicker">Revision</span> 📝 Exam Section</h2>
+      <p class="stub">📝 <strong>Content pending.</strong> A consolidated bank of short-answer and long-answer examination questions spanning all ten Unit I topics, to be completed in the next build phase.</p>
+    </section>
+
+    <section class="section" id="references">
+      <h2><span class="kicker">Revision</span> 📚 References &amp; Source Map</h2>
+      <p class="stub">📝 <strong>Full source map pending.</strong> The complete reference list (short-key → full filename, author, year, edition) and the honest source audit — including image-only scans flagged as not reviewed — will be completed in the next build phase. Sources cited in Topics 1–5 above: Wolberg (<em>The Technique of Psychotherapy</em>, 4e, 2013; and <em>506 Questions</em>), Corsini &amp; Wedding (<em>Current Psychotherapies</em>, 9e, 2011), Corey (<em>Theory and Practice of Counseling and Psychotherapy</em>), Lister-Ford (<em>A Short Introduction to Psychotherapy</em>, 2007), Jongsma (<em>Complete Adult Psychotherapy Treatment Planner</em>), J. Beck (<em>Cognitive Behavior Therapy: Basics and Beyond</em>, 2e, 2011), McWilliams (<em>Psychoanalytic Psychotherapy</em>, 2004), MET Manual (Project MATCH), and Hofmann &amp; Weinberger (<em>The Art and Science of Psychotherapy</em>, 2007). Indian statutes (RCI 1992, MHCA 2017, POCSO 2012, DPDP 2023) are general knowledge, not repository sources — verify against the primary statute.</p>
+    </section>
+
+  </main>
+</div>
+
+<footer class="footer">
+  <div class="credit">Made by Tejas Dangodra | M.Phil. Clinical Psychology</div>
+  <div>Psychotherapy — Unit I: Introduction to Psychotherapy · Comprehensive Study Notes</div>
+  <div class="small">Offline, self-contained document. Citations reflect PDF pages observed during source review; always cross-check against the primary texts and, for Indian law, the primary statute.</div>
+</footer>
+
+<script>
+  /* ============================================================
+     Offline search — pure vanilla JS, no external dependency.
+     Filters topic/revision sections by text match and highlights
+     matches. Shows a graceful "no results" state.
+     ============================================================ */
+  (function () {
+    "use strict";
+    var box = document.getElementById("searchBox");
+    var status = document.getElementById("searchStatus");
+    var root = document.getElementById("searchRoot");
+    if (!box || !root) { return; }
+
+    var sections = Array.prototype.slice.call(root.querySelectorAll(".section"));
+
+    // Cache original HTML so we can restore after clearing highlights.
+    sections.forEach(function (s) { s.setAttribute("data-orig", s.innerHTML); });
+
+    // No-results banner element.
+    var banner = document.createElement("div");
+    banner.className = "no-results hidden";
+    banner.textContent = "No matches found. Try a different term.";
+    root.insertBefore(banner, root.firstChild);
+
+    function clearHighlights() {
+      sections.forEach(function (s) {
+        if (s.innerHTML.indexOf("mark class=\"sr\"") !== -1) {
+          s.innerHTML = s.getAttribute("data-orig");
+        }
+      });
+    }
+
+    function escapeReg(str) {
+      return str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    }
+
+    // Walk text nodes and wrap matches in <mark>.
+    function highlight(el, re) {
+      var walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null);
+      var nodes = [];
+      var n;
+      while ((n = walker.nextNode())) { nodes.push(n); }
+      nodes.forEach(function (node) {
+        if (!re.test(node.nodeValue)) { return; }
+        re.lastIndex = 0;
+        var span = document.createElement("span");
+        span.innerHTML = node.nodeValue.replace(re, '<mark class="sr">$&</mark>');
+        node.parentNode.replaceChild(span, node);
+      });
+    }
+
+    function run() {
+      var q = box.value.trim();
+      clearHighlights();
+      banner.classList.add("hidden");
+
+      if (q === "") {
+        sections.forEach(function (s) { s.classList.remove("hidden"); });
+        status.textContent = "";
+        return;
+      }
+
+      var needle = q.toLowerCase();
+      var shown = 0;
+      var re = new RegExp(escapeReg(q), "gi");
+
+      sections.forEach(function (s) {
+        var text = (s.textContent || "").toLowerCase();
+        if (text.indexOf(needle) !== -1) {
+          s.classList.remove("hidden");
+          highlight(s, re);
+          shown++;
+        } else {
+          s.classList.add("hidden");
+        }
+      });
+
+      if (shown === 0) {
+        banner.classList.remove("hidden");
+        status.textContent = "0 sections";
+      } else {
+        status.textContent = shown + (shown === 1 ? " section" : " sections");
+      }
+    }
+
+    var t;
+    box.addEventListener("input", function () {
+      clearTimeout(t);
+      t = setTimeout(run, 120);
+    });
+    box.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") { box.value = ""; run(); }
+    });
+
+    // Expose for headless verification that the handler is defined.
+    window.__kiroSearch = run;
+  })();
+</script>
+</body>
+</html>
