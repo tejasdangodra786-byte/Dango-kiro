@@ -40,6 +40,47 @@ else:
 OUT = sys.argv[1] if len(sys.argv) > 1 else \
     "/projects/sandbox/Dango-kiro/Psychotherapy_Unit_II_Comprehensive_Notes.docx"
 
+# Short citation key -> full "Author, Full Title" form (verified allowlist).
+# This MUST stay identical to the CITES dict in .work/build/build_unit2.py so
+# the HTML and DOCX deliverables carry byte-identical citation text. Body/
+# statute keys are already full names and pass through unchanged (after any
+# 'PDF p.' suffix is stripped).
+CITES = {
+    'Wolberg': 'Lewis R. Wolberg, The Technique of Psychotherapy',
+    'Corey': 'Gerald Corey, Theory and Practice of Counseling and Psychotherapy',
+    'Beck': 'Judith S. Beck, Cognitive Behavior Therapy: Basics and Beyond',
+    'Jongsma': 'Arthur E. Jongsma et al., The Complete Adult Psychotherapy Treatment Planner',
+    'Gabbard': 'Glen O. Gabbard, Long-Term Psychodynamic Psychotherapy: A Basic Text',
+    'Lister-Ford': 'Christine Lister-Ford, A Short Introduction to Psychotherapy',
+    'Corsini': 'Raymond J. Corsini & Danny Wedding, Current Psychotherapies',
+    'Sharf': 'Richard S. Sharf, Theories of Psychotherapy and Counseling',
+    'cheat sheet': 'Clinical rating-scale reference (PHQ-9 / GAD-7 severity bands)',
+    # Unit II body / primary-source keys (full body + document + year forms).
+    'APA 2017': 'American Psychological Association, Ethics Code 2017',
+    'APA Dictionary of Psychology': 'American Psychological Association, APA Dictionary of Psychology',
+    'APA Div 29 Norcross': "John C. Norcross (ed.), Psychotherapy Relationships That Work (APA Division 29 task force)",
+    'WHO mhGAP': 'World Health Organization, mhGAP Intervention Guide',
+    'RCI Act 1992': 'Rehabilitation Council of India Act, 1992',
+    'IACP': 'Indian Association of Clinical Psychologists (secondary summary only)',
+}
+
+
+def _cite(payload):
+    """Expand a {{c:...}} payload into the display text for the citation.
+
+    The payload is a short key optionally followed by ', PDF p.NN...' and/or a
+    ', Std/s./section' suffix. Book keys map to the full Author, Title form;
+    body/statute names pass through. Any 'PDF p.' page token is dropped, while
+    a genuine Std/section/s. suffix is preserved. This mirrors _cite() in
+    .work/build/build_unit2.py so HTML and DOCX citations match."""
+    payload = payload.strip()
+    parts = [p.strip() for p in payload.split(',')]
+    key = parts[0]
+    suffixes = [p for p in parts[1:] if not re.match(r'(?i)^PDF\s*p', p)]
+    base = CITES.get(key, key)
+    return ', '.join([base] + suffixes) if suffixes else base
+
+
 # Evidence-label tags -> readable prefix text.
 TAG_LABEL = {
     "LAW": "Binding law",
@@ -75,7 +116,7 @@ def _add_runs(paragraph, text):
             r = paragraph.add_run(TAG_LABEL[tag] + ": ")
             r.bold = True
         elif cite:
-            r = paragraph.add_run("[" + cite + "]")
+            r = paragraph.add_run("[" + _cite(cite) + "]")
             r.italic = True
             r.font.color.rgb = RGBColor(0x55, 0x55, 0x55)
         elif gterm is not None:
