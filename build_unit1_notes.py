@@ -38,6 +38,7 @@ CREDIT = "Made by Tejas Dangodra | M.Phil. Clinical Psychology"
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 HTML_OUT = os.path.join(HERE, "Psychotherapy_Unit_I_Study_Notes.html")
+DOCX_OUT = os.path.join(HERE, "Psychotherapy_Unit_I_Study_Notes.docx")
 
 
 # ===========================================================================
@@ -1169,12 +1170,340 @@ def render_html() -> str:
     return "\n".join(parts)
 
 
+# ===========================================================================
+# DOCX RENDERER  (reuses the SAME content model as the HTML renderer)
+# ===========================================================================
+# Drawn natively (tables, shading, borders, down-arrow glyphs) so everything
+# survives in Word with NO external images. The .docx and .html are generated
+# from the one SECTIONS model, so they stay content-identical.
+
+from docx import Document  # noqa: E402
+from docx.enum.section import WD_SECTION  # noqa: E402
+from docx.enum.table import WD_TABLE_ALIGNMENT  # noqa: E402
+from docx.enum.text import WD_ALIGN_PARAGRAPH, WD_BREAK  # noqa: E402
+from docx.oxml.ns import qn  # noqa: E402
+from docx.oxml import OxmlElement  # noqa: E402
+from docx.shared import Mm, Pt, RGBColor  # noqa: E402
+
+# Colour palette mirroring the HTML CSS variables.
+_ACCENT = RGBColor(0x2B, 0x4C, 0x7E)
+_INK = RGBColor(0x1B, 0x23, 0x30)
+_MUTED = RGBColor(0x4A, 0x55, 0x68)
+_MNEM_BORDER = RGBColor(0xC9, 0x8A, 0x1B)
+_MNEM_HEAD = RGBColor(0x8A, 0x5A, 0x00)
+_NOTE_BORDER = RGBColor(0xB2, 0x3A, 0x48)
+
+# Shading fill colours (hex strings, no leading '#').
+_FLOW_NODE_FILL = "FFFFFF"
+_FLOW_BRANCH_FILL = "E8EEF7"
+_MNEM_FILL = "FFF6E6"
+_NOTE_FILL = "FDECEF"
+
+_ARROW = "\u2193"  # down arrow
+
+
+def _set_cell_border(cell, color="2B4C7E", sz="8"):
+    """Give a table cell a solid single border on all four sides."""
+    tcPr = cell._tc.get_or_add_tcPr()
+    borders = OxmlElement("w:tcBorders")
+    for edge in ("top", "left", "bottom", "right"):
+        el = OxmlElement("w:" + edge)
+        el.set(qn("w:val"), "single")
+        el.set(qn("w:sz"), sz)
+        el.set(qn("w:space"), "0")
+        el.set(qn("w:color"), color)
+        borders.append(el)
+    tcPr.append(borders)
+
+
+def _shade_cell(cell, fill):
+    """Apply a solid background fill to a table cell."""
+    tcPr = cell._tc.get_or_add_tcPr()
+    shd = OxmlElement("w:shd")
+    shd.set(qn("w:val"), "clear")
+    shd.set(qn("w:color"), "auto")
+    shd.set(qn("w:fill"), fill)
+    tcPr.append(shd)
+
+
+def _no_space(paragraph, before=0, after=0):
+    pf = paragraph.paragraph_format
+    pf.space_before = Pt(before)
+    pf.space_after = Pt(after)
+
+
+def _add_run(paragraph, text, *, bold=False, italic=False, size=None,
+             color=None, font="Segoe UI"):
+    run = paragraph.add_run(text)
+    run.bold = bold
+    run.italic = italic
+    if size is not None:
+        run.font.size = Pt(size)
+    if color is not None:
+        run.font.color.rgb = color
+    if font is not None:
+        run.font.name = font
+    return run
+
+
+def _docx_bullets(doc, items, level=0):
+    for item in items:
+        if isinstance(item, dict):
+            p = doc.add_paragraph(style="List Bullet")
+            if level:
+                p.paragraph_format.left_indent = Mm(10 + 6 * level)
+            _no_space(p, 0, 2)
+            _add_run(p, item["text"], size=10.5, color=_INK, font="Calibri")
+            sub = item.get("sub")
+            if sub:
+                for s in sub:
+                    sp = doc.add_paragraph(style="List Bullet 2")
+                    _no_space(sp, 0, 1)
+                    _add_run(sp, s, size=10, color=_INK, font="Calibri")
+        else:
+            p = doc.add_paragraph(style="List Bullet")
+            if level:
+                p.paragraph_format.left_indent = Mm(10 + 6 * level)
+            _no_space(p, 0, 2)
+            _add_run(p, item, size=10.5, color=_INK, font="Calibri")
+
+
+def _docx_flow(doc, block):
+    """Render a flow chart as a single-column bordered table with down-arrows."""
+    nodes = list(block.get("nodes", []))
+    branches = block.get("branches")
+
+    title_p = doc.add_paragraph()
+    _no_space(title_p, 8, 2)
+    _add_run(title_p, "Flow chart: " + str(block["title"]),
+             bold=True, size=10.5, color=_ACCENT)
+
+    # One table, one column; each node is a bordered+shaded cell, with an
+    # arrow-only row between nodes.
+    rows = []
+    for i, node in enumerate(nodes):
+        rows.append(("node", node))
+        if i < len(nodes) - 1 or branches:
+            rows.append(("arrow", _ARROW))
+
+    table = doc.add_table(rows=len(rows), cols=1)
+    table.alignment = WD_TABLE_ALIGNMENT.CENTER
+    for (kind, text), row in zip(rows, table.rows):
+        cell = row.cells[0]
+        cell.width = Mm(150)
+        p = cell.paragraphs[0]
+        p.alignment = WD_ALIGN_PARAGRAPH.CENTER
+        _no_space(p, 1, 1)
+        if kind == "node":
+            _set_cell_border(cell, color="2B4C7E", sz="10")
+            _shade_cell(cell, _FLOW_NODE_FILL)
+            _add_run(p, text, size=9.5, color=_INK)
+        else:
+            _add_run(p, text, bold=True, size=13, color=_ACCENT)
+
+    if branches:
+        for br in branches:
+            lp = doc.add_paragraph()
+            lp.alignment = WD_ALIGN_PARAGRAPH.CENTER
+            _no_space(lp, 1, 0)
+            _add_run(lp, br["label"], italic=True, size=8.5, color=_MUTED)
+            ap = doc.add_paragraph()
+            ap.alignment = WD_ALIGN_PARAGRAPH.CENTER
+            _no_space(ap, 0, 0)
+            _add_run(ap, _ARROW, bold=True, size=11, color=_ACCENT)
+            btable = doc.add_table(rows=1, cols=1)
+            btable.alignment = WD_TABLE_ALIGNMENT.CENTER
+            bcell = btable.rows[0].cells[0]
+            bcell.width = Mm(150)
+            _set_cell_border(bcell, color="2B4C7E", sz="8")
+            _shade_cell(bcell, _FLOW_BRANCH_FILL)
+            bp = bcell.paragraphs[0]
+            bp.alignment = WD_ALIGN_PARAGRAPH.CENTER
+            _no_space(bp, 1, 1)
+            _add_run(bp, br["node"], size=9.5, color=_INK)
+    doc.add_paragraph().paragraph_format.space_after = Pt(2)
+
+
+def _docx_mnemonic(doc, block):
+    """Render a mnemonic as a distinct shaded single-cell table (callout box)."""
+    table = doc.add_table(rows=1, cols=1)
+    table.alignment = WD_TABLE_ALIGNMENT.CENTER
+    cell = table.rows[0].cells[0]
+    cell.width = Mm(166)
+    _set_cell_border(cell, color="C98A1B", sz="8")
+    _shade_cell(cell, _MNEM_FILL)
+
+    head = cell.paragraphs[0]
+    _no_space(head, 2, 3)
+    _add_run(head, "Mnemonic: ", bold=True, size=10.5, color=_MNEM_HEAD)
+    _add_run(head, str(block["acronym"]), bold=True, size=13, color=_MNEM_BORDER)
+    _add_run(head, "  \u2014  " + str(block["expansion"]),
+             bold=True, size=10.5, color=_MNEM_HEAD)
+
+    for letter, word, meaning in block["lines"]:
+        lp = cell.add_paragraph()
+        _no_space(lp, 0, 1)
+        _add_run(lp, str(letter) + "  ", bold=True, size=11, color=_MNEM_BORDER)
+        _add_run(lp, str(word) + " \u2014 ", bold=True, size=9.5, color=_INK)
+        _add_run(lp, str(meaning), size=9.5, color=_MUTED)
+    doc.add_paragraph().paragraph_format.space_after = Pt(2)
+
+
+def _docx_note(doc, block):
+    """Render a source / caution box as a shaded single-cell table."""
+    table = doc.add_table(rows=1, cols=1)
+    table.alignment = WD_TABLE_ALIGNMENT.CENTER
+    cell = table.rows[0].cells[0]
+    cell.width = Mm(166)
+    _set_cell_border(cell, color="B23A48", sz="8")
+    _shade_cell(cell, _NOTE_FILL)
+
+    head = cell.paragraphs[0]
+    _no_space(head, 2, 3)
+    _add_run(head, str(block["title"]), bold=True, size=10.5, color=_NOTE_BORDER)
+
+    for item in block["items"]:
+        ip = cell.add_paragraph(style="List Bullet")
+        _no_space(ip, 0, 2)
+        _add_run(ip, str(item), size=9.5, color=_INK, font="Calibri")
+    doc.add_paragraph().paragraph_format.space_after = Pt(2)
+
+
+def _docx_subhead(doc, text):
+    p = doc.add_paragraph()
+    _no_space(p, 9, 2)
+    _add_run(p, text, bold=True, size=11.5, color=_INK)
+
+
+def _docx_para(doc, text):
+    p = doc.add_paragraph()
+    _no_space(p, 3, 3)
+    _add_run(p, text, size=10.5, color=_INK, font="Calibri")
+
+
+def _docx_block(doc, block):
+    btype = block["type"]
+    if btype == "bullets":
+        _docx_bullets(doc, block["items"])
+    elif btype == "subhead":
+        _docx_subhead(doc, block["text"])
+    elif btype == "para":
+        _docx_para(doc, block["text"])
+    elif btype == "note":
+        _docx_note(doc, block)
+    elif btype == "flow":
+        _docx_flow(doc, block)
+    elif btype == "mnemonic":
+        _docx_mnemonic(doc, block)
+    else:
+        raise ValueError("Unknown block type: %r" % btype)
+
+
+def _docx_section(doc, section, page_break_before=True):
+    # Each topic starts on a fresh page (mirrors the one-topic-per-page layout
+    # used in the HTML deliverable) so the two stay structurally consistent.
+    h = doc.add_heading(level=1)
+    if page_break_before:
+        h.paragraph_format.page_break_before = True
+    _add_run(h, str(section["num"]) + ". " + str(section["title"]),
+             bold=True, size=15, color=_ACCENT)
+    for block in section["blocks"]:
+        _docx_block(doc, block)
+
+
+def _set_footer_credit(doc):
+    """Put the exact credit string in the section footer (repeats on every page)."""
+    for section in doc.sections:
+        footer = section.footer
+        footer.is_linked_to_previous = False
+        p = footer.paragraphs[0] if footer.paragraphs else footer.add_paragraph()
+        p.alignment = WD_ALIGN_PARAGRAPH.CENTER
+        p.text = ""
+        _add_run(p, CREDIT, size=8.5, color=_MUTED)
+
+
+def render_docx(path: str = DOCX_OUT) -> "Document":
+    doc = Document()
+
+    # A4 page setup with ~20mm margins on the (single) section.
+    sec = doc.sections[0]
+    sec.page_width = Mm(210)
+    sec.page_height = Mm(297)
+    sec.top_margin = Mm(20)
+    sec.bottom_margin = Mm(20)
+    sec.left_margin = Mm(20)
+    sec.right_margin = Mm(20)
+
+    # ---- Cover page ----
+    eyebrow = doc.add_paragraph()
+    eyebrow.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    _no_space(eyebrow, 90, 6)
+    _add_run(eyebrow, "M.PHIL. CLINICAL PSYCHOLOGY  \u2022  STUDY NOTES",
+             size=11, color=_MUTED)
+
+    title_p = doc.add_paragraph()
+    title_p.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    _no_space(title_p, 6, 6)
+    _add_run(title_p, TITLE, bold=True, size=26, color=_ACCENT)
+
+    sub_p = doc.add_paragraph()
+    sub_p.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    _no_space(sub_p, 2, 10)
+    _add_run(sub_p, SUBTITLE, size=15, color=_INK)
+
+    credit_p = doc.add_paragraph()
+    credit_p.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    _no_space(credit_p, 20, 6)
+    _add_run(credit_p, CREDIT, bold=True, size=13, color=_INK)
+
+    scope_p = doc.add_paragraph()
+    scope_p.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    _no_space(scope_p, 24, 0)
+    _add_run(scope_p,
+             "Scope \u2014 Unit I: Introduction to Psychotherapy. Definitions; "
+             "objectives; training of professional therapists; ethical and legal "
+             "issues; rights and responsibilities; consent and assent (minors); "
+             "planning and recording of sessions; structuring and goal setting; "
+             "pre- and post-assessment; and the practice of evidence-based "
+             "therapies. Bullet-point study format, with a flow chart and a "
+             "mnemonic for each of the ten topics.",
+             size=10, color=_MUTED, font="Calibri")
+
+    # Page break after the cover.
+    pb = doc.add_paragraph()
+    pb.add_run().add_break(WD_BREAK.PAGE)
+
+    # ---- Contents + source note ----
+    toc_h = doc.add_heading(level=1)
+    _add_run(toc_h, "Contents", bold=True, size=15, color=_ACCENT)
+    for section in SECTIONS:
+        tp = doc.add_paragraph(style="List Number")
+        _no_space(tp, 0, 1)
+        _add_run(tp, str(section["title"]), size=11, color=_INK, font="Calibri")
+    _docx_note(doc, SOURCE_NOTE)
+
+    # ---- Topic sections (each starts on a new page) ----
+    for section in SECTIONS:
+        _docx_section(doc, section, page_break_before=True)
+
+    # Footer credit on every page.
+    _set_footer_credit(doc)
+
+    doc.save(path)
+    return doc
+
+
 def main() -> None:
     html_text = render_html()
     with open(HTML_OUT, "w", encoding="utf-8") as fh:
         fh.write(html_text)
     print("Wrote HTML:", HTML_OUT)
     print("  bytes:", len(html_text.encode("utf-8")))
+
+    render_docx(DOCX_OUT)
+    print("Wrote DOCX:", DOCX_OUT)
+    print("  bytes:", os.path.getsize(DOCX_OUT))
+
     print("  sections:", len(SECTIONS))
     flows = sum(1 for s in SECTIONS for b in s["blocks"] if b["type"] == "flow")
     mnems = sum(1 for s in SECTIONS for b in s["blocks"] if b["type"] == "mnemonic")
