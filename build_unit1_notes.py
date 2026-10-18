@@ -91,6 +91,33 @@ SECTIONS: List[Section] = [
         "num": 1,
         "title": "Definitions of Psychotherapy",
         "blocks": [
+            {"type": "subhead", "text": "Meaning and origin of the word"},
+            {"type": "bullets", "items": [
+                {"text": "Etymology (Kleinke, 1994): \"psychotherapy\" literally means "
+                 "caring for another person's soul or being, from the Greek:", "sub": [
+                    "psyche \u2014 \"soul\" or \"being\";",
+                    "therapeutikos \u2014 \"caring for another\".",
+                 ]},
+                "Umbrella term: it covers an enormous range of interventions, "
+                "modalities and integrative strategies used to improve quality of life "
+                "and health.",
+                "Historical root \u2014 the \"talking cure\": Anna O., an early "
+                "psychoanalytic patient of Breuer, called her treatment the \"talking "
+                "cure\"; an elegant if vague description \u2014 talking, expressing and "
+                "sharing one's pain can itself be healing. It is a foundational frame, "
+                "though too loose for contemporary researchers.",
+            ]},
+            {"type": "subhead", "text": "Some shorter \"favourite\" definitions "
+                                        "(secondary notes; imprecise but illustrative)"},
+            {"type": "bullets", "items": [
+                "Korchin (1976): \"a conversation with a therapeutic purpose.\"",
+                "Schofield (1964): \"the purchase of friendship.\"",
+                "Bruch (1981): a situation in which two people interact and try to "
+                "understand one another, with the specific goal of accomplishing "
+                "something beneficial for the complaining person.",
+                "J. Watkins (1983): \"when one person with an emotional disorder gets "
+                "help from another person who has less of an emotional disorder.\"",
+            ]},
             {"type": "subhead", "text": "Classic definitions"},
             {"type": "bullets", "items": [
                 {"text": "Wolberg (1954): a form of treatment for problems of an "
@@ -137,6 +164,28 @@ SECTIONS: List[Section] = [
                     "learning rather than drugs.",
                     "Both are often combined (e.g. for depression or psychosis).",
                 ]},
+                {"text": "Psychotherapy vs talking to a friend (secondary notes):", "sub": [
+                    "It is a unilateral (\"one-way\") professional relationship \u2014 the "
+                    "client's problems are discussed, not the therapist's needs.",
+                    "It is circumscribed by limits on time, frequency, content and "
+                    "intimacy.",
+                    "Confidentiality is assured (within ethical and legal limits), so "
+                    "the client can speak freely.",
+                    "It must not be compromised by unethical dual relationships (friend, "
+                    "colleague, lover).",
+                ]},
+            ]},
+            {"type": "subhead", "text": "Four major factors psychotherapy shares "
+                                        "(secondary notes)"},
+            {"type": "bullets", "items": [
+                "A relationship in which the client trusts that the therapist is "
+                "competent and cares about their welfare.",
+                "The expectancy / hope, shared by therapist and client, that benefit "
+                "will result.",
+                "An underlying conceptual framework giving a rationale and procedures, "
+                "requiring active participation of both.",
+                "A practice setting socially defined and accepted as a place of "
+                "healing.",
             ]},
             {"type": "flow", "title": "Flow: from help-seeking to change", "nodes": [
                 "Help-seeking client in distress",
@@ -155,6 +204,22 @@ SECTIONS: List[Section] = [
                  ["P", "Planned", "a planned, systematic, theory-based process"],
                  ["T", "Transformation", "the aim of change / growth"],
              ]},
+            {"type": "flow", "title": "Flow: the four shared factors of therapy "
+                                      "(secondary notes)", "nodes": [
+                "A caring, competent relationship (trust)",
+                "Shared expectancy / hope of benefit",
+                "A conceptual framework + rationale and procedures",
+                "A socially sanctioned healing setting",
+                "\u2192 decrease in distress, increase in adaptive functioning",
+            ]},
+            {"type": "mnemonic", "acronym": "REST",
+             "expansion": "the four factors common to psychotherapies (secondary notes)",
+             "lines": [
+                 ["R", "Relationship", "trust that the therapist is competent and cares"],
+                 ["E", "Expectancy", "shared hope that benefit will result"],
+                 ["S", "System of ideas", "a conceptual framework and procedures"],
+                 ["T", "Therapeutic setting", "a socially sanctioned place of healing"],
+             ]},
         ],
     },
     # -------------------------------------------------------------------
@@ -162,6 +227,17 @@ SECTIONS: List[Section] = [
         "num": 2,
         "title": "Objectives (Goals) of Psychotherapy",
         "blocks": [
+            {"type": "subhead", "text": "Kleinke (1994): six fundamental therapeutic "
+                                        "goals (secondary notes)"},
+            {"type": "bullets", "items": [
+                "Overcoming demoralisation and gaining hope.",
+                "Enhancing mastery and self-efficacy.",
+                "Overcoming avoidance.",
+                "Becoming aware of one's misconceptions.",
+                "Accepting life's realities.",
+                "Achieving insight.",
+            ]},
+            {"type": "subhead", "text": "The broader list of goals"},
             {"type": "bullets", "items": [
                 "Relieve symptoms and distress (anxiety, depression, obsessions, etc.).",
                 "Modify maladaptive behaviour, thoughts and emotions (change).",
@@ -175,6 +251,25 @@ SECTIONS: List[Section] = [
                 "Promote personal growth, self-actualisation and a sense of meaning.",
                 "Prevent relapse and improve quality of life; in severe illness, "
                 "maintain functioning and prevent hospitalisation.",
+                "Concrete life outcomes (e.g. finding a job or a partner, staying out "
+                "of hospital, staying alive) \u2014 the list of possible goals is "
+                "effectively endless (secondary notes).",
+            ]},
+            {"type": "subhead", "text": "Whose goals? (goals can differ \u2014 secondary notes)"},
+            {"type": "bullets", "items": [
+                "Goals may differ for the patient, the significant others in the "
+                "patient's life, and the psychologist (e.g. the patient wants reduced "
+                "anxiety, the therapist wants increased insight, the spouse wants "
+                "greater independence).",
+                "Grounded in beneficence and non-maleficence: help with the problems, "
+                "help the person feel better, and do no harm.",
+                "Short-term symptom relief (often CBT) and deeper work (often "
+                "psychodynamic) may pull in different directions; CBT may seek to "
+                "reduce excess emotion while the patient wants to remove all negative "
+                "emotion.",
+                "Because goals and who sets them can be uncertain or in conflict, "
+                "goal-setting makes informed consent in therapy genuinely complex "
+                "(see Topic 6).",
             ]},
             {"type": "note", "title": "Where WHO fits (supported)", "items": [
                 "WHO's rights-based, recovery-oriented view frames broader objectives: "
@@ -198,6 +293,24 @@ SECTIONS: List[Section] = [
                  ["H", "Harmony", "improve relationships and social functioning"],
                  ["E", "Empower", "strengthen coping, self-esteem, self-efficacy"],
                  ["R", "Relapse prevention", "prevent relapse; protect quality of life"],
+             ]},
+            {"type": "flow", "title": "Flow: whose goals? reconciling the parties "
+                                      "(secondary notes)", "nodes": [
+                "Patient's goal (e.g. reduce anxiety)",
+                "Therapist's goal (e.g. insight, self-reflection)",
+                "Significant others' goal (e.g. independence)",
+                "Negotiate a shared, beneficence-based plan (do no harm)",
+                "Clarify goals \u2192 informed consent",
+            ]},
+            {"type": "mnemonic", "acronym": "HE-MAMA",
+             "expansion": "Kleinke's six fundamental therapeutic goals (secondary notes)",
+             "lines": [
+                 ["H", "Hope", "overcome demoralisation and gain hope"],
+                 ["E", "Efficacy", "enhance mastery and self-efficacy"],
+                 ["M", "Meet avoidance", "overcome avoidance"],
+                 ["A", "Awareness", "become aware of one's misconceptions"],
+                 ["M", "Make peace", "accept life's realities"],
+                 ["A", "Achieve insight", "achieve insight"],
              ]},
         ],
     },
@@ -341,6 +454,68 @@ SECTIONS: List[Section] = [
                 "Consider options and consequences.",
                 "Decide and act; document; evaluate.",
             ]},
+            {"type": "note", "title": "Where ethical guidance comes from (secondary notes)",
+             "items": [
+                "Professional bodies' codes and guidelines define professional "
+                "identity and duties.",
+                "Legal statutes and case law show how courts have resolved dilemmas "
+                "(illustrative, not legal advice; the law is not always an ethically "
+                "sufficient guide).",
+                "The therapist must still reason for themselves; the overarching duty "
+                "is to make the best-quality decision that can be made.",
+                "Tjelveit (1999) notes many different styles of ethical reasoning "
+                "(e.g. casuistry, virtue ethics, feminist ethics, communitarianism, "
+                "pragmatic, narrative) that a therapist may draw on.",
+                "Classic dilemmas cluster in three domains: the goals/objectives of "
+                "therapy; the boundaries between the therapist's different identities; "
+                "and the social/political frameworks of practice.",
+            ]},
+            {"type": "subhead", "text": "The four sources of the duty to safeguard "
+                                        "confidentiality (secondary notes)"},
+            {"type": "bullets", "items": [
+                "The ethical codes of the mental health professions.",
+                "Professional licensure regulations / confidentiality and privilege "
+                "statutes.",
+                "The common law (case law has carved out protection for "
+                "psychotherapists, though less stringent than attorney-client "
+                "privilege).",
+                "Constitutional guarantees (a right of privacy is inferred rather than "
+                "explicit).",
+                "Framed here as general / secondary professional and legal background "
+                "(US-oriented), not Indian statute; for India see MHCA 2017 and "
+                "Puttaswamy (2017) below. Jaffe v. Redmond (1996): the US Supreme Court "
+                "recognised psychotherapist-patient communications as confidential in "
+                "federal trials.",
+            ]},
+            {"type": "subhead", "text": "Why informed consent matters even in a "
+                                        "\"talking\" treatment (secondary notes)"},
+            {"type": "bullets", "items": [
+                "All psychotherapies have risks and benefits the client needs to "
+                "understand; benefits are often emphasised while risks are "
+                "under-stated.",
+                "Possible risks to disclose include: distressing transference "
+                "reactions, regressive dependency, and temporary worsening ("
+                "\"feeling worse before feeling better\", esp. in insight work).",
+                "Greater client participation in treatment decisions lowers the risk "
+                "of harmful treatment; in some jurisdictions failure to obtain consent "
+                "is treated as negligence.",
+            ]},
+            {"type": "subhead", "text": "Boundary crossings vs boundary violations "
+                                        "(secondary notes)"},
+            {"type": "bullets", "items": [
+                {"text": "Crossings (may be unintended, by either party):", "sub": [
+                    "lateness/earliness, altered or cancelled sessions without notice;",
+                    "self-disclosure (verbal or non-verbal);",
+                    "discussing patient material with others (even with consent);",
+                    "jokes or arguments; accidental contact outside sessions; any "
+                    "physical contact.",
+                ]},
+                "Violations: intended and initiated by the therapist; serious, "
+                "exploitative, and unethical (e.g. sexual contact).",
+                "The prohibition on sexual contact traces back to the Hippocratic "
+                "Oath: the professional working with a patient cannot also be that "
+                "patient's lover.",
+            ]},
             {"type": "subhead", "text": "Limits of confidentiality"},
             {"type": "bullets", "items": [
                 "Tarasoff v. Regents of the University of California (1976) established "
@@ -414,6 +589,15 @@ SECTIONS: List[Section] = [
                  ["P", "Protect third party", "Tarasoff duty to warn / protect"],
                  ["C", "Court order", "legally compelled disclosure"],
              ]},
+            {"type": "mnemonic", "acronym": "ELCC",
+             "expansion": "the four sources of the duty to safeguard confidentiality "
+                          "(secondary notes)",
+             "lines": [
+                 ["E", "Ethical codes", "the mental health professions' ethics codes"],
+                 ["L", "Licensure / law", "licensure regulations and privilege statutes"],
+                 ["C", "Common law", "case law protecting therapist-patient communication"],
+                 ["C", "Constitution", "an inferred constitutional right of privacy"],
+             ]},
         ],
     },
     # -------------------------------------------------------------------
@@ -453,6 +637,25 @@ SECTIONS: List[Section] = [
                 "Use supervision; engage in self-care; keep up to date (continuing "
                 "education).",
             ]},
+            {"type": "subhead", "text": "Confidentiality as a right (secondary notes)"},
+            {"type": "bullets", "items": [
+                "Confidentiality may be understood as the client's right of \"informed "
+                "consent to disclosure\": the therapist has an ethical duty to obtain "
+                "the client's consent before disclosing treatment details to anyone, "
+                "including those close to the client.",
+                "The right can create dilemmas when the client discloses that a third "
+                "party is at risk (see Topic 4 limits), or when family/employers seek "
+                "information or ask the therapist not to tell the client about their "
+                "contact.",
+                {"text": "Use of case material for teaching / research is a separate, "
+                 "specific consent issue:", "sub": [
+                    "rising emphasis on client autonomy and ownership of personal "
+                    "material;",
+                    "some journals require the client to have read and consented to "
+                    "the write-up;",
+                    "consent sought after therapy ends can itself be intrusive.",
+                 ]},
+            ]},
             {"type": "note", "title": "Codes behind these rights/duties", "items": [
                 "APA Ethical Principles and the RCI code of conduct underpin these "
                 "rights and responsibilities (supported).",
@@ -465,6 +668,16 @@ SECTIONS: List[Section] = [
                 "Shared responsibilities (attendance, honesty, participation)",
                 "Breach? \u2192 repair, refer, or complaint / review mechanism",
             ]},
+            {"type": "flow", "title": "Flow: a request to disclose client information "
+                                      "(secondary notes)", "nodes": [
+                "Someone requests information about the client / therapy",
+                "Default duty: do not disclose without consent",
+            ], "branches": [
+                {"label": "Client consents to share agreed material", "node": "Disclose only what is agreed"},
+                {"label": "Third party at risk of serious harm", "node": "Weigh duty to protect vs confidentiality"},
+                {"label": "Teaching / research / publication", "node": "Separate specific consent; anonymise"},
+                {"label": "No consent and no overriding duty", "node": "Maintain confidentiality"},
+            ]},
             {"type": "mnemonic", "acronym": "CARED",
              "expansion": "what the client is owed",
              "lines": [
@@ -473,6 +686,17 @@ SECTIONS: List[Section] = [
                  ["R", "Respect & records", "dignity; access to own records"],
                  ["E", "Equality", "non-discriminatory, competent care"],
                  ["D", "Dignity & safety", "privacy; no exploitation or harm"],
+             ]},
+            {"type": "mnemonic", "acronym": "PROTECT",
+             "expansion": "what the therapist is responsible for",
+             "lines": [
+                 ["P", "Practise competently", "within limits of training; refer when needed"],
+                 ["R", "Records", "accurate, secure record keeping"],
+                 ["O", "Obtain consent", "valid informed consent"],
+                 ["T", "Trust / confidentiality", "protect confidentiality and its limits"],
+                 ["E", "Ethical boundaries", "avoid dual relationships and exploitation"],
+                 ["C", "Continuity", "no abandonment; arrange referral / handover"],
+                 ["T", "Training kept up", "supervision, self-care, continuing education"],
              ]},
         ],
     },
@@ -484,6 +708,22 @@ SECTIONS: List[Section] = [
             {"type": "para", "text": "Informed consent is the client's voluntary "
              "agreement to assessment or therapy after receiving and understanding "
              "adequate information. Consent is a process, not a one-time signature."},
+            {"type": "subhead", "text": "The principle behind consent (secondary notes)"},
+            {"type": "bullets", "items": [
+                "The underpinning ethical principle is respect for autonomy: clients "
+                "should be free to choose or refuse treatment for themselves.",
+                {"text": "For consent to be legally valid it must be:", "sub": [
+                    "voluntary;",
+                    "given by a client competent to make that decision;",
+                    "adequately informed, including about possible negative "
+                    "side-effects.",
+                ]},
+                "A specific difficulty in therapy: the therapist often cannot predict "
+                "exactly what the client will experience or what the outcome will be, "
+                "so it is good practice to warn that the process is not always "
+                "comfortable and that many clients feel worse before they feel better "
+                "(less so in CBT).",
+            ]},
             {"type": "subhead", "text": "Elements of informed consent"},
             {"type": "bullets", "items": [
                 "Capacity (competence): ability to understand, appreciate, reason and "
@@ -526,6 +766,24 @@ SECTIONS: List[Section] = [
                 "Cultural context: family involvement is common in collectivist "
                 "settings; still ensure the client's own consent and confidentiality.",
             ]},
+            {"type": "subhead", "text": "Capacity and voluntariness can fluctuate "
+                                        "(secondary notes)"},
+            {"type": "bullets", "items": [
+                "The problem is usually not a global loss of competence but fluctuating "
+                "capacity or rapidly changing decisions (e.g. recent trauma or "
+                "bereavement, psychotic symptoms).",
+                "A child who agreed to therapy one day and refuses the next may be "
+                "making an informed refusal \u2014 or showing that the work has begun; "
+                "this needs careful judgement.",
+                {"text": "Voluntariness is strained when clients are pressured or "
+                 "\"coerced\":", "sub": [
+                    "family-pushed children or family members who agree only under "
+                    "pressure;",
+                    "mandated / forensic clients (therapy as an alternative to prison "
+                    "or part of detention) \u2014 handled openly as part of the work "
+                    "from the start.",
+                ]},
+            ]},
             {"type": "flow", "title": "Consent and assent decision flow", "nodes": [
                 "Is the client an adult with capacity?",
             ], "branches": [
@@ -543,6 +801,14 @@ SECTIONS: List[Section] = [
                  ["V", "Voluntariness", "free from coercion or undue pressure"],
                  ["I", "Insight / comprehension", "the client understands the information"],
                  ["C", "Consent documented", "documented and revisited as a process"],
+             ]},
+            {"type": "mnemonic", "acronym": "AVID",
+             "expansion": "the test for valid consent (secondary notes)",
+             "lines": [
+                 ["A", "Autonomy", "respects the client's right to choose or refuse"],
+                 ["V", "Voluntary", "free from coercion or undue pressure"],
+                 ["I", "Informed", "adequately informed, including of side-effects"],
+                 ["D", "Decision-capable", "given by a competent client"],
              ]},
         ],
     },
@@ -603,6 +869,27 @@ SECTIONS: List[Section] = [
                 "Audio/video recording needs explicit written consent; used only for "
                 "the agreed purpose and destroyed as agreed.",
             ]},
+            {"type": "subhead", "text": "Progress notes vs process notes (secondary notes)"},
+            {"type": "bullets", "items": [
+                "A common practice: note briefly in the medical record that the "
+                "session took place, and keep short notes of the session's main themes "
+                "separately.",
+                "Process notes (the therapist's private reflections) are generally not "
+                "shared with the client; reading them is unlikely to help the client.",
+                "The therapist does not \"own\" the notes outright: in some "
+                "jurisdictions the client may have legal access to them unless access "
+                "would harm the client or another person.",
+                "In CBT, therapist and client often share records of thoughts, feelings "
+                "and behaviours (as with homework); caution where material could be "
+                "misread out of context.",
+            ]},
+            {"type": "flow", "title": "Flow: case formulation \u2014 the 4 Ps", "nodes": [
+                "Predisposing factors (vulnerability)",
+                "Precipitating factors (triggers)",
+                "Perpetuating factors (what maintains it)",
+                "Protective factors (strengths / supports)",
+                "\u2192 integrated formulation drives the treatment plan",
+            ]},
             {"type": "flow", "title": "Flow: a typical session", "nodes": [
                 "Check-in + mood check",
                 "Bridge from previous session",
@@ -619,6 +906,14 @@ SECTIONS: List[Section] = [
                  ["O", "Objective", "observed, measurable data"],
                  ["A", "Assessment", "clinical interpretation / progress"],
                  ["P", "Plan", "next steps, homework, plan for next session"],
+             ]},
+            {"type": "mnemonic", "acronym": "4 Ps",
+             "expansion": "the pillars of a case formulation",
+             "lines": [
+                 ["P", "Predisposing", "long-standing vulnerability factors"],
+                 ["P", "Precipitating", "triggers that set off the problem"],
+                 ["P", "Perpetuating", "factors that maintain the problem"],
+                 ["P", "Protective", "strengths and supports to build on"],
              ]},
         ],
     },
@@ -639,6 +934,9 @@ SECTIONS: List[Section] = [
                 ]},
                 "Goal setting: collaborative (jointly negotiated), derived from the "
                 "case formulation, expressed in the client's own words.",
+                "Because patient, therapist and significant others may hold different "
+                "goals (see Topic 2), negotiating and clarifying goals is part of "
+                "structuring therapy and of valid informed consent.",
             ]},
             {"type": "subhead", "text": "Characteristics of good goals (SMART)"},
             {"type": "bullets", "items": [
@@ -679,6 +977,19 @@ SECTIONS: List[Section] = [
                  ["A", "Achievable", "attainable for the client"],
                  ["R", "Realistic / Relevant", "meaningful and feasible"],
                  ["T", "Time-bound", "has a time frame"],
+             ]},
+            {"type": "flow", "title": "Flow: the three phases of therapy", "nodes": [
+                "Beginning: engage, assess, formulate, contract, set goals",
+                "Middle: active intervention and working through",
+                "End: consolidate, relapse prevention, terminate, follow-up",
+            ]},
+            {"type": "mnemonic", "acronym": "OPIS",
+             "expansion": "the ways goals are classified",
+             "lines": [
+                 ["O", "Outcome vs process", "symptom/behaviour change vs insight/alliance/skills"],
+                 ["P", "Priority-ordered", "ranked by importance"],
+                 ["I", "Immediate/intermediate/ultimate", "session, mid-course and final goals"],
+                 ["S", "Short vs long term", "time horizon of the goal"],
              ]},
         ],
     },
@@ -759,6 +1070,22 @@ SECTIONS: List[Section] = [
                  ["A", "Assess ongoing", "session-by-session monitoring"],
                  ["S", "Same measures", "same valid tools before and after"],
                  ["E", "Evaluate change", "RCI, clinical significance, effect size"],
+             ]},
+            {"type": "flow", "title": "Flow: judging whether change is real", "nodes": [
+                "Pre vs post scores on the same measure",
+                "Statistical significance (group level)?",
+                "Reliable Change Index > 1.96 (individual level)?",
+                "Crosses the clinical cutoff (dysfunctional \u2192 functional)?",
+                "\u2192 reliable AND clinically significant change",
+            ]},
+            {"type": "mnemonic", "acronym": "SCORE",
+             "expansion": "sound assessment methods",
+             "lines": [
+                 ["S", "Self-report", "self-report scales and diaries"],
+                 ["C", "Clinician-rated", "clinician-administered scales"],
+                 ["O", "Observation", "behavioural observation"],
+                 ["R", "Reports / collateral", "collateral and physiological information"],
+                 ["E", "Examine / interview", "structured and unstructured interviews"],
              ]},
         ],
     },
@@ -842,6 +1169,16 @@ SECTIONS: List[Section] = [
                 "matter; evidence-based techniques work best within a strong "
                 "relationship.",
             ]},
+            {"type": "subhead", "text": "The common factors (backbone)"},
+            {"type": "bullets", "items": [
+                "Therapeutic relationship (alliance, empathy).",
+                "Client expectations and hope (placebo).",
+                "A healing setting and a credible rationale.",
+                "A credible ritual / set of procedures.",
+                "New learning experiences; a sense of mastery.",
+                "Wampold's contextual model argues these common factors, rather than "
+                "specific techniques, explain most of the benefit of therapy.",
+            ]},
             {"type": "subhead", "text": "Criticisms and challenges of EBP"},
             {"type": "bullets", "items": [
                 "RCT samples often unrepresentative (strict exclusion, no "
@@ -871,6 +1208,23 @@ SECTIONS: List[Section] = [
                  ["A", "Appraise", "critically appraise the evidence"],
                  ["A", "Apply", "integrate with expertise + client values, then apply"],
                  ["A", "Assess", "evaluate and revise the outcome"],
+             ]},
+            {"type": "flow", "title": "Flow: what accounts for therapy's benefit "
+                                      "(Lambert's estimates)", "nodes": [
+                "Client / extratherapeutic factors (~40%)",
+                "The therapeutic relationship (~30%)",
+                "Expectancy / hope (~15%)",
+                "Technique (~15%)",
+                "\u2192 approximate and debated, as the backbone frames them",
+            ]},
+            {"type": "mnemonic", "acronym": "RICH-M",
+             "expansion": "the common factors across therapies (backbone)",
+             "lines": [
+                 ["R", "Relationship", "alliance and empathy"],
+                 ["I", "Investment / hope", "client expectations and hope (placebo)"],
+                 ["C", "Credible rationale", "a healing setting and rationale"],
+                 ["H", "Healing ritual", "a credible ritual / set of procedures"],
+                 ["M", "Mastery & learning", "new learning experiences and mastery"],
              ]},
         ],
     },
