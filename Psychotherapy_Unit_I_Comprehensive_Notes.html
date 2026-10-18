@@ -156,6 +156,36 @@
   mark.sr{ background:#ffe38a; color:inherit; padding:0 2px; border-radius:3px; }
   .no-results{ background:var(--rose); border:1px solid var(--rose-b); border-radius:12px; padding:18px; margin:20px 0; color:#8a2149; font-weight:600; }
 
+  /* ─── DIAGRAMS (inline SVG / pure-CSS, fully offline) ─── */
+  .figure{ margin:20px 0; padding:16px 14px 10px; background:#fbfcff; border:1px solid var(--border); border-radius:12px; }
+  .figure svg{ display:block; width:100%; height:auto; max-width:100%; }
+  .figcaption{ caption-side:bottom; margin-top:10px; font-size:12.8px; color:var(--muted); font-style:italic; text-align:center; line-height:1.5; }
+  .figcaption b{ font-style:normal; color:var(--primary-d); }
+  /* SVG primitives — shared across diagrams */
+  .dg-box{ fill:#eef1fb; stroke:#3f4d8c; stroke-width:1.5; }
+  .dg-box-accent{ fill:#e4f2ec; stroke:#5b8a72; stroke-width:1.5; }
+  .dg-box-warn{ fill:#fbe8ef; stroke:#efc1d3; stroke-width:1.5; }
+  .dg-box-law{ fill:#fcefe3; stroke:#f2d2b3; stroke-width:1.5; }
+  .dg-box-amber{ fill:#fff6e0; stroke:#e8cf8c; stroke-width:1.5; }
+  .dg-t{ font-family:-apple-system,"Segoe UI",Roboto,Arial,sans-serif; font-size:12.5px; fill:#20283a; }
+  .dg-t-b{ font-weight:700; fill:#2c3766; }
+  .dg-t-sm{ font-size:11px; fill:#566074; }
+  .dg-t-w{ fill:#ffffff; font-weight:700; }
+  .dg-line{ stroke:#3f4d8c; stroke-width:1.6; fill:none; }
+  .dg-line-d{ stroke:#5b8a72; stroke-width:1.6; fill:none; stroke-dasharray:5 4; }
+  .dg-label{ font-family:-apple-system,"Segoe UI",Roboto,Arial,sans-serif; font-size:10.5px; fill:#566074; }
+  /* pure-CSS paired columns (rights vs responsibilities) */
+  .pair-grid{ display:grid; grid-template-columns:1fr auto 1fr; gap:10px; align-items:stretch; margin:8px 0; }
+  .pair-col{ border-radius:10px; padding:12px 14px; border:1px solid var(--border); }
+  .pair-col.left{ background:var(--sky); border-color:var(--sky-b); }
+  .pair-col.right{ background:var(--mint); border-color:var(--mint-b); }
+  .pair-col h5{ font-family:Georgia,serif; font-size:14px; margin-bottom:8px; color:var(--primary-d); }
+  .pair-col ul{ margin:0 0 0 18px; font-size:13px; }
+  .pair-col li{ margin:4px 0; }
+  .pair-mid{ display:flex; flex-direction:column; align-items:center; justify-content:center; color:var(--primary); font-size:22px; font-weight:700; }
+  .pair-mid span{ writing-mode:horizontal-tb; font-size:11px; color:var(--muted); text-align:center; font-weight:600; letter-spacing:1px; }
+  @media (max-width:620px){ .pair-grid{ grid-template-columns:1fr; } .pair-mid{ transform:rotate(90deg); padding:6px 0; } }
+
   /* ─── RESPONSIVE ─── */
   @media (max-width: 920px){
     .layout{ grid-template-columns:1fr; }
@@ -186,6 +216,9 @@
     .cover .eyebrow, .cover .tagline, .cover-badge, .cover-credit{ color:#333; border-color:#999; }
     a{ color:#000; text-decoration:none; }
     .mnemonic, .callout, table{ break-inside:avoid; }
+    .figure{ break-inside:avoid; page-break-inside:avoid; border:1px solid #bbb; }
+    .figure svg{ max-height:420px; }
+    .pair-grid{ break-inside:avoid; }
     .footer{ background:#fff; color:#000; border-top:2px solid var(--primary); }
   }
 </style>
@@ -252,7 +285,13 @@
 
       <h3>1.1 Introduction</h3>
       <p><span class="term">Psychotherapy</span> <span class="def-inline">(literally "treatment of the mind/soul"; broadly, the treatment of psychological problems by psychological means)</span> is one of the most ambiguous terms in the mental-health lexicon. Everyday speech blends it with helping, treating, advising, guiding, educating and influencing, and different schools attach different meanings. Wolberg observes that the term is genuinely slippery and that published definitions agree on only one point — that psychotherapy addresses <em>problems of an emotional nature</em> — while disagreeing on almost everything else. <span class="cite">(Wolberg-Technique, p.29; p.41)</span></p>
-      <p>For the trainee, a precise definition matters because it <em>circumscribes the boundaries of operation</em> — it tells us who may practise, on whom, by what means, and towards what end — which in turn makes the activity teachable, regulable and researchable.</p>
+      <p>For the trainee, a precise definition matters because it <em>circumscribes the boundaries of operation</em> — it tells us who may practise, on whom, by what means, and towards what end — which in turn makes the activity teachable, regulable and researchable. A definition is therefore not a pedantic exercise: it is the hinge on which training standards (Topic 3), ethics and law (Topic 4), rights and responsibilities (Topic 5) and the whole evidence base (Topic 10) all turn.</p>
+
+      <h4>Etymology and historical origin</h4>
+      <p>The word itself tells a story. "Psychotherapy means <em>caring for another person's soul or being</em>, as derived from the Greek <span class="term">psyche</span> <span class="def-inline">(soul or being)</span> and <span class="term">therapeutikos</span> <span class="def-inline">(caring for another)</span>." <span class="cite">(Notes-Psychotherapies, p.0)</span> <em>(Kleinke, 1994, cited in Notes-Psychotherapies.)</em> The earliest and most famous informal description is <span class="term">"the talking cure"</span> <span class="def-inline">(the phrase coined by Anna O., Breuer's early psychoanalytic patient, to capture that talking through and verbalising one's pain can itself be healing)</span>. It is "an elegant, albeit vague description" that "does not satisfy contemporary psychotherapy researchers, but … does provide an historical and foundational frame." <span class="cite">(Notes-Psychotherapies, p.0)</span> Modern practice, by contrast, "combines the synergistic power of a wealth of <strong>biological, psychological, and social</strong> resources … requiring a great deal of creativity, competence, and collaboration." <span class="cite">(Notes-Psychotherapies, p.0)</span></p>
+
+      <h4>Psychotherapy as a <em>unilateral</em> professional relationship</h4>
+      <p>A defining structural feature, often examined, is that psychotherapy is "a <span class="term">unilateral professional relationship</span> <span class="def-inline">(a deliberately 'one-way' relationship in which the patient's problems — not the therapist's needs — are the sole focus)</span> … circumscribed by limits on <strong>time, frequency of contact, content of discussions, and level of intimacy</strong>." <span class="cite">(Notes-Psychotherapies, p.1)</span> This is why "a psychologist will not be effective if he or she tries to be a friend, a colleague, or a lover," and why <span class="term">confidentiality</span> — with explicit "ethical and legal limits … including serious and immediate danger to self and others" — and the prohibition on <span class="term">dual relationships</span> are built into the very concept of what psychotherapy <em>is</em>, not bolted on afterwards. <span class="cite">(Notes-Psychotherapies, p.1)</span> These limits anticipate Topics 4 and 5 directly.</p>
 
       <h3>1.2 Definitions (identify source / author)</h3>
       <div class="callout def-box">
@@ -266,10 +305,27 @@
         <p>Corsini quotes the wry Boulder-era description of psychotherapy as "<em>an undefined technique which is applied to unspecified problems with a nonpredictable outcome. For this technique we recommend rigorous training</em>" (Lehner, 1952). Corsini stresses there is still "no general agreement about the definition, methodology, or value" of evidence-based psychotherapy. The <span class="term">Boulder Conference</span> <span class="def-inline">(the 1949 conference that established the scientist-practitioner model of clinical-psychology training)</span> arose from the APA's Shakow committee, appointed under then-president Carl Rogers. <span class="cite">(Corsini, p.592)</span></p>
       </div>
 
+      <div class="callout def-box">
+        <div class="c-title">💬 Contemporary / APA-adopted definition — Norcross (1990)</div>
+        <p>Psychotherapy is "the <strong>informed and intentional application of clinical methods and interpersonal stances derived from established psychological principles</strong> for the purpose of assisting people to modify their behaviors, cognitions, emotions, and/or other personal characteristics in directions that the participants deem desirable." <span class="cite">(Notes-Psychotherapies, p.0–1; APA, 2012 Resolution)</span> <em>(Norcross, 1990, p.218, cited in Notes-Psychotherapies and adopted in the APA's 2012 Resolution on the Recognition of Psychotherapy Effectiveness.)</em></p>
+      </div>
+      <p>The <span class="term">American Psychological Association (APA)</span> <span class="def-inline">(the major US professional body for psychology)</span> describes psychotherapy, in general terms, as any psychological service provided by a trained professional that primarily uses <em>communication and interaction</em> to assess, diagnose and treat dysfunctional emotional reactions, ways of thinking and behaviour patterns. <span class="cite">(APA Dictionary; verify against live entry)</span> Note how this echoes Wolberg's three clauses: it names a <em>trained professional</em>, a <em>relationship of communication</em>, and <em>defined aims</em>.</p>
+
+      <h4>A spectrum of historical definitions (identify the author)</h4>
+      <p>The Notes list a telling spectrum, running from the playful to the near-scientific, each attributable to a named author — a frequent exam gift, because quoting two or three with attribution signals breadth: <span class="cite">(Notes-Psychotherapies, p.0; all authors cited therein)</span></p>
+      <ol>
+        <li>"A <strong>conversation with a therapeutic purpose</strong>" (Korchin, 1976).</li>
+        <li>"The <strong>purchase of friendship</strong>" (Schofield, 1964) — a deliberately provocative framing of the paid, bounded relationship.</li>
+        <li>Two people interacting "with the specific goal of accomplishing something <strong>beneficial for the complaining person</strong>" (Bruch, 1981).</li>
+        <li>"When one person with an emotional disorder gets help from another person who has <strong>less of an emotional disorder</strong>" (J. Watkins, 1983).</li>
+        <li>Wolberg (1995) — the operational, clause-by-clause definition reproduced above.</li>
+      </ol>
+
       <h4>Other framings observed across sources</h4>
       <ul>
         <li><strong>Problem-centred (Wolberg-506Q).</strong> The recurring "general aspects" of psychotherapy are its basic ingredients, the factors producing therapeutic change, the <span class="term">therapeutic alliance</span> <span class="def-inline">(the collaborative, affective working bond between therapist and client)</span>, insight, resistance and termination. <span class="cite">(Wolberg-506Q, p.16)</span></li>
         <li><strong>Person-centred / anti-reductionist (McWilliams).</strong> Treatment "ought to flow from a comprehensive understanding of the client" rather than fitting patients "à la Procrustes" to a fixed technique — a caution against defining therapy as a single method. <span class="cite">(McWilliams, p.8)</span></li>
+        <li><strong>Common-factors framing.</strong> Beyond any single definition, the Notes identify <strong>four common factors</strong> present whenever psychotherapy helps: (1) a relationship carrying <em>confidence</em> that the therapist is competent and caring; (2) a shared <em>expectancy/hope</em> of benefit; (3) an underlying <em>conceptual framework / rationale</em> with procedures requiring the active participation of both; and (4) a <em>socially sanctioned healing setting</em>. On this view, psychotherapy is partly defined by the common ingredients that make any helping conversation curative. "Generally 70% to 80% of those treated in psychotherapy are improved (Smith et al., 1980)." <span class="cite">(Notes-Psychotherapies, p.1)</span> <em>(Smith et al., 1980, cited in Notes-Psychotherapies.)</em></li>
       </ul>
 
       <h3>1.3 Core concepts within the definition</h3>
@@ -283,6 +339,67 @@
 
       <h3>1.4 Theoretical foundations: why traditions define it differently</h3>
       <p>The definitional disagreement maps onto the major theoretical families. The CBT/empirical tradition (Wolberg's operational stance) prefers a precise, bounded definition so the activity can be measured and studied; the psychodynamic/humanistic voice resists reducing a deeply personal, relational process to a replicable "technique." <span class="cite">(Wolberg-Technique, p.29; McWilliams, p.8)</span> This is a classic exam contrast: <em>operational definition vs. understanding-based practice</em>.</p>
+      <p>The Notes name <strong>four foundational schools</strong>, each of which implicitly defines psychotherapy by what it treats as the agent of change: <span class="cite">(Notes-Psychotherapies, p.2)</span></p>
+      <ul>
+        <li><strong>Psychoanalytic / psychodynamic</strong> — change comes through <span class="term">insight</span> and the relationship itself, offering a <span class="term">"corrective emotional experience"</span> <span class="def-inline">(re-experiencing an old conflict with a new, healthier outcome in the therapy relationship)</span>; attends to <span class="term">transference</span> <span class="def-inline">(the client's feelings redirected onto the therapist)</span> and <span class="term">countertransference</span> <span class="def-inline">(the therapist's own reactions to the client)</span>. <span class="cite">(Notes-Psychotherapies, p.2)</span></li>
+        <li><strong>Behavioural / cognitive-behavioural (CBT)</strong> — change comes through <em>new learning</em>; CBT "places an emphasis on analyzing current problems, defining <strong>concrete goals</strong>, and developing strategies so that the client can achieve specific, measurable changes." <span class="cite">(Notes-Psychotherapies, p.3)</span></li>
+        <li><strong>Humanistic / experiential</strong> — change comes through <em>growth, acceptance and the actualising tendency</em> within an authentic, empathic relationship.</li>
+        <li><strong>Family systems</strong> — change comes through <em>altering patterns of relating</em> within the family or wider system.</li>
+      </ul>
+      <div class="table-scroll">
+        <table>
+          <caption>Table 1.0 — How three traditions define the agent of change (exam contrast)</caption>
+          <thead><tr><th>Dimension</th><th>Cognitive-behavioural (CBT)</th><th>Psychodynamic</th><th>Humanistic</th></tr></thead>
+          <tbody>
+            <tr><td>View of the problem</td><td>Maladaptive learning, thoughts &amp; behaviours</td><td>Unconscious conflict, early relational patterns</td><td>Blocked growth; incongruence; conditions of worth</td></tr>
+            <tr><td>Agent of change</td><td>New learning; skills; cognitive restructuring</td><td>Insight + corrective emotional experience <span class="cite">(Notes-Psychotherapies, p.2)</span></td><td>Empathy, acceptance, the actualising tendency</td></tr>
+            <tr><td>Definition of therapy preferred</td><td>Operational, measurable, concrete goals <span class="cite">(Notes-Psychotherapies, p.3)</span></td><td>Understanding-based; resists manualisation <span class="cite">(McWilliams, p.8)</span></td><td>Relationship-based; person &gt; technique</td></tr>
+            <tr><td>Typical stance on definition</td><td>Tight, testable</td><td>Broad, process-focused</td><td>Experiential, non-reductive</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <figure class="figure">
+        <svg viewBox="0 0 760 300" role="img" aria-label="Concept map of the five core elements of the definition of psychotherapy">
+          <!-- centre -->
+          <ellipse cx="380" cy="150" rx="92" ry="48" class="dg-box"/>
+          <text x="380" y="145" text-anchor="middle" class="dg-t dg-t-b">Psychotherapy</text>
+          <text x="380" y="162" text-anchor="middle" class="dg-t-sm">(Wolberg working definition)</text>
+          <!-- five satellite elements -->
+          <g>
+            <rect x="30" y="20" width="200" height="52" rx="9" class="dg-box-accent"/>
+            <text x="130" y="42" text-anchor="middle" class="dg-t dg-t-b">1 · Trained person</text>
+            <text x="130" y="59" text-anchor="middle" class="dg-t-sm">competence built in</text>
+          </g>
+          <g>
+            <rect x="530" y="20" width="200" height="52" rx="9" class="dg-box-accent"/>
+            <text x="630" y="42" text-anchor="middle" class="dg-t dg-t-b">2 · Professional</text>
+            <text x="630" y="59" text-anchor="middle" class="dg-t-sm">deliberate relationship</text>
+          </g>
+          <g>
+            <rect x="12" y="228" width="210" height="52" rx="9" class="dg-box-accent"/>
+            <text x="117" y="250" text-anchor="middle" class="dg-t dg-t-b">3 · Psychological means</text>
+            <text x="117" y="267" text-anchor="middle" class="dg-t-sm">not primarily physical</text>
+          </g>
+          <g>
+            <rect x="300" y="248" width="170" height="44" rx="9" class="dg-box-accent"/>
+            <text x="385" y="268" text-anchor="middle" class="dg-t dg-t-b">4 · Emotional problems</text>
+            <text x="385" y="284" text-anchor="middle" class="dg-t-sm">the target</text>
+          </g>
+          <g>
+            <rect x="540" y="228" width="208" height="52" rx="9" class="dg-box-accent"/>
+            <text x="644" y="250" text-anchor="middle" class="dg-t dg-t-b">5 · Defined objectives</text>
+            <text x="644" y="267" text-anchor="middle" class="dg-t-sm">symptom · pattern · growth</text>
+          </g>
+          <!-- connectors -->
+          <path d="M300 128 L205 66" class="dg-line-d"/>
+          <path d="M460 128 L556 66" class="dg-line-d"/>
+          <path d="M300 172 L210 232" class="dg-line-d"/>
+          <path d="M380 198 L385 248" class="dg-line-d"/>
+          <path d="M460 172 L552 232" class="dg-line-d"/>
+        </svg>
+        <figcaption class="figcaption"><b>Figure 1.1 — The five core elements of the definition.</b> A concept map of Wolberg's working definition: a <em>trained person</em> in a <em>professional relationship</em> uses <em>psychological means</em> to treat <em>emotional problems</em> toward <em>defined objectives</em> (symptom change, pattern change, growth).</figcaption>
+      </figure>
 
       <h3>1.5 Comparison table — psychotherapy vs. related interventions</h3>
       <p>A frequent exam demand is to distinguish psychotherapy from counselling, psychological assessment and psychiatric (biological) treatment. The table below summarises typical distinctions; note these are <em>characteristic tendencies</em>, not rigid walls — the activities overlap heavily in real practice.</p>
@@ -303,13 +420,57 @@
       </div>
       <div class="callout caution-box">
         <div class="c-title">⚠️ Caveat</div>
-        <p>Wolberg explicitly notes the term's ambiguity and overlap with helping, advising and guiding. Treat the table as a teaching heuristic; many authors use "counselling and psychotherapy" interchangeably (e.g. Corey's title). <span class="cite">(Wolberg-Technique, p.29; Corey)</span></p>
+        <p>Wolberg explicitly notes the term's ambiguity and overlap with helping, advising and guiding. Treat the table as a teaching heuristic; many authors use "counselling and psychotherapy" interchangeably (e.g. Corey's title). The Notes draw one clean line worth memorising: psychotherapy implies the patient is <em>treated to be cured/cared for</em>, whereas <span class="term">counselling</span> is closer to "<strong>providing advice and suggestions</strong>." <span class="cite">(Wolberg-Technique, p.29; Notes-Psychotherapies, p.1; Corey)</span></p>
       </div>
+
+      <figure class="figure">
+        <svg viewBox="0 0 760 250" role="img" aria-label="Four related interventions compared by depth and method">
+          <!-- axis -->
+          <line x1="40" y1="210" x2="730" y2="210" class="dg-line"/>
+          <text x="40" y="232" class="dg-label">Advice / support ───────────────▶ Depth of psychological change / treatment</text>
+          <!-- four columns -->
+          <g>
+            <rect x="60" y="120" width="140" height="80" rx="9" class="dg-box-accent"/>
+            <text x="130" y="150" text-anchor="middle" class="dg-t dg-t-b">Counselling</text>
+            <text x="130" y="170" text-anchor="middle" class="dg-t-sm">advice, present</text>
+            <text x="130" y="186" text-anchor="middle" class="dg-t-sm">life problems</text>
+          </g>
+          <g>
+            <rect x="230" y="92" width="140" height="108" rx="9" class="dg-box"/>
+            <text x="300" y="122" text-anchor="middle" class="dg-t dg-t-b">Psychotherapy</text>
+            <text x="300" y="142" text-anchor="middle" class="dg-t-sm">treat emotional</text>
+            <text x="300" y="158" text-anchor="middle" class="dg-t-sm">problems; deeper,</text>
+            <text x="300" y="174" text-anchor="middle" class="dg-t-sm">enduring patterns</text>
+          </g>
+          <g>
+            <rect x="400" y="135" width="140" height="65" rx="9" class="dg-box-amber"/>
+            <text x="470" y="162" text-anchor="middle" class="dg-t dg-t-b">Assessment</text>
+            <text x="470" y="181" text-anchor="middle" class="dg-t-sm">describe/diagnose;</text>
+            <text x="470" y="196" text-anchor="middle" class="dg-t-sm">feeds the plan</text>
+          </g>
+          <g>
+            <rect x="570" y="120" width="150" height="80" rx="9" class="dg-box-law"/>
+            <text x="645" y="148" text-anchor="middle" class="dg-t dg-t-b">Psychiatric Rx</text>
+            <text x="645" y="168" text-anchor="middle" class="dg-t-sm">biological means;</text>
+            <text x="645" y="184" text-anchor="middle" class="dg-t-sm">often combined</text>
+          </g>
+          <!-- overlap arrows -->
+          <path d="M205 160 L228 150" class="dg-line-d"/>
+          <path d="M372 150 L398 160" class="dg-line-d"/>
+          <path d="M542 160 L568 158" class="dg-line-d"/>
+          <text x="380" y="40" text-anchor="middle" class="dg-t dg-t-b">Related but distinct interventions (boundaries overlap)</text>
+        </svg>
+        <figcaption class="figcaption"><b>Figure 1.2 — Psychotherapy vs counselling vs assessment vs psychiatric treatment.</b> Characteristic tendencies placed on a depth-of-change axis; dashed arrows mark the real-world overlap Wolberg warns about. Assessment typically <em>feeds</em> therapy (Topic 9); psychiatric treatment is frequently <em>combined</em> with it.</figcaption>
+      </figure>
 
       <h3>1.6 Clinical application</h3>
       <div class="callout example-box">
         <div class="c-title">🧩 Illustrative example</div>
         <p><em>Illustrative teaching vignette.</em> A trainee receives a referral for "a 28-year-old with panic attacks." Applying the definition operationally, the trainee asks: is a <em>trained</em> person forming a <em>deliberate professional relationship</em>, using <em>psychological means</em>, targeting <em>emotional problems</em>, with <em>defined objectives</em>? If medication alone were offered with no psychological work, it would be psychiatric treatment, not psychotherapy; if a friend simply offered reassurance, it would be neither.</p>
+      </div>
+      <div class="callout example-box">
+        <div class="c-title">🧩 Illustrative example — the "unilateral relationship" test</div>
+        <p><em>Illustrative teaching vignette.</em> A client asks the therapist out for coffee "as friends." The therapist uses the <em>unilateral professional relationship</em> criterion: the relationship is bounded in time, frequency, content and intimacy, and the patient's — not the therapist's — concerns are the focus. Accepting the invitation would blur it into a <strong>dual relationship</strong> and compromise the very thing that defines the work. The therapist warmly declines and explores the wish in session. <span class="cite">(Notes-Psychotherapies, p.1)</span></p>
       </div>
 
       <h3>1.7 Mnemonic</h3>
@@ -341,22 +502,26 @@
 
       <h3>1.9 Possible examination questions</h3>
       <ol class="exam-q">
-        <li>Define psychotherapy. Why is it considered one of the most ambiguous terms in mental health? <span class="cite">(Wolberg)</span></li>
+        <li>Define psychotherapy. Why is it considered one of the most ambiguous terms in mental health? Trace its etymology and the "talking cure." <span class="cite">(Wolberg; Notes-Psychotherapies)</span></li>
         <li>Differentiate psychotherapy from counselling, psychological assessment and psychiatric treatment.</li>
         <li>"Psychotherapy is an undefined technique…" — critically discuss the Boulder-era view of definition. <span class="cite">(Corsini)</span></li>
+        <li>Discuss psychotherapy as a "unilateral professional relationship." What limits and duties follow from this? <span class="cite">(Notes-Psychotherapies)</span></li>
+        <li>Compare how CBT, psychodynamic and humanistic traditions implicitly define psychotherapy by their "agent of change."</li>
       </ol>
 
       <div class="callout revision-box">
         <div class="c-title">⭐ Exam-oriented summary</div>
         <ul>
+          <li><strong>Etymology:</strong> Greek <em>psyche</em> (soul) + <em>therapeutikos</em> (caring for another) → "caring for another's soul"; Anna O.'s "talking cure" (Notes-Psychotherapies, p.0).</li>
           <li><strong>One-line definition:</strong> treatment, by <em>psychological means</em>, of <em>emotional problems</em>, by a <em>trained person</em> in a <em>deliberate professional relationship</em>, aiming at symptom change + pattern change + growth (Wolberg, p.29).</li>
-          <li><strong>Key tension:</strong> operational/CBT definition vs anti-reductionist psychodynamic/humanistic view.</li>
-          <li><strong>Boulder critique:</strong> no universal agreement on definition, method or value.</li>
-          <li><strong>Mnemonic:</strong> TRIP-E.</li>
+          <li><strong>APA/Norcross (1990):</strong> "informed and intentional application of clinical methods and interpersonal stances derived from established psychological principles…"</li>
+          <li><strong>Structural feature:</strong> a <em>unilateral professional relationship</em> bounded in time, frequency, content and intimacy; confidentiality (with limits) + no dual relationships are built in.</li>
+          <li><strong>Four common factors:</strong> confidence in therapist · hope/expectancy · conceptual rationale · sanctioned healing setting. ~70–80% improve (Smith et al., 1980).</li>
+          <li><strong>Key tension:</strong> operational/CBT definition vs anti-reductionist psychodynamic/humanistic view. <strong>Boulder critique:</strong> no universal agreement on definition, method or value. <strong>Mnemonic:</strong> TRIP-E.</li>
         </ul>
       </div>
       <h3>1.10 References</h3>
-      <p class="cite">Wolberg-Technique p.29, p.41 · Corsini p.592 · Wolberg-506Q p.16 · McWilliams p.8. (Full source map in References section.)</p>
+      <p class="cite">Wolberg-Technique p.29, p.41 · Corsini p.592 · Wolberg-506Q p.16 · McWilliams p.8 · Notes-Psychotherapies p.0, p.1, p.2 · APA (2012 Resolution / Norcross 1990); APA Dictionary (verify live entry). (Full source map in References section.)</p>
     </section>
 
     <!-- ================= TOPIC 2 — OBJECTIVES ================= -->
@@ -366,6 +531,14 @@
 
       <h3>2.1 Introduction</h3>
       <p>The <span class="term">objectives</span> <span class="def-inline">(the intended ends or purposes of the treatment)</span> of psychotherapy follow directly from the definition. Clear objectives guide technique selection, allow progress to be monitored, and protect the client from aimless or interminable treatment. Objectives are negotiated <em>collaboratively</em>, not imposed. <span class="cite">(Corey, p.63)</span></p>
+      <p>A crucial opening caution: "the list of possible goals of psychotherapy is <strong>endless</strong>" — behavioural change, better relationships, insight, support, or concrete outcomes such as keeping a job, a partner, staying out of hospital, or staying alive. Goals "may also be different for the <em>patient</em>, for the <em>significant others</em> … and for the <em>psychologist</em>." For example, the patient may want anxiety reduction, the psychologist may want increased insight, and a spouse may want increased independence. <span class="cite">(Notes-Psychotherapies, p.3)</span> Because of this, objectives must be <em>explicitly negotiated</em>; unspoken, divergent goals are a major source of drift, dropout and ethical difficulty (links to Topics 4 and 8).</p>
+      <p>Overall, psychotherapy "is intended to enhance the client's <strong>mental health, flexibility, quality of relationships, and well-being</strong>" through change in "cognition, perception, self-understanding, relational capacities, and overt behavior." For children and adolescents, collaborative work with families and schools promotes complementary change. <span class="cite">(Notes-Psychotherapies, p.2)</span></p>
+
+      <h4>The ethical grounding of all objectives — beneficence &amp; nonmaleficence</h4>
+      <div class="callout def-box">
+        <div class="c-title">💬 Why the aims are what they are</div>
+        <p>"If we apply the traditional medical ethical principles of <span class="term">beneficence</span> <span class="def-inline">(acting for the patient's good)</span> and <span class="term">nonmaleficence</span> <span class="def-inline">(doing no harm)</span>, then psychotherapy … should aim to help the patients with their problems, make them feel better and <strong>do them no harm</strong>." Most therapists pursue this by increasing the patient's <strong>capacity for self-reflection</strong> and awareness of the links between feelings and actions. <span class="cite">(Notes-Psychotherapies, p.4)</span></p>
+      </div>
 
       <h3>2.2 The canonical objectives (source: Wolberg)</h3>
       <div class="callout def-box">
@@ -378,14 +551,72 @@
         <p class="cite">(Wolberg-Technique, p.29)</p>
       </div>
 
-      <h3>2.3 Core concepts &amp; theoretical foundations</h3>
+      <h3>2.3 Kleinke's six common therapeutic goals</h3>
+      <p>Cutting across the 450+ schools, Kleinke (1994) identified <strong>six fundamental therapeutic goals common to almost all psychotherapies</strong> — the single most citable "objectives" list for an exam because it names the shared <em>change processes</em> rather than any one school's technique: <span class="cite">(Notes-Psychotherapies, p.3–4)</span> <em>(Kleinke, 1994, cited in Notes-Psychotherapies.)</em></p>
+      <ol>
+        <li><strong>Overcoming demoralisation and gaining hope</strong> — restoring the expectancy that change is possible (links to the "hope" common factor, Topic 1).</li>
+        <li><strong>Enhancing mastery and <span class="term">self-efficacy</span></strong> <span class="def-inline">(the belief in one's capacity to succeed at a task)</span> — building a sense of competence and agency.</li>
+        <li><strong>Overcoming avoidance</strong> — approaching, rather than escaping, feared situations and emotions.</li>
+        <li><strong>Becoming aware of one's misconceptions</strong> — identifying and correcting distorted beliefs about self, others and the world.</li>
+        <li><strong>Accepting life's realities</strong> — coming to terms with what cannot be changed.</li>
+        <li><strong>Achieving insight</strong> — understanding the links between history, feelings and current patterns.</li>
+      </ol>
+
+      <h3>2.4 Core concepts &amp; theoretical foundations</h3>
       <ul>
         <li><strong>Adaptive change in affect, behaviour and mentation.</strong> Corsini (Dumont) frames the "core objectives" as adaptive change across feeling, action and thought, helping the patient "fashion alternative and future memories" and build social, interpersonal, self-disciplinary and technical skills — described neurologically as learning-driven neuronal restructuring. <span class="cite">(Corsini, p.23)</span></li>
         <li><strong>Collaborative goal-setting.</strong> Corey: the therapist should discuss general goals (and length, duration, confidentiality and methods) early, developing goals <em>with</em> the client. <span class="cite">(Corey, p.63)</span></li>
         <li><strong>Over-responsibility is a risk.</strong> Assuming full responsibility for outcomes disempowers clients and courts <span class="term">burnout</span> <span class="def-inline">(emotional exhaustion and reduced efficacy from chronic occupational stress)</span>. <span class="cite">(Corey, p.63)</span></li>
+        <li><strong>Goals can conflict with the modality.</strong> "In CBT, the patient may want to remove all their negative emotion, while the therapist wants to <strong>decrease excess</strong> emotion"; CBT may relieve symptoms short-term while "psychodynamic therapies may not" — the clinician's goal "may not be what the patient sees as the goal of therapy." Surfacing this difference is itself a therapeutic task. <span class="cite">(Notes-Psychotherapies, p.4)</span></li>
       </ul>
 
-      <h3>2.4 From goals to measurable objectives (Jongsma)</h3>
+      <figure class="figure">
+        <svg viewBox="0 0 760 180" role="img" aria-label="Common change-process sequence from hope to insight and growth">
+          <defs>
+            <marker id="arrHead" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+              <path d="M0 0 L9 4.5 L0 9 Z" fill="#3f4d8c"/>
+            </marker>
+          </defs>
+          <g>
+            <rect x="8" y="60" width="120" height="58" rx="9" class="dg-box-amber"/>
+            <text x="68" y="84" text-anchor="middle" class="dg-t dg-t-b">Hope</text>
+            <text x="68" y="102" text-anchor="middle" class="dg-t-sm">overcome</text>
+            <text x="68" y="115" text-anchor="middle" class="dg-t-sm">demoralisation</text>
+          </g>
+          <g>
+            <rect x="166" y="60" width="120" height="58" rx="9" class="dg-box"/>
+            <text x="226" y="84" text-anchor="middle" class="dg-t dg-t-b">Mastery</text>
+            <text x="226" y="102" text-anchor="middle" class="dg-t-sm">self-efficacy;</text>
+            <text x="226" y="115" text-anchor="middle" class="dg-t-sm">overcome avoidance</text>
+          </g>
+          <g>
+            <rect x="324" y="60" width="120" height="58" rx="9" class="dg-box"/>
+            <text x="384" y="84" text-anchor="middle" class="dg-t dg-t-b">Correct</text>
+            <text x="384" y="102" text-anchor="middle" class="dg-t-sm">misconceptions;</text>
+            <text x="384" y="115" text-anchor="middle" class="dg-t-sm">accept realities</text>
+          </g>
+          <g>
+            <rect x="482" y="60" width="120" height="58" rx="9" class="dg-box"/>
+            <text x="542" y="88" text-anchor="middle" class="dg-t dg-t-b">Insight</text>
+            <text x="542" y="106" text-anchor="middle" class="dg-t-sm">feelings ↔ actions</text>
+          </g>
+          <g>
+            <rect x="640" y="60" width="112" height="58" rx="9" class="dg-box-accent"/>
+            <text x="696" y="84" text-anchor="middle" class="dg-t dg-t-b">Growth</text>
+            <text x="696" y="102" text-anchor="middle" class="dg-t-sm">well-being;</text>
+            <text x="696" y="115" text-anchor="middle" class="dg-t-sm">flexibility</text>
+          </g>
+          <line x1="128" y1="89" x2="162" y2="89" class="dg-line" marker-end="url(#arrHead)"/>
+          <line x1="286" y1="89" x2="320" y2="89" class="dg-line" marker-end="url(#arrHead)"/>
+          <line x1="444" y1="89" x2="478" y2="89" class="dg-line" marker-end="url(#arrHead)"/>
+          <line x1="602" y1="89" x2="636" y2="89" class="dg-line" marker-end="url(#arrHead)"/>
+          <text x="380" y="28" text-anchor="middle" class="dg-t dg-t-b">Common change-process sequence (Kleinke's six goals)</text>
+          <text x="380" y="160" text-anchor="middle" class="dg-t-sm">Grounded throughout by beneficence &amp; nonmaleficence — help, relieve, and do no harm</text>
+        </svg>
+        <figcaption class="figcaption"><b>Figure 2.1 — From hope to growth: the common change process.</b> Kleinke's six shared goals read as a progression — restoring <em>hope</em>, building <em>mastery</em> and overcoming avoidance, <em>correcting misconceptions</em> and accepting realities, achieving <em>insight</em>, and promoting <em>growth</em> — all bounded by beneficence and nonmaleficence. <span class="cite">(Notes-Psychotherapies, p.3–4)</span></figcaption>
+      </figure>
+
+      <h3>2.5 From goals to measurable objectives (Jongsma)</h3>
       <p>Treatment planning distinguishes two levels, a key exam distinction:</p>
       <div class="table-scroll">
         <table>
@@ -400,13 +631,13 @@
       </div>
       <p class="cite">(Jongsma, p.24; p.25)</p>
 
-      <h3>2.5 Clinical application &amp; examples</h3>
+      <h3>2.6 Clinical application &amp; examples</h3>
       <div class="callout example-box">
         <div class="c-title">🧩 Illustrative example</div>
         <p><em>Illustrative teaching vignette.</em> For a client with social anxiety, a <strong>long-term goal</strong> might be "reduce social anxiety and participate comfortably in work meetings." A matched <strong>short-term objective</strong> might be "attend 2 team meetings per week and speak at least once, rated for anxiety 0–10, over 4 weeks." The goal gives direction; the objective makes progress auditable (links to Topics 7 and 9).</p>
       </div>
 
-      <h3>2.6 Mnemonic</h3>
+      <h3>2.7 Mnemonic</h3>
       <div class="mnemonic">
         <div class="m-head"><span class="m-word">SMP-G</span><span class="m-tag">Objectives</span></div>
         <ul>
@@ -418,16 +649,18 @@
         <div class="apply"><strong>Apply:</strong> Writing a treatment plan, SMP-G reminds you to cover symptom relief, pattern change and growth, then operationalise each as a measurable objective agreed with the client.</div>
       </div>
 
-      <h3>2.7 Advantages, limitations &amp; challenges</h3>
+      <h3>2.8 Advantages, limitations &amp; challenges</h3>
       <ul>
         <li><strong>Advantage:</strong> explicit objectives enable outcome measurement and third-party accountability.</li>
         <li><strong>Limitation / tension:</strong> symptom-focused measurable objectives (CBT/behavioural) may under-represent insight and personality-growth aims valued by psychodynamic work.</li>
         <li><strong>Challenge:</strong> balancing the client's priorities with clinically indicated goals without the therapist over-owning the outcome. <span class="cite">(Corey, p.63)</span></li>
       </ul>
 
-      <h3>2.8 Possible examination questions</h3>
+      <h3>2.9 Possible examination questions</h3>
       <ol class="exam-q">
         <li>Enumerate and explain Wolberg's three objectives of psychotherapy. <span class="cite">(Wolberg)</span></li>
+        <li>Describe Kleinke's six common therapeutic goals shared across the schools of psychotherapy. <span class="cite">(Notes-Psychotherapies)</span></li>
+        <li>"The list of possible goals of psychotherapy is endless." How are objectives grounded in beneficence and nonmaleficence, and why can patient and therapist goals conflict? <span class="cite">(Notes-Psychotherapies)</span></li>
         <li>Distinguish long-term goals from short-term objectives with examples. <span class="cite">(Jongsma)</span></li>
         <li>How are therapeutic goals set collaboratively, and why is over-responsibility a risk? <span class="cite">(Corey)</span></li>
       </ol>
@@ -436,14 +669,15 @@
         <div class="c-title">⭐ Exam-oriented summary</div>
         <ul>
           <li><strong>Three objectives (Wolberg):</strong> symptom change · pattern change · personality growth.</li>
-          <li><strong>Corsini:</strong> adaptive change in affect, behaviour, mentation.</li>
-          <li><strong>Jongsma:</strong> goals = broad (not necessarily measurable); objectives = behavioural, measurable.</li>
-          <li><strong>Corey:</strong> set goals collaboratively; avoid over-responsibility.</li>
+          <li><strong>Kleinke's six common goals:</strong> hope · mastery/self-efficacy · overcome avoidance · correct misconceptions · accept realities · insight (Notes-Psychotherapies p.3–4).</li>
+          <li><strong>Ethical grounding:</strong> beneficence + nonmaleficence — help, relieve, do no harm (p.4).</li>
+          <li><strong>Goals are plural &amp; party-dependent</strong> (patient vs significant others vs psychologist) and can conflict with the modality — negotiate explicitly.</li>
+          <li><strong>Corsini:</strong> adaptive change in affect, behaviour, mentation. <strong>Jongsma:</strong> goals = broad (not necessarily measurable); objectives = behavioural, measurable. <strong>Corey:</strong> set goals collaboratively; avoid over-responsibility.</li>
           <li><strong>Mnemonic:</strong> SMP-G.</li>
         </ul>
       </div>
-      <h3>2.9 References</h3>
-      <p class="cite">Wolberg-Technique p.29 · Corsini p.23 · Corey p.63 · Jongsma p.24, p.25. (Full source map in References section.)</p>
+      <h3>2.10 References</h3>
+      <p class="cite">Wolberg-Technique p.29 · Corsini p.23 · Corey p.63 · Jongsma p.24, p.25 · Notes-Psychotherapies p.2, p.3, p.4 (Kleinke 1994, Smith et al. 1980 cited therein). (Full source map in References section.)</p>
     </section>
 
     <!-- ================= TOPIC 3 — TRAINING ================= -->
@@ -453,6 +687,7 @@
 
       <h3>3.1 Introduction</h3>
       <p>Because the definition of psychotherapy builds in "a trained person," the quality of <span class="term">training</span> <span class="def-inline">(the formal, supervised preparation of therapists)</span> is central to the field's legitimacy and to client safety. Training is unusual among professions because the practitioner's own personality is a primary working tool.</p>
+      <p>Training is also, fundamentally, a <strong>risk-management system</strong>. The Notes put it bluntly: "Negligence and incompetence are potential risks for all clinicians, and these can (and should) be addressed by <strong>training, licensing or registration, and supervision processes</strong>." <span class="cite">(Notes-Psychotherapies, p.5)</span> On this view the whole pipeline — selection, training, personal therapy, supervision and continuing development — exists to protect clients from a practitioner's blind spots and to make competence demonstrable rather than assumed. In India this is operationalised by the <span class="term">Rehabilitation Council of India (RCI)</span> <span class="def-inline">(the statutory body that regulates training and maintains the register of clinical psychologists)</span> under the RCI Act, 1992 — stated generally; verify against the primary statute.</p>
 
       <h3>3.2 Core concept — the self as instrument</h3>
       <div class="callout def-box">
@@ -481,7 +716,70 @@
       <ul>
         <li><strong>CTRS (Beck).</strong> The <span class="term">Cognitive Therapy Rating Scale</span> <span class="abbr" title="Cognitive Therapy Rating Scale">(CTRS)</span> is "used in many research studies and training programs to measure therapist competency," alongside a Cognitive Case Write-Up based on the Academy of Cognitive Therapy certification template. <span class="cite">(Beck-CBT, p.16)</span></li>
         <li><strong>Fidelity vs competence.</strong> <span class="term">Fidelity</span> <span class="def-inline">(adherence — delivering the protocol as intended)</span> and <span class="term">competence</span> <span class="def-inline">(skilful delivery)</span> are distinct; EBP dissemination depends on both (see Topic 10). The 1995 Division 12 report was titled <em>Training in and Dissemination of Empirically-Validated Psychological Treatments</em>. <span class="cite">(Hofmann-ArtScience, p.53)</span></li>
+        <li><strong>Assessment skill is a core, trainable competence.</strong> "Successful psychotherapy matches the right therapy and right therapist to the patient, which is why therapists need to develop <strong>good quality assessment skills, not just for their own discipline but for others</strong>" — being able to formulate the same problem in several ways. Therapist characteristics (competence <em>and</em> personality features) themselves influence process and outcome. <span class="cite">(Notes-Psychotherapies, p.2; p.4–5)</span></li>
+        <li><strong>Record-keeping supports thinking and supervision.</strong> Keeping a record "is a way to do this; and also helps with the process of <strong>thinking and supervision</strong>" — the clinical record is not only a legal document but a reflective tool that feeds supervision (links to Topic 7). <span class="cite">(Notes-Psychotherapies, p.6)</span></li>
       </ul>
+
+      <figure class="figure">
+        <svg viewBox="0 0 760 320" role="img" aria-label="Therapist-development pipeline from selection to continuing competence">
+          <defs>
+            <marker id="arr3" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+              <path d="M0 0 L9 4.5 L0 9 Z" fill="#3f4d8c"/>
+            </marker>
+          </defs>
+          <!-- row 1 -->
+          <g>
+            <rect x="20" y="20" width="160" height="60" rx="9" class="dg-box-accent"/>
+            <text x="100" y="44" text-anchor="middle" class="dg-t dg-t-b">1 · Selection</text>
+            <text x="100" y="62" text-anchor="middle" class="dg-t-sm">maturity, self-reflection</text>
+            <text x="100" y="75" text-anchor="middle" class="dg-t-sm">(self = instrument)</text>
+          </g>
+          <g>
+            <rect x="300" y="20" width="160" height="60" rx="9" class="dg-box"/>
+            <text x="380" y="44" text-anchor="middle" class="dg-t dg-t-b">2 · Formal training</text>
+            <text x="380" y="62" text-anchor="middle" class="dg-t-sm">theory + methods;</text>
+            <text x="380" y="75" text-anchor="middle" class="dg-t-sm">UKCP/EAP 3–4 yrs · RCI</text>
+          </g>
+          <g>
+            <rect x="580" y="20" width="160" height="60" rx="9" class="dg-box"/>
+            <text x="660" y="44" text-anchor="middle" class="dg-t dg-t-b">3 · Personal therapy</text>
+            <text x="660" y="62" text-anchor="middle" class="dg-t-sm">self-awareness;</text>
+            <text x="660" y="75" text-anchor="middle" class="dg-t-sm">manage countertransference</text>
+          </g>
+          <!-- row 2 -->
+          <g>
+            <rect x="580" y="130" width="160" height="60" rx="9" class="dg-box"/>
+            <text x="660" y="154" text-anchor="middle" class="dg-t dg-t-b">4 · Supervised practice</text>
+            <text x="660" y="172" text-anchor="middle" class="dg-t-sm">supervision anchors</text>
+            <text x="660" y="185" text-anchor="middle" class="dg-t-sm">safety; records aid it</text>
+          </g>
+          <g>
+            <rect x="300" y="130" width="160" height="60" rx="9" class="dg-box-amber"/>
+            <text x="380" y="154" text-anchor="middle" class="dg-t dg-t-b">5 · Competence /</text>
+            <text x="380" y="170" text-anchor="middle" class="dg-t dg-t-b">fidelity measured</text>
+            <text x="380" y="185" text-anchor="middle" class="dg-t-sm">CTRS; case write-up</text>
+          </g>
+          <g>
+            <rect x="20" y="130" width="160" height="60" rx="9" class="dg-box-accent"/>
+            <text x="100" y="154" text-anchor="middle" class="dg-t dg-t-b">6 · CPD (lifelong)</text>
+            <text x="100" y="172" text-anchor="middle" class="dg-t-sm">CORE monitoring;</text>
+            <text x="100" y="185" text-anchor="middle" class="dg-t-sm">maintain competence</text>
+          </g>
+          <!-- arrows row1 L->R -->
+          <line x1="180" y1="50" x2="298" y2="50" class="dg-line" marker-end="url(#arr3)"/>
+          <line x1="460" y1="50" x2="578" y2="50" class="dg-line" marker-end="url(#arr3)"/>
+          <!-- down from 3 to 4 -->
+          <line x1="660" y1="80" x2="660" y2="128" class="dg-line" marker-end="url(#arr3)"/>
+          <!-- row2 R->L -->
+          <line x1="580" y1="160" x2="462" y2="160" class="dg-line" marker-end="url(#arr3)"/>
+          <line x1="300" y1="160" x2="182" y2="160" class="dg-line" marker-end="url(#arr3)"/>
+          <!-- feedback loop CPD back to supervised practice -->
+          <path d="M100 190 L100 250 L660 250 L660 192" class="dg-line-d" marker-end="url(#arr3)"/>
+          <text x="380" y="245" text-anchor="middle" class="dg-label">continuous feedback loop — competence re-measured &amp; development needs identified</text>
+          <text x="380" y="300" text-anchor="middle" class="dg-t-sm">Underlying rationale: training + licensing/registration + supervision mitigate negligence &amp; incompetence (Notes-Psychotherapies, p.5)</text>
+        </svg>
+        <figcaption class="figcaption"><b>Figure 3.1 — The therapist-development pipeline.</b> Selection → formal training → personal therapy → supervised practice → competence/fidelity measurement (e.g. CTRS) → lifelong CPD, with a feedback loop that re-measures competence. The whole system exists to manage the risks of negligence and incompetence. <span class="cite">(Lister-Ford p.118–121; Beck-CBT p.16; Notes-Psychotherapies p.5)</span></figcaption>
+      </figure>
 
       <h3>3.6 Comparison table — how traditions train &amp; assess competence</h3>
       <div class="table-scroll">
@@ -528,6 +826,7 @@
         <li>"The chief instrument for most psychotherapists is the self." Discuss the implications for training. <span class="cite">(Lister-Ford)</span></li>
         <li>Describe the role of personal therapy and supervision in managing countertransference. <span class="cite">(Corey, McWilliams)</span></li>
         <li>How is therapist competence/fidelity measured? Discuss the CTRS. <span class="cite">(Beck)</span></li>
+        <li>With a flowchart, describe the therapist-development pipeline and explain how it manages the risks of negligence and incompetence. <span class="cite">(Notes-Psychotherapies; Lister-Ford)</span></li>
       </ol>
 
       <div class="callout revision-box">
@@ -536,12 +835,13 @@
           <li><strong>Self as instrument</strong> → personal therapy + self-knowledge (Lister-Ford p.120).</li>
           <li><strong>Pillars:</strong> training length/standards · supervision · personal therapy · CPD (CORE).</li>
           <li><strong>Competence:</strong> CTRS measures CBT therapist competency (Beck p.16); fidelity ≠ competence.</li>
+          <li><strong>Pipeline as risk-management:</strong> training + licensing/registration + supervision mitigate negligence &amp; incompetence (Notes-Psychotherapies p.5); assessment skill is a core trainable competence (p.4–5).</li>
           <li><strong>Risk:</strong> no supervision/CPD + huge caseloads (McWilliams).</li>
           <li><strong>Mnemonic:</strong> SUPER-V.</li>
         </ul>
       </div>
       <h3>3.11 References</h3>
-      <p class="cite">Lister-Ford p.118, p.120, p.121 · Corey p.12, p.63 · McWilliams p.8, p.9 · MET p.13 · Beck-CBT p.16 · Hofmann-ArtScience p.53. (Full source map in References section.)</p>
+      <p class="cite">Lister-Ford p.118, p.120, p.121 · Corey p.12, p.63 · McWilliams p.8, p.9 · MET p.13 · Beck-CBT p.16 · Hofmann-ArtScience p.53 · Notes-Psychotherapies p.2, p.5, p.6 · RCI Act 1992 (general; verify primary statute). (Full source map in References section.)</p>
     </section>
 
     <!-- ================= TOPIC 4 — ETHICS & LAW ================= -->
@@ -551,6 +851,13 @@
 
       <h3>4.1 Introduction</h3>
       <p><span class="term">Ethics</span> <span class="def-inline">(professional standards of right conduct that protect clients and the profession)</span> and <span class="term">law</span> <span class="def-inline">(binding rules enforced by the state)</span> overlap but are not identical. A key exam skill is distinguishing <em>ethical guidance</em> (professional codes, aspirational) from <em>binding law</em> (statutes, enforceable). Where they conflict, practitioners must reason carefully, document, and often consult.</p>
+      <p>The Notes offer an elegant definition of ethics itself: any discussion of an ethical dilemma "involves a special type of dialog; the <strong>discourse of ought and should</strong> in interpersonal relationships" — how therapists <em>ought</em> to behave and what they <em>should</em> do in difficult situations with patients and colleagues. There is a "close kinship" between ethics and therapy: "just as ethical debate is all about how individuals should treat other people … so psychotherapy explores interpersonal relating." <span class="cite">(Notes-Psychotherapies, p.8)</span> Crucially, <strong>law is not automatically ethical</strong>: legal cases "should not be understood as legal advice … nor does the law always provide an ethically justifiable source of guidance, as is clear if we remember the impact of both the Nazi and South African race laws." <span class="cite">(Notes-Psychotherapies, p.8–9)</span></p>
+      <p>Why this matters so much: there are "<strong>over 450 schools of psychotherapy</strong> currently in existence (Simon, 2001, p. 90)," yet "basic clinical–legal principles" apply across most of them, and negligence claims against psychotherapists have "substantially increased." Every clinician needs a working knowledge of these principles to avoid "maladaptive defensive practices." <span class="cite">(Notes-Psychotherapies, p.7)</span> <em>(Simon, 2001, cited in Notes-Psychotherapies.)</em> Ethical dilemmas cluster in three domains: "(1) <strong>goals and objectives of therapy</strong>; (2) <strong>the boundaries between their different identities</strong>; (3) the <strong>social and political frameworks</strong> in which they work." The overarching duty is simply "to <strong>make the best quality decision that can be made</strong>" (one of fourteen approaches to ethical reasoning catalogued by Tjelveit, 1999). <span class="cite">(Notes-Psychotherapies, p.8–9)</span> <em>(Tjelveit, 1999, cited in Notes-Psychotherapies.)</em></p>
+
+      <div class="callout law-box">
+        <div class="c-title">⚖️ The APA Ethics Code — the standards most often examined</div>
+        <p>The <span class="term">APA Ethical Principles of Psychologists and Code of Conduct</span> <span class="def-inline">(the APA's binding-on-members ethics code, 2002, amended 2010 &amp; 2017)</span> opens with five aspirational <strong>General Principles</strong> — <em>A: Beneficence &amp; Nonmaleficence; B: Fidelity &amp; Responsibility; C: Integrity; D: Justice; E: Respect for People's Rights &amp; Dignity</em> — and then enforceable <strong>Ethical Standards</strong>, including <strong>Informed Consent</strong> (Standard 3.10 general; 10.01 therapy-specific), <strong>Confidentiality</strong> (Standard 4, with its limits and mandated disclosures), and <strong>Multiple Relationships</strong> (Standard 3.05). <span class="cite">(APA Ethics Code, apa.org/ethics)</span> <em>Stated at a general level; verify exact standard wording and numbers against the live APA Ethics Code. These are professional-guideline standards, distinct from binding statute.</em></p>
+      </div>
 
       <h3>4.2 Informed consent (source: Corey)</h3>
       <div class="callout def-box">
@@ -558,6 +865,10 @@
         <p>"Informed consent is an ethical and legal requirement that is an integral part of the therapeutic process." It establishes the foundation for the working alliance and is "far broader than simply making sure clients sign the appropriate forms." <span class="cite">(Corey, p.75)</span></p>
       </div>
       <p><span class="term">Informed consent</span> <span class="def-inline">(the client's voluntary, knowing agreement to treatment after disclosure of relevant information)</span> elements include: general goals, counsellor and client responsibilities, the <strong>limitations of and exceptions to confidentiality</strong>, legal/ethical parameters, and the practitioner's qualifications. Consent may be written, oral or combined; if oral, the therapist <strong>must document</strong> its nature and extent in the clinical record. <span class="cite">(Corey, p.75; p.76)</span></p>
+      <div class="callout caution-box">
+        <div class="c-title">⚠️ Consent is a legal duty — and psychotherapy has risks</div>
+        <p>Consent is not a courtesy. "Some states that have informed consent statutes declare the <strong>failure to obtain informed consent to be negligence</strong> (Slovenko, 1989)." Even a purely "talking" treatment needs informed consent because "<strong>all psychotherapies have risks and benefits</strong>" — for example untoward transference reactions, regressive dependency, or a general worsening before improvement. <span class="cite">(Notes-Psychotherapies, p.7–8)</span> <em>(Slovenko, 1989, cited in Notes-Psychotherapies.)</em> This is also why the therapist acquires a <span class="term">legal duty of care</span> <span class="def-inline">(an enforceable obligation to practise with reasonable skill)</span>: to practise "in accordance with a reasonable body of … psychotherapeutic opinion," make logical treatment decisions, conform to ethical guidance, obtain informed consent, tell the truth when asked, and abide by mandatory-reporting law. <span class="cite">(Notes-Psychotherapies, p.10)</span></p>
+      </div>
 
       <h3>4.3 Confidentiality vs privileged communication</h3>
       <div class="table-scroll">
@@ -578,6 +889,58 @@
         <div class="c-title">⚠️ Mandatory breaches (Corey)</div>
         <p>Confidentiality must be broken, as a legal requirement, for: <strong>child abuse, elder abuse, abuse of dependent adults, and danger to self or others.</strong> <span class="cite">(Corey, p.77)</span></p>
       </div>
+      <h4>Four sources of the duty of confidentiality</h4>
+      <p>The duty is not a single rule but a convergence of four sources, worth listing in an answer: <span class="cite">(Notes-Psychotherapies, p.7)</span></p>
+      <ol>
+        <li><strong>Ethical codes</strong> of the mental-health professions (e.g. APA Standard 4).</li>
+        <li><strong>Professional licensure regulations</strong> and confidentiality &amp; privilege <em>statutes</em>.</li>
+        <li><strong>Common-law privilege</strong> — the attorney–client privilege extended (less stringently) to psychotherapists by case law.</li>
+        <li><strong>Constitutional privacy</strong> guarantees (noting that no <em>explicit</em> constitutional right of privacy exists in that source).</li>
+      </ol>
+      <p>A landmark illustration is <span class="term">Jaffe v. Redmond (1996)</span> <span class="def-inline">(the US Supreme Court case)</span>, which held that psychotherapist–patient communications are confidential/privileged in <strong>federal</strong> trials (though it did not bind state courts). <span class="cite">(Notes-Psychotherapies, p.7)</span> <em>(US case law reported in Notes-Psychotherapies; illustrative of the principle, not Indian law.)</em></p>
+
+      <figure class="figure">
+        <svg viewBox="0 0 760 330" role="img" aria-label="Confidentiality limits and duty-to-report decision flow">
+          <defs>
+            <marker id="arr4" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+              <path d="M0 0 L9 4.5 L0 9 Z" fill="#3f4d8c"/>
+            </marker>
+          </defs>
+          <!-- start -->
+          <rect x="280" y="14" width="200" height="46" rx="23" class="dg-box"/>
+          <text x="380" y="34" text-anchor="middle" class="dg-t dg-t-w">Disclosure in session</text>
+          <text x="380" y="50" text-anchor="middle" class="dg-t-sm" fill="#eef">confidentiality is the default</text>
+          <line x1="380" y1="60" x2="380" y2="84" class="dg-line" marker-end="url(#arr4)"/>
+          <!-- decision diamond -->
+          <polygon points="380,86 500,140 380,194 260,140" class="dg-box-amber"/>
+          <text x="380" y="132" text-anchor="middle" class="dg-t dg-t-b">Does it trigger a</text>
+          <text x="380" y="148" text-anchor="middle" class="dg-t dg-t-b">mandatory exception?</text>
+          <text x="380" y="164" text-anchor="middle" class="dg-t-sm">harm to self/others ·</text>
+          <text x="380" y="177" text-anchor="middle" class="dg-t-sm">child/elder/dependent abuse</text>
+          <!-- NO branch -->
+          <line x1="260" y1="140" x2="150" y2="140" class="dg-line" marker-end="url(#arr4)"/>
+          <text x="205" y="132" text-anchor="middle" class="dg-label">NO</text>
+          <rect x="18" y="112" width="132" height="56" rx="9" class="dg-box-accent"/>
+          <text x="84" y="136" text-anchor="middle" class="dg-t dg-t-b">Maintain</text>
+          <text x="84" y="154" text-anchor="middle" class="dg-t-sm">confidentiality</text>
+          <!-- YES branch -->
+          <line x1="500" y1="140" x2="610" y2="140" class="dg-line" marker-end="url(#arr4)"/>
+          <text x="555" y="132" text-anchor="middle" class="dg-label">YES</text>
+          <rect x="610" y="110" width="140" height="60" rx="9" class="dg-box-warn"/>
+          <text x="680" y="132" text-anchor="middle" class="dg-t dg-t-b">Consult supervisor;</text>
+          <text x="680" y="150" text-anchor="middle" class="dg-t-sm">disclose minimum</text>
+          <text x="680" y="163" text-anchor="middle" class="dg-t-sm">necessary; inform client</text>
+          <line x1="680" y1="170" x2="680" y2="214" class="dg-line" marker-end="url(#arr4)"/>
+          <rect x="590" y="216" width="160" height="52" rx="9" class="dg-box-law"/>
+          <text x="670" y="238" text-anchor="middle" class="dg-t dg-t-b">Report per law</text>
+          <text x="670" y="256" text-anchor="middle" class="dg-t-sm">(e.g. POCSO; verify statute)</text>
+          <line x1="670" y1="268" x2="670" y2="292" class="dg-line" marker-end="url(#arr4)"/>
+          <rect x="300" y="286" width="200" height="40" rx="9" class="dg-box"/>
+          <text x="400" y="311" text-anchor="middle" class="dg-t dg-t-b">Document the decision &amp; reasoning</text>
+          <path d="M590 242 L500 306" class="dg-line-d" marker-end="url(#arr4)"/>
+        </svg>
+        <figcaption class="figcaption"><b>Figure 4.1 — Confidentiality-limits / duty-to-report decision flow.</b> Confidentiality is the default; a mandatory exception (danger to self/others, child/elder/dependent-adult abuse) switches the clinician into consult → disclose-minimum → report-per-law → document. <span class="cite">(Corey p.77; Notes-Psychotherapies p.7, p.10)</span> Indian reporting duties (e.g. POCSO) are general — verify against the primary statute.</figcaption>
+      </figure>
 
       <h3>4.5 Boundaries &amp; dual/multiple relationships</h3>
       <ul>
@@ -589,7 +952,56 @@
       <p>Corey notes that Section H of the ACA (American Counseling Association) Code of Ethics (2014) governs <span class="term">technology</span> and <span class="term">telepsychology</span> <span class="def-inline">(delivering psychological services remotely via phone/video/internet)</span> — covering computer-mediated communication, social media as a delivery platform, distance-counselling informed consent and security, client verification, records, and professional boundaries. <span class="cite">(Corey, p.76; p.77)</span></p>
 
       <h3>4.7 An ethical decision-making framework (with mnemonic)</h3>
-      <p>When codes do not give a clear answer, trainees apply a structured <span class="term">ethical decision-making</span> process. The mnemonic below maps a defensible, documentable sequence; it operationalises Corey's emphasis that clients should be <em>included</em> in ethical decisions and that reasoning be documented. <span class="cite">(Corey, p.75; p.76)</span></p>
+      <p>When codes do not give a clear answer, trainees apply a structured <span class="term">ethical decision-making</span> process. The flowchart and mnemonic below map a defensible, documentable sequence; it operationalises Corey's emphasis that clients should be <em>included</em> in ethical decisions and that reasoning be documented, and Tjelveit's overarching duty "to make the best quality decision that can be made." <span class="cite">(Corey, p.75; p.76; Notes-Psychotherapies, p.8)</span></p>
+
+      <figure class="figure">
+        <svg viewBox="0 0 760 340" role="img" aria-label="Ethical decision-making flowchart">
+          <defs>
+            <marker id="arr4b" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+              <path d="M0 0 L9 4.5 L0 9 Z" fill="#3f4d8c"/>
+            </marker>
+          </defs>
+          <g>
+            <rect x="270" y="12" width="220" height="42" rx="9" class="dg-box"/>
+            <text x="380" y="38" text-anchor="middle" class="dg-t dg-t-w">1 · Identify the dilemma &amp; who is affected</text>
+          </g>
+          <line x1="380" y1="54" x2="380" y2="74" class="dg-line" marker-end="url(#arr4b)"/>
+          <g>
+            <rect x="250" y="76" width="260" height="42" rx="9" class="dg-box"/>
+            <text x="380" y="102" text-anchor="middle" class="dg-t dg-t-b">2 · Identify relevant ethics code AND law</text>
+          </g>
+          <line x1="380" y1="118" x2="380" y2="138" class="dg-line" marker-end="url(#arr4b)"/>
+          <g>
+            <rect x="250" y="140" width="260" height="42" rx="9" class="dg-box-accent"/>
+            <text x="380" y="160" text-anchor="middle" class="dg-t dg-t-b">3 · Consult &amp; consider options</text>
+            <text x="380" y="176" text-anchor="middle" class="dg-t-sm">supervisor / colleague; include the client</text>
+          </g>
+          <line x1="380" y1="182" x2="380" y2="202" class="dg-line" marker-end="url(#arr4b)"/>
+          <g>
+            <rect x="200" y="204" width="360" height="46" rx="9" class="dg-box-amber"/>
+            <text x="380" y="224" text-anchor="middle" class="dg-t dg-t-b">4 · Weigh the principles</text>
+            <text x="380" y="241" text-anchor="middle" class="dg-t-sm">beneficence · nonmaleficence · autonomy · justice · fidelity</text>
+          </g>
+          <line x1="380" y1="250" x2="380" y2="270" class="dg-line" marker-end="url(#arr4b)"/>
+          <g>
+            <rect x="60" y="272" width="180" height="42" rx="9" class="dg-box"/>
+            <text x="150" y="298" text-anchor="middle" class="dg-t dg-t-b">5 · Act (best decision)</text>
+          </g>
+          <g>
+            <rect x="290" y="272" width="180" height="42" rx="9" class="dg-box-law"/>
+            <text x="380" y="298" text-anchor="middle" class="dg-t dg-t-b">6 · Document</text>
+          </g>
+          <g>
+            <rect x="520" y="272" width="180" height="42" rx="9" class="dg-box-accent"/>
+            <text x="610" y="298" text-anchor="middle" class="dg-t dg-t-b">7 · Review outcome</text>
+          </g>
+          <line x1="240" y1="293" x2="288" y2="293" class="dg-line" marker-end="url(#arr4b)"/>
+          <line x1="470" y1="293" x2="518" y2="293" class="dg-line" marker-end="url(#arr4b)"/>
+          <path d="M700 293 L728 293 L728 36 L492 36" class="dg-line-d" marker-end="url(#arr4b)"/>
+          <text x="610" y="330" text-anchor="middle" class="dg-label">review feeds back into future practice</text>
+        </svg>
+        <figcaption class="figcaption"><b>Figure 4.2 — Ethical decision-making flowchart.</b> Identify the dilemma → identify the relevant code <em>and</em> law (kept separate) → consult/consider options and include the client → weigh the five principles → act → document → review. Mirrors the IDENTIFY mnemonic below. <span class="cite">(Corey p.75–76; Notes-Psychotherapies p.8; APA General Principles A–E)</span></figcaption>
+      </figure>
       <div class="mnemonic">
         <div class="m-head"><span class="m-word">IDENTIFY</span><span class="m-tag">Ethical framework</span></div>
         <ul>
@@ -637,13 +1049,18 @@
         <li>Differentiate confidentiality from privileged communication and list the exceptions to confidentiality. <span class="cite">(Corey)</span></li>
         <li>Why is sexual involvement with a client absolutely prohibited? Discuss boundary and dual-relationship issues. <span class="cite">(Corsini)</span></li>
         <li>Outline an ethical decision-making framework and apply it to a duty-to-report scenario.</li>
+        <li>"Ethics is the discourse of ought and should." Discuss the relationship between ethics and law in psychotherapy, noting that law is not automatically ethical. <span class="cite">(Notes-Psychotherapies)</span></li>
+        <li>Summarise the APA Ethics Code's General Principles (A–E) and the standards on informed consent, confidentiality and multiple relationships. <span class="cite">(APA Ethics Code)</span></li>
+        <li>What are the four sources of the duty of confidentiality? Illustrate with <em>Jaffe v. Redmond</em>. <span class="cite">(Notes-Psychotherapies)</span></li>
       </ol>
 
       <div class="callout revision-box">
         <div class="c-title">⭐ Exam-oriented summary</div>
         <ul>
-          <li><strong>Informed consent</strong> = ethical + legal; broader than a signed form (Corey p.75).</li>
-          <li><strong>Confidentiality</strong> (ethical/legal duty) vs <strong>privilege</strong> (legal, court; not in group/family/child therapy) — Corey p.76.</li>
+          <li><strong>Ethics</strong> = "the discourse of ought and should"; <strong>law is not automatically ethical</strong> (Notes-Psychotherapies p.8–9). Dilemmas cluster in goals · identity-boundaries · socio-political frame.</li>
+          <li><strong>APA Ethics Code:</strong> General Principles A–E (A = Beneficence/Nonmaleficence); Standards 3.10/10.01 consent · 4 confidentiality · 3.05 multiple relationships (verify live).</li>
+          <li><strong>Informed consent</strong> = ethical + legal; broader than a signed form (Corey p.75); failure to obtain it can be negligence (Slovenko 1989); all therapies have risks (p.7–8).</li>
+          <li><strong>Confidentiality</strong> (ethical/legal duty, four sources) vs <strong>privilege</strong> (legal, court; not in group/family/child therapy) — Corey p.76; <em>Jaffe v. Redmond</em> 1996.</li>
           <li><strong>Mandatory breaches:</strong> child/elder/dependent-adult abuse; danger to self/others (Corey p.77).</li>
           <li><strong>Boundaries:</strong> absolute ban on sexual involvement; weigh dual relationships (Corsini p.597–598).</li>
           <li><strong>Indian law (general):</strong> RCI 1992 · MHCA 2017 · POCSO 2012 · DPDP 2023 — binding law, verify the primary statute.</li>
@@ -651,7 +1068,7 @@
         </ul>
       </div>
       <h3>4.12 References</h3>
-      <p class="cite">Corey p.75, p.76, p.77 · Corsini p.592, p.597, p.598. Indian statutes = general knowledge (verify primary statute). (Full source map in References section.)</p>
+      <p class="cite">Corey p.75, p.76, p.77 · Corsini p.592, p.597, p.598 · Notes-Psychotherapies p.7, p.8, p.9, p.10 (Simon 2001, Slovenko 1989, Tjelveit 1999, Jaffe v. Redmond 1996 cited therein) · APA Ethics Code (apa.org/ethics; verify live). Indian statutes = general knowledge (verify primary statute). (Full source map in References section.)</p>
     </section>
 
     <!-- ================= TOPIC 5 — RIGHTS & RESPONSIBILITIES ================= -->
@@ -661,10 +1078,13 @@
 
       <h3>5.1 Introduction</h3>
       <p>Rights and responsibilities make the therapeutic relationship a <span class="term">collaborative partnership</span> <span class="def-inline">(a working alliance in which duties and decisions are explicitly shared rather than imposed)</span>. Corey frames informed consent itself as the vehicle for client rights: it "involves the right of clients to be informed about their therapy and to make autonomous decisions pertaining to it," turning clients into "active partners and true collaborators." <span class="cite">(Corey, p.75)</span></p>
+      <p>Rights and responsibilities are two sides of one coin: <strong>every client right implies a matching therapist duty</strong>. The Notes state the core pairing directly: "Patients have the <strong>right</strong> and psychotherapists the <strong>duty</strong> to have spoken or written communications during the course of treatment kept confidential." <span class="cite">(Notes-Psychotherapies, p.7)</span> The underpinning ethical principle is <span class="term">respect for autonomy</span> <span class="def-inline">(the client's freedom to choose or refuse treatment for themselves)</span>: "patients should be free to choose or refuse for themselves what treatment they have." <span class="cite">(Notes-Psychotherapies, p.4)</span></p>
 
-      <h3>5.2 Client rights (source: Corey)</h3>
+      <h3>5.2 Client rights (sources: Corey; Notes-Psychotherapies)</h3>
       <ul>
-        <li><strong>Right to be informed &amp; to decide.</strong> Clients have the right to information about therapy and to make autonomous decisions about it; educating clients about rights and responsibilities empowers them and builds trust. <span class="cite">(Corey, p.75)</span></li>
+        <li><strong>Right to be informed &amp; to decide (autonomy).</strong> Clients have the right to information about therapy and to make autonomous decisions about it — including the right to <em>refuse</em> or withdraw; educating clients about rights and responsibilities empowers them and builds trust. <span class="cite">(Corey, p.75; Notes-Psychotherapies, p.4)</span></li>
+        <li><strong>Right to confidentiality (within limits).</strong> The client holds the right, and the therapist the duty, that communications be kept confidential — subject to the documented exceptions in Topic 4. <span class="cite">(Notes-Psychotherapies, p.7)</span></li>
+        <li><strong>Right to be warned of the risks of therapy.</strong> The Notes argue that "few therapists warn patients of the risks of a proposed psychotherapy, although the potential benefits may be emphasized" — yet clients <em>should</em> be told "that the process of psychotherapy is not always comfortable, and that <strong>many patients feel worse before they feel better</strong>." This is a genuine, often-neglected right flowing from informed consent. <span class="cite">(Notes-Psychotherapies, p.7; p.4)</span></li>
         <li><strong>Right to know about supervision.</strong> Clients have a right to know their therapist may discuss details of the relationship with a supervisor or colleague. <span class="cite">(Corey, p.76)</span></li>
         <li><strong>Rights embedded in consent elements.</strong> The "client bill of rights" maps directly onto the informed-consent elements — goals, responsibilities, confidentiality limits, parameters and qualifications (Topic 4). <span class="cite">(Corey, p.75)</span></li>
       </ul>
@@ -674,7 +1094,38 @@
         <li><strong>Two responsibility errors (Corey).</strong> (a) Assuming <em>full</em> responsibility for direction/outcome — disempowers clients and risks burnout; (b) <em>refusing</em> responsibility for accurate assessment and treatment planning. How responsibility is shared "should be addressed early in the course of counseling." <span class="cite">(Corey, p.63)</span></li>
         <li><strong>Therapist's explicit duties.</strong> Discuss length and duration of sessions, confidentiality, general goals, and methods. <span class="cite">(Corey, p.63)</span></li>
         <li><strong>Responsibility for the whole person (Corsini/Dumont).</strong> Therapists are "responsible to some degree for both the natural and nurturant components of the patients' lives"; prescribing psychoactive medication "without assuming responsibility for the patient's concurrent experience" is described as irresponsible. <span class="cite">(Corsini, p.23; p.24)</span></li>
+        <li><strong>Duty to third parties — and to the client's confidentiality.</strong> When family members or employers contact the therapist, the therapist "may have to <strong>balance the patient's claim to honesty and confidentiality against a possible harm</strong> to them," and must <em>seek the patient's consent before disclosing</em>. The Notes reframe confidentiality itself as "the principle of <strong>informed consent to disclosure</strong>." <span class="cite">(Notes-Psychotherapies, p.5; p.6)</span></li>
+        <li><strong>Duty not to exploit the relationship.</strong> "A psychologist will not be effective if he or she tries to be a friend, a colleague, or a lover"; the professional relationship must not be compromised by dual relationships — the therapist's core fiduciary responsibility. <span class="cite">(Notes-Psychotherapies, p.1)</span></li>
       </ul>
+
+      <figure class="figure">
+        <div class="pair-grid">
+          <div class="pair-col left">
+            <h5>Client RIGHTS</h5>
+            <ul>
+              <li>To be <strong>informed</strong> about the therapy</li>
+              <li>To make <strong>autonomous</strong> decisions — consent <em>or</em> refuse</li>
+              <li>To <strong>confidentiality</strong> (within legal limits)</li>
+              <li>To be <strong>warned of risks</strong> ("may feel worse before better")</li>
+              <li>To <strong>participate in goal-setting</strong></li>
+              <li>To <strong>know about supervision</strong></li>
+            </ul>
+          </div>
+          <div class="pair-mid">⇄<span>matched<br>duties</span></div>
+          <div class="pair-col right">
+            <h5>Therapist RESPONSIBILITIES</h5>
+            <ul>
+              <li>To <strong>disclose</strong> goals, methods, qualifications</li>
+              <li>To <strong>respect autonomy</strong> and the right to refuse</li>
+              <li>To <strong>protect records</strong> &amp; explain confidentiality limits</li>
+              <li>To <strong>inform of risks</strong> &amp; obtain true informed consent</li>
+              <li>To <strong>assess &amp; plan</strong> — avoid over/under-responsibility</li>
+              <li>To <strong>seek supervision</strong>; not exploit the relationship</li>
+            </ul>
+          </div>
+        </div>
+        <figcaption class="figcaption"><b>Figure 5.1 — Client rights ⇄ therapist responsibilities (the collaborative partnership).</b> Each right on the left has a matching duty on the right; informed consent is the contract that pairs them. "Patients have the right and psychotherapists the duty…" <span class="cite">(Corey p.63–76; Notes-Psychotherapies p.1, p.4–7)</span></figcaption>
+      </figure>
 
       <h3>5.4 Comparison table — rights vs responsibilities</h3>
       <div class="table-scroll">
@@ -720,21 +1171,24 @@
       <h3>5.8 Possible examination questions</h3>
       <ol class="exam-q">
         <li>Discuss client rights and therapist responsibilities as expressed through informed consent. <span class="cite">(Corey)</span></li>
+        <li>"Patients have the right and psychotherapists the duty…" — explain how each client right implies a matching therapist responsibility. <span class="cite">(Notes-Psychotherapies)</span></li>
+        <li>Discuss the client's right to be warned of the risks of therapy and the principle of respect for autonomy. <span class="cite">(Notes-Psychotherapies)</span></li>
         <li>What are the two errors therapists make regarding responsibility, and why do they matter? <span class="cite">(Corey)</span></li>
-        <li>Construct a rights-vs-responsibilities table for the therapeutic relationship.</li>
+        <li>Construct a rights-vs-responsibilities diagram/table for the therapeutic relationship.</li>
       </ol>
 
       <div class="callout revision-box">
         <div class="c-title">⭐ Exam-oriented summary</div>
         <ul>
-          <li><strong>Rights</strong> flow from informed consent: information + autonomous decisions + knowing about supervision (Corey p.75–76).</li>
+          <li><strong>Core pairing:</strong> patient's <em>right</em> + therapist's <em>duty</em> of confidentiality; underpinned by respect for autonomy (Notes-Psychotherapies p.4, p.7).</li>
+          <li><strong>Rights</strong> flow from informed consent: information + autonomous decisions (incl. refusal) + being warned of risks + knowing about supervision (Corey p.75–76; Notes p.7).</li>
           <li><strong>Shared responsibility</strong>: avoid over-responsibility (burnout) and under-responsibility (poor planning); settle it early (Corey p.63).</li>
-          <li><strong>Therapist duties</strong>: disclose goals/methods/qualifications/confidentiality limits; assess, plan, supervise.</li>
+          <li><strong>Therapist duties</strong>: disclose goals/methods/qualifications/confidentiality limits; balance third-party requests (consent-to-disclosure); not exploit the relationship; assess, plan, supervise.</li>
           <li><strong>Mnemonic:</strong> RIGHTS.</li>
         </ul>
       </div>
       <h3>5.9 References</h3>
-      <p class="cite">Corey p.63, p.75, p.76, p.77 · Corsini p.23, p.24. (Full source map in References section.)</p>
+      <p class="cite">Corey p.63, p.75, p.76, p.77 · Corsini p.23, p.24 · Notes-Psychotherapies p.1, p.4, p.5, p.6, p.7. (Full source map in References section.)</p>
     </section>
 
     <!-- ================= STUBS: TOPICS 6–10 (filled by FEAT-003) ================= -->
@@ -1699,6 +2153,21 @@
             <tr><td>McWilliams</td><td><em>Psychoanalytic Psychotherapy: A Practitioner's Guide</em>, Nancy McWilliams, Guilford, 2004</td><td>Psychoanalytic_Psychotherapy_A_Practitioner's_Guide_2004_Nancy_McWilliams.pdf</td></tr>
             <tr><td>Gabbard</td><td><em>Long-Term Psychodynamic Psychotherapy: A Basic Text</em>, Glen O. Gabbard, APPI, 2004</td><td>Long_Term_Psychodynamic_Psychotherapy_A_Basic_Text_2004_Glen_O_Gabbard.pdf</td></tr>
             <tr><td>Cambridge-Dynamic</td><td><em>Cambridge Guide to Psychodynamic Psychotherapy</em>, ed. Adam Polnay et al., Cambridge, 2023</td><td>Cambridge_Guide_to_Psychodynamic_Psychotherapy_2023_Adam_Polnay.pdf</td></tr>
+            <tr><td>Notes-Psychotherapies</td><td><em>Notes of Psychotherapies — Unit 1: Introduction to Psychotherapy</em> (study notes; 112 pp; Unit I material on pp.0–10). Quotes secondary authors (Kleinke 1994, Norcross 1990, Smith et al. 1980, Simon 2001, Slovenko 1989, Tjelveit 1999) — attributed as "cited in Notes-Psychotherapies".</td><td>notes_of_psychotherapies[1].pdf</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>R.1b Online sources (general level; verify against the primary source)</h3>
+      <div class="table-scroll">
+        <table>
+          <caption>Table R.1b — Online/authoritative sources used (cited at a general level)</caption>
+          <thead><tr><th>Key</th><th>Source</th><th>Supports</th></tr></thead>
+          <tbody>
+            <tr><td>APA definition</td><td>APA definition of psychotherapy (2012 Resolution adopting Norcross, 1990); APA Dictionary of Psychology entry (apa.org — JS-rendered; verify live)</td><td>Topic 1</td></tr>
+            <tr><td>APA Ethics Code</td><td>APA Ethical Principles of Psychologists and Code of Conduct (2002, amended 2010 &amp; 2017): General Principles A–E; Standards 3.10/10.01 (consent), 4 (confidentiality), 3.05 (multiple relationships) — apa.org/ethics; verify exact wording/numbers</td><td>Topic 4 (also 5, 6)</td></tr>
+            <tr><td>APA EBPP 2006</td><td>APA Presidential Task Force on Evidence-Based Practice (2006), <em>American Psychologist</em> 61(4): EBPP = integration of best available research + clinical expertise + patient characteristics/culture/preferences</td><td>Topics 9, 10</td></tr>
+            <tr><td>Indian statutes (general)</td><td>RCI Act 1992 · Mental Healthcare Act 2017 · POCSO Act 2012 · DPDP Act 2023 · Indian Majority Act 1875 — stated generally; <strong>no clause numbers invented; verify against the primary statute</strong></td><td>Topics 3, 4, 5, 6, 7</td></tr>
           </tbody>
         </table>
       </div>
@@ -1711,11 +2180,11 @@
             <tr><th>#</th><th>Topic</th><th>Sources &amp; pages used</th></tr>
           </thead>
           <tbody>
-            <tr><td>1</td><td>Definitions</td><td>Wolberg-Technique p.29, p.41 · Corsini p.592 · Wolberg-506Q p.16 · McWilliams p.8</td></tr>
-            <tr><td>2</td><td>Objectives</td><td>Wolberg-Technique p.29 · Corsini p.23 · Corey p.63 · Jongsma p.24, p.25</td></tr>
-            <tr><td>3</td><td>Training</td><td>Lister-Ford p.118, p.120, p.121 · Corey p.63, p.12 [ToC] · Beck-CBT p.16 · McWilliams p.8, p.9 · MET p.13 · Hofmann-ArtScience p.53</td></tr>
-            <tr><td>4</td><td>Ethics &amp; law</td><td>Corey p.75, p.76, p.77 · Corsini p.597, p.598 · Indian statutes = general knowledge (verify)</td></tr>
-            <tr><td>5</td><td>Rights &amp; responsibilities</td><td>Corey p.63, p.75, p.76 · Corsini p.23, p.24</td></tr>
+            <tr><td>1</td><td>Definitions</td><td>Wolberg-Technique p.29, p.41 · Corsini p.592 · Wolberg-506Q p.16 · McWilliams p.8 · Notes-Psychotherapies p.0, p.1, p.2 (Kleinke 1994, Norcross 1990, Smith et al. 1980 cited therein) · APA 2012 Resolution/Norcross; APA Dictionary (verify live)</td></tr>
+            <tr><td>2</td><td>Objectives</td><td>Wolberg-Technique p.29 · Corsini p.23 · Corey p.63 · Jongsma p.24, p.25 · Notes-Psychotherapies p.2, p.3, p.4 (Kleinke 1994 six goals; beneficence/nonmaleficence)</td></tr>
+            <tr><td>3</td><td>Training</td><td>Lister-Ford p.118, p.120, p.121 · Corey p.63, p.12 [ToC] · Beck-CBT p.16 · McWilliams p.8, p.9 · MET p.13 · Hofmann-ArtScience p.53 · Notes-Psychotherapies p.2, p.5, p.6 · RCI Act 1992 (general; verify)</td></tr>
+            <tr><td>4</td><td>Ethics &amp; law</td><td>Corey p.75, p.76, p.77 · Corsini p.597, p.598 · Notes-Psychotherapies p.7, p.8, p.9, p.10 (Simon 2001, Slovenko 1989, Tjelveit 1999, Jaffe v. Redmond 1996 cited therein) · APA Ethics Code (verify live) · Indian statutes = general knowledge (verify)</td></tr>
+            <tr><td>5</td><td>Rights &amp; responsibilities</td><td>Corey p.63, p.75, p.76 · Corsini p.23, p.24 · Notes-Psychotherapies p.1, p.4, p.5, p.6, p.7</td></tr>
             <tr><td>6</td><td>Consent &amp; minors</td><td>Corey p.76, p.77 · Beck-CBT p.18 [ToC] · Majority Act 1875 / POCSO 2012 / MHCA 2017 / DPDP 2023 = general knowledge (verify against primary statute)</td></tr>
             <tr><td>7</td><td>Planning &amp; recording</td><td>Jongsma p.14, p.19, p.25, p.26 · Wolberg-Technique p.845 · Corey p.75, p.76 · Corsini p.592 · SOAP/DAP = general professional knowledge</td></tr>
             <tr><td>8</td><td>Structuring &amp; goals</td><td>Beck-CBT p.18, p.19 [ToC] · Jongsma p.24, p.25, p.26 · Gabbard p.46, p.64 · Corey p.63 · SMART = general knowledge</td></tr>
@@ -1727,7 +2196,7 @@
 
       <h3>R.3 Honest source audit</h3>
       <h4>(a) Reviewed — text extracted and cited</h4>
-      <p>The 13 texts in Table R.1 had an embedded text layer and were cited directly. Additional accessible psychotherapy texts are present in the repository as supporting breadth but were not deep-extracted for distinct page citations (e.g. <em>Theories of Counseling and Psychotherapy: A Case Approach</em>; a compressed Corey; Adlerian, attachment, DBT, psychodynamic and CBT-modality texts).</p>
+      <p>The 14 texts in Table R.1 (including the newly added <em>Notes-Psychotherapies</em>, <code>notes_of_psychotherapies[1].pdf</code>, whose text layer was fully extracted) had an embedded text layer and were cited directly. The online/authoritative sources in Table R.1b (APA definition, APA Ethics Code, APA 2006 EBPP, and the Indian statutes) are cited at a <strong>general level</strong>: several APA pages are JavaScript-rendered and returned no extractable text, so wording is taken from the canonical primary reference and flagged "verify live"; no Indian statute section/clause numbers are asserted. Additional accessible psychotherapy texts are present in the repository as supporting breadth but were not deep-extracted for distinct page citations (e.g. <em>Theories of Counseling and Psychotherapy: A Case Approach</em>; a compressed Corey; Adlerian, attachment, DBT, psychodynamic and CBT-modality texts).</p>
       <h4>(b) Duplicates — collapsed (cited once)</h4>
       <ul>
         <li>Sharf, <em>Theories of Psychotherapy &amp; Counseling</em>, 5th ed. — three md5-identical files; cited once if used.</li>
