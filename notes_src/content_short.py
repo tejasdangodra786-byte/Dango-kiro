@@ -101,7 +101,6 @@ _s("t1", "1", "Definitions of psychotherapy", [
         "{{THEORY}} Norcross (1990): the informed and intentional application of clinical methods and interpersonal stances derived from established psychological principles, to help people modify behaviours, cognitions, emotions and/or personal characteristics in directions the participants deem desirable.",
         "{{THEORY}} Strupp: a learning process in which a trained person uses the relationship to help the patient overcome distress and develop more adaptive functioning.",
     ]},
-    {"t": "fig", "key": "def_map", "caption": "What the major definitions have in common."},
     {"t": "box", "kind": "key", "title": "Elements common to all definitions", "items": [
         "A trained, professional therapist (socially sanctioned).",
         "A help-seeking client in distress.",
@@ -111,7 +110,6 @@ _s("t1", "1", "Definitions of psychotherapy", [
         "The aim of change: symptom relief, behaviour change and growth.",
     ]},
     {"t": "h3", "text": "Wolberg's three aims"},
-    {"t": "fig", "key": "aims_tree", "caption": "Wolberg's three aims of psychotherapy."},
     {"t": "ul", "items": [
         "Remove, modify or retard existing symptoms.",
         "Mediate (correct) disturbed patterns of behaviour.",
@@ -150,7 +148,6 @@ _s("t2", "2", "Objectives (goals) of psychotherapy", [
         "Promote personal growth, self-actualisation and a sense of meaning.",
         "Prevent relapse and improve quality of life; in severe illness, maintain functioning and prevent hospitalisation.",
     ]},
-    {"t": "fig", "key": "kleinke6", "caption": "Common goal clusters pursued across therapies."},
     {"t": "box", "kind": "info", "title": "Outcome vs process goals", "items": [
         "Outcome goals = the end the client wants (less panic, better sleep).",
         "Process goals = the in-therapy means (insight, alliance, skills practice).",
@@ -186,7 +183,6 @@ _s("t3", "3", "The process of psychotherapy at a glance", [
         "Consolidation, relapse prevention and termination.",
         "Follow-up / review.",
     ]},
-    {"t": "fig", "key": "therapy_phases", "caption": "Beginning, middle and end phases map onto the cycle."},
     {"t": "box", "kind": "info", "title": "Reading the map", "items": [
         "The early steps (intake, formulation, contracting) belong to the beginning phase.",
         "Intervention and progress-monitoring repeat through the middle phase.",
@@ -223,7 +219,6 @@ _s("t4", "4", "Issues related to the training of professional therapists", [
         "Lifelong learning and continuing professional education.",
     ]},
     {"t": "h3", "text": "Competencies expected"},
-    {"t": "fig", "key": "competence_triangle", "caption": "Knowledge, skills and attitudes make a competent therapist."},
     {"t": "ul", "items": [
         "Relationship (alliance) skills.",
         "Assessment and case formulation.",
@@ -328,7 +323,6 @@ _s("t5", "5", "Ethical issues in therapy work", [
 # ========================= 6. LEGAL (INDIA) ================================
 _s("t6", "6", "Legal issues in therapy work (India)", [
     {"t": "lead", "text": "Indian psychotherapy practice is governed by a statutory registration law, a rights-based mental-health law, child-protection law, disability law, consumer law and tele-practice guidelines."},
-    {"t": "fig", "key": "authority_stack", "caption": "Statutes, codes and guidelines that bind or guide practice."},
     {"t": "ul", "items": [
         "{{LAW}} RCI Act, 1992: regulates training, registration and conduct of rehabilitation professionals including clinical psychologists; practising without registration is an offence. {{c:RCI Act 1992}}",
         ("{{LAW}} Mental Healthcare Act, 2017 \u2014 rights-based law: {{c:MHCA 2017}}", [
@@ -393,7 +387,6 @@ _s("t7", "7", "Rights and responsibilities in psychotherapy", [
 # ========================= 8. CONSENT & ASSENT =============================
 _s("t8", "8", "Consent and assent (including minors)", [
     {"t": "lead", "text": "Informed consent is the client's voluntary agreement to assessment or therapy after receiving and understanding adequate information. It is a process, not a one-time signature."},
-    {"t": "fig", "key": "consent_layers", "caption": "The building blocks of valid informed consent."},
     {"t": "h3", "text": "Elements of valid consent"},
     {"t": "ul", "items": [
         "Capacity (competence): ability to understand, appreciate, reason and express a choice.",
@@ -452,10 +445,8 @@ _s("t9", "9", "Planning and recording of therapy sessions", [
         "Therapeutic frame: time, place, fee, boundaries, cancellation policy and contact between sessions.",
         "Session planning: prepare using previous notes; plan the aims for each session but stay responsive to the client's needs.",
     ]},
-    {"t": "fig", "key": "stakeholder_goals", "caption": "Formulation links assessment to the treatment plan."},
     {"t": "note", "text": "{{THEORY}} Jongsma's Treatment Planner sets out a 6-step planning sequence (problem selection \u2192 definition \u2192 goals \u2192 objectives \u2192 interventions \u2192 diagnosis). {{c:Jongsma, PDF p.24-26}}"},
     {"t": "h3", "text": "Structure of a typical CBT session"},
-    {"t": "fig", "key": "session_structure", "caption": "The standard structure of a CBT session."},
     {"t": "ol", "items": [
         "Brief check-in and mood check.",
         "Bridge from the previous session.",
@@ -468,7 +459,6 @@ _s("t9", "9", "Planning and recording of therapy sessions", [
     ]},
     {"t": "note", "text": "{{THEORY}} J. Beck describes this session structure. {{c:Beck, PDF p.82 & 122-123}}"},
     {"t": "h3", "text": "Recording"},
-    {"t": "fig", "key": "records_map", "caption": "Types of clinical records and their flow."},
     {"t": "ul", "items": [
         ("Types of records:", [
             "Intake / case-history form; assessment reports and test data; the treatment plan; consent forms.",
@@ -513,7 +503,6 @@ _s("t10", "10", "Structuring therapy and setting goals", [
         ]),
         "Types: ultimate vs intermediate vs immediate (session) goals; outcome vs process goals; short- vs long-term.",
     ]},
-    {"t": "fig", "key": "smart", "caption": "SMART criteria for therapy goals."},
     {"t": "ul", "items": [
         "{{THEORY}} Goal Attainment Scaling (Kiresuk & Sherman, 1968): each goal is scaled from \u22122 (much worse) to +2 (much better than expected) for individualised measurement.",
         "{{THEORY}} Goal consensus is a component of the therapeutic alliance (Bordin) and predicts outcome. {{c:Gabbard, PDF p.58}}",
@@ -564,7 +553,6 @@ _s("t11", "11", "Pre- and post-assessment", [
         ["GAD-7", "Generalised anxiety (7 items)", "0\u20134 minimal; 5\u20139 mild; 10\u201314 moderate; 15\u201321 severe {{c:cheat sheet, PDF p.80}}"],
      ]},
     {"t": "h3", "text": "Evaluating change"},
-    {"t": "fig", "key": "nonresponse_flow", "caption": "Acting on not-on-track feedback."},
     {"t": "ul", "items": [
         "Statistical significance (group level) vs clinical significance (individual level).",
         "{{THEORY}} Reliable Change Index (RCI; Jacobson & Truax, 1991): change must exceed measurement error (RCI > 1.96). {{c:Jacobson & Truax 1991}}",
@@ -577,13 +565,11 @@ _s("t11", "11", "Pre- and post-assessment", [
         "Use reliable, valid measures suited to the client's language, culture and literacy.",
         "Use the same measures before and after; share results with the client.",
     ]},
-    {"t": "fig", "key": "variance_bars", "caption": "Where outcome variance comes from (schematic)."},
 ])
 
 # ========================= 12. EVIDENCE-BASED PRACTICE =====================
 _s("t12", "12", "Evidence-based practice (EBP) of therapies", [
     {"t": "lead", "text": "EBP integrates the best research with clinical expertise in the context of the patient's characteristics, culture and preferences."},
-    {"t": "fig", "key": "ebp_venn", "caption": "The three circles of evidence-based practice."},
     {"t": "ul", "items": [
         "{{GUIDE}} Definition (APA Presidential Task Force, 2006): the integration of the best available research with clinical expertise in the context of patient characteristics, culture and preferences. The concept came from evidence-based medicine (Sackett). {{c:APA EBPP 2006}}",
         ("{{THEORY}} Empirically supported treatments (ESTs):", [
@@ -592,7 +578,6 @@ _s("t12", "12", "Evidence-based practice (EBP) of therapies", [
             "Probably efficacious: a lower tier of evidence.",
         ]),
     ]},
-    {"t": "fig", "key": "evidence_pyramid", "caption": "Hierarchy of research evidence."},
     {"t": "ul", "items": [
         "Hierarchy of evidence: systematic reviews/meta-analyses of RCTs > RCTs > controlled non-randomised > cohort/case-control > single-case > expert opinion.",
         "Efficacy (works in controlled trials) vs effectiveness (works in real practice) vs clinical utility (feasible, acceptable, cost-effective).",
@@ -604,7 +589,6 @@ _s("t12", "12", "Evidence-based practice (EBP) of therapies", [
             "Social skills training, family psychoeducation and cognitive remediation for schizophrenia.",
         ]),
     ]},
-    {"t": "fig", "key": "ebp_cycle", "caption": "The five steps of EBP in the clinic."},
     {"t": "ul", "items": [
         "{{GUIDE}} Guidelines: NICE (UK), APA, and WHO mhGAP recommend specific treatments. {{c:WHO mhGAP}}",
         "{{GUIDE}} WHO mhGAP targets non-specialist settings so that evidence-based treatments reach low-resource populations; task-sharing lets trained lay providers deliver brief, manualised care under supervision.",
