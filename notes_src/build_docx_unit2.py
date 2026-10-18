@@ -55,6 +55,7 @@ _TOKEN_RE = re.compile(
     r"|\{\{c:([^}]+)\}\}"                            # 2: citation
     r"|\{\{fig:\w+\}\}"                              # (figure ref, dropped)
     r"|\[\[([^\]|]+)\|([^\]]+)\]\]"                  # 3,4: glossary term|gloss
+    r"|\*\*([^*]+)\*\*"                              # 5: bold key-word span
 )
 
 
@@ -67,7 +68,9 @@ def _add_runs(paragraph, text):
     for m in _TOKEN_RE.finditer(text):
         if m.start() > pos:
             paragraph.add_run(text[pos:m.start()])
-        tag, cite, gterm, ggloss = m.group(1), m.group(2), m.group(3), m.group(4)
+        tag, cite, gterm, ggloss, bold = (
+            m.group(1), m.group(2), m.group(3), m.group(4), m.group(5)
+        )
         if tag:
             r = paragraph.add_run(TAG_LABEL[tag] + ": ")
             r.bold = True
@@ -79,6 +82,9 @@ def _add_runs(paragraph, text):
             paragraph.add_run(gterm + " ")
             r = paragraph.add_run("(" + ggloss + ")")
             r.italic = True
+        elif bold is not None:
+            r = paragraph.add_run(bold)
+            r.bold = True
         # figure refs ({{fig:...}}) are intentionally dropped (HTML-only).
         pos = m.end()
     if pos < len(text):
