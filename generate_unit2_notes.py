@@ -113,6 +113,18 @@ CONTENT = [
             "By **shape and number of processes**, neurons are classed as **unipolar**, **bipolar** or "
             "**multipolar** [[one, two, or many extensions leaving the cell body]], a structural scheme "
             "that reflects how each cell is wired into its circuit.",
+            "The simplest form is the **bipolar neuron** [[a cell with just one dendrite on one side and "
+            "one axon on the other, as in the retina]], while **somatosensory neurons** have the dendrite "
+            "and axon joined so messages need not pass through the soma, which speeds conduction from skin "
+            "and muscle into the spinal cord.",
+            "Within the brain and spinal cord, neurons such as **pyramidal cells** of the cortex and "
+            "**Purkinje cells** of the cerebellum carry many richly branching dendrites yet, like every "
+            "neuron, still send just one axon, and these regional differences in cell architecture are "
+            "what let anatomists divide the brain into distinct areas.",
+            "A long-held belief that the adult brain makes no new neurons has been overturned, since "
+            "**neurogenesis** [[the birth of new neurons]] continues after birth in some regions, a "
+            "finding that gives a cellular basis for hoping that damaged circuits can, to a limited "
+            "degree, be renewed as well as rewired.",
             "Neurons can also be named by the **neurotransmitter** they release, such as cholinergic or "
             "glutamatergic cells, which links a cell's chemical identity directly to the kind of message "
             "it delivers to its partners.",
@@ -142,16 +154,26 @@ CONTENT = [
         ],
         "figures": [
             {
-                "file": "assets/unit2_figures/neuron.png",
-                "alt": "Labelled diagram of a multipolar neuron showing dendrites, soma, "
-                       "nucleus, axon, myelin sheath, nodes of Ranvier and axon terminals",
-                "caption": "Figure 1. Labelled structure of a typical neuron, showing the "
-                           "dendrites, cell body (soma), axon hillock, myelinated axon, nodes "
-                           "of Ranvier and the axon terminals \u2014 study it alongside the "
-                           "DRAMA flowchart below.",
-                "source": "Wikimedia Commons, \u201cComplete neuron cell diagram\u201d",
-                "author": "LadyofHats (Mariana Ruiz Villarreal)",
-                "license": "Public domain",
+                "file": "assets/unit2_figures/from_books/carlson_fig2_1_neuron.png",
+                "alt": "Labelled diagram of a multipolar neuron showing the dendrites, soma "
+                       "(cell body), axon inside its myelin sheath, terminal buttons and the "
+                       "direction of messages",
+                "caption": "Figure 1. The principal parts of a multipolar neuron \u2014 the "
+                           "dendrites, soma (cell body), the axon inside its myelin sheath and "
+                           "the terminal buttons, with the direction of messages marked; study "
+                           "it alongside the DRAMA flowchart below.",
+                "credit": "Adapted from Carlson, Physiology of Behavior, Chapter 2, Figure 2.1.",
+            },
+            {
+                "file": "assets/unit2_figures/from_books/kolb_fig3_2_neuron_types.png",
+                "alt": "Schematic comparison of neuron types: (A) bipolar and somatosensory "
+                       "sensory neurons, (B) association, pyramidal and Purkinje interneurons, "
+                       "and (C) a motor neuron, each with dendrites and axon labelled",
+                "caption": "Figure 1b. Neurons classified by shape and function \u2014 (A) "
+                           "sensory, (B) interneurons and (C) motor neurons \u2014 matching the "
+                           "functional and structural classes set out in the points above.",
+                "credit": "From Kolb & Whishaw, Fundamentals of Human Neuropsychology, "
+                          "Figure 3.2.",
             },
         ],
         "definition": None,
@@ -241,6 +263,15 @@ CONTENT = [
             "A newly recognised glial type, the **oligodendrocyte precursor cell**, takes part in "
             "synaptic signalling in the **hippocampus** [[a brain region central to learning and "
             "memory]], revising the older idea that glia only ever served passive supporting roles.",
+            "**Ependymal cells** are small, ovoid glia that line the brain's ventricles and secrete "
+            "**cerebrospinal fluid** [[the clear fluid that cushions the brain and carries nutrients and "
+            "waste]], so this glial type helps form the protective fluid cushion the central nervous "
+            "system floats within.",
+            "The insulating work of glia explains the brain's colour map: axons wrapped in myelin give "
+            "**white matter** [[tracts of myelinated fibres that look white because of their fatty "
+            "coating]] its pale look, while **grey matter** [[regions packed with neuronal cell bodies "
+            "and capillaries]] is the darker tissue where cell bodies cluster, a distinction a clinician "
+            "sees directly on a brain scan.",
             "For the clinician the overall lesson is that glia are **active partners in behaviour**, "
             "since healthy astrocytes, intact myelin and well-regulated microglia are each needed for "
             "clear thinking, and their failure underlies conditions from multiple sclerosis to the "
@@ -258,15 +289,36 @@ CONTENT = [
         ],
         "figures": [
             {
-                "file": "assets/unit2_figures/glia.png",
-                "alt": "Illustration of the main types of neuroglia: astrocyte, "
-                       "oligodendrocyte, microglia and ependymal cells around neurons",
-                "caption": "Figure 2. The main types of neuroglia shown together around "
-                           "neurons \u2014 astrocytes, oligodendrocytes, microglia and "
-                           "ependymal cells \u2014 matching the AOMRS mnemonic of glial jobs.",
-                "source": "Wikimedia Commons, \u201cBlausen 0870 Types of Neuroglia\u201d",
-                "author": "BruceBlaus / Blausen.com staff (2014)",
-                "license": "CC BY 3.0",
+                "file": "assets/unit2_figures/from_books/kolb_table3_1_glial_types.png",
+                "alt": "Table of glial cell types with thumbnail drawings: ependymal cell, "
+                       "astrocyte, microglial cell, oligodendroglial cell and Schwann cell, "
+                       "each with its features and function",
+                "caption": "Figure 2. The main types of glial cell \u2014 ependymal, astrocyte, "
+                           "microglial, oligodendroglial and Schwann cells \u2014 with each "
+                           "cell's appearance and function, matching the AOMRS mnemonic of "
+                           "glial jobs.",
+                "credit": "From Kolb & Whishaw, Fundamentals of Human Neuropsychology, "
+                          "Table 3.1.",
+            },
+            {
+                "file": "assets/unit2_figures/from_books/carlson_fig2_6_astrocyte.png",
+                "alt": "Illustration of an astrocyte in the central nervous system, its "
+                       "processes surrounding a blood vessel and several neurons",
+                "caption": "Figure 2b. The structure and location of an astrocyte \u2014 its "
+                           "star-shaped processes wrap around a blood vessel and surround "
+                           "neurons, the arrangement behind the astrocyte's feeding and "
+                           "ion-balancing roles described above.",
+                "credit": "Adapted from Carlson, Physiology of Behavior, Chapter 2, Figure 2.6.",
+            },
+            {
+                "file": "assets/unit2_figures/from_books/carlson_fig2_7_oligodendrocyte.png",
+                "alt": "Illustration of an oligodendrocyte forming myelin segments around "
+                       "several axons, with nodes of Ranvier, soma, mitochondrion and "
+                       "microtubule labelled",
+                "caption": "Figure 2c. An oligodendrocyte forming myelin for several adjacent "
+                           "axons in the CNS, with the nodes of Ranvier marked \u2014 the "
+                           "insulating role captured by the O in the AOMRS mnemonic.",
+                "credit": "Adapted from Carlson, Physiology of Behavior, Chapter 2, Figure 2.7.",
             },
         ],
         "definition": None,
@@ -313,6 +365,11 @@ CONTENT = [
             "The barrier is built mainly from the tightly joined **endothelial cells** [[the cells lining "
             "the blood vessels]] of brain capillaries, whose close seals stop substances from leaking "
             "freely between the blood and brain tissue.",
+            "The key contrast, drawn out in Figure 2.9, is that capillaries elsewhere in the body have "
+            "**gaps (fenestrations)** [[small openings in the vessel wall]] that let substances pass "
+            "freely, whereas brain capillaries are sealed by **tight junctions** [[zipped-together joins "
+            "between the lining cells]] so almost nothing crosses except by the routes the brain "
+            "permits.",
             "Astrocyte **end-feet** wrap around these capillary walls and help form and support the "
             "barrier, which is why the barrier is described as a partnership between blood vessels and "
             "surrounding glial cells.",
@@ -368,16 +425,15 @@ CONTENT = [
         ],
         "figures": [
             {
-                "file": "assets/unit2_figures/bbb.png",
-                "alt": "Diagram of the blood-brain barrier showing a brain capillary with "
-                       "tight-junction endothelial cells wrapped by astrocyte end-feet",
-                "caption": "Figure 3. The blood-brain barrier at a brain capillary \u2014 "
-                           "tightly joined endothelial cells wrapped by astrocyte end-feet "
-                           "form the selective gate described in the GUARD mnemonic.",
-                "source": "NIH BioArt (NIH / NIAID), \u201cBlood-Brain Barrier (NIH BioArt 688)\u201d "
-                          "(accessed via Wikimedia Commons)",
-                "author": "Ryan Kissinger, NIH / NIAID (NIH BioArt)",
-                "license": "Public domain",
+                "file": "assets/unit2_figures/from_books/carlson_fig2_9_bbb.png",
+                "alt": "Diagram contrasting body capillaries, whose walls have gaps that let "
+                       "substances pass freely, with brain capillaries, whose walls are tightly "
+                       "joined to form the blood-brain barrier",
+                "caption": "Figure 3. The blood-brain barrier \u2014 (a) capillaries elsewhere "
+                           "in the body have gaps that let substances pass freely, while (b) "
+                           "the capillaries in the brain are tightly joined, forming the "
+                           "selective gate described in the GUARD mnemonic.",
+                "credit": "Adapted from Carlson, Physiology of Behavior, Chapter 2, Figure 2.9.",
             },
         ],
         "definition": {
@@ -434,6 +490,15 @@ CONTENT = [
             "The negativity arises from an uneven spread of **ions** [[charged particles such as sodium, "
             "potassium and chloride]] across the membrane, so charge is not balanced between the inside and "
             "the outside.",
+            "Four kinds of charged particle set up this gradient, namely **sodium (Na+)** and **chloride "
+            "(Cl-)** that sit mostly outside the cell, and **potassium (K+)** and large **protein anions "
+            "(A-)** [[big negatively charged proteins made inside the cell that no channel lets out]] that "
+            "stay mostly inside, and the trapped protein anions alone are enough to pull the interior "
+            "negative.",
+            "Potassium is so concentrated that there is about **twenty times as much K+ inside** the cell "
+            "as outside, yet because the trapped protein anions hold even more negative charge, the net "
+            "result when a little potassium leaks out is still a negative interior, which is the subtle "
+            "balance the Figure 4.14 panels illustrate.",
             "The neuron's cytoplasm is a watery, salty, **potassium-rich** solution, while sodium ions are "
             "more concentrated outside, and this mirror-image arrangement sets up the resting voltage the "
             "cell holds.",
@@ -487,17 +552,18 @@ CONTENT = [
         ],
         "figures": [
             {
-                "file": "assets/unit2_figures/nak_pump.png",
-                "alt": "Labelled diagram of the sodium-potassium pump in the cell membrane "
-                       "exporting three sodium ions and importing two potassium ions using "
-                       "energy from ATP",
-                "caption": "Figure 6. The sodium-potassium pump driving three sodium ions out "
-                           "and two potassium ions in for each ATP it spends \u2014 the active, "
-                           "energy-using mechanism that maintains the \u221270 mV resting "
-                           "potential in the PRIME mnemonic and the flowchart below.",
-                "source": "Wikimedia Commons, \u201cScheme sodium-potassium pump-en\u201d",
-                "author": "LadyofHats (Mariana Ruiz Villarreal)",
-                "license": "Public domain",
+                "file": "assets/unit2_figures/from_books/kolb_fig4_14_resting_potential.png",
+                "alt": "Four-panel diagram of the resting potential: unequal ion distribution "
+                       "across the axon membrane, the sodium-potassium pump exchanging three "
+                       "Na+ for two K+, the resulting negative interior, and electrodes "
+                       "recording the \u221270 mV difference",
+                "caption": "Figure 4. The basis and method of recording a resting potential "
+                           "\u2014 the unequal spread of ions, the sodium-potassium pump moving "
+                           "three Na+ out for two K+ in, and the \u221270 mV measured across the "
+                           "membrane, the mechanism captured in the PRIME mnemonic and the "
+                           "flowchart below.",
+                "credit": "From Kolb & Whishaw, Fundamentals of Human Neuropsychology, "
+                          "Figure 4.14.",
             },
         ],
         "definition": None,
@@ -547,6 +613,14 @@ CONTENT = [
             "negatively charged neuron.",
             "As **sodium floods in**, the inside of the neuron becomes positive and the membrane potential "
             "climbs steeply, which is the sharp upstroke seen on a recording of the action potential.",
+            "The whole spike is remarkably fast and large, lasting only about **one millisecond** and "
+            "swinging the inside from its negative resting level up to roughly **+30 mV** at the peak, a "
+            "total change of about a hundred millivolts before the voltage reverses again.",
+            "The channels that drive the spike are **voltage-sensitive** [[they open only when the "
+            "membrane voltage itself reaches threshold]], and the sodium channel carries **two gates** "
+            "while the potassium channel carries **one**, which is exactly the gate 1 and gate 2 "
+            "arrangement labelled in Figure 4.17: gate 1 opening starts depolarisation and gate 2 closing "
+            "ends it.",
             "Next, **potassium (K+) channels** open and potassium ions move out of the cell, a flow that "
             "reverses the rising charge and begins to bring the membrane voltage back down.",
             "The brief peak created as sodium enters and then potassium leaves is called the **spike "
@@ -573,7 +647,12 @@ CONTENT = [
             "travels, so the signal keeps its full strength over long distances along the axon.",
             "Because of the all-or-none rule, information is coded not by the size of each spike but by the "
             "**frequency** of impulses, so a stronger stimulus produces more action potentials per second "
-            "rather than bigger ones.",
+            "rather than bigger ones, with an axon able to fire at up to about **two hundred impulses a "
+            "second** though most neurons settle near thirty.",
+            "The channel basis of signalling is proved by poisons that target it, since **tetrodotoxin** "
+            "[[the deadly toxin of the puffer fish]] blocks sodium channels and abolishes the spike, "
+            "while the chemical TEA blocks potassium channels, a clean demonstration that the action "
+            "potential is the summed flow of sodium in and potassium out.",
             "The refractory periods also ensure the impulse travels in **one direction** only, from the "
             "cell body toward the axon terminal, preventing the signal from running backward along the "
             "fibre.",
@@ -598,17 +677,17 @@ CONTENT = [
         ],
         "figures": [
             {
-                "file": "assets/unit2_figures/action_potential.png",
-                "alt": "Graph of an action potential plotting membrane voltage over time, "
-                       "showing threshold, depolarisation, repolarisation and the "
-                       "hyperpolarisation undershoot",
-                "caption": "Figure 4. The action-potential graph of membrane voltage against "
-                           "time, showing the threshold, the depolarising upstroke, "
-                           "repolarisation and the hyperpolarisation undershoot before the "
-                           "cell returns to rest.",
-                "source": "Wikimedia Commons, \u201cAction potential\u201d",
-                "author": "Chris 73 / Diberri / tiZom",
-                "license": "CC BY-SA 3.0",
+                "file": "assets/unit2_figures/from_books/kolb_fig4_17_action_potential.png",
+                "alt": "Diagram of the action potential curve aligned with voltage-sensitive "
+                       "sodium and potassium channels across the depolarise, repolarise and "
+                       "hyperpolarise phases, showing gate 1 and gate 2 opening and closing",
+                "caption": "Figure 5. Voltage-sensitive sodium and potassium channels across "
+                           "the phases of the action potential \u2014 gate 1 opening starts "
+                           "depolarisation, gate 2 closing ends it, and the slower potassium "
+                           "gates drive repolarisation and hyperpolarisation before the cell "
+                           "returns to rest.",
+                "credit": "From Kolb & Whishaw, Fundamentals of Human Neuropsychology, "
+                          "Figure 4.17.",
             },
         ],
         "definition": None,
@@ -653,7 +732,18 @@ CONTENT = [
             "[[the gap between them, about 20 nm wide]] in between.",
             "**Neurotransmitters** are the chemical messengers synthesised by neurons and released across "
             "the synapse, and they are stored in tiny sacs called **vesicles** [[membrane bubbles holding "
-            "the chemical]] in the terminal.",
+            "the chemical]] in the terminal, with some terminals also keeping clusters of vesicles in "
+            "larger **storage granules** ready for use.",
+            "That chemical transmission exists at all was first proved by **Otto Loewi** [[a physiologist "
+            "whose frog-heart experiment showed a released chemical, not electricity, carries the "
+            "message]], who found that fluid from a vagus-stimulated heart slowed a second heart, "
+            "identifying the chemical as acetylcholine and so opening the whole field of synaptic "
+            "chemistry.",
+            "The terminal is a small factory as well as a dispatch point, since each **mitochondrion** "
+            "supplies the energy to make and package transmitters, and neurons build their chemicals by "
+            "two routes, either assembling them in the terminal from food-derived **precursors** [[the "
+            "raw building blocks absorbed from the blood]] or manufacturing them in the cell body from "
+            "DNA instructions and shipping them down the axon.",
             "When the impulse arrives, **calcium (Ca2+) channels** open and calcium entering the terminal "
             "drives the vesicles to fuse with the membrane in a process called **exocytosis** [[releasing "
             "contents by the sac merging with the cell wall]].",
@@ -717,18 +807,17 @@ CONTENT = [
         ],
         "figures": [
             {
-                "file": "assets/unit2_figures/synapse.jpg",
-                "alt": "Schematic of a chemical synapse showing the presynaptic terminal, "
-                       "synaptic vesicles, synaptic cleft, released neurotransmitter and "
-                       "postsynaptic receptors",
-                "caption": "Figure 5. A chemical synapse, showing the presynaptic terminal "
-                           "with neurotransmitter-filled vesicles, the synaptic cleft and the "
-                           "receptors on the postsynaptic membrane \u2014 the sequence set out "
+                "file": "assets/unit2_figures/from_books/kolb_fig5_2_synapse.png",
+                "alt": "Labelled schematic of a synapse showing the presynaptic terminal with "
+                       "mitochondrion, synaptic vesicles and a storage granule, the synaptic "
+                       "cleft, and the postsynaptic receptor on the dendritic spine",
+                "caption": "Figure 6. The major parts of a synapse \u2014 the presynaptic "
+                           "terminal with its mitochondrion, synaptic vesicles and storage "
+                           "granule, the synaptic cleft, and the postsynaptic receptor on the "
+                           "dendritic spine \u2014 the structures behind the sequence set out "
                            "in the flowchart below.",
-                "source": "Wikimedia Commons, \u201cChemical synapse schema (cropped)\u201d",
-                "author": "User:Looie496, illustrated by Christy Krames for the US NIH / "
-                          "National Institute on Aging",
-                "license": "Public domain",
+                "credit": "From Kolb & Whishaw, Fundamentals of Human Neuropsychology, "
+                          "Figure 5.2.",
             },
         ],
         "definition": None,
@@ -782,6 +871,10 @@ CONTENT = [
             "Neuropeptides typically work by **raising or lowering the release** of other neurotransmitters "
             "or by altering how strongly postsynaptic cells respond, so they fine-tune signalling rather "
             "than carry it alone.",
+            "Because they are not confined to a single cleft, neuromodulators act by a kind of **volume "
+            "transmission** [[spreading through the surrounding fluid to bathe many neurons at once]], "
+            "which is why one modulatory signal can reset the gain of a whole circuit rather than deliver "
+            "a single point-to-point message.",
             "**Hormones** are a third mode of communication in the body, chemical substances secreted by "
             "the **endocrine glands** [[ductless glands that release into the blood]] or by cells in "
             "organs such as the stomach and kidneys.",
@@ -884,6 +977,12 @@ REFERENCES = {
         "potential).",
         "Guyton and Hall Textbook of Medical Physiology, by John E. Hall (standard physiology text, "
         "used to cross-check membrane potential, ion gradients and nerve-impulse conduction).",
+        "Carlson, Neil R., Physiology of Behavior, Chapter 2 \u201cStructure and Functions of Cells "
+        "of the Nervous System\u201d (source of the neuron, astrocyte, oligodendrocyte and "
+        "blood-brain-barrier figures reproduced in these notes).",
+        "Kolb, Bryan, and Ian Q. Whishaw, Fundamentals of Human Neuropsychology (source of the "
+        "neuron-types, glial-cell, resting-potential, action-potential and synapse figures "
+        "reproduced in these notes).",
     ],
     "online": [
         "StatPearls (NCBI Bookshelf), Treasure Island (FL): StatPearls Publishing \u2014 physiology "
@@ -912,10 +1011,16 @@ def figure_credits():
         for fig in topic.get("figures", []):
             caption = fig["caption"]
             fig_label = caption.split(".", 1)[0].strip() if "." in caption else caption
-            suffix = "" if fig["source"].startswith("NIH BioArt") else " Via Wikimedia Commons."
-            credits.append(
-                "%s \u2014 %s by %s. License: %s.%s"
-                % (fig_label, fig["source"], fig["author"], fig["license"], suffix))
+            if fig.get("credit"):
+                # Book-sourced figure: use its honest provenance verbatim.
+                credits.append("%s \u2014 %s" % (fig_label, fig["credit"]))
+            else:
+                # Openly-licensed figure: the "Via Wikimedia Commons" tag applies
+                # only to genuine Wikimedia works, not to NIH BioArt.
+                suffix = "" if fig["source"].startswith("NIH BioArt") else " Via Wikimedia Commons."
+                credits.append(
+                    "%s \u2014 %s by %s. License: %s.%s"
+                    % (fig_label, fig["source"], fig["author"], fig["license"], suffix))
     return credits
 
 
@@ -1178,7 +1283,14 @@ def render_figures(topic):
         return ""
     parts = []
     for fig in figs:
-        credit = "Source: %s by %s. License: %s." % (fig["source"], fig["author"], fig["license"])
+        if fig.get("credit"):
+            # Honest verbatim provenance (used for figures taken from the
+            # uploaded textbooks); no fabricated open-license wording.
+            credit = fig["credit"]
+        else:
+            # Fallback for genuinely openly-licensed figures that are retained.
+            credit = "Source: %s by %s. License: %s." % (
+                fig["source"], fig["author"], fig["license"])
         parts.append(
             '<figure class="fig">'
             '<img alt="%s" src="%s">'
@@ -1266,7 +1378,7 @@ def render_html():
     <ul>
       {ref_online}
     </ul>
-    <h3>Figure image sources (online)</h3>
+    <h3>Figure sources</h3>
     <ul>
       {ref_figures}
     </ul>

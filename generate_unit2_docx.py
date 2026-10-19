@@ -258,7 +258,12 @@ def add_figures(document, t):
 
         cred_p = document.add_paragraph()
         cred_p.alignment = WD_ALIGN_PARAGRAPH.CENTER
-        credit = "Source: %s by %s. License: %s." % (fig["source"], fig["author"], fig["license"])
+        if fig.get("credit"):
+            # Honest verbatim book provenance; no fabricated open-license wording.
+            credit = fig["credit"]
+        else:
+            credit = "Source: %s by %s. License: %s." % (
+                fig["source"], fig["author"], fig["license"])
         srun = cred_p.add_run(credit)
         srun.italic = True
         srun.font.size = Pt(8)
@@ -301,7 +306,7 @@ def add_references(document):
     for o in REFERENCES["online"]:
         document.add_paragraph(o, style="List Bullet")
 
-    document.add_heading("Figure image sources (online)", level=2)
+    document.add_heading("Figure sources", level=2)
     for f in REFERENCES.get("figures", []):
         document.add_paragraph(f, style="List Bullet")
 
