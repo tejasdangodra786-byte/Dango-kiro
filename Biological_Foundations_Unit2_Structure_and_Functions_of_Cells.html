@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Biological Foundations of Behavior — Unit II: Structure and Functions of Cells</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: #f4f7fb;
+  color: #1a2535;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 16px;
+  line-height: 1.75;
+}
+.cover {
+  min-height: 100vh;
+  display: flex; flex-direction: column; justify-content: center; align-items: center;
+  text-align: center;
+  background: linear-gradient(135deg, #0f2744 0%, #1d5fa6 55%, #0e7c6b 100%);
+  color: #fff; padding: 60px 28px;
+}
+.cover .label {
+  font-family: Arial, Helvetica, sans-serif;
+  letter-spacing: 4px; text-transform: uppercase; font-size: 13px;
+  color: rgba(255,255,255,0.7); margin-bottom: 22px;
+}
+.cover h1 {
+  font-size: clamp(28px, 5vw, 46px); line-height: 1.25; max-width: 900px;
+  margin-bottom: 20px;
+}
+.cover .subtitle {
+  font-size: 17px; color: rgba(255,255,255,0.85); max-width: 640px; margin-bottom: 38px;
+  font-style: italic;
+}
+.cover .credit {
+  font-family: Arial, Helvetica, sans-serif;
+  display: inline-block; border: 1px solid rgba(255,255,255,0.4);
+  border-radius: 30px; padding: 10px 24px; font-size: 15px; font-weight: 600;
+  background: rgba(255,255,255,0.08);
+}
+.wrap { max-width: 960px; margin: 0 auto; padding: 48px 26px 70px; }
+.toc {
+  background: #fff; border: 1px solid #dce6f0; border-radius: 12px;
+  padding: 26px 30px; margin-bottom: 40px; box-shadow: 0 2px 10px rgba(15,39,68,0.05);
+}
+.toc h2 { font-size: 22px; color: #0f2744; margin-bottom: 14px; }
+.toc ol { margin-left: 22px; }
+.toc li { margin: 6px 0; }
+.toc a { color: #1d5fa6; text-decoration: none; }
+.toc a:hover { text-decoration: underline; }
+.guide {
+  background: #eef6ff; border: 1px solid #cfe2f7; border-left: 5px solid #1d5fa6;
+  border-radius: 10px; padding: 22px 26px; margin-bottom: 44px;
+}
+.guide h2 { color: #0f2744; font-size: 22px; margin-bottom: 12px; }
+.guide ul { margin-left: 22px; }
+.guide li { margin: 8px 0; }
+.card {
+  background: #fff; border: 1px solid #dce6f0; border-radius: 12px;
+  padding: 28px 30px; margin-bottom: 40px; box-shadow: 0 2px 12px rgba(15,39,68,0.06);
+  border-left: 6px solid #1d5fa6;
+}
+.card.blue   { border-left-color: #1d5fa6; }
+.card.teal   { border-left-color: #0e7c6b; }
+.card.amber  { border-left-color: #8a5c00; }
+.card.rose   { border-left-color: #7a1f3d; }
+.card.purple { border-left-color: #4a2080; }
+.card.navy   { border-left-color: #0f2744; }
+.card-head { display: flex; align-items: center; gap: 14px; margin-bottom: 8px; }
+.sec-num {
+  width: 38px; height: 38px; border-radius: 50%; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-family: Arial, Helvetica, sans-serif; font-weight: 700; color: #fff; font-size: 16px;
+  background: #1d5fa6;
+}
+.card.teal   .sec-num { background: #0e7c6b; }
+.card.amber  .sec-num { background: #8a5c00; }
+.card.rose   .sec-num { background: #7a1f3d; }
+.card.purple .sec-num { background: #4a2080; }
+.card.navy   .sec-num { background: #0f2744; }
+.card-head h2 { font-size: 24px; color: #0f2744; }
+.intro { font-style: italic; color: #40506a; margin: 10px 0 20px; font-size: 16.5px; }
+.points { counter-reset: pt; list-style: none; }
+.points li {
+  position: relative; padding: 10px 0 10px 40px; border-bottom: 1px dashed #e4ebf3;
+}
+.points li:before {
+  counter-increment: pt; content: counter(pt);
+  position: absolute; left: 0; top: 10px;
+  width: 26px; height: 26px; border-radius: 50%;
+  background: #e1edf8; color: #1d5fa6; font-family: Arial, sans-serif;
+  font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center;
+}
+.plain {
+  background: #fff3d6; color: #6b4e00; border: 1px solid #e7c766;
+  border-radius: 6px; padding: 1px 8px; font-size: 14.5px;
+  font-family: Arial, Helvetica, sans-serif; font-style: normal;
+  display: inline-block; line-height: 1.5;
+}
+strong { color: #10243f; font-weight: 700; }
+.alert-box {
+  background: #f0eafa; border: 1px solid #d6c7f0; border-left: 5px solid #4a2080;
+  border-radius: 10px; padding: 18px 22px; margin: 22px 0;
+}
+.alert-box .alert-label {
+  font-family: Arial, Helvetica, sans-serif; font-size: 12.5px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 1px; color: #4a2080; margin-bottom: 8px;
+}
+.alert-box .cite { display: block; margin-top: 10px; font-size: 13.5px; color: #5a6a7e; }
+.block-title {
+  font-family: Arial, Helvetica, sans-serif; font-size: 13px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 1px; color: #5a6a7e; margin: 26px 0 12px;
+}
+.flow {
+  display: flex; flex-wrap: wrap; align-items: stretch; gap: 8px;
+  background: #f7fafd; border: 1px dashed #c6d6e6; border-radius: 10px; padding: 18px;
+}
+.flow-box {
+  background: #fff; border: 1px solid #bcd0e6; border-radius: 8px;
+  padding: 10px 14px; font-size: 14px; font-family: Arial, Helvetica, sans-serif;
+  display: flex; flex-direction: column; justify-content: center; min-width: 110px; text-align: center;
+}
+.flow-box small { color: #5a6a7e; font-size: 12px; }
+.flow-box.end { background: #0f2744; color: #fff; border-color: #0f2744; }
+.flow-box.end small { color: rgba(255,255,255,0.8); }
+.flow-arrow { display: flex; align-items: center; color: #1d5fa6; font-size: 22px; font-weight: 700; }
+.mnemonic {
+  background: #e3f5f1; border: 1px solid #b5e0d6; border-left: 5px solid #0e7c6b;
+  border-radius: 10px; padding: 18px 22px; margin-top: 10px;
+}
+.mnemonic .mword {
+  font-family: Arial, Helvetica, sans-serif; font-weight: 700; font-size: 20px;
+  color: #0e7c6b; letter-spacing: 2px;
+}
+.mnemonic .mline { font-style: italic; color: #33514a; margin: 6px 0 12px; }
+.mnemonic ul { list-style: none; }
+.mnemonic li { margin: 5px 0; }
+.mnemonic .ml {
+  display: inline-block; width: 26px; font-family: Arial, sans-serif; font-weight: 700;
+  color: #0e7c6b; font-size: 16px;
+}
+.refs { background: #fff; border: 1px solid #dce6f0; border-radius: 12px; padding: 26px 30px; }
+.refs h2 { color: #0f2744; font-size: 24px; margin-bottom: 14px; }
+.refs h3 { color: #1d5fa6; font-size: 16px; margin: 16px 0 8px; font-family: Arial, sans-serif; }
+.refs ul { margin-left: 22px; }
+.refs li { margin: 8px 0; }
+.footer {
+  background: #0f2744; color: rgba(255,255,255,0.9); text-align: center;
+  padding: 26px 20px; font-family: Arial, Helvetica, sans-serif; font-size: 14px;
+}
+.footer .credit { font-weight: 700; color: #fff; }
+@media (max-width: 640px) {
+  .flow { flex-direction: column; }
+  .flow-arrow { transform: rotate(90deg); }
+}
+</style>
+</head>
+<body>
+
+<header class="cover">
+  <div class="label">M.Phil. Clinical Psychology &middot; Study Notes</div>
+  <h1>Biological Foundations of Behavior — Unit II: Structure and Functions of Cells</h1>
+  <div class="subtitle">Paper I: Biological Foundations of Behavior · Part A (Anatomy, Physiology and Biochemistry of the CNS) · Exam-ready study notes</div>
+  <div class="credit">Dango_Psych by Tejas Dangodra | M.Phil. Clinical Psychology</div>
+</header>
+
+<div class="wrap">
+
+  <nav class="toc">
+    <h2>Contents</h2>
+    <ol>
+      <li><a href="#neurons">Cells of the Nervous System — Neurons</a></li>
+<li><a href="#glia">Supporting Cells (Glia)</a></li>
+<li><a href="#bbb">The Blood–Brain Barrier</a></li>
+<li><a href="#resting">Communication Within a Neuron — Membrane (Resting) Potential</a></li>
+<li><a href="#action">Communication Within a Neuron — The Action Potential</a></li>
+<li><a href="#neurotransmitters">Communication Between Neurons — Neurotransmitters</a></li>
+<li><a href="#modulators">Neuromodulators and Hormones</a></li>
+    </ol>
+  </nav>
+
+  <section class="guide">
+    <h2>How to read these notes</h2>
+    <ul>
+      <li>Each topic opens with a one-line <strong>intro</strong> that frames the idea, followed by at least fifteen numbered points; every point is a full exam sentence, so read it as a ready-made <strong>5-mark answer</strong> rather than a short note.</li>
+<li>Hard anatomical or physiological terms are kept in full, but each is followed by a plain-language meaning inside a shaded box like this <span class="plain">a simple everyday explanation that sits right next to the difficult word</span> so you never lose the technical vocabulary.</li>
+<li>Only a <strong>few keywords</strong> in each sentence are shown in bold; treat those bold words as memory hooks and recall the rest of the sentence around them while you revise.</li>
+<li>Every topic carries exactly one <strong>flowchart</strong> of boxes joined by arrows to show the order of a process, and exactly one <strong>mnemonic</strong> whose letters each map to a point you must remember.</li>
+<li>Revise by first reading the flowchart to fix the sequence, then the mnemonic to lock the key points, and finally the full sentences to add exam-ready detail and wording.</li>
+    </ul>
+  </section>
+
+  <section class="card blue" id="neurons">
+<div class="card-head"><div class="sec-num">1</div><h2>Cells of the Nervous System — Neurons</h2></div>
+<p class="intro">Neurons are the signalling cells that receive, process and pass on information across the whole nervous system.</p>
+<ol class="points">
+<li><strong>Neurons</strong> are the elementary information-processing cells of the nervous system, electrically <strong>excitable</strong> <span class="plain">able to produce tiny electrical signals</span> cells that receive and rapidly transmit chemical or electrical messages across the body.</li>
+<li>A typical neuron has three core parts, the <strong>cell body</strong> (soma), the branching <strong>dendrites</strong> and a single long <strong>axon</strong>, and this layout lets one cell gather many inputs yet send one focused output signal.</li>
+<li>The <strong>soma</strong> <span class="plain">the main body of the cell that holds the nucleus</span> contains the nucleus, endoplasmic reticulum, Golgi apparatus, lysosomes and mitochondria, so most of the cell&#x27;s housekeeping and manufacturing work happens here.</li>
+<li>The <strong>nucleus</strong> stores genetic material inside chromosomes and transcribes <strong>DNA into RNA</strong> <span class="plain">copying the gene instructions into a message</span>, which then leaves through nuclear pores to guide protein synthesis in the cytoplasm.</li>
+<li><strong>Dendrites</strong> are fine branching filaments that carry information toward the cell body, and their many <strong>dendritic spines</strong> <span class="plain">tiny bumps on the branches</span> greatly increase the surface area available for synaptic connections.</li>
+<li>The <strong>axon</strong> behaves like the wire of an electrical cable, starting at the <strong>axon hillock</strong> <span class="plain">the cone-shaped base where the axon leaves the soma</span> and carrying the signal away toward another neuron, a muscle or a gland.</li>
+<li>A fatty <strong>myelin sheath</strong> <span class="plain">an insulating fatty wrapping around the axon</span> encloses many axons in segments, and this insulation sharply increases the speed at which nerve impulses travel along the fibre.</li>
+<li>Gaps in the myelin called <strong>nodes of Ranvier</strong> <span class="plain">bare spaces between the insulating segments</span> let the signal be recharged as it jumps along the axon, keeping the impulse strong over long distances.</li>
+<li>Inside the soma, <strong>Nissl granules</strong> <span class="plain">clusters of rough endoplasmic reticulum</span> and free ribosomes build proteins, while <strong>mitochondria</strong> act as the powerhouse supplying the energy the busy neuron constantly needs.</li>
+<li>The <strong>Golgi apparatus</strong> <span class="plain">the cell&#x27;s packaging and dispatch centre</span> processes peptides, proteins and neurotransmitters into vesicles, and microtubules then transport these packages to where the neuron needs them.</li>
+<li>By <strong>function</strong>, neurons are grouped as sensory (afferent) neurons that carry input to the CNS, motor (efferent) neurons that drive muscles and glands, and interneurons that connect the two inside the central nervous system.</li>
+<li><strong>Sensory (afferent) neurons</strong> convert a stimulus from the outside world into an internal electrical signal and then carry that signal inward toward the spinal cord or brain for processing.</li>
+<li><strong>Motor (efferent) neurons</strong> sit in the CNS and control muscles through the <strong>neuromuscular junction</strong> <span class="plain">the contact point where a nerve meets a muscle</span>, and they are multipolar with one axon and many dendrites.</li>
+<li><strong>Interneurons</strong> act as a local broker between sensory and motor neurons, handling signals nearby so that quick reflex-like responses do not always have to travel all the way back to the spinal cord.</li>
+<li>By <strong>shape and number of processes</strong>, neurons are classed as <strong>unipolar</strong>, <strong>bipolar</strong> or <strong>multipolar</strong> <span class="plain">one, two, or many extensions leaving the cell body</span>, a structural scheme that reflects how each cell is wired into its circuit.</li>
+<li>Neurons can also be named by the <strong>neurotransmitter</strong> they release, such as cholinergic or glutamatergic cells, which links a cell&#x27;s chemical identity directly to the kind of message it delivers to its partners.</li>
+<li>Neurons are enclosed by a <strong>plasma membrane</strong> <span class="plain">the thin outer skin of the cell</span> and, because they rarely divide once mature, damage to them tends to be long-lasting, which is why neuronal health matters so much for behaviour.</li>
+</ol>
+<div class="block-title">Flowchart &middot; Direction of information flow through a single neuron</div>
+<div class="flow">
+<div class="flow-box">Dendrites<br><small>receive input</small></div>
+<div class="flow-arrow">&rarr;</div>
+<div class="flow-box">Cell body (soma)<br><small>integrates</small></div>
+<div class="flow-arrow">&rarr;</div>
+<div class="flow-box">Axon hillock<br><small>trigger zone</small></div>
+<div class="flow-arrow">&rarr;</div>
+<div class="flow-box">Axon + myelin<br><small>conducts</small></div>
+<div class="flow-arrow">&rarr;</div>
+<div class="flow-box end">Axon terminal<br><small>output / synapse</small></div>
+</div>
+<div class="block-title">Mnemonic</div>
+<div class="mnemonic">
+<div class="mword">DRAMA</div>
+<div class="mline">Use DRAMA to recall the neuron&#x27;s parts in signal order.</div>
+<ul>
+<li><span class="ml">D</span> <strong>Dendrites</strong> receive incoming signals.</li>
+<li><span class="ml">R</span> <strong>Receiving</strong> done, the cell body integrates them.</li>
+<li><span class="ml">A</span> <strong>Axon hillock</strong> decides whether to fire.</li>
+<li><span class="ml">M</span> <strong>Myelin</strong> on the axon speeds the impulse.</li>
+<li><span class="ml">A</span> <strong>Axon terminal</strong> passes the message on at the synapse.</li>
+</ul></div>
+</section>
+<section class="card teal" id="glia">
+<div class="card-head"><div class="sec-num">2</div><h2>Supporting Cells (Glia)</h2></div>
+<p class="intro">Glial cells are the non-signalling support cells that feed, insulate, defend and hold the nervous system together.</p>
+<ol class="points">
+<li><strong>Glial (neuroglial) cells</strong> are the support cells that hold the nervous system together, providing physical integrity, nutrition and a stable <strong>homeostasis</strong> <span class="plain">a steady internal environment</span> around the neurons.</li>
+<li>Glia outnumber neurons by roughly a <strong>three-to-one ratio</strong>, which underlines that healthy brain function depends not only on neurons but heavily on the supporting cells that surround and service them.</li>
+<li>Beyond simple support, glia help regulate the chemical environment around neurons and take part in <strong>cortical development</strong>, axon and dendrite growth, making them active partners in building the nervous system.</li>
+<li><strong>Astrocytes</strong> are star-shaped cells of the brain and spinal cord that keep the chemical environment stable by clearing surplus ions such as potassium and chloride from around the nerve cells.</li>
+<li>Astrocytes also <strong>recycle neurotransmitters</strong> <span class="plain">reclaim and reuse chemical messengers</span> that were released during synaptic transmission, so signalling chemicals are not wasted and the synapse is reset for the next message.</li>
+<li>Astrocyte <strong>end-feet</strong> <span class="plain">swollen tips of the astrocyte</span> wrap around and support the endothelial cells of the blood-brain barrier, helping shield the brain from harmful blood-borne substances while normal metabolism continues.</li>
+<li>The brain holds two kinds of astrocyte, <strong>protoplasmic astrocytes</strong> in grey matter and <strong>fibrous astrocytes</strong> in white matter, and together they are the most numerous glial cells of the central nervous system.</li>
+<li><strong>Oligodendrocytes</strong> in the CNS form the <strong>myelin sheath</strong> <span class="plain">fatty insulation</span> around axons, and because one oligodendrocyte can coat up to about fifty axons they are highly efficient insulating cells.</li>
+<li>Myelin from oligodendrocytes lets the action potential jump between <strong>nodes of Ranvier</strong> <span class="plain">gaps in the insulation</span>, so myelinated axons conduct far faster than unmyelinated ones and myelin loss impairs reasoning and performance.</li>
+<li><strong>Microglia</strong> are the resident immune cells of the CNS and act as specialised <strong>macrophages</strong> <span class="plain">cells that engulf and digest debris</span>, guarding and supporting neurons throughout the brain and spinal cord.</li>
+<li>Microglia carry out <strong>phagocytosis</strong> <span class="plain">swallowing and clearing waste</span>, make up roughly fifteen to seventeen percent of CNS cells, and multiply in response to brain injury to contain the damage.</li>
+<li>Microglia drive the <strong>inflammatory response</strong> to brain trauma and are implicated in neurodegenerative disorders such as multiple sclerosis, motor neurone disease and Alzheimer&#x27;s disease, and are key targets of HIV-1 in the CNS.</li>
+<li><strong>Radial glial cells</strong> are a temporary population in the developing CNS that act both as precursor cells and as a <strong>scaffold</strong> <span class="plain">a guiding framework</span> along which young neurons migrate to their correct positions.</li>
+<li><strong>Schwann cells</strong> are the PNS counterpart of oligodendrocytes, and each Schwann cell insulates one single stretch of a peripheral axon with myelin to speed conduction outside the brain and spinal cord.</li>
+<li><strong>Non-myelinating Schwann cells</strong> are important for the survival and maintenance of peripheral axons, showing that even glia which do not insulate still keep neurons alive and functioning healthily.</li>
+<li>A newly recognised glial type, the <strong>oligodendrocyte precursor cell</strong>, takes part in synaptic signalling in the hippocampus, revising the older idea that glia only ever served passive supporting roles.</li>
+</ol>
+<div class="block-title">Flowchart &middot; Matching each glial cell to its main job</div>
+<div class="flow">
+<div class="flow-box">Astrocyte<br><small>feeds + balances ions</small></div>
+<div class="flow-arrow">&rarr;</div>
+<div class="flow-box">Oligodendrocyte<br><small>myelin in CNS</small></div>
+<div class="flow-arrow">&rarr;</div>
+<div class="flow-box">Schwann cell<br><small>myelin in PNS</small></div>
+<div class="flow-arrow">&rarr;</div>
+<div class="flow-box">Microglia<br><small>immune defence</small></div>
+<div class="flow-arrow">&rarr;</div>
+<div class="flow-box end">Radial glia<br><small>migration scaffold</small></div>
+</div>
+<div class="block-title">Mnemonic</div>
+<div class="mnemonic">
+<div class="mword">AOMRS</div>
+<div class="mline">Say &quot;A Old Monk Rarely Sleeps&quot; (A-O-M-R-S) for the five glial cells.</div>
+<ul>
+<li><span class="ml">A</span> <strong>Astrocytes</strong> nourish neurons and balance ions.</li>
+<li><span class="ml">O</span> <strong>Oligodendrocytes</strong> make myelin in the CNS.</li>
+<li><span class="ml">M</span> <strong>Microglia</strong> are the immune defenders.</li>
+<li><span class="ml">R</span> <strong>Radial glia</strong> guide neuron migration.</li>
+<li><span class="ml">S</span> <strong>Schwann cells</strong> make myelin in the PNS.</li>
+</ul></div>
+</section>
+<section class="card purple" id="bbb">
+<div class="card-head"><div class="sec-num">3</div><h2>The Blood–Brain Barrier</h2></div>
+<p class="intro">The blood-brain barrier is the selective gate that protects the brain while still letting essential nutrients pass.</p>
+<ol class="points">
+<li>The <strong>blood-brain barrier</strong> is a protective mechanism that keeps a stable environment for the brain by shielding it from harmful substances carried in the circulating blood.</li>
+<li>It works by <strong>differential permeability</strong> <span class="plain">letting some things through but not others</span>, so blood-borne toxins and many drugs are kept out while the brain&#x27;s normal metabolism continues undisturbed.</li>
+<li>The barrier is built mainly from the tightly joined <strong>endothelial cells</strong> <span class="plain">the cells lining the blood vessels</span> of brain capillaries, whose close seals stop substances from leaking freely between the blood and brain tissue.</li>
+<li>Astrocyte <strong>end-feet</strong> wrap around these capillary walls and help form and support the barrier, which is why the barrier is described as a partnership between blood vessels and surrounding glial cells.</li>
+<li>The barrier allows <strong>passive diffusion</strong> <span class="plain">free drifting across the membrane</span> of small gases such as oxygen and carbon dioxide, so the brain can breathe at the cellular level without any special transport system.</li>
+<li>Essential molecules that cannot simply diffuse, such as <strong>glucose</strong> and certain amino acids, are moved across by <strong>selective transport</strong> <span class="plain">special carrier proteins that ferry them through</span> to feed the demanding brain tissue.</li>
+<li>The brain is metabolically expensive, using about <strong>twenty-five percent of the body&#x27;s glucose</strong> and roughly seventy-five percent of its oxygen, so a steady, well-guarded blood supply is vital to normal brain function.</li>
+<li>A serious fall in blood supply to the brain can cause a <strong>stroke</strong> <span class="plain">brain damage from loss of blood flow</span>, showing how dependent the brain is on continuous, properly regulated circulation.</li>
+<li><strong>Lipid-soluble</strong> <span class="plain">fat-dissolving</span> substances can slip through the plasma membranes of the barrier more easily than water-soluble ones, which is why some drugs reach the brain readily while others are largely blocked.</li>
+<li><strong>Stress</strong> increases the permeability of the barrier, so under strain even some harmful chemicals that are normally excluded may cross into the brain, a point of real clinical importance.</li>
+<li>The barrier&#x27;s selective nature explains why treating brain disease is difficult, because many useful drugs are <strong>rejected at the barrier</strong> and never reach the neurons that need them.</li>
+<li>A clear clinical illustration is <strong>L-DOPA (levodopa)</strong>, the precursor of dopamine, which is given in Parkinson&#x27;s disease precisely because it can cross the barrier whereas dopamine itself cannot.</li>
+<li>The barrier is described as a <strong>semipermeable</strong> <span class="plain">only partly letting things through</span> structure formed with extracellular fluid that separates the circulating blood from the brain and the extracellular fluid of the central nervous system.</li>
+<li>By keeping ions and messenger molecules at controlled levels, the barrier protects the delicate <strong>electrical environment</strong> neurons need, so signalling across the brain stays reliable and is not disturbed by swings in blood chemistry.</li>
+<li>In short, the blood-brain barrier is a finely balanced <strong>gatekeeper</strong> that blocks threats, admits fuel and protects the brain&#x27;s internal setting, making it central to both brain health and drug design.</li>
+<li>Because the barrier guards brain chemistry so strictly, damage or leakage of the barrier is linked to swelling, infection and several neurological conditions, underlining its role as a frontline protector of the central nervous system.</li>
+</ol>
+<div class="alert-box"><div class="alert-label">Sourced definition — Blood Brain Barrier (book&#x27;s Key Terms and Definitions)</div><div>“Blood brain barrier is a protective element with semipermeable architecture formed by extracellular fluid that separates the circulating blood from the brain and extracellular fluid in the central nervous system. Blood brain barrier system allows passage of small molecules including gases such as oxygen and carbon dioxide by passive diffusion; as well also promote the selective transportation of essential nutrients or molecules such as, water, glucose and amino acids, which cannot diffuse due to absence of required polarity.”</div><span class="cite">Source: Examining Biological Foundations of Human Behavior (ed. Barre Vijaya Prasad, 2020), Key Terms and Definitions.</span></div>
+<div class="block-title">Flowchart &middot; What the barrier lets in and keeps out</div>
+<div class="flow">
+<div class="flow-box">Blood vessel<br><small>carries everything</small></div>
+<div class="flow-arrow">&rarr;</div>
+<div class="flow-box">Tight endothelium + astrocyte end-feet<br><small>the gate</small></div>
+<div class="flow-arrow">&rarr;</div>
+<div class="flow-box">IN: O2, CO2, glucose, amino acids<br><small>needed fuel</small></div>
+<div class="flow-arrow">&rarr;</div>
+<div class="flow-box end">OUT: toxins, most drugs, pathogens<br><small>blocked</small></div>
+</div>
+<div class="block-title">Mnemonic</div>
+<div class="mnemonic">
+<div class="mword">GUARD</div>
+<div class="mline">The barrier acts as a GUARD for the brain.</div>
+<ul>
+<li><span class="ml">G</span> <strong>Gases</strong> oxygen and carbon dioxide diffuse in freely.</li>
+<li><span class="ml">U</span> <strong>Useful</strong> fuel like glucose and amino acids is carried in.</li>
+<li><span class="ml">A</span> <strong>Astrocyte</strong> end-feet help build and support the barrier.</li>
+<li><span class="ml">R</span> <strong>Rejects</strong> toxins, pathogens and most drugs.</li>
+<li><span class="ml">D</span> <strong>Differential</strong> permeability, loosened by stress, controls entry.</li>
+</ul></div>
+</section>
+<section class="card amber" id="resting">
+<div class="card-head"><div class="sec-num">4</div><h2>Communication Within a Neuron — Membrane (Resting) Potential</h2></div>
+<p class="intro">At rest a neuron holds a steady negative voltage inside, ready to fire the moment it is stimulated.</p>
+<ol class="points">
+<li>The <strong>resting membrane potential</strong> is the steady voltage across a neuron&#x27;s membrane while the cell is at rest and not sending a signal, and this chapter gives its value as about <strong>−70 mV</strong> inside relative to outside.</li>
+<li>This resting state is called <strong>polarised</strong> <span class="plain">charged, with a difference between inside and outside</span> because the inside of the neuron is negative compared with the fluid surrounding the cell.</li>
+<li>The negativity arises from an uneven spread of <strong>ions</strong> <span class="plain">charged particles such as sodium, potassium and chloride</span> across the membrane, so charge is not balanced between the inside and the outside.</li>
+<li>The neuron&#x27;s cytoplasm is a watery, salty, <strong>potassium-rich</strong> solution, while sodium ions are more concentrated outside, and this mirror-image arrangement sets up the resting voltage the cell holds.</li>
+<li>The <strong>plasma membrane</strong> <span class="plain">the cell&#x27;s outer skin</span> is selectively permeable, meaning it lets some ions cross more easily than others, which is essential for building and keeping the resting potential.</li>
+<li>At rest the membrane is far more permeable to <strong>potassium (K+)</strong> than to sodium, so potassium tends to leak outward down its gradient and leaves the inside of the cell more negative.</li>
+<li>A separate <strong>sodium-potassium pump</strong> <span class="plain">a protein that actively swaps the two ions using energy</span> pushes sodium out and potassium in, maintaining the concentration differences that underlie the resting potential. (Standard physiology texts.)</li>
+<li>This pumping requires <strong>energy from ATP</strong> supplied by mitochondria, which is why the resting potential is an active, energy-dependent state rather than something the cell gets for free.</li>
+<li>The resting potential represents a form of <strong>stored electrical energy</strong>, like a charged battery, that the neuron can release quickly when it is stimulated strongly enough to fire.</li>
+<li>A stimulus that makes the inside <strong>less negative</strong> moves the voltage toward zero, a change called depolarisation, whereas a stimulus that makes it more negative is called <strong>hyperpolarisation</strong> <span class="plain">becoming even more negative than rest</span>.</li>
+<li>The special voltage that must be reached to trigger a signal is the <strong>threshold</strong>, given in this chapter as about <strong>−55 mV</strong>, the tipping point beyond which the neuron is committed to firing.</li>
+<li>Below threshold the neuron stays quiet, so the resting potential also acts as a <strong>filter</strong> that prevents weak or random inputs from accidentally setting off a full nerve impulse.</li>
+<li>The resting potential is not fixed forever but is <strong>actively maintained</strong>, constantly rebalanced by ion channels and pumps so the cell is always poised and ready to respond to the next stimulus.</li>
+<li>Because the voltage sits between the negative resting level and the threshold, the neuron behaves like a loaded trigger, holding its charge until an input is <strong>strong enough</strong> to push it past the tipping point.</li>
+<li>Understanding the resting potential matters clinically because drugs, toxins and ion imbalances that alter membrane charge can change how easily neurons fire and so directly affect mood, movement and behaviour.</li>
+<li>Overall, the resting potential is the stable baseline, set by ion gradients and the <strong>sodium-potassium pump</strong>, from which every action potential begins and to which the neuron always returns after firing.</li>
+</ol>
+<div class="block-title">Flowchart &middot; How the resting potential is set up and held</div>
+<div class="flow">
+<div class="flow-box">Na+ pumped out, K+ pumped in<br><small>Na/K pump</small></div>
+<div class="flow-arrow">&rarr;</div>
+<div class="flow-box">K+ leaks out through channels<br><small>membrane</small></div>
+<div class="flow-arrow">&rarr;</div>
+<div class="flow-box">Inside becomes negative<br><small>−70 mV</small></div>
+<div class="flow-arrow">&rarr;</div>
+<div class="flow-box end">Polarised cell ready to fire<br><small>stable baseline</small></div>
+</div>
+<div class="block-title">Mnemonic</div>
+<div class="mnemonic">
+<div class="mword">PRIME</div>
+<div class="mline">A resting neuron is PRIMEd and waiting.</div>
+<ul>
+<li><span class="ml">P</span> <strong>Polarised</strong>, inside is negative at about −70 mV.</li>
+<li><span class="ml">R</span> <strong>Resting</strong>, no signal is being sent.</li>
+<li><span class="ml">I</span> <strong>Ions</strong> sodium and potassium are unevenly spread.</li>
+<li><span class="ml">M</span> <strong>Maintained</strong> by the sodium-potassium pump using ATP.</li>
+<li><span class="ml">E</span> <strong>Excitable</strong>, ready to fire once threshold (−55 mV) is reached.</li>
+</ul></div>
+</section>
+<section class="card rose" id="action">
+<div class="card-head"><div class="sec-num">5</div><h2>Communication Within a Neuron — The Action Potential</h2></div>
+<p class="intro">The action potential is the brief, all-or-none electrical spike that carries the nerve impulse along the axon.</p>
+<ol class="points">
+<li>When the nervous system transmits information, a resting neuron produces an <strong>action potential</strong>, a short-lived event in which the membrane voltage rapidly rises and then falls, also called the <strong>nerve impulse</strong> <span class="plain">the travelling electrical signal</span>.</li>
+<li>An action potential only fires once the voltage reaches the <strong>threshold</strong> of about <strong>−55 mV</strong>, the tipping point; once this value is reached, the impulse is generated in a committed, all-or-none way.</li>
+<li><strong>Depolarisation</strong> <span class="plain">the inside becoming less negative</span> begins when a stimulus, for example at a touch receptor, opens <strong>sodium (Na+) channels</strong> and positive ions rush into the negatively charged neuron.</li>
+<li>As <strong>sodium floods in</strong>, the inside of the neuron becomes positive and the membrane potential climbs steeply, which is the sharp upstroke seen on a recording of the action potential.</li>
+<li>Next, <strong>potassium (K+) channels</strong> open and potassium ions move out of the cell, a flow that reverses the rising charge and begins to bring the membrane voltage back down.</li>
+<li>The brief peak created as sodium enters and then potassium leaves is called the <strong>spike potential</strong> <span class="plain">the tall, narrow burst of voltage</span>, the characteristic shape of a single nerve impulse.</li>
+<li><strong>Repolarisation</strong> <span class="plain">returning toward the negative resting value</span> happens as sodium channels close back to their resting state, driving the membrane potential back toward about −70 mV.</li>
+<li>Because the potassium channels stay open slightly too long, the voltage briefly overshoots past −70 mV to nearly <strong>−80 mV</strong>, a dip called <strong>hyperpolarisation</strong> <span class="plain">more negative than the normal resting level</span>.</li>
+<li>Ion concentrations are then restored and the cell settles back to its <strong>−70 mV</strong> resting membrane potential, ready to respond again once a new stimulus arrives.</li>
+<li>Immediately after firing there is an <strong>absolute refractory period</strong> <span class="plain">a short time when no new impulse is possible</span>, during which the neuron cannot generate another action potential no matter how strong the stimulus.</li>
+<li>This is followed by a <strong>relative refractory period</strong> during which a new action potential can occur, but only if the stimulus is <strong>stronger than usual</strong> to overcome the lingering hyperpolarisation.</li>
+<li>In myelinated axons the impulse jumps between <strong>nodes of Ranvier</strong> <span class="plain">bare gaps in the insulation</span>, a leaping conduction that makes signalling much faster than in unmyelinated fibres.</li>
+<li>The action potential is essentially <strong>self-regenerating</strong>, being recharged at each node as it travels, so the signal keeps its full strength over long distances along the axon.</li>
+<li>Because of the all-or-none rule, information is coded not by the size of each spike but by the <strong>frequency</strong> of impulses, so a stronger stimulus produces more action potentials per second rather than bigger ones.</li>
+<li>The refractory periods also ensure the impulse travels in <strong>one direction</strong> only, from the cell body toward the axon terminal, preventing the signal from running backward along the fibre.</li>
+<li>Clinically, anything that disturbs sodium or potassium channels, such as local anaesthetics or certain toxins, can <strong>block the action potential</strong>, which is how nerve conduction and sensation can be switched off for medical purposes.</li>
+</ol>
+<div class="block-title">Flowchart &middot; The sequence of one action potential</div>
+<div class="flow">
+<div class="flow-box">Resting −70 mV<br><small>polarised</small></div>
+<div class="flow-arrow">&rarr;</div>
+<div class="flow-box">Threshold −55 mV<br><small>Na+ channels open</small></div>
+<div class="flow-arrow">&rarr;</div>
+<div class="flow-box">Depolarisation<br><small>Na+ in, +spike</small></div>
+<div class="flow-arrow">&rarr;</div>
+<div class="flow-box">Repolarisation<br><small>K+ out</small></div>
+<div class="flow-arrow">&rarr;</div>
+<div class="flow-box">Hyperpolarisation −80 mV<br><small>overshoot</small></div>
+<div class="flow-arrow">&rarr;</div>
+<div class="flow-box end">Refractory + reset<br><small>back to −70 mV</small></div>
+</div>
+<div class="block-title">Mnemonic</div>
+<div class="mnemonic">
+<div class="mword">DRRR</div>
+<div class="mline">Remember DRRR (&quot;Depolarise, Repolarise, Refract, Reset&quot;) for the spike&#x27;s phases.</div>
+<ul>
+<li><span class="ml">D</span> <strong>Depolarisation</strong>, sodium rushes in and voltage rises.</li>
+<li><span class="ml">R</span> <strong>Repolarisation</strong>, potassium leaves and voltage falls.</li>
+<li><span class="ml">R</span> <strong>Refractory + hyperpolarisation</strong>, a brief overshoot and recovery gap.</li>
+<li><span class="ml">R</span> <strong>Reset</strong>, ions are restored to the −70 mV resting level.</li>
+</ul></div>
+</section>
+<section class="card navy" id="neurotransmitters">
+<div class="card-head"><div class="sec-num">6</div><h2>Communication Between Neurons — Neurotransmitters</h2></div>
+<p class="intro">At the synapse, chemical messengers carry the signal from one neuron across the gap to the next.</p>
+<ol class="points">
+<li>A <strong>synapse</strong> is the junction where one neuron communicates with the next, and because it is a thin gap neurons do not physically merge but instead signal across it chemically.</li>
+<li>The synapse has three parts, the <strong>presynaptic ending</strong> <span class="plain">the sending side</span> that releases the message, the <strong>postsynaptic ending</strong> that receives it, and the narrow <strong>synaptic cleft</strong> <span class="plain">the gap between them, about 20 nm wide</span> in between.</li>
+<li><strong>Neurotransmitters</strong> are the chemical messengers synthesised by neurons and released across the synapse, and they are stored in tiny sacs called <strong>vesicles</strong> <span class="plain">membrane bubbles holding the chemical</span> in the terminal.</li>
+<li>When the impulse arrives, <strong>calcium (Ca2+) channels</strong> open and calcium entering the terminal drives the vesicles to fuse with the membrane in a process called <strong>exocytosis</strong> <span class="plain">releasing contents by the sac merging with the cell wall</span>.</li>
+<li>The released neurotransmitter crosses the cleft by <strong>diffusion</strong> <span class="plain">drifting across the gap</span> and binds to receptors on the postsynaptic membrane, opening ion channels and changing that cell&#x27;s local voltage.</li>
+<li>If the binding causes <strong>depolarisation</strong> the result is an excitatory response, whereas if it causes <strong>hyperpolarisation</strong> <span class="plain">making the cell more negative</span> the result is an inhibitory response that quietens the next neuron.</li>
+<li><strong>Ionotropic (channel-linked) receptors</strong> give fast, direct responses because the neurotransmitter itself opens an ion channel, while <strong>metabotropic (G-protein-linked) receptors</strong> act indirectly through <strong>second messengers</strong> <span class="plain">internal relay chemicals</span> for slower, longer effects.</li>
+<li><strong>GABA</strong> is the major inhibitory neurotransmitter of the CNS, found at thirty to forty percent of all synapses, and its deficiency is linked to seizures and anxiety disorders.</li>
+<li><strong>Glycine</strong> is a simple amino-acid <strong>inhibitory</strong> neurotransmitter of the spinal cord, brain stem and retina, and the poison strychnine causes convulsions by blocking glycine&#x27;s calming action.</li>
+<li><strong>Glutamate</strong> is the main <strong>excitatory</strong> neurotransmitter and is central to learning and memory, while <strong>aspartate</strong> is another excitatory transmitter that activates <strong>NMDA receptors</strong> <span class="plain">a specific glutamate-type receptor</span>.</li>
+<li><strong>Serotonin (5-HT)</strong> helps regulate mood, anger, aggression, sleep, appetite and body temperature, which is why <strong>SSRIs</strong> <span class="plain">selective serotonin reuptake inhibitors, a class of antidepressant</span> are used to treat depression.</li>
+<li><strong>Dopamine</strong> works along four brain pathways, and its shortage causes <strong>Parkinson&#x27;s disease</strong> while its excess is linked to <strong>schizophrenia</strong>, making it one of the most clinically important transmitters.</li>
+<li><strong>Noradrenaline</strong> is an excitatory monoamine from the locus coeruleus that plays a key role in <strong>attention and arousal</strong>, as well as heart rate, blood pressure and digestive processes.</li>
+<li><strong>Acetylcholine (ACh)</strong>, the first neurotransmitter ever identified, acts in both the PNS and CNS, and its deficiency is one of the causes of <strong>Alzheimer&#x27;s disease</strong> with its memory loss.</li>
+<li>The synapse is the main site of action of most <strong>psychoactive drugs</strong>, for example cocaine blocks <strong>dopamine reuptake</strong> <span class="plain">reabsorption of the transmitter</span> so its effect is intensified in the synaptic cleft.</li>
+<li>Signalling is kept precise by stopping it promptly, as transmitters are cleared by <strong>reuptake</strong> back into the neuron or by enzymes, and <strong>autoreceptors</strong> <span class="plain">self-sensing receptors</span> give feedback that controls further release.</li>
+</ol>
+<div class="block-title">Flowchart &middot; How a chemical message crosses the synapse</div>
+<div class="flow">
+<div class="flow-box">Impulse reaches terminal<br><small>arrives</small></div>
+<div class="flow-arrow">&rarr;</div>
+<div class="flow-box">Ca2+ enters<br><small>channels open</small></div>
+<div class="flow-arrow">&rarr;</div>
+<div class="flow-box">Vesicles fuse (exocytosis)<br><small>release</small></div>
+<div class="flow-arrow">&rarr;</div>
+<div class="flow-box">Transmitter crosses cleft<br><small>diffusion</small></div>
+<div class="flow-arrow">&rarr;</div>
+<div class="flow-box">Binds postsynaptic receptors<br><small>excite / inhibit</small></div>
+<div class="flow-arrow">&rarr;</div>
+<div class="flow-box end">Reuptake or enzyme clears it<br><small>signal ends</small></div>
+</div>
+<div class="block-title">Mnemonic</div>
+<div class="mnemonic">
+<div class="mword">GGGSDNA</div>
+<div class="mline">&quot;Good Girls Give Sweets, Dad Needs Acetylcholine&quot; lists the main transmitters (G-G-G-S-D-N-A).</div>
+<ul>
+<li><span class="ml">G</span> <strong>GABA</strong>, the major inhibitory transmitter.</li>
+<li><span class="ml">G</span> <strong>Glycine</strong>, inhibitory in the spinal cord.</li>
+<li><span class="ml">G</span> <strong>Glutamate</strong>, the main excitatory transmitter.</li>
+<li><span class="ml">S</span> <strong>Serotonin</strong>, mood, sleep and appetite.</li>
+<li><span class="ml">D</span> <strong>Dopamine</strong>, movement, reward and psychosis.</li>
+<li><span class="ml">N</span> <strong>Noradrenaline</strong>, attention and arousal.</li>
+<li><span class="ml">A</span> <strong>Acetylcholine</strong>, the first transmitter, tied to memory.</li>
+</ul></div>
+</section>
+<section class="card teal" id="modulators">
+<div class="card-head"><div class="sec-num">7</div><h2>Neuromodulators and Hormones</h2></div>
+<p class="intro">Beyond fast synapses, neuromodulators and hormones tune behaviour more slowly and over wider reaches of the body.</p>
+<ol class="points">
+<li><strong>Neuromodulators</strong> are a slower mode of chemical communication, released by neurons but travelling <strong>larger distances</strong> and spreading more widely through the nervous system than ordinary point-to-point transmitters.</li>
+<li>Many neuromodulators are <strong>neuropeptides</strong> <span class="plain">short chains of amino acids linked by peptide bonds</span>, protein-like molecules that act alongside classical neurotransmitters rather than replacing them.</li>
+<li>Rather than simply exciting or inhibiting one cell, neuromodulators <strong>adjust the general state</strong> of many neurons, shaping broad conditions such as alertness, attentiveness and anxiety.</li>
+<li>Neuropeptides typically work by <strong>raising or lowering the release</strong> of other neurotransmitters or by altering how strongly postsynaptic cells respond, so they fine-tune signalling rather than carry it alone.</li>
+<li><strong>Hormones</strong> are a third mode of communication in the body, chemical substances secreted by the <strong>endocrine glands</strong> <span class="plain">ductless glands that release into the blood</span> or by cells in organs such as the stomach and kidneys.</li>
+<li>Hormones fall into three chemical classes, <strong>amino-acid derivatives</strong>, <strong>peptides and proteins</strong>, and <strong>steroids</strong> <span class="plain">fat-based hormones made from cholesterol</span>, and this chemistry shapes how each hormone acts on its targets.</li>
+<li>Hormones are released into the <strong>extracellular fluid</strong> and carried in the <strong>bloodstream</strong> to distant target cells, so unlike synaptic signals they can influence the whole body at once.</li>
+<li>Because many neurons carry <strong>hormone receptors</strong>, hormones can directly change behaviour; for example <strong>testosterone</strong>, a sex hormone, increases aggressiveness in male animals.</li>
+<li>The <strong>adrenal glands</strong> release hormones for the <strong>stress response</strong> <span class="plain">the body&#x27;s reaction to threat</span>, preparing the body to react quickly during demanding or frightening situations.</li>
+<li>The <strong>hypothalamus</strong> controls sleep, hunger and appetite, acting as a key link between the nervous system and the endocrine system that keeps basic drives regulated.</li>
+<li>The <strong>ovaries and testicles (gonads)</strong> control female and male characteristics by secreting the sex hormones that govern reproduction and the development of secondary sexual traits.</li>
+<li>The <strong>pancreas</strong> releases <strong>insulin</strong> <span class="plain">the hormone that lowers blood sugar</span> and so controls the level of glucose in the body, a balance that is essential for steady energy supply to the brain.</li>
+<li>The <strong>parathyroid glands</strong> retain and regulate the body&#x27;s <strong>calcium</strong> levels, while the <strong>pineal body</strong> secretes melatonin to maintain sleep cycles and other daily biological rhythms.</li>
+<li>The <strong>pituitary gland</strong> is often called the master gland because it helps <strong>maintain the other endocrine glands</strong>, while the <strong>thymus</strong> supports the body&#x27;s immune system.</li>
+<li>The <strong>thyroid gland</strong> maintains the body&#x27;s <strong>metabolism</strong> <span class="plain">the rate at which the body uses energy</span>, including bone growth and heat production, so it influences overall energy and activity levels.</li>
+<li><strong>Melatonin</strong>, derived from serotonin in the pineal gland, governs the <strong>sleep-wake cycle</strong>, being made in darkness and kept low in daylight, which shows how a single molecule can act as both transmitter-related signal and hormone.</li>
+</ol>
+<div class="block-title">Flowchart &middot; Three widening modes of chemical communication</div>
+<div class="flow">
+<div class="flow-box">Neurotransmitter<br><small>fast, one synapse</small></div>
+<div class="flow-arrow">&rarr;</div>
+<div class="flow-box">Neuromodulator<br><small>slower, wider in CNS</small></div>
+<div class="flow-arrow">&rarr;</div>
+<div class="flow-box end">Hormone<br><small>slowest, whole body via blood</small></div>
+</div>
+<div class="block-title">Mnemonic</div>
+<div class="mnemonic">
+<div class="mword">HAHA-POP-TT</div>
+<div class="mline">&quot;Hypothalamus, Adrenals, Hormones, Ability... POP, TT&quot; — use the letters to walk the endocrine glands.</div>
+<ul>
+<li><span class="ml">H</span> <strong>Hypothalamus</strong> controls sleep, hunger and appetite.</li>
+<li><span class="ml">A</span> <strong>Adrenal</strong> glands release stress hormones.</li>
+<li><span class="ml">P</span> <strong>Pituitary</strong>, the master gland, maintains the others.</li>
+<li><span class="ml">P</span> <strong>Pancreas</strong> releases insulin to control glucose.</li>
+<li><span class="ml">T</span> <strong>Thyroid</strong> sets metabolism; <strong>Thymus</strong> aids immunity.</li>
+<li><span class="ml">P</span> <strong>Pineal</strong> and parathyroid handle rhythms and calcium.</li>
+</ul></div>
+</section>
+
+  <section class="refs" id="references">
+    <h2>References</h2>
+    <h3>Books used</h3>
+    <ul>
+      <li>Examining Biological Foundations of Human Behavior, edited by Barre Vijaya Prasad (2020), IGI Global. Chapter “Structure and Function of Cells” by Shazia Ali, Sumit Kumar, Asma Ali and Syed Irtiza; and the chapter “Anatomy of the Brain” (Key Terms and Definitions, Blood Brain Barrier).</li>
+<li>Principles of Neural Science, by Eric R. Kandel, James H. Schwartz, Thomas M. Jessell, Steven A. Siegelbaum and A. J. Hudspeth (standard neuroscience text, used to cross-check the resting-potential value, the sodium-potassium pump and the ionic basis of the action potential).</li>
+<li>Guyton and Hall Textbook of Medical Physiology, by John E. Hall (standard physiology text, used to cross-check membrane potential, ion gradients and nerve-impulse conduction).</li>
+    </ul>
+    <h3>Named online sources used</h3>
+    <ul>
+      <li>StatPearls (NCBI Bookshelf), Treasure Island (FL): StatPearls Publishing — physiology articles on the resting membrane potential and the action potential, used to confirm standard ionic values and mechanisms.</li>
+    </ul>
+    <h3>Secondary sources flagged (not accessed directly)</h3>
+    <ul>
+      <li>Primary journal articles cited inside the source book (for example Folk &amp; Long, 1988 on serotonin; Hernandes &amp; Troncone, 2009 on glycine; Stone, Morrison &amp; Pilowsky, 2007 on dopamine) were referenced only as they appear within the book above and were not accessed directly for these notes.</li>
+    </ul>
+  </section>
+
+</div>
+
+<footer class="footer">
+  <div class="credit">Dango_Psych by Tejas Dangodra | M.Phil. Clinical Psychology</div>
+</footer>
+
+</body>
+</html>
