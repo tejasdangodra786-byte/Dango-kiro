@@ -56,8 +56,10 @@ CONTENT = [
         "number": 1,
         "color": "blue",
         "title": "Cells of the Nervous System \u2014 Neurons",
-        "intro": "Neurons are the signalling cells that receive, process and pass on information "
-                 "across the whole nervous system.",
+        "intro": "Neurons are the signalling cells that receive, process and pass on information across "
+                 "the whole nervous system, and because every thought, feeling and behaviour ultimately "
+                 "rests on how these cells fire and connect, they are the natural starting point for a "
+                 "clinical psychologist studying the biology of behaviour.",
         "points": [
             "**Neurons** are the elementary information-processing cells of the nervous system, "
             "electrically **excitable** [[able to produce tiny electrical signals]] cells that receive "
@@ -74,12 +76,13 @@ CONTENT = [
             "**Dendrites** are fine branching filaments that carry information toward the cell body, and "
             "their many **dendritic spines** [[tiny bumps on the branches]] greatly increase the surface "
             "area available for synaptic connections.",
-            "The **axon** behaves like the wire of an electrical cable, starting at the **axon hillock** "
-            "[[the cone-shaped base where the axon leaves the soma]] and carrying the signal away toward "
-            "another neuron, a muscle or a gland.",
-            "A fatty **myelin sheath** [[an insulating fatty wrapping around the axon]] encloses many axons "
-            "in segments, and this insulation sharply increases the speed at which nerve impulses travel "
-            "along the fibre.",
+            "The **axon** behaves like the insulated wire of an electrical cable, starting at the "
+            "**axon hillock** [[the cone-shaped base where the axon leaves the soma, which acts as the "
+            "cell's decision point for whether to fire]] and carrying the signal away toward another "
+            "neuron, a muscle or a gland.",
+            "A fatty **myelin sheath** [[an insulating fatty wrapping around the axon, much like the "
+            "plastic coating on an electrical wire]] encloses many axons in segments, and this insulation "
+            "sharply increases the speed at which nerve impulses travel along the fibre.",
             "Gaps in the myelin called **nodes of Ranvier** [[bare spaces between the insulating segments]] "
             "let the signal be recharged as it jumps along the axon, keeping the impulse strong over long "
             "distances.",
@@ -107,9 +110,14 @@ CONTENT = [
             "Neurons can also be named by the **neurotransmitter** they release, such as cholinergic or "
             "glutamatergic cells, which links a cell's chemical identity directly to the kind of message "
             "it delivers to its partners.",
-            "Neurons are enclosed by a **plasma membrane** [[the thin outer skin of the cell]] and, "
-            "because they rarely divide once mature, damage to them tends to be long-lasting, which is "
-            "why neuronal health matters so much for behaviour.",
+            "Neurons are enclosed by a **plasma membrane** [[the thin oily outer skin of the cell that "
+            "controls what passes in and out]] and, because they rarely divide once mature, damage to "
+            "them tends to be long-lasting, which is why neuronal loss in injury or dementia produces "
+            "such enduring changes in behaviour.",
+            "Taken together, a neuron is best understood as an **input-integrate-output device**: "
+            "dendrites gather signals, the soma and axon hillock weigh them up, and the axon delivers a "
+            "single decision onward, so disruption at any one stage can reshape how a person senses, "
+            "moves, thinks or feels.",
         ],
         "definition": None,
         "flow": {
@@ -139,8 +147,10 @@ CONTENT = [
         "number": 2,
         "color": "teal",
         "title": "Supporting Cells (Glia)",
-        "intro": "Glial cells are the non-signalling support cells that feed, insulate, defend and "
-                 "hold the nervous system together.",
+        "intro": "Glial cells are the support cells that feed, insulate, defend and hold the nervous "
+                 "system together, and far from being mere packing, they shape how well neurons signal, "
+                 "which is why glial dysfunction now sits at the centre of our understanding of "
+                 "demyelinating and neurodegenerative disorders a clinical psychologist will meet.",
         "points": [
             "**Glial (neuroglial) cells** are the support cells that hold the nervous system together, "
             "providing physical integrity, nutrition and a stable **homeostasis** [[a steady internal "
@@ -167,17 +177,21 @@ CONTENT = [
             "and because one oligodendrocyte can coat up to about fifty axons they are highly efficient "
             "insulating cells.",
             "Myelin from oligodendrocytes lets the action potential jump between **nodes of Ranvier** "
-            "[[gaps in the insulation]], so myelinated axons conduct far faster than unmyelinated ones and "
-            "myelin loss impairs reasoning and performance.",
+            "[[gaps in the insulation]], so myelinated axons conduct far faster than unmyelinated ones, "
+            "and when this insulation is stripped away, as in **demyelination** [[loss of the myelin "
+            "coating, as seen in multiple sclerosis]], reasoning, speed of processing and motor "
+            "performance all decline.",
             "**Microglia** are the resident immune cells of the CNS and act as specialised **macrophages** "
             "[[cells that engulf and digest debris]], guarding and supporting neurons throughout the brain "
             "and spinal cord.",
             "Microglia carry out **phagocytosis** [[swallowing and clearing waste]], make up roughly "
             "fifteen to seventeen percent of CNS cells, and multiply in response to brain injury to contain "
             "the damage.",
-            "Microglia drive the **inflammatory response** to brain trauma and are implicated in "
-            "neurodegenerative disorders such as multiple sclerosis, motor neurone disease and Alzheimer's "
-            "disease, and are key targets of HIV-1 in the CNS.",
+            "Microglia drive the **inflammatory response** [[the brain's reaction of swelling and "
+            "immune activity to injury]] to brain trauma and are implicated in neurodegenerative "
+            "disorders such as multiple sclerosis, motor neurone disease and Alzheimer's disease, and "
+            "are key targets of HIV-1 in the CNS, which is why chronic brain inflammation is now linked "
+            "to cognitive and mood changes.",
             "**Radial glial cells** are a temporary population in the developing CNS that act both as "
             "precursor cells and as a **scaffold** [[a guiding framework]] along which young neurons migrate "
             "to their correct positions.",
@@ -187,9 +201,13 @@ CONTENT = [
             "**Non-myelinating Schwann cells** are important for the survival and maintenance of peripheral "
             "axons, showing that even glia which do not insulate still keep neurons alive and functioning "
             "healthily.",
-            "A newly recognised glial type, the **oligodendrocyte precursor cell**, takes part in synaptic "
-            "signalling in the hippocampus, revising the older idea that glia only ever served passive "
-            "supporting roles.",
+            "A newly recognised glial type, the **oligodendrocyte precursor cell**, takes part in "
+            "synaptic signalling in the **hippocampus** [[a brain region central to learning and "
+            "memory]], revising the older idea that glia only ever served passive supporting roles.",
+            "For the clinician the overall lesson is that glia are **active partners in behaviour**, "
+            "since healthy astrocytes, intact myelin and well-regulated microglia are each needed for "
+            "clear thinking, and their failure underlies conditions from multiple sclerosis to the "
+            "neuroinflammation seen in dementia.",
         ],
         "definition": None,
         "flow": {
@@ -220,7 +238,9 @@ CONTENT = [
         "color": "purple",
         "title": "The Blood\u2013Brain Barrier",
         "intro": "The blood-brain barrier is the selective gate that protects the brain while still "
-                 "letting essential nutrients pass.",
+                 "letting essential nutrients pass, and understanding it explains one of the central "
+                 "puzzles of clinical neuroscience, namely why some psychiatric and neurological drugs "
+                 "reach the brain and work while others are turned away at the door.",
         "points": [
             "The **blood-brain barrier** is a protective mechanism that keeps a stable environment for "
             "the brain by shielding it from harmful substances carried in the circulating blood.",
@@ -253,9 +273,10 @@ CONTENT = [
             "importance.",
             "The barrier's selective nature explains why treating brain disease is difficult, because many "
             "useful drugs are **rejected at the barrier** and never reach the neurons that need them.",
-            "A clear clinical illustration is **L-DOPA (levodopa)**, the precursor of dopamine, which is "
-            "given in Parkinson's disease precisely because it can cross the barrier whereas dopamine "
-            "itself cannot.",
+            "A clear clinical illustration is **L-DOPA (levodopa)**, the **precursor** [[the chemical "
+            "building block the body converts into the active substance]] of dopamine, which is given in "
+            "Parkinson's disease precisely because it can cross the barrier whereas dopamine itself "
+            "cannot, so the brain is handed the raw material and makes the dopamine on the inside.",
             "The barrier is described as a **semipermeable** [[only partly letting things through]] "
             "structure formed with extracellular fluid that separates the circulating blood from the brain "
             "and the extracellular fluid of the central nervous system.",
@@ -268,6 +289,10 @@ CONTENT = [
             "Because the barrier guards brain chemistry so strictly, damage or leakage of the barrier is "
             "linked to swelling, infection and several neurological conditions, underlining its role as a "
             "frontline protector of the central nervous system.",
+            "For a clinical psychologist the key takeaway is that the barrier is both a **shield and a "
+            "hurdle**: it keeps the brain's chemistry stable enough for reliable mood and cognition, yet "
+            "the same selectivity is why delivering medicines to the brain, and explaining why a drug "
+            "does or does not help, is so often a question of whether it can cross this gate.",
         ],
         "definition": {
             "label": "Sourced definition \u2014 Blood Brain Barrier (book's Key Terms and Definitions)",
@@ -307,8 +332,9 @@ CONTENT = [
         "number": 4,
         "color": "amber",
         "title": "Communication Within a Neuron \u2014 Membrane (Resting) Potential",
-        "intro": "At rest a neuron holds a steady negative voltage inside, ready to fire the moment it "
-                 "is stimulated.",
+        "intro": "At rest a neuron holds a steady negative voltage inside, like a charged battery waiting "
+                 "to be used, and this baseline is worth mastering because psychoactive drugs, "
+                 "anaesthetics and ion imbalances all change behaviour by nudging this very voltage.",
         "points": [
             "The **resting membrane potential** is the steady voltage across a neuron's membrane while the "
             "cell is at rest and not sending a signal, and this chapter gives its value as about "
@@ -333,7 +359,8 @@ CONTENT = [
             "This pumping requires **energy from ATP** supplied by mitochondria, which is why the resting "
             "potential is an active, energy-dependent state rather than something the cell gets for free.",
             "The resting potential represents a form of **stored electrical energy**, like a charged "
-            "battery, that the neuron can release quickly when it is stimulated strongly enough to fire.",
+            "battery holding a voltage until a circuit is switched on, that the neuron can release "
+            "quickly when it is stimulated strongly enough to fire.",
             "A stimulus that makes the inside **less negative** moves the voltage toward zero, a change "
             "called depolarisation, whereas a stimulus that makes it more negative is called "
             "**hyperpolarisation** [[becoming even more negative than rest]].",
@@ -351,6 +378,10 @@ CONTENT = [
             "Understanding the resting potential matters clinically because drugs, toxins and ion "
             "imbalances that alter membrane charge can change how easily neurons fire and so directly "
             "affect mood, movement and behaviour.",
+            "For example, many **mood-stabilising and anti-seizure drugs** work by acting on ion channels "
+            "to make neurons harder to depolarise, which stabilises the resting state and calms "
+            "over-excitable circuits, a direct bridge from this basic physiology to psychiatric "
+            "treatment.",
             "Overall, the resting potential is the stable baseline, set by ion gradients and the "
             "**sodium-potassium pump**, from which every action potential begins and to which the neuron "
             "always returns after firing.",
@@ -383,14 +414,17 @@ CONTENT = [
         "color": "rose",
         "title": "Communication Within a Neuron \u2014 The Action Potential",
         "intro": "The action potential is the brief, all-or-none electrical spike that carries the nerve "
-                 "impulse along the axon.",
+                 "impulse along the axon, and following its exact sequence of ion movements shows a "
+                 "clinical psychologist precisely where local anaesthetics, toxins and some drugs act to "
+                 "switch signalling on or off.",
         "points": [
             "When the nervous system transmits information, a resting neuron produces an **action "
             "potential**, a short-lived event in which the membrane voltage rapidly rises and then falls, "
             "also called the **nerve impulse** [[the travelling electrical signal]].",
             "An action potential only fires once the voltage reaches the **threshold** of about "
             "**\u221255 mV**, the tipping point; once this value is reached, the impulse is generated in a "
-            "committed, all-or-none way.",
+            "committed, **all-or-none** [[either a full signal fires or none at all, like a trigger that "
+            "is pulled or not]] way.",
             "**Depolarisation** [[the inside becoming less negative]] begins when a stimulus, for example "
             "at a touch receptor, opens **sodium (Na+) channels** and positive ions rush into the "
             "negatively charged neuron.",
@@ -426,9 +460,14 @@ CONTENT = [
             "The refractory periods also ensure the impulse travels in **one direction** only, from the "
             "cell body toward the axon terminal, preventing the signal from running backward along the "
             "fibre.",
-            "Clinically, anything that disturbs sodium or potassium channels, such as local anaesthetics "
-            "or certain toxins, can **block the action potential**, which is how nerve conduction and "
-            "sensation can be switched off for medical purposes.",
+            "Clinically, anything that disturbs sodium or potassium channels, such as **local "
+            "anaesthetics** [[numbing drugs that block pain signals]] or certain toxins, can **block the "
+            "action potential**, which is how nerve conduction and sensation can be switched off for "
+            "medical purposes.",
+            "This same logic explains everyday clinical facts: an anaesthetic injected near a nerve stops "
+            "its sodium channels so the signal never reaches the brain and no pain is felt, which makes "
+            "the action potential not just a textbook spike but the exact event therapy can **start or "
+            "silence**.",
         ],
         "definition": None,
         "flow": {
@@ -458,8 +497,10 @@ CONTENT = [
         "number": 6,
         "color": "navy",
         "title": "Communication Between Neurons \u2014 Neurotransmitters",
-        "intro": "At the synapse, chemical messengers carry the signal from one neuron across the gap to "
-                 "the next.",
+        "intro": "At the synapse, chemical messengers carry the signal from one neuron across a tiny gap "
+                 "to the next, and because almost every psychiatric medication works here, the synapse is "
+                 "the single most important meeting point between the biology of behaviour and clinical "
+                 "practice.",
         "points": [
             "A **synapse** is the junction where one neuron communicates with the next, and because it is "
             "a thin gap neurons do not physically merge but instead signal across it chemically.",
@@ -482,8 +523,10 @@ CONTENT = [
             "neurotransmitter itself opens an ion channel, while **metabotropic (G-protein-linked) "
             "receptors** act indirectly through **second messengers** [[internal relay chemicals]] for "
             "slower, longer effects.",
-            "**GABA** is the major inhibitory neurotransmitter of the CNS, found at thirty to forty percent "
-            "of all synapses, and its deficiency is linked to seizures and anxiety disorders.",
+            "**GABA** is the major **inhibitory** [[calming, signal-dampening]] neurotransmitter of the "
+            "CNS, found at thirty to forty percent of all synapses, and because its shortage is linked "
+            "to seizures and anxiety disorders, many anti-anxiety and anti-seizure drugs work by boosting "
+            "GABA's quietening effect.",
             "**Glycine** is a simple amino-acid **inhibitory** neurotransmitter of the spinal cord, brain "
             "stem and retina, and the poison strychnine causes convulsions by blocking glycine's calming "
             "action.",
@@ -492,20 +535,30 @@ CONTENT = [
             "receptors** [[a specific glutamate-type receptor]].",
             "**Serotonin (5-HT)** helps regulate mood, anger, aggression, sleep, appetite and body "
             "temperature, which is why **SSRIs** [[selective serotonin reuptake inhibitors, a class of "
-            "antidepressant]] are used to treat depression.",
-            "**Dopamine** works along four brain pathways, and its shortage causes **Parkinson's disease** "
-            "while its excess is linked to **schizophrenia**, making it one of the most clinically "
-            "important transmitters.",
+            "antidepressant that keeps more serotonin in the synapse by slowing its reabsorption]] are "
+            "used to treat depression.",
+            "**Dopamine** works along four brain pathways, and its shortage causes **Parkinson's "
+            "disease** [[a movement disorder with tremor and stiffness]] while its excess is linked to "
+            "**schizophrenia**, so this one transmitter connects both a neurological and a psychiatric "
+            "disorder a clinical psychologist must understand.",
             "**Noradrenaline** is an excitatory monoamine from the locus coeruleus that plays a key role in "
             "**attention and arousal**, as well as heart rate, blood pressure and digestive processes.",
-            "**Acetylcholine (ACh)**, the first neurotransmitter ever identified, acts in both the PNS and "
-            "CNS, and its deficiency is one of the causes of **Alzheimer's disease** with its memory loss.",
-            "The synapse is the main site of action of most **psychoactive drugs**, for example cocaine "
-            "blocks **dopamine reuptake** [[reabsorption of the transmitter]] so its effect is intensified "
-            "in the synaptic cleft.",
+            "**Acetylcholine (ACh)**, the first neurotransmitter ever identified, acts in both the PNS "
+            "and CNS, and its deficiency is one of the causes of **Alzheimer's disease** with its memory "
+            "loss, which is why several dementia drugs aim to preserve acetylcholine at the synapse.",
+            "The synapse is the main site of action of most **psychoactive drugs** [[substances that "
+            "change mood, perception or behaviour]], for example cocaine blocks **dopamine reuptake** "
+            "[[reabsorption of the transmitter back into the sending neuron]] so its effect is "
+            "intensified and prolonged in the synaptic cleft.",
             "Signalling is kept precise by stopping it promptly, as transmitters are cleared by "
-            "**reuptake** back into the neuron or by enzymes, and **autoreceptors** [[self-sensing "
-            "receptors]] give feedback that controls further release.",
+            "**reuptake** [[reabsorption back into the sending neuron]] or by enzymes, and "
+            "**autoreceptors** [[self-sensing receptors on the sending neuron that monitor how much it "
+            "has released]] give feedback that controls further release.",
+            "The clinical thread running through this whole topic is that **drugs act at the synapse**: "
+            "by changing how much transmitter is released, how long it lingers, or which receptors it "
+            "reaches, antidepressants, antipsychotics and anti-anxiety agents all exert their effects "
+            "exactly here, which is why mastering synaptic transmission underpins understanding "
+            "psychopharmacology.",
         ],
         "definition": None,
         "flow": {
@@ -540,7 +593,9 @@ CONTENT = [
         "color": "teal",
         "title": "Neuromodulators and Hormones",
         "intro": "Beyond fast synapses, neuromodulators and hormones tune behaviour more slowly and over "
-                 "wider reaches of the body.",
+                 "wider reaches of the body, and this broader, slower chemistry is what links the "
+                 "nervous and endocrine systems to lasting states such as stress, mood, sleep and "
+                 "arousal that are central to clinical work.",
         "points": [
             "**Neuromodulators** are a slower mode of chemical communication, released by neurons but "
             "travelling **larger distances** and spreading more widely through the nervous system than "
@@ -564,8 +619,10 @@ CONTENT = [
             "distant target cells, so unlike synaptic signals they can influence the whole body at once.",
             "Because many neurons carry **hormone receptors**, hormones can directly change behaviour; for "
             "example **testosterone**, a sex hormone, increases aggressiveness in male animals.",
-            "The **adrenal glands** release hormones for the **stress response** [[the body's reaction to "
-            "threat]], preparing the body to react quickly during demanding or frightening situations.",
+            "The **adrenal glands** release hormones for the **stress response** [[the body's "
+            "fight-or-flight reaction to threat]], preparing the body to react quickly during demanding "
+            "or frightening situations, a system directly relevant to understanding anxiety and chronic "
+            "stress in the clinic.",
             "The **hypothalamus** controls sleep, hunger and appetite, acting as a key link between the "
             "nervous system and the endocrine system that keeps basic drives regulated.",
             "The **ovaries and testicles (gonads)** control female and male characteristics by secreting "
@@ -581,9 +638,15 @@ CONTENT = [
             "The **thyroid gland** maintains the body's **metabolism** [[the rate at which the body uses "
             "energy]], including bone growth and heat production, so it influences overall energy and "
             "activity levels.",
-            "**Melatonin**, derived from serotonin in the pineal gland, governs the **sleep-wake cycle**, "
-            "being made in darkness and kept low in daylight, which shows how a single molecule can act as "
-            "both transmitter-related signal and hormone.",
+            "**Melatonin**, derived from serotonin in the pineal gland, governs the **sleep-wake cycle** "
+            "[[the daily rhythm of sleeping and waking, also called the body clock]], being made in "
+            "darkness and kept low in daylight, which shows how a single molecule can act as both a "
+            "transmitter-related signal and a hormone.",
+            "For the clinician the unifying idea is one of **widening scope and slowing speed**: "
+            "neurotransmitters act in milliseconds at a single synapse, neuromodulators shade the mood "
+            "of whole circuits, and hormones act over minutes to days across the body, so disorders of "
+            "stress, sleep, appetite and sexual function often trace back to this slower chemistry "
+            "rather than to one fast synapse.",
         ],
         "definition": None,
         "flow": {
