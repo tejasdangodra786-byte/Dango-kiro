@@ -50,6 +50,8 @@ INTRO = [
     {"t": "ul", "items": [
         "Words in **bold** are the memory hooks: skim the bold words first to recall the gist of a sentence, then read the full sentence to fill in the detail, and note that only a few hook words are bold, never a whole sentence.",
         "Every topic carries one flowchart figure that pictures the structure and one mnemonic that packs its key points into a single memorable word, so you get a visual anchor and a verbal anchor for each answer.",
+        "Each topic also opens with a short **Answer flow** box that lists, in order, the skeleton to write in the exam \u2014 definition, location, parts, connections, functions and a clinical note \u2014 and the exam points that follow are grouped under small sub-headings in that same order, so the whole topic reads as a ready-to-write answer with a clear beginning, middle and end.",
+        "Alongside the schematic flowcharts, a few topics carry **classic anatomical plates** reproduced from a standard illustrated anatomy, which are labelled as public-domain figures in their captions, so you can match each schematic to a real drawn section of the brain.",
     ]},
     {"t": "h3", "text": "How citations work"},
     {"t": "ul", "items": [
@@ -87,6 +89,7 @@ REFERENCES = [
         "StatPearls (NCBI Bookshelf) \u2014 Neuroanatomy: Basal Ganglia (the striatum, globus pallidus, subthalamic nucleus and substantia nigra).",
         "Gray's Anatomy (standard edition) \u2014 the arteries, meninges and venous sinuses of the brain.",
         "Korbinian Brodmann \u2014 Localisation in the Cerebral Cortex (the cytoarchitectonic map of roughly fifty-two numbered areas).",
+        "Gray's Anatomy (1918), public domain \u2014 anatomical plates: the classic engraved figures of the lateral and medial cortex, a coronal section through the basal ganglia, the arteries at the base of the brain, the ventricular system and the layers of the cerebral cortex, reproduced here as public-domain illustrations.",
     ]},
 ]
 
@@ -101,6 +104,15 @@ def _s(sid, num, title, blocks):
 # ========================= 1. MAJOR ANATOMICAL SUB-DIVISIONS ===========================
 _s("t1", "1", "Major anatomical sub-divisions of the human brain", [
     {"t": "lead", "text": "The human brain develops from a simple neural tube into three primary divisions, forebrain, midbrain and hindbrain, which further form five vesicles whose adult derivatives are the cerebrum, diencephalon, midbrain, pons with cerebellum, and medulla, all set within the central nervous system."},
+    {"t": "box", "kind": "info", "title": "Answer flow \u2014 how to write this topic", "text": "Write the answer in this order, and the points below follow the same skeleton:", "items": [
+        "Definition: what a sub-division is and that the brain is part of the central nervous system.",
+        "Development: neural tube \u2192 three primary vesicles \u2192 five secondary vesicles.",
+        "The five vesicles and their adult derivatives, taken one by one.",
+        "The adult functional map: brainstem, diencephalon, cerebrum, cerebellum.",
+        "Orientation terms and gross facts (weight, hemispheres, symmetry).",
+        "Clinical / lesion note: why the level of damage changes the picture.",
+        "One-line summary (use the mnemonic).",
+    ]},
     {"t": "fig", "key": "brain_subdivisions", "caption": "From the neural tube to the five embryonic vesicles and their adult derivatives, oriented within the central and peripheral nervous systems."},
     {"t": "box", "kind": "def", "title": "Characterisations by standard texts", "items": [
         "{{GUIDE}} Standard neuroanatomy describes the brain as part of the [[central nervous system|the brain and spinal cord together]], which with the peripheral nerves forms the whole nervous system, and divides it embryologically into **forebrain, midbrain and hindbrain**. {{c:Nolte}}",
@@ -108,8 +120,14 @@ _s("t1", "1", "Major anatomical sub-divisions of the human brain", [
         "{{GUIDE}} The three primary vesicles are named [[prosencephalon|the forebrain vesicle]], [[mesencephalon|the midbrain vesicle]] and [[rhombencephalon|the hindbrain vesicle]], and each gives rise to defined adult structures. {{c:Snell}}",
     ]},
     {"t": "h3", "text": "Exam points"},
+    {"t": "h4", "text": "Definition and development"},
     {"t": "ul", "items": [
         "The brain begins in the embryo as a hollow **neural tube**, whose front end swells into **three primary vesicles**, the forebrain, the midbrain and the hindbrain, from which every adult region is ultimately derived. {{c:Nolte}}",
+        "The brain and the spinal cord together make up the **central nervous system**, while the cranial and spinal nerves branching out to the body form the **peripheral nervous system** that connects it to the periphery. {{c:Carlson}}",
+        "Each primary vesicle subdivides into the **five secondary vesicles**, so the forebrain yields the telencephalon and diencephalon, the midbrain stays single, and the hindbrain yields the metencephalon and myelencephalon. {{c:Snell}}",
+    ]},
+    {"t": "h4", "text": "The five vesicles and their adult derivatives"},
+    {"t": "ul", "items": [
         "The **forebrain** or [[prosencephalon|the most rostral, front-most brain vesicle]] later splits into the **telencephalon and diencephalon**, making it the source of the cerebrum and of the deep structures around the third ventricle. {{c:Snell}}",
         "The **telencephalon** becomes the [[cerebrum|the large, folded cerebral hemispheres]], the **largest part** of the brain, which carries the cortex, the underlying white matter and the basal ganglia within each hemisphere. {{c:Prasad}}",
         "The **diencephalon** forms the central core of the forebrain and gives rise to the **thalamus, hypothalamus and epithalamus**, the last of which carries the pineal gland and encloses the third ventricle. {{c:Prasad}}",
@@ -117,15 +135,26 @@ _s("t1", "1", "Major anatomical sub-divisions of the human brain", [
         "The **hindbrain** or [[rhombencephalon|the most caudal brain vesicle, nearest the spinal cord]] divides into the **metencephalon and myelencephalon**, so it is the source of the pons, the cerebellum and the medulla. {{c:Nolte}}",
         "The **metencephalon** develops into the **pons and the cerebellum**, placing the great coordinating cerebellum and the bridge-like pons together in the upper hindbrain just above the medulla. {{c:Snell}}",
         "The **myelencephalon** becomes the **medulla oblongata**, the lowest part of the brainstem, which continues directly into the spinal cord and houses vital cardiovascular and respiratory centres. {{c:Prasad}}",
+    ]},
+    {"t": "fig", "key": "pd_medial_surface", "caption": ""},
+    {"t": "h4", "text": "The adult functional map"},
+    {"t": "ul", "items": [
         "By function the brain is grouped into the **brainstem** (midbrain, pons and medulla), the **diencephalon**, the **cerebrum** and the **cerebellum**, which is a convenient adult map laid over the embryonic scheme. {{c:Prasad}}",
         "The **brainstem** is the oldest part of the brain and runs **automatic survival functions**, and its net-like [[reticular formation|a diffuse network of neurons through the brainstem core]] filters incoming stimuli and governs arousal. {{c:Prasad}}",
         "The **cerebellum**, the 'little brain', sits behind the brainstem and fine-tunes **balance** and **posture**, smoothing movement, working on the same side of the body that it helps to control. {{c:Carlson}}",
+    ]},
+    {"t": "h4", "text": "Orientation and gross facts"},
+    {"t": "ul", "items": [
         "Anatomical **orientation** uses paired terms, so **rostral means toward the front** and caudal toward the tail, dorsal means toward the back and ventral toward the belly, letting any structure be located precisely. {{c:Nolte}}",
         "The whole brain is bilaterally symmetrical and weighs roughly **1250 to 1450 grams** in adults, sitting protected inside the bony **cranium** and wrapped in the three meningeal membranes. {{c:Prasad}}",
-        "The brain and the spinal cord together make up the **central nervous system**, while the cranial and spinal nerves branching out to the body form the **peripheral nervous system** that connects it to the periphery. {{c:Carlson}}",
         "A deep **interhemispheric fissure** splits the cerebrum into **left and right hemispheres**, and the two are joined underneath by the corpus callosum so that they can share information. {{c:Prasad}}",
+        "The surface of each hemisphere is heavily **folded** into [[gyri|the raised ridges of the cortical surface]] and [[sulci|the grooves between them]], a packing device that lets a large cortical sheet fit inside the fixed volume of the skull. {{c:Snell}}",
+    ]},
+    {"t": "h4", "text": "History and clinical note"},
+    {"t": "ul", "items": [
         "Historically, **Franz Josef Gall** tried to localise mental faculties to brain regions and **Paul Broca** in the 1860s located a speech region, early steps that founded the discipline of modern neuroanatomy. {{c:Prasad}}",
         "Clinically the scheme matters, because damage at different levels produces different pictures, so a **brainstem lesion** threatens **vital functions** while a cerebral lesion affects thought, movement or sensation instead. {{c:Snell}}",
+        "The same levels mature at different rates, so the **brainstem** is functional first for survival while the **cerebral cortex** keeps developing into adulthood, which is why higher functions appear and recover more gradually. {{c:Carlson}}",
     ]},
     {"t": "fig", "key": "midsagittal_view", "caption": "Midsagittal (medial) view: the corpus callosum and fornix, the thalamus and hypothalamus around the third ventricle, the midbrain, pons and medulla of the brainstem descending to the spinal cord, the cerebellum, and the ventricular outline."},
     {"t": "box", "kind": "key", "title": "Sub-divisions at a glance", "items": [
@@ -141,6 +170,14 @@ _s("t1", "1", "Major anatomical sub-divisions of the human brain", [
 # ========================= 2. SURFACE ANATOMY OF THE CORTEX ======================
 _s("t2", "2", "Surface anatomy of cortical regions", [
     {"t": "lead", "text": "The surface of the cerebral cortex is thrown into folds and grooves and divided by the central sulcus and lateral fissure into four lobes, frontal, parietal, temporal and occipital, plus the hidden insula, each carrying primary motor, sensory, visual or auditory areas among wide zones of association cortex."},
+    {"t": "box", "kind": "info", "title": "Answer flow \u2014 how to write this topic", "text": "Write the answer in this order, and the points below follow the same skeleton:", "items": [
+        "Definition: the cortex as the folded outer grey-matter sheet.",
+        "Landmarks: gyri and sulci, the central sulcus and the lateral fissure.",
+        "The four lobes plus the insula, each with its primary area and job.",
+        "Organising principles: association cortex, localisation and lateralisation, language areas.",
+        "Clinical / lesion note: how a lobe lesion maps onto a deficit.",
+        "One-line summary (use the mnemonic).",
+    ]},
     {"t": "fig", "key": "cortical_lobes", "caption": "Surface map of the left hemisphere: the four lobes and the insula, the central sulcus and lateral fissure, and the primary motor, sensory, visual and auditory areas."},
     {"t": "box", "kind": "def", "title": "Characterisations by standard texts", "items": [
         "{{GUIDE}} The **cerebral cortex** is characterised as the outermost layer of grey matter, a wrinkled sheet of tightly packed neurons responsible for higher processes such as thought, language, decision-making and problem-solving. {{c:Prasad}}",
@@ -148,9 +185,14 @@ _s("t2", "2", "Surface anatomy of cortical regions", [
         "{{THEORY}} **Hitzig and Fritsch** (1870) showed by electrically stimulating the motor cortex of dogs that distinct body muscles map to distinct cortical points, early evidence for the localisation of function. {{c:Prasad}}",
     ]},
     {"t": "h3", "text": "Exam points"},
+    {"t": "h4", "text": "Definition and surface landmarks"},
     {"t": "ul", "items": [
+        "The **cerebral cortex** is the outermost sheet of **grey matter**, a few millimetres thick, whose tightly packed neurons carry out the highest processes of thought, language, perception and voluntary action. {{c:Prasad}}",
         "The cortex is **folded** to pack a large surface into the skull, so its **raised ridges** are called [[gyri|the raised folds of the cortical surface]] and its grooves are called [[sulci|the valleys between the folds]], and deeper grooves are termed fissures. {{c:Snell}}",
         "Two landmark grooves organise the surface: the **central sulcus** runs down and forward dividing frontal from parietal lobe, while the **lateral (Sylvian) fissure** runs backward separating the temporal lobe below. {{c:Prasad}}",
+    ]},
+    {"t": "h4", "text": "The four lobes and the insula"},
+    {"t": "ul", "items": [
         "The **frontal lobe** lies in front of the central sulcus and governs **voluntary movement** and **planning**, which is why damage here, as in the classic case of Phineas Gage, changes behaviour. {{c:Prasad}}",
         "The **primary motor cortex** sits on the [[precentral gyrus|the fold just in front of the central sulcus]], and its parts are arranged in **orderly fashion** so that finger, hand and arm controls lie next to one another. {{c:Prasad}}",
         "The **parietal lobe** lies behind the central sulcus and handles **touch, pressure, pain and temperature**, integrating bodily sensation with spatial awareness of where the body is in its surroundings. {{c:Snell}}",
@@ -158,14 +200,22 @@ _s("t2", "2", "Surface anatomy of cortical regions", [
         "The **temporal lobe** lies below the lateral fissure and processes **hearing, language comprehension and memory**, receiving auditory input mostly from the opposite ear through its primary auditory cortex. {{c:Prasad}}",
         "The **primary auditory cortex** sits on the upper temporal lobe at [[Heschl's gyrus|the transverse temporal gyrus that first receives sound]] and analyses **pitch, loudness and pattern** of incoming acoustic information. {{c:Snell}}",
         "The **occipital lobe** forms the back of the brain and is devoted to **vision**, with its primary visual cortex around the calcarine sulcus processing colour, shape and movement from the opposite visual field. {{c:Prasad}}",
-        "Visual input crosses over, so the **right visual field** is processed in the **left hemisphere** and the left field in the right, a crossing pattern that recurs for many sensory and motor pathways. {{c:Prasad}}",
         "The **insula** is a fifth lobe tucked deep inside the lateral fissure and is involved in **taste**, **visceral sensation** and emotional awareness, hidden from the brain's outer surface. {{c:Snell}}",
+    ]},
+    {"t": "fig", "key": "pd_lobes_lateral", "caption": ""},
+    {"t": "h4", "text": "Organising principles and language"},
+    {"t": "ul", "items": [
+        "Visual input crosses over, so the **right visual field** is processed in the **left hemisphere** and the left field in the right, a crossing pattern that recurs for many sensory and motor pathways. {{c:Prasad}}",
         "Most of the cortex is not primary but [[association cortex|cortex that integrates and interprets rather than simply receiving]], which **binds and interprets** sensory inputs into **meaningful experience** and action. {{c:Kandel}}",
         "**Localisation of function** means that specific abilities such as language or vision have **specific cortical locations**, a principle supported first by lesion case studies and now by modern neuroimaging. {{c:Prasad}}",
         "**Lateralisation** means the two hemispheres differ in emphasis, so in most people the **left hemisphere leads for language** and the right for spatial and holistic processing, though both cooperate closely. {{c:Carlson}}",
         "Language has two classic surface regions, **Broca's area** in the frontal lobe for speech production and **Wernicke's area** in the temporal lobe for comprehension, linked by an association fibre bundle. {{c:Snell}}",
         "The cortex is only a few millimetres thick but its heavy **folding** greatly **enlarges the surface area**, and small increases in **thickness and folding** are associated with greater processing capacity. {{c:Prasad}}",
+    ]},
+    {"t": "h4", "text": "Clinical note"},
+    {"t": "ul", "items": [
         "Clinically the surface map guides diagnosis, because a stroke or tumour in a given lobe produces **predictable deficits**, such as **weakness** from motor-strip damage or visual loss from occipital damage. {{c:Snell}}",
+        "A lesion of the posterior inferior frontal lobe causes **Broca's (non-fluent) aphasia** with effortful speech, whereas a posterior superior temporal lesion causes **Wernicke's (fluent) aphasia** with poor comprehension. {{c:Snell}}",
     ]},
     {"t": "fig", "key": "lateral_hemisphere", "caption": "Lateral (side) view of the left hemisphere with the four lobes colour-coded, the insula, the central sulcus and lateral (Sylvian) fissure, the precentral (motor) and postcentral (somatosensory) gyri, and the primary visual and auditory areas with Broca and Wernicke speech areas."},
     {"t": "fig", "key": "homunculus", "caption": "The motor (precentral) and somatosensory (postcentral) homunculus: mirror-image body maps across the central sulcus, with the hand and face magnified because fine control and dense sensation demand more cortex."},
@@ -182,6 +232,15 @@ _s("t2", "2", "Surface anatomy of cortical regions", [
 # ========================= 3. INTERIOR STRUCTURES ===================
 _s("t3", "3", "Interior structures of cortical and sub-cortical regions", [
     {"t": "lead", "text": "Beneath the cortex lie the white-matter tracts and a set of deep grey-matter structures, the basal ganglia, the thalamus and hypothalamus, the limbic system with its hippocampus and amygdala, the brainstem and cerebellum, all arranged around the fluid-filled ventricles."},
+    {"t": "box", "kind": "info", "title": "Answer flow \u2014 how to write this topic", "text": "Write the answer in this order, and the points below follow the same skeleton:", "items": [
+        "Definition: grey versus white matter and the deep nuclei under the cortex.",
+        "Basal ganglia: each nucleus and its role in movement.",
+        "Diencephalon: the thalamus and its nuclei, then the hypothalamus and its functions.",
+        "Limbic system: hippocampus, amygdala, cingulate gyrus and fornix.",
+        "Brainstem subdivisions and key nuclei, then the cerebellum and its divisions.",
+        "The ventricles that these structures surround.",
+        "Clinical / lesion note (e.g. Parkinson's, amnesia); one-line summary (mnemonic).",
+    ]},
     {"t": "fig", "key": "subcortical_structures", "caption": "Working inward from the cortex through the white matter to the basal ganglia, diencephalon, limbic system, brainstem, cerebellum and the ventricles."},
     {"t": "box", "kind": "def", "title": "Characterisations by standard texts", "items": [
         "{{GUIDE}} Standard texts distinguish [[grey matter|tissue rich in neuron cell bodies]], found in the surface cortex and the deep nuclei, from [[white matter|tissue made of myelinated axons]], the connecting fibres that lie beneath. {{c:Snell}}",
@@ -189,24 +248,48 @@ _s("t3", "3", "Interior structures of cortical and sub-cortical regions", [
         "{{GUIDE}} Standard texts describe the **limbic system** as a doughnut-shaped ring of structures at the border of the brainstem and cerebrum, including the hippocampus, amygdala and hypothalamus, serving emotion and drive. {{c:Prasad}}",
     ]},
     {"t": "h3", "text": "Exam points"},
+    {"t": "h4", "text": "Grey matter, white matter and the deep nuclei"},
     {"t": "ul", "items": [
         "Directly under the cortex lies the **cerebral white matter**, a dense mass of **myelinated fibres** that carries signals between cortical areas and between the cortex and the deeper and lower centres of the brain. {{c:Kandel}}",
+        "Grey and white matter are arranged in a clear pattern, with **grey matter** on the surface and in the **deep nuclei** and the connecting white matter sandwiched between them, a layout repeated through the brain. {{c:Snell}}",
+    ]},
+    {"t": "h4", "text": "Basal ganglia \u2014 the nuclei and their roles"},
+    {"t": "ul", "items": [
         "The **basal ganglia** are deep grey-matter nuclei that **fine-tune voluntary movement**, receiving plans from the cortex, processing them and returning instructions to the cortex by way of the thalamus. {{c:StatPearls BG}}",
-        "The main basal-ganglia parts are the [[striatum|the caudate nucleus and putamen together]], the **globus pallidus**, the subthalamic nucleus and the **substantia nigra**, whose loss of dopamine cells causes Parkinson's disease. {{c:StatPearls BG}}",
+        "The [[striatum|the caudate nucleus and putamen together]] is the **main input** station of the basal ganglia, where the **caudate nucleus** serves cognition and eye movement and the **putamen** serves limb and trunk movement. {{c:StatPearls BG}}",
+        "The **globus pallidus** is the chief **output** nucleus, and its internal segment sends the inhibitory signal to the thalamus that the direct and indirect pathways continually turn up or down. {{c:StatPearls BG}}",
+        "The **subthalamic nucleus** lies just below the thalamus and drives the **indirect pathway**, so its damage releases movement and causes the violent flinging called hemiballismus. {{c:StatPearls BG}}",
+        "The **substantia nigra** of the midbrain supplies **dopamine** to the striatum, and the death of these dopamine cells is what produces the tremor and rigidity of **Parkinson's disease**. {{c:StatPearls BG}}",
+    ]},
+    {"t": "h4", "text": "Diencephalon \u2014 thalamus and hypothalamus"},
+    {"t": "ul", "items": [
         "The **thalamus** is a pair of egg-shaped grey masses forming the walls of the third ventricle, and it acts as the brain's great **relay station** through which nearly all sensory input passes on its way to the cortex. {{c:Prasad}}",
+        "The thalamus is parcelled into **nuclei** with set jobs, so the **lateral geniculate** relays vision, the **medial geniculate** relays hearing, the ventral posterior nucleus relays body sensation and the ventral lateral nucleus relays movement. {{c:Kandel}}",
         "Because of this gateway role the thalamus is central to **sensation**, motor control, arousal and **memory**, so that damage to it can blunt or distort incoming experience. {{c:Prasad}}",
         "The **hypothalamus** sits just below the thalamus and is the master controller of the **autonomic** and **endocrine systems**, regulating hunger, thirst, temperature, sleep and the drives for sex and survival. {{c:Carlson}}",
+        "Through its link to the **pituitary gland** the hypothalamus turns neural signals into **hormonal commands**, and its suprachiasmatic nucleus acts as the body's master clock for the day\u2013night rhythm. {{c:Carlson}}",
+    ]},
+    {"t": "fig", "key": "pd_coronal_bg", "caption": ""},
+    {"t": "h4", "text": "Limbic system \u2014 the emotional ring"},
+    {"t": "ul", "items": [
         "The **limbic system** is the emotional core of the brain, a border ring that links the cortex with deeper structures and underlies **emotion, motivation, memory and drive** for food and sex. {{c:Prasad}}",
         "The [[hippocampus|a curved limbic structure deep in the temporal lobe]] is essential for forming new **long-term memories**, **consolidating** experiences for weeks before they are stored more permanently in the cortex. {{c:Prasad}}",
         "The [[amygdala|an almond-shaped limbic nucleus]] processes **fear** and **emotional significance**, tagging events with feeling and triggering the body's rapid defensive responses to danger. {{c:Carlson}}",
+        "The **cingulate gyrus** arches over the corpus callosum and links emotion to behaviour, while the [[fornix|the arched output tract of the hippocampus]] carries the hippocampal output to the hypothalamic mammillary bodies. {{c:Snell}}",
+    ]},
+    {"t": "h4", "text": "Brainstem and cerebellum"},
+    {"t": "ul", "items": [
         "The **brainstem** contains the midbrain, pons and medulla, and runs the **automatic survival functions** of heartbeat, breathing and consciousness, acting as the junction through which most ascending and descending tracts pass. {{c:Prasad}}",
-        "The **midbrain** carries the superior and inferior colliculi, which serve as **visual and auditory reflex centres**, together with the substantia nigra that links functionally to the basal ganglia. {{c:Prasad}}",
-        "The **pons** bridges the two cerebellar hemispheres and helps coordinate **movement, sleep, waking and dreaming**, while the **medulla** below it controls the force and rate of the heartbeat and of breathing. {{c:Prasad}}",
-        "The **cerebellum** behind the brainstem has two folded hemispheres and smooths and coordinates **movement, posture and balance**, correcting errors so that actions are accurate and well timed. {{c:Carlson}}",
+        "The **midbrain** carries the superior and inferior colliculi, which serve as **visual and auditory reflex centres**, together with the substantia nigra and the red nucleus and the origins of the oculomotor nerves. {{c:Prasad}}",
+        "The **pons** bridges the two cerebellar hemispheres and helps coordinate **movement, sleep, waking and dreaming**, and it carries the nuclei of the trigeminal, abducens and facial nerves. {{c:Prasad}}",
+        "The **medulla** is the lowest brainstem segment and holds the **vital centres** for the rate and force of the heartbeat and for breathing, along with reflex centres for swallowing, coughing and vomiting. {{c:Prasad}}",
+        "The **cerebellum** behind the brainstem has two hemispheres and a midline vermis, and across its lobes it smooths and coordinates **movement, posture and balance**, correcting errors so that actions are accurate and well timed. {{c:Carlson}}",
+    ]},
+    {"t": "h4", "text": "The ventricles and clinical note"},
+    {"t": "ul", "items": [
         "The [[ventricles|fluid-filled cavities deep within the brain]] are an interconnected web of spaces holding cerebrospinal fluid, comprising **two lateral ventricles**, a third and a **fourth** linked by narrow channels. {{c:Prasad}}",
-        "Grey and white matter are arranged in a clear pattern, with **grey matter** on the surface and in the **deep nuclei** and the connecting white matter sandwiched between them, a layout repeated through the brain. {{c:Snell}}",
         "The whole interior is **modular yet connected**, so each deep structure does a **specialised job** within defined pathways, and damage to one, such as the basal ganglia or hippocampus, produces a characteristic deficit. {{c:Kandel}}",
-        "Clinically these interior structures matter greatly, since **Parkinson's disease** and **movement disorders** each trace to specific deep structures such as the substantia nigra or the hippocampus. {{c:StatPearls BG}}",
+        "Clinically these interior structures matter greatly, since loss of the substantia nigra gives **Parkinson's disease** while bilateral **hippocampal** damage, as in the famous patient H.M., leaves a dense inability to form new memories. {{c:StatPearls BG}}",
     ]},
     {"t": "fig", "key": "coronal_section", "caption": "Coronal section through the basal ganglia: the lateral ventricles, caudate nucleus, putamen and globus pallidus (together the lentiform nucleus), the thalamus, the internal capsule between them, and the corpus callosum over the midline."},
     {"t": "box", "kind": "key", "title": "Interior structures at a glance", "items": [
@@ -222,6 +305,13 @@ _s("t3", "3", "Interior structures of cortical and sub-cortical regions", [
 # ========================= 4. ANATOMICAL CONNECTIVITY =============================
 _s("t4", "4", "Anatomical connectivity among regions", [
     {"t": "lead", "text": "The regions of the brain are wired together by white-matter fibres of three kinds, association fibres that link areas within one hemisphere, commissural fibres such as the corpus callosum that join the two hemispheres, and projection fibres such as the internal capsule that connect the cortex to lower centres."},
+    {"t": "box", "kind": "info", "title": "Answer flow \u2014 how to write this topic", "text": "Write the answer in this order, and the points below follow the same skeleton:", "items": [
+        "Definition: white matter and tracts as the brain's wiring.",
+        "Association fibres: short U-fibres and the named long bundles, within a hemisphere.",
+        "Commissural fibres: the corpus callosum and the anterior commissure, between hemispheres.",
+        "Projection fibres: the internal capsule (and its parts), corona radiata and the great ascending/descending tracts.",
+        "Clinical / lesion note: disconnection syndromes; one-line summary (mnemonic).",
+    ]},
     {"t": "fig", "key": "fibre_types", "caption": "The three white-matter fibre classes: association fibres within a hemisphere, commissural fibres (the corpus callosum) between hemispheres, and projection fibres (the internal capsule) to and from lower centres."},
     {"t": "box", "kind": "def", "title": "Characterisations by standard texts", "items": [
         "{{GUIDE}} Standard texts classify cerebral white-matter tracts into three kinds, **association, commissural and projection** fibres, according to the direction and reach of the connections they make. {{c:Snell}}",
@@ -229,22 +319,38 @@ _s("t4", "4", "Anatomical connectivity among regions", [
         "{{GUIDE}} [[Association fibres|fibres linking regions inside one hemisphere]] include the arcuate and superior longitudinal fasciculi, the cingulum and the uncinate fasciculus, each joining defined cortical areas. {{c:Kandel}}",
     ]},
     {"t": "h3", "text": "Exam points"},
+    {"t": "h4", "text": "Definition: white matter as wiring"},
     {"t": "ul", "items": [
         "White matter is made of **myelinated axons**, called **tracts** or fasciculi, which carry nerve impulses between grey-matter regions and so coordinate communication across the whole brain. {{c:Kandel}}",
+        "Standard texts sort these tracts into **three classes** by where they reach, namely **association** fibres within a hemisphere, **commissural** fibres between the hemispheres and **projection** fibres between the cortex and lower centres. {{c:Snell}}",
+    ]},
+    {"t": "h4", "text": "Association fibres (within a hemisphere)"},
+    {"t": "ul", "items": [
         "**Association fibres** connect different areas **within the same hemisphere**, allowing one lobe to talk to another, for example linking the visual cortex to the areas that interpret what is seen. {{c:Snell}}",
         "**Short** association fibres called [[U-fibres|short arching fibres joining neighbouring gyri]] loop between adjacent gyri, while **long** bundles span whole lobes within a hemisphere. {{c:Kandel}}",
         "The **superior longitudinal (arcuate) fasciculus** is a key long association bundle that links the frontal lobe with the other lobes, famously joining **Broca's and Wernicke's** language areas. {{c:Kandel}}",
-        "Other named association bundles include the **cingulum**, which runs within the limbic lobe, and the **uncinate fasciculus**, which hooks the frontal lobe to the anterior temporal lobe. {{c:Snell}}",
+        "Other named association bundles include the **cingulum** within the limbic lobe, the **uncinate fasciculus** hooking the frontal to the anterior temporal lobe, and the **inferior longitudinal fasciculus** joining the occipital and temporal lobes. {{c:Snell}}",
+    ]},
+    {"t": "h4", "text": "Commissural fibres (between the hemispheres)"},
+    {"t": "ul", "items": [
         "**Commissural fibres** cross the midline to connect **matching areas** in the **two hemispheres**, so that the left and right sides of the brain can share and integrate their information. {{c:Snell}}",
         "The **corpus callosum** is the great commissure and the **largest white-matter structure** in the brain, a broad arched band of around two hundred million fibres joining the hemispheres front to back. {{c:Kandel}}",
+        "The callosum is described in named parts, the **rostrum, genu, body and splenium** from front to back, so that a lesion of the splenium (the back) can cut the visual connection between the hemispheres. {{c:Snell}}",
         "A smaller commissure, the **anterior commissure**, links the two temporal lobes, and cutting the callosum, as in **split-brain surgery**, leaves the hemispheres unable to share information directly. {{c:Carlson}}",
+    ]},
+    {"t": "h4", "text": "Projection fibres (cortex \u2194 lower centres)"},
+    {"t": "ul", "items": [
         "**Projection fibres** run **vertically** between the cortex and lower centres, carrying motor commands down to the brainstem and spinal cord and sensory signals up from the thalamus to the cortex. {{c:Snell}}",
         "The great **projection gateway** is the [[internal capsule|a compact band of projection fibres between the basal ganglia]], a **dense band** that funnels most ascending and descending fibres past the basal ganglia and thalamus. {{c:Snell}}",
+        "The internal capsule has named parts, an **anterior limb, a genu and a posterior limb**, and because the motor fibres run in the genu and posterior limb a small bleed here can paralyse the whole opposite side. {{c:Snell}}",
         "Above the internal capsule the fibres **fan out** into the [[corona radiata|the fanned-out crown of projection fibres]], which **spreads the tracts** widely to and from the whole cortical surface. {{c:Kandel}}",
         "The chief descending projection tract is the **corticospinal (pyramidal) tract**, which carries **voluntary motor commands** from the motor cortex and crosses to the opposite side in the medulla's pyramidal decussation. {{c:Prasad}}",
         "Because of this crossing, the **left hemisphere** controls the **right side** of the body and the right hemisphere the left, a decussation that explains why a one-sided stroke weakens the opposite limbs. {{c:Prasad}}",
-        "**Sensory projection fibres** carry touch and pain up through the brainstem and thalamus to the cortex, for example the **medial lemniscus** relaying fine touch and position sense. {{c:Prasad}}",
+        "**Ascending sensory tracts** carry touch and pain up through the brainstem and thalamus to the cortex, so the **medial lemniscus** relays fine touch and position sense while the spinothalamic tract relays pain and temperature. {{c:Prasad}}",
         "Between the forebrain and the cerebellum run **great fibre bundles** called the **cerebellar peduncles**, through which the cerebellum receives and returns the signals that coordinate movement. {{c:Snell}}",
+    ]},
+    {"t": "h4", "text": "Clinical note"},
+    {"t": "ul", "items": [
         "Together the three fibre classes make the brain a **single connected network**, not **isolated parts**, so that complex behaviour depends on intact wiring as much as on intact regions. {{c:Kandel}}",
         "Clinically, **broken connections** cause **disconnection syndromes**, so cutting the arcuate fasciculus disrupts repetition of speech and damaging the callosum stops the hemispheres from coordinating. {{c:Carlson}}",
     ]},
@@ -261,6 +367,15 @@ _s("t4", "4", "Anatomical connectivity among regions", [
 # ========================= 5. BLOOD SUPPLY ===========================
 _s("t5", "5", "Blood supply to the brain", [
     {"t": "lead", "text": "The brain is fed by two arterial systems, the internal carotid arteries in front and the vertebrobasilar system behind, which join at the base of the brain in the circle of Willis, a protective ring from which the major cerebral arteries arise, while venous blood drains through the dural sinuses to the internal jugular veins."},
+    {"t": "box", "kind": "info", "title": "Answer flow \u2014 how to write this topic", "text": "Write the answer in this order, and the points below follow the same skeleton:", "items": [
+        "Definition / why it matters: the brain's high metabolic demand.",
+        "The two inflow systems: internal carotid (anterior) and vertebrobasilar (posterior).",
+        "The circle of Willis and the communicating arteries that close it.",
+        "The three cerebral-artery territories and what a stroke in each causes.",
+        "Protection: collateral flow, variants and the blood-brain barrier.",
+        "Venous drainage: the dural sinuses to the internal jugular veins.",
+        "Clinical / lesion note (stroke); one-line summary (mnemonic).",
+    ]},
     {"t": "fig", "key": "circle_of_willis", "caption": "The circle of Willis joins the internal carotid (anterior) and vertebrobasilar (posterior) systems through the anterior and posterior communicating arteries, giving collateral flow."},
     {"t": "box", "kind": "def", "title": "Characterisations by standard texts", "items": [
         "{{GUIDE}} The [[circle of Willis|an arterial ring at the base of the brain]] is characterised as an anastomotic ring joining the anterior and posterior circulations and providing collateral flow if one vessel is blocked. {{c:StatPearls CoW}}",
@@ -268,24 +383,39 @@ _s("t5", "5", "Blood supply to the brain", [
         "{{GUIDE}} Standard physiology notes that the brain uses about **a quarter of the body's glucose and much of its oxygen**, so any fall in blood supply quickly threatens it and can cause a stroke. {{c:Prasad}}",
     ]},
     {"t": "h3", "text": "Exam points"},
+    {"t": "h4", "text": "Why the supply matters, and the two inflow systems"},
     {"t": "ul", "items": [
         "The brain has a very high metabolic demand and receives its blood from **two paired arterial systems**, the **internal carotid** arteries supplying the front and the vertebral arteries supplying the back and base. {{c:Gray}}",
         "The **internal carotid arteries** form the [[anterior circulation|the front blood supply from the carotid arteries]], supplying most of the **cerebral hemispheres** through the anterior and middle cerebral arteries. {{c:StatPearls CoW}}",
         "The two **vertebral arteries** climb through the neck and **fuse** into a single [[basilar artery|the midline artery formed by the two vertebral arteries]], together forming the posterior circulation. {{c:StatPearls CoW}}",
         "The **vertebrobasilar system** supplies the **brainstem**, cerebellum and the back of the cerebrum, including the occipital lobe, through the posterior cerebral arteries that branch from the basilar artery. {{c:Gray}}",
+    ]},
+    {"t": "h4", "text": "The circle of Willis"},
+    {"t": "ul", "items": [
         "At the base of the brain these two systems meet in the **circle of Willis**, a **polygonal arterial ring** that encircles the pituitary stalk and connects the anterior and posterior circulations. {{c:StatPearls CoW}}",
         "The ring is **completed in front** by the two **anterior cerebral arteries** joined by the single [[anterior communicating artery|the short bridge joining the two front arteries]], closing the front of the circle. {{c:StatPearls CoW}}",
         "On each side a [[posterior communicating artery|a side bridge joining front to back circulation]] **links** the carotid to the posterior cerebral artery, joining the two circulations **laterally**. {{c:StatPearls CoW}}",
         "The circle's protective value is its **collateral flow**, so if one vessel is blocked, blood is **rerouted around the ring** to keep the brain tissue perfused and reduce the damage. {{c:StatPearls CoW}}",
-        "The three **major cerebral arteries** arise around this system, each watering a **defined territory** of the cortex and the deep structures beneath of the cortex and the deep structures beneath it. {{c:Gray}}",
-        "The **middle cerebral artery** is the **largest** and supplies much of the lateral cortex including the language areas, so its blockage causes a severe, common stroke. {{c:Gray}}",
-        "The **anterior cerebral artery** supplies the medial frontal and parietal lobes, the region for the leg, so its occlusion typically **weakens the opposite leg**. {{c:Gray}}",
-        "The **posterior cerebral artery** supplies the **occipital lobe** and lower temporal lobe, so its occlusion typically causes loss of vision in the opposite field. {{c:Gray}}",
+    ]},
+    {"t": "fig", "key": "pd_circle_of_willis", "caption": ""},
+    {"t": "h4", "text": "The three cerebral arteries and their stroke territories"},
+    {"t": "ul", "items": [
+        "The three **major cerebral arteries** arise around this system, each watering a **defined territory** of the cortex and the deep structures beneath it. {{c:Gray}}",
+        "The **middle cerebral artery** is the **largest** and supplies much of the lateral cortex, so its occlusion causes weakness and sensory loss of the opposite **face and arm** more than the leg, with aphasia if the dominant hemisphere is struck. {{c:Gray}}",
+        "The **anterior cerebral artery** supplies the medial frontal and parietal lobes, the region for the **leg**, so its occlusion typically weakens and numbs the **opposite leg** more than the arm. {{c:Gray}}",
+        "The **posterior cerebral artery** supplies the **occipital lobe** and lower temporal lobe, so its occlusion typically causes loss of vision in the **opposite visual field** (a homonymous hemianopia). {{c:Gray}}",
+        "Small deep branches, the **lenticulostriate** arteries, feed the internal capsule and basal ganglia, so a tiny bleed or block here produces a classic **lacunar stroke** paralysing the whole opposite side. {{c:StatPearls CoW}}",
+    ]},
+    {"t": "h4", "text": "Protection and venous drainage"},
+    {"t": "ul", "items": [
         "The circle of Willis shows **many normal variants**, since in many people one or more segments is **thin or absent**, which can change how well collateral flow protects them. {{c:StatPearls CoW}}",
         "Guarding the supply is the [[blood-brain barrier|a selective filter between blood and brain tissue]], a **tight capillary lining** that lets nutrients pass while **shielding** the brain from blood-borne toxins. {{c:Prasad}}",
-        "**Venous blood** is collected into large channels called the **dural venous sinuses**, such as the superior sagittal sinus, which run between the dural layers of the dura mater. {{c:Gray}}",
+        "**Venous blood** is collected into large channels called the **dural venous sinuses**, such as the **superior sagittal, transverse, sigmoid and cavernous** sinuses, which run between the two layers of the dura mater. {{c:Gray}}",
         "From these sinuses the blood drains mainly into the **internal jugular veins** to **return to the heart**, and the same sinuses also receive the cerebrospinal fluid absorbed from around the brain. {{c:Gray}}",
-        "Clinically this anatomy is central, because a **stroke** follows **interrupted blood supply** or bleeding, and the deficit maps onto the artery that failed. {{c:Prasad}}",
+    ]},
+    {"t": "h4", "text": "Clinical note"},
+    {"t": "ul", "items": [
+        "Clinically this anatomy is central, because a **stroke** follows **interrupted blood supply** or bleeding, and the deficit maps precisely onto the artery that failed. {{c:Prasad}}",
     ]},
     {"t": "box", "kind": "key", "title": "Blood supply at a glance", "items": [
         "Two inflow systems: internal carotid (anterior) and vertebral \u2192 basilar (posterior) arteries.",
@@ -300,6 +430,15 @@ _s("t5", "5", "Blood supply to the brain", [
 # ========================= 6. THE CSF SYSTEM =============================
 _s("t6", "6", "The cerebrospinal-fluid (CSF) system", [
     {"t": "lead", "text": "The brain is wrapped in three meninges and bathed in cerebrospinal fluid, which is made by the choroid plexus in the ventricles, flows from the lateral ventricles through the third and fourth ventricles into the subarachnoid space, and is absorbed back into the venous blood at the arachnoid granulations, cushioning and nourishing the brain."},
+    {"t": "box", "kind": "info", "title": "Answer flow \u2014 how to write this topic", "text": "Write the answer in this order, and the points below follow the same skeleton:", "items": [
+        "Definition: the meninges and what cerebrospinal fluid is.",
+        "The three meningeal layers, from outer to inner.",
+        "Production: the choroid plexus and the ventricular system.",
+        "Circulation: the one-way route through the ventricles to the subarachnoid space.",
+        "Absorption: the arachnoid granulations into the venous sinuses.",
+        "Functions of the fluid.",
+        "Clinical / lesion note (hydrocephalus); one-line summary (mnemonic).",
+    ]},
     {"t": "fig", "key": "csf_flow", "caption": "CSF production at the choroid plexus, circulation through the lateral, third and fourth ventricles into the subarachnoid space, and absorption at the arachnoid granulations into the venous sinuses."},
     {"t": "box", "kind": "def", "title": "Characterisations by standard texts", "items": [
         "{{GUIDE}} **Cerebrospinal fluid** is characterised as a clear, colourless, watery fluid similar to blood plasma but with less protein, which cushions the brain, gives it buoyancy and carries away waste. {{c:Prasad}}",
@@ -307,20 +446,34 @@ _s("t6", "6", "The cerebrospinal-fluid (CSF) system", [
         "{{GUIDE}} Standard references describe the CSF route from the lateral ventricles through the third and fourth ventricles, out of the apertures of **Magendie and Luschka** into the subarachnoid space. {{c:StatPearls CSF}}",
     ]},
     {"t": "h3", "text": "Exam points"},
+    {"t": "h4", "text": "Definition: the meninges"},
     {"t": "ul", "items": [
         "The brain is protected by **three membranes** called the **meninges**, which lie between the skull and the brain, enclose the blood vessels and form the sheath around the venous sinuses. {{c:Prasad}}",
         "The outer **dura mater** is a strong, **leathery, two-layered** membrane whose layers separate to enclose the [[dural venous sinuses|venous channels within the dura]] that drain blood from the brain. {{c:Prasad}}",
         "The middle **arachnoid mater** is a loose, **web-like** membrane, and beneath it the [[subarachnoid space|the fluid-filled gap beneath the arachnoid membrane]] is filled with cerebrospinal fluid and the larger blood vessels. {{c:Prasad}}",
         "The inner **pia mater** is a delicate membrane that **clings tightly** to the brain's folded surface, following every gyrus and sulcus and carrying small blood vessels into the tissue. {{c:Snell}}",
+    ]},
+    {"t": "h4", "text": "Production and the ventricular system"},
+    {"t": "ul", "items": [
         "**Cerebrospinal fluid** is a **clear fluid**, roughly 80 to 150 millilitres in volume, resembling blood plasma but with less protein, that surrounds the brain and spinal cord and fills the ventricles. {{c:Prasad}}",
         "The fluid is **produced** by the [[choroid plexus|tufts of capillaries that make CSF in the ventricles]], clusters of **specialised capillaries** lined by ependymal cells that hang from the roof of each ventricle. {{c:Prasad}}",
         "The **ventricular system** is an interconnected set of cavities comprising **two lateral ventricles**, a third ventricle between the thalamic halves and a **fourth ventricle** between the brainstem and cerebellum. {{c:Prasad}}",
+    ]},
+    {"t": "fig", "key": "pd_ventricles", "caption": ""},
+    {"t": "h4", "text": "Circulation: the one-way route"},
+    {"t": "ul", "items": [
         "From each lateral ventricle the fluid passes through the [[foramen of Monro|the channel from a lateral ventricle to the third]] into the **midline third ventricle**, beginning its **one-way journey** through the brain. {{c:StatPearls CSF}}",
         "From the third ventricle the fluid flows down the **narrow** [[cerebral aqueduct|the thin channel of Sylvius between third and fourth ventricles]] into the **fourth ventricle** lying behind the pons and medulla. {{c:StatPearls CSF}}",
         "From the fourth ventricle the fluid escapes into the subarachnoid space through **three openings**, the median aperture of **Magendie** and the two lateral apertures of **Luschka**, to bathe the whole brain and cord. {{c:StatPearls CSF}}",
         "Once in the **subarachnoid space** the fluid circulates over the brain and down around the spinal cord, forming a **continuous liquid cushion** between the delicate tissue and the bone. {{c:StatPearls CSF}}",
+    ]},
+    {"t": "h4", "text": "Absorption and balance"},
+    {"t": "ul", "items": [
         "The fluid is finally **reabsorbed** into the venous blood at the [[arachnoid granulations|small projections that return CSF to the venous sinuses]], **tiny tufts** of arachnoid that push into the dural venous sinuses. {{c:StatPearls CSF}}",
         "Production, circulation and absorption are kept in **balance**, so the adult makes **half a litre** a day while holding only a small volume, the surplus being continually absorbed. {{c:StatPearls CSF}}",
+    ]},
+    {"t": "h4", "text": "Functions and clinical note"},
+    {"t": "ul", "items": [
         "The first function of the fluid is **mechanical protection**, giving the brain **buoyancy** so that it floats and does not crush under its own weight, and cushioning it against blows. {{c:Prasad}}",
         "Further functions are **nourishment** and **waste removal**, since the fluid carries nutrients to the brain and washes away metabolic waste, helping to keep the brain's environment stable. {{c:Prasad}}",
         "The choroid plexus also helps **regulate the chemical environment**, using **ion pumps** to adjust the composition of the fluid and so of the central nervous system, assisting in cleaning and homeostasis. {{c:Prasad}}",
@@ -340,6 +493,15 @@ _s("t6", "6", "The cerebrospinal-fluid (CSF) system", [
 # ========================= 7. CYTOARCHITECTURE =============================
 _s("t7", "7", "Cytoarchitecture and modular organization", [
     {"t": "lead", "text": "At the microscopic level the cortex is built from neurons and glial cells arranged in six horizontal layers of the neocortex, organised into vertical columns or modules, and mapped by Brodmann into about fifty-two numbered areas whose differing layer patterns match differing functions."},
+    {"t": "box", "kind": "info", "title": "Answer flow \u2014 how to write this topic", "text": "Write the answer in this order, and the points below follow the same skeleton:", "items": [
+        "Definition: what cytoarchitecture means.",
+        "The building cells: neurons (pyramidal, stellate) and glia.",
+        "Cortex types: six-layered neocortex versus three-layered allocortex.",
+        "The six layers one by one, and what each does (input vs output).",
+        "Vertical organisation: cortical columns as modules.",
+        "Brodmann's map and worked examples (areas 4, 3-1-2, 17, 41/42, 44/45, 22).",
+        "Clinical / significance note; one-line summary (mnemonic).",
+    ]},
     {"t": "fig", "key": "cortical_layers", "caption": "The six neocortical laminae from the pial surface to the white matter, with the vertical cortical column (module) that Brodmann's cytoarchitectonic map is built upon."},
     {"t": "box", "kind": "def", "title": "Characterisations by standard texts", "items": [
         "{{GUIDE}} [[Cytoarchitecture|the microscopic arrangement of cells in the cortex]] is characterised as the pattern of neuronal cell types and layering by which the cortex is divided into structurally distinct areas. {{c:Kandel}}",
@@ -347,12 +509,17 @@ _s("t7", "7", "Cytoarchitecture and modular organization", [
         "{{GUIDE}} The six neocortical layers are named, from the surface inward, the **molecular, external granular, external pyramidal, internal granular, internal pyramidal and multiform** layers. {{c:Kandel}}",
     ]},
     {"t": "h3", "text": "Exam points"},
+    {"t": "h4", "text": "Definition, cells and cortex types"},
     {"t": "ul", "items": [
         "The cortex is built from **two cell classes**, the information-carrying **neurons** and the supporting [[glia|non-neuronal support cells of the nervous system]], which outnumber neurons and maintain, feed and insulate them. {{c:Prasad}}",
         "The chief excitatory neuron of the cortex is the **pyramidal cell**, a triangular cell whose long axon carries the cortex's main output, while small **stellate (granule) cells** are mostly local interneurons. {{c:Kandel}}",
         "The main glial types are the star-shaped [[astrocytes|star-shaped glia that support neurons and the blood-brain barrier]], the myelin-making **oligodendrocytes**, the immune **microglia** and the ependymal cells lining the ventricles. {{c:Kandel}}",
         "Most of the cortex is **neocortex**, the youngest, **six-layered** type that makes up the great bulk of the human cortex and carries out the highest cognitive functions. {{c:Prasad}}",
         "Older **allocortex**, such as that of the hippocampus, has only **three layers**, and the six-layered neocortex evolved from this simpler cortex. {{c:Prasad}}",
+    ]},
+    {"t": "fig", "key": "pd_cortex_layers", "caption": ""},
+    {"t": "h4", "text": "The six layers and what each does"},
+    {"t": "ul", "items": [
         "Counting from the pial surface, **layer I** is the **molecular layer**, a cell-poor layer of dendrites and axons that allows horizontal connections across the top of the cortex. {{c:Kandel}}",
         "**Layer II**, the **external granular layer**, is packed with small pyramidal and stellate cells, and together with layer III it supplies many of the fibres linking one cortical area to another. {{c:Kandel}}",
         "**Layer III**, the **external pyramidal layer**, holds medium pyramidal cells sending cortico-cortical and commissural output, including fibres that cross in the corpus callosum. {{c:Kandel}}",
@@ -360,11 +527,19 @@ _s("t7", "7", "Cytoarchitecture and modular organization", [
         "**Layer V**, the **internal pyramidal layer**, contains the largest pyramidal cells, including the giant Betz cells of the motor cortex, and provides the major output to the brainstem and spinal cord. {{c:Kandel}}",
         "**Layer VI, the multiform layer**, holds cells of varied shape and sends much of its output **back to the thalamus**, closing the loop between the cortex and its main relay station. {{c:Kandel}}",
         "The relative thickness of the layers varies with function, so **sensory cortex** has a thick **layer IV** (granular, input-heavy) while **motor cortex** has a thick **layer V** (pyramidal, output-heavy). {{c:Kandel}}",
+    ]},
+    {"t": "h4", "text": "Columns and Brodmann's map"},
+    {"t": "ul", "items": [
         "The cortex is organised not only in **layers** but in [[cortical columns|vertical modules of cells running through all six layers]], narrow **vertical modules** running from surface to white matter whose cells share a similar response. {{c:Kandel}}",
         "These columns act as the **basic processing modules** of the cortex, repeated many times across the sheet, so that the cortex works as a **mosaic** of similar computing units. {{c:Kandel}}",
         "**Brodmann's map** divided the cortex into about **fifty-two areas** by their cell structure, and the numbers remain a standard shorthand, so that specific areas correspond to specific functions. {{c:Brodmann}}",
-        "Familiar examples link a Brodmann number to a function, for instance **area 4** is the **primary motor cortex**, areas 3, 1 and 2 are the somatosensory cortex, and area 17 is the visual cortex. {{c:Prasad}}",
+        "Primary sensory and motor examples are **area 4** for the primary **motor** cortex, areas **3, 1 and 2** for the primary **somatosensory** cortex, area **17** for the primary **visual** cortex and areas **41 and 42** for the primary **auditory** cortex. {{c:Prasad}}",
+        "Higher-order examples are areas **44 and 45** (Broca's area) for **speech production** and area **22** (part of Wernicke's area) for **language comprehension**, showing how the map names functional regions. {{c:Brodmann}}",
+    ]},
+    {"t": "h4", "text": "Significance note"},
+    {"t": "ul", "items": [
         "This microscopic organisation underpins the whole brain's working, because the **'minimal wiring' principle** places **co-active neurons** close to one another to save energy and reduce delay. {{c:Prasad}}",
+        "The layer pattern even reveals the area's job on sight, since a **thick granular layer IV** marks sensory 'koniocortex' while its near-absence (agranular cortex) marks the **motor** areas, so the cytoarchitecture reads as a functional map. {{c:Kandel}}",
     ]},
     {"t": "box", "kind": "key", "title": "Cytoarchitecture at a glance", "items": [
         "Cells: pyramidal (output) and stellate (local) neurons; astrocytes, oligodendrocytes, microglia, ependyma.",
