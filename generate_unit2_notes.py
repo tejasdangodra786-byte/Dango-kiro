@@ -485,6 +485,21 @@ CONTENT = [
             "altered consciousness that a clinician must not mistake for a purely psychological "
             "disturbance.",
         ],
+        "figures": [
+            {
+                "file": "assets/unit2_figures/nak_pump.png",
+                "alt": "Labelled diagram of the sodium-potassium pump in the cell membrane "
+                       "exporting three sodium ions and importing two potassium ions using "
+                       "energy from ATP",
+                "caption": "Figure 6. The sodium-potassium pump driving three sodium ions out "
+                           "and two potassium ions in for each ATP it spends \u2014 the active, "
+                           "energy-using mechanism that maintains the \u221270 mV resting "
+                           "potential in the PRIME mnemonic and the flowchart below.",
+                "source": "Wikimedia Commons, \u201cScheme sodium-potassium pump-en\u201d",
+                "author": "LadyofHats (Mariana Ruiz Villarreal)",
+                "license": "Public domain",
+            },
+        ],
         "definition": None,
         "flow": {
             "title": "How the resting potential is set up and held",
@@ -815,6 +830,22 @@ CONTENT = [
             "drives fight-or-flight, and because this system stays switched on in chronic stress, "
             "anxiety and depression, understanding it helps a trainee link a patient's lasting tension, "
             "disturbed sleep and low mood back to this slow hormonal machinery.",
+        ],
+        "figures": [
+            {
+                "file": "assets/unit2_figures/hpa_axis.png",
+                "alt": "Schematic of the hypothalamic-pituitary-adrenal (HPA) axis showing the "
+                       "hypothalamus releasing CRH, the pituitary releasing ACTH and the adrenal "
+                       "cortex releasing cortisol, with cortisol feeding back to switch the axis off",
+                "caption": "Figure 7. The hypothalamic-pituitary-adrenal (HPA) axis \u2014 the "
+                           "hypothalamus signals the pituitary, which signals the adrenal cortex "
+                           "to release cortisol, and cortisol feeds back to shut the axis off; "
+                           "this is the slow stress-hormone machinery behind the clinical stress "
+                           "thread in the points above.",
+                "source": "Wikimedia Commons, \u201cHPA Axis Diagram (Brian M Sweis 2012)\u201d",
+                "author": "ShelleyAdams",
+                "license": "CC BY-SA 3.0",
+            },
         ],
         "definition": None,
         "flow": {
