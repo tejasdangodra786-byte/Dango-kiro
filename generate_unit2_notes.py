@@ -61,9 +61,11 @@ CONTENT = [
         "color": "blue",
         "title": "Cells of the Nervous System \u2014 Neurons",
         "intro": "Neurons are the signalling cells that receive, process and pass on information across "
-                 "the whole nervous system, and because every thought, feeling and behaviour ultimately "
-                 "rests on how these cells fire and connect, they are the natural starting point for a "
-                 "clinical psychologist studying the biology of behaviour.",
+                 "the whole nervous system; the story of this topic runs from what a neuron is, through "
+                 "how its parts let it collect many inputs and send one decision, to why that single "
+                 "design underlies every thought, feeling and behaviour, which is exactly why a clinical "
+                 "psychologist begins the biology of behaviour here, where damage to these cells shows "
+                 "up as changes in how a person senses, moves, remembers and feels.",
         "points": [
             "**Neurons** are the elementary information-processing cells of the nervous system, "
             "electrically **excitable** [[able to produce tiny electrical signals]] cells that receive "
@@ -122,6 +124,21 @@ CONTENT = [
             "dendrites gather signals, the soma and axon hillock weigh them up, and the axon delivers a "
             "single decision onward, so disruption at any one stage can reshape how a person senses, "
             "moves, thinks or feels.",
+            "A useful everyday analogy is that a neuron works like a **tiny mail-sorting office**: the "
+            "dendrites are the many in-trays receiving letters [[incoming signals from other neurons]], "
+            "the soma is the clerk who reads and combines them, the axon hillock is the desk where the "
+            "decision to post is made, and the myelinated axon is the courier road carrying one sealed "
+            "letter to its destination.",
+            "Because neurons rarely replace themselves, the brain protects skills by **plasticity** "
+            "[[its ability to rewire existing connections and strengthen or weaken synapses with "
+            "experience]], and this capacity to reshape circuits is the biological foundation of "
+            "learning, recovery after injury, and much of what psychological therapy and rehabilitation "
+            "try to harness.",
+            "Clinically this cell-level view matters because many conditions a trainee will assess map "
+            "onto specific neuronal failures: in **Alzheimer's disease** it is the slow death of neurons "
+            "and their synapses that erodes memory, in **Parkinson's disease** it is the loss of one "
+            "group of signalling neurons that disturbs movement, so the person's changing behaviour is a "
+            "visible readout of what is happening to these cells.",
         ],
         "figures": [
             {
@@ -166,9 +183,11 @@ CONTENT = [
         "color": "teal",
         "title": "Supporting Cells (Glia)",
         "intro": "Glial cells are the support cells that feed, insulate, defend and hold the nervous "
-                 "system together, and far from being mere packing, they shape how well neurons signal, "
-                 "which is why glial dysfunction now sits at the centre of our understanding of "
-                 "demyelinating and neurodegenerative disorders a clinical psychologist will meet.",
+                 "system together; the arc here moves from seeing them as mere packing to understanding "
+                 "that they actively decide how well neurons signal, and that shift matters because "
+                 "glial failure, whether stripped insulation or inflamed defenders, now sits at the "
+                 "centre of demyelinating and neurodegenerative disorders a clinical psychologist will "
+                 "meet, where it shows up as slowed thinking, fatigue and mood change.",
         "points": [
             "**Glial (neuroglial) cells** are the support cells that hold the nervous system together, "
             "providing physical integrity, nutrition and a stable **homeostasis** [[a steady internal "
@@ -226,6 +245,16 @@ CONTENT = [
             "since healthy astrocytes, intact myelin and well-regulated microglia are each needed for "
             "clear thinking, and their failure underlies conditions from multiple sclerosis to the "
             "neuroinflammation seen in dementia.",
+            "A simple way to picture the glial team is a **pit crew around a racing car**: the astrocytes "
+            "refuel and clean up, the oligodendrocytes and Schwann cells lay down the fast insulated "
+            "track, the microglia act as the safety marshals clearing debris, and the radial glia earlier "
+            "built the circuit itself, so the neuron (the car) only performs because the crew keeps its "
+            "conditions right.",
+            "A fast-growing clinical thread is **neuroinflammation** [[a sustained, low-level immune "
+            "reaction inside the brain driven mainly by over-activated microglia]], which is increasingly "
+            "linked not only to multiple sclerosis and dementia but also to the fatigue, poor "
+            "concentration and low mood seen in depression, so the state of a patient's glia can shape "
+            "the psychological symptoms a trainee observes.",
         ],
         "figures": [
             {
@@ -269,9 +298,12 @@ CONTENT = [
         "color": "purple",
         "title": "The Blood\u2013Brain Barrier",
         "intro": "The blood-brain barrier is the selective gate that protects the brain while still "
-                 "letting essential nutrients pass, and understanding it explains one of the central "
-                 "puzzles of clinical neuroscience, namely why some psychiatric and neurological drugs "
-                 "reach the brain and work while others are turned away at the door.",
+                 "letting essential nutrients pass; the story runs from what the gate is built from, "
+                 "through how it chooses what to admit, to why that selectivity decides which "
+                 "psychiatric and neurological drugs can work, so for a clinical psychologist this one "
+                 "structure quietly explains both why the brain's chemistry stays stable enough for "
+                 "steady mood and thought and why delivering medicine to the brain is so often the hard "
+                 "part of treatment.",
         "points": [
             "The **blood-brain barrier** is a protective mechanism that keeps a stable environment for "
             "the brain by shielding it from harmful substances carried in the circulating blood.",
@@ -324,6 +356,15 @@ CONTENT = [
             "hurdle**: it keeps the brain's chemistry stable enough for reliable mood and cognition, yet "
             "the same selectivity is why delivering medicines to the brain, and explaining why a drug "
             "does or does not help, is so often a question of whether it can cross this gate.",
+            "A helpful analogy is a **high-security border checkpoint**: open lanes wave through trusted "
+            "travellers like oxygen and carbon dioxide, special passport-controlled gates escort "
+            "approved visitors like glucose and amino acids, and the barrier turns most strangers away, "
+            "which is exactly the behaviour a drug designer has to plan around.",
+            "This directly shapes **psychopharmacology** [[the study of how drugs affect mind and "
+            "behaviour]], because a useful medicine must be fat-soluble enough to slip across the "
+            "barrier to reach the brain, which is one reason many psychiatric drugs are designed to be "
+            "**lipophilic** [[readily dissolving in fat]] and why a drug that cannot cross, however "
+            "promising in a test tube, simply cannot change a patient's thinking or mood.",
         ],
         "figures": [
             {
@@ -378,8 +419,11 @@ CONTENT = [
         "color": "amber",
         "title": "Communication Within a Neuron \u2014 Membrane (Resting) Potential",
         "intro": "At rest a neuron holds a steady negative voltage inside, like a charged battery waiting "
-                 "to be used, and this baseline is worth mastering because psychoactive drugs, "
-                 "anaesthetics and ion imbalances all change behaviour by nudging this very voltage.",
+                 "to be used; the story moves from what this resting voltage is, through how ion "
+                 "gradients and pumps build and hold it, to why it is the launch pad for every signal, "
+                 "and it is worth mastering because psychoactive drugs, anaesthetics, mood stabilisers "
+                 "and ordinary salt (ion) imbalances all change behaviour by nudging this one baseline "
+                 "voltage up or down.",
         "points": [
             "The **resting membrane potential** is the steady voltage across a neuron's membrane while the "
             "cell is at rest and not sending a signal, and this chapter gives its value as about "
@@ -430,6 +474,16 @@ CONTENT = [
             "Overall, the resting potential is the stable baseline, set by ion gradients and the "
             "**sodium-potassium pump**, from which every action potential begins and to which the neuron "
             "always returns after firing.",
+            "To make the idea concrete, think of the resting neuron as a **charged phone battery kept "
+            "plugged in**: the sodium-potassium pump is the charger constantly topping it up using "
+            "energy, the stored voltage is ready to power a call (a nerve impulse) the instant it is "
+            "needed, and if the charger fails the whole device becomes unreliable.",
+            "This baseline is clinically important because the brain depends on a steady balance of "
+            "salts, so a disturbed **electrolyte** [[the dissolved salts such as sodium and potassium "
+            "that carry electrical charge in body fluids]] level, as can happen with some medications or "
+            "physical illness, shifts the resting potential and can present as confusion, agitation or "
+            "altered consciousness that a clinician must not mistake for a purely psychological "
+            "disturbance.",
         ],
         "definition": None,
         "flow": {
@@ -459,9 +513,12 @@ CONTENT = [
         "color": "rose",
         "title": "Communication Within a Neuron \u2014 The Action Potential",
         "intro": "The action potential is the brief, all-or-none electrical spike that carries the nerve "
-                 "impulse along the axon, and following its exact sequence of ion movements shows a "
-                 "clinical psychologist precisely where local anaesthetics, toxins and some drugs act to "
-                 "switch signalling on or off.",
+                 "impulse along the axon; the story follows the voltage from rest, up through the sodium "
+                 "surge, down through the potassium recovery and back to baseline, and tracing that "
+                 "exact sequence shows a clinical psychologist precisely where local anaesthetics, "
+                 "anticonvulsants, toxins and some drugs step in to switch signalling on or off, which "
+                 "is why this spike is the physical event behind both normal communication and many "
+                 "treatments.",
         "points": [
             "When the nervous system transmits information, a resting neuron produces an **action "
             "potential**, a short-lived event in which the membrane voltage rapidly rises and then falls, "
@@ -513,6 +570,16 @@ CONTENT = [
             "its sodium channels so the signal never reaches the brain and no pain is felt, which makes "
             "the action potential not just a textbook spike but the exact event therapy can **start or "
             "silence**.",
+            "An intuitive analogy is a **row of falling dominoes**: nothing happens until the first "
+            "domino is pushed past its tipping point (threshold), but once it falls the whole line goes "
+            "down at full size regardless of how hard you pushed (all-or-none), and each domino briefly "
+            "cannot be knocked again until it is stood back up (the refractory period), which is why the "
+            "impulse travels steadily in one direction.",
+            "This mechanism carries a direct psychiatric and neurological thread, because **anticonvulsant "
+            "medicines** [[drugs used to prevent epileptic seizures, several of which are also used as "
+            "mood stabilisers]] calm over-firing circuits by damping the sodium channels that drive the "
+            "spike, so the very same ion movements explained here are what these treatments deliberately "
+            "restrain to control seizures and stabilise mood.",
         ],
         "figures": [
             {
@@ -558,9 +625,11 @@ CONTENT = [
         "color": "navy",
         "title": "Communication Between Neurons \u2014 Neurotransmitters",
         "intro": "At the synapse, chemical messengers carry the signal from one neuron across a tiny gap "
-                 "to the next, and because almost every psychiatric medication works here, the synapse is "
-                 "the single most important meeting point between the biology of behaviour and clinical "
-                 "practice.",
+                 "to the next; the story runs from what the synapse is, through how calcium triggers "
+                 "release and receptors read the message, to why each transmitter is tied to particular "
+                 "moods, movements and disorders, and because almost every psychiatric medication acts "
+                 "at exactly this junction, the synapse is the single most important meeting point "
+                 "between the biology of behaviour and everyday clinical practice.",
         "points": [
             "A **synapse** is the junction where one neuron communicates with the next, and because it is "
             "a thin gap neurons do not physically merge but instead signal across it chemically.",
@@ -619,6 +688,17 @@ CONTENT = [
             "reaches, antidepressants, antipsychotics and anti-anxiety agents all exert their effects "
             "exactly here, which is why mastering synaptic transmission underpins understanding "
             "psychopharmacology.",
+            "A clear way to picture the synapse is a **staffed relay point at a river crossing**: the "
+            "presynaptic neuron is a boatman who loads passengers (neurotransmitter) into boats "
+            "(vesicles), calcium is the signal to cast off, the passengers row across the narrow cleft, "
+            "and they are only allowed ashore if they fit the specific docks (receptors) waiting on the "
+            "far postsynaptic bank, after which the boats are called back (reuptake) for the next trip.",
+            "Pulling the transmitters together gives a clinical map a trainee can reason from: too little "
+            "**dopamine** in one pathway produces the tremor of Parkinson's disease while too much is "
+            "linked to the hallucinations of **schizophrenia**, low **serotonin** and noradrenaline "
+            "activity is tied to depression and anxiety, and faltering **acetylcholine** tracks the "
+            "memory loss of Alzheimer's disease, so naming the transmitter often points toward both the "
+            "disorder and the class of medication used to treat it.",
         ],
         "figures": [
             {
@@ -669,9 +749,11 @@ CONTENT = [
         "color": "teal",
         "title": "Neuromodulators and Hormones",
         "intro": "Beyond fast synapses, neuromodulators and hormones tune behaviour more slowly and over "
-                 "wider reaches of the body, and this broader, slower chemistry is what links the "
-                 "nervous and endocrine systems to lasting states such as stress, mood, sleep and "
-                 "arousal that are central to clinical work.",
+                 "wider reaches of the body; the story widens from the millisecond signalling of a "
+                 "single synapse, through neuromodulators that set the mood of whole circuits, to "
+                 "hormones that act over minutes to days across the entire body, and this broader, "
+                 "slower chemistry is what links the nervous and endocrine systems to the lasting states "
+                 "of stress, mood, sleep and arousal that sit at the heart of clinical work.",
         "points": [
             "**Neuromodulators** are a slower mode of chemical communication, released by neurons but "
             "travelling **larger distances** and spreading more widely through the nervous system than "
@@ -723,6 +805,16 @@ CONTENT = [
             "of whole circuits, and hormones act over minutes to days across the body, so disorders of "
             "stress, sleep, appetite and sexual function often trace back to this slower chemistry "
             "rather than to one fast synapse.",
+            "A useful analogy is the difference between a **phone call and a public broadcast**: a "
+            "neurotransmitter is a private call to one listener at one synapse, a neuromodulator is like "
+            "soft background music that changes the mood of a whole room, and a hormone is a national "
+            "radio announcement carried in the blood that reaches every organ at once.",
+            "A central clinical thread here is the **stress response**, where a brain pathway from the "
+            "hypothalamus through the pituitary to the adrenal glands, often called the **HPA axis** "
+            "[[the hypothalamic-pituitary-adrenal system that releases the stress hormone cortisol]], "
+            "drives fight-or-flight, and because this system stays switched on in chronic stress, "
+            "anxiety and depression, understanding it helps a trainee link a patient's lasting tension, "
+            "disturbed sleep and low mood back to this slow hormonal machinery.",
         ],
         "definition": None,
         "flow": {
