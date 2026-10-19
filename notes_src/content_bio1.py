@@ -127,6 +127,7 @@ _s("t1", "1", "Major anatomical sub-divisions of the human brain", [
         "Historically, **Franz Josef Gall** tried to localise mental faculties to brain regions and **Paul Broca** in the 1860s located a speech region, early steps that founded the discipline of modern neuroanatomy. {{c:Prasad}}",
         "Clinically the scheme matters, because damage at different levels produces different pictures, so a **brainstem lesion** threatens **vital functions** while a cerebral lesion affects thought, movement or sensation instead. {{c:Snell}}",
     ]},
+    {"t": "fig", "key": "midsagittal_view", "caption": "Midsagittal (medial) view: the corpus callosum and fornix, the thalamus and hypothalamus around the third ventricle, the midbrain, pons and medulla of the brainstem descending to the spinal cord, the cerebellum, and the ventricular outline."},
     {"t": "box", "kind": "key", "title": "Sub-divisions at a glance", "items": [
         "Neural tube \u2192 three primary vesicles: forebrain, midbrain, hindbrain.",
         "Five secondary vesicles: telencephalon, diencephalon, mesencephalon, metencephalon, myelencephalon.",
@@ -166,6 +167,8 @@ _s("t2", "2", "Surface anatomy of cortical regions", [
         "The cortex is only a few millimetres thick but its heavy **folding** greatly **enlarges the surface area**, and small increases in **thickness and folding** are associated with greater processing capacity. {{c:Prasad}}",
         "Clinically the surface map guides diagnosis, because a stroke or tumour in a given lobe produces **predictable deficits**, such as **weakness** from motor-strip damage or visual loss from occipital damage. {{c:Snell}}",
     ]},
+    {"t": "fig", "key": "lateral_hemisphere", "caption": "Lateral (side) view of the left hemisphere with the four lobes colour-coded, the insula, the central sulcus and lateral (Sylvian) fissure, the precentral (motor) and postcentral (somatosensory) gyri, and the primary visual and auditory areas with Broca and Wernicke speech areas."},
+    {"t": "fig", "key": "homunculus", "caption": "The motor (precentral) and somatosensory (postcentral) homunculus: mirror-image body maps across the central sulcus, with the hand and face magnified because fine control and dense sensation demand more cortex."},
     {"t": "box", "kind": "key", "title": "Cortical surface at a glance", "items": [
         "Folds: gyri (ridges) and sulci (grooves); central sulcus and lateral fissure are the key landmarks.",
         "Four lobes plus the hidden insula: frontal (motor), parietal (sensory), temporal (hearing), occipital (vision).",
@@ -205,6 +208,7 @@ _s("t3", "3", "Interior structures of cortical and sub-cortical regions", [
         "The whole interior is **modular yet connected**, so each deep structure does a **specialised job** within defined pathways, and damage to one, such as the basal ganglia or hippocampus, produces a characteristic deficit. {{c:Kandel}}",
         "Clinically these interior structures matter greatly, since **Parkinson's disease** and **movement disorders** each trace to specific deep structures such as the substantia nigra or the hippocampus. {{c:StatPearls BG}}",
     ]},
+    {"t": "fig", "key": "coronal_section", "caption": "Coronal section through the basal ganglia: the lateral ventricles, caudate nucleus, putamen and globus pallidus (together the lentiform nucleus), the thalamus, the internal capsule between them, and the corpus callosum over the midline."},
     {"t": "box", "kind": "key", "title": "Interior structures at a glance", "items": [
         "White matter = connecting fibres beneath the cortex; grey matter = cell bodies in cortex and deep nuclei.",
         "Basal ganglia (striatum, globus pallidus, subthalamic nucleus, substantia nigra) tune movement.",
@@ -322,6 +326,7 @@ _s("t6", "6", "The cerebrospinal-fluid (CSF) system", [
         "The choroid plexus also helps **regulate the chemical environment**, using **ion pumps** to adjust the composition of the fluid and so of the central nervous system, assisting in cleaning and homeostasis. {{c:Prasad}}",
         "Clinically it matters, because a **blockage** of the narrow channels backs up the fluid and **raises pressure** in a condition called [[hydrocephalus|a build-up of CSF that enlarges the ventricles]], which can damage the brain. {{c:StatPearls CSF}}",
     ]},
+    {"t": "fig", "key": "ventricular_system", "caption": "The ventricular system in side view: the paired lateral ventricles, the foramen of Monro, the third ventricle, the cerebral aqueduct and the fourth ventricle, with the apertures of Magendie and Luschka opening into the subarachnoid space."},
     {"t": "box", "kind": "key", "title": "The CSF system at a glance", "items": [
         "Meninges: dura (tough, holds the sinuses), arachnoid (web-like, over the subarachnoid space), pia (clings to brain).",
         "Made by the choroid plexus in the ventricles; ~80\u2013150 ml held, ~500 ml made per day.",
