@@ -16,6 +16,7 @@ Run (from /projects/sandbox/Dango-kiro):
   PYTHONPATH=/projects/sandbox/.pylibs python3 generate_unit2_notes.py
 """
 
+import base64
 import html as _html
 import os
 import re
@@ -40,6 +41,9 @@ HOW_TO_READ = [
     "memory hooks and recall the rest of the sentence around them while you revise.",
     "Every topic carries exactly one **flowchart** of boxes joined by arrows to show the order "
     "of a process, and exactly one **mnemonic** whose letters each map to a point you must remember.",
+    "Several topics now carry a **labelled diagram**; use each figure as a visual map, "
+    "matching its labels to the numbered points and the flowchart so you can both picture "
+    "and describe the structure in the exam.",
     "Revise by first reading the flowchart to fix the sequence, then the mnemonic to lock the "
     "key points, and finally the full sentences to add exam-ready detail and wording.",
 ]
@@ -118,6 +122,20 @@ CONTENT = [
             "dendrites gather signals, the soma and axon hillock weigh them up, and the axon delivers a "
             "single decision onward, so disruption at any one stage can reshape how a person senses, "
             "moves, thinks or feels.",
+        ],
+        "figures": [
+            {
+                "file": "assets/unit2_figures/neuron.png",
+                "alt": "Labelled diagram of a multipolar neuron showing dendrites, soma, "
+                       "nucleus, axon, myelin sheath, nodes of Ranvier and axon terminals",
+                "caption": "Figure 1. Labelled structure of a typical neuron, showing the "
+                           "dendrites, cell body (soma), axon hillock, myelinated axon, nodes "
+                           "of Ranvier and the axon terminals \u2014 study it alongside the "
+                           "DRAMA flowchart below.",
+                "source": "Wikimedia Commons, \u201cComplete neuron cell diagram\u201d",
+                "author": "LadyofHats (Mariana Ruiz Villarreal)",
+                "license": "Public domain",
+            },
         ],
         "definition": None,
         "flow": {
@@ -209,6 +227,19 @@ CONTENT = [
             "clear thinking, and their failure underlies conditions from multiple sclerosis to the "
             "neuroinflammation seen in dementia.",
         ],
+        "figures": [
+            {
+                "file": "assets/unit2_figures/glia.png",
+                "alt": "Illustration of the main types of neuroglia: astrocyte, "
+                       "oligodendrocyte, microglia and ependymal cells around neurons",
+                "caption": "Figure 2. The main types of neuroglia shown together around "
+                           "neurons \u2014 astrocytes, oligodendrocytes, microglia and "
+                           "ependymal cells \u2014 matching the AOMRS mnemonic of glial jobs.",
+                "source": "Wikimedia Commons, \u201cBlausen 0870 Types of Neuroglia\u201d",
+                "author": "BruceBlaus / Blausen.com staff (2014)",
+                "license": "CC BY 3.0",
+            },
+        ],
         "definition": None,
         "flow": {
             "title": "Matching each glial cell to its main job",
@@ -293,6 +324,19 @@ CONTENT = [
             "hurdle**: it keeps the brain's chemistry stable enough for reliable mood and cognition, yet "
             "the same selectivity is why delivering medicines to the brain, and explaining why a drug "
             "does or does not help, is so often a question of whether it can cross this gate.",
+        ],
+        "figures": [
+            {
+                "file": "assets/unit2_figures/bbb.png",
+                "alt": "Diagram of the blood-brain barrier showing a brain capillary with "
+                       "tight-junction endothelial cells wrapped by astrocyte end-feet",
+                "caption": "Figure 3. The blood-brain barrier at a brain capillary \u2014 "
+                           "tightly joined endothelial cells wrapped by astrocyte end-feet "
+                           "form the selective gate described in the GUARD mnemonic.",
+                "source": "Wikimedia Commons, \u201cBlood-Brain Barrier (NIH BioArt 688)\u201d",
+                "author": "Ryan Kissinger, NIH / NIAID (NIH BioArt)",
+                "license": "Public domain",
+            },
         ],
         "definition": {
             "label": "Sourced definition \u2014 Blood Brain Barrier (book's Key Terms and Definitions)",
@@ -469,6 +513,21 @@ CONTENT = [
             "the action potential not just a textbook spike but the exact event therapy can **start or "
             "silence**.",
         ],
+        "figures": [
+            {
+                "file": "assets/unit2_figures/action_potential.png",
+                "alt": "Graph of an action potential plotting membrane voltage over time, "
+                       "showing threshold, depolarisation, repolarisation and the "
+                       "hyperpolarisation undershoot",
+                "caption": "Figure 4. The action-potential graph of membrane voltage against "
+                           "time, showing the threshold, the depolarising upstroke, "
+                           "repolarisation and the hyperpolarisation undershoot before the "
+                           "cell returns to rest.",
+                "source": "Wikimedia Commons, \u201cAction potential\u201d",
+                "author": "Chris 73 / Diberri / tiZom",
+                "license": "CC BY-SA 3.0",
+            },
+        ],
         "definition": None,
         "flow": {
             "title": "The sequence of one action potential",
@@ -559,6 +618,22 @@ CONTENT = [
             "reaches, antidepressants, antipsychotics and anti-anxiety agents all exert their effects "
             "exactly here, which is why mastering synaptic transmission underpins understanding "
             "psychopharmacology.",
+        ],
+        "figures": [
+            {
+                "file": "assets/unit2_figures/synapse.jpg",
+                "alt": "Schematic of a chemical synapse showing the presynaptic terminal, "
+                       "synaptic vesicles, synaptic cleft, released neurotransmitter and "
+                       "postsynaptic receptors",
+                "caption": "Figure 5. A chemical synapse, showing the presynaptic terminal "
+                           "with neurotransmitter-filled vesicles, the synaptic cleft and the "
+                           "receptors on the postsynaptic membrane \u2014 the sequence set out "
+                           "in the flowchart below.",
+                "source": "Wikimedia Commons, \u201cChemical synapse schema (cropped)\u201d",
+                "author": "User:Looie496, illustrated by Christy Krames for the US NIH / "
+                          "National Institute on Aging",
+                "license": "Public domain",
+            },
         ],
         "definition": None,
         "flow": {
@@ -698,6 +773,26 @@ REFERENCES = {
         "directly for these notes.",
     ],
 }
+
+
+def figure_credits():
+    """Build the figure-image source list from the figures declared in CONTENT.
+
+    Each entry names the figure, its title, author and license, honestly, via
+    Wikimedia Commons; kept in sync with the per-figure caption credits.
+    """
+    credits = []
+    for topic in CONTENT:
+        for fig in topic.get("figures", []):
+            caption = fig["caption"]
+            fig_label = caption.split(".", 1)[0].strip() if "." in caption else caption
+            credits.append(
+                "%s \u2014 %s by %s. License: %s. Via Wikimedia Commons."
+                % (fig_label, fig["source"], fig["author"], fig["license"]))
+    return credits
+
+
+REFERENCES["figures"] = figure_credits()
 
 # ---------------------------------------------------------------------------
 # Rendering helpers (shared formatting markup: **bold** and [[plain]])
@@ -869,6 +964,21 @@ strong { color: #10243f; font-weight: 700; }
   display: inline-block; width: 26px; font-family: Arial, sans-serif; font-weight: 700;
   color: #0e7c6b; font-size: 16px;
 }
+.fig {
+  margin: 22px 0; padding: 16px; background: #f7fafd;
+  border: 1px solid #d3e1ee; border-radius: 10px; text-align: center;
+}
+.fig img {
+  max-width: 100%; height: auto; border: 1px solid #dce6f0;
+  border-radius: 8px; background: #fff;
+}
+.fig figcaption {
+  margin-top: 10px; font-size: 14px; color: #40506a; line-height: 1.5; text-align: left;
+}
+.fig figcaption .credit {
+  display: block; margin-top: 6px; font-size: 12.5px; color: #5a6a7e;
+  font-family: Arial, Helvetica, sans-serif;
+}
 .refs { background: #fff; border: 1px solid #dce6f0; border-radius: 12px; padding: 26px 30px; }
 .refs h2 { color: #0f2744; font-size: 24px; margin-bottom: 14px; }
 .refs h3 { color: #1d5fa6; font-size: 16px; margin: 16px 0 8px; font-family: Arial, sans-serif; }
@@ -920,6 +1030,38 @@ def render_definition(d):
             '</div>') % (_html.escape(d["label"]), _html.escape(d["text"]), _html.escape(d["cite"]))
 
 
+_IMG_MIME = {".png": "image/png", ".jpg": "image/jpeg", ".jpeg": "image/jpeg", ".gif": "image/gif"}
+
+
+def _data_uri(file_rel):
+    """Read an image file and return an inline base64 data: URI (keeps HTML offline)."""
+    here = os.path.dirname(os.path.abspath(__file__))
+    path = os.path.join(here, file_rel)
+    ext = os.path.splitext(file_rel)[1].lower()
+    mime = _IMG_MIME.get(ext, "image/png")
+    with open(path, "rb") as fh:
+        encoded = base64.b64encode(fh.read()).decode("ascii")
+    return "data:%s;base64,%s" % (mime, encoded)
+
+
+def render_figures(topic):
+    """Render each figure as an inline base64 <figure> (no external resources)."""
+    figs = topic.get("figures")
+    if not figs:
+        return ""
+    parts = []
+    for fig in figs:
+        credit = "Source: %s by %s. License: %s." % (fig["source"], fig["author"], fig["license"])
+        parts.append(
+            '<figure class="fig">'
+            '<img alt="%s" src="%s">'
+            '<figcaption>%s<span class="credit">%s</span></figcaption>'
+            '</figure>'
+            % (_html.escape(fig["alt"]), _data_uri(fig["file"]),
+               _html.escape(fig["caption"]), _html.escape(credit)))
+    return "\n".join(parts)
+
+
 def render_topic(t):
     parts = ['<section class="card %s" id="%s">' % (t["color"], t["anchor"]),
              '<div class="card-head"><div class="sec-num">%d</div><h2>%s</h2></div>'
@@ -929,6 +1071,9 @@ def render_topic(t):
     for p in t["points"]:
         parts.append("<li>" + render_inline_html(p) + "</li>")
     parts.append("</ol>")
+    fig_html = render_figures(t)
+    if fig_html:
+        parts.append(fig_html)
     if t.get("definition"):
         parts.append(render_definition(t["definition"]))
     parts.append(render_flow(t["flow"]))
@@ -947,6 +1092,7 @@ def render_html():
     ref_books = "\n".join("<li>" + _html.escape(b) + "</li>" for b in REFERENCES["books"])
     ref_online = "\n".join("<li>" + _html.escape(o) + "</li>" for o in REFERENCES["online"])
     ref_flagged = "\n".join("<li>" + _html.escape(f) + "</li>" for f in REFERENCES["flagged"])
+    ref_figures = "\n".join("<li>" + _html.escape(f) + "</li>" for f in REFERENCES["figures"])
 
     doc = """<!DOCTYPE html>
 <html lang="en">
@@ -993,6 +1139,10 @@ def render_html():
     <ul>
       {ref_online}
     </ul>
+    <h3>Figure image sources (online)</h3>
+    <ul>
+      {ref_figures}
+    </ul>
     <h3>Secondary sources flagged (not accessed directly)</h3>
     <ul>
       {ref_flagged}
@@ -1010,7 +1160,7 @@ def render_html():
 """.format(title=_html.escape(TITLE), css=CSS, subtitle=_html.escape(SUBTITLE),
            credit=_html.escape(CREDIT), toc=toc_items, guide=guide_items,
            topics=topics_html, ref_books=ref_books, ref_online=ref_online,
-           ref_flagged=ref_flagged)
+           ref_figures=ref_figures, ref_flagged=ref_flagged)
     return doc
 
 

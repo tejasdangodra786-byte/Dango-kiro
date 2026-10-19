@@ -24,7 +24,7 @@ from docx import Document
 from docx.enum.text import WD_ALIGN_PARAGRAPH
 from docx.oxml.ns import qn
 from docx.oxml import OxmlElement
-from docx.shared import Pt, RGBColor
+from docx.shared import Inches, Pt, RGBColor
 
 from generate_unit2_notes import (
     CONTENT,
@@ -232,6 +232,39 @@ def add_definition(document, d):
     document.add_paragraph()
 
 
+def add_figures(document, t):
+    """Embed each declared figure as a centered picture plus an italic credit caption.
+
+    The image bytes are read from the vendored file under assets/unit2_figures/ and
+    embedded into the .docx (valid OOXML inline shape) via run.add_picture.
+    """
+    figs = t.get("figures")
+    if not figs:
+        return
+    here = os.path.dirname(os.path.abspath(__file__))
+    for fig in figs:
+        path = os.path.join(here, fig["file"])
+        pic_p = document.add_paragraph()
+        pic_p.alignment = WD_ALIGN_PARAGRAPH.CENTER
+        run = pic_p.add_run()
+        run.add_picture(path, width=Inches(5.5))
+
+        cap_p = document.add_paragraph()
+        cap_p.alignment = WD_ALIGN_PARAGRAPH.CENTER
+        crun = cap_p.add_run(fig["caption"])
+        crun.italic = True
+        crun.font.size = Pt(9)
+        crun.font.color.rgb = COLOR_LABEL
+
+        cred_p = document.add_paragraph()
+        cred_p.alignment = WD_ALIGN_PARAGRAPH.CENTER
+        credit = "Source: %s by %s. License: %s." % (fig["source"], fig["author"], fig["license"])
+        srun = cred_p.add_run(credit)
+        srun.italic = True
+        srun.font.size = Pt(8)
+        srun.font.color.rgb = COLOR_LABEL
+
+
 def add_topic(document, t):
     heading = document.add_heading(level=1)
     hrun = heading.add_run("%d. %s" % (t["number"], t["title"]))
@@ -246,6 +279,8 @@ def add_topic(document, t):
     for idx, p in enumerate(t["points"], start=1):
         para = document.add_paragraph(style="List Number")
         add_markup_runs(para, p)
+
+    add_figures(document, t)
 
     if t.get("definition"):
         add_definition(document, t["definition"])
@@ -265,6 +300,10 @@ def add_references(document):
     document.add_heading("Named online sources used", level=2)
     for o in REFERENCES["online"]:
         document.add_paragraph(o, style="List Bullet")
+
+    document.add_heading("Figure image sources (online)", level=2)
+    for f in REFERENCES.get("figures", []):
+        document.add_paragraph(f, style="List Bullet")
 
     document.add_heading("Secondary sources flagged (not accessed directly)", level=2)
     for f in REFERENCES["flagged"]:
