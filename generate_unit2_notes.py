@@ -333,7 +333,8 @@ CONTENT = [
                 "caption": "Figure 3. The blood-brain barrier at a brain capillary \u2014 "
                            "tightly joined endothelial cells wrapped by astrocyte end-feet "
                            "form the selective gate described in the GUARD mnemonic.",
-                "source": "Wikimedia Commons, \u201cBlood-Brain Barrier (NIH BioArt 688)\u201d",
+                "source": "NIH BioArt (NIH / NIAID), \u201cBlood-Brain Barrier (NIH BioArt 688)\u201d "
+                          "(accessed via Wikimedia Commons)",
                 "author": "Ryan Kissinger, NIH / NIAID (NIH BioArt)",
                 "license": "Public domain",
             },
@@ -778,17 +779,20 @@ REFERENCES = {
 def figure_credits():
     """Build the figure-image source list from the figures declared in CONTENT.
 
-    Each entry names the figure, its title, author and license, honestly, via
-    Wikimedia Commons; kept in sync with the per-figure caption credits.
+    Each entry names the figure, its title, author and license honestly; kept
+    in sync with the per-figure caption credits. Works hosted on Wikimedia
+    Commons carry a "Via Wikimedia Commons" tag, while a figure whose source
+    already states its primary origin (and any access route) is left as named.
     """
     credits = []
     for topic in CONTENT:
         for fig in topic.get("figures", []):
             caption = fig["caption"]
             fig_label = caption.split(".", 1)[0].strip() if "." in caption else caption
+            suffix = "" if fig["source"].startswith("NIH BioArt") else " Via Wikimedia Commons."
             credits.append(
-                "%s \u2014 %s by %s. License: %s. Via Wikimedia Commons."
-                % (fig_label, fig["source"], fig["author"], fig["license"]))
+                "%s \u2014 %s by %s. License: %s.%s"
+                % (fig_label, fig["source"], fig["author"], fig["license"], suffix))
     return credits
 
 
