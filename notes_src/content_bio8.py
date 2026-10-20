@@ -56,7 +56,7 @@ INTRO = [
     {"t": "h3", "text": "How citations work"},
     {"t": "ul", "items": [
         "A citation in square brackets names the full book and its author, for example {{c:Kolb}} or {{c:Lezak}}, so you can trace any claim back to the standard text it comes from.",
-        "Where a fact was confirmed from an authoritative online reference it is named in full, for example {{c:APA40}}, and the unit's compiled teaching materials are cited by their descriptive title, {{c:HistNP}}.",
+        "Where a fact was confirmed from an authoritative online reference it is named in full, for example {{c:APA40}}, and the unit's compiled teaching materials are cited by their descriptive title, for example {{c:HistNP}} or {{c:Lateral}}.",
     ]},
 ]
 
@@ -65,7 +65,7 @@ SOURCE_NOTE = [
     {"t": "lead", "text": "Honesty note: no authors, citations or page numbers in these notes are invented. The neuropsychological facts stated are standard, textbook-level and verifiable, and the following limits are disclosed so you can check them independently."},
     {"t": "ul", "items": [
         "The characterisations of key ideas are drawn from the standard neuropsychology literature, chiefly Kolb and Whishaw's Fundamentals of Human Neuropsychology, together with Lezak and colleagues' Neuropsychological Assessment and Luria's Higher Cortical Functions in Man; they are given as characterisations, not verbatim quotations, and no page numbers are attached.",
-        "The unit's own compiled teaching materials, a history-of-neuropsychology overview, a cerebral-localization presentation, a note on the relation between structure and function, and a brain-imaging-techniques note, were used as inputs and are cited by their descriptive titles, cross-checked against the standard texts; no author is invented for them.",
+        "The unit's own compiled teaching materials, a history-of-neuropsychology overview, a cerebral-localization presentation, a note on the relation between structure and function, a brain-imaging-techniques note, and a set of lecture materials on lateralization and the split brain, were used as inputs and are cited by their descriptive titles, cross-checked against the standard texts; no author is invented for them.",
         "One source supplied with the unit, an anatomy handout on the relation between structure and function of the brain, is an image-only file with no readable text layer, and optical character recognition (OCR) was not available in the environment these notes were prepared in, so its text could not be extracted; moreover that handout is a copyrighted clinical document rather than an openly-licensed one, so its own figures were not embedded either. Its subject matter (the lobes and their functions, the hemispheres, the language areas and the deep structures) is instead covered from the readable note of the same theme and the standard texts, and the figures in these notes are drawn only from verified public-domain sources. This limit is disclosed rather than hidden.",
         "All embedded photographs and plates are genuine public-domain images whose status was verified: a phrenological chart from the People's Cyclopedia (1883), Brodmann's cytoarchitectonic map (1909), Harlow's engraving of Phineas Gage's skull (1868), and two plates from Gray's Anatomy (1918); every image is stored inside the file itself so the notes load no external resource.",
         "Only well-established neuropsychology is stated; no novel claims, study results or quantitative findings beyond standard textbook accounts are presented, and where accounts differ between authors (for example the exact number of Luria's functional units) that difference is noted rather than smoothed over.",
@@ -90,6 +90,7 @@ REFERENCES = [
         "Cerebral Localization (unit presentation) \u2014 the definition of cerebral localization, the history from Gall's phrenology to Brodmann's cytoarchitectonic map, cerebral dominance, and the clinical, electrophysiological, radiological, intra-operative and experimental methods of localization.",
         "The Relation between Structure and Function of the Brain (unit note) \u2014 brain connectivity as structural, functional and effective connectivity, and the large-scale-network view of cognition.",
         "Brain Imaging Techniques (unit note) \u2014 the electrophysiological (EEG, ERP) and haemodynamic (PET, SPECT, fMRI) methods and their logic of signal, averaging and subtraction.",
+        "Lateralization and the Split Brain (course lecture materials) \u2014 the dominant left hemisphere (Dax, Broca, Liepmann's apraxia), tests of cerebral lateralization (the sodium amytal / Wada test, dichotic listening, PET/fMRI and handedness), the split-brain experiment (Myers & Sperry) and split-brain patients, left\u2013right hemisphere differences and anatomical asymmetries, the three theories of cerebral asymmetry, the aphasias and the Wernicke\u2013Geschwind model, the cognitive-neuroscience approach to language, and dyslexia.",
     ]},
     {"t": "h3", "text": "Online and standard-reference sources"},
     {"t": "ul", "items": [
@@ -315,6 +316,7 @@ _s("t4", "4", "Localization of functions", [
     {"t": "fig", "key": "localization_spectrum", "caption": "The localization debate as a spectrum, from strict localizationism (one function, one spot) through modular and network views to full equipotentiality (the cortex acts as an undifferentiated whole)."},
     {"t": "fig", "key": "pd_brodmann", "caption": "Brodmann's 1909 cytoarchitectonic map numbers the cortical areas by their cell architecture; localisation still pins functions to these numbered areas (44/45 Broca's, 22 Wernicke's, 17 vision)."},
     {"t": "fig", "key": "pd_gage", "caption": "Phineas Gage's skull and tamping iron (Harlow, 1868): the classic lesion case tying the frontal lobes to judgement, planning and social behaviour."},
+    {"t": "fig", "key": "wernicke_geschwind", "caption": "The Wernicke\u2013Geschwind model's seven left-hemisphere components and its two classic pathways, for answering a heard question and for reading a word aloud; the lasting objections to the model are noted in the text."},
     {"t": "box", "kind": "def", "title": "Characterisations by standard texts", "items": [
         "{{GUIDE}} Cerebral localization is defined as the **mapping of the cerebral cortex into areas** and the correlation of those areas with particular cerebral functions. {{c:CerebLoc}}",
         "{{THEORY}} The **localizationist** position holds that different parts of the brain have different functions, so that focal damage removes a specific ability while sparing others. {{c:Kolb}}",
@@ -361,6 +363,16 @@ _s("t4", "4", "Localization of functions", [
         "Wernicke's (**sensory, fluent**) aphasia follows damage to area 22, leaving fluent but poorly understood speech with impaired comprehension. {{c:CerebLoc}}",
         "**Conduction aphasia** follows damage to the arcuate fasciculus connecting the two areas, so comprehension and speech are good but repetition is strikingly poor, exactly the disconnection Wernicke predicted. {{c:CerebLoc}}",
         "**Anomic aphasia** shows mainly word-finding difficulty, and a lesion of the angular and supramarginal gyri can yield fluent but unintelligible jargon, so the type of aphasia itself maps the site of damage. {{c:CerebLoc}}",
+        "The connecting fibre tract is named: [[conduction aphasia|good comprehension and fluent speech but a striking inability to repeat words just heard]] follows damage to the [[arcuate fasciculus|the fibre bundle linking Wernicke's area to Broca's area]], confirming that the two language areas must be joined to repeat speech. {{c:Lateral}}",
+        "Wernicke's fluent output is often called **'word salad'**, because despite correct grammar, rhythm and intonation the words do not convey meaning, which pinpoints a comprehension rather than a production fault. {{c:Lateral}}",
+        "Reading and writing have their own site: [[alexia|an inability to read despite intact comprehension and speech]] and [[agraphia|an inability to write despite intact comprehension and speech]] follow damage to the **left angular gyrus**, showing this region handles the language-related visual code. {{c:Lateral}}",
+    ]},
+    {"t": "h4", "text": "The Wernicke\u2013Geschwind model and its limits"},
+    {"t": "ul", "items": [
+        "The **Wernicke\u2013Geschwind model** strings **seven left-hemisphere components** into language circuits: primary visual cortex, angular gyrus, primary auditory cortex, Wernicke's area, arcuate fasciculus, Broca's area and primary motor cortex. {{c:Lateral}}",
+        "To **answer a heard question**, sound runs from primary auditory cortex to Wernicke's area for comprehension, and the reply passes via the arcuate fasciculus to Broca's area and on to the motor and articulatory cortex. {{c:Lateral}}",
+        "To **read a word aloud**, the path runs from primary visual cortex to the left angular gyrus, which turns the visual code into an auditory one, then to Wernicke's area and onward along the same output route. {{c:Lateral}}",
+        "The model is now known to be **too neat**: damage at its boundaries often has little lasting effect, damage elsewhere can cause aphasia, real aphasia is rarely 'pure' (usually both receptive and expressive), and the localisation varies markedly between individuals. {{c:Lateral}}",
     ]},
     {"t": "h4", "text": "Significance"},
     {"t": "ul", "items": [
@@ -390,6 +402,7 @@ _s("t5", "5", "Lateralization of functions", [
         "Significance and a one-line summary (use the mnemonic).",
     ]},
     {"t": "fig", "key": "hemisphere_split", "caption": "Hemispheric lateralization: the left hemisphere's specialisation for language, analysis and sequencing set beside the right hemisphere's specialisation for spatial, musical and holistic processing, joined by the corpus callosum."},
+    {"t": "fig", "key": "splitbrain_fields", "caption": "The split-brain visual-field test: because each visual field crosses to the opposite hemisphere, an object flashed to the right field reaches the left (speaking) hemisphere and is named, while one flashed to the left field reaches the mute right hemisphere, which denies seeing it yet lets the left hand pick it out."},
     {"t": "box", "kind": "def", "title": "Characterisations by standard texts", "items": [
         "{{GUIDE}} Lateralization refers to the finding that functions can be **localised to one side of the brain**, a property Broca first demonstrated when speech proved to depend on the left hemisphere. {{c:Kolb}}",
         "{{GUIDE}} The **dominant (usually left) hemisphere** is characterised as specialised for language, analytical and mathematical skills and the temporal sequencing of stimuli. {{c:CerebLoc}}",
@@ -402,12 +415,32 @@ _s("t5", "5", "Lateralization of functions", [
         "The discovery grew directly from **Broca's** finding, because locating speech in the **left** frontal lobe showed that a function could belong to one side, which he named lateralisation. {{c:Kolb}}",
         "The two hemispheres look nearly symmetrical and are joined by the [[corpus callosum|the great fibre bridge that connects the two hemispheres]], yet they divide cognitive labour between them. {{c:Kolb}}",
     ]},
+    {"t": "h4", "text": "The dominant left hemisphere: aphasia and apraxia"},
+    {"t": "ul", "items": [
+        "As early as **1836 Dax** reported that none of his roughly forty patients with speech problems had damage confined to the right hemisphere, an early clue that speech loss is tied to the **left** side. {{c:Lateral}}",
+        "About twenty-five years later **Broca (1861)** examined two aphasic patients post-mortem and found diffuse left-hemisphere damage centred in the inferior left prefrontal lobe, just in front of the primary motor face area, defining **Broca's area** for grammar and speech production. {{c:Lateral}}",
+        "Here [[aphasia|a loss or impairment of language not due to general sensory, motor or intellectual deficit]] is the key sign, so its reliable link to left-sided damage was the first evidence that language is a left-hemisphere function. {{c:Lateral}}",
+        "Liepmann then showed that [[apraxia|difficulty performing movements to command with either hand, though they occur spontaneously]] was almost always associated with **left-hemisphere** damage too, extending the left's dominance beyond language to skilled action. {{c:Lateral}}",
+        "This weight of evidence led to calling the left the **'dominant'** and the right the **'minor'** hemisphere, a once-standard terminology that later work would soften into relative, not absolute, specialisation. {{c:Lateral}}",
+    ]},
     {"t": "h4", "text": "Left- and right-hemisphere specialisations"},
     {"t": "ul", "items": [
         "The **left hemisphere** is usually dominant for **language**, covering speech and writing, and for analytical, mathematical and sequential processing that unfolds step by step in time. {{c:CerebLoc}}",
         "The **right hemisphere** is usually dominant for **spatial perception** of three-dimensional objects, for music such as singing and playing instruments, and for holistic, simultaneous processing. {{c:CerebLoc}}",
         "A useful contrast is that the left tends to work **analytically and verbally** while the right works **holistically and spatially**, though both cooperate in nearly every real task. {{c:Kolb}}",
         "Right-hemisphere damage characteristically produces **spatial and body-schema disturbances** such as neglect of the left side, dressing and constructional difficulties, mirroring the left's language role. {{c:CerebLoc}}",
+        "Language is the **most lateralised** of all abilities, yet the right hemisphere is not wordless: it can understand single written and spoken words and, importantly, detects [[prosody|the melody, stress and rhythm of speech that carry tone and emphasis]] and the thread of [[discourse|how sentences connect into a coherent, extended conversation]]. {{c:Lateral}}",
+        "A deeper contrast is in how memory and perception are organised, the left placing experience in a **larger context** (relating parts to the whole) while the right attends to **Gestalt** whole-pattern characteristics, summarised as **analytical** (left) versus **holistic** (right) processing. {{c:Lateral}}",
+        "Because its abilities are different rather than lesser, the right **should not be dismissed as the 'minor' hemisphere**; it simply specialises in spatial, emotional, musical and holistic work the left does less well. {{c:Lateral}}",
+        "These functional asymmetries have **anatomical correlates**: the language-related [[planum temporale|the cortical surface behind the primary auditory area, on the upper temporal lobe]] and frontal operculum are usually larger in the **left** hemisphere, while [[Heschl's gyrus|the ridge of cortex carrying the primary auditory area]] is larger in the **right**. {{c:Lateral}}",
+        "Left-handers tend to have **more symmetrical planum temporales**, suffer less often from aphasia after left-hemisphere damage and more often after right-hemisphere damage, which points to a **more diffuse** representation of language in their brains. {{c:Lateral}}",
+    ]},
+    {"t": "h4", "text": "The split-brain experiment in animals (Myers & Sperry, cats)"},
+    {"t": "ul", "items": [
+        "The method that transformed the field began with **Myers and Sperry's 1953 cat experiment**, designed to reveal the function of the brain's largest [[commissure|a band of fibres joining matching areas of the two hemispheres]], the corpus callosum. {{c:Lateral}}",
+        "They used **four groups of cats**: one with the corpus callosum severed, one with the optic chiasm severed, one with **both** severed, and an intact control group, so that information could be restricted to a single hemisphere. {{c:Lateral}}",
+        "After all cats learned a pattern-discrimination task with a patch over one eye, the patch was **switched to the other eye**; only the both-severed group behaved as if the task were brand new, having to relearn it with no savings. {{c:Lateral}}",
+        "The conclusions reshaped the field: the forebrain can act as **two separate forebrains**, each able to learn and store its own memories, and the corpus callosum's job is to **carry information between the hemispheres**. {{c:Lateral}}",
     ]},
     {"t": "h4", "text": "Split-brain evidence"},
     {"t": "ul", "items": [
@@ -415,10 +448,30 @@ _s("t5", "5", "Lateralization of functions", [
         "Work by **Roger Sperry** and **Michael Gazzaniga** used the crossed wiring of vision, in which each visual field projects to the **opposite hemisphere**, to speak to one hemisphere at a time. {{c:Gazzaniga}}",
         "When an object was shown only to the right visual field, the **left (speaking) hemisphere** could name it, but when shown only to the left field, the right hemisphere recognised it yet **could not speak** its name. {{c:Kolb}}",
         "These studies showed that each hemisphere has its **own abilities and awareness**, confirming lateralisation in the most direct way and earning Sperry a share of the Nobel Prize. {{c:Gazzaniga}}",
+        "The human operation is a [[commissurotomy|surgical cutting of the corpus callosum to stop seizures spreading between the hemispheres]], done for life-threatening epilepsy; it is remarkably effective and leaves few obvious effects in everyday life. {{c:Lateral}}",
+        "Testing flashes a stimulus to one **visual half-field** or places an object in one hand under a ledge, so that it reaches only one hemisphere, revealing that each patient has **two independent streams of consciousness**. {{c:Lateral}}",
+        "An object reaching the **left hemisphere** (right visual field or right hand) can be **named** aloud and retrieved with the **right** hand but not the left, whereas an object reaching the **right hemisphere** (left field or left hand) is retrieved by the **left** hand yet the patient says **nothing was presented**. {{c:Lateral}}",
+        "[[Cross-cuing|one hemisphere signalling the other by a nonneural route, such as an outward head movement]] shows the hemispheres can still communicate indirectly: a patient near-perfect at naming a colour seen by the mute hemisphere was found to be correcting himself after the knowing hemisphere shook his head, so scoring only first guesses dropped him to chance. {{c:Lateral}}",
+        "Split-brain patients can even **learn two things at once**, reaching into two bags simultaneously and pulling out with each hand the different object each hemisphere had seen. {{c:Lateral}}",
+        "In the **helping-hand phenomenon** the hemispheres are given conflicting information, and the hand guided by one hemisphere reaches for an answer while the other hand, driven by the hemisphere that sees the error, grabs it and pulls it to the correct choice. {{c:Lateral}}",
+    ]},
+    {"t": "h4", "text": "Three theories of cerebral asymmetry"},
+    {"t": "ul", "items": [
+        "The **analytic-synthetic theory** proposes two modes of thinking, an **analytic** mode in the left (logical, sequential, handling pieces of the whole) and a **synthetic** mode in the right (immediate, overall judgements of the whole). {{c:Lateral}}",
+        "The **motor theory** argues the left is specialised for **fine motor control**, of which speech is one example, supported by evidence that left lesions disrupt even non-speech facial movements more than right lesions and that the disruption tracks the degree of aphasia. {{c:Lateral}}",
+        "The **linguistic theory** holds the left's primary job is **language itself**, drawing on deaf signers who lose the ability to sign after left-hemisphere damage even though they can still make the required hand movements. {{c:Lateral}}",
+    ]},
+    {"t": "h4", "text": "Tests of cerebral lateralization"},
+    {"t": "ul", "items": [
+        "The first evidence of language laterality came from simply **comparing the effects** of left-sided against right-sided unilateral lesions, before any technique could test a living brain directly. {{c:Lateral}}",
+        "The [[sodium amytal (Wada) test|an anaesthetic injected into one carotid artery briefly puts one hemisphere to sleep to reveal the language side]] and the [[dichotic listening test|different words played to the two ears at once; the ear reported better reveals the dominant hemisphere]] are the two methods routinely used today to assess which hemisphere holds language. {{c:Lateral}}",
+        "Functional imaging agrees, with **PET and fMRI** typically showing more activity in the **left** hemisphere than the right during language tasks, confirming the lesion-based picture in the intact brain. {{c:Lateral}}",
     ]},
     {"t": "h4", "text": "Handedness, dominance and cautions"},
     {"t": "ul", "items": [
         "Language is **left-lateralised in almost all right-handers** and in most left-handers too, so left-hemisphere dominance for speech is the usual pattern across the population. {{c:Kolb}}",
+        "Put in numbers, about **95% of right-handed** people and roughly **70% of left-handed or ambidextrous** people are left-hemisphere dominant for speech, so right-handedness predicts left dominance far more strongly than left-handedness predicts right dominance. {{c:Lateral}}",
+        "Dominance is not wholly fixed, because **early left-hemisphere damage** can make the right hemisphere take over speech and the left hand become preferred, showing the young brain's plasticity for language. {{c:Lateral}}",
         "The [[Wada test|an injection that briefly sends one hemisphere to sleep to find the language side]] and modern imaging are used before surgery to confirm which hemisphere holds language in a given patient. {{c:CerebLoc}}",
         "The specialisations are **relative, not absolute**, so popular talk of purely 'left-brained' or 'right-brained' people over-simplifies what is a matter of degree and cooperation. {{c:Kolb}}",
     ]},
@@ -429,12 +482,15 @@ _s("t5", "5", "Lateralization of functions", [
     ]},
     {"t": "box", "kind": "key", "title": "Lateralization of functions at a glance", "items": [
         "Lateralization = hemispheric specialisation; the hemispheres differ in function though joined by the corpus callosum.",
-        "Left (dominant): language, analysis, mathematics, temporal sequencing.",
-        "Right (non-dominant): spatial perception, music, holistic processing; its damage causes neglect.",
-        "Split-brain studies (Sperry, Gazzaniga): each hemisphere acts and 'knows' on its own via crossed vision.",
-        "Language is left-lateralised in most people; specialisations are relative; the Wada test confirms dominance.",
+        "Left (dominant): language (Dax, Broca's area), analysis, mathematics, sequencing, skilled action (Liepmann's apraxia).",
+        "Right (minor, not lesser): spatial perception, music, emotion, prosody and discourse, holistic processing; its damage causes neglect.",
+        "Anatomy follows function: planum temporale/frontal operculum larger left, Heschl's gyrus larger right; left-handers more diffuse.",
+        "Split-brain: Myers & Sperry's cats (two forebrains); human commissurotomy gives two streams of awareness, cross-cuing and the helping hand.",
+        "Three theories of asymmetry: analytic-synthetic, motor, linguistic.",
+        "Tests of laterality: left-vs-right lesions, the sodium amytal (Wada) test, dichotic listening, and PET/fMRI.",
+        "Handedness: ~95% of right-handers and ~70% of left-handers are left-dominant for speech; early left damage can shift dominance right.",
     ]},
-    {"t": "mn", "word": "LARS", "text": "Left = Analysis, Right = Spatial \u2014 the Left hemisphere leads language, Analysis and sequencing; the Right leads Spatial and musical, holistic processing; split-brain work (Sperry, Gazzaniga) proved each side can act alone."},
+    {"t": "mn", "word": "LARS-WD", "text": "Left = Analysis, Right = Spatial; Wada, Dichotic \u2014 the Left hemisphere leads language, Analysis and sequencing, the Right leads Spatial, musical and holistic work; split-brain studies (Myers & Sperry's cats, then human commissurotomy) proved each side can act alone, and laterality is tested by the Wada and Dichotic-listening tests."},
 ])
 
 # ========================= 6. METHODS OF CLINICAL NEUROPSYCHOLOGISTS ===========================
@@ -536,6 +592,21 @@ _s("t7", "7", "Approaches and methodologies of cognitive neuropsychologists", [
         "A [[double dissociation|one patient fails A but not B, another fails B but not A]] is the strong proof, because it shows the two abilities depend on **separable systems** rather than on shared difficulty. {{c:Kolb}}",
         "The classic example is the double dissociation between **Broca's and Wernicke's aphasias**, where one spares comprehension but ruins production and the other does the reverse, implying separate language components. {{c:Kolb}}",
     ]},
+    {"t": "h4", "text": "From the Wernicke\u2013Geschwind model to a cognitive-neuroscience view of language"},
+    {"t": "ul", "items": [
+        "Because humans are the **only species with language**, lesion comparisons across species are impossible, so the cognitive-neuroscience approach leans on **brain imaging** of healthy people to study it. {{c:Lateral}}",
+        "Its first move is to break each Wernicke\u2013Geschwind component into **constituent cognitive processes**, namely phonological analysis of sounds, grammatical analysis of structure and semantic analysis of meaning. {{c:Lateral}}",
+        "Its second claim is that language areas are **not solely dedicated** to language, since processes such as short-term memory and visual pattern recognition serve reading as well as many other behaviours. {{c:Lateral}}",
+        "The sharpest contrast is in **where** language lives: the Wernicke\u2013Geschwind model assumes a few **large, circumscribed** language areas, whereas cognitive neuroscience assumes many **small, widely distributed** and specialised ones. {{c:Lateral}}",
+    ]},
+    {"t": "h4", "text": "Dyslexia as a window on reading"},
+    {"t": "ul", "items": [
+        "[[Dyslexia|a pathological difficulty in reading that is not due to general visual, motor or intellectual deficit]] comes in a **developmental** form, apparent as a child learns to read, and an **acquired** form, caused by brain damage in someone who could already read. {{c:Lateral}}",
+        "Developmental dyslexia has **reported brain differences** (for example a missing planum-temporale asymmetry) but none clearly decisive, and it is hard to tell cause from effect, since little reading experience may itself shape the brain. {{c:Lateral}}",
+        "Acquired dyslexia exposes **two reading-aloud routes**: a [[lexical procedure|recognising a whole stored word on sight and saying it]] and a [[phonetic procedure|sounding a word out letter by letter from its spelling]]. {{c:Lateral}}",
+        "[[Surface dyslexia|loss of the whole-word lexical route, so irregular words cannot be read]] lets the reader pronounce non-words and regular words but not irregular ones such as 'have' or 'steak', whereas [[deep dyslexia|loss of the sounding-out phonetic route, so novel strings cannot be read]] blocks non-words while sparing irregular words such as 'yacht'. {{c:Lateral}}",
+        "The two map differently onto the brain, with **deep dyslexia following left-hemisphere damage** and surface dyslexia following partial left-hemisphere or right-hemisphere damage, a neat double dissociation of the reading routes. {{c:Lateral}}",
+    ]},
     {"t": "h4", "text": "Modern electrophysiological methods"},
     {"t": "ul", "items": [
         "[[Electroencephalography|EEG, recording the brain's electrical activity from scalp electrodes]] records ongoing electrical activity with excellent **timing**, and its magnetic counterpart is magneto-encephalography. {{c:ImgTech}}",
@@ -568,7 +639,9 @@ _s("t7", "7", "Approaches and methodologies of cognitive neuropsychologists", [
     {"t": "box", "kind": "key", "title": "Cognitive methods at a glance", "items": [
         "Cognitive neuropsychology studies patients to model the normal mind (a theoretical, not mainly clinical, goal).",
         "Tools: information-processing models, the single-case method, the modularity assumption.",
-        "Core logic: double dissociation proves separable systems (e.g. Broca's vs Wernicke's aphasia).",
+        "Core logic: double dissociation proves separable systems (e.g. Broca's vs Wernicke's aphasia; deep vs surface dyslexia).",
+        "Language: it breaks Wernicke\u2013Geschwind components into phonological, grammatical and semantic processes \u2014 small, widely distributed areas, not a few large ones.",
+        "Dyslexia: lexical vs phonetic reading routes; surface (lose lexical) vs deep (lose phonetic) dyslexia.",
         "Electrophysiology: EEG/MEG and ERPs (N100, P300, N400) \u2014 fine timing, coarse location.",
         "Haemodynamic/stimulation: PET (subtraction) and fMRI (BOLD) \u2014 fine location; TMS gives a 'virtual lesion'.",
     ]},
