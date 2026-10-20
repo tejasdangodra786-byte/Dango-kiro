@@ -66,7 +66,8 @@ SOURCE_NOTE = [
     {"t": "ul", "items": [
         "The characterisations of key ideas are drawn from the standard neuropsychology literature, chiefly Kolb and Whishaw's Fundamentals of Human Neuropsychology, together with Lezak and colleagues' Neuropsychological Assessment and Luria's Higher Cortical Functions in Man; they are given as characterisations, not verbatim quotations, and no page numbers are attached.",
         "The unit's own compiled teaching materials, a history-of-neuropsychology overview, a cerebral-localization presentation, a note on the relation between structure and function, and a brain-imaging-techniques note, were used as inputs and are cited by their descriptive titles, cross-checked against the standard texts; no author is invented for them.",
-        "One source supplied with the unit, an anatomy slide set on the relation between structure and function, is an image-only file with no readable text layer, so it was not mined for wording; the structure-function content here rests on the readable note of the same theme and on the standard texts, and this limit is disclosed rather than hidden.",
+        "One source supplied with the unit, an anatomy handout on the relation between structure and function of the brain, is an image-only file with no readable text layer, and optical character recognition (OCR) was not available in the environment these notes were prepared in, so its text could not be extracted; moreover that handout is a copyrighted clinical document rather than an openly-licensed one, so its own figures were not embedded either. Its subject matter (the lobes and their functions, the hemispheres, the language areas and the deep structures) is instead covered from the readable note of the same theme and the standard texts, and the figures in these notes are drawn only from verified public-domain sources. This limit is disclosed rather than hidden.",
+        "All embedded photographs and plates are genuine public-domain images whose status was verified: a phrenological chart from the People's Cyclopedia (1883), Brodmann's cytoarchitectonic map (1909), Harlow's engraving of Phineas Gage's skull (1868), and two plates from Gray's Anatomy (1918); every image is stored inside the file itself so the notes load no external resource.",
         "Only well-established neuropsychology is stated; no novel claims, study results or quantitative findings beyond standard textbook accounts are presented, and where accounts differ between authors (for example the exact number of Luria's functional units) that difference is noted rather than smoothed over.",
     ]},
 ]
@@ -117,6 +118,7 @@ _s("t1", "1", "Relationship between structure and function of the brain", [
         "One-line summary (use the mnemonic).",
     ]},
     {"t": "fig", "key": "structure_function_loop", "caption": "The structure\u2013function loop: neural structure (cells, regions, connections) gives rise to function (cognition, behaviour), while function studied through lesions and imaging lets us infer the structure behind it."},
+    {"t": "fig", "key": "pd_gray_lobes", "caption": "The lateral surface of the cerebrum and its four lobes: the physical map onto which functions are plotted."},
     {"t": "box", "kind": "def", "title": "Characterisations by standard texts", "items": [
         "{{GUIDE}} Standard neuropsychology treats the field as the study of the **relation between brain and behaviour**, asking how the structure and activity of the nervous system produce cognition, emotion and action. {{c:Kolb}}",
         "{{GUIDE}} A central aim is described as the **elucidation of the relationship between structure and function** of large-scale brain systems, that is, how the neural connectional network underlies cognitive functions. {{c:StructFn}}",
@@ -134,6 +136,14 @@ _s("t1", "1", "Relationship between structure and function of the brain", [
         "Structure operates at **several levels**, from single [[neuron|a nerve cell that receives, processes and transmits information]] through local circuits and cortical columns to whole regions and systems, and function can be mapped onto any of these levels. {{c:Kolb}}",
         "The **neuron is the functional unit** that lets us receive information, process it and produce actions, while [[glia|support cells that hold neurons together and nourish and insulate them]] maintain the tissue that makes this possible. {{c:Kolb}}",
         "At the largest scale, the **cerebral cortex** carries higher functions such as thought and language, so its surface organisation into lobes and areas is a map of where many functions are chiefly handled. {{c:Prasad}}",
+    ]},
+    {"t": "h4", "text": "The four lobes and their broad functions"},
+    {"t": "ul", "items": [
+        "The **frontal lobe** handles movement, speech production, and the executive functions of planning, judgement, problem-solving and the regulation of behaviour and emotion, so it is the brain's control and personality centre. {{c:Prasad}}",
+        "The **parietal lobe** integrates touch, pain, temperature and position sense, builds the sense of space and the body schema, and supports reading, arithmetic and the guidance of action in space. {{c:StructFn}}",
+        "The **temporal lobe** carries hearing, the recognition of what things are, the comprehension of language, and, through its medial structures, the laying down of new long-term memories. {{c:Kolb}}",
+        "The **occipital lobe** is devoted to vision, receiving and interpreting the visual world, so that damage there produces blindness or specific visual deficits with the eyes themselves intact. {{c:Prasad}}",
+        "Deeper structures matter too: the **brainstem** sustains the vital functions of breathing and heartbeat and arousal, the **cerebellum** coordinates balance and smooth movement, and the **thalamus** is the relay through which most sensory traffic reaches the cortex. {{c:StructFn}}",
     ]},
     {"t": "h4", "text": "Connectivity: the three kinds"},
     {"t": "ul", "items": [
@@ -177,6 +187,7 @@ _s("t2", "2", "The rise of neuropsychology as a distinct discipline", [
         "Significance and a one-line summary (use the mnemonic).",
     ]},
     {"t": "fig", "key": "np_timeline", "caption": "A timeline of the rise of neuropsychology, from the ancient brain\u2013heart debate through the nineteenth-century localisers to the twentieth-century integrators who named the field."},
+    {"t": "fig", "key": "pd_phrenology", "caption": "Gall's phrenology read the skull's bumps as mental faculties: wrong in detail, but the first systematic claim that functions are localised in the brain."},
     {"t": "box", "kind": "def", "title": "Characterisations by standard texts", "items": [
         "{{GUIDE}} Neuropsychology is defined as the branch of psychology concerned with **how the brain and nervous system influence cognition and behaviour**, and especially how brain injury or illness affects them. {{c:HistNP}}",
         "{{GUIDE}} It is both an **experimental and a clinical field** that seeks to discover how the brain correlates with the mind through the study of neurological patients, bridging neurology and psychology. {{c:HistNP}}",
@@ -194,6 +205,7 @@ _s("t2", "2", "The rise of neuropsychology as a distinct discipline", [
         "In **ancient Egypt**, medical writings from the time of Imhotep described the brain and head trauma, yet Egyptians still saw the **heart, not the brain**, as the seat of the soul. {{c:HistNP}}",
         "**Aristotle** reinforced this heart-centred view, treating the brain as a radiator that cooled the blood, whereas **Hippocrates** argued the brain held the greatest power and was the seat of the mind. {{c:HistNP}}",
         "The philosopher **Ren\u00e9 Descartes** framed the enduring [[mind\u2013body problem|the question of how a non-physical mind relates to the physical body]], proposing [[dualism|the view that mind and body are distinct but interacting]] with the pineal gland as their meeting point. {{c:HistNP}}",
+        "**Galen**, physician to the Roman gladiators, inferred from head injuries that the brain governs sensation and movement, but located mental life in the fluid-filled [[ventricles|the fluid-filled cavities inside the brain]], a 'ventricular doctrine' that dominated for over a thousand years. {{c:HistNP}}",
         "**Thomas Willis** took a physiological view of the brain in the seventeenth century, coined the words 'hemisphere' and 'lobe', and used 'neurology', linking higher structures to complex functions. {{c:HistNP}}",
     ]},
     {"t": "h4", "text": "Nineteenth-century localisers"},
@@ -240,6 +252,7 @@ _s("t3", "3", "The logic of cerebral organization", [
         "One-line summary (use the mnemonic).",
     ]},
     {"t": "fig", "key": "luria_units", "caption": "The logic of cerebral organization: Hughlings-Jackson's hierarchy of levels and Luria's functional units with their primary, secondary and tertiary zones arranged from simple to complex processing."},
+    {"t": "fig", "key": "pd_gray_medial", "caption": "The medial surface of the hemisphere: the vertical stack from brainstem up to forebrain mirrors Hughlings-Jackson's hierarchy of levels."},
     {"t": "box", "kind": "def", "title": "Characterisations by standard texts", "items": [
         "{{THEORY}} Hughlings-Jackson conceived the nervous system as organised in **layers arranged in a functional hierarchy**, each higher level controlling more complex behaviour through the lower levels. {{c:Kolb}}",
         "{{THEORY}} Luria divided the cortex into **functional units**, a posterior sensory unit that receives, processes and stores information and an anterior motor unit that forms intentions and programs action. {{c:Kolb}}",
@@ -300,6 +313,8 @@ _s("t4", "4", "Localization of functions", [
         "Significance and a one-line summary (use the mnemonic).",
     ]},
     {"t": "fig", "key": "localization_spectrum", "caption": "The localization debate as a spectrum, from strict localizationism (one function, one spot) through modular and network views to full equipotentiality (the cortex acts as an undifferentiated whole)."},
+    {"t": "fig", "key": "pd_brodmann", "caption": "Brodmann's 1909 cytoarchitectonic map numbers the cortical areas by their cell architecture; localisation still pins functions to these numbered areas (44/45 Broca's, 22 Wernicke's, 17 vision)."},
+    {"t": "fig", "key": "pd_gage", "caption": "Phineas Gage's skull and tamping iron (Harlow, 1868): the classic lesion case tying the frontal lobes to judgement, planning and social behaviour."},
     {"t": "box", "kind": "def", "title": "Characterisations by standard texts", "items": [
         "{{GUIDE}} Cerebral localization is defined as the **mapping of the cerebral cortex into areas** and the correlation of those areas with particular cerebral functions. {{c:CerebLoc}}",
         "{{THEORY}} The **localizationist** position holds that different parts of the brain have different functions, so that focal damage removes a specific ability while sparing others. {{c:Kolb}}",
@@ -331,6 +346,21 @@ _s("t4", "4", "Localization of functions", [
         "The idea of **modularity** sharpens localisation, proposing that the mind has specialised, somewhat independent processors, so a specific module can be selectively impaired by focal damage. {{c:Kolb}}",
         "Lashley's **mass action and equipotentiality** were later understood as a misreading of his rat data, because running a maze needs several cortical areas, so large lesions impaired many functions at once. {{c:HistNP}}",
         "The modern position is a **qualified localisation**, in which functions are localised yet distributed across cooperating regions, combining the truth in localizationism with the network view of organisation. {{c:StructFn}}",
+    ]},
+    {"t": "h4", "text": "Localising signs by lobe"},
+    {"t": "ul", "items": [
+        "**Frontal-lobe** damage produces impaired memory and planning, poor judgement and insight, disinhibition or apathy, and language problems such as Broca's aphasia, the Phineas Gage case being the classic illustration of a changed personality after frontal injury. {{c:CerebLoc}}",
+        "**Parietal-lobe** damage produces somatosensory loss, [[astereognosis|inability to recognise objects by touch alone]], and, on the right, disturbances of the body schema such as neglect, [[anosognosia|denial or unawareness of one's own deficit]], and dressing or constructional apraxia. {{c:CerebLoc}}",
+        "**Temporal-lobe** damage produces hearing and auditory-recognition problems, Wernicke's aphasia on the left, memory disturbance, and complex phenomena such as d\u00e9j\u00e0 vu or olfactory hallucinations in temporal-lobe seizures. {{c:CerebLoc}}",
+        "**Occipital-lobe** damage produces visual-field loss ([[hemianopia|loss of one half of the visual field]]) and the visual [[agnosias|failures to recognise what is seen, with vision itself intact]], including [[prosopagnosia|the specific inability to recognise faces]]. {{c:CerebLoc}}",
+        "A revealing cluster is [[Gerstmann syndrome|agraphia, acalculia, finger agnosia and right\u2013left confusion from the left angular gyrus]], whose four signs together point precisely to the dominant parietal region. {{c:CerebLoc}}",
+    ]},
+    {"t": "h4", "text": "The aphasias as a localising map"},
+    {"t": "ul", "items": [
+        "Broca's (**motor, non-fluent**) aphasia follows damage to areas 44/45, leaving good comprehension but effortful, telegraphic, agrammatic speech. {{c:CerebLoc}}",
+        "Wernicke's (**sensory, fluent**) aphasia follows damage to area 22, leaving fluent but poorly understood speech with impaired comprehension. {{c:CerebLoc}}",
+        "**Conduction aphasia** follows damage to the arcuate fasciculus connecting the two areas, so comprehension and speech are good but repetition is strikingly poor, exactly the disconnection Wernicke predicted. {{c:CerebLoc}}",
+        "**Anomic aphasia** shows mainly word-finding difficulty, and a lesion of the angular and supramarginal gyri can yield fluent but unintelligible jargon, so the type of aphasia itself maps the site of damage. {{c:CerebLoc}}",
     ]},
     {"t": "h4", "text": "Significance"},
     {"t": "ul", "items": [
@@ -511,13 +541,24 @@ _s("t7", "7", "Approaches and methodologies of cognitive neuropsychologists", [
         "[[Electroencephalography|EEG, recording the brain's electrical activity from scalp electrodes]] records ongoing electrical activity with excellent **timing**, and its magnetic counterpart is magneto-encephalography. {{c:ImgTech}}",
         "[[Event-related potentials|ERPs, averaged brain waves time-locked to a stimulus]] are slow waves produced by averaging many trials, which lifts the signal out of background noise and reveals the brain's response to each event. {{c:ImgTech}}",
         "ERP components are named by **polarity and timing**, such as N100 or P300, and the N400 was the first component linked to **language**, growing larger when a word is semantically surprising. {{c:ImgTech}}",
+        "Because ERPs lift the signal out of noise by **averaging many trials**, the amplitude of a component such as the N400 tracks processing difficulty, so harder or more surprising items give a larger wave. {{c:ImgTech}}",
     ]},
     {"t": "h4", "text": "Modern haemodynamic and stimulation methods"},
     {"t": "ul", "items": [
         "[[Positron emission tomography|PET, which images blood flow or metabolism using a radioactive tracer]] images function from blood flow and glucose metabolism, and uses **subtraction**, taking a rest image away from a task image to reveal the regions a task engages. {{c:ImgTech}}",
         "[[Functional magnetic resonance imaging|fMRI, which images activity from blood-oxygen changes]] detects the **blood-oxygen-level-dependent** signal that follows neural activity, giving good spatial detail without any radioactive tracer. {{c:ImgTech}}",
         "A general trade-off holds that **EEG and ERP have fine timing but coarse location**, whereas PET and fMRI have fine location but slower timing, so methods are chosen to complement one another. {{c:ImgTech}}",
+        "[[Magneto-encephalography|MEG, recording the tiny magnetic fields produced by neural activity]] is the non-invasive magnetic counterpart of EEG, sharing its fine timing while locating sources somewhat more precisely. {{c:CerebLoc}}",
+        "[[Diffusion tensor imaging|DTI, which traces white-matter tracts by the direction of water diffusion]] reconstructs the brain's fibre pathways, so structural connectivity itself can now be mapped and related to function in the living brain. {{c:StructFn}}",
         "[[Transcranial magnetic stimulation|TMS, a magnetic pulse that briefly disrupts or excites a cortical area]] can create a brief, reversible 'virtual lesion', letting researchers test a region's causal role without permanent damage. {{c:CerebLoc}}",
+    ]},
+    {"t": "table", "caption": "Imaging methods compared on what they measure and their resolution.", "head": ["Method", "Signal measured", "Strength"], "rows": [
+        ["EEG / MEG", "electrical / magnetic activity", "excellent timing (ms)"],
+        ["ERP", "averaged waves time-locked to a stimulus", "times cognitive stages"],
+        ["PET", "blood flow / glucose metabolism (tracer)", "function, uses subtraction"],
+        ["fMRI", "blood-oxygen (BOLD) signal", "fine spatial location"],
+        ["DTI", "water diffusion along fibres", "maps white-matter wiring"],
+        ["TMS", "magnetic pulse to the cortex", "tests a causal role ('virtual lesion')"],
     ]},
     {"t": "h4", "text": "Significance and a caution"},
     {"t": "ul", "items": [
