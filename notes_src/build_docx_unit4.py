@@ -385,6 +385,10 @@ def build():
     doc.add_heading("How to read these notes", level=1)
     _blocks(doc, C.INTRO)
 
+    # ---- Front matter: a simple introduction to the affective psychotherapies
+    doc.add_heading("Introduction to Affective Psychotherapies", level=1)
+    _blocks(doc, C.AFFECTIVE_INTRO)
+
     # ---- Topic sections (the Unit IV affective-therapy topics) ----
     for sec in C.SECTIONS:
         doc.add_heading(f'{sec["num"]}. {sec["title"]}', level=1)
