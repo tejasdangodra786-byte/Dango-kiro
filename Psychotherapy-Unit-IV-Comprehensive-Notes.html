@@ -1,0 +1,1453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Psychotherapy — Unit IV: Affective Psychotherapies | M.Phil. Clinical Psychology Notes</title>
+<meta name="author" content="Tejas Dangodra">
+<style>
+:root{
+  --ink:#1f2937; --muted:#475569; --bg:#faf8ff; --card:#ffffff;
+  --lav:#ede9fe; --lav2:#7c3aed; --mint:#dcfce7; --mint2:#15803d; --peach:#ffedd5; --peach2:#c2410c;
+  --sky:#e0f2fe; --sky2:#0369a1; --rose:#ffe4e6; --rose2:#be123c; --butter:#fef9c3; --butter2:#a16207;
+  --line:#e2e8f0; --head:#3730a3; --side:300px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:16px}
+body{margin:0;font-family:"Segoe UI","Noto Sans","DejaVu Sans",Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.68;font-size:16.5px}
+a{color:#4338ca}
+a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid #f59e0b;outline-offset:2px}
+.skip{position:absolute;left:-999px;top:0;background:#fff;padding:8px 12px;z-index:100}
+.skip:focus{left:8px;top:8px}
+
+/* ---------- layout ---------- */
+#side{position:fixed;inset:0 auto 0 0;width:var(--side);background:#fff;border-right:1px solid var(--line);overflow-y:auto;padding:14px 14px 40px;z-index:30}
+#main{margin-left:var(--side);padding:0 0 40px}
+.wrap{max-width:980px;margin:0 auto;padding:0 28px}
+#side h2{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:14px 0 6px}
+#side ul{list-style:none;margin:0;padding:0}
+#side li a{display:block;text-decoration:none;color:var(--ink);padding:5px 9px;border-radius:7px;font-size:14px;line-height:1.35}
+#side li a:hover{background:var(--lav)}
+#side li a.act{background:var(--lav);font-weight:700;color:#3730a3}
+#side li ul{margin:0 0 4px 12px;border-left:2px solid var(--line)}
+#side li ul a{font-size:12.5px;color:var(--muted);padding:3px 8px}
+#menuBtn{display:none;position:fixed;top:10px;left:10px;z-index:50;background:#4338ca;color:#fff;border:0;border-radius:10px;padding:10px 14px;font-size:15px;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+#search{width:100%;padding:9px 10px;border:2px solid #c4b5fd;border-radius:9px;font-size:14.5px;background:#faf5ff}
+#sInfo{font-size:12.5px;color:var(--muted);margin:5px 2px;min-height:18px}
+.sbtn{border:1px solid #c4b5fd;background:#fff;border-radius:7px;padding:4px 9px;font-size:12.5px;cursor:pointer;margin-right:4px}
+.sbtn:hover{background:var(--lav)}
+mark{background:#fde047;color:#111;padding:0 2px;border-radius:3px}
+mark.cur{background:#fb923c}
+
+/* ---------- cover ---------- */
+.cover{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:40px 24px;
+  background:linear-gradient(135deg,#ede9fe 0%,#dcfce7 38%,#e0f2fe 68%,#ffe4e6 100%);text-align:center}
+.cover .cbox{background:rgba(255,255,255,.82);border:2px solid #c4b5fd;border-radius:26px;padding:46px 40px;max-width:860px;box-shadow:0 12px 40px rgba(76,29,149,.14)}
+.cover .kick{letter-spacing:.2em;text-transform:uppercase;font-size:13px;color:#6d28d9;font-weight:700}
+.cover h1{font-size:clamp(30px,5vw,50px);line-height:1.15;margin:12px 0 10px;color:#312e81}
+.cover .sub{font-size:19px;color:#334155;margin:6px 0 22px}
+.cover .syl{background:#fff;border:1px dashed #a78bfa;border-radius:14px;padding:14px 18px;text-align:left;font-size:14.5px;color:#334155;margin:18px 0}
+.cover .by{margin-top:24px;font-size:18px;font-weight:700;color:#4c1d95;border-top:2px solid #ddd6fe;padding-top:16px}
+.cover .meta{font-size:13px;color:var(--muted);margin-top:8px}
+
+/* ---------- typography ---------- */
+section.topic{padding:38px 0 10px;border-top:6px solid var(--lav)}
+.topic>.wrap>h2, h2.sec{font-size:clamp(25px,3.4vw,34px);color:var(--head);margin:0 0 6px;line-height:1.2}
+.topic .num{display:inline-block;background:var(--head);color:#fff;border-radius:10px;padding:2px 12px;margin-right:10px;font-size:.8em}
+h3{font-size:22px;color:#4c1d95;margin:34px 0 8px;padding-bottom:5px;border-bottom:2px solid var(--lav)}
+h4{font-size:17.5px;color:#0f172a;margin:22px 0 4px}
+p{margin:0 0 12px}
+ul,ol{margin:6px 0 14px;padding-left:24px}
+li{margin:3px 0}
+.gl{color:#9a3412;font-style:italic;font-size:.94em;background:#fff7ed;padding:0 4px;border-radius:5px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.glt{border-bottom:1px dotted #c2410c}
+.lead{font-size:18px;color:#334155}
+.cite{font-size:.82em;color:#6b21a8;white-space:normal}
+code,.mono{font-family:"DejaVu Sans Mono",Consolas,monospace;font-size:.9em;background:#f1f5f9;padding:1px 5px;border-radius:5px}
+
+/* ---------- boxes ---------- */
+.box{border-radius:14px;padding:14px 18px;margin:16px 0;border:1.5px solid;break-inside:avoid;page-break-inside:avoid}
+.box>:last-child{margin-bottom:0}
+.box .bt{font-weight:800;font-size:13px;letter-spacing:.05em;text-transform:uppercase;margin-bottom:6px;display:block}
+.def{background:var(--lav);border-color:#c4b5fd}.def .bt{color:#5b21b6}
+.key{background:var(--mint);border-color:#86efac}.key .bt{color:#166534}
+.law{background:var(--rose);border-color:#fda4af}.law .bt{color:#9f1239}
+.ex{background:var(--butter);border-color:#fde047}.ex .bt{color:#854d0e}
+.warn{background:var(--peach);border-color:#fdba74}.warn .bt{color:#9a3412}
+.info{background:var(--sky);border-color:#7dd3fc}.info .bt{color:#075985}
+.mn{background:linear-gradient(135deg,#fdf4ff,#ede9fe);border:2px solid #c084fc;border-radius:16px;padding:14px 18px;margin:18px 0;break-inside:avoid;page-break-inside:avoid}
+.mn .mt{font-weight:800;color:#6b21a8;font-size:13px;letter-spacing:.06em;text-transform:uppercase}
+.mn .word{font-size:26px;font-weight:800;color:#581c87;letter-spacing:.12em;margin:2px 0 6px}
+.mn table{margin:6px 0}
+.rev{background:#ecfeff;border:2px solid #67e8f9;border-radius:14px;padding:14px 18px;margin:20px 0;break-inside:avoid}
+.rev .bt{color:#0e7490}
+.q{background:#fff;border-left:5px solid #a78bfa;padding:8px 14px;margin:10px 0;border-radius:0 10px 10px 0;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.q b.lab{display:inline-block;background:#ede9fe;border-radius:6px;padding:0 8px;margin-right:6px;font-size:12.5px;color:#4c1d95}
+.tag{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.05em;border-radius:6px;padding:1px 7px;margin-right:5px;vertical-align:middle;text-transform:uppercase;white-space:nowrap}
+.tag.law{background:#ffe4e6;color:#9f1239;border:1px solid #fda4af}
+.tag.code{background:#e0f2fe;color:#075985;border:1px solid #7dd3fc}
+.tag.guide{background:#dcfce7;color:#166534;border:1px solid #86efac}
+.tag.eg{background:#fef9c3;color:#854d0e;border:1px solid #fde047}
+.tag.theory{background:#ede9fe;color:#5b21b6;border:1px solid #c4b5fd}
+.tag.sec{background:#f1f5f9;color:#334155;border:1px solid #cbd5e1}
+
+/* ---------- tables ---------- */
+.tw{overflow-x:auto;margin:14px 0;border-radius:12px;border:1px solid var(--line);background:#fff}
+table{border-collapse:collapse;width:100%;font-size:14.8px}
+th,td{padding:8px 11px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{background:#ede9fe;color:#312e81;font-weight:700;position:sticky;top:0}
+tr:nth-child(even) td{background:#fcfbff}
+caption{caption-side:top;text-align:left;font-weight:700;color:#4c1d95;padding:8px 11px;background:#f5f3ff}
+tr{break-inside:avoid;page-break-inside:avoid}
+
+/* ---------- figures ---------- */
+figure.fig{margin:20px 0;background:#fff;border:1.5px solid var(--line);border-radius:14px;padding:12px;break-inside:avoid;page-break-inside:avoid}
+figure.fig svg{width:100%;height:auto;display:block}
+figcaption{font-size:13.5px;color:var(--muted);padding:6px 6px 0}
+.figsrc{display:block;font-size:12px;color:#64748b}
+
+/* ---------- details ---------- */
+details{background:#fff;border:1.5px solid #ddd6fe;border-radius:12px;margin:12px 0;padding:0}
+details>summary{cursor:pointer;font-weight:700;color:#4c1d95;padding:10px 16px;list-style:none;border-radius:12px}
+details>summary::-webkit-details-marker{display:none}
+details>summary::before{content:"+";display:inline-block;margin-right:9px;font-weight:800;color:#7c3aed}
+details[open]>summary::before{content:"\2013"}
+details[open]>summary{background:#f5f3ff;border-bottom:1px solid #ddd6fe;border-radius:12px 12px 0 0}
+details>.dbody{padding:10px 18px 14px}
+
+/* ---------- toolbar ---------- */
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.toolbar button{border:1.5px solid #c4b5fd;background:#fff;border-radius:9px;padding:7px 13px;cursor:pointer;font-size:14px;color:#3730a3;font-weight:600}
+.toolbar button:hover{background:var(--lav)}
+#toTop{position:fixed;right:16px;bottom:16px;background:#4338ca;color:#fff;border:0;border-radius:50%;width:44px;height:44px;font-size:20px;cursor:pointer;display:none;z-index:40;box-shadow:0 2px 8px rgba(0,0,0,.3)}
+footer.site{margin-top:50px;padding:26px 20px;background:#312e81;color:#e0e7ff;text-align:center;font-size:14.5px}
+footer.site b{color:#fff}
+
+/* ---------- responsive ---------- */
+@media (max-width:1050px){
+  #side{transform:translateX(-102%);transition:transform .2s;box-shadow:4px 0 20px rgba(0,0,0,.25);width:min(86vw,320px)}
+  body.nav #side{transform:none}
+  #main{margin-left:0}
+  #menuBtn{display:block}
+  .wrap{padding:0 16px}
+  body{font-size:16px}
+}
+@media (max-width:560px){
+  .cover .cbox{padding:28px 18px;border-radius:18px}
+  table{font-size:13.5px}
+  th,td{padding:6px 7px}
+  h3{font-size:19.5px}
+}
+
+/* ---------- print ---------- */
+@page{size:A4;margin:13mm 12mm 14mm 12mm}
+@media print{
+  html{scroll-behavior:auto}
+  body{background:#fff;font-size:9.4pt;line-height:1.3;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  #side,#menuBtn,#toTop,.toolbar,.noprint,#sInfoBar{display:none !important}
+  #main{margin:0}
+  .wrap{max-width:none;padding:0}
+  p{margin:0 0 5px}
+  ul,ol{margin:3px 0 6px;padding-left:19px}
+  li{margin:1px 0}
+  .lead{font-size:9.8pt;margin-bottom:5px}
+  .cover{display:block;min-height:auto;height:auto;padding:24mm 6mm 0;page-break-after:always;break-after:page;background:#f5f3ff}
+  .cover .cbox{box-shadow:none;max-width:none;margin:0 auto;background:#fff;border:2px solid #c4b5fd}
+  section.topic{break-before:page;page-break-before:always;border-top:none;padding-top:0}
+  h2,h3,h4{break-after:avoid;page-break-after:avoid}
+  h3{font-size:13pt;margin:12px 0 4px;padding-bottom:2px}
+  h4{margin:10px 0 2px}
+  .topic>.wrap>h2{font-size:19pt;margin-bottom:4px}
+  .box,.mn,figure.fig,.q,tr{break-inside:avoid;page-break-inside:avoid}
+  .box{margin:7px 0;padding:7px 11px;border-radius:9px}
+  .box .bt{margin-bottom:3px}
+  .mn{margin:7px 0;padding:7px 11px}
+  .mn .word{font-size:17pt;margin:1px 0 3px}
+  figure.fig svg{width:62%;max-width:112mm;height:auto;margin:0 auto}
+  figure.fig{text-align:center;margin:8px 0;padding:6px}
+  figcaption{padding:3px 4px 0;font-size:8.6pt}
+  .rev{break-inside:auto}
+  caption{break-after:avoid;page-break-after:avoid;padding:5px 8px}
+  thead{display:table-header-group}
+  .tw{overflow:visible;border:1px solid #cbd5e1;margin:8px 0}
+  table{font-size:9pt}
+  th,td{padding:5px 8px}
+  th{position:static}
+  details{border:1px solid #c4b5fd}
+  details>*:not(summary){display:block !important}
+  details>summary::before{content:"\2013"}
+  a{color:inherit;text-decoration:none}
+  footer.site{background:#fff;color:#111;border-top:2px solid #4338ca;margin-top:16px;padding:14px 10px}
+  footer.site b{color:#111}
+  mark{background:none}
+  .gl{color:#9a3412 !important;background:#fff7ed !important;font-style:italic}
+  .glt{border-bottom:1px dotted #c2410c}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#content">Skip to content</a>
+<button id="menuBtn" aria-label="Open or close the contents menu" aria-expanded="false">Menu / Contents</button>
+<nav id="side" aria-label="Table of contents">
+  <input id="search" type="search" placeholder="Search these notes…" aria-label="Search these notes" autocomplete="off">
+  <div id="sInfo" role="status" aria-live="polite"></div>
+  <div class="noprint" style="margin-bottom:6px"><button class="sbtn" id="sPrev" type="button">Prev</button><button class="sbtn" id="sNext" type="button">Next</button><button class="sbtn" id="sClr" type="button">Clear</button></div>
+  <h2>Contents</h2>
+  <ul>
+    <li><a href="#start">How to read these notes</a></li>
+    <li><a href="#intro">Introduction to affective psychotherapy</a></li>
+    <li><a href="#t1">1. Psychodynamic psychotherapy</a></li>
+    <li><a href="#t2">2. Brief psychotherapy</a></li>
+    <li><a href="#t3">3. Humanistic psychotherapy</a></li>
+    <li><a href="#t4">4. Existential psychotherapy</a></li>
+    <li><a href="#t5">5. Gestalt therapy</a></li>
+    <li><a href="#t6">6. Person-centred (client-centred) therapy</a></li>
+    <li><a href="#t7">7. Adlerian therapy (Individual Psychology)</a></li>
+    <li><a href="#t8">8. Transactional analysis (TA)</a></li>
+    <li><a href="#t9">9. Reality therapy (and choice theory)</a></li>
+    <li><a href="#t10">10. Supportive psychotherapy</a></li>
+    <li><a href="#t11">11. Clinical hypnotherapy</a></li>
+    <li><a href="#t12">12. Play therapy</a></li>
+    <li><a href="#t13">13. Psychodrama</a></li>
+    <li><a href="#t14">14. Oriental approaches</a></li>
+    <li><a href="#sources">Source note &amp; honest limits</a></li>
+    <li><a href="#refs">Key sources &amp; references</a></li>
+  </ul>
+</nav>
+<div id="main">
+<header class="cover" id="top">
+  <div class="cbox">
+    <div class="kick">M.Phil. Clinical Psychology &middot; Study Notes</div>
+    <h1>Psychotherapy — Unit IV: Affective Psychotherapies</h1>
+    <div class="sub">Psychodynamic &middot; Brief psychotherapy &middot; Humanistic &middot; Existential &middot; Gestalt &middot; Person-centred &middot; Adlerian &middot; Transactional analysis &middot; Reality therapy &middot; Supportive &middot; Clinical hypnotherapy &middot; Play therapy &middot; Psychodrama &middot; Oriental approaches</div>
+    <div class="syl"><b>Syllabus (Unit IV):</b> Affective psychotherapies — origin, basis, formulation, procedures, techniques, stages, process, outcome, indications, and research &amp; current status, with respect to the therapies listed above.</div>
+    <div class="by">Dango_Psych by Tejas Dangodra | M.Phil. Clinical Psychology</div>
+  </div>
+</header>
+<main id="content">
+<!-- ===================== HOW TO READ ===================== -->
+<section class="topic" id="start" style="border-top:none">
+  <div class="wrap">
+    <h2 class="sec">How to read these notes</h2>
+    <p class="lead">These notes are written so you can reproduce them in an exam. Each numbered section is one therapy, written in the order you would actually write the answer.</p>
+    <p>Every topic follows the same simple flow: <b>definition → main focus → key concepts → goals → techniques → process/stages → indications → current status</b>. The weight is on <b>what the therapy does and how</b>, not on dates and history.</p>
+    <ul>
+      <li>A <b>one-line summary</b> opens each topic so you know the core idea instantly.</li>
+      <li>An <b>SVG flowchart</b> shows the model at a glance.</li>
+      <li>A <span class="box def" style="padding:1px 7px;display:inline;border-radius:6px">definition box</span> gives a clean opening line.</li>
+      <li>A <span class="box warn" style="padding:1px 7px;display:inline;border-radius:6px">⭐ Must-write points</span> box lists what the answer cannot do without.</li>
+      <li>A <span class="box info" style="padding:1px 7px;display:inline;border-radius:6px">How to remember &amp; write</span> box gives a practical writing strategy.</li>
+      <li>A <span class="mn" style="padding:1px 7px;display:inline;border-radius:6px">mnemonic</span> gives a memory hook.</li>
+    </ul>
+    <p>Hard words are explained in plain English in a coloured bracket right after the term, like this: <span class="glt">transference</span> <span class="gl">(the client unconsciously reacts to the therapist as if they were someone from their past)</span>.</p>
+    <div class="box key"><span class="bt">Evidence honesty</span>Labels you will see: <span class="tag law">Law</span> binding rule, <span class="tag code">Code</span> professional code, <span class="tag guide">Guide</span> guideline, <span class="tag theory">Theory</span> theoretical view, <span class="tag eg">Eg</span> example, <span class="tag sec">Sec</span> secondary source. No authors, results, or numbers are invented.</div>
+  </div>
+</section>
+
+<!-- ===================== INTRO ===================== -->
+<section class="topic" id="intro">
+  <div class="wrap">
+    <h2 class="sec"><span class="num">Intro</span>Introduction to affective psychotherapy</h2>
+    <p class="lead">"Affective" means <b>to do with feelings and emotion</b>. Affective psychotherapies are the talking therapies that work mainly through <b>emotion, the therapy relationship, inner experience and insight</b>, rather than only through changing outward behaviour.</p>
+
+    <p>In Unit IV, fourteen approaches are grouped together under this one heading. They look very different on the surface — one uses free association on a couch, another uses an empty chair, another uses yoga — but they share a family resemblance. They all believe that <b>lasting change comes from the inside</b>: from feeling things more clearly, understanding yourself better, and meeting a genuine, caring human relationship in the therapy room.</p>
+
+    <h3>Why these fourteen are grouped together</h3>
+    <p>They are not grouped by one founder or one technique. They are grouped by their <b>shared spirit and target</b>. Each one treats the person's <b>emotional and inner life</b> as the main thing that needs to shift. Even the very practical ones (reality therapy, supportive therapy) and the body-based ones (yoga, tai chi) still work by changing how a person <b>feels, relates and experiences</b> their life.</p>
+
+    <h3>What they broadly share</h3>
+    <div class="box key"><span class="bt">The common thread</span>
+      <ul>
+        <li><b>Feelings matter first.</b> Emotion is treated as meaningful information that tells us something true about the person's life, not just a symptom to be switched off. For example, instead of only trying to stop a client's sadness, the therapist gets curious about what the sadness is about and what it is pointing to. The feeling is a message, not just noise.</li>
+        <li><b>The relationship heals.</b> A warm, genuine, accepting therapist is seen as a major agent of change in its own right, not just a technician who applies methods. Many clients have been hurt in past relationships, and simply being met by someone who is honest, non-judging and really listening can itself be corrective and healing.</li>
+        <li><b>Insight and awareness.</b> Many of these therapies aim to help the person understand or become aware of something they could not see before — a hidden feeling, an old pattern, a choice they did not know they were making. The assumption is that once you can really see a pattern, you are no longer blindly ruled by it.</li>
+        <li><b>Experience over lecturing.</b> Change is thought to happen by <i>experiencing</i> something new in the room — a feeling finally felt, a role played out, a different kind of relationship — rather than by being told facts or given advice. Living something through is treated as more powerful than merely talking about it from a distance.</li>
+        <li><b>The whole person.</b> They look at the client as a whole human being with a past, values, relationships and a search for meaning — not only at the one problem behaviour. The symptom is understood inside the context of the whole life, so the person is never reduced to a diagnosis.</li>
+      </ul>
+    </div>
+
+    <p>Contrast this with purely behavioural or cognitive approaches, which lead with <b>changing actions and thoughts</b>. Affective therapies lead with <b>feeling, meaning and relationship</b>, and trust that behaviour and thinking will then follow. Keep this contrast ready — it is a clean way to open almost any Unit IV answer.</p>
+
+    <div class="box warn"><span class="bt">⭐ Must-write points for the answer</span>
+      <ul>
+        <li>"Affective" = relating to emotion; these therapies work through feeling, relationship, insight and experience.</li>
+        <li>Grouped by a shared spirit, not one founder or technique.</li>
+        <li>Shared features: feelings first, healing relationship, insight/awareness, change through experience, whole person.</li>
+        <li>Contrast with behavioural/cognitive therapies, which lead with action and thought.</li>
+      </ul>
+    </div>
+
+    <div class="box info"><span class="bt">How to remember &amp; write this answer</span>
+      <p>Open with the one-line meaning of "affective" (= emotion). Then give the shared-features list — the five bullets above are enough. Close with the contrast against behavioural/cognitive therapy. Remember it with <b>FRIEW</b>: <b>F</b>eelings first, <b>R</b>elationship heals, <b>I</b>nsight, <b>E</b>xperience, <b>W</b>hole person.</p>
+    </div>
+  </div>
+</section>
+<!-- ===================== TOPIC 1 ===================== -->
+<section class="topic" id="t1">
+  <div class="wrap">
+    <h2><span class="num">1</span>Psychodynamic psychotherapy</h2>
+    <p class="lead"><b>One line:</b> A modern, briefer descendant of Freud's psychoanalysis. It assumes our symptoms carry hidden meaning, and it uses the therapy relationship, free talking and interpretation to make the unconscious conscious so that change lasts.</p>
+
+    <figure class="fig">
+      <svg viewBox="0 0 640 220" role="img" aria-label="Flowchart: id, ego and superego conflict produces a symptom; insight resolves it">
+        <rect x="20" y="20" width="150" height="46" rx="10" fill="#ede9fe" stroke="#c4b5fd"/>
+        <text x="95" y="40" text-anchor="middle" font-size="14" fill="#4c1d95">Id / Ego /</text>
+        <text x="95" y="58" text-anchor="middle" font-size="14" fill="#4c1d95">Superego</text>
+        <rect x="210" y="20" width="150" height="46" rx="10" fill="#ffe4e6" stroke="#fda4af"/>
+        <text x="285" y="48" text-anchor="middle" font-size="14" fill="#9f1239">Inner conflict</text>
+        <rect x="400" y="20" width="150" height="46" rx="10" fill="#fef9c3" stroke="#fde047"/>
+        <text x="475" y="48" text-anchor="middle" font-size="14" fill="#854d0e">Symptom</text>
+        <rect x="210" y="140" width="340" height="46" rx="10" fill="#dcfce7" stroke="#86efac"/>
+        <text x="380" y="168" text-anchor="middle" font-size="14" fill="#166534">Insight → lasting change</text>
+        <line x1="170" y1="43" x2="208" y2="43" stroke="#7c3aed" stroke-width="2" marker-end="url(#a1)"/>
+        <line x1="360" y1="43" x2="398" y2="43" stroke="#7c3aed" stroke-width="2" marker-end="url(#a1)"/>
+        <line x1="475" y1="66" x2="420" y2="138" stroke="#7c3aed" stroke-width="2" marker-end="url(#a1)"/>
+        <defs><marker id="a1" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#7c3aed"/></marker></defs>
+      </svg>
+      <figcaption>Freudian model: inner conflict pushes out a symptom; therapy turns it into insight.</figcaption>
+    </figure>
+
+    <div class="box def"><span class="bt">Definition</span>Therapy derived from psychoanalysis that focuses on <b>unconscious processes</b> showing up in present behaviour, and aims at <b>insight</b> into how the past shapes the present <span class="cite">(paraphrased, APA Dictionary)</span>. Founder (one line): <b>Freud</b>, who began with Breuer's "talking cure" and moved to free association plus interpretation.</p></div>
+
+    <h3>Main focus / core idea</h3>
+    <p>The core belief is <span class="glt">psychic determinism</span> <span class="gl">(nothing in the mind is random — every slip, dream or symptom has a hidden cause)</span>. A symptom is a <span class="glt">compromise formation</span> <span class="gl">(a middle solution that partly satisfies a forbidden wish and partly defends against it)</span>. So the therapist does not just remove the symptom; they listen for the hidden wish and conflict behind it.</p>
+
+    <h3>Key concepts (explained)</h3>
+    <ul>
+      <li><b>The unconscious.</b> The central claim is that most of the mind works outside awareness, and that this hidden part drives a lot of what we feel and do. Freud pictured it two ways. The <span class="glt">topographic view</span> <span class="gl">(mind split into conscious, preconscious and unconscious)</span> imagines the mind like an iceberg — only a small tip is visible, while the huge mass below the water quietly steers us. The later <span class="glt">structural view</span> <span class="gl">(id = raw wishes/pleasure, ego = reality and reason, superego = conscience)</span> describes three forces in constant tension: the id demands "I want it now", the superego scolds "you must not", and the ego is the stressed referee trying to keep both happy while dealing with real life. For example, a person who snaps at their boss and cannot explain why may be letting out anger that really belongs to a parent — the real source is unconscious.</li>
+      <li><b>Psychosexual stages.</b> Freud believed personality is shaped in early childhood as the child moves through the oral, anal, phallic, latency and genital stages, each centred on a different source of pleasure and a different developmental task. If a child's needs at a stage are badly over- or under-met, <span class="glt">fixation</span> <span class="gl">(getting emotionally stuck at an early stage)</span> can occur, and traces of that stage keep showing up in the adult. For example, someone who was harshly toilet-trained during the "anal" stage may grow into an adult who is excessively tidy, controlling or stubborn. The point for the exam is not the stages themselves but the principle: early experience leaves a lasting stamp on the grown-up personality.</li>
+      <li><b>Defence mechanisms.</b> When an unacceptable wish or painful feeling threatens to break into awareness, the ego protects itself with automatic, unconscious strategies. <span class="glt">Repression</span> <span class="gl">(pushing a thought out of awareness)</span> is the master defence — the mind simply "forgets" what is too painful to hold. Others include denial (refusing to accept a reality), projection (seeing your own unwanted feeling in someone else, e.g. accusing a partner of being angry when you are the angry one), displacement (redirecting a feeling onto a safer target, like kicking the door after a row at work), and <span class="glt">sublimation</span> <span class="gl">(channelling an urge into something socially useful)</span>, such as turning aggression into competitive sport. These defences are normal; they only cause trouble when they are too rigid and keep the person out of touch with reality.</li>
+      <li><b>Transference and the therapy relationship.</b> <span class="glt">Transference</span> <span class="gl">(the client reacts to the therapist as if they were a parent or old figure from the past)</span> is treated as gold, because the client's old relationship pattern comes alive right there in the room where it can be seen and worked on. For example, a client who grew up fearing a critical father may start to feel that the therapist is silently judging them, even when the therapist has done nothing of the sort. The therapist also notices their own reactions, called <span class="glt">counter-transference</span> <span class="gl">(the feelings the client stirs up in the therapist)</span>, and uses them as clues to what the client pulls out of people.</li>
+    </ul>
+
+    <h3>Goals</h3>
+    <p>The deep aim is to <b>make the unconscious conscious</b> — to bring the hidden wish or conflict into the light so the person can deal with it as an adult instead of being secretly ruled by it. From this flows real <b>insight</b> (not just intellectual knowledge, but a felt understanding of why one keeps repeating a pattern), a <b>stronger ego</b> that can face reality without collapsing, and a swap of crude, self-defeating defences for more <b>mature</b> ones. Crucially, the therapy is not satisfied with removing the surface symptom, because if the underlying conflict is untouched the symptom will simply reappear in another form. It aims instead at <b>lasting structural change</b> in the personality. Freud summed the whole project up in one line: "where id was, there ego shall be" — reason taking back ground from blind impulse.</p>
+
+    <h3>Techniques</h3>
+    <ul>
+      <li><b>Free association.</b> The client is asked to say whatever comes into their mind, however trivial, shameful or illogical it seems, without editing or censoring. The idea is that if the normal filter is dropped, the chain of thoughts will drift toward the hidden material. For example, a slip of the tongue or an "irrelevant" childhood memory that pops up while discussing a marriage may actually point straight at the conflict. The therapist listens for where the flow suddenly stops or jumps, because that break often marks a sensitive spot.</li>
+      <li><b>Dream analysis.</b> The therapist helps the client separate the <span class="glt">manifest content</span> <span class="gl">(the dream as remembered)</span> from the <span class="glt">latent content</span> <span class="gl">(its hidden meaning)</span>. Because the sleeping mind relaxes its guard, forbidden wishes slip through in disguised, symbolic form, which is why Freud called dreams "the royal road to the unconscious". The client free-associates to each piece of the dream so its real meaning can be pieced together.</li>
+      <li><b>Interpretation.</b> This is the therapist's main active tool: a tactful, carefully timed suggestion that links what the client is saying to its hidden meaning. Good interpretation is offered only when the client is nearly ready to see it for themselves, a little ahead of their awareness but not so far that it is rejected. For example, "I notice you go quiet every time your mother comes up — I wonder if there is some anger there that feels dangerous to say aloud."</li>
+      <li><b>Analysis of resistance.</b> <span class="glt">Resistance</span> <span class="gl">(anything the client does, usually unconsciously, to block the work)</span> shows up as arriving late, falling silent, changing the subject, or intellectualising instead of feeling. Rather than being annoyed by it, the therapist treats resistance as a signpost — it flares up exactly where the painful material is, so pointing it out gently opens the door to what is being defended against.</li>
+      <li><b>Analysis of transference.</b> The therapist works directly with the old relationship pattern as it appears toward them, helping the client see that they are reacting to a ghost from the past rather than to the real person in front of them. Reliving and understanding that pattern in the safety of therapy is what allows it to finally change.</li>
+    </ul>
+    <p>Throughout, the therapist keeps a stance of <b>neutrality, abstinence and anonymity</b> — a "blank screen" that gives away little personal information — so that whatever the client feels toward the therapist clearly comes from the client's own inner world rather than being a realistic reaction to the therapist's personality.</p>
+
+    <h3>Process / stages</h3>
+    <ol>
+      <li><b>Opening phase.</b> The therapist assesses the client's suitability, agrees a working frame (frequency, fees, the "fundamental rule" of saying everything), and begins to build the alliance and trust that will carry the painful work ahead. Early transference feelings start to appear.</li>
+      <li><b>Middle (working-through) phase.</b> This is the heart of the therapy. Transference and resistance come to the surface and are <span class="glt">worked through</span> <span class="gl">(an insight is revisited again and again, in situation after situation, until it actually changes the person)</span>. One insight, understood once, rarely changes anything on its own; the client has to meet the same pattern repeatedly and slowly loosen its grip, which is why psychodynamic work takes time.</li>
+      <li><b>Termination phase.</b> Ending is itself therapeutic and is planned, not abrupt. Because endings often stir up old feelings of loss and abandonment, the ending is worked on openly so the client can separate in a healthy way and carry the gains forward alone.</li>
+    </ol>
+
+    <h3>Indications &amp; current status</h3>
+    <p><b>Who it suits and why:</b> it works best for clients who have enough <b>ego strength</b> to tolerate anxiety without falling apart, who are <b>psychologically minded</b> (curious about their inner life and able to reflect on themselves), and who are genuinely <b>motivated</b> for self-understanding rather than only quick relief. It fits neurotic-level difficulties, long-standing personality patterns and recurring relationship problems, where the trouble is clearly rooted in the person's inner world. <b>Who to avoid or adapt for, and why:</b> it is a poor and even risky first choice in acute psychosis, high suicide risk or acute crisis, because uncovering more anxiety in someone who is already overwhelmed can make things worse; such clients need the ego-strengthening, stabilising approach of supportive therapy instead. <b>Evidence in plain terms:</b> the research base is substantial and the benefits tend to be lasting. Short-term psychodynamic therapy is supported for depression and anxiety, and specialised forms have been developed that help borderline personality disorder. Very long, open-ended analysis is hard to study with controlled trials, so its evidence is thinner. A striking, well-noted finding is the "sleeper effect": gains can keep growing even after therapy ends, because the client continues to use their new capacity for self-understanding on their own.</p>
+
+    <div class="box warn"><span class="bt">⭐ Must-write points for the answer</span>
+      <ul>
+        <li>Symptom = meaningful compromise between a hidden wish, reality and conscience.</li>
+        <li>Three-part mind: id, ego, superego; most of it unconscious.</li>
+        <li>Four core techniques: free association, dream analysis, interpretation, analysis of resistance &amp; transference.</li>
+        <li>Working through = repeating an insight until it truly changes the person.</li>
+        <li>Goal = insight + stronger ego + lasting change, not just symptom removal.</li>
+      </ul>
+    </div>
+
+    <div class="box info"><span class="bt">How to remember &amp; write this answer</span>
+      <p>Open with the "symptoms are meaningful" idea and the three-part mind. Then list the techniques — this is where marks sit, so give the four big ones with a line each. Lead with transference and working through if time is short. Use <b>FIDO-WT</b> to recall the techniques in order, then finish with goals and indications.</p>
+    </div>
+
+    <div class="mn"><span class="mt">Mnemonic</span>
+      <div class="word">FIDO-WT</div>
+      <p><b>F</b>ree association · <b>I</b>nterpretation · <b>D</b>ream analysis · analysis of <b>R</b>esistance &amp; <b>T</b>ransference · <b>W</b>orking through · <b>T</b>ermination. Aim: make the unconscious conscious.</p>
+    </div>
+  </div>
+</section>
+<!-- ===================== TOPIC 2 ===================== -->
+<section class="topic" id="t2">
+  <div class="wrap">
+    <h2><span class="num">2</span>Brief psychotherapy</h2>
+    <p class="lead"><b>One line:</b> A planned, time-limited therapy that works on one agreed focus with an active, directive therapist. The deadline itself boosts motivation. The goal is to relieve symptoms and restore functioning, not to overhaul the whole personality.</p>
+
+    <figure class="fig">
+      <svg viewBox="0 0 640 150" role="img" aria-label="A fixed start, a mid-point review, and a fixed end, all on one focus">
+        <line x1="40" y1="80" x2="600" y2="80" stroke="#c4b5fd" stroke-width="3"/>
+        <circle cx="60" cy="80" r="10" fill="#7c3aed"/><text x="60" y="55" text-anchor="middle" font-size="13" fill="#4c1d95">Start</text>
+        <circle cx="320" cy="80" r="10" fill="#0369a1"/><text x="320" y="55" text-anchor="middle" font-size="13" fill="#075985">Mid-point review</text>
+        <circle cx="580" cy="80" r="10" fill="#be123c"/><text x="580" y="55" text-anchor="middle" font-size="13" fill="#9f1239">Fixed end</text>
+        <rect x="200" y="100" width="240" height="30" rx="8" fill="#dcfce7" stroke="#86efac"/>
+        <text x="320" y="120" text-anchor="middle" font-size="13" fill="#166534">one agreed focus throughout</text>
+      </svg>
+      <figcaption>One focus, a fixed start and end, and a review in the middle.</figcaption>
+    </figure>
+
+    <div class="box def"><span class="bt">Definition</span>A group of therapies sharing three features: a <b>planned time limit</b>, a <b>single focus</b>, and an <b>active therapist</b>. Roughly half of clients improve within about eight sessions. Models include Malan (focal), Sifneos (short-term anxiety-provoking), Mann (time-limited), Davanloo (intensive short-term dynamic), plus IPT and solution-focused therapy.</p></div>
+
+    <h3>Main focus / core idea</h3>
+    <p>The <b>time limit is itself the treatment</b>. Knowing there is a deadline concentrates the work, mobilises motivation, and guards against drifting into dependency. Everything stays tied to <b>one agreed theme</b>, and the therapist stays active, directive and selective.</p>
+
+    <h3>Key concepts (explained)</h3>
+    <ul>
+      <li><b>Therapeutic time limit.</b> A set, agreed number of sessions is not just an administrative detail — it is treated as an active ingredient. Knowing the clock is running stops both client and therapist from drifting and pushes them to get down to the real issue quickly. For example, a client who might have circled a problem for months in open-ended therapy tends to raise the hardest thing much sooner when both of them know there are only twelve sessions. The deadline also keeps the client's own resources in the foreground rather than fostering long-term dependency on the therapist.</li>
+      <li><b>Focal formulation.</b> <span class="glt">Focal formulation</span> <span class="gl">(picking one central theme — a recurring relationship pattern, a current loss, or an unresolved conflict — and sticking to it)</span> is the organising move of the whole therapy. Early on, therapist and client agree on a single clear focus, and everything afterwards is tied back to it. For example, if the agreed focus is "difficulty asserting needs since a divorce", the therapist keeps gently steering the work back there rather than following every new topic the client brings each week. This is what lets a short therapy go deep rather than wide.</li>
+      <li><b>IPT's four problem areas.</b> Interpersonal therapy assumes that current symptoms are tangled up with a current relationship difficulty, and it sorts these into four types: grief (a loss not fully mourned), role disputes (an ongoing conflict with a significant person), role transitions (struggling to adjust to a new life situation such as retirement or parenthood), and interpersonal deficits (a long pattern of thin or unsatisfying relationships). The therapist picks the one that fits best and makes it the focus, which immediately gives a short therapy a clear target.</li>
+      <li><b>Small change spreads.</b> Brief work rests on the optimistic assumption that one small, well-chosen shift can set off a chain of larger changes once the client is back in their normal life. For example, helping a withdrawn client manage a single difficult conversation can rebuild enough confidence that they start reconnecting with others on their own. This is why the therapist aims for a realistic, focused win rather than trying to overhaul the whole personality.</li>
+    </ul>
+
+    <h3>Goals</h3>
+    <p>The goals are deliberately modest and practical: resolve the one agreed focal problem, relieve the presenting symptoms, and get the person functioning again in daily life — back to work, study, relationships or routine. Along the way the therapy often teaches a transferable skill (such as a way of handling conflict or naming feelings) that the client can keep using afterwards. What it explicitly does <b>not</b> aim at is a complete reworking of the personality; that restraint is exactly what keeps the therapy short and achievable.</p>
+
+    <h3>Techniques</h3>
+    <ul>
+      <li><b>Focused interpretation and selective attention.</b> The therapist actively keeps the session on the agreed focus and gently lets side-topics go. In practice this means warmly acknowledging a new issue the client raises but then guiding the conversation back to the central theme, so the limited time is not scattered across many problems.</li>
+      <li><b>Gentle challenge of defences and use of positive transference.</b> Because time is short, the therapist does not wait passively; they gently question avoidance and encourage the client while the client's hopeful, positive feelings toward a helpful therapist carry the work along. The challenge stays tactful and supportive rather than confrontational.</li>
+      <li><b>Solution-focused tools.</b> These shift attention from the problem to the solution. The <span class="glt">miracle question</span> <span class="gl">("if you woke up and the problem was gone, what would be different?")</span> helps the client picture a concrete goal and the first small signs of it. <b>Scaling questions</b> ("on a scale of 0 to 10, where are you today, and what would move you up one point?") turn vague distress into a measurable next step. Spotting <b>exceptions</b> (times the problem was absent or milder) shows the client they already have part of the solution, and <b>complimenting strengths</b> builds the confidence and momentum a short therapy needs.</li>
+    </ul>
+
+    <h3>Process / stages</h3>
+    <ol>
+      <li><b>Assessment &amp; selection.</b> Because the therapy is short and demanding, careful selection matters. Sifneos' criteria look for a client with a clear, specific complaint, at least one meaningful relationship in the past (showing they can connect), psychological-mindedness, genuine motivation, and the ability to tolerate the anxiety the work stirs up. A contract is then agreed — typically 6–20 sessions (often 12–16) — with a <b>fixed end date set right at the start</b>, so both sides know exactly how much time they have.</li>
+      <li><b>Active middle phase.</b> The therapist works energetically on the agreed focus, keeping each session on track and using a <b>mid-point review</b> to check progress and, if needed, sharpen the focus. The pace is faster and more directive than in open-ended therapy.</li>
+      <li><b>Explicit termination.</b> Unlike long therapy, ending is talked about from day one, so the client is never surprised by it and can use the approaching deadline as motivation. A booster session or follow-up may be arranged to consolidate gains.</li>
+    </ol>
+
+    <h3>Indications &amp; current status</h3>
+    <p><b>Who it suits and why:</b> it works best for acute or focal problems — a single clear difficulty in an otherwise reasonably functioning person — such as adjustment disorders, mild-to-moderate depression and anxiety, grief, and life crises, provided the client is motivated and can tolerate the fast pace. These are exactly the situations where one focused piece of work can give a real return. <b>Who to avoid or adapt for, and why:</b> it is a weak fit for chronic, multi-problem or severe high-risk cases, because a single short focus cannot hold the complexity, and the fixed ending may leave such clients unsupported; they usually need longer-term or more containing approaches. <b>Evidence in plain terms:</b> the base is strong for IPT and brief CBT, and supportive for short-term psychodynamic and solution-focused work. For depression, anxiety and adjustment problems, brief therapy is often found to be about as effective as longer therapy, which is a large part of why it has become standard in primary care, student counselling and telehealth, where time and resources are limited.</p>
+
+    <div class="box warn"><span class="bt">⭐ Must-write points for the answer</span>
+      <ul>
+        <li>Three shared features: time limit, single focus, active therapist.</li>
+        <li>The time limit is therapeutic — it mobilises motivation.</li>
+        <li>Careful patient selection (Sifneos' criteria).</li>
+        <li>Fixed end date set at the start; termination discussed from session one.</li>
+        <li>Aim = relieve symptoms and restore functioning, not full personality change.</li>
+      </ul>
+    </div>
+
+    <div class="box info"><span class="bt">How to remember &amp; write this answer</span>
+      <p>Open by naming the three shared features, then explain <i>why</i> the time limit helps. Give selection criteria and the fixed end date as the "procedure" marks. Use <b>FAST</b> to structure the whole answer: Focus, Active therapist, Selection, Time limit.</p>
+    </div>
+
+    <div class="mn"><span class="mt">Mnemonic</span>
+      <div class="word">FAST</div>
+      <p><b>F</b>ocus (one theme) · <b>A</b>ctive/directive therapist · <b>S</b>election of suitable clients · <b>T</b>ime limit set in advance.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TOPIC 3 ===================== -->
+<section class="topic" id="t3">
+  <div class="wrap">
+    <h2><span class="num">3</span>Humanistic psychotherapy</h2>
+    <p class="lead"><b>One line:</b> The "third force" in psychology. It trusts that every person has an inborn drive to grow, centres on their own experience and free will, treats the whole person, and relies on a genuine human relationship — not technique — as the main agent of change.</p>
+
+    <figure class="fig">
+      <svg viewBox="0 0 520 260" role="img" aria-label="Maslow's hierarchy of needs as a pyramid">
+        <polygon points="260,20 500,240 20,240" fill="#faf5ff" stroke="#c4b5fd"/>
+        <line x1="92" y1="196" x2="428" y2="196" stroke="#c4b5fd"/>
+        <line x1="130" y1="152" x2="390" y2="152" stroke="#c4b5fd"/>
+        <line x1="168" y1="108" x2="352" y2="108" stroke="#c4b5fd"/>
+        <line x1="206" y1="64" x2="314" y2="64" stroke="#c4b5fd"/>
+        <text x="260" y="228" text-anchor="middle" font-size="12" fill="#4c1d95">Physiological</text>
+        <text x="260" y="182" text-anchor="middle" font-size="12" fill="#4c1d95">Safety</text>
+        <text x="260" y="138" text-anchor="middle" font-size="12" fill="#4c1d95">Love / belonging</text>
+        <text x="260" y="94" text-anchor="middle" font-size="12" fill="#4c1d95">Esteem</text>
+        <text x="260" y="50" text-anchor="middle" font-size="11" fill="#4c1d95">Self-actualisation</text>
+      </svg>
+      <figcaption>Maslow's hierarchy: blocked growth needs show up as distress.</figcaption>
+    </figure>
+
+    <div class="box def"><span class="bt">Definition</span>An approach that trusts the person's capacity for <b>growth, self-direction and self-actualisation</b>, and treats the quality of the relationship as central <span class="cite">(paraphrased, APA Dictionary)</span>. It arose as the "third force" (after psychoanalysis and behaviourism), led by Maslow, Rogers, May, Frankl and Perls.</p></div>
+
+    <h3>Main focus / core idea</h3>
+    <p>People are seen as basically good and growth-oriented. The engine is the <span class="glt">actualising tendency</span> <span class="gl">(an inborn drive pushing every person toward growth and fulfilment)</span>. The therapist's job is to remove the blocks so this natural drive can flow again.</p>
+
+    <h3>Key concepts (explained)</h3>
+    <ul>
+      <li><b>Subjective experience &amp; free will.</b> Humanistic therapy insists that the only reality worth working with is the person's own <span class="glt">phenomenological field</span> <span class="gl">(how the world looks and feels from inside their own experience)</span>. The therapist does not argue about what is "really" true; they try to understand how it genuinely seems to the client here and now. Tied to this is a belief in free will: the person is not just pushed around by past causes or conditioning but can choose, and is therefore responsible for the life they build. For example, two people can lose the same job, but what matters therapeutically is the very different meaning each one makes of it.</li>
+      <li><b>Holism.</b> The person is treated as a single, whole, integrated being rather than being broken into a symptom, a diagnosis or a set of parts. You cannot understand one piece of a person without the whole. In practice this means the therapist is interested in the client's values, relationships, hopes and body-sense, not only in the complaint that brought them in, because distress in one area reflects the state of the whole person.</li>
+      <li><b>Conditions of worth.</b> <span class="glt">Conditions of worth</span> <span class="gl">(feeling valued only when you meet other people's standards)</span> are seen as the root of most distress. As children we need love, so if that love is given only when we behave, achieve or please, we learn to disown the parts of ourselves that others disapprove of. For example, a child praised only for being "cheerful and helpful" may grow into an adult who cannot admit to anger or need, and this gap between the real self and the acceptable self is what causes anxiety and emptiness. Therapy works by offering acceptance with no such conditions attached, so the person can reconnect with their true experience.</li>
+    </ul>
+
+    <h3>Goals</h3>
+    <p>The overall direction is movement toward <b>self-actualisation</b> — becoming more fully and freely oneself. Concretely this means greater self-awareness (knowing what one actually feels and wants), self-acceptance (being at peace with the whole of oneself, flaws included), authenticity (living from one's own values rather than others' expectations), responsibility (owning one's choices) and ongoing growth. The therapist does not set a fixed end-point for the client; the aim is to free the person's own inner compass so they can keep growing long after therapy ends.</p>
+
+    <h3>Techniques</h3>
+    <p>A defining feature is that <b>technique is deliberately secondary — the relationship itself is the main agent of change</b>. The therapist's job is less to "do" clever things and more to <i>be</i> a certain way: genuine, deeply accepting and empathically present. What this looks like in the room is empathic listening (reflecting back the feeling underneath the words so the client feels truly understood), unconditional acceptance (prizing the client without judging), and a non-directive, client-led stance where the therapist follows rather than steers. For example, instead of giving advice when a client describes a dilemma, the therapist might say, "It sounds like part of you longs to leave and part of you is terrified of it" — helping the client hear their own experience more clearly. More experiential forms add gentle focusing on the bodily "felt sense" or chair work to deepen contact with feeling.</p>
+
+    <h3>Process / stages</h3>
+    <p>There are no fixed therapist-set stages, because imposing a rigid sequence would contradict the whole approach; the process is <b>client-led and unfolds in its own order</b>. What reliably happens is this: the therapist's steady genuineness and acceptance gradually lower the client's defences, and as the client feels safer they dare to explore feelings they had kept hidden. For example, a client who starts out talking only about practical problems may, over time, risk touching on grief or anger they had never admitted. Self-exploration deepens naturally, the real self and the experienced self move closer together, and change follows from that increasing honesty rather than from any instruction by the therapist.</p>
+
+    <h3>Indications &amp; current status</h3>
+    <p><b>Who it suits and why:</b> it fits a wide range of mild-to-moderate distress — identity and relationship problems, depression, anxiety — and is especially well matched to people who are seeking personal growth or who have been damaged by harsh judgement and most need an accepting, non-judging relationship. <b>Who to avoid or adapt for, and why:</b> on its own it is a weak fit for severe psychosis, or for situations where the client urgently needs structured skills or active crisis management, because its non-directive stance may leave such clients without the direction they need; here it is usually combined with more structured help. <b>Evidence in plain terms:</b> Elliott and colleagues' meta-analyses report large and stable gains, broadly on a par with CBT, and the approach lives on in modern evidence-based forms such as emotion-focused therapy and motivational interviewing. The main criticisms are that its concepts are vague, hard to measure, and perhaps over-optimistic about human nature.</p>
+
+    <div class="box warn"><span class="bt">⭐ Must-write points for the answer</span>
+      <ul>
+        <li>"Third force" reacting against determinism and mechanism.</li>
+        <li>Actualising tendency — inborn drive toward growth.</li>
+        <li>Distress = growth blocked by conditions of worth / losing touch with one's own experience.</li>
+        <li>Relationship, not technique, is the main agent of change.</li>
+        <li>Holism, free will, here-and-now, self-actualisation.</li>
+      </ul>
+    </div>
+
+    <div class="box info"><span class="bt">How to remember &amp; write this answer</span>
+      <p>Open with "third force" and the actualising tendency — that one sentence frames everything. Then explain conditions of worth as the cause of distress, and stress that the <i>relationship</i> heals. Use <b>GROWTH</b> to lay out the points in order.</p>
+    </div>
+
+    <div class="mn"><span class="mt">Mnemonic</span>
+      <div class="word">GROWTH</div>
+      <p><b>G</b>rowth-oriented · <b>R</b>elationship as agent · <b>O</b>wn actualising tendency · <b>W</b>hole person · <b>T</b>hird force · <b>H</b>ere-and-now.</p>
+    </div>
+  </div>
+</section>
+<!-- ===================== TOPIC 4 ===================== -->
+<section class="topic" id="t4">
+  <div class="wrap">
+    <h2><span class="num">4</span>Existential psychotherapy</h2>
+    <p class="lead"><b>One line:</b> It helps people face the unavoidable facts of being human — death, freedom, isolation and meaninglessness — honestly, turning the anxiety this brings into a more authentic, responsible and meaningful life.</p>
+
+    <figure class="fig">
+      <svg viewBox="0 0 640 170" role="img" aria-label="Four ultimate concerns lead to anxiety, facing it leads to authentic living">
+        <rect x="20" y="60" width="170" height="50" rx="10" fill="#ede9fe" stroke="#c4b5fd"/>
+        <text x="105" y="82" text-anchor="middle" font-size="12" fill="#4c1d95">Death · Freedom</text>
+        <text x="105" y="99" text-anchor="middle" font-size="12" fill="#4c1d95">Isolation · Meaning</text>
+        <rect x="235" y="60" width="150" height="50" rx="10" fill="#ffedd5" stroke="#fdba74"/>
+        <text x="310" y="90" text-anchor="middle" font-size="13" fill="#9a3412">Existential anxiety</text>
+        <rect x="430" y="60" width="190" height="50" rx="10" fill="#dcfce7" stroke="#86efac"/>
+        <text x="525" y="82" text-anchor="middle" font-size="12" fill="#166534">Face it honestly →</text>
+        <text x="525" y="99" text-anchor="middle" font-size="12" fill="#166534">authentic living</text>
+        <line x1="190" y1="85" x2="233" y2="85" stroke="#7c3aed" stroke-width="2" marker-end="url(#a4)"/>
+        <line x1="385" y1="85" x2="428" y2="85" stroke="#7c3aed" stroke-width="2" marker-end="url(#a4)"/>
+        <defs><marker id="a4" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#7c3aed"/></marker></defs>
+      </svg>
+      <figcaption>Yalom's four ultimate concerns → anxiety → facing it → authentic living.</figcaption>
+    </figure>
+
+    <div class="box def"><span class="bt">Definition</span>Therapy built on <span class="glt">four ultimate concerns</span> <span class="gl">(the unavoidable givens of existence — death, freedom, isolation, meaninglessness — that naturally provoke anxiety)</span>. Frankl's logotherapy adds the <span class="glt">will to meaning</span> <span class="gl">(the drive to find meaning, even in unavoidable suffering)</span>. Clinically developed by Binswanger, Boss, May, Frankl and Yalom.</p></div>
+
+    <h3>Main focus / core idea</h3>
+    <p>This anxiety cannot be "cured away" because it comes from simply being alive. The idea <span class="glt">existence precedes essence</span> <span class="gl">(we are not born with a fixed nature; we create who we are through our choices)</span> leads to the central aim: <span class="glt">authenticity</span> <span class="gl">(living by your own values and owning your choices)</span> instead of <span class="glt">bad faith</span> <span class="gl">(hiding from freedom by pretending you have no choice)</span>.</p>
+
+    <h3>Key concepts (explained)</h3>
+    <ul>
+      <li><b>The four givens.</b> These are the unavoidable facts of simply being alive, and each one naturally produces anxiety. <b>Death</b> — we know we and everyone we love will die, which can either paralyse us or push us to live more fully. <b>Freedom</b> — we are far freer than we like to admit, and with that freedom comes the heavy burden of responsibility for how our life turns out. <b>Isolation</b> — no matter how close we get to others, we each enter and leave life alone, and no one can fully know our inner world. <b>Meaninglessness</b> — the universe hands us no ready-made purpose, so we must create our own. For example, a client frozen by a big career decision is often really wrestling with freedom and responsibility: if it is truly their choice, they have no one else to blame.</li>
+      <li><b>Existential vacuum.</b> <span class="glt">Existential vacuum</span> <span class="gl">(an inner emptiness and boredom from having lost a sense of meaning)</span> is Frankl's description of the modern complaint of feeling that "nothing matters". He called the distress that grows out of it a "noogenic neurosis" — a problem born not of childhood conflict but of a lost sense of purpose. For example, a person who has achieved every outward goal yet feels flat and empty is in an existential vacuum, and the cure is not symptom removal but finding something worth living for.</li>
+      <li><b>Being-in-the-world.</b> Drawn from Heidegger, this is the idea that a person can never be understood as a separate object but only together with their world and their relationships. Who you are is bound up with the situation you are living in. In therapy this means the therapist explores the client's whole lived world — their relationships, their body, their sense of time and future — rather than studying them as an isolated case.</li>
+    </ul>
+
+    <h3>Goals</h3>
+    <p>The aim is not to remove the anxiety of existence, because that anxiety is a normal part of being alive and cannot honestly be "cured away". Instead the goals are to help the person <b>face life's givens honestly</b> rather than hide from them, to increase awareness of the freedom and responsibility they actually have, to live more <b>authentically</b> (by their own values instead of borrowed ones), to find or create <b>meaning</b>, and above all to be able to <b>act even while feeling anxious</b>. Courage here means moving forward despite fear, not waiting for the fear to disappear.</p>
+
+    <h3>Techniques</h3>
+    <p>The work is mostly relational and exploratory rather than a set of fixed techniques. The therapist uses <span class="glt">phenomenological exploration</span> <span class="gl">(carefully drawing out how the client actually experiences their world, without rushing to explain or judge it)</span>, deliberately bracketing their own assumptions so they can see through the client's eyes. They use Socratic dialogue (open questions that help the client examine their own beliefs and choices), the honest here-and-now relationship as a live example of how the client meets another person, and "I" statements that return ownership and responsibility to the client. For example, gently reframing "I can't leave this job" into "I am choosing to stay, and here is why" confronts the person with their own freedom. Logotherapy adds three named techniques:</p>
+    <ul>
+      <li><b>Paradoxical intention.</b> The client is encouraged to deliberately try to do, or wish for, the very thing they fear, which breaks the vicious circle of anxious anticipation. For example, someone terrified of sweating in public is told to try to sweat as much as possible — and because trying hard to force it is almost impossible, the dread loses its grip.</li>
+      <li><b>Dereflection.</b> The client is helped to stop watching and worrying about themselves and instead turn their attention outward onto a meaningful activity or another person. This is especially useful where self-monitoring is itself the problem, such as in some sleep or sexual difficulties, where trying hard only makes things worse.</li>
+      <li><b>Attitudinal modification.</b> When a situation genuinely cannot be changed — an incurable illness, an irreversible loss — the therapist helps the client change their <i>stance</i> toward it and find meaning in how they bear it. Frankl's point was that even in unavoidable suffering we keep the freedom to choose our attitude.</li>
+    </ul>
+
+    <h3>Process / stages</h3>
+    <p>The process is collaborative and exploratory rather than technique-driven, but it tends to move through a loose sequence. First the therapist builds a genuine, equal relationship and patiently explores the client's worldview and the way they are living. Next they help the client notice where they are avoiding the givens or living inauthentically — for example, hiding behind "I had no choice". Then awareness of freedom and responsibility is deepened, often anxiously, as the client realises how much of their life is actually their own to shape. Finally this leads to committed action: choosing, acting and taking ownership of a more authentic and meaningful way of living.</p>
+
+    <h3>Indications &amp; current status</h3>
+    <p><b>Who it suits and why:</b> it is especially valuable for people facing existential crises — major life transitions, midlife questioning, bereavement — and for those living with terminal or chronic illness, where questions of death, freedom and meaning are front and centre and cannot be reasoned away. It also fits depression that is marked by emptiness and loss of purpose rather than by, say, a specific phobia. <b>Who to avoid or adapt for, and why:</b> it is a poor first choice in acute psychosis, or when the client simply wants fast symptom control, because its abstract, reflective style does not give the structure and containment those situations need. <b>Evidence in plain terms:</b> the research base is moderate. Meaning-centred interventions have been shown to improve sense of meaning, mood and quality of life, particularly in cancer care. The main limitation for research is that the core concepts are abstract and hard to measure cleanly.</p>
+
+    <div class="box warn"><span class="bt">⭐ Must-write points for the answer</span>
+      <ul>
+        <li>Four ultimate concerns: death, freedom, isolation, meaninglessness.</li>
+        <li>Existence precedes essence → authenticity vs bad faith.</li>
+        <li>Psychopathology = inauthentic living + loss of meaning (existential vacuum).</li>
+        <li>Frankl's three logotherapy techniques: paradoxical intention, dereflection, attitudinal modification.</li>
+        <li>Goal = face the givens, live authentically and meaningfully, act despite anxiety.</li>
+      </ul>
+    </div>
+
+    <div class="box info"><span class="bt">How to remember &amp; write this answer</span>
+      <p>Open by listing the four givens (use <b>DFIM</b>). State that the anxiety is normal and cannot be cured away. Lead the technique section with Frankl's three named techniques — examiners look for those. Close with meaning and authenticity as the goal.</p>
+    </div>
+
+    <div class="mn"><span class="mt">Mnemonic</span>
+      <div class="word">DFIM</div>
+      <p><b>D</b>eath · <b>F</b>reedom · <b>I</b>solation · <b>M</b>eaninglessness — the four ultimate concerns.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TOPIC 5 ===================== -->
+<section class="topic" id="t5">
+  <div class="wrap">
+    <h2><span class="num">5</span>Gestalt therapy</h2>
+    <p class="lead"><b>One line:</b> An experiential, here-and-now therapy (Fritz and Laura Perls) in which <b>awareness itself is the cure</b>. The therapist sets up experiments instead of giving interpretations, so the client can finish old unfinished business and reown the split-off parts of themselves to become whole.</p>
+
+    <figure class="fig">
+      <svg viewBox="0 0 640 140" role="img" aria-label="Gestalt contact cycle">
+        <rect x="10" y="50" width="90" height="44" rx="9" fill="#ede9fe" stroke="#c4b5fd"/><text x="55" y="77" text-anchor="middle" font-size="12" fill="#4c1d95">Sensation</text>
+        <rect x="115" y="50" width="90" height="44" rx="9" fill="#ede9fe" stroke="#c4b5fd"/><text x="160" y="77" text-anchor="middle" font-size="12" fill="#4c1d95">Awareness</text>
+        <rect x="220" y="50" width="100" height="44" rx="9" fill="#ede9fe" stroke="#c4b5fd"/><text x="270" y="77" text-anchor="middle" font-size="12" fill="#4c1d95">Mobilisation</text>
+        <rect x="335" y="50" width="80" height="44" rx="9" fill="#ede9fe" stroke="#c4b5fd"/><text x="375" y="77" text-anchor="middle" font-size="12" fill="#4c1d95">Action</text>
+        <rect x="430" y="50" width="90" height="44" rx="9" fill="#dcfce7" stroke="#86efac"/><text x="475" y="77" text-anchor="middle" font-size="12" fill="#166534">Contact</text>
+        <rect x="535" y="50" width="95" height="44" rx="9" fill="#ffe4e6" stroke="#fda4af"/><text x="582" y="77" text-anchor="middle" font-size="12" fill="#9f1239">Withdrawal</text>
+      </svg>
+      <figcaption>The contact cycle; blocks ("interruptions") stop it completing.</figcaption>
+    </figure>
+
+    <div class="box def"><span class="bt">Definition</span>An experiential therapy focused on <b>present experience and awareness</b>, integrating feelings, perceptions and actions into a whole person <span class="cite">(paraphrased, APA Dictionary)</span>. Its <span class="glt">paradoxical theory of change</span> <span class="gl">(you change when you fully accept what you are, not when you try to force yourself to be something else)</span> is central.</p></div>
+
+    <h3>Main focus / core idea</h3>
+    <p>Work with the <b>what and how</b> of present experience, not the <b>why</b> of the past. Raising awareness is itself healing. The person and their environment form one <span class="glt">field</span> <span class="gl">(a single whole, so a person can only be understood together with their situation)</span>.</p>
+
+    <h3>Key concepts (explained)</h3>
+    <ul>
+      <li><b>Figure &amp; ground.</b> Borrowed from perception, this says that at any moment the strongest present need rises up as the "figure" that stands out, while everything else recedes into the "ground" or background. A healthy person naturally lets whatever needs attention become figure, meets it, and then lets it fade so the next need can emerge. For example, when you are thirsty, thirst becomes the figure and you get a drink; trouble starts when a need (such as unexpressed grief) cannot complete and stays stuck as a half-formed figure, blurring everything else.</li>
+      <li><b>Unfinished business.</b> <span class="glt">Unfinished business</span> <span class="gl">(unexpressed feelings from the past that keep intruding on the present)</span> is the central source of distress. Feelings such as resentment, grief or anger that were never fully expressed do not simply vanish; they linger and keep pulling at the person's attention. For example, someone who never got to say goodbye to a parent may keep feeling vaguely sad and unsettled for years, because that emotional business has never been closed.</li>
+      <li><b>Interruptions to contact.</b> These are the habitual ways people block healthy contact with their own needs or with others. <span class="glt">Introjection</span> <span class="gl">(swallowing others' rules whole)</span> is taking in beliefs without chewing them over, like living by a parent's "you must always be nice". <b>Projection</b> is putting your own disowned feeling onto someone else. <span class="glt">Retroflection</span> <span class="gl">(turning back onto yourself what you want to do to others)</span> is, for example, becoming self-critical or getting headaches instead of expressing anger outward. <b>Deflection</b> is dodging real contact with jokes or vagueness, and <b>confluence</b> is blurring the line between yourself and others so you lose your own position.</li>
+      <li><b>Top-dog vs under-dog.</b> This is the inner tug-of-war between the bossy, demanding "top-dog" full of "shoulds" and "musts", and the resisting, excuse-making "under-dog" that quietly sabotages. For example, the top-dog says "you should exercise every morning" and the under-dog agrees but never actually gets up. Gestalt makes this split audible, often by having each side literally speak in turn, so the person can stop the stalemate.</li>
+    </ul>
+
+    <h3>Goals</h3>
+    <p>The core goal is simply more <b>awareness</b>, because in Gestalt awareness is itself curative — once you fully notice what you are doing and feeling, change tends to follow on its own. Alongside this the therapy aims to help the client take <b>responsibility</b> for their own feelings and choices (rather than blaming outside forces), to <b>integrate split-off parts</b> of themselves that they have disowned, to <b>finish unfinished business</b> so old feelings stop intruding, and to move from leaning on the environment for support toward <b>self-support</b> — standing on their own feet emotionally.</p>
+
+    <h3>Techniques</h3>
+    <ul>
+      <li><b>Empty-chair work.</b> The signature Gestalt technique. The therapist places an empty chair opposite the client and asks them to imagine a significant person, or a disowned part of themselves, sitting in it and to speak directly to it. The client then switches chairs and answers back as that person or part, moving to and fro. For example, a client stuck in anger at a dead parent speaks their unsaid feelings to the empty chair, then sits in it and replies as the parent. Doing this out loud, in the present, surfaces the buried feeling and lets the unfinished business finally be completed, which just talking <i>about</i> it rarely achieves.</li>
+      <li><b>Exaggeration and reversal.</b> The therapist asks the client to amplify a small gesture, tone or phrase (a tapping foot, a nervous laugh) until its hidden meaning becomes obvious, or to try the exact opposite of how they usually act, to discover a denied side of themselves. For example, a habitually meek client might be asked to speak as the most arrogant person in the room.</li>
+      <li><b>Staying with the feeling.</b> When a client wants to flee a difficult emotion, the therapist gently invites them to stay with it a little longer rather than escaping into talk or distraction, so the feeling can be fully experienced and completed instead of being cut off again.</li>
+      <li><b>"I" language.</b> The therapist encourages the client to say "I" instead of "it" or "you", and "I won't" instead of "I can't", because the wording itself shifts the person from being a passive victim to owning their experience and their choices.</li>
+      <li><b>Dream work.</b> Rather than interpreting dreams, the therapist treats every element of a dream as a disowned piece of the dreamer and asks the client to "become" and speak as each part. For example, a client dreaming of a locked door might play the door and discover what in themselves feels shut off.</li>
+    </ul>
+
+    <h3>Process / stages</h3>
+    <p>Gestalt does not follow a rigid stage plan, but the work moves through a recognisable flow. It begins by building genuine contact and an honest <span class="glt">I-Thou relationship</span> <span class="gl">(a genuine, equal, present-moment meeting between two people)</span> in which the therapist is a real person, not a distant expert. From there the work centres on awareness in the here-and-now, supported by live experiments such as empty-chair or exaggeration that let the client discover something rather than be told it. This builds toward integration and closure, as split-off parts are reowned and unfinished business is completed. Throughout, the therapist stays authentic, present and non-interpretative, offering experiments and honest feedback rather than explanations of the past.</p>
+
+    <h3>Indications &amp; current status</h3>
+    <p><b>Who it suits and why:</b> it works well for anxiety, depression, interpersonal and psychosomatic problems, and especially for trauma-related unfinished business, because its experiential methods reach feelings that purely talking therapies often leave untouched. It suits clients who can tolerate emotional intensity and are ready to engage actively. <b>Who to avoid or adapt for, and why:</b> fragile or psychotic clients need caution, because the confrontational, emotionally arousing experiments can overwhelm someone whose hold on reality or self-control is shaky; with them the methods must be toned down or avoided. <b>Evidence in plain terms:</b> the direct research base is limited but growing, and it is strongest where Gestalt lives on inside emotion-focused therapy — here Greenberg has shown that empty-chair work for unfinished business is genuinely effective.</p>
+
+    <div class="box warn"><span class="bt">⭐ Must-write points for the answer</span>
+      <ul>
+        <li>Here-and-now, awareness is curative, the "what/how" not the "why".</li>
+        <li>Paradoxical theory of change — accept what you are to change.</li>
+        <li>Unfinished business and interruptions to contact.</li>
+        <li>Empty-chair technique and "I" language.</li>
+        <li>Goal = awareness, responsibility, integration, self-support.</li>
+      </ul>
+    </div>
+
+    <div class="box info"><span class="bt">How to remember &amp; write this answer</span>
+      <p>Open with "awareness is the cure" and the here-and-now focus. Then explain unfinished business, name the empty-chair technique (the signature of Gestalt), and the paradoxical theory of change. Use <b>AWARE</b> to march through the points.</p>
+    </div>
+
+    <div class="mn"><span class="mt">Mnemonic</span>
+      <div class="word">AWARE</div>
+      <p><b>A</b>wareness curative · <b>W</b>hat-and-how not why · <b>A</b>ppropriate experiments / empty chair · <b>R</b>esponsibility &amp; "I" language · <b>E</b>nding unfinished business.</p>
+    </div>
+  </div>
+</section>
+<!-- ===================== TOPIC 6 ===================== -->
+<section class="topic" id="t6">
+  <div class="wrap">
+    <h2><span class="num">6</span>Person-centred (client-centred) therapy</h2>
+    <p class="lead"><b>One line:</b> Carl Rogers' non-directive approach. When the therapist offers three core conditions — genuineness, unconditional positive regard and empathy — the client's own growth drive is freed, and the client (the real expert on themselves) directs their own change.</p>
+
+    <figure class="fig">
+      <svg viewBox="0 0 640 160" role="img" aria-label="Three core conditions free the actualising tendency leading to client-directed change">
+        <rect x="20" y="45" width="200" height="70" rx="10" fill="#ede9fe" stroke="#c4b5fd"/>
+        <text x="120" y="70" text-anchor="middle" font-size="12" fill="#4c1d95">Congruence</text>
+        <text x="120" y="88" text-anchor="middle" font-size="12" fill="#4c1d95">Unconditional regard</text>
+        <text x="120" y="106" text-anchor="middle" font-size="12" fill="#4c1d95">Empathy</text>
+        <rect x="255" y="55" width="160" height="50" rx="10" fill="#dcfce7" stroke="#86efac"/>
+        <text x="335" y="77" text-anchor="middle" font-size="12" fill="#166534">Frees the</text>
+        <text x="335" y="94" text-anchor="middle" font-size="12" fill="#166534">actualising tendency</text>
+        <rect x="450" y="55" width="170" height="50" rx="10" fill="#e0f2fe" stroke="#7dd3fc"/>
+        <text x="535" y="85" text-anchor="middle" font-size="12" fill="#075985">Client-directed change</text>
+        <line x1="220" y1="80" x2="253" y2="80" stroke="#7c3aed" stroke-width="2" marker-end="url(#a6)"/>
+        <line x1="415" y1="80" x2="448" y2="80" stroke="#7c3aed" stroke-width="2" marker-end="url(#a6)"/>
+        <defs><marker id="a6" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#7c3aed"/></marker></defs>
+      </svg>
+      <figcaption>Three core conditions → actualising tendency freed → client-directed change.</figcaption>
+    </figure>
+
+    <div class="box def"><span class="bt">Definition</span>A non-directive therapy in which the therapist's <b>genuineness, unconditional positive regard and empathic understanding</b> foster the client's growth <span class="cite">(paraphrased, APA Dictionary)</span>. Rogers set out six "necessary and sufficient" conditions for change, grounded in the actualising tendency.</p></div>
+
+    <h3>Main focus / core idea</h3>
+    <p>Every person has a single inbuilt <span class="glt">actualising tendency</span> <span class="gl">(a drive toward growth and fulfilment)</span>. Problems come from <span class="glt">incongruence</span> <span class="gl">(a gap between the self-concept and actual experience, or between the real self and the ideal self)</span>, usually caused by <span class="glt">conditions of worth</span> <span class="gl">(feeling valued only when meeting other people's standards)</span>. Restoring congruence restores health.</p>
+
+    <h3>Key concepts (explained) — the three core conditions</h3>
+    <ul>
+      <li><b>Congruence (genuineness).</b> The therapist is real, honest and integrated in the relationship — what they feel inside matches what they show outside, and they are not hiding behind a professional mask or playing a role. This matters because clients can sense phoniness, and only a genuine therapist can build real trust. For example, a congruent therapist will quietly acknowledge their own confusion ("I'm not sure I'm following — can you help me understand?") rather than pretending to understand.</li>
+      <li><b>Unconditional positive regard.</b> The therapist accepts and prizes the client as a person with no strings attached — they do not withdraw warmth when the client says something ugly, weak or shameful. This directly counteracts the conditions of worth that caused the problem: having spent a lifetime feeling valued only when meeting others' standards, the client finally meets someone who accepts all of them. For example, a client who admits to a secret they expected to be judged for instead meets steady acceptance, and so begins to accept that part of themselves.</li>
+      <li><b>Empathy.</b> The therapist works hard to understand the client's inner world accurately, as if from the inside, and sensitively reflects that understanding back so the client feels deeply "gotten". This is more than sympathy or agreement; it is grasping the exact shade of the client's experience. For example, reflecting "it sounds like it wasn't just sad — there was a kind of relief mixed in that frightens you" shows the client their own feelings more clearly than they could see them alone.</li>
+    </ul>
+    <p>Alongside these sit the <span class="glt">organismic valuing process</span> <span class="gl">(a healthy person trusts their own direct experience to judge what is good for them)</span> and the aim of becoming a <b>fully functioning person</b> who is open to experience, lives in the present, and trusts themselves. Rogers' bold claim was that these three conditions, if genuinely present and received by the client, are "necessary and sufficient" — nothing more is needed for change.</p>
+
+    <h3>Goals</h3>
+    <p>The aim is to free the client's own growth so they move toward greater <b>congruence</b> (the gap between their real self and their ideal or shown self narrows), deeper <b>self-acceptance</b>, and an <span class="glt">internal locus of evaluation</span> <span class="gl">(judging by their own standards and felt experience rather than by what others think)</span>. As this happens, anxiety and defensiveness fall away and the person becomes more "fully functioning" — open, flexible, trusting their own experience and able to live more freely. The therapist does not aim the client at a fixed destination; they trust the client's own actualising tendency to choose the direction.</p>
+
+    <h3>Techniques</h3>
+    <p>Person-centred therapy is deliberately and strictly <b>non-directive</b>: the therapist does not diagnose, interpret, advise, reassure or lead, because doing so would place the therapist, not the client, in charge of the client's life. The client is trusted as the true expert on themselves. What the therapist offers instead are the core conditions expressed through a handful of skills — active and reflective listening, reflection of feeling (saying back the emotion underneath the words), paraphrasing, gentle clarification, and allowing silences so the client has room to go inward. For example, when a client asks "what should I do?", the person-centred therapist does not answer with advice but reflects, "you're really torn, and part of you wishes someone could just decide for you" — handing the responsibility back while staying warmly alongside. The power is in the relationship, not in any clever manoeuvre.</p>
+
+    <h3>Process / stages</h3>
+    <p>Rogers described change as a movement along a <b>seven-stage continuum</b>. At the early stages the client is rigid, talks about feelings as if they belonged to someone else, and stays remote from their own experience. As the core conditions take effect and the client feels safe, defences gradually lower: feelings are owned more fully, experienced more immediately, and finally flow freely and are trusted in the present moment. For example, a client who at first says "one just feels low sometimes" may, many sessions later, be able to say "I am furious right now and that's okay". Across this continuum self-exploration deepens and change becomes genuinely self-directed.</p>
+
+    <h3>Indications &amp; current status</h3>
+    <p><b>Who it suits and why:</b> it fits a wide range of mild-to-moderate emotional, identity and relationship problems, grief, adolescents, and student counselling, and it is especially helpful for people who have been judged or controlled and most need an accepting, non-judging space to find their own direction. <b>Who to avoid or adapt for, and why:</b> it is a weaker stand-alone choice for clients who actively want direct advice, for severe disorders, and for acute crises, because its non-directive stance may not supply the structure, safety-planning or active guidance those situations demand; in such cases it is usually blended with more directive help. <b>Evidence in plain terms:</b> Rogers was a pioneer of actually recording and studying therapy sessions, which was radical at the time. Elliott and colleagues find that empathy, positive regard and congruence correlate modestly but reliably with good outcomes across many kinds of therapy. The main criticism is the question of whether the three conditions are truly "sufficient" on their own, or merely necessary.</p>
+
+    <div class="box warn"><span class="bt">⭐ Must-write points for the answer</span>
+      <ul>
+        <li>Three core conditions: congruence, unconditional positive regard, empathy.</li>
+        <li>Actualising tendency freed by the right relationship.</li>
+        <li>Problem = incongruence from conditions of worth.</li>
+        <li>Strictly non-directive; client is the expert.</li>
+        <li>Goal = congruence + internal locus of evaluation + fully functioning person.</li>
+      </ul>
+    </div>
+
+    <div class="box info"><span class="bt">How to remember &amp; write this answer</span>
+      <p>The whole answer hangs on the three core conditions — define each in one line and you have the heart of it (<b>CUE</b>). Then explain incongruence as the cause and the actualising tendency as the engine. Stress "non-directive, client is the expert".</p>
+    </div>
+
+    <div class="mn"><span class="mt">Mnemonic</span>
+      <div class="word">CUE</div>
+      <p><b>C</b>ongruence · <b>U</b>nconditional positive regard · <b>E</b>mpathy — the three core conditions.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TOPIC 7 ===================== -->
+<section class="topic" id="t7">
+  <div class="wrap">
+    <h2><span class="num">7</span>Adlerian therapy (Individual Psychology)</h2>
+    <p class="lead"><b>One line:</b> Adler's approach sees the person as a whole, goal-directed and socially connected being. Problems are not illness but <b>discouragement and mistaken beliefs about life</b>. Therapy re-educates the client toward courage, social interest and useful contribution.</p>
+
+    <figure class="fig">
+      <svg viewBox="0 0 640 140" role="img" aria-label="Four Adlerian phases leading to social interest">
+        <rect x="10" y="50" width="130" height="46" rx="9" fill="#ede9fe" stroke="#c4b5fd"/><text x="75" y="78" text-anchor="middle" font-size="12" fill="#4c1d95">Relationship</text>
+        <rect x="160" y="50" width="150" height="46" rx="9" fill="#ede9fe" stroke="#c4b5fd"/><text x="235" y="78" text-anchor="middle" font-size="12" fill="#4c1d95">Lifestyle assessment</text>
+        <rect x="330" y="50" width="110" height="46" rx="9" fill="#ede9fe" stroke="#c4b5fd"/><text x="385" y="78" text-anchor="middle" font-size="12" fill="#4c1d95">Insight</text>
+        <rect x="460" y="50" width="170" height="46" rx="9" fill="#dcfce7" stroke="#86efac"/><text x="545" y="78" text-anchor="middle" font-size="12" fill="#166534">Reorientation</text>
+        <line x1="140" y1="73" x2="158" y2="73" stroke="#7c3aed" stroke-width="2"/><line x1="310" y1="73" x2="328" y2="73" stroke="#7c3aed" stroke-width="2"/><line x1="440" y1="73" x2="458" y2="73" stroke="#7c3aed" stroke-width="2"/>
+      </svg>
+      <figcaption>Four phases, with encouragement running through all of them.</figcaption>
+    </figure>
+
+    <div class="box def"><span class="bt">Definition</span>Individual Psychology sees the person as an <b>indivisible whole</b> whose behaviour is goal-directed and socially shaped. The key measure of mental health is <span class="glt">social interest</span> <span class="gl">(an inborn capacity and willingness to cooperate with and contribute to others)</span>. Founded by Adler; carried forward by Dreikurs, Mosak and Dinkmeyer.</p></div>
+
+    <h3>Main focus / core idea</h3>
+    <p>Behaviour is pulled toward a future goal — <span class="glt">teleology</span> <span class="gl">(explaining behaviour by its goal rather than its cause)</span> and <span class="glt">fictional finalism</span> <span class="gl">(a self-created guiding goal we move toward)</span>. We all start with <span class="glt">inferiority feelings</span> <span class="gl">(a sense of being small or not enough)</span> that spur us to strive; this can be healthy ambition or a self-defeating complex.</p>
+
+    <h3>Key concepts (explained)</h3>
+    <ul>
+      <li><b>Lifestyle.</b> <span class="glt">Lifestyle</span> <span class="gl">(the person's unique pattern of beliefs and goals, formed around age five from the family setup and birth order)</span> is each person's overall "style of living" — their consistent, often unconscious strategy for finding significance and belonging. It is laid down early as the child draws conclusions about themselves, others and the world, and then everything afterwards tends to confirm it. For example, a child who decides "I only matter when I'm the best" may grow into an adult who drives themselves relentlessly and crumbles at any ordinary failure.</li>
+      <li><b>Private logic vs common sense.</b> <span class="glt">Private logic</span> <span class="gl">(idiosyncratic, mistaken beliefs that only make sense to that person — their "basic mistakes")</span> is the hidden reasoning behind self-defeating behaviour. It feels completely logical from the inside even though it clashes with the shared "common sense" of cooperative living. For example, "if I let anyone get close, I will be hurt, so I must keep everyone at arm's length" is private logic — it protects the person but also keeps them lonely. Therapy's job is to gently bring this logic into the open and correct it.</li>
+      <li><b>Social interest.</b> This is the yardstick of mental health for Adler. The healthier the person, the more they feel connected to others and want to contribute to the common good; the more troubled, the more self-absorbed and discouraged they become. For example, a depressed person is often turned painfully inward, and recovery shows up partly as renewed care for people and tasks outside themselves.</li>
+      <li><b>Mistaken goals.</b> Dreikurs identified four goals that sit behind children's misbehaviour, each a discouraged bid for belonging: <b>attention</b> ("notice me"), <b>power</b> ("you can't make me"), <b>revenge</b> ("I'll hurt you back"), and <b>display of inadequacy</b> ("don't expect anything of me — give up on me"). Spotting which goal a child is pursuing tells the adult how to respond helpfully instead of feeding the pattern. For example, a child seeking attention through nagging is best helped by attention given freely at other times, not by scolding that rewards the nagging.</li>
+    </ul>
+
+    <h3>Goals</h3>
+    <p>Because Adler saw problems as discouragement and mistaken beliefs rather than illness, therapy is really <b>re-education</b>. The goals are to increase social interest and a felt sense of belonging, to bring the mistaken beliefs of the private logic into awareness and correct them, to build courage and self-worth so the person dares to act imperfectly, and to redirect energy away from self-centred striving toward useful contribution to others. In short, it helps the person move from "how do I protect my fragile significance?" to "how can I belong and contribute?"</p>
+
+    <h3>Techniques</h3>
+    <ul>
+      <li><b>Encouragement.</b> This is the central technique and runs through the whole therapy. The therapist consistently builds the client's courage and faith in themselves, focusing on effort, strengths and progress rather than on faults. For example, praising a timid client for simply attempting a feared conversation, regardless of how it went, builds the courage to try again.</li>
+      <li><b>Acting "as if".</b> The client is invited to behave as though they already had the quality or confidence they lack — to try on the role for a while. For example, a shy person acts "as if" they were socially at ease for one party, and often discovers they can do more than their self-image allowed.</li>
+      <li><b>"Spitting in the client's soup".</b> The therapist gently names the hidden payoff of a behaviour so that it loses its appeal. For example, pointing out kindly that a person's constant self-sacrifice earns them a sense of moral superiority makes it harder to keep doing it so innocently; the "soup" still looks the same but no longer tastes as good.</li>
+      <li><b>Catching oneself, the push-button technique, and homework.</b> "Catching oneself" trains the client to notice a self-defeating pattern just as it starts, so they can choose differently. The "push-button" technique has the client deliberately recall a happy memory and then a distressing one to feel how their own thoughts "switch" their mood, showing they have more control than they believed. Homework tasks then carry the new learning out into real life between sessions.</li>
+    </ul>
+
+    <h3>Process / stages (the four phases)</h3>
+    <ol>
+      <li><b>Relationship.</b> The therapist builds an equal, respectful, collaborative partnership. The tone of equality is itself therapeutic for a discouraged person and sets up the trust needed for honest exploration.</li>
+      <li><b>Lifestyle assessment.</b> The therapist explores the family constellation, birth order and especially <span class="glt">early recollections</span> <span class="gl">(the earliest specific memories, read as clues to current beliefs)</span>. Because we unconsciously remember the scenes that fit our view of life, these early memories reveal the private logic. For example, an earliest memory of being left out may mirror an adult conviction of not belonging.</li>
+      <li><b>Insight.</b> The therapist gently and warmly discloses the mistaken beliefs and private logic that the assessment has revealed, helping the client see the pattern they have been living out without realising it.</li>
+      <li><b>Reorientation.</b> Insight is turned into action. Driven by continual encouragement, the client experiments with new, more cooperative beliefs and behaviours and builds the courage to keep them going.</li>
+    </ol>
+
+    <h3>Indications &amp; current status</h3>
+    <p><b>Who it suits and why:</b> its optimistic, educational, relationship-based style fits a broad range — children and adolescents, parent education, family therapy, school and career counselling, and group work — and because it centres on belonging and contribution it travels well to collectivist cultures. It suits problems of living and discouragement rather than severe illness. <b>Who to avoid or adapt for, and why:</b> severe psychopathology needs adaptation, since the gentle re-educational approach is not by itself enough to contain, for instance, acute psychosis or high risk. <b>Evidence in plain terms:</b> the formal research base is limited but positive, with support for Adlerian parent education (STEP), Adlerian play therapy and Adlerian counselling. Historically, Adler's ideas were ahead of their time and clearly anticipated later cognitive, humanistic and family-systems therapies.</p>
+
+    <div class="box warn"><span class="bt">⭐ Must-write points for the answer</span>
+      <ul>
+        <li>Whole person, goal-directed, socially embedded.</li>
+        <li>Inferiority feelings → striving; social interest = measure of health.</li>
+        <li>Lifestyle and private logic / basic mistakes.</li>
+        <li>The four phases: relationship → lifestyle assessment → insight → reorientation.</li>
+        <li>Encouragement is the engine; therapy is re-education, not cure of illness.</li>
+      </ul>
+    </div>
+
+    <div class="box info"><span class="bt">How to remember &amp; write this answer</span>
+      <p>Frame it as "problems of living, not illness" from the start. The four phases (<b>RAIR</b>) are the backbone of the procedure section — write them in order. Keep saying "encouragement" and "social interest" — they are the two words that mark this answer as Adlerian.</p>
+    </div>
+
+    <div class="mn"><span class="mt">Mnemonic</span>
+      <div class="word">RAIR</div>
+      <p><b>R</b>elationship · <b>A</b>ssessment of lifestyle · <b>I</b>nsight · <b>R</b>eorientation. Engine = encouragement toward social interest.</p>
+    </div>
+  </div>
+</section>
+<!-- ===================== TOPIC 8 ===================== -->
+<section class="topic" id="t8">
+  <div class="wrap">
+    <h2><span class="num">8</span>Transactional analysis (TA)</h2>
+    <p class="lead"><b>One line:</b> Eric Berne's approach. Personality is made of three ego states — Parent, Adult, Child. Problems come from contaminated ego states, repetitive "games" and a limiting life script. Using a clear contract, therapy restores autonomy and game-free intimacy.</p>
+
+    <figure class="fig">
+      <svg viewBox="0 0 400 260" role="img" aria-label="Parent, Adult, Child ego states stacked vertically">
+        <circle cx="200" cy="55" r="42" fill="#ffe4e6" stroke="#fda4af"/><text x="200" y="60" text-anchor="middle" font-size="16" fill="#9f1239">Parent</text>
+        <circle cx="200" cy="130" r="42" fill="#dcfce7" stroke="#86efac"/><text x="200" y="135" text-anchor="middle" font-size="16" fill="#166534">Adult</text>
+        <circle cx="200" cy="205" r="42" fill="#e0f2fe" stroke="#7dd3fc"/><text x="200" y="210" text-anchor="middle" font-size="16" fill="#075985">Child</text>
+      </svg>
+      <figcaption>The three ego states; transactions flow from one of them.</figcaption>
+    </figure>
+
+    <div class="box def"><span class="bt">Definition</span>A therapy in which every <span class="glt">transaction</span> <span class="gl">(a single stimulus-and-response exchange between two people)</span> comes from one of three ego states. The aim is <b>autonomy</b> through awareness, spontaneity and intimacy. Founded by Berne; developed by Harris, Steiner, Karpman and the Gouldings.</p></div>
+
+    <h3>Main focus / core idea</h3>
+    <p>Three <span class="glt">ego states</span> <span class="gl">(consistent patterns of feeling and behaviour)</span>: <b>Parent</b> (taught, judging), <b>Adult</b> (thinking, objective, here-and-now), and <b>Child</b> (feeling, spontaneous). Health means a free, uncontaminated Adult that can choose which state to use.</p>
+
+    <h3>Key concepts (explained)</h3>
+    <ul>
+      <li><b>Transactions.</b> Every exchange between two people comes from one ego state and is aimed at another, and there are three kinds. <span class="glt">Complementary</span> <span class="gl">(the reply comes from the state that was addressed, so talk flows on smoothly)</span> — Adult asks the time, Adult answers. <span class="glt">Crossed</span> <span class="gl">(the reply comes from an unexpected state, so communication breaks off)</span> — one person asks a simple Adult question and the other snaps back from a critical Parent, and the conversation stalls. <span class="glt">Ulterior</span> <span class="gl">(a hidden message runs underneath the polite social one — this is how games start)</span> — the words say one thing but the real message is another, e.g. "oh, you're going out dressed like that?"</li>
+      <li><b>Strokes.</b> <span class="glt">Strokes</span> <span class="gl">(units of recognition or attention from another person)</span> are a basic human need — we would rather have negative attention than none at all. They can be positive or negative and conditional ("well done for passing") or unconditional ("I love you just as you are"). People "structure time" largely to harvest strokes, and a shortage of positive strokes drives much unhappy behaviour. For example, a child who gets noticed only when they misbehave learns to collect negative strokes.</li>
+      <li><b>Games &amp; rackets.</b> <span class="glt">Games</span> <span class="gl">(repetitive ulterior transactions that always end in a predictable bad feeling)</span> are the hidden, self-defeating routines people play out again and again. In "Why don't you — Yes but", one person keeps asking for help and then rejects every suggestion with "yes, but...", until the helper gives up feeling useless — the real, hidden payoff was to prove "no one can help me". A <b>racket</b> is the stale bad feeling the person habitually collects from these games.</li>
+      <li><b>Life script.</b> <span class="glt">Life script</span> <span class="gl">(an unconscious life plan decided in childhood from parental messages)</span> is like an inner drama the person keeps acting out, "written" early from the messages they absorbed. It is built from <span class="glt">injunctions</span> <span class="gl">(don't-messages such as "don't be close" or "don't succeed")</span> and <span class="glt">drivers</span> <span class="gl">(pushy counter-messages such as "be perfect" or "please others")</span>. For example, a child told in a hundred small ways "don't be a child" may script a joyless, over-responsible adult life.</li>
+      <li><b>Four life positions (OK Corral).</b> These are basic stances about self and others: <b>I'm OK – you're OK</b> is the healthy, cooperative position; <b>I'm OK – you're not OK</b> tends to blaming and arrogance; <b>I'm not OK – you're OK</b> tends to depression and inferiority; and <b>I'm not OK – you're not OK</b> tends to hopelessness. A main aim of therapy is to move the client toward "I'm OK – you're OK".</li>
+      <li><b>Drama triangle.</b> Karpman described three roles people unconsciously switch between in conflict: <b>Persecutor</b> (blames and attacks), <b>Rescuer</b> (over-helps to feel needed), and <b>Victim</b> (feels helpless). The painful trick is that people rotate around the triangle — today's Rescuer becomes tomorrow's resentful Persecutor or Victim. Seeing the triangle helps clients step out of it.</li>
+    </ul>
+
+    <h3>Goals</h3>
+    <p>The headline goal is <b>autonomy</b>, which Berne defined as awareness, spontaneity and the capacity for game-free intimacy — relating honestly instead of through hidden games. Underneath that, therapy aims for a free, <b>uncontaminated Adult</b> that can think clearly in the present without old Parent prejudices or Child fears leaking in, a revised life plan (a "script cure"), and, more immediately, "social control" over problem behaviour and relief of symptoms. In plain terms: help the person stop re-running an old childhood script and start choosing freely in the here-and-now.</p>
+
+    <h3>Techniques</h3>
+    <ul>
+      <li><b>The four analyses.</b> TA works through four lenses. <b>Structural analysis</b> maps which ego state the client is operating from. <b>Transactional analysis</b> examines their exchanges with others for crossed or ulterior patterns. <b>Game analysis</b> uncovers the repeating games and their hidden payoffs. <b>Script analysis</b> traces the whole childhood life plan. For example, mapping a couple's rows often reveals the same game played over and over.</li>
+      <li><b>The contract.</b> From session one, client and therapist make a clear, mutual, Adult-to-Adult agreement about exactly what the client wants to change. This keeps therapy equal and focused, and the contract itself models the healthy Adult-to-Adult relating the therapy is trying to build.</li>
+      <li><b>Redecision work.</b> The client is helped to go back to an early scene where a limiting decision was made and, from a position of adult strength, to feel and <i>re-decide</i> it differently — often using chair work. For example, someone who decided as a child "I must never need anyone" re-experiences that moment and chooses a new, freer conclusion.</li>
+      <li><b>Egograms, stroke work, role play and homework.</b> Egograms chart how much energy the person puts into each ego state; stroke work helps them ask for and accept positive recognition; role play and homework rehearse new transactions. Much of this is done in groups, where the client's games show up live with other members.</li>
+    </ul>
+
+    <h3>Process / stages</h3>
+    <p>Therapy begins with <b>contracting and assessment</b>, agreeing clear goals and mapping the ego states, games and script. The middle work aims to strengthen and <span class="glt">decontaminate</span> <span class="gl">(clear the old distortions out of)</span> the Adult so the client can think freely, and to help the Child part <i>redecide</i> its early limiting conclusions. From there the client relearns healthier behaviours and ways of transacting, and the therapy closes as the client reaches greater autonomy and no longer needs the script. The pace is collaborative and the client is kept an equal partner throughout.</p>
+
+    <h3>Indications &amp; current status</h3>
+    <p><b>Who it suits and why:</b> its clear, jargon-but-friendly map of relationships makes it well suited to neurotic, relationship and communication problems, personality issues, couples and families, and to group, educational and organisational settings, because people can quickly learn to spot their own ego states and games. <b>Who to avoid or adapt for, and why:</b> acute psychosis needs adapted forms only, since the approach assumes a client who can observe and reason about their own patterns. <b>Evidence in plain terms:</b> the formal research base is modest — there are some positive reviews but few rigorous trials. It remains widely taught and accredited (ITAA/EATA) and is often criticised for its homespun jargon and limited scientific validation. Its great practical strength is its plain language: clients grasp the ideas easily and keep using them in daily life.</p>
+
+    <div class="box warn"><span class="bt">⭐ Must-write points for the answer</span>
+      <ul>
+        <li>Three ego states: Parent, Adult, Child.</li>
+        <li>Transactions: complementary, crossed, ulterior (→ games).</li>
+        <li>Games, life script, life positions (I'm OK–you're OK).</li>
+        <li>The contract and the four analyses.</li>
+        <li>Goal = autonomy and game-free intimacy via a free Adult.</li>
+      </ul>
+    </div>
+
+    <div class="box info"><span class="bt">How to remember &amp; write this answer</span>
+      <p>Draw the three stacked circles in your head and start there (<b>PAC</b>). Then move outward: transactions → games → script → life positions. Name "the contract" and "the four analyses" in the techniques section. Finish with autonomy as the goal.</p>
+    </div>
+
+    <div class="mn"><span class="mt">Mnemonic</span>
+      <div class="word">PAC</div>
+      <p><b>P</b>arent · <b>A</b>dult · <b>C</b>hild. The contract + four analyses free the Adult toward autonomy.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TOPIC 9 ===================== -->
+<section class="topic" id="t9">
+  <div class="wrap">
+    <h2><span class="num">9</span>Reality therapy (and choice theory)</h2>
+    <p class="lead"><b>One line:</b> William Glasser's present-focused approach, built on choice theory. All behaviour is chosen to meet five basic needs. Using the WDEP system inside a warm, non-blaming relationship, the therapist helps the client evaluate their choices and plan more effective, responsible ones.</p>
+
+    <figure class="fig">
+      <svg viewBox="0 0 440 240" role="img" aria-label="WDEP cycle inside a trusting environment">
+        <rect x="20" y="20" width="400" height="200" rx="16" fill="#f5f3ff" stroke="#c4b5fd"/>
+        <text x="220" y="42" text-anchor="middle" font-size="12" fill="#6b21a8">warm, trusting environment</text>
+        <circle cx="130" cy="110" r="38" fill="#ede9fe" stroke="#c4b5fd"/><text x="130" y="115" text-anchor="middle" font-size="14" fill="#4c1d95">W</text>
+        <circle cx="310" cy="110" r="38" fill="#dcfce7" stroke="#86efac"/><text x="310" y="115" text-anchor="middle" font-size="14" fill="#166534">D</text>
+        <circle cx="130" cy="185" r="30" fill="#e0f2fe" stroke="#7dd3fc"/><text x="130" y="190" text-anchor="middle" font-size="14" fill="#075985">E</text>
+        <circle cx="310" cy="185" r="30" fill="#fef9c3" stroke="#fde047"/><text x="310" y="190" text-anchor="middle" font-size="14" fill="#854d0e">P</text>
+        <text x="130" y="74" text-anchor="middle" font-size="10.5" fill="#4c1d95">Wants</text>
+        <text x="310" y="74" text-anchor="middle" font-size="10.5" fill="#166534">Doing</text>
+        <text x="130" y="228" text-anchor="middle" font-size="10.5" fill="#075985">Evaluation</text>
+        <text x="310" y="228" text-anchor="middle" font-size="10.5" fill="#854d0e">Planning</text>
+      </svg>
+      <figcaption>WDEP (Wants, Doing, Evaluation, Planning) inside a trusting bond.</figcaption>
+    </figure>
+
+    <div class="box def"><span class="bt">Definition</span>A present-focused therapy grounded in <span class="glt">choice theory</span> <span class="gl">(we choose almost all of our behaviour to meet basic needs, and we can only directly control our own acting and thinking)</span>. Most problems are seen as relationship problems. Founded by Glasser; the WDEP system was systematised by Wubbolding.</p></div>
+
+    <h3>Main focus / core idea</h3>
+    <p>All behaviour is <b>chosen</b>. We directly control only our acting and thinking, and these steer our feelings and physiology — Glasser's "four wheels of a car". We behave to close the gap between what we want (our <span class="glt">quality world</span> <span class="gl">(the inner picture album of what we most want)</span>) and what we are getting.</p>
+
+    <h3>Key concepts (explained)</h3>
+    <ul>
+      <li><b>Five basic needs.</b> Glasser said all behaviour is an attempt to meet five built-in needs: <b>survival</b> (food, safety, health), <b>love and belonging</b> (which he rated the most important), <b>power</b> (a sense of achievement and being respected), <b>freedom</b> (independence and choice), and <b>fun</b> (enjoyment and learning). Problems arise when a person is trying to meet these needs in ineffective ways. For example, a teenager starved of belonging at home may chase it through a delinquent gang — an understandable but costly way to meet a real need.</li>
+      <li><b>Relationships are central.</b> Reality therapy treats most psychological problems as rooted in unsatisfying present relationships. Glasser contrasted seven "deadly habits" that wreck relationships — criticising, blaming, complaining, nagging, threatening, punishing and bribing — with seven "caring habits" that build them — supporting, encouraging, listening, accepting, trusting, respecting and negotiating differences. For example, a couple who swap criticising and blaming for listening and encouraging often repair far more than any single "fix" could.</li>
+      <li><b>Responsibility and present focus.</b> A responsible person meets their own needs in ways that do not stop others meeting theirs. The therapy firmly refuses excuses, blame and punishment, and pays little attention to the past or to symptom labels, because none of these can be changed now — only present choices can. For example, instead of dwelling on why a client started drinking years ago, the focus is on what they are choosing to do about it today.</li>
+    </ul>
+
+    <h3>Goals</h3>
+    <p>The central goals are to help the client take <b>responsibility</b> for their own behaviour, make more <b>effective choices</b>, and improve the important relationships that are usually at the heart of the problem. Glasser summed up the test of a good choice with the "three Rs": it should be <b>realistic</b> (it can actually work in the real world), <b>responsible</b> (it meets your needs without harming others), and <b>right</b> (it fits your own standards). The aim throughout is to put the person back in the driving seat of their own life.</p>
+
+    <h3>Techniques — the WDEP system</h3>
+    <ul>
+      <li><b>W — Wants.</b> The therapist helps the client get clear about what they really want and need — their "quality world" picture. For example, "If your life were the way you wanted it, what would it actually look like?" Often clients have never spelled this out, and simply naming it is powerful.</li>
+      <li><b>D — Doing.</b> The focus turns to what the client is <i>actually doing</i> right now, and in what overall direction their life is heading. Because the therapy holds that we directly control our acting and thinking, this is where change is possible. For example, "Walk me through what you did yesterday from morning to night."</li>
+      <li><b>E — Evaluation.</b> This is the pivot of the whole method, and it must be the <i>client's own</i> honest judgement, not the therapist's verdict: "Is what you are doing actually getting you what you want? Is it realistic?" People change only when they themselves conclude that their current behaviour is not working. The therapist asks, but never answers for them.</li>
+      <li><b>P — Planning.</b> Once the client decides something must change, they build a committed, workable plan. Wubbolding's checklist <b>SAMI2C3</b> keeps plans good: simple, attainable, measurable, immediate, involving (the client), controlled (by the client), committed, and consistent. For example, "I will phone one friend on Tuesday evening" beats a vague "I'll socialise more."</li>
+    </ul>
+    <p>Around WDEP the therapist uses questioning, metaphor, humour, paradox, role play, contracts and self-disclosure — and holds firmly to <b>no excuses</b>: if a plan fails, the response is not punishment or blame but a calm "so what's the new plan?"</p>
+
+    <h3>Process / stages</h3>
+    <p>The order matters. First the therapist must <b>build the environment</b> — a warm, friendly, trusting bond, with good listening and absolutely no arguing, criticising or giving up on the client. Only once that relationship is in place does the WDEP procedure flow: clarify <b>Wants</b> → examine what the client is <b>Doing</b> → guide the client's own <b>Evaluation</b> of whether it is working → build a committed <b>Plan</b>. Afterwards the therapist follows up, and if the plan did not work they simply revise it, without blame. The friendly-but-firm relationship holds the whole process together.</p>
+
+    <h3>Indications &amp; current status</h3>
+    <p><b>Who it suits and why:</b> its clear, practical, present-focused and non-blaming style fits schools, adolescents, offender/correctional settings, addictions, marital and group counselling, and workplaces, because these settings reward concrete, responsibility-focused change over deep exploration. <b>Who to avoid or adapt for, and why:</b> caution is needed with severe mental illness or trauma that needs deeper exploration, because its refusal to dwell on the past and its simple emphasis on choice can feel dismissive or insufficient for people whose difficulties are not simply a matter of better decisions. <b>Evidence in plain terms:</b> the research base is moderate but often quasi-experimental rather than tightly controlled; studies report gains in self-esteem, internal locus of control and relationships across school, correctional and cross-cultural settings. Critics attack its outright rejection of diagnosis and its over-simple view that nearly all behaviour is freely chosen.</p>
+
+    <div class="box warn"><span class="bt">⭐ Must-write points for the answer</span>
+      <ul>
+        <li>Built on choice theory — behaviour is chosen; we control acting and thinking.</li>
+        <li>Five basic needs (love &amp; belonging most important).</li>
+        <li>WDEP system + build the environment first.</li>
+        <li>Client's own self-evaluation: "Is what you are doing helping?"</li>
+        <li>Present-focused, responsibility, no excuses/blame/punishment.</li>
+      </ul>
+    </div>
+
+    <div class="box info"><span class="bt">How to remember &amp; write this answer</span>
+      <p>Open with "all behaviour is chosen to meet five needs". The whole procedure/technique section <i>is</i> <b>WDEP</b> — write the four letters out with a line each and you have most of the marks. Remember to say "build the environment first" and "no excuses".</p>
+    </div>
+
+    <div class="mn"><span class="mt">Mnemonic</span>
+      <div class="word">WDEP</div>
+      <p><b>W</b>ants · <b>D</b>oing · <b>E</b>valuation · <b>P</b>lanning — inside a warm, non-blaming environment.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TOPIC 10 ===================== -->
+<section class="topic" id="t10">
+  <div class="wrap">
+    <h2><span class="num">10</span>Supportive psychotherapy</h2>
+    <p class="lead"><b>One line:</b> The ego-strengthening end of the supportive–expressive continuum. Instead of uncovering the unconscious, it works to maintain and restore ego functions, self-esteem and coping, through a warm, active relationship using reassurance, advice, praise and problem-solving.</p>
+
+    <figure class="fig">
+      <svg viewBox="0 0 640 120" role="img" aria-label="A continuum from supportive to expressive">
+        <line x1="40" y1="60" x2="600" y2="60" stroke="#c4b5fd" stroke-width="4"/>
+        <circle cx="40" cy="60" r="9" fill="#15803d"/><circle cx="600" cy="60" r="9" fill="#7c3aed"/>
+        <text x="40" y="40" text-anchor="start" font-size="13" fill="#166534">Supportive</text>
+        <text x="40" y="92" text-anchor="start" font-size="11.5" fill="#475569">strengthen defences</text>
+        <text x="600" y="40" text-anchor="end" font-size="13" fill="#4c1d95">Expressive</text>
+        <text x="600" y="92" text-anchor="end" font-size="11.5" fill="#475569">uncover unconscious</text>
+        <text x="320" y="92" text-anchor="middle" font-size="11.5" fill="#475569">most therapy is a blend</text>
+      </svg>
+      <figcaption>Supportive sits at the ego-strengthening end of the continuum.</figcaption>
+    </figure>
+
+    <div class="box def"><span class="bt">Definition</span>Therapy at the supportive end of Luborsky's supportive–expressive continuum. It aims to <b>maintain or improve ego functions and self-esteem</b> rather than uncover conflict. The relationship is the main agent of change, with the therapist acting as a trusted <span class="glt">auxiliary ego</span> <span class="gl">(a dependable figure who lends the ego strength the client temporarily lacks)</span>.</p></div>
+
+    <h3>Main focus / core idea</h3>
+    <p>The aim is shifted: not to make the unconscious conscious, but to <b>shore up existing defences and coping</b>, keep the person functioning, and protect self-esteem. Focus stays on the here-and-now — present stresses, coping and daily life — not childhood reconstruction. Positive transference is used but not interpreted, and deep interpretation is avoided.</p>
+
+    <h3>Key concepts (explained)</h3>
+    <ul>
+      <li><b>Ego functions.</b> These are the mind's everyday working skills — reality testing (telling what is real from what is imagined), impulse control, judgement, planning, and managing feelings. Supportive therapy sees distress as partly a breakdown or overload of these skills, so its job is to <b>protect and prop them up</b> rather than probe the unconscious. For example, with a client overwhelmed by a crisis, the therapist helps them think straight and weigh options again, restoring judgement that stress had knocked out.</li>
+      <li><b>Auxiliary ego.</b> <span class="glt">Auxiliary ego</span> <span class="gl">(a dependable outside figure who lends the ego strength the client temporarily lacks)</span> describes the therapist's role: when the client cannot yet reason, soothe or steady themselves, the therapist temporarily supplies that function from outside. For example, the therapist may do some of the realistic thinking and reassurance for a client in acute distress, in the way a splint supports a limb until it can bear weight again.</li>
+      <li><b>Strengthen, don't uncover.</b> This is the key contrast with psychodynamic therapy. Rather than digging up and dismantling defences, supportive therapy <b>reinforces the healthy, adaptive ones</b> that are keeping the person going. For example, if a client copes with a frightening illness by staying busy and optimistic, the therapist supports that coping rather than challenging it — because taking it away would leave the person more exposed, not less.</li>
+    </ul>
+
+    <h3>Goals</h3>
+    <p>The goals are stabilising rather than transforming: relieve symptoms and keep the person stable, improve day-to-day coping and adaptation, carry the client through a crisis or illness, prevent relapse and rehospitalisation, and protect or rebuild self-esteem. The measure of success is not deep personality change but a person who is functioning, safe and holding together in their real life.</p>
+
+    <h3>Techniques</h3>
+    <ul>
+      <li><b>Reassurance, encouragement and praise.</b> The therapist actively reduces anxiety and builds confidence, for example by normalising a frightened client's reaction ("most people would feel shaken after what you've been through") and recognising their efforts. This directly props up self-esteem.</li>
+      <li><b>Empathic listening and ventilation.</b> The therapist lets the client talk out and release pent-up feelings in a safe, accepting space. Simply putting distress into words to someone who listens often lowers the emotional pressure and helps the client think more clearly.</li>
+      <li><b>Advice, guidance and psychoeducation.</b> Unlike uncovering therapies, the supportive therapist may give concrete advice, teach the client about their condition, clarify confusing situations, and offer "anticipatory guidance" — preparing the client for a stressful event ahead so it is less overwhelming when it arrives.</li>
+      <li><b>Problem-solving, reality testing and reframing.</b> The therapist helps the client break a problem into manageable steps, check distorted fears against reality, and see a situation in a less hopeless light. Added to this is <b>environmental modification</b> — practical changes such as involving family or arranging services, so some of the pressure is taken off the client directly.</li>
+      <li><b>Modelling, limit-setting, strengthening defences, and crisis intervention.</b> The therapist models calm, reasonable behaviour, sets gentle limits where needed, deliberately reinforces the client's adaptive coping, and steps in actively during acute crises to keep the person safe.</li>
+    </ul>
+
+    <h3>Process / stages</h3>
+    <p>The therapy begins by assessing the client's <b>strengths and ego capacities</b> — what is still working — rather than hunting for buried conflict. The therapist then builds a warm, reliable alliance and, together with the client, defines the practical problems and goals. From there the supportive techniques are applied flexibly, and progress is monitored. Because the aim is stability, the ending is open-ended: the therapist may gradually reduce contact as the client steadies, or continue indefinitely as ongoing maintenance for someone with a chronic condition. Frequency and length are tailored to need, from weekly to monthly, and from brief to long-term.</p>
+
+    <h3>Indications &amp; current status</h3>
+    <p><b>Who it suits and why:</b> it is the treatment of choice when ego strength is low or fragile, because it steadies rather than stirs up. This makes it well suited to schizophrenia and other severe mental illness, bipolar disorder, personality disorders with low ego strength, acute crises and bereavement, chronic or terminal medical illness, the elderly, and clients with little psychological insight — exactly the people for whom an uncovering therapy would be too destabilising. <b>Evidence in plain terms:</b> Wallerstein's long Menninger study found that supportive therapy produced more lasting change than had been expected, and later work shows it is broadly comparable to other therapies. It remains under-researched, partly because it is so often used merely as the "control" condition against which other therapies are tested, and critics warn that, done carelessly, it can foster dependency on the therapist rather than building the client's own strength.</p>
+
+    <div class="box warn"><span class="bt">⭐ Must-write points for the answer</span>
+      <ul>
+        <li>Supportive end of the supportive–expressive continuum.</li>
+        <li>Aim = maintain/restore ego functions and self-esteem, not uncover conflict.</li>
+        <li>Relationship heals; therapist = auxiliary ego.</li>
+        <li>Techniques: reassurance, ventilation, advice, problem-solving, reframing.</li>
+        <li>Best for low ego strength — severe illness, crisis, medical illness, elderly.</li>
+      </ul>
+    </div>
+
+    <div class="box info"><span class="bt">How to remember &amp; write this answer</span>
+      <p>Define it <i>against</i> psychodynamic therapy: "strengthen, don't uncover". Draw the continuum line in your mind. The techniques are the easy marks — list them (<b>SUPPORT</b>). Finish with the indications, since knowing <i>who</i> it suits is heavily tested.</p>
+    </div>
+
+    <div class="mn"><span class="mt">Mnemonic</span>
+      <div class="word">SUPPORT</div>
+      <p><b>S</b>trengthen ego · <b>U</b>se the relationship · <b>P</b>raise/reassure · <b>P</b>roblem-solve · <b>O</b>ffer advice/psychoeducation · <b>R</b>eality-test/Reframe · <b>T</b>ackle the crisis.</p>
+    </div>
+  </div>
+</section>
+<!-- ===================== TOPIC 11 ===================== -->
+<section class="topic" id="t11">
+  <div class="wrap">
+    <h2><span class="num">11</span>Clinical hypnotherapy</h2>
+    <p class="lead"><b>One line:</b> It uses hypnosis — focused attention plus a heightened readiness to respond to suggestion — to change perception, emotion and behaviour. It moves through five set stages and is used for pain, anxiety and habits, usually as an add-on to other treatment.</p>
+
+    <figure class="fig">
+      <svg viewBox="0 0 640 120" role="img" aria-label="Five stages of hypnotherapy">
+        <rect x="8" y="45" width="118" height="46" rx="9" fill="#ede9fe" stroke="#c4b5fd"/><text x="67" y="73" text-anchor="middle" font-size="11.5" fill="#4c1d95">Pre-induction</text>
+        <rect x="134" y="45" width="100" height="46" rx="9" fill="#ede9fe" stroke="#c4b5fd"/><text x="184" y="73" text-anchor="middle" font-size="11.5" fill="#4c1d95">Induction</text>
+        <rect x="242" y="45" width="104" height="46" rx="9" fill="#ede9fe" stroke="#c4b5fd"/><text x="294" y="73" text-anchor="middle" font-size="11.5" fill="#4c1d95">Deepening</text>
+        <rect x="354" y="45" width="126" height="46" rx="9" fill="#dcfce7" stroke="#86efac"/><text x="417" y="73" text-anchor="middle" font-size="11.5" fill="#166534">Therapeutic</text>
+        <rect x="488" y="45" width="118" height="46" rx="9" fill="#ffe4e6" stroke="#fda4af"/><text x="547" y="73" text-anchor="middle" font-size="11.5" fill="#9f1239">Termination</text>
+      </svg>
+      <figcaption>The fixed five-stage sequence.</figcaption>
+    </figure>
+
+    <div class="box def"><span class="bt">Definition</span>Hypnosis is a state of <b>focused attention with reduced side-awareness and a heightened response to suggestion</b> <span class="cite">(paraphrased, APA Division 30)</span>. It is <b>not sleep and not a loss of control</b>. Erickson's style was permissive and indirect, using the client's own imagery and language.</p></div>
+
+    <h3>Main focus / core idea</h3>
+    <p>In the hypnotic state there is <span class="glt">absorption</span> <span class="gl">(being deeply caught up in an experience)</span>, focused attention, suggestibility and reduced critical analysis. Symptoms, habits, pain and anxiety are seen as kept going by automatic learned responses and negative imagery, which focused attention plus suggestion can change. A key idea is <span class="glt">hypnotisability</span> <span class="gl">(a fairly stable trait of how easily a person responds, measured by the Stanford/Harvard scales)</span>.</p>
+
+    <h3>Key concepts (explained)</h3>
+    <ul>
+      <li><b>State vs non-state debate.</b> There is a long argument about what hypnosis really is. The <b>state</b> view says it is a genuinely special altered condition of mind, as in Hilgard's <span class="glt">neodissociation</span> <span class="gl">(part of the mind splits off and acts separately, outside ordinary awareness)</span> — his famous "hidden observer" experiments suggested one part of a hypnotised person could register pain that another part did not consciously feel. The <b>non-state</b> view says there is nothing mystical about it: it is ordinary role-taking, strong expectancy, motivation and vivid imagination. The practical middle ground for the exam is that neuroimaging shows hypnosis produces real, measurable changes in the brain's attention networks, so something genuine is happening, whatever we call it.</li>
+      <li><b>Suggestion.</b> Suggestion is the main active ingredient of hypnotherapy — an idea offered to the focused mind that it then takes up and acts on, often with surprising force. For example, the suggestion "your hand is becoming light and floating up" can actually produce the movement. In therapy, carefully worded suggestions are used to change how the client perceives pain, feels anxiety, or responds to a trigger. <span class="glt">Post-hypnotic suggestion</span> <span class="gl">(an instruction given in trance that the client carries out later, in normal waking life)</span> extends this beyond the session.</li>
+    </ul>
+
+    <h3>Goals</h3>
+    <p>The practical goals are symptom control — above all the easing of pain and anxiety — along with habit change (such as support for stopping smoking), deep relaxation, and a stronger sense of self-efficacy and ego strength so the client feels more in command of their own mind and body. A central and often-missed goal is to teach the client <b>self-hypnosis</b>, so they can use the techniques independently; the aim is to hand the skill over, not to keep the client dependent on the therapist.</p>
+
+    <h3>Techniques (across the stages)</h3>
+    <ul>
+      <li><b>Pre-induction:</b> consent, history, explaining hypnosis and dispelling myths (no loss of control, no secrets revealed), building expectancy and rapport.</li>
+      <li><b>Induction:</b> eye fixation, progressive relaxation, breathing, imagery; Ericksonian confusion and storytelling; pacing and leading.</li>
+      <li><b>Deepening:</b> counting down, staircase imagery, <span class="glt">fractionation</span> <span class="gl">(repeatedly bringing the client out of trance and back in to deepen it)</span>.</li>
+      <li><b>Therapeutic phase:</b> direct and indirect suggestions, metaphors, ego-strengthening, imagery rehearsal, <span class="glt">hypnotic analgesia</span> <span class="gl">(suggested numbness, e.g. "glove anaesthesia")</span>; deeper work (age regression, <span class="glt">hypnoanalysis</span> <span class="gl">(uncovering buried material under hypnosis)</span>, post-hypnotic suggestion) used cautiously.</li>
+      <li><b>Termination:</b> re-alerting by counting up and reorienting, discussion, and teaching self-hypnosis.</li>
+    </ul>
+
+    <h3>Process / stages</h3>
+    <p>Hypnotherapy follows a fixed five-step sequence, and it helps to picture it as a gentle descent and return. <b>Pre-induction</b> prepares the ground — gaining consent, taking a history, explaining what hypnosis is (and is not), dispelling myths, and building the rapport and positive expectancy that make the rest work. <b>Induction</b> narrows and focuses attention, for example through eye fixation or progressive relaxation, easing the client into the hypnotic state. <b>Deepening</b> intensifies that focus, often by counting down or imagining going down a staircase. The <b>therapeutic phase</b> is where the actual change work happens, using the suggestions and imagery chosen for that client's problem. Finally <b>termination</b> re-alerts the client, usually by counting up, reorients them fully, and often teaches self-hypnosis so they can continue the work alone.</p>
+
+    <h3>Indications &amp; current status</h3>
+    <p><b>Who it suits and why:</b> it is most useful for conditions where attention, expectation and the mind-body link strongly shape the symptom — chronic and procedural pain, labour and dental pain, anxiety and phobias, irritable bowel syndrome, insomnia, habit disorders and psychosomatic problems — because focused attention plus suggestion can directly alter how these are perceived and experienced. It also tends to work best with clients who are reasonably hypnotisable and open to the approach. <b>Who to avoid or adapt for, and why:</b> caution is needed with psychosis and severe personality disorder, where the loosening of ordinary reality-testing may be unhelpful, and great care is needed in forensic or memory-recovery work because of the real <span class="glt">false-memory risk</span> <span class="gl">(suggestion can create convincing but untrue "memories")</span>. <b>Evidence in plain terms:</b> adding hypnosis to CBT tends to improve outcomes; the evidence is strong for pain, IBS and procedural distress, moderate for anxiety, and weak or inconclusive for smoking and weight loss. It is therefore best thought of as a valuable <b>adjunct</b> to other treatment rather than a stand-alone cure.</p>
+
+    <div class="box warn"><span class="bt">⭐ Must-write points for the answer</span>
+      <ul>
+        <li>Hypnosis = focused attention + heightened suggestibility; NOT sleep, NOT loss of control.</li>
+        <li>The five stages: pre-induction, induction, deepening, therapeutic, termination.</li>
+        <li>State vs non-state debate; hypnotisability as a trait.</li>
+        <li>Teach self-hypnosis; usually an adjunct.</li>
+        <li>Strongest evidence for pain and IBS.</li>
+      </ul>
+    </div>
+
+    <div class="box info"><span class="bt">How to remember &amp; write this answer</span>
+      <p>Correct the two myths up front ("not sleep, not loss of control") — it shows understanding. The stages (<b>PIDTT</b>) are the skeleton of the procedure/technique section; attach a technique or two to each stage. Close with where the evidence is strong (pain, IBS).</p>
+    </div>
+
+    <div class="mn"><span class="mt">Mnemonic</span>
+      <div class="word">PIDTT</div>
+      <p><b>P</b>re-induction · <b>I</b>nduction · <b>D</b>eepening · <b>T</b>herapeutic phase · <b>T</b>ermination.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TOPIC 12 ===================== -->
+<section class="topic" id="t12">
+  <div class="wrap">
+    <h2><span class="num">12</span>Play therapy</h2>
+    <p class="lead"><b>One line:</b> Play is the child's natural language — "toys are their words and play is their speech". In a safe playroom with a trained therapist (directive or non-directive), children express and master emotions, trauma and relationship difficulties.</p>
+
+    <figure class="fig">
+      <svg viewBox="0 0 640 150" role="img" aria-label="Spectrum from non-directive to directive to parent-mediated play therapy">
+        <rect x="20" y="55" width="180" height="46" rx="9" fill="#dcfce7" stroke="#86efac"/><text x="110" y="76" text-anchor="middle" font-size="11.5" fill="#166534">Non-directive /</text><text x="110" y="92" text-anchor="middle" font-size="11.5" fill="#166534">child-centred</text>
+        <rect x="230" y="55" width="160" height="46" rx="9" fill="#ede9fe" stroke="#c4b5fd"/><text x="310" y="82" text-anchor="middle" font-size="11.5" fill="#4c1d95">Directive</text>
+        <rect x="420" y="55" width="200" height="46" rx="9" fill="#e0f2fe" stroke="#7dd3fc"/><text x="520" y="82" text-anchor="middle" font-size="11.5" fill="#075985">Parent-mediated (filial)</text>
+      </svg>
+      <figcaption>A spectrum around a child-centred core.</figcaption>
+    </figure>
+
+    <div class="box def"><span class="bt">Definition</span>Play is the child's natural language — Landreth: "toys are the child's words and play is the child's speech". Axline set out the non-directive/child-centred form and eight guiding principles (Rogers' conditions, for children). Carried forward by Landreth (child-centred play therapy) and Knell (CBT play therapy).</p></div>
+
+    <h3>Main focus / core idea</h3>
+    <p>Young children cannot easily put abstract thoughts and feelings into words, so they express them through <b>symbolic play</b> instead. Play has specific <span class="glt">therapeutic powers</span> <span class="gl">(the ways play actually heals — communication, emotional release, stronger relationships, and building personal strengths)</span>.</p>
+
+    <h3>Key concepts (explained)</h3>
+    <ul>
+      <li><b>Symbolic distance.</b> A child can approach a frightening or painful feeling safely by acting it out through toys and make-believe rather than talking about it directly. The toy carries the feeling, which keeps it at a manageable distance. For example, a child who has witnessed violence at home might repeatedly stage a doll "monster" attacking a small figure and then being locked away — expressing and slowly mastering the fear without ever having to describe it in words they do not have.</li>
+      <li><b>Axline's eight principles.</b> These set the therapist's stance in child-centred play therapy: build a warm, friendly relationship quickly; accept the child exactly as they are; create a feeling of permissiveness so the child feels free to express themselves; recognise and reflect the child's feelings back; respect the child's own ability to solve their problems; let the child lead; not rush the process; and set only the limits needed for safety and reality. In short, they are Rogers' core conditions translated for children — trusting the child's own growth drive.</li>
+      <li><b>Many theory bases.</b> Play therapy is not one method but a family of approaches drawing on psychoanalytic, humanistic/child-centred, attachment, cognitive-behavioural and developmental theory. This is why it spreads along a spectrum from <b>non-directive</b> (the child leads, the therapist follows) to <b>directive</b> (the therapist structures activities toward a goal), with the right end chosen to fit the child and the problem.</li>
+    </ul>
+
+    <h3>Goals</h3>
+    <p>The goals are suited to a child's world: to help the child express and then regulate difficult emotions, to build a healthier self-concept and self-esteem, to develop social skills and coping, to work through and resolve trauma or inner conflict, and — because a child lives inside a family — to strengthen the parent–child attachment. Underlying all of these is simply giving the child a safe place and a trusted adult through which to grow past what has overwhelmed them.</p>
+
+    <h3>Techniques</h3>
+    <ul>
+      <li><b>Non-directive techniques.</b> In child-centred play the therapist follows rather than leads: <b>tracking the play aloud</b> ("you're putting the baby to bed"), <b>reflecting feelings</b> ("that soldier seems really scared"), <b>returning responsibility</b> ("in here, you can decide what happens"), and warm encouragement that follows the child's own direction. This shows the child they are understood and trusted, which frees their play to deepen.</li>
+      <li><b>Limit-setting via ACT.</b> When a child does something unsafe, limits are set in a way that keeps the relationship warm: <span class="glt">A</span>cknowledge the feeling ("I can see you're really angry"), <span class="glt">C</span>ommunicate the limit ("but the wall is not for hitting"), and <span class="glt">T</span>arget an acceptable alternative ("you can hit the punching bag instead"). The feeling is always accepted even when the behaviour is not.</li>
+      <li><b>Structured / directive techniques.</b> Here the therapist offers specific activities: puppets and sandplay (arranging miniature figures in a sand tray to tell a story), drawing, storytelling (such as Gardner's mutual storytelling, where therapist and child take turns building a tale with a healthier ending), bibliotherapy (using story-books about a relevant problem), role play, games, and CBT play that adds modelling and gentle exposure for fears.</li>
+      <li><b>Parent-mediated approaches.</b> These coach the parent to become the agent of change: filial therapy and child–parent relationship therapy (CPRT) train parents in play-session skills, and Theraplay rebuilds attachment through playful structure, engagement, nurture and challenge. Involving the parent extends the healing into the child's everyday home life.</li>
+    </ul>
+
+    <h3>Process / stages</h3>
+    <p>Therapy usually opens with assessment, parent consultation and consent, so the therapist understands the child's world before meeting them. Then comes <b>relationship building</b>, in which the child explores the playroom and quietly tests whether the therapist is trustworthy and the limits are real. As trust grows, meaningful <b>themes</b> begin to appear in the play — fear, anger, loss. In the <b>working-through</b> phase these intensify, with aggression, regression, limit-testing and repetitive dramatic play, and then gradually give way to scenes of mastery and competence as the child works the feeling out. Finally comes <b>termination</b>, prepared well in advance so the ending itself is a healthy goodbye. A course is often around 12–20 weekly sessions.</p>
+
+    <h3>Indications &amp; current status</h3>
+    <p><b>Who it suits and why:</b> it is designed for children roughly aged 3–12, whose limited verbal ability makes play their natural way to communicate, and it helps with anxiety and fears, trauma or abuse, bereavement, parental divorce, adjustment and behaviour problems, and selective mutism. Adolescents have usually outgrown toy play and may do better with talk, art or drama instead. <b>Evidence in plain terms:</b> Bratton and colleagues' (2005) meta-analysis of 93 studies found a large mean effect, and notably the effect was larger when parents were involved in the treatment; later reviews of child-centred play therapy report moderate-to-large effects. Critics point to methodological weaknesses in many of the studies, so the findings are encouraging but not airtight.</p>
+
+    <div class="box warn"><span class="bt">⭐ Must-write points for the answer</span>
+      <ul>
+        <li>Play is the child's natural language ("toys are words, play is speech").</li>
+        <li>Directive vs non-directive (child-centred) styles.</li>
+        <li>Axline's eight principles; therapeutic powers of play.</li>
+        <li>Limit-setting via ACT; parent-mediated forms (filial therapy).</li>
+        <li>Best for ages ~3–12; strong evidence, stronger when parents are involved.</li>
+      </ul>
+    </div>
+
+    <div class="box info"><span class="bt">How to remember &amp; write this answer</span>
+      <p>Open with the Landreth quote — it is the single best opening line for this topic. Then split techniques into non-directive, directive and parent-mediated. Name the <b>ACT</b> limit-setting steps. Use <b>TRACK</b> to order the whole answer and don't forget the age range.</p>
+    </div>
+
+    <div class="mn"><span class="mt">Mnemonic</span>
+      <div class="word">TRACK</div>
+      <p><b>T</b>oys are words · <b>R</b>elationship first · <b>A</b>ccept the child · <b>C</b>hild-centred/non-directive · <b>K</b>eep safe limits (via ACT).</p>
+    </div>
+  </div>
+</section>
+<!-- ===================== TOPIC 13 ===================== -->
+<section class="topic" id="t13">
+  <div class="wrap">
+    <h2><span class="num">13</span>Psychodrama</h2>
+    <p class="lead"><b>One line:</b> J. L. Moreno's action-based group therapy. The client (the "protagonist") <b>enacts</b> conflicts instead of just describing them, using a director, auxiliary egos, an audience and a stage. Through warm-up, action and sharing, spontaneity and new roles are restored.</p>
+
+    <figure class="fig">
+      <svg viewBox="0 0 640 170" role="img" aria-label="Five instruments across three phases">
+        <rect x="15" y="20" width="610" height="60" rx="10" fill="#f5f3ff" stroke="#c4b5fd"/>
+        <text x="320" y="42" text-anchor="middle" font-size="12" fill="#6b21a8">Protagonist · Director · Auxiliary egos · Audience · Stage</text>
+        <text x="320" y="64" text-anchor="middle" font-size="11" fill="#475569">the five instruments</text>
+        <rect x="40" y="105" width="160" height="44" rx="9" fill="#ede9fe" stroke="#c4b5fd"/><text x="120" y="132" text-anchor="middle" font-size="12" fill="#4c1d95">Warm-up</text>
+        <rect x="240" y="105" width="160" height="44" rx="9" fill="#dcfce7" stroke="#86efac"/><text x="320" y="132" text-anchor="middle" font-size="12" fill="#166534">Action</text>
+        <rect x="440" y="105" width="160" height="44" rx="9" fill="#e0f2fe" stroke="#7dd3fc"/><text x="520" y="132" text-anchor="middle" font-size="12" fill="#075985">Sharing</text>
+      </svg>
+      <figcaption>Five instruments; three phases: warm-up, action, sharing.</figcaption>
+    </figure>
+
+    <div class="box def"><span class="bt">Definition</span>A group method in which the protagonist acts out their issue on a stage. Moreno coined "group psychotherapy" and developed <span class="glt">sociometry</span> <span class="gl">(measuring the relationships within a group)</span>. For Moreno, <span class="glt">spontaneity</span> <span class="gl">(a fresh, adequate response to a situation, new or old)</span> plus creativity are the basis of mental health.</p></div>
+
+    <h3>Main focus / core idea</h3>
+    <p>Distress comes from a <b>loss of spontaneity and rigid, stuck roles</b>. By enacting a scene in the here-and-now, old conflicts and relationships are brought into the open where they can be experienced and changed. Change comes through <b>doing, not just talking</b>.</p>
+
+    <h3>Key concepts (explained)</h3>
+    <ul>
+      <li><b>Role theory.</b> Moreno saw personality as the sum of the roles we play — child, worker, friend, partner — which we take on, enact and even create fresh. Mental health means having a wide, flexible range of roles; distress comes from <b>role conflict</b> (two roles pulling against each other) or <b>role rigidity</b> (being stuck in one narrow role). For example, a person who can only ever be "the strong helper" and never allow themselves to be cared for is role-rigid, and psychodrama lets them rehearse the missing role in action.</li>
+      <li><b>Tele.</b> <span class="glt">Tele</span> <span class="gl">(a genuine two-way flow of feeling and understanding between people — mutual, unlike one-way transference)</span> is Moreno's term for the real, accurate connection that can form between group members. Unlike transference, which is a distortion projected onto the other, tele is a true meeting, and it is part of what makes the group itself healing. For example, the honest recognition that passes between a protagonist and a group member who has lived the same loss is tele at work.</li>
+      <li><b>Surplus reality.</b> <span class="glt">Surplus reality</span> <span class="gl">(enacting what never happened, or what is feared or wished for, as if it were real)</span> lets the stage go beyond literal events. The protagonist can finally say goodbye to someone who died suddenly, confront a long-dead parent, or rehearse a feared future. Alongside it sit <b>catharsis</b> (the powerful emotional release that enactment brings) and <b>encounter</b> (the genuine, face-to-face meeting with another). For example, a grieving client can play out the farewell conversation they never got to have, releasing feelings that talking about the loss could not reach.</li>
+    </ul>
+
+    <h3>Goals</h3>
+    <p>Psychodrama aims at <b>catharsis and release</b> of bottled-up emotion, <b>insight</b> gained through living a scene rather than being told about it, a <b>wider role repertoire</b> so the person is no longer trapped in a few rigid roles, renewed <b>spontaneity</b> (the ability to respond freshly and adequately instead of with stale, stuck reactions), better interpersonal skills, the resolving of unfinished business, and the <b>cohesion and support</b> of the group itself, which reduces the client's sense of being alone with their problem.</p>
+
+    <h3>Techniques</h3>
+    <ul>
+      <li><b>Role reversal.</b> The most powerful technique. The protagonist swaps places and plays the other person in the scene, speaking and acting as them. For example, a client in conflict with their mother becomes the mother and answers as her, which builds empathy, reveals how the other may truly see things, and often shifts a stuck relationship from the inside.</li>
+      <li><b>Doubling.</b> An auxiliary ego stands beside the protagonist and voices the feelings the protagonist cannot yet put into words — the "inner voice" spoken aloud. For example, as the protagonist stiffly says "it's fine", the double might quietly add "but actually I'm furious", giving the protagonist permission to own the hidden feeling.</li>
+      <li><b>Mirroring.</b> The protagonist steps out of the scene and watches an auxiliary portray <i>them</i>, so they can see themselves from the outside, as others do. This is useful when someone cannot recognise their own behaviour until they watch it played back.</li>
+      <li><b>Other action methods.</b> These include soliloquy (thinking aloud while moving), the empty chair, future projection (rehearsing a feared or hoped-for future scene), concretisation (giving an abstract feeling a physical form), sculpting and the social atom (physically arranging the important people in one's life to show the relationships), and the "magic shop" (bargaining for a desired quality). <b>Sociodrama</b> applies the same action methods to shared social issues rather than one person's private problem.</li>
+    </ul>
+
+    <h3>Process / stages — the five instruments across three phases</h3>
+    <p>The five instruments are the <b>protagonist</b> (whose issue is explored), the <b>director</b> (who guides), <b>auxiliary egos</b> (who play significant others), the <b>audience</b> (who witness) and the <b>stage</b>. The three phases:</p>
+    <ol>
+      <li><b>Warm-up</b> — build trust; a protagonist emerges.</li>
+      <li><b>Action</b> — set and enact the scene (often moving present → past), using role reversal, doubling and mirroring to a peak, then try new solutions and close.</li>
+      <li><b>Sharing</b> — the audience share their own similar experiences (not analysis or advice), which reduces isolation and supports re-entry.</li>
+    </ol>
+
+    <h3>Indications &amp; current status</h3>
+    <p><b>Who it suits and why:</b> because it is an active group method, it works well where enactment and group support add something that talking alone cannot — trauma, grief, addictions, family and relationship issues, adolescents (who often engage more readily through action than words), social-skills training, and psychiatric inpatient groups. The group provides witnesses, players and a sense of not being alone. <b>Who to avoid or adapt for, and why:</b> caution is needed with acute psychosis or a very fragile client without proper containment, because the strong emotional arousal of enactment can overwhelm someone whose grip on reality or self-control is shaky; it also demands a skilled director to keep it safe. <b>Evidence in plain terms:</b> Kipper and Ritchie's (2003) meta-analysis found a large overall effect, with role reversal and doubling standing out as the most effective techniques; later reviews are moderately positive. The main limitation is that rigorous randomised trials remain few, so the evidence is promising rather than conclusive.</p>
+
+    <div class="box warn"><span class="bt">⭐ Must-write points for the answer</span>
+      <ul>
+        <li>Action-based group therapy; enact, don't just describe.</li>
+        <li>Spontaneity + creativity = basis of mental health.</li>
+        <li>The five instruments: protagonist, director, auxiliary egos, audience, stage.</li>
+        <li>Three phases: warm-up, action, sharing.</li>
+        <li>Role reversal is the most powerful technique; also doubling and mirroring.</li>
+      </ul>
+    </div>
+
+    <div class="box info"><span class="bt">How to remember &amp; write this answer</span>
+      <p>Lead with "enact, don't describe" and "spontaneity is health". List the five instruments (<b>PDAAS</b>), then the three phases in order. In techniques, put role reversal first and label it the most powerful. Mention sharing is support, not advice.</p>
+    </div>
+
+    <div class="mn"><span class="mt">Mnemonic</span>
+      <div class="word">PDAAS</div>
+      <p><b>P</b>rotagonist · <b>D</b>irector · <b>A</b>uxiliary egos · <b>A</b>udience · <b>S</b>tage. Flow: warm-up → action → sharing; role reversal is most powerful.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TOPIC 14 ===================== -->
+<section class="topic" id="t14">
+  <div class="wrap">
+    <h2><span class="num">14</span>Oriental approaches</h2>
+    <p class="lead"><b>One line:</b> Asian mind-body practices used for mental health — yoga, meditation, shavasana, pranic healing, reiki and tai chi. They share a focus on attention, breath and relaxation. The evidence ranges from genuinely supportive (mindfulness, yoga, tai chi) down to weak or inconclusive (energy healing).</p>
+
+    <figure class="fig">
+      <svg viewBox="0 0 640 170" role="img" aria-label="Oriental approaches grouped by strength of evidence">
+        <rect x="20" y="25" width="290" height="120" rx="12" fill="#dcfce7" stroke="#86efac"/>
+        <text x="165" y="48" text-anchor="middle" font-size="12.5" fill="#166534">Real evidence base</text>
+        <text x="165" y="72" text-anchor="middle" font-size="11.5" fill="#166534">Yoga · Meditation (MBSR/MBCT)</text>
+        <text x="165" y="92" text-anchor="middle" font-size="11.5" fill="#166534">Shavasana / Yoga Nidra</text>
+        <text x="165" y="112" text-anchor="middle" font-size="11.5" fill="#166534">Tai chi</text>
+        <rect x="330" y="25" width="290" height="120" rx="12" fill="#ffedd5" stroke="#fdba74"/>
+        <text x="475" y="48" text-anchor="middle" font-size="12.5" fill="#9a3412">Weak / inconclusive</text>
+        <text x="475" y="72" text-anchor="middle" font-size="11.5" fill="#9a3412">Pranic healing · Reiki</text>
+        <text x="475" y="92" text-anchor="middle" font-size="11.5" fill="#9a3412">(energy healing)</text>
+        <text x="475" y="112" text-anchor="middle" font-size="11.5" fill="#9a3412">Also: Morita, Naikan, qigong</text>
+      </svg>
+      <figcaption>Grouped by how strong the evidence is.</figcaption>
+    </figure>
+
+    <div class="box def"><span class="bt">Definition</span>A set of Asian mind-body and healing practices. Clinical <span class="glt">mindfulness</span> <span class="gl">(non-judgemental, present-moment awareness)</span> was brought into medicine by Kabat-Zinn (MBSR). <span class="glt">Energy healing</span> <span class="gl">(pranic healing, reiki — clearing or channelling a supposed life energy)</span> has no credible scientific evidence.</p></div>
+
+    <h3>Main focus / core idea</h3>
+    <p>Despite looking very different on the surface, these practices are thought to share a <b>common underlying mechanism</b>: they train attention, slow and deepen the breath, and switch on the body's natural relaxation response. In plain terms, when you breathe slowly and hold your attention steady, the "fight-or-flight" branch of the nervous system quietens and the "rest-and-digest" branch takes over. This raises parasympathetic (vagal) tone, lowers physical arousal and the stress hormone cortisol, and sharpens attention and the ability to manage emotion. For example, ten minutes of slow breathing in a yoga class and ten minutes of stillness in meditation can produce much the same calming of the body, even though the two look quite different. Understanding this shared mechanism is what lets us judge the practices on evidence rather than on the belief system attached to each.</p>
+
+    <h3>Key practices (explained)</h3>
+    <ul>
+      <li><b>Yoga.</b> Systematised by Patanjali as an eight-limbed discipline; "union" of body, mind and spirit. In therapy: gentle postures (asanas), <span class="glt">pranayama</span> <span class="gl">(breath control)</span> and relaxation. NIMHANS studies and meta-analyses show real benefit as an add-on for mild-to-moderate depression and anxiety.</li>
+      <li><b>Meditation.</b> Adapted as MBSR (Kabat-Zinn) and MBCT (Segal, Williams, Teasdale). Works by training attention and <span class="glt">decentring</span> <span class="gl">(seeing thoughts as passing mental events, not facts)</span>, which lowers rumination. MBCT is recommended to prevent relapse in recurrent depression; Goyal et al. (2014) found moderate evidence for anxiety, depression and pain.</li>
+      <li><b>Shavasana.</b> The "corpse pose" final relaxation, and the related Yoga Nidra ("yogic sleep"). Triggers the <span class="glt">relaxation response</span> <span class="gl">(lowered sympathetic arousal, heart rate, blood pressure and muscle tension)</span>, like Jacobson's progressive muscle relaxation. Small trials show less anxiety and better sleep.</li>
+      <li><b>Pranic healing.</b> (Choa Kok Sui) claims to scan, cleanse and energise a depleted energy body, usually without touch. Evidence is very limited and poorly controlled; any benefit is probably relaxation and expectancy. Must not replace treatment.</li>
+      <li><b>Reiki.</b> (Usui) channels a "universal life energy" through the hands. Evidence is weak and at high risk of bias (a Cochrane review found insufficient evidence for anxiety/depression). A complementary comfort measure only; must not delay treatment.</li>
+      <li><b>Tai chi.</b> "Meditation in motion" — slow flowing movements with breathing and focused attention. Evidence is reasonably good for reduced stress, anxiety and depression, as an add-on in late-life depression, and for fall prevention, chronic pain and cardiac rehab.</li>
+      <li><b>Others.</b> Morita therapy (accept your feelings and do what needs doing) and Naikan (structured introspection to build gratitude), from Japan; plus qigong.</li>
+    </ul>
+
+    <h3>Goals, indications &amp; current status</h3>
+    <p>The shared goals across these practices are to lower stress and arousal, improve emotion regulation and attention, and build a calmer, more accepting relationship with one's own mind and body. <b>Who they suit and why:</b> mindfulness, yoga and tai chi have a <b>real evidence base</b> as add-ons for stress, anxiety, depression and chronic pain, and they suit people who want an active, self-directed practice they can keep doing on their own. They are particularly useful as <b>adjuncts</b> alongside standard treatment rather than as replacements for it. <b>Where to be cautious, and why:</b> reiki and pranic healing are <b>weak or inconclusive</b>, and the real danger is not that they do direct harm but that a person might rely on them and <b>delay proper care</b> for a serious condition, which is why they must never replace evidence-based treatment. <b>Evidence in plain terms:</b> these practices fit Indian and Asian cultural beliefs, cost very little and have few side effects, which makes them attractive and accessible, but the research quality is uneven — it is strongest for mindfulness-based therapies (such as MBCT for preventing depressive relapse), reasonable for yoga and tai chi, and weakest for energy healing. The honest exam line is: group them, then rank them by evidence.</p>
+
+    <div class="box warn"><span class="bt">⭐ Must-write points for the answer</span>
+      <ul>
+        <li>Group them, then rank by evidence: strong (mindfulness, yoga, tai chi) vs weak (reiki, pranic healing).</li>
+        <li>Common mechanism: attention + breath + relaxation response → better self-regulation.</li>
+        <li>MBSR/MBCT; MBCT prevents depressive relapse.</li>
+        <li>Energy healing lacks credible evidence; must not replace treatment.</li>
+        <li>Mostly used as adjuncts; culturally fitting, low cost, few side effects.</li>
+      </ul>
+    </div>
+
+    <div class="box info"><span class="bt">How to remember &amp; write this answer</span>
+      <p>This answer is really a <i>list with a judgement</i>. Name the practices (<b>YMSPRT</b>), then split them into "good evidence" and "weak evidence" — that split is the mark-scoring move. Give the common mechanism once, and add the honest caution about energy healing.</p>
+    </div>
+
+    <div class="mn"><span class="mt">Mnemonic</span>
+      <div class="word">YMSPRT</div>
+      <p><b>Y</b>oga · <b>M</b>editation · <b>S</b>havasana · <b>P</b>ranic healing · <b>R</b>eiki · <b>T</b>ai chi.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SOURCES ===================== -->
+<section class="topic" id="sources">
+  <div class="wrap">
+    <h2 class="sec">Source note &amp; honest limits</h2>
+    <div class="box key"><span class="bt">Honesty note</span>
+      <p>No authors, citations, study results, effect sizes or page numbers have been invented. APA Dictionary characterisations are paraphrased, not quoted, and carry no page numbers. Foundational claims are attributed to the author or classic work that introduced them. Where an Indian professional body (e.g. IACP) is mentioned, it is only in general terms from secondary summaries.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== REFERENCES ===================== -->
+<section class="topic" id="refs">
+  <div class="wrap">
+    <h2 class="sec">Key sources &amp; references</h2>
+    <h3>Books</h3>
+    <ul>
+      <li>Gerald Corey — <i>Theory and Practice of Counseling and Psychotherapy</i></li>
+      <li>Richard S. Sharf — <i>Theories of Psychotherapy and Counseling</i></li>
+      <li>Raymond J. Corsini &amp; Danny Wedding — <i>Current Psychotherapies</i></li>
+      <li>Glen O. Gabbard — <i>Long-Term Psychodynamic Psychotherapy: A Basic Text</i></li>
+      <li>Nancy McWilliams — <i>Psychoanalytic Diagnosis</i> / <i>Psychoanalytic Case Formulation</i></li>
+      <li>Sigmund Freud — <i>The Interpretation of Dreams</i> / <i>Introductory Lectures</i></li>
+      <li>Carl R. Rogers — <i>Client-Centered Therapy</i> / <i>On Becoming a Person</i></li>
+      <li>Irvin D. Yalom — <i>Existential Psychotherapy</i></li>
+      <li>Viktor E. Frankl — <i>Man's Search for Meaning</i></li>
+      <li>Perls, Hefferline &amp; Goodman — <i>Gestalt Therapy</i></li>
+      <li>Alfred Adler — <i>The Science of Living</i> / <i>Understanding Human Nature</i></li>
+      <li>Eric Berne — <i>Transactional Analysis in Psychotherapy</i> / <i>Games People Play</i></li>
+      <li>William Glasser — <i>Reality Therapy</i> / <i>Choice Theory</i></li>
+      <li>Milton H. Erickson &amp; Ernest L. Rossi — <i>Hypnotherapy: An Exploratory Casebook</i></li>
+      <li>Virginia M. Axline — <i>Play Therapy</i> / <i>Dibs: In Search of Self</i></li>
+      <li>Jacob L. Moreno — <i>Psychodrama</i></li>
+    </ul>
+    <h3>Primary / online</h3>
+    <ul>
+      <li>"Unit 4 — Affective Therapies" compiled reader</li>
+      <li>APA Dictionary of Psychology</li>
+      <li>WHO mhGAP Intervention Guide</li>
+      <li>APA Division 30 (hypnosis)</li>
+      <li>IACP (secondary summaries only)</li>
+    </ul>
+  </div>
+</section>
+</main>
+<footer class="site">
+  <p><b>Psychotherapy — Unit IV: Affective Psychotherapies</b></p>
+  <p>Dango_Psych by Tejas Dangodra | M.Phil. Clinical Psychology</p>
+  <p style="font-size:12.5px;opacity:.85">Educational study notes only — not legal or clinical advice.</p>
+</footer>
+</div>
+<button id="toTop" aria-label="Back to top" title="Back to top" style="width:auto;border-radius:22px;padding:0 14px;font-size:14px">Top</button>
+<script>
+(function(){
+  "use strict";
+  var content=document.getElementById('content');
+  var side=document.getElementById('side');
+  var menuBtn=document.getElementById('menuBtn');
+  var toTop=document.getElementById('toTop');
+  var search=document.getElementById('search');
+  var sInfo=document.getElementById('sInfo');
+  var sPrev=document.getElementById('sPrev');
+  var sNext=document.getElementById('sNext');
+  var sClr=document.getElementById('sClr');
+
+  /* ---- mobile menu ---- */
+  if(menuBtn){
+    menuBtn.addEventListener('click',function(){
+      var open=document.body.classList.toggle('nav');
+      menuBtn.setAttribute('aria-expanded',open?'true':'false');
+    });
+  }
+  /* close menu when a link is clicked (mobile) */
+  side.addEventListener('click',function(e){
+    if(e.target.tagName==='A' && window.matchMedia('(max-width:1050px)').matches){
+      document.body.classList.remove('nav');
+      if(menuBtn) menuBtn.setAttribute('aria-expanded','false');
+    }
+  });
+
+  /* ---- active section highlight ---- */
+  var links=[].slice.call(side.querySelectorAll('a[href^="#"]'));
+  var map={};
+  links.forEach(function(a){
+    var id=a.getAttribute('href').slice(1);
+    var el=document.getElementById(id);
+    if(el) map[id]=a;
+  });
+  function onScroll(){
+    if(toTop) toTop.style.display=(window.scrollY>400)?'block':'none';
+    var pos=window.scrollY+120, cur=null;
+    for(var id in map){
+      var el=document.getElementById(id);
+      if(el && el.offsetTop<=pos) cur=id;
+    }
+    links.forEach(function(a){a.classList.remove('act');});
+    if(cur && map[cur]) map[cur].classList.add('act');
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});
+  onScroll();
+  if(toTop){
+    toTop.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+  }
+
+  /* ---- offline search ---- */
+  var matches=[], curMatch=-1;
+  function clearMarks(){
+    var marked=content.querySelectorAll('mark');
+    marked.forEach(function(m){
+      var parent=m.parentNode;
+      parent.replaceChild(document.createTextNode(m.textContent),m);
+      parent.normalize();
+    });
+    matches=[]; curMatch=-1;
+  }
+  function openAncestors(node){
+    var d=node.parentNode;
+    while(d){
+      if(d.tagName==='DETAILS'){ d.open=true; }
+      d=d.parentNode;
+    }
+  }
+  function doSearch(q){
+    clearMarks();
+    if(!q || q.length<2){ sInfo.textContent=''; return; }
+    var rx;
+    try{ rx=new RegExp(q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'gi'); }
+    catch(e){ return; }
+    var walker=document.createTreeWalker(content,NodeFilter.SHOW_TEXT,{
+      acceptNode:function(n){
+        if(!n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        var p=n.parentNode;
+        if(p && (p.tagName==='SCRIPT'||p.tagName==='STYLE'||p.tagName==='MARK')) return NodeFilter.FILTER_REJECT;
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    });
+    var textNodes=[], n;
+    while((n=walker.nextNode())) textNodes.push(n);
+    textNodes.forEach(function(tn){
+      var txt=tn.nodeValue;
+      if(!rx.test(txt)) return;
+      rx.lastIndex=0;
+      var frag=document.createDocumentFragment();
+      var last=0, m;
+      while((m=rx.exec(txt))){
+        if(m.index>last) frag.appendChild(document.createTextNode(txt.slice(last,m.index)));
+        var mk=document.createElement('mark');
+        mk.textContent=m[0];
+        frag.appendChild(mk);
+        matches.push(mk);
+        last=m.index+m[0].length;
+        if(m.index===rx.lastIndex) rx.lastIndex++;
+      }
+      if(last<txt.length) frag.appendChild(document.createTextNode(txt.slice(last)));
+      tn.parentNode.replaceChild(frag,tn);
+    });
+    if(matches.length){
+      sInfo.textContent=matches.length+' match'+(matches.length>1?'es':'')+' found';
+      goTo(0);
+    }else{
+      sInfo.textContent='No matches';
+    }
+  }
+  function goTo(i){
+    if(!matches.length) return;
+    if(curMatch>=0 && matches[curMatch]) matches[curMatch].classList.remove('cur');
+    curMatch=(i+matches.length)%matches.length;
+    var m=matches[curMatch];
+    m.classList.add('cur');
+    openAncestors(m);
+    m.scrollIntoView({behavior:'smooth',block:'center'});
+    sInfo.textContent=(curMatch+1)+' of '+matches.length;
+  }
+  var tmr;
+  if(search){
+    search.addEventListener('input',function(){
+      clearTimeout(tmr);
+      var q=search.value.trim();
+      tmr=setTimeout(function(){doSearch(q);},200);
+    });
+    search.addEventListener('keydown',function(e){
+      if(e.key==='Enter'){ e.preventDefault(); if(matches.length) goTo(curMatch+(e.shiftKey?-1:1)); }
+    });
+  }
+  if(sNext) sNext.addEventListener('click',function(){goTo(curMatch+1);});
+  if(sPrev) sPrev.addEventListener('click',function(){goTo(curMatch-1);});
+  if(sClr) sClr.addEventListener('click',function(){ if(search) search.value=''; clearMarks(); sInfo.textContent=''; });
+})();
+</script>
+</body>
+</html>
