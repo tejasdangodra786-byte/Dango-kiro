@@ -1,0 +1,1233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Biological Foundations of Behavior — Unit I: Nomenclature, Signs and Symptoms</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: #f4f7fb;
+  color: #1a2535;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 16px;
+  line-height: 1.75;
+}
+.cover {
+  min-height: 100vh;
+  display: flex; flex-direction: column; justify-content: center; align-items: center;
+  text-align: center;
+  background: linear-gradient(135deg, #0f2744 0%, #1d5fa6 55%, #0e7c6b 100%);
+  color: #fff; padding: 60px 28px;
+}
+.cover .label {
+  font-family: Arial, Helvetica, sans-serif;
+  letter-spacing: 4px; text-transform: uppercase; font-size: 13px;
+  color: rgba(255,255,255,0.7); margin-bottom: 22px;
+}
+.cover h1 {
+  font-size: clamp(28px, 5vw, 46px); line-height: 1.25; max-width: 900px;
+  margin-bottom: 20px;
+}
+.cover .subtitle {
+  font-size: 17px; color: rgba(255,255,255,0.85); max-width: 660px; margin-bottom: 38px;
+  font-style: italic;
+}
+.cover .credit {
+  font-family: Arial, Helvetica, sans-serif;
+  display: inline-block; border: 1px solid rgba(255,255,255,0.4);
+  border-radius: 30px; padding: 10px 24px; font-size: 15px; font-weight: 600;
+  background: rgba(255,255,255,0.08);
+}
+.wrap { max-width: 960px; margin: 0 auto; padding: 48px 26px 70px; }
+.toc {
+  background: #fff; border: 1px solid #dce6f0; border-radius: 12px;
+  padding: 26px 30px; margin-bottom: 40px; box-shadow: 0 2px 10px rgba(15,39,68,0.05);
+}
+.toc h2 { font-size: 22px; color: #0f2744; margin-bottom: 14px; }
+.toc ol { margin-left: 22px; }
+.toc li { margin: 6px 0; }
+.toc a { color: #1d5fa6; text-decoration: none; }
+.toc a:hover { text-decoration: underline; }
+.guide {
+  background: #eef6ff; border: 1px solid #cfe2f7; border-left: 5px solid #1d5fa6;
+  border-radius: 10px; padding: 22px 26px; margin-bottom: 44px;
+}
+.guide h2 { color: #0f2744; font-size: 22px; margin-bottom: 12px; }
+.guide ul { margin-left: 22px; }
+.guide li { margin: 8px 0; }
+.card {
+  background: #fff; border: 1px solid #dce6f0; border-radius: 12px;
+  padding: 28px 30px; margin-bottom: 40px; box-shadow: 0 2px 12px rgba(15,39,68,0.06);
+  border-left: 6px solid #1d5fa6;
+}
+.card.blue   { border-left-color: #1d5fa6; }
+.card.teal   { border-left-color: #0e7c6b; }
+.card.amber  { border-left-color: #8a5c00; }
+.card.rose   { border-left-color: #7a1f3d; }
+.card.purple { border-left-color: #4a2080; }
+.card.navy   { border-left-color: #0f2744; }
+.card-head { display: flex; align-items: center; gap: 14px; margin-bottom: 8px; }
+.sec-num {
+  width: 38px; height: 38px; border-radius: 50%; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-family: Arial, Helvetica, sans-serif; font-weight: 700; color: #fff; font-size: 16px;
+  background: #1d5fa6;
+}
+.card.teal   .sec-num { background: #0e7c6b; }
+.card.amber  .sec-num { background: #8a5c00; }
+.card.rose   .sec-num { background: #7a1f3d; }
+.card.purple .sec-num { background: #4a2080; }
+.card.navy   .sec-num { background: #0f2744; }
+.card-head h2 { font-size: 24px; color: #0f2744; }
+.intro { font-style: italic; color: #40506a; margin: 10px 0 18px; font-size: 16.5px; }
+.answer-flow {
+  background: #fffaf0; border: 1px solid #e7c766; border-left: 5px solid #8a5c00;
+  border-radius: 10px; padding: 16px 20px; margin: 0 0 24px;
+}
+.answer-flow .af-label {
+  font-family: Arial, Helvetica, sans-serif; font-size: 12.5px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 1px; color: #8a5c00; margin-bottom: 10px;
+}
+.answer-flow .af-steps {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 6px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.answer-flow .af-step {
+  background: #fff; border: 1px solid #e0c38f; border-radius: 20px;
+  padding: 5px 13px; font-size: 13.5px; color: #5a4300; font-weight: 600;
+}
+.answer-flow .af-arrow { color: #8a5c00; font-weight: 700; font-size: 15px; }
+.points { counter-reset: pt; list-style: none; }
+.points li {
+  position: relative; padding: 10px 0 10px 40px; border-bottom: 1px dashed #e4ebf3;
+}
+.points li:before {
+  counter-increment: pt; content: counter(pt);
+  position: absolute; left: 0; top: 10px;
+  width: 26px; height: 26px; border-radius: 50%;
+  background: #e1edf8; color: #1d5fa6; font-family: Arial, sans-serif;
+  font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center;
+}
+.plain {
+  background: #fff3d6; color: #6b4e00; border: 1px solid #e7c766;
+  border-radius: 6px; padding: 1px 8px; font-size: 14.5px;
+  font-family: Arial, Helvetica, sans-serif; font-style: normal;
+  display: inline-block; line-height: 1.5;
+}
+strong { color: #10243f; font-weight: 700; }
+.alert-box {
+  background: #f0eafa; border: 1px solid #d6c7f0; border-left: 5px solid #4a2080;
+  border-radius: 10px; padding: 18px 22px; margin: 22px 0;
+}
+.alert-box .alert-label {
+  font-family: Arial, Helvetica, sans-serif; font-size: 12.5px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 1px; color: #4a2080; margin-bottom: 8px;
+}
+.alert-box .cite { display: block; margin-top: 10px; font-size: 13.5px; color: #5a6a7e; }
+.block-title {
+  font-family: Arial, Helvetica, sans-serif; font-size: 13px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 1px; color: #5a6a7e; margin: 26px 0 12px;
+}
+.flow {
+  display: flex; flex-wrap: wrap; align-items: stretch; gap: 8px;
+  background: #f7fafd; border: 1px dashed #c6d6e6; border-radius: 10px; padding: 18px;
+}
+.flow-box {
+  background: #fff; border: 1px solid #bcd0e6; border-radius: 8px;
+  padding: 10px 14px; font-size: 14px; font-family: Arial, Helvetica, sans-serif;
+  display: flex; flex-direction: column; justify-content: center; min-width: 110px; text-align: center;
+}
+.flow-box small { color: #5a6a7e; font-size: 12px; }
+.flow-box.end { background: #0f2744; color: #fff; border-color: #0f2744; }
+.flow-box.end small { color: rgba(255,255,255,0.8); }
+.flow-arrow { display: flex; align-items: center; color: #1d5fa6; font-size: 22px; font-weight: 700; }
+.mnemonic {
+  background: #e3f5f1; border: 1px solid #b5e0d6; border-left: 5px solid #0e7c6b;
+  border-radius: 10px; padding: 18px 22px; margin-top: 10px;
+}
+.mnemonic .mword {
+  font-family: Arial, Helvetica, sans-serif; font-weight: 700; font-size: 20px;
+  color: #0e7c6b; letter-spacing: 2px;
+}
+.mnemonic .mline { font-style: italic; color: #33514a; margin: 6px 0 12px; }
+.mnemonic ul { list-style: none; }
+.mnemonic li { margin: 5px 0; }
+.mnemonic .ml {
+  display: inline-block; width: 26px; font-family: Arial, sans-serif; font-weight: 700;
+  color: #0e7c6b; font-size: 16px;
+}
+.fig {
+  margin: 22px 0; padding: 16px; background: #f7fafd;
+  border: 1px solid #d3e1ee; border-radius: 10px; text-align: center;
+}
+.fig img, .fig svg {
+  max-width: 100%; height: auto; border: 1px solid #dce6f0;
+  border-radius: 8px; background: #fff;
+}
+.fig figcaption {
+  margin-top: 10px; font-size: 14px; color: #40506a; line-height: 1.5; text-align: left;
+}
+.fig figcaption .credit {
+  display: block; margin-top: 6px; font-size: 12.5px; color: #5a6a7e;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.refs { background: #fff; border: 1px solid #dce6f0; border-radius: 12px; padding: 26px 30px; }
+.refs h2 { color: #0f2744; font-size: 24px; margin-bottom: 14px; }
+.refs h3 { color: #1d5fa6; font-size: 16px; margin: 16px 0 8px; font-family: Arial, sans-serif; }
+.refs ul { margin-left: 22px; }
+.refs li { margin: 8px 0; }
+.footer {
+  background: #0f2744; color: rgba(255,255,255,0.9); text-align: center;
+  padding: 26px 20px; font-family: Arial, Helvetica, sans-serif; font-size: 14px;
+}
+.footer .credit { font-weight: 700; color: #fff; }
+.footer .title-line { display: block; margin-bottom: 8px; font-size: 14.5px; color: rgba(255,255,255,0.92); }
+@media (max-width: 640px) {
+  .flow { flex-direction: column; }
+  .flow-arrow { transform: rotate(90deg); }
+}
+</style>
+</head>
+<body>
+
+<header class="cover">
+  <div class="label">M.Phil. Clinical Psychology &middot; Study Notes</div>
+  <h1>Biological Foundations of Behavior — Unit I: Nomenclature, Signs and Symptoms</h1>
+  <div class="subtitle">Paper I: Biological Foundations of Behavior · Descriptive psychopathology after Fish · Exam-ready study notes</div>
+  <div class="credit">Dango_Psych by Tejas Dangodra | M.Phil. Clinical Psychology</div>
+</header>
+
+<div class="wrap">
+
+  <nav class="toc">
+    <h2>Contents</h2>
+    <ol>
+      <li><a href="#nomenclature">Nomenclature and the Classificatory Systems in Current Use</a></li>
+<li><a href="#limitations">Limitations of Classification</a></li>
+<li><a href="#consciousness">Disorders of Consciousness</a></li>
+<li><a href="#attention">Disorders of Attention and Concentration</a></li>
+<li><a href="#orientation">Disorders of Orientation</a></li>
+<li><a href="#motor">Disorders of Motor Behavior</a></li>
+<li><a href="#experience-of-self">Disorders of the Experience of Self</a></li>
+<li><a href="#speech">Disorders of Speech</a></li>
+<li><a href="#thought">Disorders of Thought</a></li>
+<li><a href="#perception">Disorders of Perception</a></li>
+<li><a href="#emotion">Disorders of Emotion</a></li>
+<li><a href="#memory">Disorders of Memory</a></li>
+    </ol>
+  </nav>
+
+  <section class="guide">
+    <h2>How to read these notes</h2>
+    <ul>
+      <li>Each topic opens with a one-line <strong>intro</strong> that frames the idea and then an <strong>Answer flow</strong> box, a small ladder of stages (definition, background, key concepts, clinical examples, significance, one-line summary); write your exam answer in exactly that order.</li>
+<li>The numbered points below the Answer flow follow those same stages, so reading them top to bottom gives you a ready-made <strong>5-mark answer</strong> rather than a list of scattered notes.</li>
+<li>Hard psychopathology terms are kept in full, but each is followed by a plain-language meaning inside a shaded box like this <span class="plain">a simple everyday explanation that sits right next to the difficult word</span> so you keep the clinical vocabulary while understanding it.</li>
+<li>Only a <strong>few keywords</strong> in each sentence are shown in bold; treat those bold words as memory hooks and rebuild the rest of the sentence around them while you revise.</li>
+<li>Every topic carries exactly one <strong>flowchart</strong> of boxes joined by arrows to show a sequence, and exactly one <strong>mnemonic</strong> whose letters each map to a point you must remember.</li>
+<li>Several topics carry a <strong>labelled diagram</strong>; use each figure as a visual map, matching its labels to the numbered points and the flowchart so you can both picture and describe it.</li>
+<li>Revise by first reading the Answer flow to fix the structure, then the flowchart and mnemonic to lock the sequence and key points, and finally the full sentences for exam wording.</li>
+    </ul>
+  </section>
+
+  <section class="card blue" id="nomenclature">
+<div class="card-head"><div class="sec-num">1</div><h2>Nomenclature and the Classificatory Systems in Current Use</h2></div>
+<p class="intro">Before any symptom can be named, psychiatry needs an agreed vocabulary and a shared catalogue of disorders, so this topic sets out what classification is, traces the parallel histories of the DSM and the ICD, and shows how the two systems resemble and differ from each other.</p>
+<div class="answer-flow">
+<div class="af-label">Answer flow &middot; write your answer in this order</div>
+<div class="af-steps">
+<span class="af-step">Definition of nomenclature &amp; classification</span>
+<span class="af-arrow">&rarr;</span>
+<span class="af-step">Background / why we classify</span>
+<span class="af-arrow">&rarr;</span>
+<span class="af-step">DSM history and ICD history</span>
+<span class="af-arrow">&rarr;</span>
+<span class="af-step">What each is &amp; how they differ</span>
+<span class="af-arrow">&rarr;</span>
+<span class="af-step">Interview schedules (SCID/CIDI/SCAN)</span>
+<span class="af-arrow">&rarr;</span>
+<span class="af-step">One-line summary</span>
+</div></div>
+<ol class="points">
+<li><strong>Nomenclature</strong> <span class="plain">the agreed set of names for disorders</span> is the shared vocabulary of psychiatry, while <strong>classification</strong> is the orderly grouping of those named disorders into categories, so that clinicians everywhere can mean the same thing by a diagnosis.</li>
+<li>Classification exists chiefly for <strong>communication</strong>, letting clinicians and researchers talk precisely, pool data on cause and outcome, and decide treatment, so a good system is judged by how useful and reliable it proves.</li>
+<li>The two systems in current use are the <strong>DSM</strong> <span class="plain">the Diagnostic and Statistical Manual</span> of the American Psychiatric Association and the <strong>ICD</strong> <span class="plain">the International Classification of Diseases</span> of the World Health Organization, and both are built around clinical syndromes.</li>
+<li>The DSM lineage runs from <strong>DSM-I in 1952</strong> and DSM-II in 1968, which were brief and psychoanalytic, to the landmark <strong>DSM-III in 1980</strong>, which introduced explicit operational criteria and set the template every later edition has followed.</li>
+<li><strong>DSM-IV</strong> appeared in 1994 and the current <strong>DSM-5</strong> in 2013, a revision that notably <strong>dropped the five-axis system</strong> <span class="plain">the old habit of coding illness, personality, medical, social and functioning problems on separate lines</span> used since DSM-III.</li>
+<li>The ICD lineage reaches modern psychiatry with <strong>ICD-7 in 1955</strong>, then ICD-8 in 1965 and ICD-9 in 1978, each slowly widening and sharpening the mental-disorders section as the WHO sought a single language for health statistics worldwide.</li>
+<li><strong>ICD-10</strong> in 1992 gave mental and behavioural disorders their own detailed chapter with clinical descriptions and diagnostic guidelines, and the current <strong>ICD-11</strong>, adopted in 2022, places them in <strong>Chapter 6</strong> with a fully updated, dimensional-leaning structure.</li>
+<li>A key difference is purpose: the DSM is an <strong>operationalised research manual</strong> for a largely specialist readership, whereas the ICD is a broader <strong>descriptive</strong> system for public-health and general clinical use worldwide.</li>
+<li>They also differ in scope, since the ICD is a whole-body disease classification with mental disorders as just one chapter, while the DSM deals <strong>solely with mental disorders</strong> and so carries more detailed criteria for each.</li>
+<li>In style the DSM tends to favour <strong>tight operational criteria</strong> with counts and thresholds, while ICD-10 offered looser <strong>clinical descriptions and guidelines</strong>, a difference that can make the same patient meet one system&#x27;s threshold but not the other&#x27;s.</li>
+<li>Despite these contrasts both systems are <strong>syndrome-based</strong> <span class="plain">they group symptoms that cluster together rather than grouping by proven cause</span>, because psychiatry still lacks the biological markers that would let it classify most disorders by underlying pathology.</li>
+<li>The two bodies now work for <strong>harmonisation</strong>, so that DSM-5 and ICD-11 categories and codes line up far better than earlier editions did, reducing the confusion of a patient being labelled differently on either side of an ocean.</li>
+<li>To apply any system reliably clinicians use <strong>structured interview schedules</strong>, chief among them the <strong>SCID</strong> <span class="plain">the Structured Clinical Interview for DSM, run by a clinician</span>, which walks through DSM criteria disorder by disorder to yield a standardised diagnosis.</li>
+<li>The <strong>CIDI</strong> <span class="plain">the Composite International Diagnostic Interview</span> is a fully structured schedule designed for trained lay interviewers and large epidemiological surveys, giving ICD and DSM diagnoses without needing clinical judgement at each question.</li>
+<li>The <strong>SCAN</strong> <span class="plain">the Schedules for Clinical Assessment in Neuropsychiatry, built around the Present State Examination</span> is a semi-structured instrument that relies on the clinician&#x27;s trained judgement to rate the presence and severity of each symptom.</li>
+<li>These schedules matter because they raise <strong>reliability</strong> <span class="plain">the chance that two clinicians reach the same diagnosis</span>, turning a classification on paper into something that can be applied consistently in research and audited in everyday clinical work.</li>
+<li>In one line, nomenclature gives psychiatry its shared names and the DSM and ICD its two great syndrome-based catalogues, one research-led and specialist, the other descriptive and global, applied reliably through structured interviews.</li>
+</ol>
+<figure class="fig">
+<svg viewBox="0 0 900 320" role="img" aria-label="Parallel timelines of DSM and ICD editions"
+     xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;font-family:Arial,Helvetica,sans-serif;">
+  <rect x="0" y="0" width="900" height="320" fill="#ffffff"/>
+  <text x="450" y="26" text-anchor="middle" font-weight="bold" font-size="14" fill="#0f2744">
+    Two parallel classifications: APA's DSM (top) and WHO's ICD (bottom)</text>
+  <line x1="40" y1="110" x2="860" y2="110" stroke="#1d5fa6" stroke-width="4"/>
+  <polygon points="860,110 846,102 846,118" fill="#1d5fa6"/>
+  <line x1="40" y1="240" x2="860" y2="240" stroke="#0e7c6b" stroke-width="4"/>
+  <polygon points="860,240 846,232 846,248" fill="#0e7c6b"/>
+  <g font-size="12" fill="#10243f">
+    <text x="20" y="92" font-weight="bold" fill="#1d5fa6">DSM (APA)</text>
+    <circle cx="110" cy="110" r="6" fill="#1d5fa6"/>
+    <text x="110" y="82" text-anchor="middle" font-weight="bold">DSM-I</text>
+    <text x="110" y="140" text-anchor="middle">1952</text>
+    <circle cx="260" cy="110" r="6" fill="#1d5fa6"/>
+    <text x="260" y="82" text-anchor="middle" font-weight="bold">DSM-II</text>
+    <text x="260" y="140" text-anchor="middle">1968</text>
+    <circle cx="420" cy="110" r="6" fill="#1d5fa6"/>
+    <text x="420" y="82" text-anchor="middle" font-weight="bold">DSM-III</text>
+    <text x="420" y="140" text-anchor="middle">1980 (criteria)</text>
+    <circle cx="600" cy="110" r="6" fill="#1d5fa6"/>
+    <text x="600" y="82" text-anchor="middle" font-weight="bold">DSM-IV</text>
+    <text x="600" y="140" text-anchor="middle">1994</text>
+    <circle cx="790" cy="110" r="6" fill="#1d5fa6"/>
+    <text x="790" y="82" text-anchor="middle" font-weight="bold">DSM-5</text>
+    <text x="790" y="140" text-anchor="middle">2013 (no axes)</text>
+
+    <text x="20" y="222" font-weight="bold" fill="#0e7c6b">ICD (WHO)</text>
+    <circle cx="110" cy="240" r="6" fill="#0e7c6b"/>
+    <text x="110" y="212" text-anchor="middle" font-weight="bold">ICD-7</text>
+    <text x="110" y="270" text-anchor="middle">1955</text>
+    <circle cx="260" cy="240" r="6" fill="#0e7c6b"/>
+    <text x="260" y="212" text-anchor="middle" font-weight="bold">ICD-8</text>
+    <text x="260" y="270" text-anchor="middle">1965</text>
+    <circle cx="420" cy="240" r="6" fill="#0e7c6b"/>
+    <text x="420" y="212" text-anchor="middle" font-weight="bold">ICD-9</text>
+    <text x="420" y="270" text-anchor="middle">1978</text>
+    <circle cx="600" cy="240" r="6" fill="#0e7c6b"/>
+    <text x="600" y="212" text-anchor="middle" font-weight="bold">ICD-10</text>
+    <text x="600" y="270" text-anchor="middle">1992</text>
+    <circle cx="790" cy="240" r="6" fill="#0e7c6b"/>
+    <text x="790" y="212" text-anchor="middle" font-weight="bold">ICD-11</text>
+    <text x="790" y="270" text-anchor="middle">2022 (Ch. 6)</text>
+  </g>
+  <text x="450" y="306" text-anchor="middle" font-size="12" fill="#40506a" font-style="italic">
+    Both are syndrome-based catalogues; DSM is operational and research-led, ICD is descriptive and clinical.</text>
+</svg>
+<figcaption>Figure 1. Parallel timelines of the two classifications — the APA&#x27;s DSM (DSM-I 1952 to DSM-5 2013, which dropped the five axes) and the WHO&#x27;s ICD (ICD-7 1955 to ICD-11 2022, Chapter 6), both syndrome-based.<span class="credit">Original labelled schematic drawn for these notes.</span></figcaption></figure>
+<div class="alert-box"><div class="alert-label">Sourced characterisation — Classification in psychiatry</div><div>A classification in psychiatry is a system that groups mental disorders into categories on the basis of shared clinical features (a syndrome), its chief purposes being reliable communication between clinicians, the gathering of comparable statistics, and the guidance of prognosis and treatment, as set out in the opening chapters of Fish&#x27;s Clinical Psychopathology.</div><span class="cite">Source: Paraphrased from Casey, P. &amp; Kelly, B., Fish&#x27;s Clinical Psychopathology, 5th ed. (introductory chapter on classification and nomenclature).</span></div>
+<div class="block-title">Flowchart &middot; From symptoms to a shared diagnosis</div>
+<div class="flow">
+<div class="flow-box">Observe symptoms<br><small>the raw clinical data</small></div>
+<div class="flow-arrow">&rarr;</div>
+<div class="flow-box">Group as a syndrome<br><small>symptoms that cluster</small></div>
+<div class="flow-arrow">&rarr;</div>
+<div class="flow-box">Apply DSM or ICD<br><small>named category + code</small></div>
+<div class="flow-arrow">&rarr;</div>
+<div class="flow-box">Use a schedule<br><small>SCID / CIDI / SCAN</small></div>
+<div class="flow-arrow">&rarr;</div>
+<div class="flow-box end">Reliable diagnosis<br><small>shared, comparable</small></div>
+</div>
+<div class="block-title">Mnemonic</div>
+<div class="mnemonic">
+<div class="mword">CLASSIFY</div>
+<div class="mline">CLASSIFY reminds you why and how psychiatry orders its disorders.</div>
+<ul>
+<li><span class="ml">C</span> <strong>Communication</strong> is the first purpose of any system.</li>
+<li><span class="ml">L</span> <strong>Lineages</strong>: DSM from 1952, ICD-7 from 1955.</li>
+<li><span class="ml">A</span> <strong>APA owns DSM</strong>, WHO owns the ICD.</li>
+<li><span class="ml">S</span> <strong>Syndrome-based</strong>: both group clustering symptoms.</li>
+<li><span class="ml">S</span> <strong>Statistics</strong> and prognosis flow from good classes.</li>
+<li><span class="ml">I</span> <strong>ICD-11 (2022) Chapter 6</strong> for mental disorders.</li>
+<li><span class="ml">F</span> <strong>Five axes dropped</strong> by DSM-5 in 2013.</li>
+<li><span class="ml">Y</span> <strong>Yardsticks</strong>: SCID, CIDI and SCAN apply them reliably.</li>
+</ul></div>
+</section>
+<section class="card teal" id="limitations">
+<div class="card-head"><div class="sec-num">2</div><h2>Limitations of Classification</h2></div>
+<p class="intro">No classification is a perfect mirror of nature, so this topic examines the philosophical and practical limits of diagnosis, from Jaspers&#x27; caution and the realism debate, through validity, reliability and the clinical-significance criterion, to the stubborn problem of comorbidity.</p>
+<div class="answer-flow">
+<div class="af-label">Answer flow &middot; write your answer in this order</div>
+<div class="af-steps">
+<span class="af-step">Definition of the problem</span>
+<span class="af-arrow">&rarr;</span>
+<span class="af-step">Philosophical status (realism debate)</span>
+<span class="af-arrow">&rarr;</span>
+<span class="af-step">Validity vs reliability</span>
+<span class="af-arrow">&rarr;</span>
+<span class="af-step">Criterion &amp; threshold problems</span>
+<span class="af-arrow">&rarr;</span>
+<span class="af-step">Comorbidity &amp; category limits</span>
+<span class="af-arrow">&rarr;</span>
+<span class="af-step">One-line summary</span>
+</div></div>
+<ol class="points">
+<li>Classification is useful but <strong>provisional</strong>, because psychiatric categories are working tools rather than proven natural kinds, so every system carries limits that a thoughtful clinician must weigh rather than treating a diagnosis as a fixed fact.</li>
+<li><strong>Karl Jaspers</strong> warned that diagnostic categories are <strong>ideal types</strong> <span class="plain">useful mental models that real patients only ever approximate</span>, so no actual person fits a textbook label exactly, and forcing a messy case into a neat box can distort the clinical picture.</li>
+<li>Kendler&#x27;s 2016 analysis frames three philosophical stances: <strong>realism</strong> <span class="plain">disorders are real natural entities waiting to be discovered</span>, <strong>constructivism</strong> <span class="plain">categories are invented by committees</span>, and <strong>pragmatism</strong>, the middle view that categories are useful tools judged by what they achieve.</li>
+<li>A core limit is the gap between <strong>validity</strong> <span class="plain">whether a category marks a genuinely distinct, real disorder</span> and <strong>reliability</strong> <span class="plain">whether clinicians agree on applying it</span>, because a label can be highly reliable yet still not carve nature at a true joint.</li>
+<li>Operational criteria greatly improved reliability after DSM-III, but critics note this can buy agreement at the cost of validity, pinning down a definition precisely without proving that the thing defined is a <strong>real and separate illness</strong>.</li>
+<li>The <strong>clinical-significance criterion</strong> <span class="plain">the rule that symptoms must cause distress or impairment to count as a disorder</span> tries to keep normal reactions out, yet Allen Frances called it the <strong>seeds of tautology</strong> because it can be circular.</li>
+<li>That circularity arises because distress or impairment is used both to define the disorder and to prove it matters, so the criterion risks simply restating that a problem is a problem rather than adding genuinely new information.</li>
+<li>The systems even word this threshold differently: the DSM typically requires distress <strong>OR</strong> impairment, whereas ICD-10 often leant toward requiring <strong>BOTH</strong>, so the same person can cross one manual&#x27;s line into caseness while staying below the other&#x27;s.</li>
+<li>Categories may be <strong>monothetic</strong> <span class="plain">every listed feature is required</span> or <strong>polythetic</strong> <span class="plain">any sufficient subset of features will do</span>, and modern manuals are largely polythetic, which means two people with the same diagnosis can share very few symptoms.</li>
+<li>This polythetic design produces great <strong>within-category heterogeneity</strong>, so a single label like depression covers patients whose presentations overlap only partly, weakening the assumption that one diagnosis implies one cause, course or best treatment.</li>
+<li>A major limitation is <strong>comorbidity</strong> <span class="plain">two or more disorders diagnosed in the same person at once</span>, which is so common that Tyrer&#x27;s 2017 work argues it often reflects artificial splitting of what is really one broad underlying problem.</li>
+<li>Tyrer distinguishes true <strong>co-occurrence</strong> from mere <strong>consanguinity</strong> <span class="plain">categories that look separate but are really close relatives carved from the same territory</span>, so high comorbidity rates may be an artefact of how the boundaries were drawn.</li>
+<li>Field data expose the fragility of boundaries, with reported <strong>ICD-10 versus DSM-IV concordance</strong> <span class="plain">the rate at which the two systems agree on a case</span> ranging widely, from about <strong>33% to 87%</strong> depending on the disorder studied.</li>
+<li>Such variable agreement shows that for some conditions the two manuals are nearly interchangeable while for others they disagree sharply, undermining any claim that either system has simply found the one correct way to divide mental illness.</li>
+<li>Classification can also create <strong>stigma</strong> and self-fulfilling expectations, since a label shapes how others treat a person and how the person sees themselves, a social cost that sits alongside the scientific limits of validity and reliability.</li>
+<li>Despite all this, the pragmatic defence holds that an imperfect, agreed classification is <strong>better than none</strong>, because without shared categories research could not accumulate and clinicians could not communicate, so the goal is steady improvement, not abandonment.</li>
+<li>In one line, classification is limited by shaky validity, circular thresholds, heterogeneous polythetic categories and pervasive comorbidity, so diagnoses are best treated as useful, revisable tools rather than discovered natural facts.</li>
+</ol>
+<div class="block-title">Flowchart &middot; Why a diagnosis may mislead</div>
+<div class="flow">
+<div class="flow-box">Ideal type<br><small>patients only approximate it</small></div>
+<div class="flow-arrow">&rarr;</div>
+<div class="flow-box">Reliable label<br><small>clinicians agree</small></div>
+<div class="flow-arrow">&rarr;</div>
+<div class="flow-box">But is it valid?<br><small>a real, separate illness?</small></div>
+<div class="flow-arrow">&rarr;</div>
+<div class="flow-box">Polythetic + comorbid<br><small>fuzzy, overlapping</small></div>
+<div class="flow-arrow">&rarr;</div>
+<div class="flow-box end">Treat as a tool<br><small>useful, revisable</small></div>
+</div>
+<div class="block-title">Mnemonic</div>
+<div class="mnemonic">
+<div class="mword">LIMITS</div>
+<div class="mline">LIMITS flags the weak points of any diagnostic system.</div>
+<ul>
+<li><span class="ml">L</span> <strong>Labels</strong> are ideal types (Jaspers), not exact fits.</li>
+<li><span class="ml">I</span> <strong>Invalidity</strong> can hide behind high reliability.</li>
+<li><span class="ml">M</span> <strong>Monothetic vs polythetic</strong> creates heterogeneity.</li>
+<li><span class="ml">I</span> <strong>ICD vs DSM</strong> concordance ranges ~33-87%.</li>
+<li><span class="ml">T</span> <strong>Tautology</strong>: the clinical-significance &#x27;seeds of tautology&#x27;.</li>
+<li><span class="ml">S</span> <strong>Splitting</strong> drives comorbidity (Tyrer 2017).</li>
+</ul></div>
+</section>
+<section class="card amber" id="consciousness">
+<div class="card-head"><div class="sec-num">3</div><h2>Disorders of Consciousness</h2></div>
+<p class="intro">Consciousness is the stage on which all other mental functions appear, so this topic defines awareness of self and environment, sets out the states in which it is clouded, lowered, narrowed or dissociated, and explains why such change is usually a red flag for organic illness.</p>
+<div class="answer-flow">
+<div class="af-label">Answer flow &middot; write your answer in this order</div>
+<div class="af-steps">
+<span class="af-step">Definition of consciousness</span>
+<span class="af-arrow">&rarr;</span>
+<span class="af-step">Background (a continuum of arousal)</span>
+<span class="af-arrow">&rarr;</span>
+<span class="af-step">Types of disordered consciousness</span>
+<span class="af-arrow">&rarr;</span>
+<span class="af-step">Clinical examples (delirium, fugue)</span>
+<span class="af-arrow">&rarr;</span>
+<span class="af-step">Significance (organic until proven)</span>
+<span class="af-arrow">&rarr;</span>
+<span class="af-step">One-line summary</span>
+</div></div>
+<ol class="points">
+<li><strong>Consciousness</strong> is best defined as <strong>awareness of the self and of the environment</strong>, a background state of alertness that makes ordinary experience possible, so when it is disturbed every other mental function is inevitably affected too.</li>
+<li>Consciousness is not all-or-none but a <strong>continuum</strong> running from full alertness, through drowsiness and clouding, down to stupor and finally coma, so clinicians describe where on this gradient a patient sits rather than using a single on-off label.</li>
+<li><strong>Clouding of consciousness</strong> <span class="plain">a mild dulling where awareness and attention are slightly reduced</span> is the gentlest change, leaving the patient muddled, slow and poorly focused, and is the earliest warning that the brain&#x27;s overall function is failing.</li>
+<li>A <strong>dream-like (oneiroid) state</strong> blends vivid inner imagery with the outer world, and is the quality typical of <strong>delirium</strong> <span class="plain">an acute, fluctuating confusional state</span>, in which the patient is disoriented, frightened and often troubled by vivid hallucinations.</li>
+<li>A <strong>lowering of consciousness (torpor)</strong> <span class="plain">reduced wakefulness with slow, sluggish thinking</span> leaves the patient drowsy, easily losing the thread, drifting toward sleep, and able to give only poor and muddled answers to questions.</li>
+<li>A <strong>restriction or narrowing of consciousness (twilight state)</strong> keeps a small band of awareness intact while the rest is shut out, so the person may carry out semi-purposeful acts yet have no proper memory of them afterwards.</li>
+<li>A <strong>fugue</strong> <span class="plain">a sudden wandering away from home with loss of personal memory</span> is a dissociative narrowing in which a person may travel far, sometimes taking on a new identity, and later cannot recall the episode at all.</li>
+<li>These states are distinguished partly by <strong>mood and content</strong>: the twilight state often carries a tense, irritable mood, while the oneiroid state is dominated by dream-like imagery, helping the clinician tell one narrowing from another.</li>
+<li><strong>Delirium</strong> deserves special emphasis as the commonest disorder of consciousness in general hospitals, marked by a fluctuating course, worse confusion at night, altered sleep-wake cycle and frequent visual hallucinations and misperceptions.</li>
+<li>A cardinal teaching point is that disturbed consciousness is <strong>prima facie organic</strong> <span class="plain">on the face of it caused by physical brain disease</span>, so any clouding should trigger a search for infection, drugs, metabolic upset or other bodily causes.</li>
+<li>This organic rule matters because missing a delirium can be fatal, so a new confusional state is treated as a <strong>medical emergency</strong> until a physical cause is found or firmly excluded, not dismissed as a purely psychological reaction.</li>
+<li>By contrast, the <strong>dissociative</strong> narrowings such as fugue can occur with a clear sensorium and are psychogenic, which is why distinguishing an organic clouding from a dissociative narrowing is one of the first judgements the clinician must make.</li>
+<li>Assessment relies on <strong>simple bedside tests</strong> of orientation, attention and the ability to sustain a conversation, because a patient who cannot hold attention or stay oriented is showing, by definition, a disorder of consciousness.</li>
+<li>The level of consciousness typically <strong>fluctuates</strong> in organic states, so repeated short examinations across the day are more revealing than a single assessment, and night-time worsening is a classic clue to an underlying delirium.</li>
+<li>Severe lowering ends in <strong>stupor</strong>, a state of near-unresponsiveness with preserved posture and some reaction to strong stimuli, and then <strong>coma</strong>, the complete and unrousable loss of awareness at the far end of the continuum.</li>
+<li>Recovery usually leaves a <strong>patchy or absent memory</strong> for the period of altered consciousness, and this amnesic gap is itself diagnostic evidence that consciousness, not merely mood or thought, was the function disturbed.</li>
+<li>In one line, disorders of consciousness are disturbances of awareness ranging from clouding to coma and including dream-like, lowered, narrowed and fugue states, and they should be read as organic until proven otherwise.</li>
+</ol>
+<div class="alert-box"><div class="alert-label">Sourced characterisation — Consciousness</div><div>Consciousness is described in Fish as a state of awareness of the self and of the environment; its disorders are graded along a continuum (clouding, drowsiness, stupor, coma) and qualitative changes such as dream-like, lowered, restricted and dissociative states, a disturbance of which is regarded as prima facie evidence of organic cerebral disorder.</div><span class="cite">Source: Paraphrased from Casey, P. &amp; Kelly, B., Fish&#x27;s Clinical Psychopathology, 5th ed. (chapter on disorders of consciousness and attention).</span></div>
+<div class="block-title">Flowchart &middot; The continuum of consciousness</div>
+<div class="flow">
+<div class="flow-box">Alert<br><small>full awareness</small></div>
+<div class="flow-arrow">&rarr;</div>
+<div class="flow-box">Clouding<br><small>mild dulling</small></div>
+<div class="flow-arrow">&rarr;</div>
+<div class="flow-box">Torpor / twilight<br><small>lowered / narrowed</small></div>
+<div class="flow-arrow">&rarr;</div>
+<div class="flow-box">Stupor<br><small>near-unresponsive</small></div>
+<div class="flow-arrow">&rarr;</div>
+<div class="flow-box end">Coma<br><small>unrousable</small></div>
+</div>
+<div class="block-title">Mnemonic</div>
+<div class="mnemonic">
+<div class="mword">CLOUDS</div>
+<div class="mline">CLOUDS gathers the ways consciousness can be disturbed.</div>
+<ul>
+<li><span class="ml">C</span> <strong>Clouding</strong>: mild dulling of awareness.</li>
+<li><span class="ml">L</span> <strong>Lowering</strong> (torpor): drowsy, sluggish thinking.</li>
+<li><span class="ml">O</span> <strong>Oneiroid / delirium</strong>: dream-like, fluctuating.</li>
+<li><span class="ml">U</span> <strong>Unrousable</strong> end-point is coma.</li>
+<li><span class="ml">D</span> <strong>Dissociative</strong> fugue: wandering, memory lost.</li>
+<li><span class="ml">S</span> <strong>Suspect organic</strong> cause first (prima facie).</li>
+</ul></div>
+</section>
+<section class="card rose" id="attention">
+<div class="card-head"><div class="sec-num">4</div><h2>Disorders of Attention and Concentration</h2></div>
+<p class="intro">Attention is the spotlight that selects what we process, so this topic separates active from passive attention, surveys how fatigue, anxiety, mood, psychosis and organic disease each disturb it, and shows why attentional change is both common and diagnostically informative.</p>
+<div class="answer-flow">
+<div class="af-label">Answer flow &middot; write your answer in this order</div>
+<div class="af-steps">
+<span class="af-step">Definition of attention &amp; concentration</span>
+<span class="af-arrow">&rarr;</span>
+<span class="af-step">Active vs passive attention</span>
+<span class="af-arrow">&rarr;</span>
+<span class="af-step">Causes of distractibility</span>
+<span class="af-arrow">&rarr;</span>
+<span class="af-step">Clinical patterns by disorder</span>
+<span class="af-arrow">&rarr;</span>
+<span class="af-step">Significance for assessment</span>
+<span class="af-arrow">&rarr;</span>
+<span class="af-step">One-line summary</span>
+</div></div>
+<ol class="points">
+<li><strong>Attention</strong> is the active direction of awareness onto a chosen object, while <strong>concentration</strong> is the effort of holding that focus over time, so together they form the gateway through which information must pass to be remembered.</li>
+<li>A useful split is between <strong>active attention</strong> <span class="plain">deliberately choosing what to attend to</span> and <strong>passive attention</strong> <span class="plain">being automatically drawn by a sudden or striking stimulus</span>, and many disorders tip the balance between these two kinds.</li>
+<li><strong>Distractibility</strong> <span class="plain">the tendency for attention to be pulled away by any passing stimulus</span> is the most frequent attentional symptom, appearing whenever active attention weakens and passive attention takes over the direction of the mind.</li>
+<li>Ordinary <strong>fatigue</strong> <span class="plain">tiredness</span> and boredom reduce attention in everyone, so a tired or under-stimulated person attends poorly, which means the clinician must gauge whether poor attention is situational or a genuine sign of illness.</li>
+<li>In <strong>anxiety</strong> the mind is repeatedly dragged back to the feared theme, so attention narrows onto threat and concentration on neutral tasks suffers, a pattern patients often describe as being unable to keep their mind on anything.</li>
+<li>In <strong>depression</strong> attention and concentration are slowed and effortful, so patients complain they cannot read a page or follow a conversation, and this subjective poor concentration is one of the recognised diagnostic features of the illness.</li>
+<li>In <strong>mania</strong> attention becomes highly <strong>distractible</strong>, flitting from one external stimulus to the next, so the patient cannot sustain any single task and their talk jumps in step with whatever happens to catch their eye.</li>
+<li>In <strong>schizophrenia</strong> attention is often disorganised, with patients unable to filter out irrelevant stimuli, so they feel flooded by input and their concentration fragments, mirroring the broader disturbance of thought and perception.</li>
+<li>In <strong>organic states</strong> such as delirium and dementia, impaired attention is a core feature, and indeed the inability to sustain and shift attention is one of the defining signs that separates delirium from a purely functional illness.</li>
+<li>A special pattern is the <strong>amnestic patient&#x27;s rigid set</strong>, where severe memory loss leaves the person clinging to a narrow fixed focus, unable to redirect attention because they cannot update what they hold in mind.</li>
+<li>Attention and consciousness are intimately linked, because a patient whose consciousness is clouded cannot by definition attend well, so attentional testing doubles as a sensitive <strong>screen for early clouding</strong> of consciousness.</li>
+<li>Bedside tests of attention include <strong>serial sevens</strong> <span class="plain">subtracting seven repeatedly from one hundred</span>, reciting the months of the year backwards, or the digit span, each demanding sustained active attention that organic and severe functional illness disrupts.</li>
+<li>It is important to separate <strong>subjective</strong> poor concentration, which the patient reports, from <strong>objective</strong> inattention that the examiner can demonstrate on testing, because the two do not always agree and each carries different weight.</li>
+<li>Attentional symptoms are highly <strong>non-specific</strong>, occurring across almost every psychiatric and many physical illnesses, so poor attention alone never fixes a diagnosis and must always be read in the context of the whole clinical picture.</li>
+<li>Because attention underpins memory <strong>registration</strong>, a patient who cannot attend will appear to have a memory problem when the true fault lies one step earlier, a distinction the clinician must keep clearly in mind when testing.</li>
+<li>Culturally and educationally fair testing matters, since tasks like serial sevens assume numeracy, so the examiner chooses an attention test suited to the patient to avoid mistaking lack of schooling for genuine inattention.</li>
+<li>In one line, disorders of attention range from everyday distractibility in fatigue and anxiety to the gross inattention of delirium, and because they are common but non-specific they guide rather than make a diagnosis.</li>
+</ol>
+<div class="block-title">Flowchart &middot; How attention breaks down</div>
+<div class="flow">
+<div class="flow-box">Active attention<br><small>chosen focus</small></div>
+<div class="flow-arrow">&rarr;</div>
+<div class="flow-box">Load: fatigue / anxiety<br><small>focus weakens</small></div>
+<div class="flow-arrow">&rarr;</div>
+<div class="flow-box">Distractibility<br><small>passive pull wins</small></div>
+<div class="flow-arrow">&rarr;</div>
+<div class="flow-box">Disorder pattern<br><small>mania, depression, organic</small></div>
+<div class="flow-arrow">&rarr;</div>
+<div class="flow-box end">Read in context<br><small>non-specific sign</small></div>
+</div>
+<div class="block-title">Mnemonic</div>
+<div class="mnemonic">
+<div class="mword">FOCUS</div>
+<div class="mline">FOCUS lists what disturbs attention and why it matters.</div>
+<ul>
+<li><span class="ml">F</span> <strong>Fatigue</strong> and boredom lower attention in all.</li>
+<li><span class="ml">O</span> <strong>Organic</strong> states: core inattention (delirium).</li>
+<li><span class="ml">C</span> <strong>Concentration</strong> slowed in depression.</li>
+<li><span class="ml">U</span> <strong>Unfiltered</strong> flooding in schizophrenia.</li>
+<li><span class="ml">S</span> <strong>Switching</strong> wildly: distractibility of mania.</li>
+</ul></div>
+</section>
+<section class="card purple" id="orientation">
+<div class="card-head"><div class="sec-num">5</div><h2>Disorders of Orientation</h2></div>
+<p class="intro">Orientation anchors a person in time, place and identity, so this topic defines it, explains the characteristic order in which it is lost, distinguishes disorientation from confusion, and shows why disordered orientation is one of psychiatry&#x27;s clearest pointers to organic disease.</p>
+<div class="answer-flow">
+<div class="af-label">Answer flow &middot; write your answer in this order</div>
+<div class="af-steps">
+<span class="af-step">Definition of orientation</span>
+<span class="af-arrow">&rarr;</span>
+<span class="af-step">The three spheres (time, place, person)</span>
+<span class="af-arrow">&rarr;</span>
+<span class="af-step">Order of loss</span>
+<span class="af-arrow">&rarr;</span>
+<span class="af-step">Clinical causes (organic)</span>
+<span class="af-arrow">&rarr;</span>
+<span class="af-step">Confusion vs disorientation</span>
+<span class="af-arrow">&rarr;</span>
+<span class="af-step">One-line summary</span>
+</div></div>
+<ol class="points">
+<li><strong>Orientation</strong> is a person&#x27;s awareness of their situation in <strong>time, place and person</strong>, so an oriented patient knows the date, knows where they are, and knows who they and the people around them are, grounding them in reality.</li>
+<li>Orientation depends on intact <strong>consciousness, attention and memory</strong>, so it fails when any of these underlying functions fails, which is why testing orientation is such an efficient screen for a disturbed brain.</li>
+<li><strong>Orientation to time</strong> is usually the <strong>first</strong> sphere to be lost, so a patient who becomes vague about the day, date, month or even the year is showing the earliest and most sensitive sign of developing disorientation.</li>
+<li><strong>Orientation to place</strong> is lost next, so the patient may mistake the hospital for home or be unable to name their town or ward, a sign of more advanced disturbance than time errors alone.</li>
+<li><strong>Orientation to person</strong> is the <strong>last</strong> to go and the most robust, so losing awareness of one&#x27;s own identity is rare and usually indicates either very severe organic disease or a dissociative, psychogenic disturbance rather than ordinary confusion.</li>
+<li>This stepwise order, <strong>time lost first and person lost last</strong>, is a reliable clinical ruler, letting the examiner gauge the depth of disturbance from which spheres remain intact and which have given way.</li>
+<li><strong>Disorientation</strong> <span class="plain">not knowing the time, place or who people are</span> arising acutely is regarded as <strong>prima facie organic</strong>, so like clouding of consciousness it should prompt a search for a physical cause before any functional explanation is accepted.</li>
+<li>Disorientation is a hallmark of <strong>delirium and dementia</strong>, so its presence strongly tilts the diagnosis toward an organic disorder and away from conditions such as anxiety or depression, where orientation is characteristically preserved.</li>
+<li><strong>Confusion</strong> <span class="plain">muddled, unclear thinking</span> often accompanies disorientation but is not identical to it, because confusion describes disordered thinking in general whereas disorientation specifically means losing the bearings of time, place or person.</li>
+<li>A patient can be transiently <strong>confused</strong> under stress yet remain fully oriented, so the clinician separates a muddled train of thought from true disorientation, since only the latter carries the strong organic warning.</li>
+<li>Orientation is tested with <strong>simple direct questions</strong> about the day, date, season, place and the identity of people present, a quick examination that nonetheless yields some of the most diagnostically weighty information at the bedside.</li>
+<li>Errors should be judged <strong>sensibly</strong>, because being a day out on the date in a long hospital stay is trivial, whereas naming the wrong year or decade is a serious sign of a significant disturbance of orientation.</li>
+<li>In acute organic states orientation typically <strong>fluctuates</strong>, being clearer in the morning and worse at night, so repeated testing across the day reveals the instability that is itself characteristic of delirium.</li>
+<li>A <strong>false or confabulated orientation</strong> can occur, where an amnesic patient confidently but wrongly states the date or place, so apparent certainty does not guarantee that the answer is correct or that orientation is intact.</li>
+<li>Because orientation integrates several functions, it serves as a compact <strong>index of global brain function</strong>, which is why it features in almost every cognitive screening test used in psychiatry and general medicine.</li>
+<li>Disorientation to person in a patient otherwise alert and oriented to time and place is a <strong>red flag for a dissociative state</strong>, since this reversed pattern breaks the usual organic order and suggests a psychogenic cause.</li>
+<li>In one line, disorders of orientation are losses of awareness of time, place and person, usually in that order, and their acute appearance is one of psychiatry&#x27;s clearest signs of organic cerebral disturbance.</li>
+</ol>
+<div class="block-title">Flowchart &middot; The order of lost orientation</div>
+<div class="flow">
+<div class="flow-box">Time<br><small>lost first</small></div>
+<div class="flow-arrow">&rarr;</div>
+<div class="flow-box">Place<br><small>lost next</small></div>
+<div class="flow-arrow">&rarr;</div>
+<div class="flow-box">Person<br><small>lost last</small></div>
+<div class="flow-arrow">&rarr;</div>
+<div class="flow-box end">Suspect organic<br><small>prima facie</small></div>
+</div>
+<div class="block-title">Mnemonic</div>
+<div class="mnemonic">
+<div class="mword">TPP</div>
+<div class="mline">TPP fixes the order and meaning of disordered orientation.</div>
+<ul>
+<li><span class="ml">T</span> <strong>Time</strong> is lost first (day, date, year).</li>
+<li><span class="ml">P</span> <strong>Place</strong> is lost next (ward, town).</li>
+<li><span class="ml">P</span> <strong>Person</strong> is lost last (own identity).</li>
+</ul></div>
+</section>
+<section class="card navy" id="motor">
+<div class="card-head"><div class="sec-num">6</div><h2>Disorders of Motor Behavior</h2></div>
+<p class="intro">Movement can itself become a symptom, so this topic classifies disordered motor behaviour from the patient&#x27;s and observer&#x27;s view, details the classic catatonic signs, and distinguishes illness-driven movements from those produced by the drugs used to treat it.</p>
+<div class="answer-flow">
+<div class="af-label">Answer flow &middot; write your answer in this order</div>
+<div class="af-steps">
+<span class="af-step">Definition of motor disorder</span>
+<span class="af-arrow">&rarr;</span>
+<span class="af-step">Subjective vs observed; classes of movement</span>
+<span class="af-arrow">&rarr;</span>
+<span class="af-step">Catatonic phenomena</span>
+<span class="af-arrow">&rarr;</span>
+<span class="af-step">Stupor and excitement</span>
+<span class="af-arrow">&rarr;</span>
+<span class="af-step">Drug-induced movement disorders</span>
+<span class="af-arrow">&rarr;</span>
+<span class="af-step">One-line summary</span>
+</div></div>
+<ol class="points">
+<li><strong>Disorders of motor behaviour</strong> are abnormalities of movement, posture and activity that arise from mental illness rather than from simple weakness or paralysis, so they are read as outward signs of an inner psychological or organic disturbance.</li>
+<li>Movements can be described from the <strong>subjective</strong> side, how the patient experiences them, and the <strong>objective</strong> side, what the observer sees, and the two together build the full clinical picture of a motor disorder.</li>
+<li>A key subjective experience is <strong>passivity</strong> <span class="plain">the feeling that one&#x27;s movements are made by an outside force</span>, where the patient believes their limbs are being moved for them, a phenomenon strongly associated with schizophrenia.</li>
+<li>Movements can be grouped as <strong>adaptive</strong> <span class="plain">purposeful, goal-directed acts</span>, <strong>non-adaptive</strong> <span class="plain">purposeless movements serving no goal</span>, and <strong>induced</strong> movements that appear only in response to the examiner, and this grouping organises the whole examination.</li>
+<li><strong>Catatonia</strong> <span class="plain">a syndrome of marked motor disturbance</span> is the richest source of these signs, classically occurring in severe psychosis and mood disorder and, importantly, also arising from organic brain disease, so it always warrants a medical work-up.</li>
+<li><strong>Echopraxia</strong> <span class="plain">automatically copying the examiner&#x27;s movements</span> and <strong>echolalia</strong> <span class="plain">automatically repeating the examiner&#x27;s words</span> are catatonic signs in which the patient imitates without being asked and seemingly without being able to stop.</li>
+<li><strong>Automatic obedience</strong> is the exaggerated, uncritical carrying out of every instruction, so the patient complies with even trivial or odd commands, a loss of the normal filtering of what one chooses to do.</li>
+<li><strong>Negativism</strong> <span class="plain">motiveless resistance to all instructions, often doing the opposite</span> is the mirror image of automatic obedience, where the patient actively opposes or ignores what is asked without any apparent reason.</li>
+<li><strong>Ambitendency</strong> <span class="plain">starting a movement then checking it, caught between doing and not doing</span> shows as a hesitant, to-and-fro motion, as when a patient half-extends a hand to shake and then withdraws it repeatedly.</li>
+<li><strong>Waxy flexibility (cerea flexibilitas)</strong> <span class="plain">limbs that can be moulded like wax and held in position</span> lets the examiner place the patient&#x27;s arm in an awkward posture that is then maintained for long periods without apparent discomfort.</li>
+<li><strong>Stupor</strong> is a marked reduction or absence of movement and speech with the patient still conscious, so unlike coma the person remains aware and may later recall events, and it can be organic, schizophrenic or depressive.</li>
+<li>At the opposite pole, <strong>excitement</strong> is a state of excessive, often purposeless overactivity, ranging from the goal-driven overactivity of mania to the chaotic, bizarre excitement seen in catatonic and organic states.</li>
+<li><strong>Mannerisms</strong> <span class="plain">odd but goal-directed movements, like an elaborate way of saluting</span> are distinguished from <strong>stereotypies</strong> <span class="plain">repetitive, uniform movements with no goal, such as constant rocking</span>, a distinction that helps localise the kind of disturbance.</li>
+<li><strong>Tics</strong> <span class="plain">sudden, brief, repetitive involuntary movements or sounds</span> and <strong>compulsive acts</strong> are further motor phenomena, the former usually neurological and the latter driven by an inner urge the patient feels compelled to obey.</li>
+<li>Many motor signs today are <strong>drug-induced</strong>, because antipsychotic medicines block dopamine and so produce movement disorders that the clinician must not mistake for the illness itself when assessing the patient.</li>
+<li>The most important of these is <strong>tardive dyskinesia</strong> <span class="plain">late-appearing, often irreversible involuntary movements of the face, tongue and limbs</span>, alongside acute dystonia, parkinsonism and the restless legs of <strong>akathisia</strong> caused by antipsychotic treatment.</li>
+<li>In one line, disorders of motor behaviour span passivity, the catatonic signs, stupor and excitement, and the movement disorders induced by antipsychotic drugs, each requiring the clinician to separate illness from treatment and functional from organic causes.</li>
+</ol>
+<div class="block-title">Flowchart &middot; Reading abnormal movement</div>
+<div class="flow">
+<div class="flow-box">Subjective / observed<br><small>two viewpoints</small></div>
+<div class="flow-arrow">&rarr;</div>
+<div class="flow-box">Adaptive / non-adaptive / induced<br><small>classify it</small></div>
+<div class="flow-arrow">&rarr;</div>
+<div class="flow-box">Catatonic signs<br><small>echo-, negativism, waxy</small></div>
+<div class="flow-arrow">&rarr;</div>
+<div class="flow-box">Stupor vs excitement<br><small>too little / too much</small></div>
+<div class="flow-arrow">&rarr;</div>
+<div class="flow-box end">Rule out drug effect<br><small>e.g. tardive dyskinesia</small></div>
+</div>
+<div class="block-title">Mnemonic</div>
+<div class="mnemonic">
+<div class="mword">CATATONIA</div>
+<div class="mline">CATATONIA captures the classic motor signs plus the drug caveat.</div>
+<ul>
+<li><span class="ml">C</span> <strong>Copying</strong>: echopraxia and echolalia.</li>
+<li><span class="ml">A</span> <strong>Automatic obedience</strong> to every command.</li>
+<li><span class="ml">T</span> <strong>Tension between acts</strong>: ambitendency.</li>
+<li><span class="ml">A</span> <strong>Agitation</strong>: catatonic excitement.</li>
+<li><span class="ml">T</span> <strong>Tardive dyskinesia</strong>: drug-induced, rule it out.</li>
+<li><span class="ml">O</span> <strong>Opposition</strong>: negativism.</li>
+<li><span class="ml">N</span> <strong>No movement</strong>: stupor.</li>
+<li><span class="ml">I</span> <strong>Induced</strong> postures held (waxy flexibility).</li>
+<li><span class="ml">A</span> <strong>Also organic</strong>: catatonia needs a medical work-up.</li>
+</ul></div>
+</section>
+<section class="card blue" id="experience-of-self">
+<div class="card-head"><div class="sec-num">7</div><h2>Disorders of the Experience of Self</h2></div>
+<p class="intro">The sense of being a single, continuous, self-directed person with firm boundaries is normally taken for granted, so this topic uses Jaspers&#x27; four aspects of the self to map how that sense breaks down in depersonalisation, passivity phenomena and related states.</p>
+<div class="answer-flow">
+<div class="af-label">Answer flow &middot; write your answer in this order</div>
+<div class="af-steps">
+<span class="af-step">Definition of the experience of self</span>
+<span class="af-arrow">&rarr;</span>
+<span class="af-step">Jaspers&#x27; four aspects</span>
+<span class="af-arrow">&rarr;</span>
+<span class="af-step">Depersonalisation &amp; derealisation</span>
+<span class="af-arrow">&rarr;</span>
+<span class="af-step">Passivity phenomena</span>
+<span class="af-arrow">&rarr;</span>
+<span class="af-step">Significance (self vs world)</span>
+<span class="af-arrow">&rarr;</span>
+<span class="af-step">One-line summary</span>
+</div></div>
+<ol class="points">
+<li>The <strong>experience of self (ego)</strong> is the immediate awareness that it is *I* who think, feel and act, a certainty so basic it is never noticed until illness makes it falter and the patient feels strangely unreal.</li>
+<li><strong>Karl Jaspers</strong> analysed this awareness into <strong>four formal aspects</strong>, a framework that lets the clinician say exactly which part of the sense of self has broken down rather than describing the disturbance only in vague terms.</li>
+<li>The first aspect is the <strong>awareness of activity and existence</strong> <span class="plain">the sense that I am the one doing my actions and that I exist</span>, which is weakened in depersonalisation when patients feel detached, automatic or as if they are not really there.</li>
+<li>The second aspect is the <strong>awareness of unity</strong> <span class="plain">the sense of being one single person at any moment</span>, whose disturbance can produce the rare experience of a <strong>double self</strong>, as though two people inhabited the same body at once.</li>
+<li>The third aspect is the <strong>awareness of continuity</strong> <span class="plain">the sense of being the same person over time</span>, which can be disrupted after a psychotic break so that patients feel they are no longer the person they were before the illness.</li>
+<li>The fourth aspect is the <strong>awareness of the boundaries of the self</strong> <span class="plain">a clear line between me and the outside world</span>, whose breakdown is central to the <strong>passivity phenomena</strong> of schizophrenia, where the border between self and world dissolves.</li>
+<li><strong>Depersonalisation</strong> <span class="plain">a distressing feeling of being unreal, detached or watching oneself from outside</span> is the commonest disorder of the self, and crucially the patient keeps <strong>insight</strong>, knowing the feeling is strange and not literally true.</li>
+<li><strong>Derealisation</strong> <span class="plain">a feeling that the surrounding world is unreal, flat or dreamlike</span> usually accompanies depersonalisation, so the patient reports that both themselves and their environment seem artificial, distant or lacking in their usual vividness.</li>
+<li>Depersonalisation and derealisation are <strong>non-specific</strong>, arising in anxiety, depression, tiredness, epilepsy and normal people under stress, so they point to the quality of the experience rather than to any single diagnosis.</li>
+<li><strong>Passivity phenomena</strong> are disorders of the self-boundary in which the patient experiences their own thoughts, feelings, impulses or movements as <strong>made by an external force</strong>, so the normal ownership of inner life is lost.</li>
+<li>These include <strong>made actions, made feelings and made impulses</strong>, where patients believe an outside agency is controlling what they do, feel or want, and such experiences were classically treated as first-rank symptoms of schizophrenia.</li>
+<li><strong>Thought alienation</strong> is a related loss of boundary, covering <strong>thought insertion</strong> <span class="plain">thoughts put into the mind by others</span>, <strong>withdrawal</strong> <span class="plain">thoughts taken out</span> and <strong>broadcasting</strong> <span class="plain">one&#x27;s thoughts escaping to others</span>, all breaching the privacy of the self.</li>
+<li>A useful contrast is that in depersonalisation insight is <strong>retained</strong>, whereas in passivity phenomena insight is <strong>lost</strong> and the experience is held with delusional conviction, which places the two on very different levels of severity.</li>
+<li>Disturbances of the self also bear on <strong>theory of mind</strong> <span class="plain">the ability to understand that others have their own separate thoughts and feelings</span>, which is impaired in schizophrenia and autism and helps explain some difficulties in reading other people.</li>
+<li>A clinical warning is that depersonalisation is often <strong>under-reported</strong>, because patients find the feeling so hard to put into words and fear sounding mad, so the clinician may need to ask about it directly and sympathetically.</li>
+<li>The self-disorders form a rough <strong>hierarchy of severity</strong>, from transient depersonalisation with full insight, through persistent depersonalisation, to the insight-less passivity phenomena that signal severe psychotic illness.</li>
+<li>In one line, disorders of the experience of self are breakdowns in Jaspers&#x27; four aspects of activity, unity, continuity and boundaries, ranging from insightful depersonalisation to the boundary-dissolving passivity phenomena of schizophrenia.</li>
+</ol>
+<figure class="fig">
+<svg viewBox="0 0 860 300" role="img" aria-label="Jaspers' four formal aspects of the experience of self"
+     xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;font-family:Arial,Helvetica,sans-serif;">
+  <rect x="0" y="0" width="860" height="300" fill="#ffffff"/>
+  <circle cx="430" cy="150" r="60" fill="#0f2744"/>
+  <text x="430" y="146" text-anchor="middle" font-weight="bold" fill="#fff" font-size="14"
+        font-family="Arial,Helvetica,sans-serif">The</text>
+  <text x="430" y="164" text-anchor="middle" font-weight="bold" fill="#fff" font-size="14"
+        font-family="Arial,Helvetica,sans-serif">self (I)</text>
+  <g font-size="12" fill="#10243f">
+    <rect x="60" y="40" width="210" height="64" rx="10" fill="#eef6ff" stroke="#1d5fa6"/>
+    <text x="165" y="62" text-anchor="middle" font-weight="bold">1. Activity / existence</text>
+    <text x="165" y="80" text-anchor="middle">"I am doing / I exist"</text>
+    <text x="165" y="96" text-anchor="middle">lost in depersonalisation</text>
+
+    <rect x="590" y="40" width="210" height="64" rx="10" fill="#e3f5f1" stroke="#0e7c6b"/>
+    <text x="695" y="62" text-anchor="middle" font-weight="bold">2. Unity</text>
+    <text x="695" y="80" text-anchor="middle">"I am one at this moment"</text>
+    <text x="695" y="96" text-anchor="middle">lost in "double self"</text>
+
+    <rect x="60" y="196" width="210" height="64" rx="10" fill="#fff3d6" stroke="#8a5c00"/>
+    <text x="165" y="218" text-anchor="middle" font-weight="bold">3. Continuity</text>
+    <text x="165" y="236" text-anchor="middle">"same person over time"</text>
+    <text x="165" y="252" text-anchor="middle">lost after "break" in life</text>
+
+    <rect x="590" y="196" width="210" height="64" rx="10" fill="#f0eafa" stroke="#4a2080"/>
+    <text x="695" y="218" text-anchor="middle" font-weight="bold">4. Boundaries</text>
+    <text x="695" y="236" text-anchor="middle">self vs the outer world</text>
+    <text x="695" y="252" text-anchor="middle">lost in passivity phenomena</text>
+  </g>
+  <g stroke="#5a6a7e" stroke-width="2">
+    <line x1="270" y1="72" x2="375" y2="128"/>
+    <line x1="590" y1="72" x2="485" y2="128"/>
+    <line x1="270" y1="228" x2="375" y2="172"/>
+    <line x1="590" y1="228" x2="485" y2="172"/>
+  </g>
+</svg>
+<figcaption>Figure 2. Jaspers&#x27; four formal aspects of the experience of self — awareness of activity/existence, unity, continuity and boundaries — each of which can break down in a characteristic disorder of the self.<span class="credit">Original labelled schematic drawn for these notes.</span></figcaption></figure>
+<div class="alert-box"><div class="alert-label">Sourced characterisation — Depersonalisation</div><div>Depersonalisation is described as an unpleasant state in which the patient feels changed, unreal or detached from their own experience, as if observing themselves from outside, while retaining insight that the change is subjective and not an actual alteration of the self.</div><span class="cite">Source: Paraphrased from Casey, P. &amp; Kelly, B., Fish&#x27;s Clinical Psychopathology, 5th ed. (chapter on disorders of the experience of self), after Jaspers.</span></div>
+<div class="block-title">Flowchart &middot; From intact self to passivity</div>
+<div class="flow">
+<div class="flow-box">Normal sense of &#x27;I&#x27;<br><small>activity, unity, continuity, boundary</small></div>
+<div class="flow-arrow">&rarr;</div>
+<div class="flow-box">Feel unreal<br><small>depersonalisation (insight kept)</small></div>
+<div class="flow-arrow">&rarr;</div>
+<div class="flow-box">World unreal<br><small>derealisation</small></div>
+<div class="flow-arrow">&rarr;</div>
+<div class="flow-box">Boundary dissolves<br><small>made acts, thought alienation</small></div>
+<div class="flow-arrow">&rarr;</div>
+<div class="flow-box end">Passivity phenomena<br><small>insight lost</small></div>
+</div>
+<div class="block-title">Mnemonic</div>
+<div class="mnemonic">
+<div class="mword">AUCB</div>
+<div class="mline">AUCB locks in Jaspers&#x27; four aspects of the self.</div>
+<ul>
+<li><span class="ml">A</span> <strong>Activity / existence</strong>: &#x27;I am the one acting&#x27;.</li>
+<li><span class="ml">U</span> <strong>Unity</strong>: &#x27;I am one person now&#x27;.</li>
+<li><span class="ml">C</span> <strong>Continuity</strong>: &#x27;the same person over time&#x27;.</li>
+<li><span class="ml">B</span> <strong>Boundaries</strong>: &#x27;me versus the world&#x27; (lost in passivity).</li>
+</ul></div>
+</section>
+<section class="card teal" id="speech">
+<div class="card-head"><div class="sec-num">8</div><h2>Disorders of Speech</h2></div>
+<p class="intro">Speech is the chief window onto thought, so this topic separates disorders of the mechanics of talking from disorders of its content, covering stammering and mutism, the odd productions of psychosis, and the organic language failures known as the aphasias.</p>
+<div class="answer-flow">
+<div class="af-label">Answer flow &middot; write your answer in this order</div>
+<div class="af-steps">
+<span class="af-step">Definition of speech disorder</span>
+<span class="af-arrow">&rarr;</span>
+<span class="af-step">Rhythm &amp; output problems</span>
+<span class="af-arrow">&rarr;</span>
+<span class="af-step">Mutism (its types)</span>
+<span class="af-arrow">&rarr;</span>
+<span class="af-step">Psychotic speech productions</span>
+<span class="af-arrow">&rarr;</span>
+<span class="af-step">Aphasias (receptive vs expressive)</span>
+<span class="af-arrow">&rarr;</span>
+<span class="af-step">One-line summary</span>
+</div></div>
+<ol class="points">
+<li><strong>Disorders of speech</strong> are abnormalities of the spoken output itself, and although speech and thought are closely tied, disordered speech can arise either from disturbed thinking or from a fault in the language machinery of the brain.</li>
+<li><strong>Stammering (stuttering)</strong> <span class="plain">the halting repetition or blocking of sounds and syllables</span> is a disorder of the rhythm of speech, often worsened by anxiety, in which the flow of words is broken even though the person knows exactly what they wish to say.</li>
+<li><strong>Mutism</strong> <span class="plain">a complete absence of speech with the organs of speech intact</span> is a striking sign that can arise in several very different conditions, so its type must be identified before its cause can be understood.</li>
+<li><strong>Elective (selective) mutism</strong> describes a person, often a child, who speaks normally in some settings but refuses to speak in others, so the silence is situational rather than a loss of the capacity for speech.</li>
+<li><strong>Catatonic mutism</strong> occurs as part of the catatonic syndrome, where the patient does not speak despite being conscious, while <strong>akinetic mutism</strong> <span class="plain">silent immobility from damage near the brain&#x27;s midline</span> is an organic state of near-total lack of speech and movement.</li>
+<li><strong>Vorbeireden</strong>, or <strong>talking past the point</strong> <span class="plain">giving answers that are obviously wrong but clearly related to the question</span>, is seen in the Ganser state, as when a patient asked the colour of grass replies that it is blue.</li>
+<li><strong>Neologisms</strong> <span class="plain">brand-new words invented by the patient with a private meaning</span> are a sign of severe disturbance, typically schizophrenia, where the patient creates words that carry no shared meaning for the listener.</li>
+<li><strong>Word salad (schizophasia)</strong> <span class="plain">a jumble of real words and phrases strung together without grammar or sense</span> is an extreme disorganisation of speech in which the connections between words are so lost that no meaning can be followed.</li>
+<li><strong>Perseveration</strong> of speech, the inappropriate repetition of a previous word or phrase, and <strong>echolalia</strong>, the automatic echoing of the examiner&#x27;s words, are further signs that may point to either organic disease or severe psychosis.</li>
+<li>A separate major group is the <strong>aphasias</strong> <span class="plain">losses of language caused by damage to the brain&#x27;s language areas</span>, which are organic disorders of comprehension or production rather than disturbances of the content of thought.</li>
+<li><strong>Receptive (Wernicke&#x27;s) aphasia</strong> follows damage to the temporal language area, producing <strong>fluent</strong> speech that flows easily but is empty of meaning, together with a severe failure to understand what others say.</li>
+<li><strong>Expressive (Broca&#x27;s) aphasia</strong> follows damage to the frontal language area, producing <strong>non-fluent</strong>, effortful, telegraphic speech while comprehension is relatively preserved, so the patient understands but cannot fluently produce words.</li>
+<li>Distinguishing an <strong>aphasia</strong> from a thought disorder is a key clinical skill, because fluent empty Wernicke&#x27;s speech can superficially resemble the word salad of schizophrenia yet points to a focal brain lesion needing neurological investigation.</li>
+<li><strong>Dysarthria</strong> <span class="plain">slurred speech from poor control of the speech muscles</span> must also be separated from aphasia, because dysarthria disturbs the clarity of articulation while leaving the choice and meaning of words intact.</li>
+<li>The <strong>tempo</strong> of speech is itself informative, being fast and hard to interrupt as <strong>pressure of speech</strong> in mania, and slow, sparse and delayed as <strong>poverty of speech</strong> in depression and in the negative symptoms of schizophrenia.</li>
+<li>Careful observation of speech therefore lets the examiner infer the underlying process, since the <strong>form</strong> of the output, fluent or halting, pressured or impoverished, novel or echoed, often reveals more than the literal content of what is said.</li>
+<li>In one line, disorders of speech range from stammering and the several mutisms, through the neologisms and word salad of psychosis, to the receptive and expressive aphasias of focal brain damage.</li>
+</ol>
+<div class="block-title">Flowchart &middot; Locating a speech problem</div>
+<div class="flow">
+<div class="flow-box">Is there output?<br><small>mutism if none</small></div>
+<div class="flow-arrow">&rarr;</div>
+<div class="flow-box">Rhythm / articulation<br><small>stammer, dysarthria</small></div>
+<div class="flow-arrow">&rarr;</div>
+<div class="flow-box">Novel / jumbled words<br><small>neologism, word salad</small></div>
+<div class="flow-arrow">&rarr;</div>
+<div class="flow-box">Fluent-empty vs non-fluent<br><small>Wernicke vs Broca</small></div>
+<div class="flow-arrow">&rarr;</div>
+<div class="flow-box end">Infer the process<br><small>thought vs lesion</small></div>
+</div>
+<div class="block-title">Mnemonic</div>
+<div class="mnemonic">
+<div class="mword">SPEAKS</div>
+<div class="mline">SPEAKS runs through the main disorders of spoken output.</div>
+<ul>
+<li><span class="ml">S</span> <strong>Stammering</strong>: broken rhythm of speech.</li>
+<li><span class="ml">P</span> <strong>Past the point</strong>: Vorbeireden (Ganser).</li>
+<li><span class="ml">E</span> <strong>Expressive aphasia</strong>: non-fluent Broca&#x27;s.</li>
+<li><span class="ml">A</span> <strong>Absent speech</strong>: elective, catatonic, akinetic mutism.</li>
+<li><span class="ml">K</span> <strong>Konstructed words</strong>: neologisms and word salad.</li>
+<li><span class="ml">S</span> <strong>Sensory/receptive aphasia</strong>: fluent, empty Wernicke&#x27;s.</li>
+</ul></div>
+</section>
+<section class="card amber" id="thought">
+<div class="card-head"><div class="sec-num">9</div><h2>Disorders of Thought</h2></div>
+<p class="intro">Thought is examined along four separate lines, so this topic sets out disorders of the stream, the possession, the content and the form of thinking, keeping delusions, obsessions, flight of ideas and formal thought disorder clearly apart.</p>
+<div class="answer-flow">
+<div class="af-label">Answer flow &middot; write your answer in this order</div>
+<div class="af-steps">
+<span class="af-step">Definition &amp; the four lines</span>
+<span class="af-arrow">&rarr;</span>
+<span class="af-step">Disorders of stream (tempo)</span>
+<span class="af-arrow">&rarr;</span>
+<span class="af-step">Disorders of possession</span>
+<span class="af-arrow">&rarr;</span>
+<span class="af-step">Disorders of content (delusions)</span>
+<span class="af-arrow">&rarr;</span>
+<span class="af-step">Disorders of form (FTD)</span>
+<span class="af-arrow">&rarr;</span>
+<span class="af-step">One-line summary</span>
+</div></div>
+<ol class="points">
+<li><strong>Disorders of thought</strong> are best organised under four separate headings, the <strong>stream, the possession, the content and the form</strong> of thinking, because a patient may have a disorder of one of these while the others remain entirely normal.</li>
+<li>Disorders of the <strong>stream</strong> concern the <strong>tempo and flow</strong> of thought, that is how fast thoughts come and how smoothly one leads to the next, independent of whether the thoughts themselves are true or false.</li>
+<li><strong>Flight of ideas</strong> <span class="plain">thoughts racing so fast that speech jumps between loosely linked topics</span> is the classic stream disorder of mania, where the connections, though rapid, can usually still be traced through rhymes, puns and chance associations.</li>
+<li><strong>Inhibition or retardation of thinking</strong> is the opposite, a slowing of the stream seen in depression, where thoughts come sparsely and effortfully and the patient describes their mind as empty, heavy or stuck.</li>
+<li><strong>Circumstantiality</strong> <span class="plain">reaching the point only after many unnecessary details and digressions</span> keeps the goal of thought in view but approaches it by a long, winding route, eventually arriving where the question intended.</li>
+<li><strong>Perseveration</strong> <span class="plain">senseless repetition of a thought or word beyond the point of relevance</span> and <strong>thought blocking</strong> <span class="plain">a sudden halt where the thread of thought vanishes entirely</span> are further stream disorders, the latter strongly suggestive of schizophrenia.</li>
+<li>Disorders of the <strong>possession</strong> of thought concern whether thinking feels <strong>owned and controlled</strong> by the self, and they cover both the obsessional phenomena and the alienation of thought seen in psychosis.</li>
+<li><strong>Obsessions</strong> <span class="plain">recurrent unwanted thoughts the person recognises as their own and resists</span> and <strong>compulsions</strong> <span class="plain">repetitive acts done to relieve the anxiety of an obsession</span> are possession disorders in which control, not ownership, is lost.</li>
+<li>By contrast, <strong>thought alienation</strong> is a loss of <strong>ownership</strong>, covering insertion, withdrawal and broadcasting, where the patient feels thoughts are not their own, a far more severe disturbance typical of schizophrenia.</li>
+<li>Disorders of the <strong>content</strong> of thought concern <strong>what</strong> is believed, and chief among them is the <strong>delusion</strong> <span class="plain">a fixed false belief held firmly despite clear contrary evidence and out of keeping with the person&#x27;s culture</span>.</li>
+<li>A <strong>primary (autochthonous) delusion</strong> arises fully formed out of nowhere, not understandable from the patient&#x27;s mood or situation, whereas a <strong>secondary delusion</strong> grows understandably from a preceding mood state, perception or other experience.</li>
+<li>Delusions are further grouped by <strong>theme</strong>, including persecutory, grandiose, of reference, of guilt, nihilistic, hypochondriacal and of jealousy or love, and the dominant theme often reflects the underlying illness.</li>
+<li><strong>Overvalued ideas</strong> <span class="plain">strongly held, understandable beliefs pursued beyond reason but short of delusional conviction</span> lie between normal beliefs and delusions, and distinguishing them matters because they imply a different diagnosis and prognosis.</li>
+<li>Disorders of the <strong>form</strong> of thought, or <strong>formal thought disorder</strong> <span class="plain">a breakdown in the logical connections between thoughts</span>, show in disorganised speech and are inferred because thought itself cannot be observed directly.</li>
+<li>Signs of formal thought disorder include <strong>loosening of associations</strong> <span class="plain">ideas that drift apart with no clear link</span> and the <strong>knight&#x27;s move (derailment)</strong> <span class="plain">sudden jumps from one topic to an unrelated one</span>, both pointing toward schizophrenia.</li>
+<li>Keeping these four lines apart is a core exam skill, since flight of ideas is a <strong>stream</strong> disorder of mania whereas loosening of associations is a <strong>form</strong> disorder of schizophrenia, and confusing them points to the wrong diagnosis.</li>
+<li>In one line, disorders of thought divide into the stream, the possession, the content and the form, housing respectively flight of ideas, obsessions and alienation, delusions, and formal thought disorder.</li>
+</ol>
+<figure class="fig">
+<svg viewBox="0 0 860 300" role="img" aria-label="Map of disorders of thought by stream, possession, content and form"
+     xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;font-family:Arial,Helvetica,sans-serif;">
+  <rect x="0" y="0" width="860" height="300" fill="#ffffff"/>
+  <rect x="340" y="18" width="180" height="46" rx="10" fill="#0f2744"/>
+  <text x="430" y="38" text-anchor="middle" font-weight="bold" fill="#fff">Disorders of thought</text>
+  <text x="430" y="55" text-anchor="middle" fill="#fff" font-size="11">examined four ways</text>
+  <g font-size="12" fill="#10243f">
+    <rect x="20" y="130" width="185" height="90" rx="10" fill="#eef6ff" stroke="#1d5fa6"/>
+    <text x="112" y="152" text-anchor="middle" font-weight="bold">Stream (tempo)</text>
+    <text x="112" y="172" text-anchor="middle">flight of ideas,</text>
+    <text x="112" y="188" text-anchor="middle">inhibition, blocking,</text>
+    <text x="112" y="204" text-anchor="middle">circumstantiality</text>
+
+    <rect x="233" y="130" width="185" height="90" rx="10" fill="#e3f5f1" stroke="#0e7c6b"/>
+    <text x="325" y="152" text-anchor="middle" font-weight="bold">Possession</text>
+    <text x="325" y="172" text-anchor="middle">obsessions,</text>
+    <text x="325" y="188" text-anchor="middle">compulsions,</text>
+    <text x="325" y="204" text-anchor="middle">thought alienation</text>
+
+    <rect x="446" y="130" width="185" height="90" rx="10" fill="#fff3d6" stroke="#8a5c00"/>
+    <text x="538" y="152" text-anchor="middle" font-weight="bold">Content</text>
+    <text x="538" y="172" text-anchor="middle">delusions</text>
+    <text x="538" y="188" text-anchor="middle">(primary vs</text>
+    <text x="538" y="204" text-anchor="middle">secondary), themes</text>
+
+    <rect x="659" y="130" width="185" height="90" rx="10" fill="#f0eafa" stroke="#4a2080"/>
+    <text x="751" y="152" text-anchor="middle" font-weight="bold">Form</text>
+    <text x="751" y="172" text-anchor="middle">formal thought</text>
+    <text x="751" y="188" text-anchor="middle">disorder, loosening,</text>
+    <text x="751" y="204" text-anchor="middle">knight's move</text>
+  </g>
+  <g stroke="#0f2744" stroke-width="2" fill="none">
+    <line x1="400" y1="64" x2="112" y2="128"/>
+    <line x1="415" y1="64" x2="325" y2="128"/>
+    <line x1="445" y1="64" x2="538" y2="128"/>
+    <line x1="460" y1="64" x2="751" y2="128"/>
+  </g>
+</svg>
+<figcaption>Figure 3. The four lines along which thought is examined — stream (tempo), possession (ownership and control), content (beliefs, delusions) and form (logical connections) — each with its own disorders.<span class="credit">Original labelled schematic drawn for these notes.</span></figcaption></figure>
+<div class="alert-box"><div class="alert-label">Sourced characterisation — Delusion</div><div>A delusion is a false, unshakeable belief that is held with absolute conviction, is not amenable to reason or contrary evidence, and is out of keeping with the patient&#x27;s social, cultural and educational background; it may be primary (arising inexplicably) or secondary (arising understandably from another experience).</div><span class="cite">Source: Paraphrased from Casey, P. &amp; Kelly, B., Fish&#x27;s Clinical Psychopathology, 5th ed. (chapter on disorders of thought and belief), after Jaspers.</span></div>
+<div class="block-title">Flowchart &middot; Examining thought in four lines</div>
+<div class="flow">
+<div class="flow-box">Stream<br><small>tempo: flight, block</small></div>
+<div class="flow-arrow">&rarr;</div>
+<div class="flow-box">Possession<br><small>obsession, alienation</small></div>
+<div class="flow-arrow">&rarr;</div>
+<div class="flow-box">Content<br><small>delusions, themes</small></div>
+<div class="flow-arrow">&rarr;</div>
+<div class="flow-box">Form<br><small>loosening, knight&#x27;s move</small></div>
+<div class="flow-arrow">&rarr;</div>
+<div class="flow-box end">Name the disorder<br><small>match line to sign</small></div>
+</div>
+<div class="block-title">Mnemonic</div>
+<div class="mnemonic">
+<div class="mword">SPCF</div>
+<div class="mline">SPCF keeps the four lines of thought disorder separate.</div>
+<ul>
+<li><span class="ml">S</span> <strong>Stream</strong>: flight of ideas, inhibition, blocking.</li>
+<li><span class="ml">P</span> <strong>Possession</strong>: obsessions and thought alienation.</li>
+<li><span class="ml">C</span> <strong>Content</strong>: delusions (primary vs secondary) and themes.</li>
+<li><span class="ml">F</span> <strong>Form</strong>: formal thought disorder, loosening, knight&#x27;s move.</li>
+</ul></div>
+</section>
+<section class="card rose" id="perception">
+<div class="card-head"><div class="sec-num">10</div><h2>Disorders of Perception</h2></div>
+<p class="intro">Perception can go wrong in graded ways, so this topic moves from sensory distortions of real objects, through illusions, to hallucinations proper, and sorts them by modality while distinguishing true hallucinations from pseudohallucinations.</p>
+<div class="answer-flow">
+<div class="af-label">Answer flow &middot; write your answer in this order</div>
+<div class="af-steps">
+<span class="af-step">Definition of perceptual disorder</span>
+<span class="af-arrow">&rarr;</span>
+<span class="af-step">Sensory distortions</span>
+<span class="af-arrow">&rarr;</span>
+<span class="af-step">Illusions</span>
+<span class="af-arrow">&rarr;</span>
+<span class="af-step">Hallucinations (by modality)</span>
+<span class="af-arrow">&rarr;</span>
+<span class="af-step">Pseudohallucinations &amp; special types</span>
+<span class="af-arrow">&rarr;</span>
+<span class="af-step">One-line summary</span>
+</div></div>
+<ol class="points">
+<li><strong>Disorders of perception</strong> are faults in how the mind builds its picture of the world from the senses, graded from distortions of a real object, through misinterpretations, to perceptions with no object at all.</li>
+<li><strong>Sensory distortions</strong> are changes in how a <strong>real</strong> object is perceived, altering its intensity, quality or spatial form, as in <strong>hyperacusis</strong> <span class="plain">sounds seeming abnormally loud</span> or <strong>micropsia</strong> <span class="plain">objects seeming smaller than they are</span>.</li>
+<li>Distortions of <strong>intensity</strong> make stimuli seem stronger or weaker, distortions of <strong>quality</strong> change colour or tone, and <strong>spatial</strong> distortions change apparent size, shape or distance, each pointing to specific drug or organic causes.</li>
+<li>An <strong>illusion</strong> <span class="plain">a real external object that is misperceived or misinterpreted</span> differs from a distortion because the whole object is read wrongly, as when a shadow is taken for an intruder, and illusions are commoner when attention is low or affect is strong.</li>
+<li>Illusions are usually <strong>normal phenomena</strong>, arising in poor light, fatigue, fear or inattention, so they carry far less diagnostic weight than hallucinations and often resolve as soon as attention is properly directed to the object.</li>
+<li>A <strong>hallucination</strong> is the key perceptual disorder, classically defined as a <strong>perception without an object</strong>, arising in external space with the full force of a true perception yet corresponding to nothing actually present.</li>
+<li><strong>Auditory hallucinations</strong> are the commonest in psychiatry, ranging from simple noises to <strong>voices</strong>, and in schizophrenia the voices may give a running commentary, speak in the third person, or repeat the patient&#x27;s own thoughts aloud.</li>
+<li><strong>Visual hallucinations</strong> are more suggestive of an <strong>organic or drug-induced</strong> state such as delirium tremens, so their presence should prompt a search for a physical cause rather than being assumed to indicate a primary psychiatric illness.</li>
+<li><strong>Olfactory and gustatory hallucinations</strong> of smell and taste, often unpleasant, point toward temporal-lobe epilepsy or organic disease, while <strong>tactile (haptic)</strong> hallucinations include the sensation of insects crawling on or under the skin.</li>
+<li>Hallucinations are further classed by <strong>form</strong>: an <strong>elementary</strong> hallucination is a simple flash or bang, whereas a <strong>complex</strong> one is a fully formed voice, figure or scene, the latter carrying more specific diagnostic meaning.</li>
+<li><strong>Pseudohallucinations</strong> <span class="plain">vivid images experienced in inner subjective space and recognised as not real</span> differ from true hallucinations because they lack the quality of an external percept and the patient retains insight into their unreal nature.</li>
+<li>Several <strong>special hallucinations</strong> are defined by their trigger or timing, such as <strong>functional</strong> hallucinations <span class="plain">a voice heard only while a real sound is present</span> and the <strong>hypnagogic</strong> and <strong>hypnopompic</strong> hallucinations that occur while falling asleep or waking.</li>
+<li><strong>Charles Bonnet syndrome</strong> is the occurrence of complex visual hallucinations in people with serious <strong>eye disease</strong> but a clear mind and full insight, a benign condition that must not be mistaken for a psychotic illness.</li>
+<li><strong>Autoscopy</strong> <span class="plain">seeing a double of oneself</span> and <strong>extracampine</strong> hallucinations <span class="plain">a perception located outside the possible sensory field, such as hearing a voice from hundreds of miles away</span> are further special forms worth recognising.</li>
+<li><strong>Disorders of body image</strong> belong here too, including the <strong>phantom limb</strong> <span class="plain">feeling a limb that has been amputated</span> and distortions in which parts of the body feel changed in size, shape or position.</li>
+<li>Distinguishing an <strong>illusion from a hallucination</strong> is a core skill, since an illusion needs a real object to misinterpret whereas a hallucination needs none, and only the latter, especially when complex and insight-less, strongly signals serious illness.</li>
+<li>In one line, disorders of perception run from distortions of real objects, through illusions, to true hallucinations sorted by modality, with pseudohallucinations and special types such as Charles Bonnet rounding out the picture.</li>
+</ol>
+<figure class="fig">
+<svg viewBox="0 0 860 340" role="img" aria-label="Tree of perceptual disorders: distortions, illusions and hallucinations"
+     xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;font-family:Arial,Helvetica,sans-serif;">
+  <rect x="0" y="0" width="860" height="340" fill="#ffffff"/>
+  <g font-size="12" fill="#10243f">
+    <rect x="330" y="20" width="200" height="48" rx="10" fill="#f0eafa" stroke="#4a2080"/>
+    <text x="430" y="40" text-anchor="middle" font-weight="bold" fill="#4a2080">Disorders of perception</text>
+    <text x="430" y="58" text-anchor="middle">a false or altered percept</text>
+
+    <rect x="40" y="130" width="220" height="60" rx="10" fill="#eef6ff" stroke="#1d5fa6"/>
+    <text x="150" y="152" text-anchor="middle" font-weight="bold">Sensory distortions</text>
+    <text x="150" y="170" text-anchor="middle">a real object, wrongly</text>
+    <text x="150" y="184" text-anchor="middle">perceived (intensity/quality)</text>
+
+    <rect x="320" y="130" width="220" height="60" rx="10" fill="#e3f5f1" stroke="#0e7c6b"/>
+    <text x="430" y="152" text-anchor="middle" font-weight="bold">Illusions</text>
+    <text x="430" y="170" text-anchor="middle">a real object is</text>
+    <text x="430" y="184" text-anchor="middle">misinterpreted</text>
+
+    <rect x="600" y="130" width="220" height="60" rx="10" fill="#fff3d6" stroke="#8a5c00"/>
+    <text x="710" y="152" text-anchor="middle" font-weight="bold">Hallucinations</text>
+    <text x="710" y="170" text-anchor="middle">perception without</text>
+    <text x="710" y="184" text-anchor="middle">an object</text>
+
+    <rect x="560" y="250" width="130" height="56" rx="8" fill="#fff" stroke="#8a5c00"/>
+    <text x="625" y="272" text-anchor="middle" font-weight="bold">True</text>
+    <text x="625" y="290" text-anchor="middle">outer space, real</text>
+
+    <rect x="710" y="250" width="130" height="56" rx="8" fill="#fff" stroke="#8a5c00"/>
+    <text x="775" y="268" text-anchor="middle" font-weight="bold">Pseudo-</text>
+    <text x="775" y="284" text-anchor="middle">inner space,</text>
+    <text x="775" y="298" text-anchor="middle">insight kept</text>
+  </g>
+  <g stroke="#0f2744" stroke-width="2" fill="none" marker-end="url(#arP)">
+    <defs><marker id="arP" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L7,3 L0,6 Z" fill="#0f2744"/></marker></defs>
+    <path d="M380,68 L170,128"/>
+    <path d="M430,68 L430,128"/>
+    <path d="M480,68 L700,128"/>
+    <path d="M680,190 L640,248"/>
+    <path d="M740,190 L772,248"/>
+  </g>
+</svg>
+<figcaption>Figure 4. The tree of perceptual disorders — sensory distortions (a real object wrongly perceived), illusions (a real object misinterpreted) and hallucinations (perception without an object), split into true and pseudohallucinations.<span class="credit">Original labelled schematic drawn for these notes.</span></figcaption></figure>
+<div class="alert-box"><div class="alert-label">Sourced characterisation — Hallucination</div><div>A hallucination is a perception without an object — a percept experienced in external space, with the full force and clarity of a true perception, but arising in the absence of any actual external stimulus and not subject to conscious manipulation by the perceiver.</div><span class="cite">Source: Paraphrased from Casey, P. &amp; Kelly, B., Fish&#x27;s Clinical Psychopathology, 5th ed. (chapter on disorders of perception); the &#x27;perception without an object&#x27; formulation is attributed there to Esquirol / Jaspers.</span></div>
+<div class="block-title">Flowchart &middot; Grading a perceptual disorder</div>
+<div class="flow">
+<div class="flow-box">Is there a real object?<br><small>yes = distortion/illusion</small></div>
+<div class="flow-arrow">&rarr;</div>
+<div class="flow-box">Distortion<br><small>intensity/quality/space</small></div>
+<div class="flow-arrow">&rarr;</div>
+<div class="flow-box">Illusion<br><small>object misinterpreted</small></div>
+<div class="flow-arrow">&rarr;</div>
+<div class="flow-box">No object<br><small>hallucination</small></div>
+<div class="flow-arrow">&rarr;</div>
+<div class="flow-box end">True vs pseudo<br><small>outer vs inner space</small></div>
+</div>
+<div class="block-title">Mnemonic</div>
+<div class="mnemonic">
+<div class="mword">SIGHT</div>
+<div class="mline">SIGHT orders perception from distortion to hallucination.</div>
+<ul>
+<li><span class="ml">S</span> <strong>Sensory distortion</strong>: real object, wrong intensity/quality.</li>
+<li><span class="ml">I</span> <strong>Illusion</strong>: real object misinterpreted.</li>
+<li><span class="ml">G</span> <strong>Genuine hallucination</strong>: perception without an object.</li>
+<li><span class="ml">H</span> <strong>Hearing voices</strong> commonest; vision suggests organic.</li>
+<li><span class="ml">T</span> <strong>Two insights</strong>: pseudohallucination keeps insight, true loses it.</li>
+</ul></div>
+</section>
+<section class="card purple" id="emotion">
+<div class="card-head"><div class="sec-num">11</div><h2>Disorders of Emotion</h2></div>
+<p class="intro">Emotional life has several layers and many ways of going wrong, so this topic first separates feeling, emotion, mood and affect, then grades disturbance across five levels from normal reactions to the morbid disorders of depression, mania and anxiety.</p>
+<div class="answer-flow">
+<div class="af-label">Answer flow &middot; write your answer in this order</div>
+<div class="af-steps">
+<span class="af-step">Definitions (feeling/emotion/mood/affect)</span>
+<span class="af-arrow">&rarr;</span>
+<span class="af-step">The five levels of disturbance</span>
+<span class="af-arrow">&rarr;</span>
+<span class="af-step">Abnormal reactions &amp; expressions</span>
+<span class="af-arrow">&rarr;</span>
+<span class="af-step">Morbid disorders (depression/mania)</span>
+<span class="af-arrow">&rarr;</span>
+<span class="af-step">Anxiety and ecstasy</span>
+<span class="af-arrow">&rarr;</span>
+<span class="af-step">One-line summary</span>
+</div></div>
+<ol class="points">
+<li>Clear terms matter: a <strong>feeling</strong> is a brief positive or negative state, an <strong>emotion</strong> a stirred-up feeling with bodily change, <strong>mood</strong> the prevailing background over time, and <strong>affect</strong> the emotion shown in the moment.</li>
+<li>A helpful image is that <strong>mood</strong> is the climate while <strong>affect</strong> is the weather, so the examiner records both the sustained background the patient reports and the moment-to-moment emotional expression that is observed during the interview.</li>
+<li>Fish grades emotional disturbance across <strong>five levels</strong>, running from normal emotions, through abnormal reactions and abnormal expressions, to morbid expressions and finally the morbid disorders of emotion, giving a clear ladder of increasing severity.</li>
+<li>Level one is simply <strong>normal emotion</strong>, appropriate joy, fear, sadness or anger that fits its trigger in kind, strength and duration, providing the baseline against which every abnormality is judged.</li>
+<li>Level two, <strong>abnormal emotional reactions</strong>, are responses that are understandable in kind but <strong>too intense or too prolonged</strong> for their trigger, such as grief that is far deeper or far longer than the loss would ordinarily warrant.</li>
+<li>Level three, <strong>abnormal expressions of emotion</strong>, includes <strong>incongruity of affect</strong> <span class="plain">emotion that clashes with the situation, such as laughing at sad news</span>, emotional <strong>lability</strong> <span class="plain">rapid shifts of emotion</span>, and <strong>perplexity</strong>, a bewildered emotional state.</li>
+<li>Level four, <strong>morbid expressions</strong>, covers <strong>apathy</strong> <span class="plain">a loss of feeling and interest</span> and <strong>blunting or flattening of affect</strong> <span class="plain">a marked reduction in the range and intensity of emotional expression</span>, both prominent in the negative symptoms of schizophrenia.</li>
+<li>Level five, the <strong>morbid disorders of emotion</strong>, are the sustained pathological mood states of depression, mania, pathological anxiety and ecstasy, which form the core of the affective disorders seen in psychiatry.</li>
+<li>In <strong>depression</strong> the mood is persistently low with <strong>anhedonia</strong> <span class="plain">loss of the ability to feel pleasure</span>, hopelessness, guilt and often diurnal variation, so the whole emotional field is pulled down and fails to lift with good events.</li>
+<li>In <strong>mania</strong> the mood is abnormally elevated, expansive or irritable, with <strong>elation</strong> that is often infectious but brittle, tipping quickly into irritability when the patient&#x27;s grandiose plans are thwarted.</li>
+<li><strong>Pathological anxiety</strong> is fear or dread out of proportion to any real threat, with bodily symptoms such as palpitations, sweating and trembling, and it becomes a disorder when it is persistent, distressing and impairs the person&#x27;s functioning.</li>
+<li><strong>Ecstasy</strong> <span class="plain">an intense feeling of rapture, bliss or oneness with the world</span> is a rarer morbid emotional state that can occur in mania, in some epilepsies and in certain religious or drug-induced experiences, and is often held with conviction.</li>
+<li>A distinction worth stressing is between <strong>endogenous</strong>-type mood change, seeming to arise from within with biological features, and <strong>reactive</strong> mood change clearly triggered by events, a contrast that historically guided treatment choices.</li>
+<li>The clinician assesses emotion through <strong>subjective report</strong>, what the patient says they feel, and <strong>objective observation</strong> of facial expression, posture, tears and movement, because these two sources can diverge, as in the smiling, hidden depression.</li>
+<li>Emotional symptoms must be judged against <strong>cultural norms</strong> for expressing feeling, since what looks like blunting or over-expression in one culture may be entirely normal in another, so context guards against over-diagnosis.</li>
+<li>Because emotional change colours thought, perception and behaviour, a <strong>secondary delusion</strong> or an illusion may grow understandably out of a morbid mood, which is why mood is always assessed alongside the other domains rather than in isolation.</li>
+<li>In one line, disorders of emotion are graded across five levels from abnormal reactions to morbid disorders, the latter comprising depression, mania, pathological anxiety and ecstasy, each judged against normal, culturally appropriate feeling.</li>
+</ol>
+<figure class="fig">
+<svg viewBox="0 0 860 300" role="img" aria-label="Five levels of disorders of emotion from normal to morbid"
+     xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;font-family:Arial,Helvetica,sans-serif;">
+  <rect x="0" y="0" width="860" height="300" fill="#ffffff"/>
+  <text x="430" y="26" text-anchor="middle" font-weight="bold" font-size="14" fill="#0f2744">
+    Emotion graded along five levels (normal &#8594; morbid)</text>
+  <g font-size="12" fill="#10243f">
+    <rect x="60" y="56" width="740" height="34" rx="6" fill="#e3f5f1" stroke="#0e7c6b"/>
+    <text x="78" y="78" font-weight="bold">1. Normal emotions</text>
+    <text x="430" y="78" text-anchor="middle">appropriate joy, fear, sadness in daily life</text>
+    <rect x="60" y="100" width="740" height="34" rx="6" fill="#eef6ff" stroke="#1d5fa6"/>
+    <text x="78" y="122" font-weight="bold">2. Abnormal emotional reactions</text>
+    <text x="430" y="122" text-anchor="middle">too strong or too long for the trigger</text>
+    <rect x="60" y="144" width="740" height="34" rx="6" fill="#fff3d6" stroke="#8a5c00"/>
+    <text x="78" y="166" font-weight="bold">3. Abnormal expressions of emotion</text>
+    <text x="430" y="166" text-anchor="middle">incongruity, blunting, lability, perplexity</text>
+    <rect x="60" y="188" width="740" height="34" rx="6" fill="#f0eafa" stroke="#4a2080"/>
+    <text x="78" y="210" font-weight="bold">4. Morbid expressions</text>
+    <text x="430" y="210" text-anchor="middle">apathy, flat affect, loss of feeling</text>
+    <rect x="60" y="232" width="740" height="34" rx="6" fill="#7a1f3d" stroke="#7a1f3d"/>
+    <text x="78" y="254" font-weight="bold" fill="#fff">5. Morbid disorders of emotion</text>
+    <text x="430" y="254" text-anchor="middle" fill="#fff">depression, mania, pathological anxiety, ecstasy</text>
+  </g>
+</svg>
+<figcaption>Figure 5. Emotion graded across five levels in Fish — from normal emotions, through abnormal reactions and abnormal expressions, to morbid expressions and the morbid disorders of emotion (depression, mania, anxiety, ecstasy).<span class="credit">Original labelled schematic drawn for these notes.</span></figcaption></figure>
+<div class="block-title">Flowchart &middot; Five levels of emotional disturbance</div>
+<div class="flow">
+<div class="flow-box">Normal emotion<br><small>fits the trigger</small></div>
+<div class="flow-arrow">&rarr;</div>
+<div class="flow-box">Abnormal reaction<br><small>too strong / long</small></div>
+<div class="flow-arrow">&rarr;</div>
+<div class="flow-box">Abnormal expression<br><small>incongruity, lability</small></div>
+<div class="flow-arrow">&rarr;</div>
+<div class="flow-box">Morbid expression<br><small>apathy, flat affect</small></div>
+<div class="flow-arrow">&rarr;</div>
+<div class="flow-box end">Morbid disorder<br><small>depression, mania, anxiety</small></div>
+</div>
+<div class="block-title">Mnemonic</div>
+<div class="mnemonic">
+<div class="mword">MOODS</div>
+<div class="mline">MOODS tracks emotion from the normal to the morbid.</div>
+<ul>
+<li><span class="ml">M</span> <strong>Mood</strong> is the climate, affect the weather.</li>
+<li><span class="ml">O</span> <strong>Over-reaction</strong>: abnormal reactions (too strong/long).</li>
+<li><span class="ml">O</span> <strong>Odd expression</strong>: incongruity, lability, perplexity.</li>
+<li><span class="ml">D</span> <strong>Dampened</strong>: apathy and blunted/flat affect.</li>
+<li><span class="ml">S</span> <strong>Severe/morbid</strong>: depression, mania, anxiety, ecstasy.</li>
+</ul></div>
+</section>
+<section class="card navy" id="memory">
+<div class="card-head"><div class="sec-num">12</div><h2>Disorders of Memory</h2></div>
+<p class="intro">Memory is a chain of linked stages, so this topic defines registration, retention, retrieval and recall, then surveys the amnesias, the distinction between organic and psychogenic memory loss, and the paramnesias in which memory is falsified rather than lost.</p>
+<div class="answer-flow">
+<div class="af-label">Answer flow &middot; write your answer in this order</div>
+<div class="af-steps">
+<span class="af-step">Definition &amp; the memory stages</span>
+<span class="af-arrow">&rarr;</span>
+<span class="af-step">The amnesias</span>
+<span class="af-arrow">&rarr;</span>
+<span class="af-step">Organic vs psychogenic loss</span>
+<span class="af-arrow">&rarr;</span>
+<span class="af-step">Ribot&#x27;s law</span>
+<span class="af-arrow">&rarr;</span>
+<span class="af-step">Paramnesias (falsified memory)</span>
+<span class="af-arrow">&rarr;</span>
+<span class="af-step">One-line summary</span>
+</div></div>
+<ol class="points">
+<li><strong>Memory</strong> is the capacity to store and later use information, and it is usefully broken into four linked stages, <strong>registration, retention, retrieval and recall</strong>, since a fault at any one stage will present as a memory complaint.</li>
+<li><strong>Registration</strong> <span class="plain">taking information in</span> depends on intact attention and consciousness, so a patient who cannot attend never truly registers material, and what was never registered cannot later be remembered however hard they try.</li>
+<li><strong>Retention</strong> <span class="plain">holding information in store over time</span> and <strong>retrieval</strong> <span class="plain">finding stored information again</span> are the middle stages, and disorders can strike either the storing of new memories or the reaching back for old ones.</li>
+<li><strong>Recall</strong> <span class="plain">bringing stored information back to mind</span> is the final, testable stage, and because it is what the examiner directly observes, a failure of recall must be traced back to see which earlier stage actually broke down.</li>
+<li><strong>Amnesia</strong> <span class="plain">loss of memory</span> is the central disorder, and a key split is between <strong>anterograde amnesia</strong> <span class="plain">failure to lay down new memories after an event</span> and <strong>retrograde amnesia</strong> <span class="plain">loss of memories formed before the event</span>.</li>
+<li>In the classic <strong>amnesic (Korsakoff) syndrome</strong>, severe anterograde amnesia from thiamine deficiency leaves the patient unable to form new memories while older memories and immediate attention are relatively spared, often with confabulation.</li>
+<li>A crucial clinical distinction is between <strong>organic</strong> memory loss, which follows the pattern of brain pathology, and <strong>psychogenic</strong> memory loss, which is driven by psychological factors and often spares the kind of information organic amnesia would lose.</li>
+<li><strong>Psychogenic amnesia</strong> characteristically targets <strong>personal, emotionally charged</strong> memories, as in dissociative amnesia and fugue, so a patient may forget their own identity yet retain general knowledge, a pattern organic disease rarely produces.</li>
+<li>By contrast, organic amnesia typically spares deep <strong>personal identity</strong> until very late while heavily damaging the laying down of new facts, so the two patterns are in many ways mirror images of each other.</li>
+<li><strong>Ribot&#x27;s law</strong> states that in organic memory loss the <strong>most recent memories are lost first</strong> and the oldest, best-rehearsed memories survive longest, giving a predictable gradient that helps confirm an organic cause.</li>
+<li>This recency gradient explains why a patient with dementia may vividly recount their childhood while being unable to recall the morning&#x27;s conversation, a pattern that is diagnostically reassuring of an organic rather than a feigned loss.</li>
+<li>A separate group are the <strong>paramnesias</strong> <span class="plain">distortions or falsifications of memory</span>, in which memory is not simply lost but altered, so the patient remembers things that did not happen or misremembers things that did.</li>
+<li><strong>Confabulation</strong> <span class="plain">filling gaps in memory with invented but sincerely believed accounts</span> is the classic paramnesia of the amnesic syndrome, where the patient unknowingly produces false memories to bridge what they cannot recall.</li>
+<li><strong>Deja vu</strong> <span class="plain">the false sense that a new situation has been experienced before</span> and its opposite <strong>jamais vu</strong> <span class="plain">a familiar situation feeling strange and new</span> are paramnesias that occur normally but may be prominent in temporal-lobe epilepsy.</li>
+<li>The <strong>Capgras</strong> delusion, in which a familiar person is believed to be an identical impostor, is a disorder at the border of memory and recognition, reflecting a split between knowing a face and feeling its familiarity.</li>
+<li>At the opposite extreme are <strong>hyperamnesia</strong> <span class="plain">abnormally intense, detailed memory</span> and the vivid <strong>flashbulb memory</strong> of an emotionally charged event, showing that memory can be pathologically heightened as well as lost or falsified.</li>
+<li>In one line, disorders of memory are failures or falsifications along the chain of registration, retention, retrieval and recall, divided into organic and psychogenic amnesias, Ribot&#x27;s recency gradient, and the paramnesias such as confabulation.</li>
+</ol>
+<figure class="fig">
+<svg viewBox="0 0 880 210" role="img" aria-label="The memory chain: registration, retention, retrieval, recall"
+     xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;font-family:Arial,Helvetica,sans-serif;">
+  <rect x="0" y="0" width="880" height="210" fill="#ffffff"/>
+  <g font-size="12" fill="#10243f">
+    <rect x="20" y="70" width="180" height="66" rx="10" fill="#eef6ff" stroke="#1d5fa6"/>
+    <text x="110" y="96" text-anchor="middle" font-weight="bold">Registration</text>
+    <text x="110" y="114" text-anchor="middle">taking information in</text>
+    <text x="110" y="128" text-anchor="middle">(attention needed)</text>
+
+    <rect x="240" y="70" width="180" height="66" rx="10" fill="#e3f5f1" stroke="#0e7c6b"/>
+    <text x="330" y="96" text-anchor="middle" font-weight="bold">Retention</text>
+    <text x="330" y="114" text-anchor="middle">storing it over time</text>
+
+    <rect x="460" y="70" width="180" height="66" rx="10" fill="#fff3d6" stroke="#8a5c00"/>
+    <text x="550" y="96" text-anchor="middle" font-weight="bold">Retrieval</text>
+    <text x="550" y="114" text-anchor="middle">finding it again</text>
+
+    <rect x="680" y="70" width="180" height="66" rx="10" fill="#0f2744" stroke="#0f2744"/>
+    <text x="770" y="96" text-anchor="middle" font-weight="bold" fill="#fff">Recall</text>
+    <text x="770" y="114" text-anchor="middle" fill="#fff">bringing it to mind</text>
+  </g>
+  <g stroke="#0f2744" stroke-width="2" fill="none" marker-end="url(#arM)">
+    <defs><marker id="arM" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L7,3 L0,6 Z" fill="#0f2744"/></marker></defs>
+    <path d="M200,103 L238,103"/>
+    <path d="M420,103 L458,103"/>
+    <path d="M640,103 L678,103"/>
+  </g>
+  <text x="440" y="175" text-anchor="middle" font-size="12" fill="#40506a" font-style="italic">
+    A failure at any stage shows as amnesia; the chain is the frame for testing memory at the bedside.</text>
+</svg>
+<figcaption>Figure 6. The memory chain — registration, retention, retrieval and recall — the four linked stages, a failure in any one of which presents as amnesia and which frames memory testing at the bedside.<span class="credit">Original labelled schematic drawn for these notes.</span></figcaption></figure>
+<div class="block-title">Flowchart &middot; Tracing a memory failure</div>
+<div class="flow">
+<div class="flow-box">Registration<br><small>needs attention</small></div>
+<div class="flow-arrow">&rarr;</div>
+<div class="flow-box">Retention<br><small>storage over time</small></div>
+<div class="flow-arrow">&rarr;</div>
+<div class="flow-box">Retrieval / recall<br><small>finding it again</small></div>
+<div class="flow-arrow">&rarr;</div>
+<div class="flow-box">Organic or psychogenic?<br><small>Ribot vs personal loss</small></div>
+<div class="flow-arrow">&rarr;</div>
+<div class="flow-box end">Lost or falsified?<br><small>amnesia vs paramnesia</small></div>
+</div>
+<div class="block-title">Mnemonic</div>
+<div class="mnemonic">
+<div class="mword">RECALL</div>
+<div class="mline">RECALL maps the stages and the disorders of memory.</div>
+<ul>
+<li><span class="ml">R</span> <strong>Registration</strong> first (needs attention).</li>
+<li><span class="ml">E</span> <strong>Encoding/retention</strong> stores it over time.</li>
+<li><span class="ml">C</span> <strong>Confabulation</strong> fills gaps with false memories.</li>
+<li><span class="ml">A</span> <strong>Anterograde vs retrograde</strong> amnesia.</li>
+<li><span class="ml">L</span> <strong>Law of Ribot</strong>: recent lost first, old survives.</li>
+<li><span class="ml">L</span> <strong>Lost vs falsified</strong>: amnesia versus paramnesia.</li>
+</ul></div>
+</section>
+
+  <section class="refs" id="references">
+    <h2>References</h2>
+    <h3>Books used</h3>
+    <ul>
+      <li>Casey, Patricia, and Brendan Kelly, Fish&#x27;s Clinical Psychopathology: Signs and Symptoms in Psychiatry, 5th ed. (Royal College of Psychiatrists / Cambridge University Press, 2024) — the primary source and organising spine for every topic in these notes, from classification and its limitations through all ten domains of signs and symptoms.</li>
+<li>Oyebode, Femi, Sims&#x27; Symptoms in the Mind: Textbook of Descriptive Psychopathology — used as a standard cross-reference for the descriptions of hallucinations, delusions, disorders of the self and the terminology of emotion.</li>
+    </ul>
+    
+    <h3>Figure sources</h3>
+    <ul>
+      <li>The DSM/ICD dual timeline, the illusions-and-hallucinations tree, Jaspers&#x27; four aspects of the self, the four-line map of thought, the registration-to-recall memory chain and the five-levels-of-emotion diagram are original labelled schematics drawn for these notes.</li>
+    </ul>
+    <h3>Secondary sources flagged (not accessed directly)</h3>
+    <ul>
+      <li>The historical edition dates for the DSM (DSM-I 1952, DSM-II 1968, DSM-III 1980, DSM-IV 1994, DSM-5 2013) and the ICD (ICD-7 1955, ICD-8 1965, ICD-9 1978, ICD-10 1992, ICD-11 adopted 2022) are well-established publication dates; they are stated here as general reference facts and were not re-derived from a single cited page.</li>
+<li>The attributions to Jaspers (ideal types; the four aspects of the self), Kendler 2016 (realism/constructivism/pragmatism), Frances (&#x27;seeds of tautology&#x27;), Tyrer 2017 (comorbidity/consanguinity/co-occurrence) and Ribot (law of regression) follow the way these authors are discussed within Fish&#x27;s Clinical Psychopathology; the primary papers were not accessed directly for these notes.</li>
+    </ul>
+  </section>
+
+</div>
+
+<footer class="footer">
+  <span class="title-line">Biological Foundations of Behavior — Unit I: Nomenclature, Signs and Symptoms</span>
+  <div class="credit">Dango_Psych by Tejas Dangodra | M.Phil. Clinical Psychology</div>
+</footer>
+
+</body>
+</html>
