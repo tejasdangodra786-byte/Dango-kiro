@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hostel Facilities Request Letter</title>
+<style>
+  :root {
+    --text-color: #1a1a1a;
+    --border-color: #000;
+    --accent: #2b4b7e;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    font-family: "Calibri", "Segoe UI", Arial, sans-serif;
+    font-size: 11pt;
+    line-height: 1.5;
+    color: var(--text-color);
+    background: #e9ecef;
+    margin: 0;
+    padding: 24px 12px;
+  }
+
+  .page {
+    background: #fff;
+    max-width: 820px;
+    margin: 0 auto 24px;
+    padding: 48px 56px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
+  }
+
+  p { margin: 0 0 12px; }
+
+  .spacer { height: 12px; }
+
+  .recipient { margin: 0; }
+
+  .subject { font-weight: bold; }
+
+  .issue { margin: 0 0 12px; }
+  .issue-heading { font-weight: bold; }
+
+  .section-break {
+    page-break-before: always;
+    break-before: page;
+  }
+
+  .sig-title {
+    text-align: center;
+    font-weight: bold;
+    font-size: 13pt;
+    margin: 0 0 6px;
+  }
+  .sig-subtitle {
+    text-align: center;
+    font-weight: bold;
+    margin: 0 0 18px;
+  }
+
+  table.sig-table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 0 auto;
+  }
+  table.sig-table th,
+  table.sig-table td {
+    border: 1px solid var(--border-color);
+    padding: 6px 8px;
+    vertical-align: middle;
+  }
+  table.sig-table th {
+    text-align: center;
+    font-weight: bold;
+  }
+  .col-no { width: 12%; text-align: center; }
+  .col-name { width: 48%; }
+  .col-sig { width: 40%; }
+
+  .sig-cell { min-height: 60px; }
+
+  .name-input {
+    width: 100%;
+    border: none;
+    border-bottom: 1px dashed #999;
+    font-family: inherit;
+    font-size: inherit;
+    padding: 6px 2px;
+    background: transparent;
+    color: inherit;
+  }
+  .name-input:focus {
+    outline: none;
+    border-bottom-color: var(--accent);
+  }
+
+  .sig-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .sig-upload-label {
+    display: inline-block;
+    cursor: pointer;
+    background: var(--accent);
+    color: #fff;
+    font-size: 9.5pt;
+    padding: 4px 10px;
+    border-radius: 4px;
+    white-space: nowrap;
+  }
+  .sig-upload-label:hover { background: #1f3a63; }
+  .sig-file-input { display: none; }
+
+  .sig-preview-wrap { display: none; text-align: center; }
+  .sig-preview-wrap.has-image { display: block; }
+  .sig-preview {
+    max-width: 100%;
+    max-height: 72px;
+    display: block;
+    margin: 0 auto;
+  }
+  .sig-remove {
+    margin-top: 4px;
+    background: none;
+    border: 1px solid #c0392b;
+    color: #c0392b;
+    font-size: 8.5pt;
+    padding: 2px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  .sig-remove:hover { background: #c0392b; color: #fff; }
+
+  .instructions {
+    max-width: 820px;
+    margin: 0 auto 24px;
+    background: #fff8e1;
+    border: 1px solid #f0d58a;
+    border-radius: 6px;
+    padding: 16px 20px;
+    font-size: 10pt;
+  }
+  .instructions h2 {
+    margin: 0 0 8px;
+    font-size: 11pt;
+  }
+  .instructions ol { margin: 0; padding-left: 20px; }
+  .instructions li { margin-bottom: 4px; }
+
+  .toolbar {
+    max-width: 820px;
+    margin: 0 auto 24px;
+    text-align: center;
+  }
+  .print-btn {
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    font-size: 11pt;
+    padding: 10px 22px;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  .print-btn:hover { background: #1f3a63; }
+
+  /* Printer / Save-as-PDF friendly rules */
+  @media print {
+    body {
+      background: #fff;
+      padding: 0;
+      font-size: 11pt;
+    }
+    .page {
+      box-shadow: none;
+      margin: 0;
+      padding: 0;
+      max-width: none;
+    }
+    .instructions,
+    .toolbar { display: none !important; }
+
+    .sig-upload-label,
+    .sig-remove { display: none !important; }
+
+    .name-input {
+      border-bottom: none;
+      padding: 0;
+    }
+    table.sig-table th,
+    table.sig-table td {
+      border: 1px solid #000;
+    }
+    .section-break {
+      page-break-before: always;
+    }
+    tr { page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<div class="instructions">
+  <h2>How to use this letter</h2>
+  <ol>
+    <li>Find your row in the signature table and type your name in the <strong>Name of Student</strong> cell.</li>
+    <li>In the <strong>Signature</strong> cell of your row, click <strong>Upload signature</strong> and choose an image of your signature from your device.</li>
+    <li>When everyone has signed, click <strong>Print / Save as PDF</strong> (or press Ctrl/Cmd + P) and save or print the finished letter for submission.</li>
+  </ol>
+</div>
+
+<div class="toolbar">
+  <button type="button" class="print-btn" onclick="window.print()">Print / Save as PDF</button>
+</div>
+
+<div class="page">
+  <p>Date: __________</p>
+  <div class="spacer"></div>
+
+  <p>To,</p>
+  <p class="recipient">Dr. R. S. Bhati Sir</p>
+  <p class="recipient">Mr. Anil Srivastava Sir</p>
+  <p class="recipient">Mr. Pankaj Kushwaha Sir</p>
+  <div class="spacer"></div>
+
+  <p class="subject">Subject: Urgent Request for Hostel Facilities and Pending Repairs</p>
+  <div class="spacer"></div>
+
+  <p>Respected Sirs,</p>
+  <div class="spacer"></div>
+
+  <p>We, the students residing in Hostel 2, Patrakar Colony, Man Hostel, would like to bring a few important hostel-related issues to your attention.</p>
+  <div class="spacer"></div>
+
+  <p class="issue"><span class="issue-heading">1. Additional Refrigerator: </span>The existing refrigerator facility is insufficient for the number of students staying in the hostel. Also, the ground-floor refrigerator is being used by the family residing downstairs, which creates inconvenience for hostel students. We request an additional refrigerator and proper arrangements to ensure that students have adequate access to this facility.</p>
+  <div class="spacer"></div>
+
+  <p class="issue"><span class="issue-heading">2. Additional Washing Machine: </span>With so many students sharing the existing washing machine, it becomes difficult for everyone to manage their laundry conveniently. We request an additional washing machine as soon as possible.</p>
+  <div class="spacer"></div>
+
+  <p class="issue"><span class="issue-heading">3. Pending Repair Work: </span>Furniture repairs, plumbing work, and electrical repairs are still not being done properly despite repeated requests and reminders to the authorities. We request that these issues be addressed and the necessary repairs completed without further delay.</p>
+  <div class="spacer"></div>
+
+  <p>These are basic facilities and maintenance requirements that directly affect our daily lives in the hostel. We request you to kindly look into these matters and take the necessary action at the earliest.</p>
+  <div class="spacer"></div>
+
+  <p>Thank you for your understanding and support.</p>
+  <div class="spacer"></div>
+
+  <p>Yours sincerely,</p>
+  <p>Students of Hostel 2, Patrakar Colony, Man Hostel</p>
+</div>
+
+<div class="page section-break">
+  <p class="sig-title">STUDENT NAMES AND SIGNATURES</p>
+  <p class="sig-subtitle">Hostel 2, Patrakar Colony, Man Hostel</p>
+
+  <table class="sig-table">
+    <thead>
+      <tr>
+        <th class="col-no">SR. NO.</th>
+        <th class="col-name">NAME OF STUDENT</th>
+        <th class="col-sig">SIGNATURE</th>
+      </tr>
+    </thead>
+    <tbody id="sig-body">
+      <!-- Rows are generated by JavaScript -->
+    </tbody>
+  </table>
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  var ROW_COUNT = 15;
+  var tbody = document.getElementById("sig-body");
+
+  for (var i = 1; i <= ROW_COUNT; i++) {
+    var row = document.createElement("tr");
+
+    // SR. NO. cell
+    var noCell = document.createElement("td");
+    noCell.className = "col-no";
+    noCell.textContent = String(i);
+    row.appendChild(noCell);
+
+    // NAME cell with editable text input
+    var nameCell = document.createElement("td");
+    nameCell.className = "col-name";
+    var nameInput = document.createElement("input");
+    nameInput.type = "text";
+    nameInput.className = "name-input";
+    nameInput.setAttribute("aria-label", "Name of student for row " + i);
+    nameInput.placeholder = "Type your name";
+    nameCell.appendChild(nameInput);
+    row.appendChild(nameCell);
+
+    // SIGNATURE cell with upload control + preview
+    var sigCell = document.createElement("td");
+    sigCell.className = "col-sig sig-cell";
+
+    var controls = document.createElement("div");
+    controls.className = "sig-controls";
+
+    var label = document.createElement("label");
+    label.className = "sig-upload-label";
+    label.textContent = "Upload signature";
+
+    var fileInput = document.createElement("input");
+    fileInput.type = "file";
+    fileInput.accept = "image/*";
+    fileInput.className = "sig-file-input";
+    fileInput.setAttribute("aria-label", "Upload signature image for row " + i);
+    label.appendChild(fileInput);
+    controls.appendChild(label);
+
+    var previewWrap = document.createElement("div");
+    previewWrap.className = "sig-preview-wrap";
+
+    var img = document.createElement("img");
+    img.className = "sig-preview";
+    img.alt = "Signature for row " + i;
+
+    var removeBtn = document.createElement("button");
+    removeBtn.type = "button";
+    removeBtn.className = "sig-remove";
+    removeBtn.textContent = "Remove";
+
+    previewWrap.appendChild(img);
+    previewWrap.appendChild(removeBtn);
+
+    sigCell.appendChild(controls);
+    sigCell.appendChild(previewWrap);
+    row.appendChild(sigCell);
+
+    tbody.appendChild(row);
+
+    // Wire up events using an IIFE to capture the current elements.
+    (function (fileInput, img, previewWrap, label) {
+      fileInput.addEventListener("change", function () {
+        var file = fileInput.files && fileInput.files[0];
+        if (!file) {
+          return;
+        }
+        var reader = new FileReader();
+        reader.onload = function (e) {
+          img.src = e.target.result;
+          previewWrap.classList.add("has-image");
+          label.textContent = "Change signature";
+        };
+        reader.readAsDataURL(file);
+      });
+
+      removeBtn.addEventListener("click", function () {
+        img.src = "";
+        previewWrap.classList.remove("has-image");
+        fileInput.value = "";
+        label.textContent = "Upload signature";
+      });
+    })(fileInput, img, previewWrap, label);
+  }
+})();
+</script>
+
+</body>
+</html>
