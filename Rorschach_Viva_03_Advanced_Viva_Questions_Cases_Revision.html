@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rorschach Viva — File 3: Advanced Viva, Cases &amp; Revision</title>
+<style>
+:root{
+  --bg1:#fce4ec; --bg2:#e8eaf6; --bg3:#e0f7fa; --bg4:#f3e5f5; --bg5:#fff8e1;
+  --ink:#2d3436; --primary:#6c5ce7; --primary2:#a29bfe; --accent:#e17055;
+  --green:#00b894; --blue:#2980b9; --red:#c0392b; --panel:rgba(255,255,255,0.94);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
+  background:linear-gradient(135deg,var(--bg1) 0%,var(--bg2) 25%,var(--bg3) 50%,var(--bg4) 75%,var(--bg5) 100%);
+  background-attachment:fixed;color:var(--ink);line-height:1.7;padding:20px;}
+.container{max-width:1150px;margin:0 auto;background:var(--panel);border-radius:20px;padding:45px 55px;
+  box-shadow:0 20px 60px rgba(0,0,0,0.08),0 0 0 1px rgba(255,255,255,0.5);}
+.header{text-align:center;padding:45px 20px;background:linear-gradient(135deg,#ee5a24 0%,#feca57 120%);
+  border-radius:16px;margin-bottom:30px;position:relative;overflow:hidden;}
+.header::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;
+  background:radial-gradient(circle,rgba(255,255,255,0.14) 0%,transparent 60%);animation:pulse 5s ease-in-out infinite;}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:.5;}50%{transform:scale(1.1);opacity:1;}}
+.header h1{color:#fff;font-size:2.3em;text-shadow:0 2px 10px rgba(0,0,0,0.25);position:relative;z-index:1;}
+.header .sub{color:rgba(255,255,255,.97);font-size:1.15em;font-weight:400;margin-top:10px;position:relative;z-index:1;}
+.file-pill{display:inline-block;background:rgba(255,255,255,.22);color:#fff;border:1px solid rgba(255,255,255,.5);
+  padding:5px 16px;border-radius:30px;font-size:.85em;margin-top:14px;position:relative;z-index:1;letter-spacing:1px;}
+.author-badge{display:inline-block;background:linear-gradient(135deg,#6c5ce7,#a29bfe);color:#fff;padding:8px 24px;
+  border-radius:30px;font-weight:700;margin-top:18px;position:relative;z-index:1;box-shadow:0 4px 15px rgba(108,92,231,.3);letter-spacing:1px;}
+.filenav{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin:0 0 30px;}
+.filenav a{flex:1 1 280px;text-align:center;text-decoration:none;padding:14px 18px;border-radius:12px;font-weight:600;
+  background:linear-gradient(135deg,#f5f7fa,#e8ecf1);color:var(--ink);border:2px solid transparent;transition:.25s;}
+.filenav a:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px);}
+.filenav a.active{background:linear-gradient(135deg,#ee5a24,#feca57);color:#fff;}
+h2{color:var(--primary);font-size:1.75em;margin-top:48px;margin-bottom:18px;padding-bottom:10px;border-bottom:3px solid #dfe6e9;position:relative;}
+h2::after{content:'';position:absolute;bottom:-3px;left:0;width:80px;height:3px;background:linear-gradient(to right,#ee5a24,#feca57);}
+h3{color:var(--accent);font-size:1.35em;margin-top:32px;margin-bottom:12px;}
+h4{color:var(--green);font-size:1.12em;margin-top:22px;margin-bottom:9px;}
+p{margin-bottom:12px;}
+ul,ol{margin:10px 0 15px 26px;}
+li{margin-bottom:7px;}
+.section-icon{display:inline-block;width:38px;height:38px;background:linear-gradient(135deg,#ee5a24,#feca57);
+  border-radius:50%;text-align:center;line-height:38px;color:#fff;font-weight:700;margin-right:12px;font-size:1em;vertical-align:middle;}
+table{width:100%;border-collapse:collapse;margin:20px 0;border-radius:10px;overflow:hidden;box-shadow:0 2px 15px rgba(0,0,0,0.05);font-size:.93em;}
+th{background:linear-gradient(135deg,#ee5a24,#feca57);color:#fff;padding:12px 15px;text-align:left;font-weight:600;}
+td{padding:11px 15px;border-bottom:1px solid #eee;vertical-align:top;}
+tr:nth-child(even){background:#fff6ef;}
+tr:hover{background:#ffeede;}
+code{background:#f1f2f6;padding:2px 7px;border-radius:4px;font-family:'Courier New',monospace;font-size:.9em;color:#d63031;}
+.caution-box{background:linear-gradient(135deg,#ffcccc,#ffe0e0);border-left:5px solid #e74c3c;border-radius:10px;padding:18px 22px;margin:18px 0;}
+.caution-box::before{content:"⚠ CAUTION: ";font-weight:700;color:var(--red);}
+.tip-box{background:linear-gradient(135deg,#d4efdf,#abebc6);border-left:5px solid #27ae60;border-radius:10px;padding:18px 22px;margin:18px 0;}
+.tip-box::before{content:"💡 TIP: ";font-weight:700;color:#1e8449;}
+.remember-box{background:linear-gradient(135deg,#d6eaf8,#aed6f1);border-left:5px solid #2980b9;border-radius:10px;padding:18px 22px;margin:18px 0;}
+.remember-box::before{content:"★ REMEMBER: ";font-weight:700;color:#1a5276;}
+.src-box{background:linear-gradient(135deg,#ede7f6,#d1c4e9);border-left:5px solid #7e57c2;border-radius:10px;padding:16px 22px;margin:18px 0;font-size:.92em;}
+.src-box::before{content:"📖 SOURCE-AUDIT: ";font-weight:700;color:#5e35b1;}
+.viva-card{background:linear-gradient(135deg,#e3f2fd,#f3e5f5);border:1px solid #b39ddb;border-radius:12px;padding:16px 20px;margin:14px 0;}
+.viva-card .q{font-weight:700;color:#5e35b1;}
+.viva-card .q::before{content:"Q: ";}
+.viva-card .a{margin-top:7px;}
+.viva-card .a::before{content:"A: ";font-weight:700;color:var(--green);}
+.viva-card .f{margin-top:6px;font-size:.92em;color:#636e72;}
+.viva-card .f::before{content:"Follow-up: ";font-weight:700;color:var(--accent);}
+.case-box{background:linear-gradient(135deg,#e0f7fa,#fff8e1);border:1px solid #80deea;border-radius:12px;padding:20px 24px;margin:20px 0;}
+.case-box h4{margin-top:0;color:#00838f;}
+.wrong{background:#ffe0e0;border-radius:8px;padding:8px 14px;margin:6px 0;}
+.wrong::before{content:"✗ WRONG: ";font-weight:700;color:var(--red);}
+.right{background:#d4efdf;border-radius:8px;padding:8px 14px;margin:6px 0;}
+.right::before{content:"✓ BETTER: ";font-weight:700;color:#1e8449;}
+.toc{background:linear-gradient(135deg,#f5f7fa,#e8ecf1);border-radius:14px;padding:26px 36px;margin:28px 0;}
+.toc h3{color:var(--primary);margin-top:0;}
+.toc ol{list-style:none;padding-left:0;counter-reset:toc;}
+.toc ol li{counter-increment:toc;padding:7px 0;border-bottom:1px dashed #ddd;}
+.toc ol li::before{content:counter(toc) ". ";font-weight:700;color:var(--accent);}
+.toc a{color:var(--ink);text-decoration:none;} .toc a:hover{color:var(--accent);}
+details{background:#fff6ef;border:1px solid #ffd9b8;border-radius:10px;padding:10px 18px;margin:14px 0;}
+summary{cursor:pointer;font-weight:600;color:var(--accent);padding:6px 0;}
+.inkblot{text-align:center;margin:26px 0;font-size:2.4em;opacity:.3;}
+.footer{text-align:center;padding:36px 20px;background:linear-gradient(135deg,#ee5a24 0%,#feca57 120%);border-radius:16px;margin-top:48px;color:#fff;}
+.footer .author-badge{font-size:1.1em;padding:11px 28px;background:linear-gradient(135deg,#6c5ce7,#a29bfe);}
+.backtop{display:inline-block;margin-top:8px;font-size:.85em;color:var(--accent);text-decoration:none;}
+.qbank{columns:1;}
+@media(max-width:768px){.container{padding:22px;}.header h1{font-size:1.6em;}}
+@media print{
+  body{background:#fff;padding:0;} .container{box-shadow:none;border-radius:0;padding:0;}
+  .filenav,.backtop{display:none;}
+  .header,.footer{background:#e2561f !important;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  details{break-inside:avoid;} details[open] summary{display:none;} details > *:not(summary){display:block !important;}
+  h2,h3{break-after:avoid;} table,.viva-card,.case-box,.caution-box{break-inside:avoid;}
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="header">
+  <h1>The Rorschach Inkblot Test<br>Complete Viva Preparation</h1>
+  <div class="sub">File 3 — Advanced Viva, Unique Questions, Clinical Cases &amp; Rapid Revision</div>
+  <div class="file-pill">EXNER COMPREHENSIVE SYSTEM · with R-PAS &amp; current debates</div>
+  <div class="author-badge">Made by Tejas Dangodra | M.Phil. Clinical Psychology</div>
+</div>
+
+<nav class="filenav">
+  <a href="Rorschach_Viva_01_History_Administration_Coding.html">File 1 · History · Administration · Coding</a>
+  <a href="Rorschach_Viva_02_Interpretation_Indices_Clinical_Meaning.html">File 2 · Interpretation · Indices · Clinical Meaning</a>
+  <a class="active" href="Rorschach_Viva_03_Advanced_Viva_Questions_Cases_Revision.html">File 3 · Advanced Viva · Cases · Revision</a>
+</nav>
+
+<div class="tip-box">This file consolidates Files 1–2 through question banks, 50+ tricky conceptual questions, 10 fictional case exercises, examiner "traps," and one-page revision sheets. Use it <em>after</em> reading Files 1 and 2. Every case is a <strong>fictional educational illustration</strong>.</div>
+
+<div class="toc" id="top">
+<h3>Contents of File 3</h3>
+<ol>
+<li><a href="#s1">History &amp; Systems: Viva Bank</a></li>
+<li><a href="#s2">Administration &amp; Inquiry: Viva Bank</a></li>
+<li><a href="#s3">Coding: Viva Bank</a></li>
+<li><a href="#s4">Formulas, Ratios &amp; Indices: Viva Bank</a></li>
+<li><a href="#s5">Special Scores: Viva Bank</a></li>
+<li><a href="#s6">50+ Unique &amp; Tricky Viva Questions</a></li>
+<li><a href="#s7">Clinical Case-Based Viva (10 fictional cases)</a></li>
+<li><a href="#s8">Common Errors &amp; Examiner Traps</a></li>
+<li><a href="#s9">Final Rapid-Revision Resources (+ Source-Audit)</a></li>
+</ol>
+</div>
+<div class="inkblot">❖ ❖ ❖</div>
+
+<!-- S1 HISTORY -->
+<h2 id="s1"><span class="section-icon">1</span>History &amp; Systems: Viva Bank</h2>
+<div class="viva-card"><p class="q">Who was Hermann Rorschach and what did he publish?</p><p class="a">A Swiss psychiatrist who created the 10-inkblot perceptual method and published <em>Psychodiagnostik</em> in 1921. He framed the test as a study of perception, not free association.</p><p class="f">Why did the method fragment after him? → He died in 1922, leaving no authority to standardize it, so Beck, Klopfer, Hertz, Piotrowski, and Rapaport–Schafer each developed separate systems.</p></div>
+<div class="viva-card"><p class="q">Name the five classic systems and one defining feature of each.</p><p class="a">Beck (empirical standardization); Klopfer (rich shading/qualitative, testing-the-limits); Hertz (psychometric/normative tables); Piotrowski (perceptanalysis/movement, later computerized); Rapaport–Schafer (ego-psychology, thought-disorder, battery context).</p><p class="f">Why can't they be mixed? → Each has its own coding, norms, and interpretive cutoffs; a value from one has no validated meaning in another.</p></div>
+<div class="viva-card"><p class="q">What did Exner do, and when?</p><p class="a">He empirically compared the five systems (1969), found them incompatible, and in 1974 published the Comprehensive System — one standardized administration, coding, norms, and interpretive framework assembled from the empirically best parts.</p><p class="f">Why was integration necessary? → So reliability improved and research could finally be pooled across users.</p></div>
+<div class="viva-card"><p class="q">What is R-PAS, who built it, and why?</p><p class="a">The Rorschach Performance Assessment System (2011), by Meyer, Viglione, Mihura, Erard &amp; Erdberg (members of Exner's Research Council). Built as an evidence-driven successor to the CS to correct validity/norm problems, with international norms, standardized scores, and R-Optimized administration.</p><p class="f">Is R-PAS the same test? → Same blots, different system — different administration, variable set, norms, and metric.</p></div>
+<div class="viva-card"><p class="q">Summarize the psychometric debate.</p><p class="a">CS coding reliability is good when trained; validity is strong for some variables (thought disturbance, reality testing) and weaker for others; CS adult norms were criticized (over-pathologizing). R-PAS addresses norms/validity and shows strong inter-rater reliability, but is newer and less universally taught. The R-Optimized change was debated but is meta-analytically supported.</p></div>
+
+<!-- S2 ADMIN -->
+<h2 id="s2"><span class="section-icon">2</span>Administration &amp; Inquiry: Viva Bank</h2>
+<div class="viva-card"><p class="q">What is the standard instruction, and what do you say if asked "how many?"</p><p class="a">"What might this be?" If asked how many responses: "It's up to you." Never specify a number.</p><p class="f">And if asked "can I turn it?" → "It's up to you" (record rotations).</p></div>
+<div class="viva-card"><p class="q">Why side-by-side seating and verbatim recording?</p><p class="a">Side-by-side minimizes examiner cues that could shape responses and lets the examiner see the blot as the person does. Verbatim recording is essential because determinants (esp. shading) and special scores depend on the exact words.</p></div>
+<div class="viva-card"><p class="q">Why is inquiry <em>not</em> a second administration?</p><p class="a">Its purpose is to clarify responses already given — their location and determinants — not to elicit new responses. New percepts offered in inquiry are handled per protocol but the phase is clarification, not re-testing.</p><p class="f">Why must inquiry be non-leading? → A leading question manufactures a determinant the person didn't use, corrupting coding and everything downstream.</p></div>
+<div class="viva-card"><p class="q">What is "testing the limits," and is it coded?</p><p class="a">An optional step <em>after</em> the formal inquiry to see whether the person <em>can</em> see a common percept they omitted. It is <strong>never coded</strong> into the structural data — purely qualitative/clinical.</p></div>
+<div class="viva-card"><p class="q">What behavioural observations should you record?</p><p class="a">Attitude/cooperation, affect and reactions to specific cards, response latency, card-turning, critical comments, and anything affecting validity.</p></div>
+<div class="viva-card"><p class="q">Name three common administration errors.</p><p class="a">(1) Not recording verbatim; (2) leading during the response phase; (3) specifying/over-encouraging the number of responses. Also: face-to-face seating; not marking the location sheet.</p></div>
+
+<!-- S3 CODING -->
+<h2 id="s3"><span class="section-icon">3</span>Coding: Viva Bank (workbook sequence)</h2>
+<div class="viva-card"><p class="q">How do you distinguish location from developmental quality?</p><p class="a">Location = <em>where</em> (W/D/Dd/S). DQ = <em>how well organized</em> (+, o, v/+, v). The same W can be DQ+ (integrated scene) or DQo (single object).</p></div>
+<div class="viva-card"><p class="q">What determines form quality, and where does it come from?</p><p class="a">How well the percept fits the contours of the exact area used, read from the CS <strong>Form Quality tables</strong> (location-specific, norm-based). You cannot judge FQ by eyeballing.</p><p class="f">Which decisions require the tables? → FQ, D vs Dd classification, Popular locations, and Z values.</p></div>
+<div class="viva-card"><p class="q">How do you distinguish FC from CF and C?</p><p class="a">FC = definite shape with colour secondary; CF = colour-driven with vague shape; C = colour only, no form. When in doubt between FC and CF, <strong>step down</strong> to CF.</p></div>
+<div class="viva-card"><p class="q">How do you distinguish the movement determinants?</p><p class="a">Human or human-only act → M; animal doing a species-natural act → FM; inanimate/force or motion without volition → m. Each also gets a (active/passive) marker.</p></div>
+<div class="viva-card"><p class="q">What is organizational activity, what are its prerequisites, and does whole-blot use establish it?</p><p class="a">The cognitive work of relating blot elements into a meaningful whole (scored as Z). Prerequisites: a form-bearing W, or integration of two+ areas, or meaningful space integration. Whole-blot use does <strong>not</strong> automatically establish it — a formless Wv earns no Z. Organization ≠ location.</p></div>
+<div class="viva-card"><p class="q">How do you distinguish similar content codes (H vs (H) vs Hd vs (Hd))?</p><p class="a">Real+complete = H; fictional+complete = (H); real+partial = Hd; fictional+partial = (Hd). Same logic for animals (A/(A)/Ad/(Ad)).</p></div>
+<div class="viva-card"><p class="q">Why is inquiry essential for coding, and what do you do with insufficient information?</p><p class="a">Because determinants, location, and special scores are coded only from articulated evidence. If information is insufficient, you code conservatively (e.g., step down C'→Y when "dark" is ambiguous) and do not invent a determinant.</p></div>
+<div class="viva-card"><p class="q">How do you distinguish Pair from Reflection?</p><p class="a">Pair (2) = two identical symmetric objects; Reflection (Fr/rF) = one object and its mirror image (reflection/mirror language). When Reflection is coded, Pair is not coded.</p></div>
+
+<!-- S4 FORMULAS -->
+<h2 id="s4"><span class="section-icon">4</span>Formulas, Ratios &amp; Indices: Viva Bank</h2>
+<div class="viva-card"><p class="q">Define and compute Lambda. If Pure F = 10 and R = 25?</p><p class="a">L = Pure F ÷ (R − Pure F) = 10 ÷ 15 = <strong>0.67</strong>. High L (&gt;0.99) = avoidant/simplifying style.</p><p class="f">Common error? → dividing by R instead of (R − Pure F).</p></div>
+<div class="viva-card"><p class="q">Compute WSumC and EA if FC=2, CF=3, C=1, Sum M=4.</p><p class="a">WSumC = 0.5(2)+1.0(3)+1.5(1) = 1+3+1.5 = <strong>5.5</strong>. EA = Sum M + WSumC = 4 + 5.5 = <strong>9.5</strong>. EB = 4:5.5.</p></div>
+<div class="viva-card"><p class="q">Identify the incorrect formula: "Afr = WSumC ÷ R."</p><p class="a">Incorrect. Afr = responses to Cards VIII+IX+X ÷ responses to Cards I–VII. It is a card-group ratio, not a colour-over-R percentage.</p></div>
+<div class="viva-card"><p class="q">Compute Zd if Zsum = 24.5 and Zest = 30.0. Interpret.</p><p class="a">Zd = 24.5 − 30.0 = <strong>−5.5</strong> → underincorporation (hasty, cue-neglecting scanning). Below −3.0 is the flag.</p></div>
+<div class="viva-card"><p class="q">What is the difference between a ratio and a percentage? Give one of each.</p><p class="a">A ratio compares two counts (EB = Sum M:WSumC, e.g., 2:10); a percentage is a proportion of a base (X−% = FQ− ÷ R). Reporting one as the other is a classic error.</p></div>
+<div class="viva-card"><p class="q">When is EB <em>not</em> interpretable, and why?</p><p class="a">When EA ≤ ~3.5 (too few data points to define a valid style). E.g., EB 2:0 with EA 2.0 is invalid; with high Lambda the style is read as avoidant instead.</p></div>
+<div class="viva-card"><p class="q">An examiner concludes "DEPI = 4, so the patient has depression." Why does this exceed the evidence?</p><p class="a">DEPI is a 7-item <strong>screen</strong> positive at ≥5; 4 is below cutoff. Even a positive DEPI is a hypothesis, not a diagnosis — depression requires clinical, not test-alone, determination.</p></div>
+<a class="backtop" href="#top">↑ Back to contents</a>
+
+<!-- S5 SPECIAL SCORES -->
+<h2 id="s5"><span class="section-icon">5</span>Special Scores: Viva Bank</h2>
+<p>For each score: a definition, coding, clinical, differentiation, and case question, with limitation-testing follow-ups.</p>
+<details open><summary>MOR (Morbid)</summary>
+<p><strong>Definition:</strong> content of death/damage/decay/dysphoria. <strong>Coding:</strong> "a broken, wilted flower" → MOR. <strong>Clinical:</strong> elevated (≥3) → pessimistic, damage-oriented set (used in self-perception AND ideation). <strong>Differentiation:</strong> vs AG — MOR is damage/result; AG is ongoing aggression. <strong>Case Q:</strong> MOR=5 with Egocentricity 0.29 — interpret? → damaged self-image; follow-up: does MOR alone diagnose depression? No.</p></details>
+<details><summary>AG (Aggressive Movement)</summary>
+<p><strong>Def:</strong> ongoing aggression. <strong>Coding:</strong> "two people fighting." <strong>Clinical:</strong> aggressive interpersonal attitudes. <strong>Differentiation:</strong> "a man who was beaten" = MOR (past), not AG. <strong>Follow-up:</strong> Does AG mean the person is violent? No — it's ideation, not a behavioural prediction.</p></details>
+<details><summary>COP (Cooperative Movement)</summary>
+<p><strong>Def:</strong> clearly positive/cooperative interaction. <strong>Coding:</strong> "two people dancing together." <strong>Clinical:</strong> expectation of positive interaction. <strong>Differentiation:</strong> "two people looking at each other" (neutral) ≠ COP. <strong>Follow-up:</strong> Does COP establish social competence? No, read with CDI, GHR:PHR.</p></details>
+<details><summary>The cognitive six (DV, DR, INC, FAB, ALOG, CONTAM)</summary>
+<p><strong>Coding:</strong> INC = one object, wrong feature; FAB = two objects, wrong relationship; CONTAM = fused percepts; ALOG = spontaneous faulty logic. <strong>Clinical:</strong> via Sum6/WSum6 and Level-2 count → degree of thinking disturbance; feeds PTI. <strong>Follow-up:</strong> Does one FAB1 mean psychosis? No — levels and the weighted sum matter; a single Level-1 is often benign.</p></details>
+<details><summary>PER, AB, PSV, CP, GHR/PHR</summary>
+<p>PER (personal justification → defensive/authoritarian stance); AB (abstraction → intellectualization); PSV (perseveration → cognitive rigidity/limited flexibility); CP (colour projection → affect denial, rare); GHR/PHR (quality of human representation → adaptive vs maladaptive interpersonal representation). <strong>Follow-up for each:</strong> none diagnoses alone.</p></details>
+<a class="backtop" href="#top">↑ Back to contents</a>
+
+<!-- S6 TRICKY -->
+<h2 id="s6"><span class="section-icon">6</span>50+ Unique &amp; Tricky Viva Questions</h2>
+<p>High-value conceptual questions that test understanding, not memorization. Concise model answers.</p>
+<div class="qbank">
+<div class="viva-card"><p class="q">1. Difference between a Rorschach <em>response</em> and a Rorschach <em>score</em>?</p><p class="a">A response is the raw verbal percept; a score/code is the standardized symbol(s) assigned to it (location, DQ, determinant, FQ, content, P, special scores).</p></div>
+<div class="viva-card"><p class="q">2. Why is inquiry not simply a second administration?</p><p class="a">It clarifies existing responses (location/determinants), not elicits new ones; it must be non-leading.</p></div>
+<div class="viva-card"><p class="q">3. Can the same response receive multiple codes?</p><p class="a">Yes — one response routinely gets a location, DQ, one or more determinants (a blend), FQ, multiple contents, possibly P, Z, and several special scores.</p></div>
+<div class="viva-card"><p class="q">4. Difference between a determinant and a content code?</p><p class="a">Determinant = <em>why</em> it looked like the object (feature used); content = <em>what category</em> the object is.</p></div>
+<div class="viva-card"><p class="q">5. Can a Popular response have poor form quality?</p><p class="a">P is assigned on location+content; FQ is coded separately. Usually P is FQo, but P and FQ are independent judgments.</p></div>
+<div class="viva-card"><p class="q">6. Does a high response count indicate better functioning?</p><p class="a">No. R is a context variable; high R can be rich or defensively over-produced.</p></div>
+<div class="viva-card"><p class="q">7. What if the patient produces very few responses?</p><p class="a">[CS] re-administer if R&lt;14, then interpret cautiously. [R-PAS] R-Optimized prompts prevent this during testing.</p></div>
+<div class="viva-card"><p class="q">8. What if an important determinant cannot be clarified?</p><p class="a">Do not invent it; code conservatively from available evidence (e.g., step down ambiguous "dark" to Y), and note the limitation.</p></div>
+<div class="viva-card"><p class="q">9. Does an unusual response necessarily indicate psychopathology?</p><p class="a">No. If the form still fits (FQu), it is individualistic, not distorted. Pathology is read from X−%/XA% patterns and convergence.</p></div>
+<div class="viva-card"><p class="q">10. Can a special score establish a diagnosis independently?</p><p class="a">No — it contributes to weighted composites/indices and must converge with other data.</p></div>
+<div class="viva-card"><p class="q">11. Why must coding be kept separate from interpretation?</p><p class="a">Coding is a reliability-driven description of the response; interpretation is a cautious inference from aggregated codes. Mixing them biases the data.</p></div>
+<div class="viva-card"><p class="q">12. Why can the same raw score mean different things across systems?</p><p class="a">Because meaning comes from the system's own coding rules and norms; a CS value has no validated R-PAS meaning and vice versa.</p></div>
+<div class="viva-card"><p class="q">13. Why must norms match the population?</p><p class="a">"High/low" is defined only against the right reference group; wrong norms produce wrong (often over-pathologizing) conclusions.</p></div>
+<div class="viva-card"><p class="q">14. Difference between a ratio and a percentage?</p><p class="a">Ratio compares two counts (a:b); percentage is a proportion of a base (decimal).</p></div>
+<div class="viva-card"><p class="q">15. How can two variables point in different directions, and what do you do?</p><p class="a">E.g., extratensive EB but low Afr. Report the tension and offer an integrative hypothesis; do not suppress either.</p></div>
+<div class="viva-card"><p class="q">16. Why should contradictory findings not be ignored?</p><p class="a">The contradiction is often the clinical reality; the CS explicitly challenges each hypothesis against the rest.</p></div>
+<div class="viva-card"><p class="q">17. Clinical vs statistical significance?</p><p class="a">Statistical = unlikely by chance; clinical = meaningful for the person. A variable can be statistically "elevated" yet clinically minor, and vice versa.</p></div>
+<div class="viva-card"><p class="q">18. How should a Rorschach finding be integrated with interview/test data?</p><p class="a">As one converging source; confirmed or revised against history, mental status, and other instruments before formulation.</p></div>
+<div class="viva-card"><p class="q">19. Limitations of using the Rorschach for diagnosis?</p><p class="a">It describes processes, not DSM categories; validity varies by variable; it must not diagnose alone; norms/culture matter.</p></div>
+<div class="viva-card"><p class="q">20. How do CS and R-PAS differ on response productivity?</p><p class="a">[CS] re-administers if R&lt;14; [R-PAS] manages R during testing (R-Optimized, ~18–27).</p></div>
+<div class="viva-card"><p class="q">21. Why does the step-down principle exist (FC↔CF, C'↔Y)?</p><p class="a">To avoid over-attributing form dominance/colour; code conservatively unless the evidence clearly supports the more form-dominated/colour choice.</p></div>
+<div class="viva-card"><p class="q">22. Why is Pure F never part of a blend?</p><p class="a">Because "pure" means only shape was used; any added feature changes the code (FC, FT, M, etc.).</p></div>
+<div class="viva-card"><p class="q">23. Movement is never physically in the blot — so why code it?</p><p class="a">Because it is <em>projected</em> by the person; that projection is itself informative (ideation/needs/pressure).</p></div>
+<div class="viva-card"><p class="q">24. INC vs FAB vs CONTAM?</p><p class="a">INC = one object, impossible feature; FAB = two objects, impossible relationship; CONTAM = two percepts fused into one.</p></div>
+<div class="viva-card"><p class="q">25. MOR vs AG?</p><p class="a">MOR = damaged/dead/dysphoric state (often past/result); AG = ongoing aggression.</p></div>
+<div class="viva-card"><p class="q">26. Texture (T) vs Diffuse shading (Y)?</p><p class="a">T = tactile ("furry/soft"); Y = general light/dark ("smoky/shadowy"). When "dark" is ambiguous vs colour, step to Y.</p></div>
+<div class="viva-card"><p class="q">27. Vista (V) vs Form Dimension (FD)?</p><p class="a">Both = depth; V from shading, FD from size/shape. V tends to carry painful self-scrutiny; FD a more neutral introspective tone.</p></div>
+<div class="viva-card"><p class="q">28. What does T=0 mean, and is it automatically HVI?</p><p class="a">T=0 suggests avoidance of closeness/guardedness; it is the HVI prerequisite but <strong>not</strong> HVI by itself (need ≥4 further criteria).</p></div>
+<div class="viva-card"><p class="q">29. Why is one FQ− response insufficient for "impaired reality testing"?</p><p class="a">Reality testing is judged from distributions (X−%, XA%) considering card difficulty/complexity, not single answers.</p></div>
+<div class="viva-card"><p class="q">30. Does whole-blot use (W) equal organization?</p><p class="a">No. Organization is Z/DQ; a formless Wv has no organizational credit.</p></div>
+<div class="viva-card"><p class="q">31. What does an extreme negative Zd indicate — and not indicate?</p><p class="a">Underincorporation (hasty scanning). Not low IQ or psychosis by itself.</p></div>
+<div class="viva-card"><p class="q">32. What does high Lambda suggest, and what are alternatives?</p><p class="a">Avoidant/simplifying style; alternatively defensiveness/guardedness. Not low intelligence.</p></div>
+<div class="viva-card"><p class="q">33. Why is EB uninterpretable at low EA?</p><p class="a">Too few M/colour data points to define a reliable style; interpret style via Lambda (avoidant) instead.</p></div>
+<div class="viva-card"><p class="q">34. What does EBPer add beyond EB?</p><p class="a">How <em>rigid/pervasive</em> the dominant style is — low flexibility to use the non-preferred approach.</p></div>
+<div class="viva-card"><p class="q">35. D vs Adj D — what does a gap mean?</p><p class="a">Adj D = baseline control; D = current control. D &lt; Adj D indicates current situational stress trimming control.</p></div>
+<div class="viva-card"><p class="q">36. How is situational stress distinguished from chronic overload?</p><p class="a">D &lt; Adj D (with elevated m/Y) = situational; D = Adj D (both low) = chronic/trait overload.</p></div>
+<div class="viva-card"><p class="q">37. Why is the Egocentricity Index interpreted with reflections?</p><p class="a">High index with reflections = inflated self-regard; low index with no reflections = deflated self-regard. Direction depends on the reflection component.</p></div>
+<div class="viva-card"><p class="q">38. Why is MOR used in two clusters?</p><p class="a">Elevated MOR informs self-perception (damaged self-image) and ideation (pessimistic cognitive set).</p></div>
+<div class="viva-card"><p class="q">39. What does the PTI replace, and why the name change?</p><p class="a">It replaced the SCZI; renamed to avoid implying a specific "schizophrenia" diagnosis — it is a perceptual-thinking screen.</p></div>
+<div class="viva-card"><p class="q">40. Does a below-cutoff S-CON clear suicide risk?</p><p class="a">No. A below-threshold value (e.g., 7) can still warrant active clinical risk assessment; the index never replaces clinical judgment.</p></div>
+<div class="viva-card"><p class="q">41. Can the Rorschach "detect lies"?</p><p class="a">No. It is not a deception detector; claiming so exceeds the evidence.</p></div>
+<div class="viva-card"><p class="q">42. Is the Rorschach "projective" or "performance-based"?</p><p class="a">Historically projective; the CS/R-PAS emphasize performance-based (behavioural) interpretation. Both framings coexist; performance framing is the modern, defensible emphasis.</p></div>
+<div class="viva-card"><p class="q">43. Why record card rotations?</p><p class="a">Orientation affects location and FQ and can carry interpretive/behavioural meaning.</p></div>
+<div class="viva-card"><p class="q">44. Why are achromatic cards coded differently for "colour"?</p><p class="a">They have no chromatic colour; any "colour" there is achromatic (C') or shading — never FC/CF/C.</p></div>
+<div class="viva-card"><p class="q">45. What does a colour-shading blend suggest?</p><p class="a">Ambivalent/confusing emotional experience (pleasure+pain mixed); feeds DEPI/S-CON.</p></div>
+<div class="viva-card"><p class="q">46. What does an m+Y blend flag?</p><p class="a">Situational stress — externally driven pressure plus anxiety/helplessness.</p></div>
+<div class="viva-card"><p class="q">47. Why might low P with high Xu% be non-pathological?</p><p class="a">It reflects individualistic but accurate perception (forms still fit) — creativity/unconventionality, not distortion.</p></div>
+<div class="viva-card"><p class="q">48. How does Pure H relate to interpersonal perception?</p><p class="a">Low Pure H (few realistic whole humans) suggests self/other understanding built on partial/imaginary rather than realistic representations.</p></div>
+<div class="viva-card"><p class="q">49. Why keep testing-the-limits data out of the structural summary?</p><p class="a">It is elicited under altered, non-standard conditions; including it would corrupt normative comparisons.</p></div>
+<div class="viva-card"><p class="q">50. Why express every finding as a hypothesis?</p><p class="a">Because the Rorschach samples processes probabilistically; certainty exceeds what any single instrument supports, and integration can revise any single finding.</p></div>
+<div class="viva-card"><p class="q">51. What is the single biggest viva error, in your words?</p><p class="a">Treating a code, ratio, or index as a diagnosis, or applying one system's cutoffs to another. Always name the system and frame conclusions as integrated hypotheses.</p></div>
+<div class="viva-card"><p class="q">52. Why does a single coding error matter?</p><p class="a">It can cascade — e.g., a missed texture zeroes Sum T, altering eb, es, Adj D, HVI, and interpersonal interpretation (a "domino effect").</p></div>
+</div>
+<a class="backtop" href="#top">↑ Back to contents</a>
+
+<!-- S7 CASES -->
+<h2 id="s7"><span class="section-icon">7</span>Clinical Case-Based Viva (10 fictional cases)</h2>
+<div class="caution-box">All ten cases, responses, inquiries, and structural values are <strong>fictional educational illustrations</strong> — not real records, official exemplars, or norms. They progress from basic coding to advanced integration.</div>
+
+<div class="case-box"><h4>Case 1 (basic) — single-response coding</h4>
+<p><strong>Context:</strong> adult, routine assessment. <strong>Response (Card V, W):</strong> "A bat." <strong>Inquiry:</strong> "Whole shape, wings and feet."<br>
+<strong>Coding Q:</strong> Code it. → <code>Wo Fo A P 1.0</code>.<br>
+<strong>Interpretation Q:</strong> What does this single response tell us? → very little alone; accurate conventional perception on an easy card.<br>
+<strong>Limitation Q:</strong> Can you infer personality from this? → No; one response is not interpretable.<br>
+<strong>Model answer:</strong> correct code + the reminder that single responses are coding exercises, not interpretations.</p></div>
+
+<div class="case-box"><h4>Case 2 (basic) — determinant decision</h4>
+<p><strong>Response (Card VI):</strong> "An animal skin, soft and furry." <strong>Inquiry:</strong> "Furry from the light/dark shading."<br>
+<strong>Coding Q:</strong> → <code>Wo FTo Ad P</code> (T from tactile shading).<br>
+<strong>Why not plain F?</strong> Because a tactile determinant was articulated.<br>
+<strong>Limitation Q:</strong> If the person had only said "a skin"? → no T; the cascade risk (Sum T=0) is why texture must not be missed.</p></div>
+
+<div class="case-box"><h4>Case 3 (basic) — step-down &amp; formless</h4>
+<p><strong>Response (Card II, red):</strong> "Blood." <strong>Inquiry:</strong> "Just red, no shape."<br>
+<strong>Coding Q:</strong> → <code>D C Bl</code> (pure C, no FQ, DQv).<br>
+<strong>Calculation Q:</strong> contribution to WSumC? → +1.5 (C weight).<br>
+<strong>Interpretation Q:</strong> meaning? → one instance of raw, unmodulated affect; interpret only with FC:CF+C and EB.</p></div>
+
+<div class="case-box"><h4>Case 4 (intermediate) — blend &amp; special score</h4>
+<p><strong>Response (Card I):</strong> "A woman tied to a stake, dark smoke rising, looks helpless." <strong>Inquiry:</strong> arms up, smoke rising, helpless.<br>
+<strong>Coding Q:</strong> → <code>W+ Mp.ma.YFu H,Fi 4.0 MOR</code>.<br>
+<strong>Interpretation Q:</strong> MOR here? → a dysphoric/damaged theme; one data point toward a damage-oriented set.<br>
+<strong>Limitation Q:</strong> Does this = depression? → No; MOR is weighed across the record (and DEPI).</p></div>
+
+<div class="case-box"><h4>Case 5 (intermediate) — FQ vs content</h4>
+<p><strong>Response (Card IV, W):</strong> "A giant monster." <strong>Inquiry:</strong> big figure, feet below, small head above.<br>
+<strong>Coding Q:</strong> is "monster" FQ−? → Not because it's a monster — FQ depends on whether the <em>shape</em> fits the area (table-dependent; a humanlike whole on Card IV is typically acceptable). Content bizarreness ≠ poor FQ.<br>
+<strong>Trap:</strong> conflating scary content with distorted form.</p></div>
+
+<div class="case-box"><h4>Case 6 (intermediate) — low-R validity (based on Case B)</h4>
+<p><strong>Context:</strong> chronic low mood; <strong>R = 14</strong>, L=1.0, EA=2.0, D=Adj D=−2, DEPI=6, CDI=5.<br>
+<strong>Calculation Q:</strong> is EB (2:0) interpretable? → No (EA 2.0 ≤ 3.5); style read as avoidant.<br>
+<strong>Interpretation Q:</strong> formulation? → chronically under-resourced, depressively organized, coping-deficient; affectively-driven misperception (WSum6=0, not thought disorder).<br>
+<strong>Limitation Q:</strong> confidence? → low R caps confidence; integrate with history and mood assessment.</p></div>
+
+<div class="case-box"><h4>Case 7 (advanced) — situational vs chronic stress (based on Case A)</h4>
+<p><strong>Values:</strong> EA 12, Adj D +1, D 0, m 4, SumY 1.<br>
+<strong>Calculation Q:</strong> why Adj D &gt; D? → removing excess m/Y lowers es to Adj es, raising Adj D to +1 while D (with current stress) is 0.<br>
+<strong>Interpretation Q:</strong> → strong baseline control, mildly reduced now by transient, externally driven pressure.<br>
+<strong>Limitation Q:</strong> prognosis claim? → state-related strain is potentially responsive to stabilization; avoid over-claiming.</p></div>
+
+<div class="case-box"><h4>Case 8 (advanced) — affect modulation &amp; the Afr contradiction (based on Case A)</h4>
+<p><strong>Values:</strong> EB 2:10 (EBPer 5.0), FC:CF+C 3:7, Pure C 3, Afr 0.47.<br>
+<strong>Interpretation Q:</strong> reconcile emotion-driven style with a low-ish Afr. → emotion dominates coping, yet he backs away from emotional stimulation — plausibly because aroused affect feels overwhelming. Report the tension.<br>
+<strong>Limitation Q:</strong> → do not resolve the contradiction by ignoring one variable; confirm with interview.</p></div>
+
+<div class="case-box"><h4>Case 9 (advanced) — perceptual-thinking screen</h4>
+<p><strong>Values:</strong> X−% .35, WDA% .55, M− 2, WSum6 28 (two FAB2, one ALOG), PTI 4, P 2.<br>
+<strong>Calculation Q:</strong> why is WSum6 so high? → Level-2 weights (FAB2=7 each) dominate.<br>
+<strong>Interpretation Q:</strong> → convergent perceptual inaccuracy + disordered thinking → hypothesis of a psychotic-spectrum process.<br>
+<strong>Limitation Q:</strong> → PTI is a screen; exclude affective disorganization, substances, medical causes; confirm clinically.</p></div>
+
+<div class="case-box"><h4>Case 10 (advanced) — suicide-risk integration</h4>
+<p><strong>Values:</strong> S-CON 7 (below cutoff 8), MOR 5, Pure C 3, V present, colour-shading blend, low Egocentricity, substance-use context.<br>
+<strong>Interpretation Q:</strong> action? → although below the formal cutoff, the convergence of risk markers warrants <strong>active, direct suicide-risk assessment</strong>.<br>
+<strong>Limitation Q:</strong> → the index neither confirms nor clears risk; clinical interview governs. Demonstrates that a "negative" screen does not end risk evaluation.</p></div>
+<a class="backtop" href="#top">↑ Back to contents</a>
+
+<!-- S8 ERRORS -->
+<h2 id="s8"><span class="section-icon">8</span>Common Errors &amp; Examiner Traps</h2>
+<p>For each trap: a wrong answer, why it's wrong, and a better answer.</p>
+
+<h4>1. Confusing systems</h4>
+<div class="wrong">"The Rorschach says this R&lt;14 patient should be on R-PAS."</div>
+<p>R&lt;14 is a <strong>CS re-administration rule</strong>; R-PAS is a different system with its own R-Optimized solution.</p>
+<div class="right">"In the CS, R&lt;14 triggers re-administration. R-PAS prevents short records via R-Optimized administration. I'd name the system for any rule I quote."</div>
+
+<h4>2. Memorizing formulas without understanding</h4>
+<div class="wrong">"Afr = WSumC/R."</div>
+<p>Wrong formula; confuses a card-group ratio with a colour percentage.</p>
+<div class="right">"Afr = responses to Cards VIII–X ÷ responses to Cards I–VII; it indexes willingness to engage emotionally."</div>
+
+<h4>3. Coding without sufficient inquiry</h4>
+<div class="wrong">"She said 'skin,' so I coded texture."</div>
+<p>Texture needs articulated tactile/shading evidence.</p>
+<div class="right">"Without tactile language I code plain F; I'd only code FT if the inquiry gave a tactile impression."</div>
+
+<h4>4. Inferring diagnoses from single responses/scores</h4>
+<div class="wrong">"One MOR, so the patient is depressed."</div>
+<p>A single special score is never diagnostic.</p>
+<div class="right">"MOR is weighed across the record and within DEPI/self-perception, integrated with history — it's a hypothesis, not a diagnosis."</div>
+
+<h4>5. Confusing raw scores, ratios, percentages, indices</h4>
+<div class="wrong">"DEPI = 4 means 4% depression risk."</div>
+<p>DEPI is a count of met criteria (positive ≥5), not a percentage or probability.</p>
+<div class="right">"DEPI is a 7-item constellation; 4 is below the ≥5 cutoff, and even a positive DEPI is a screen, not a diagnosis."</div>
+
+<h4>6. Using incorrect norms</h4>
+<div class="wrong">"His scores are elevated versus the manual, so he's disturbed."</div>
+<p>Norms must match age/culture/language; mismatched norms over-pathologize.</p>
+<div class="right">"I'd compare to appropriate norms for his population before calling anything elevated."</div>
+
+<h4>7. Treating high/low as universally good/bad</h4>
+<div class="wrong">"High R and high W = healthier."</div>
+<p>Direction depends on the variable, norms, and context.</p>
+<div class="right">"High W only helps if matched by ideational resources (W:M); high R can be defensive. I interpret within clusters."</div>
+
+<h4>8. Confusing form quality with content</h4>
+<div class="wrong">"'A monster' is bizarre, so FQ−."</div>
+<p>FQ judges form fit, not content bizarreness.</p>
+<div class="right">"If the shape fits the area (per the FQ table), a monster can be FQo; content and FQ are separate."</div>
+
+<h4>9. Overinterpreting isolated special scores</h4>
+<div class="wrong">"One FAB1 = thought disorder."</div>
+<p>Level and weighted sum matter; a single Level-1 is often benign.</p>
+<div class="right">"I'd look at WSum6, the number of Level-2 scores, and PTI before suggesting disordered thinking."</div>
+
+<h4>10. Ignoring contradictory findings</h4>
+<div class="wrong">"Afr is low, but he's extratensive, so I'll ignore the Afr."</div>
+<p>Contradictions are data, not noise.</p>
+<div class="right">"I'd report both and hypothesize that aroused affect feels overwhelming, prompting some emotional avoidance — to confirm clinically."</div>
+
+<h4>11. Failing to explain coding reasoning</h4>
+<div class="wrong">"It's just CF."</div>
+<p>No articulated basis.</p>
+<div class="right">"CF because colour drove the percept with only vague form; had form clearly dominated I'd code FC, and when in doubt I step down to CF."</div>
+<a class="backtop" href="#top">↑ Back to contents</a>
+
+<!-- S9 REVISION -->
+<h2 id="s9"><span class="section-icon">9</span>Final Rapid-Revision Resources</h2>
+
+<h3>9.1 One-page history timeline</h3>
+<table>
+<tr><th>Year</th><th>Event</th></tr>
+<tr><td>1921</td><td>Rorschach, <em>Psychodiagnostik</em> (10 blots, perceptual method)</td></tr>
+<tr><td>1922</td><td>Rorschach dies</td></tr>
+<tr><td>1930s–50s</td><td>Beck, Klopfer, Hertz, Piotrowski, Rapaport–Schafer systems</td></tr>
+<tr><td>1969</td><td>Exner's comparison of systems</td></tr>
+<tr><td>1974</td><td>Comprehensive System (1st ed.)</td></tr>
+<tr><td>2006</td><td>Exner dies; CS not further revised</td></tr>
+<tr><td>2011</td><td>R-PAS (Meyer et al.)</td></tr>
+</table>
+
+<h3>9.2 Major-systems comparison</h3>
+<table>
+<tr><th>System</th><th>Signature</th></tr>
+<tr><td>Beck</td><td>Empirical standardization</td></tr>
+<tr><td>Klopfer</td><td>Shading/qualitative, testing-the-limits</td></tr>
+<tr><td>Hertz</td><td>Psychometric/normative tables</td></tr>
+<tr><td>Piotrowski</td><td>Perceptanalysis/movement</td></tr>
+<tr><td>Rapaport–Schafer</td><td>Ego-psychology, thought disorder, battery</td></tr>
+<tr><td>Exner CS</td><td>Integrated standard; clusters + indices</td></tr>
+<tr><td>R-PAS</td><td>Evidence-selected; R-Optimized; standard scores</td></tr>
+</table>
+
+<h3>9.3 Administration sequence</h3>
+<p>Prepare &amp; seat side-by-side → rapport → instruction "What might this be?" → Response phase (all 10 cards, verbatim) → Inquiry (all 10, clarify location/determinants, non-leading) → optional testing-the-limits (uncoded) → behavioural observations → close.</p>
+
+<h3>9.4 Workbook coding sequence</h3>
+<div class="tip-box">Location → Developmental Quality → Determinant(s) → Form Quality → (Pair) → Content → Popular → [Z] → Special Scores.</div>
+
+<h3>9.5 Coding-category glossary</h3>
+<table>
+<tr><th>Category</th><th>Codes</th></tr>
+<tr><td>Location</td><td>W, D, Dd, S</td></tr>
+<tr><td>DQ</td><td>+, o, v/+, v</td></tr>
+<tr><td>Determinants</td><td>F; M, FM, m (a/p); FC, CF, C; FC', C'F, C'; FT/TF/T, FV/VF/V, FY/YF/Y; FD; (2), Fr, rF</td></tr>
+<tr><td>FQ</td><td>+, o, u, −, (none)</td></tr>
+<tr><td>Content</td><td>H,(H),Hd,(Hd),Hx, A,(A),Ad,(Ad), An, Art, Ay, Bl, Bt, Cg, Cl, Ex, Fd, Fi, Ge, Hh, Ls, Na, Sc, Sx, Xy, Id</td></tr>
+<tr><td>Popular</td><td>P (13 total)</td></tr>
+<tr><td>Special scores</td><td>DV, DR, INC, FAB, ALOG, CONTAM; MOR, AG, COP; PSV, PER, AB, CP; GHR/PHR</td></tr>
+</table>
+
+<h3>9.6 Determinant comparison (quick differentials)</h3>
+<table>
+<tr><th>Decision</th><th>Rule of thumb</th></tr>
+<tr><td>M / FM / m</td><td>human-or-human-act / animal-natural-act / inanimate-or-no-volition</td></tr>
+<tr><td>FC / CF / C</td><td>form&gt;colour / colour&gt;form / colour only (doubt → step down)</td></tr>
+<tr><td>C' / Y</td><td>colour-use of black-white / diffuse shading (doubt → Y)</td></tr>
+<tr><td>T / V / Y</td><td>touch / depth-by-shading / general light-dark</td></tr>
+<tr><td>V / FD</td><td>depth by shading / depth by size-shape</td></tr>
+<tr><td>Pair / Reflection</td><td>two identical / one + mirror image (exclusive)</td></tr>
+</table>
+
+<h3>9.7 Form-quality summary</h3>
+<table><tr><th>Code</th><th>Meaning</th></tr><tr><td>+</td><td>superior, enriched accurate form (rare)</td></tr><tr><td>o</td><td>ordinary good fit</td></tr><tr><td>u</td><td>unusual but fits (individualistic)</td></tr><tr><td>−</td><td>distorted, does not fit</td></tr><tr><td>none</td><td>formless determinant</td></tr></table>
+
+<h3>9.8 Special-score master table</h3>
+<table>
+<tr><th>Score</th><th>Core idea</th><th>Weight (Lv1/Lv2)</th></tr>
+<tr><td>DV</td><td>wrong word / redundancy</td><td>1/2</td></tr>
+<tr><td>DR</td><td>tangential remark</td><td>3/6</td></tr>
+<tr><td>INC</td><td>one object, impossible feature</td><td>2/4</td></tr>
+<tr><td>FAB</td><td>two objects, impossible relation</td><td>4/7</td></tr>
+<tr><td>ALOG</td><td>spontaneous faulty logic</td><td>5</td></tr>
+<tr><td>CONTAM</td><td>fused percepts</td><td>7</td></tr>
+<tr><td>MOR</td><td>damage/dysphoria</td><td>—</td></tr>
+<tr><td>AG</td><td>ongoing aggression</td><td>—</td></tr>
+<tr><td>COP</td><td>cooperation</td><td>—</td></tr>
+<tr><td>PER/AB/PSV/CP</td><td>self-justification / abstraction / perseveration / colour projection</td><td>—</td></tr>
+<tr><td>GHR/PHR</td><td>good/poor human representation</td><td>—</td></tr>
+</table>
+
+<h3>9.9 Formula &amp; ratio sheet (CS)</h3>
+<table>
+<tr><th>Name</th><th>Formula</th></tr>
+<tr><td>Lambda</td><td>Pure F ÷ (R − Pure F)</td></tr>
+<tr><td>WSumC</td><td>0.5FC + 1.0CF + 1.5C</td></tr>
+<tr><td>EB / EA</td><td>Sum M : WSumC / Sum M + WSumC</td></tr>
+<tr><td>eb / es</td><td>(FM+m):(C'+T+V+Y) / FM+m+C'+T+V+Y</td></tr>
+<tr><td>D / Adj D</td><td>(EA−es) / (EA−Adj es), via D table</td></tr>
+<tr><td>Afr</td><td>R(VIII+IX+X) ÷ R(I–VII)</td></tr>
+<tr><td>X+% / Xu% / X−% / XA%</td><td>(+,o)/R · u/R · −/R · (+,o,u)/R</td></tr>
+<tr><td>Egocentricity</td><td>[3(Fr+rF)+Σ(2)] ÷ R</td></tr>
+<tr><td>Isolation Index</td><td>(Bt+2Cl+Ge+Ls+2Na) ÷ R</td></tr>
+<tr><td>Zd</td><td>Zsum − Zest</td></tr>
+<tr><td>WSum6</td><td>weighted sum of the 6 cognitive specials</td></tr>
+</table>
+
+<h3>9.10 Index summary (CS cutoffs)</h3>
+<table>
+<tr><th>Index</th><th>Screens</th><th>Positive</th></tr>
+<tr><td>PTI</td><td>perceptual-thinking disturbance</td><td>continuous 0–5 (higher=worse)</td></tr>
+<tr><td>DEPI</td><td>depressive organization</td><td>≥5/7</td></tr>
+<tr><td>CDI</td><td>coping deficit</td><td>≥4/5</td></tr>
+<tr><td>S-CON</td><td>suicide risk</td><td>≥8/12</td></tr>
+<tr><td>HVI</td><td>hypervigilance</td><td>T=0 + ≥4 criteria</td></tr>
+<tr><td>OBS</td><td>obsessive style</td><td>specific combinations</td></tr>
+</table>
+
+<h3>9.11 Interpretation-domain map (Manual cluster order)</h3>
+<p>Controls/stress tolerance → Situational stress → Affect → Processing → Mediation → Ideation → Self-perception → Interpersonal → Complete description.</p>
+
+<h3>9.12 Concise viva answers (one-liners)</h3>
+<ul>
+<li>Ratio vs percentage: two counts (a:b) vs a proportion (decimal).</li>
+<li>Coding vs interpretation: assigning symbols vs inferring meaning from aggregated symbols.</li>
+<li>Low R (CS): re-administer if R&lt;14. R-PAS: R-Optimized prevents it.</li>
+<li>Whole-blot ≠ organization: Z needs genuine relating of elements.</li>
+<li>One score never diagnoses; indices are screens; everything is a hypothesis.</li>
+</ul>
+
+<h3>9.13 Glossary of difficult terms</h3>
+<table>
+<tr><th>Term</th><th>Plain meaning</th></tr>
+<tr><td>Determinant</td><td>blot feature that shaped the response</td></tr>
+<tr><td>Erlebnistypus (EB)</td><td>coping-style ratio, M:WSumC</td></tr>
+<tr><td>Extratensive / Introversive / Ambitent</td><td>emotion-led / thought-led / inconsistent coping styles</td></tr>
+<tr><td>Lambda</td><td>proportion of pure-form responses (economy/avoidance)</td></tr>
+<tr><td>Underincorporation (Zd−)</td><td>hasty, cue-neglecting scanning</td></tr>
+<tr><td>Constriction</td><td>held-in vs expressed affect (SumC':WSumC)</td></tr>
+<tr><td>Vista</td><td>painful self-scrutiny (depth from shading)</td></tr>
+<tr><td>Texture</td><td>need for closeness (tactile shading)</td></tr>
+<tr><td>PTI</td><td>perceptual-thinking screen (replaced SCZI)</td></tr>
+<tr><td>R-Optimized</td><td>R-PAS method that steers the number of responses (~18–27)</td></tr>
+<tr><td>Complexity</td><td>R-PAS metric of richness/integration (replaces Lambda's role)</td></tr>
+</table>
+
+<h3>9.14 Topics to verify directly in the scoring tables / manual</h3>
+<div class="remember-box">Always confirm these against the actual CS reference material rather than memory: (1) <strong>Form Quality</strong> for any specific location; (2) <strong>D vs Dd</strong> area classification per card; (3) the exact <strong>Z values</strong> (ZW/ZA/ZD/ZS) and <strong>Zest</strong> table; (4) the precise component lists and cutoffs for <strong>PTI, DEPI, CDI, S-CON, HVI, OBS</strong>; (5) the full <strong>GHR/PHR</strong> decision algorithm; (6) the exact <strong>Popular</strong> criteria per card; (7) the <strong>D-score</strong> conversion table.</div>
+
+<!-- SOURCE AUDIT -->
+<h3 id="audit">9.15 Source-Audit Report</h3>
+<div class="src-box">
+<strong>Documents reviewed (repository).</strong>
+<ul>
+<li><em>A Rorschach Workbook for the Comprehensive System</em> (Exner et al., 5th ed., 2001) — <code>A-Rorschach-Workbook-for-the-Comprehensive-System.pdf</code>, 329 pp. <strong>Access limitation:</strong> this is a <em>scanned image PDF</em> with no text layer; no OCR engine was installable in the environment (read-only system libraries), so individual pages could not be machine-read or page-cited. CS coding content was therefore drawn from the repository's companion extraction (<code>Rorschach_Coding_Complete_Guide_Exner.html</code>, <code>Rorschach_Administration_Guide.html</code>) which reproduces the standard CS procedures, cross-checked against the two worked CS reports in the repository.</li>
+<li>Exner CS interpretation manual — <code>Rorschach_Manual_Exner_OCR_Complete.txt</code>, an OCR extract covering <strong>Chapters 13–22</strong> (the interpretation half: cluster table 13.1; controls; situational stress; affect incl. the Affective-Ratio step; processing; mediation; ideation; self-perception; interpersonal; complete description). Used as the primary source for File 2's sequence. <strong>Limitation:</strong> OCR noise prevents exact page numbers; chapter-level citations are given.</li>
+<li>Two worked CS interpretive reports (<code>Amit_Pal_Rorschach_Report.md</code>, <code>Saroj_Bai_Rorschach_Report.md</code>) — used as the basis for the fictional "Case A / Case B" structural values illustrated throughout.</li>
+</ul>
+<strong>Supplementary authoritative sources (clearly flagged in-text).</strong> R-PAS primary materials and FAQs (r-pas.org; Meyer, Viglione, Mihura, Erard &amp; Erdberg, 2011); peer-reviewed studies/meta-analyses on R-Optimized administration and the optimal R range of 18–27 (PubMed, 2014–2019); the R-PAS raw/Complexity-adjusted scoring study (Pignolo et al., 2017). <em>Content from external sources was rephrased for compliance with licensing restrictions.</em><br><br>
+<strong>Material NOT accessed / could not be verified.</strong> Exact workbook page numbers; the literal content of CS scoring tables (FQ, Z, D-score, index component lists) — these are summarized at the procedural level and flagged for direct verification (§9.14). Blot images and protected tables are intentionally described, not reproduced (test security/copyright).<br><br>
+<strong>Unresolved limitations.</strong> Because the workbook PDF could not be OCR'd, there may be edition-specific nuances not captured; all numeric cutoffs are given as standard CS values and should be confirmed against the current edition in use. No CS cutoff has been applied to R-PAS, and no R-PAS metric to CS.
+</div>
+<a class="backtop" href="#top">↑ Back to contents</a>
+
+<div class="footer">
+  <p style="font-size:1.1em;">End of File 3 — you now have the full Rorschach viva resource.</p>
+  <nav class="filenav" style="margin:18px 0;">
+    <a href="Rorschach_Viva_01_History_Administration_Coding.html">File 1 · History · Administration · Coding</a>
+    <a href="Rorschach_Viva_02_Interpretation_Indices_Clinical_Meaning.html">File 2 · Interpretation · Indices · Clinical Meaning</a>
+  </nav>
+  <div class="author-badge">Made by Tejas Dangodra | M.Phil. Clinical Psychology</div>
+  <p style="margin-top:14px;font-size:.82em;opacity:.9;">Educational viva-preparation resource. All cases/responses are fictional illustrations, not official exemplars or norms. The Rorschach is one component of a comprehensive assessment and must not be used alone to diagnose. CS and R-PAS are distinct systems; their rules and cutoffs are not interchangeable.</p>
+</div>
+
+</div>
+</body>
+</html>
