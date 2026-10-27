@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rorschach Viva — File 1: History, Administration &amp; Coding</title>
+<style>
+:root{
+  --bg1:#fce4ec; --bg2:#e8eaf6; --bg3:#e0f7fa; --bg4:#f3e5f5; --bg5:#fff8e1;
+  --ink:#2d3436; --primary:#6c5ce7; --primary2:#a29bfe; --accent:#e17055;
+  --green:#00b894; --blue:#2980b9; --red:#c0392b; --panel:rgba(255,255,255,0.94);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
+  background:linear-gradient(135deg,var(--bg1) 0%,var(--bg2) 25%,var(--bg3) 50%,var(--bg4) 75%,var(--bg5) 100%);
+  background-attachment:fixed; color:var(--ink); line-height:1.7; padding:20px;
+}
+.container{max-width:1150px;margin:0 auto;background:var(--panel);border-radius:20px;
+  padding:45px 55px;box-shadow:0 20px 60px rgba(0,0,0,0.08),0 0 0 1px rgba(255,255,255,0.5);}
+.header{text-align:center;padding:45px 20px;background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);
+  border-radius:16px;margin-bottom:30px;position:relative;overflow:hidden;}
+.header::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;
+  background:radial-gradient(circle,rgba(255,255,255,0.12) 0%,transparent 60%);animation:pulse 5s ease-in-out infinite;}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:.5;}50%{transform:scale(1.1);opacity:1;}}
+.header h1{color:#fff;font-size:2.3em;text-shadow:0 2px 10px rgba(0,0,0,0.2);position:relative;z-index:1;}
+.header .sub{color:rgba(255,255,255,.92);font-size:1.15em;font-weight:400;margin-top:10px;position:relative;z-index:1;}
+.file-pill{display:inline-block;background:rgba(255,255,255,.2);color:#fff;border:1px solid rgba(255,255,255,.4);
+  padding:5px 16px;border-radius:30px;font-size:.85em;margin-top:14px;position:relative;z-index:1;letter-spacing:1px;}
+.author-badge{display:inline-block;background:linear-gradient(135deg,#ff6b6b,#ee5a24);color:#fff;padding:8px 24px;
+  border-radius:30px;font-weight:700;margin-top:18px;position:relative;z-index:1;box-shadow:0 4px 15px rgba(238,90,36,.3);letter-spacing:1px;}
+.filenav{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin:0 0 30px;}
+.filenav a{flex:1 1 280px;text-align:center;text-decoration:none;padding:14px 18px;border-radius:12px;font-weight:600;
+  background:linear-gradient(135deg,#f5f7fa,#e8ecf1);color:var(--ink);border:2px solid transparent;transition:.25s;}
+.filenav a:hover{border-color:var(--primary);color:var(--primary);transform:translateY(-2px);}
+.filenav a.active{background:linear-gradient(135deg,var(--primary),var(--primary2));color:#fff;}
+h2{color:var(--primary);font-size:1.75em;margin-top:48px;margin-bottom:18px;padding-bottom:10px;border-bottom:3px solid #dfe6e9;position:relative;}
+h2::after{content:'';position:absolute;bottom:-3px;left:0;width:80px;height:3px;background:linear-gradient(to right,var(--primary),var(--primary2));}
+h3{color:var(--accent);font-size:1.35em;margin-top:32px;margin-bottom:12px;}
+h4{color:var(--green);font-size:1.12em;margin-top:22px;margin-bottom:9px;}
+h5{color:#636e72;font-size:1.03em;margin-top:16px;margin-bottom:7px;}
+p{margin-bottom:12px;}
+ul,ol{margin:10px 0 15px 26px;}
+li{margin-bottom:7px;}
+.section-icon{display:inline-block;width:38px;height:38px;background:linear-gradient(135deg,var(--primary),var(--primary2));
+  border-radius:50%;text-align:center;line-height:38px;color:#fff;font-weight:700;margin-right:12px;font-size:1em;vertical-align:middle;}
+table{width:100%;border-collapse:collapse;margin:20px 0;border-radius:10px;overflow:hidden;box-shadow:0 2px 15px rgba(0,0,0,0.05);font-size:.95em;}
+th{background:linear-gradient(135deg,var(--primary),var(--primary2));color:#fff;padding:12px 15px;text-align:left;font-weight:600;}
+td{padding:11px 15px;border-bottom:1px solid #eee;vertical-align:top;}
+tr:nth-child(even){background:#f8f9ff;}
+tr:hover{background:#eef2ff;}
+code{background:#f1f2f6;padding:2px 7px;border-radius:4px;font-family:'Courier New',monospace;font-size:.9em;color:#d63031;}
+.notice-box{background:linear-gradient(135deg,#fff3cd,#ffeaa7);border-left:5px solid #fdcb6e;border-radius:10px;padding:18px 22px;margin:22px 0;}
+.notice-box strong{color:#e17055;}
+.caution-box{background:linear-gradient(135deg,#ffcccc,#ffe0e0);border-left:5px solid #e74c3c;border-radius:10px;padding:18px 22px;margin:18px 0;}
+.caution-box::before{content:"⚠ CAUTION: ";font-weight:700;color:var(--red);}
+.tip-box{background:linear-gradient(135deg,#d4efdf,#abebc6);border-left:5px solid #27ae60;border-radius:10px;padding:18px 22px;margin:18px 0;}
+.tip-box::before{content:"💡 TIP: ";font-weight:700;color:#1e8449;}
+.remember-box{background:linear-gradient(135deg,#d6eaf8,#aed6f1);border-left:5px solid #2980b9;border-radius:10px;padding:18px 22px;margin:18px 0;}
+.remember-box::before{content:"★ REMEMBER: ";font-weight:700;color:#1a5276;}
+.src-box{background:linear-gradient(135deg,#ede7f6,#d1c4e9);border-left:5px solid #7e57c2;border-radius:10px;padding:16px 22px;margin:18px 0;font-size:.92em;}
+.src-box::before{content:"📖 SOURCE: ";font-weight:700;color:#5e35b1;}
+.def{background:#f3e5f5;border-radius:6px;padding:2px 6px;font-style:italic;}
+.toc{background:linear-gradient(135deg,#f5f7fa,#e8ecf1);border-radius:14px;padding:26px 36px;margin:28px 0;}
+.toc h3{color:var(--primary);margin-top:0;}
+.toc ol{list-style:none;padding-left:0;counter-reset:toc;}
+.toc ol li{counter-increment:toc;padding:7px 0;border-bottom:1px dashed #ddd;}
+.toc ol li::before{content:counter(toc) ". ";font-weight:700;color:var(--primary);}
+.toc a{color:var(--ink);text-decoration:none;}
+.toc a:hover{color:var(--primary);}
+.coding-example{background:linear-gradient(135deg,#ffecd2,#fcb69f);border-radius:12px;padding:22px;margin:20px 0;border:1px solid #f8b500;}
+.coding-example h5{color:#d63031;margin-top:0;}
+.viva-card{background:linear-gradient(135deg,#e3f2fd,#f3e5f5);border:1px solid #b39ddb;border-radius:12px;padding:18px 22px;margin:16px 0;}
+.viva-card .q{font-weight:700;color:#5e35b1;}
+.viva-card .q::before{content:"Q: ";}
+.viva-card .a{margin-top:8px;}
+.viva-card .a::before{content:"A: ";font-weight:700;color:var(--green);}
+.formula-box{background:#f8f9fa;border:2px dashed var(--primary);border-radius:10px;padding:15px 22px;margin:15px 0;font-family:'Courier New',monospace;text-align:center;font-size:1.05em;}
+details{background:#f8f9ff;border:1px solid #d6d8ff;border-radius:10px;padding:10px 18px;margin:14px 0;}
+summary{cursor:pointer;font-weight:600;color:var(--primary);padding:6px 0;}
+.inkblot{text-align:center;margin:26px 0;font-size:2.4em;opacity:.3;}
+.footer{text-align:center;padding:36px 20px;background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);border-radius:16px;margin-top:48px;color:#fff;}
+.footer .author-badge{font-size:1.1em;padding:11px 28px;}
+.backtop{display:inline-block;margin-top:8px;font-size:.85em;color:var(--primary);text-decoration:none;}
+@media(max-width:768px){.container{padding:22px;}.header h1{font-size:1.6em;}}
+@media print{
+  body{background:#fff;padding:0;}
+  .container{box-shadow:none;border-radius:0;padding:0;}
+  .filenav,.backtop{display:none;}
+  .header,.footer{background:#5b48c9 !important;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  details{break-inside:avoid;}
+  details[open] summary{display:none;}
+  details > *:not(summary){display:block !important;}
+  h2,h3{break-after:avoid;}
+  table,.coding-example,.viva-card,.caution-box,.tip-box{break-inside:avoid;}
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="header">
+  <h1>The Rorschach Inkblot Test<br>Complete Viva Preparation</h1>
+  <div class="sub">File 1 — History, Administration, Inquiry, Coding &amp; Scoring</div>
+  <div class="file-pill">EXNER COMPREHENSIVE SYSTEM (CS)</div>
+  <div class="author-badge">Made by Tejas Dangodra | M.Phil. Clinical Psychology</div>
+</div>
+
+<nav class="filenav">
+  <a class="active" href="Rorschach_Viva_01_History_Administration_Coding.html">File 1 · History · Administration · Coding</a>
+  <a href="Rorschach_Viva_02_Interpretation_Indices_Clinical_Meaning.html">File 2 · Interpretation · Indices · Clinical Meaning</a>
+  <a href="Rorschach_Viva_03_Advanced_Viva_Questions_Cases_Revision.html">File 3 · Advanced Viva · Cases · Revision</a>
+  <a href="Rorschach_Viva_04_What_Each_Aspect_Means_About_Patient.html">File 4 · What Each Aspect Means</a>
+</nav>
+
+<div class="src-box">
+<strong>What this resource is based on.</strong> This three-file set is built on the two primary Rorschach documents in the repository and verified authoritative sources:
+<ul>
+<li><strong>Workbook (coding/scoring source):</strong> John E. Exner Jr. (with D. J. Viglione, S. C. Colligan, L. B. Hillman, B. A. Ritzler, A. D. Sciara), <em>A Rorschach Workbook for the Comprehensive System</em> (5th ed., 2001), Rorschach Workshops / PAR. In the repository this is the scanned PDF <code>A-Rorschach-Workbook-for-the-Comprehensive-System.pdf</code> (329 pp.). <em>Because this file is a scanned image PDF with no digital text layer and no OCR engine was available in the working environment, individual page numbers could not be machine-verified. Coding rules below reproduce the standard CS procedures as extracted in the repository's companion coding guide.</em></li>
+<li><strong>Manual (interpretation source):</strong> John E. Exner Jr., <em>The Rorschach: A Comprehensive System, Vol. 1 — Basic Foundations and Principles of Interpretation</em> (interpretation chapters). In the repository this is <code>Rorschach_Manual_Exner_OCR_Complete.txt</code>, an OCR extract covering <strong>Chapters 13–22</strong> (the interpretive half). Page references cited as "(Manual, Ch. N)" point to that OCR text; OCR noise means exact page numbers are approximate.</li>
+<li><strong>Supplementary authoritative sources</strong> (clearly flagged where used): R-PAS primary materials (Meyer, Viglione, Mihura, Erard &amp; Erdberg, 2011; r-pas.org) and peer-reviewed meta-analyses for R-PAS and current debates.</li>
+</ul>
+A full <strong>source-audit report</strong> appears at the end of File&nbsp;3.
+</div>
+
+<div class="caution-box">
+<strong>Scope &amp; safety.</strong> All patient responses, inquiries, and cases in these files are <strong>fictional educational illustrations</strong>, not official scoring exemplars, not real patient records, and not normative data. The Rorschach is <strong>one component</strong> of a comprehensive assessment and must never be used alone to diagnose. Test stimuli and protected tables are described, not reproduced, in line with copyright and test-security norms. The files do not mix Comprehensive System (CS) rules with R-PAS rules — differences are flagged explicitly.
+</div>
+
+<div class="toc" id="top">
+<h3>Contents of File 1</h3>
+<ol>
+<li><a href="#s1">History and Development of the Rorschach</a></li>
+<li><a href="#s2">Major Rorschach Systems (Klopfer, Beck, Hertz, Piotrowski, Rapaport, Exner, R-PAS)</a></li>
+<li><a href="#s3">Purpose, Nature and Structure of the Test</a></li>
+<li><a href="#s4">Administration: Step by Step</a></li>
+<li><a href="#s5">The Inquiry Phase</a></li>
+<li><a href="#s6">Complete Coding Guide (Location → DQ → Determinants → FQ → Content → P → Special Scores)</a></li>
+<li><a href="#s7">Structural Summary, Calculations and Formulas (+ Formula Sheet)</a></li>
+</ol>
+</div>
+
+<div class="inkblot">❖ ❖ ❖</div>
+
+<!-- ============ SECTION 1: HISTORY ============ -->
+<h2 id="s1"><span class="section-icon">1</span>History and Development of the Rorschach</h2>
+
+<p>The Rorschach is a <span class="def">performance-based</span> (the person <em>does</em> a task while the examiner watches, rather than simply reporting on themselves) personality assessment. A person is shown ten standardized inkblots and asked what they might be. How the person perceives, organizes, and explains the ambiguous blots is treated as a sample of how their personality "works" when faced with an unstructured problem. To understand the viva, you must understand <em>why</em> there are competing "systems" and how the field arrived at Exner's Comprehensive System and, later, R-PAS.</p>
+
+<h3>1.1 Hermann Rorschach and the birth of the method</h3>
+<ul>
+<li><strong>Hermann Rorschach (1884–1922)</strong> was a Swiss psychiatrist. Working with psychiatric patients, he noticed that people with different conditions responded differently to inkblots. He systematized a set of blots and a method of eliciting and recording responses.</li>
+<li>He published <strong><em>Psychodiagnostik</em> in 1921</strong>, introducing the ten blots and an early scoring approach that already emphasized <strong>location</strong> (where on the blot), <strong>determinants</strong> (what blot feature drove the response — form, movement, colour), and <strong>content</strong>, plus the proportion of <strong>popular/original</strong> answers.</li>
+<li>Rorschach framed the test primarily as a study of <strong>perception</strong> ("how" a person sees) rather than a free-association study of unconscious content ("what" the symbols mean). This perceptual emphasis is why modern CS/R-PAS treat it as a performance task.</li>
+<li>He <strong>died in 1922</strong>, aged 37, barely a year after publication, leaving the method young and unfinished. This early death is the single most important fact for the viva: it is <em>why</em> multiple independent systems developed.</li>
+</ul>
+
+<h3>1.2 After Rorschach's death — divergent development (1920s–1960s)</h3>
+<p>With no founder to arbitrate, several American and European workers each extended the method in their own direction. By the 1960s there were five major, mutually incompatible "systems," each with its own administration wording, coding symbols, and norms. A response scored one way in Beck's system could be scored differently in Klopfer's — the same test had become, in practice, several different tests.</p>
+
+<h3>1.3 John Exner and the Comprehensive System (1970s onward)</h3>
+<ul>
+<li><strong>John E. Exner Jr. (1928–2006)</strong> conducted an empirical comparison of the five major systems (published 1969) and found they diverged so much that research results could not be pooled.</li>
+<li>In <strong>1974</strong> he published the first edition of the <strong>Comprehensive System (CS)</strong>, selecting the most <em>empirically defensible and reliably codable</em> components from the existing systems and welding them into one standardized procedure with uniform administration, coding, norms, and an interpretive framework.</li>
+<li>The CS became the dominant worldwide approach for ~30 years. The repository's <em>Workbook</em> and interpretation <em>Manual</em> are CS documents, so <strong>Files 1 and 2 teach the CS</strong>.</li>
+</ul>
+<div class="src-box">The repository's interpretation Manual (Exner, CS) is organized around <strong>interpretive clusters</strong> and opens its interpretation half at Chapter 13 ("General Guidelines Regarding Interpretation"). (Manual, Ch. 13.)</div>
+
+<h3>1.4 R-PAS (2011) — the newest major development</h3>
+<ul>
+<li>After Exner's death, the CS was not further revised. A research group led by <strong>Gregory J. Meyer, Donald J. Viglione, Joni L. Mihura, Robert E. Erard, and Philip Erdberg</strong> built the <strong>Rorschach Performance Assessment System (R-PAS)</strong>, published <strong>2011</strong>.</li>
+<li>R-PAS retained only CS variables with the <strong>strongest empirical/meta-analytic support</strong>, added international norms, converted scores to standardized (M=100, SD=15) scales, and introduced <strong>R-Optimized administration</strong> to control the number of responses. <span class="def">(R-PAS is covered in detail in File 2, §10, and compared to the CS.)</span></li>
+</ul>
+<div class="remember-box">Three eras to recite in a viva: (1) <strong>Rorschach 1921</strong> — the method; (2) the <strong>"five systems" era</strong> (Beck, Klopfer, Hertz, Piotrowski, Rapaport–Schafer) — fragmentation; (3) <strong>integration</strong> — Exner's CS (1974) and then R-PAS (2011).</div>
+
+<h3>1.5 Key contributors — who, what, which system, why it matters</h3>
+<table>
+<tr><th>Person</th><th>Who they were</th><th>Contribution</th><th>System influenced</th><th>Why it matters today</th></tr>
+<tr><td><strong>Hermann Rorschach</strong></td><td>Swiss psychiatrist; originator</td><td>Created the 10 blots and the perceptual method; <em>Psychodiagnostik</em> (1921)</td><td>All systems derive from him</td><td>The test and its perceptual logic are entirely his; the blots are still used</td></tr>
+<tr><td><strong>Samuel Beck</strong></td><td>American psychologist</td><td>Pushed <strong>empirical, standardized</strong> scoring and normative reference; quantitative emphasis</td><td>Beck system</td><td>His rigor shaped the CS's insistence on norms and standardization</td></tr>
+<tr><td><strong>Bruno Klopfer</strong></td><td>German-American psychologist (phenomenological/psychoanalytic)</td><td>Rich <strong>qualitative</strong> scoring; expanded <strong>shading</strong> determinants; introduced the inquiry emphasis</td><td>Klopfer system</td><td>Shading/texture/vista coding and the structured inquiry owe much to him</td></tr>
+<tr><td><strong>Marguerite Hertz</strong></td><td>American psychologist</td><td>Normative and <strong>psychometric research</strong>, frequency tables, reliability work</td><td>Hertz system</td><td>Her normative/frequency approach fed the CS form-quality and popular tables</td></tr>
+<tr><td><strong>Zygmunt Piotrowski</strong></td><td>Polish-American psychologist</td><td>Emphasis on <strong>perceptanalysis</strong> and movement; later computer-assisted interpretation</td><td>Piotrowski system</td><td>Deepened interpretation of movement determinants</td></tr>
+<tr><td><strong>David Rapaport</strong> (with Gill &amp; Schafer)</td><td>Psychoanalytic ego-psychologist</td><td>Embedded the Rorschach in a <strong>test battery</strong>; linked responses to <strong>ego functions</strong> and thought organization</td><td>Rapaport–Schafer approach</td><td>Foundation for interpreting thought disorder / cognitive special scores</td></tr>
+<tr><td><strong>John Exner</strong></td><td>American psychologist</td><td>Compared the systems; built the <strong>Comprehensive System</strong> (1974); structural summary, clusters, norms, indices</td><td>Comprehensive System</td><td>The standard system for decades; the repository's sources teach it</td></tr>
+<tr><td><strong>Gregory Meyer</strong> (with Viglione, Mihura, Erard, Erdberg)</td><td>Contemporary assessment researchers</td><td>Built <strong>R-PAS</strong> (2011): evidence-selected variables, international norms, R-Optimized administration</td><td>R-PAS</td><td>The current evidence-based successor; central to any up-to-date viva</td></tr>
+</table>
+
+<h3>1.6 Historical milestones at a glance</h3>
+<table>
+<tr><th>Year</th><th>Milestone</th></tr>
+<tr><td>1921</td><td>Rorschach publishes <em>Psychodiagnostik</em> (10 blots, perceptual method)</td></tr>
+<tr><td>1922</td><td>Rorschach dies; development passes to others</td></tr>
+<tr><td>1930s–1950s</td><td>Beck, Klopfer, Hertz, Piotrowski, and Rapaport–Schafer develop separate systems</td></tr>
+<tr><td>1969</td><td>Exner's empirical comparison exposes incompatibility of the systems</td></tr>
+<tr><td>1974</td><td>Exner publishes the first Comprehensive System</td></tr>
+<tr><td>1980s–2003</td><td>CS editions refined; Structural Summary, clusters, indices (SCZI→PTI, DEPI, CDI, S-CON, HVI, OBS) matured</td></tr>
+<tr><td>2006</td><td>Exner dies; CS not further revised</td></tr>
+<tr><td>2011</td><td>R-PAS published (Meyer et al.)</td></tr>
+</table>
+<a class="backtop" href="#top">↑ Back to contents</a>
+
+<!-- ============ SECTION 2: SYSTEMS ============ -->
+<h2 id="s2"><span class="section-icon">2</span>Major Rorschach Systems</h2>
+
+<p>Because the method fragmented after 1922, a viva examiner will test whether you understand that the "systems" are <strong>not interchangeable</strong>. Each has its own administration, coding symbols, and norms, so a raw code or a cutoff from one system is <strong>meaningless</strong> inside another.</p>
+
+<div class="caution-box">Never say "the Rorschach score for X is...". Always say "<em>in the Comprehensive System</em>, X is coded/calculated as...". Specifying the system is the single clearest marker of competence in a viva.</div>
+
+<h3>2.1 The five classic systems</h3>
+<table>
+<tr><th>System</th><th>Originator / orientation</th><th>Administration &amp; inquiry</th><th>Coding emphasis</th><th>Interpretation</th><th>Distinguishing feature</th></tr>
+<tr><td><strong>Beck</strong></td><td>Samuel Beck; empirical/quantitative</td><td>Standardized, structured; inquiry after all cards</td><td>Precise, rule-bound; normative tables</td><td>Statistical/normative comparison</td><td>Rigor and standardization</td></tr>
+<tr><td><strong>Klopfer</strong></td><td>Bruno Klopfer; phenomenological/psychoanalytic</td><td>Flexible; inquiry card-by-card; "testing the limits"</td><td>Expanded <strong>shading</strong> (texture, vista, diffuse); qualitative richness</td><td>Experiential/qualitative meaning</td><td>Depth of shading &amp; experiential coding</td></tr>
+<tr><td><strong>Hertz</strong></td><td>Marguerite Hertz; psychometric</td><td>Standardized, research-oriented</td><td>Frequency tables, reliability, form-level</td><td>Normative, evidence-weighted</td><td>Psychometric/normative rigor</td></tr>
+<tr><td><strong>Piotrowski</strong></td><td>Zygmunt Piotrowski; perceptanalytic</td><td>Structured; attention to the perceptual act</td><td>Movement and perceptual signs; later computerized rules</td><td>Perceptanalysis; sign-based</td><td>Movement &amp; computer-assisted interpretation</td></tr>
+<tr><td><strong>Rapaport–Schafer</strong></td><td>David Rapaport, Roy Schafer; ego-psychology</td><td>Within a full test battery; verbalization analysis</td><td>Thought organization; deviant verbalizations</td><td>Psychoanalytic ego functions, thought disorder</td><td>Thought-disorder &amp; battery context</td></tr>
+</table>
+
+<h3>2.2 The Comprehensive System (CS) — Exner</h3>
+<ul>
+<li><strong>Originator:</strong> John Exner (1974), integrating the empirically best parts of the five systems.</li>
+<li><strong>Theory:</strong> Deliberately <strong>atheoretical/empirical</strong> — scores are retained because data support them, not because a theory predicts them.</li>
+<li><strong>Administration/inquiry:</strong> Standardized seating (side-by-side), free-association ("What might this be?") across all 10 cards, then a separate <strong>Inquiry</strong> for every response to clarify location and determinants. Verbatim recording throughout.</li>
+<li><strong>Coding:</strong> Seven categories per response — Location, Developmental Quality, Determinant(s), Form Quality, Content, Popular, Special Scores — plus the Z (organizational) score.</li>
+<li><strong>Interpretation:</strong> A <strong>Structural Summary</strong> of ratios/percentages/indices, interpreted <strong>cluster by cluster</strong> (controls, affect, processing, mediation, ideation, self-perception, interpersonal) with special indices (PTI, DEPI, CDI, S-CON, HVI, OBS).</li>
+<li><strong>Strengths:</strong> Standardized, reliable coding, large norms, broad clinical adoption.</li>
+<li><strong>Limitations:</strong> Some variables criticized for weak validity; norms questioned (over-pathologizing debate of the 2000s); not revised after 2006.</li>
+</ul>
+
+<h3>2.3 R-PAS — Rorschach Performance Assessment System</h3>
+<ul>
+<li><strong>Originators:</strong> Meyer, Viglione, Mihura, Erard, Erdberg (2011). Grew directly out of the CS.</li>
+<li><strong>Theory:</strong> Rorschach as a <strong>behavioural performance task</strong> — "the personality in action" — interpreting what the person <em>does</em> with the blots.</li>
+<li><strong>Administration:</strong> <strong>R-Optimized</strong> — the examiner prompts for more responses when few are given and gently pulls back when many are given, steering the record toward an optimal range (about <strong>18–27 responses</strong>) and largely removing the need for re-administration. <span class="def">(Verified: Meyer et al., 2011; see File 2 §10 for sources.)</span></li>
+<li><strong>Coding/variables:</strong> Keeps evidence-supported CS codes (with some renaming, e.g., Complexity, and dropped/added variables); results are expressed as <strong>standard scores with percentiles</strong> against international norms.</li>
+<li><strong>Interpretation:</strong> Organized into Page 1 (reliable, well-supported variables) and Page 2 (more tentative), each with standardized scores.</li>
+<li><strong>Strengths:</strong> Tighter evidence base, controlled R, modern norms, courtroom-defensible structure.</li>
+<li><strong>Limitations:</strong> Newer and less universally taught; the R-Optimized change itself has been debated (though meta-analyses find it does not distort projective material).</li>
+</ul>
+
+<h3>2.4 CS vs R-PAS — the headline differences (full treatment in File 2 §10)</h3>
+<table>
+<tr><th>Feature</th><th>Comprehensive System (CS)</th><th>R-PAS</th></tr>
+<tr><td>Year / authors</td><td>1974, Exner</td><td>2011, Meyer et al.</td></tr>
+<tr><td>Number of responses (R)</td><td>Free; low-R records (R&lt;14) are <strong>re-administered</strong></td><td><strong>R-Optimized</strong>; guided toward 18–27, usually no re-administration</td></tr>
+<tr><td>Score metric</td><td>Raw scores, ratios, percentages, indices</td><td>Standard scores (M=100, SD=15) + percentiles</td></tr>
+<tr><td>Norms</td><td>Exner's (debated adult norms)</td><td>International, contemporary</td></tr>
+<tr><td>Variable set</td><td>Full CS set, incl. weakly supported variables</td><td>Evidence-selected subset; some renamed/added</td></tr>
+</table>
+
+<div class="viva-card">
+<p class="q">Which system is associated with Exner, and what did integrating the earlier systems achieve?</p>
+<p class="a">Exner created the <strong>Comprehensive System (1974)</strong>. Integration gave the field <em>one</em> standardized administration, coding, and normative framework so that reliability improved and research findings could finally be pooled, instead of five incompatible "Rorschachs."</p>
+</div>
+<div class="viva-card">
+<p class="q">Why is it inappropriate to use the coding rules of one system with the interpretive rules of another?</p>
+<p class="a">Because each system's norms and interpretive cutoffs were derived <em>from responses coded by that same system's rules</em>. Mixing them breaks the chain of evidence: a value produced by CS coding has no validated meaning in a Klopfer or R-PAS interpretive table, so any conclusion drawn would be uninterpretable.</p>
+</div>
+<div class="viva-card">
+<p class="q">Which procedure applies when response productivity is unusually low?</p>
+<p class="a">This is system-specific, so do <strong>not</strong> quote a universal rule. <strong>In the CS</strong>, a protocol with <strong>fewer than 14 responses (R&lt;14)</strong> is considered potentially unreliable and is <strong>re-administered</strong> (the person is asked to go through the cards again and give more answers); if still &lt;14, interpretation proceeds only with great caution. <strong>In R-PAS</strong>, the problem is prevented at the source: <strong>R-Optimized administration</strong> prompts for additional responses during the test so that very short records rarely occur. The two systems solve the same problem by different means — never say "below 14, switch systems."</p>
+</div>
+<div class="caution-box">A frequent viva trap: claiming "below 14 responses you must use R-PAS." That is wrong. The R&lt;14 rule is a <strong>CS re-administration rule</strong>; R-PAS is a different system with its own (R-Optimized) solution. Attribute each rule to its system.</div>
+
+<h3>2.5 Why systems must not be treated as interchangeable</h3>
+<p>The same inkblots are used, but administration wording, which features count as which determinant, the form-quality tables, the norms, and the interpretive cutoffs all differ. A "CF" in CS and a "CF" in another framework are not guaranteed to mean the same thing or to map onto the same norms. Treating them as one would be like comparing temperatures while mixing Celsius and Fahrenheit without converting.</p>
+<a class="backtop" href="#top">↑ Back to contents</a>
+
+<!-- ============ SECTION 3: PURPOSE / NATURE / STRUCTURE ============ -->
+<h2 id="s3"><span class="section-icon">3</span>Purpose, Nature and Structure of the Test</h2>
+
+<h3>3.1 What the Rorschach is and what it assesses</h3>
+<p>The Rorschach presents ten standardized inkblots and asks the person, "What might this be?" The task is deliberately <strong>ambiguous</strong>: there is no correct answer, so the person must impose organization on an unclear stimulus. How they do this — what they notice, how accurately they see, how they combine and explain features, and what themes emerge — is sampled as a reflection of personality processes.</p>
+<p>It is used to assess (as supported by the CS): perceptual accuracy and <strong>reality testing</strong>, <strong>thinking/ideation</strong> (organization, flexibility, disturbance), <strong>affect</strong> (how emotion is processed and modulated), <strong>coping resources and stress tolerance</strong>, <strong>self-perception</strong>, and <strong>interpersonal perception</strong>.</p>
+
+<h3>3.2 Projective vs performance-based framing</h3>
+<p>Historically the Rorschach was called a "projective" test — the idea that ambiguous stimuli pull out ("project") inner needs and conflicts. The CS, and especially R-PAS, re-frame it as a <strong>performance-based</strong> task: the person performs a visual-cognitive problem-solving act, and the coded behaviours are the data. Both framings coexist, but the modern, defensible emphasis is on observable performance.</p>
+
+<h3>3.3 The ten cards</h3>
+<table>
+<tr><th>Card</th><th>Colour type</th><th>Common identifying features</th></tr>
+<tr><td>I</td><td>Achromatic (black/grey)</td><td>First card; whole often seen as bat/butterfly; sets the "how do I approach this?" tone</td></tr>
+<tr><td>II</td><td>Mixed (black + red)</td><td>First colour (red) appears; red often draws affect-laden responses</td></tr>
+<tr><td>III</td><td>Mixed (black + red)</td><td>Classic "two human figures" popular; a key card for interpersonal percepts</td></tr>
+<tr><td>IV</td><td>Achromatic</td><td>Large, dark, heavy "father/authority" card; shading prominent</td></tr>
+<tr><td>V</td><td>Achromatic</td><td>Easiest card; clear bat/butterfly whole; a "baseline" of simple accurate perception</td></tr>
+<tr><td>VI</td><td>Achromatic</td><td>Texture-rich "animal skin/hide/rug" popular; central card for texture (T)</td></tr>
+<tr><td>VII</td><td>Achromatic (light grey)</td><td>Often "mother/feminine"; upper two-thirds seen as faces/heads</td></tr>
+<tr><td>VIII</td><td>Chromatic (full colour)</td><td>First fully coloured card; lateral animal popular; colour-processing begins in earnest</td></tr>
+<tr><td>IX</td><td>Chromatic</td><td>Diffuse, hardest to organize; tests tolerance for complexity</td></tr>
+<tr><td>X</td><td>Chromatic</td><td>Most "broken up"; many discrete coloured parts; spider/crab popular</td></tr>
+</table>
+<div class="caution-box">Describe the cards generically for a viva; do not reproduce or distribute the actual blot images (test security).</div>
+
+<h3>3.4 Achromatic, chromatic and mixed cards — why it matters</h3>
+<ul>
+<li><strong>Achromatic</strong> (I, IV, V, VI, VII): only black/grey/white — any colour determinant coded here must be <strong>achromatic colour (C')</strong> or shading, never chromatic colour.</li>
+<li><strong>Mixed</strong> (II, III): black plus red — both achromatic and chromatic colour are possible.</li>
+<li><strong>Chromatic</strong> (VIII, IX, X): full colour — chromatic colour (FC/CF/C) becomes central; these cards probe emotional responsiveness.</li>
+</ul>
+
+<h3>3.5 Administration format, uses, and appropriate inferences</h3>
+<ul>
+<li><strong>Individual administration only</strong> in clinical use (group/slide versions exist historically for research but are not CS-standard).</li>
+<li><strong>Uses:</strong> personality description, clinical formulation (e.g., contribution to questions of reality testing, coping, affect regulation), treatment planning, and research.</li>
+<li><strong>Appropriate inferences:</strong> cautious <em>hypotheses</em> about processes (e.g., "this person tends to rely on emotion over reflection"), always integrated with history, interview, and other tests.</li>
+<li><strong>Inappropriate inferences:</strong> a specific diagnosis from a single code; statements of certainty; "detecting lies"; culture-blind pathologizing.</li>
+</ul>
+<div class="remember-box">Reliability/validity &amp; culture: coding reliability is good when examiners are trained; validity is strong for some variables (e.g., thought disturbance, reality testing) and weaker for others. Norms must fit the person's cultural/linguistic/developmental background. The Rorschach is <strong>one source among several</strong>.</div>
+
+<h3>3.6 Core vocabulary — the terms you must distinguish</h3>
+<table>
+<tr><th>Term</th><th>Plain meaning</th><th>Simple example</th></tr>
+<tr><td><strong>Response</strong></td><td>One thing the person says they see (the raw answer)</td><td>"A bat."</td></tr>
+<tr><td><strong>Location</strong></td><td><em>Where</em> on the blot it was seen</td><td>The whole blot = <code>W</code></td></tr>
+<tr><td><strong>Determinant</strong></td><td><em>Which blot feature</em> drove the response (form, movement, colour, shading)</td><td>"Because of the shape" = <code>F</code></td></tr>
+<tr><td><strong>Content</strong></td><td><em>What category</em> the object belongs to</td><td>bat = Animal, <code>A</code></td></tr>
+<tr><td><strong>Developmental quality (DQ)</strong></td><td><em>How well organized/integrated</em> the percept is</td><td>"two people lifting a pot" (integrated) = <code>+</code></td></tr>
+<tr><td><strong>Form quality (FQ)</strong></td><td><em>How well the percept fits</em> the actual contours</td><td>bat on whole Card V = <code>o</code> (ordinary/good fit)</td></tr>
+<tr><td><strong>Special score</strong></td><td>A flag for unusual verbal/cognitive/thematic features</td><td>"a dead bat" = <code>MOR</code></td></tr>
+<tr><td><strong>Ratio</strong></td><td>One count compared to another (a:b)</td><td>EB = Sum M : WSumC, e.g., <code>2:10</code></td></tr>
+<tr><td><strong>Percentage</strong></td><td>A proportion expressed as a decimal/percent</td><td>Afr = 0.47</td></tr>
+<tr><td><strong>Index / constellation</strong></td><td>A composite of several variables tallied against a cutoff</td><td>DEPI (0–7), positive if ≥5</td></tr>
+</table>
+<div class="tip-box">Hierarchy to memorize: a <strong>response</strong> is <em>coded</em> into location/DQ/determinant/FQ/content/P/special scores → counts are <em>tallied</em> → tallies become <strong>ratios, percentages and indices</strong> in the Structural Summary → these are <em>interpreted</em>. Coding (File 1) and interpreting (File 2) are different steps.</div>
+<a class="backtop" href="#top">↑ Back to contents</a>
+
+<!-- ============ SECTION 4: ADMINISTRATION ============ -->
+<h2 id="s4"><span class="section-icon">4</span>Administration: Step by Step</h2>
+<p>The CS prescribes a fixed sequence so that records from different examiners are comparable. The whole test runs in two phases: <strong>Response (Free Association)</strong> for all 10 cards, then <strong>Inquiry</strong> for all 10 cards (Inquiry gets its own Section 5).</p>
+
+<h3>4.1 Preparation and materials</h3>
+<ul>
+<li>The 10 standard cards in order; a <strong>location sheet</strong> (a small printed copy of each blot where the examiner marks the area used); recording forms; pen; a quiet, private room.</li>
+<li>Seat <strong>side-by-side</strong> (examiner slightly behind/beside the person), <em>not</em> face-to-face — this reduces the examiner's facial expressions influencing responses and lets the examiner see the card as the person does.</li>
+</ul>
+<p><strong>Why:</strong> standard materials and seating keep the stimulus situation constant. <strong>Record:</strong> nothing yet except setup notes. <strong>Avoid:</strong> face-to-face seating; a cluttered/interrupted room.</p>
+<div class="viva-card"><p class="q">Why side-by-side seating?</p><p class="a">To minimize examiner cues (expressions, gaze) that could shape responses, and so the examiner sees the blot in the same orientation as the person.</p></div>
+
+<h3>4.2 Rapport and instructions</h3>
+<p>Build brief, neutral rapport, then give the standardized instruction. The CS opening question is essentially: <strong>"What might this be?"</strong></p>
+<ul>
+<li><strong>Do:</strong> keep instructions minimal and non-leading; answer "how many?" with "it's up to you"; allow the person to turn the card.</li>
+<li><strong>Avoid:</strong> explaining what others "usually see," suggesting there is a right answer, or telling them how many responses to give.</li>
+</ul>
+<div class="coding-example">
+<h5>Illustrative dialogue — instructions (fictional)</h5>
+<p><strong>Person:</strong> "What am I supposed to do?"<br>
+<strong>Examiner:</strong> "I'll show you some cards, and I'd like you to tell me what they might be."<br>
+<strong>Person:</strong> "How many things should I say?"<br>
+<strong>Examiner:</strong> "That's up to you."<br>
+<strong>Person:</strong> "Can I turn it?"<br>
+<strong>Examiner:</strong> "It's up to you."</p>
+</div>
+<p><strong>Record:</strong> the fact that standard instructions were given; any questions the person asked. <strong>Common viva Q:</strong> "What do you reply if asked how many responses to give?" → "It's up to you" (never specify a number).</p>
+
+<h3>4.3 Response (Free-Association) phase — presenting the cards</h3>
+<ul>
+<li>Hand each card in the <strong>standard upright orientation</strong>, in order I→X.</li>
+<li><strong>Record every word verbatim</strong>, plus card rotations (note position symbols), pointing, and response time if the system/trainer requires.</li>
+<li>Be <strong>non-directive</strong>: if the person gives only one response to Card I, you may <em>once</em> encourage ("take your time, people often see more than one thing"), but do not push on later cards.</li>
+<li>If a person gives an enormous number of responses, you may gently move on after a reasonable number on early cards.</li>
+</ul>
+<p><strong>Why:</strong> verbatim wording is the only basis for later determinant and special-score coding. <strong>Avoid:</strong> paraphrasing, interpreting aloud, or asking "why" during this phase (clarification belongs to Inquiry).</p>
+<div class="src-box">"Examiners should never fail to make a verbatim record of the verbalizations of the subject." Verbatim wording is required because determinants (especially shading distinctions) and special scores depend on the <em>exact</em> words. (CS, as extracted in the repository coding guide.)</div>
+
+<h3>4.4 Response productivity (R)</h3>
+<ul>
+<li><strong>R = total number of responses</strong> across all 10 cards.</li>
+<li><strong>CS rule:</strong> if <strong>R &lt; 14</strong>, the record is treated as potentially unreliable and <strong>re-administered</strong> (see §2.4 and the caution there).</li>
+<li>Very high R is not automatically "healthier"; it must be interpreted against other variables (see File 2).</li>
+</ul>
+<div class="caution-box">Do not equate "more responses" with "better functioning." R is a <em>context</em> variable; many ratios are read relative to R.</div>
+
+<h3>4.5 Inquiry, testing-the-limits, questions, concluding</h3>
+<ul>
+<li><strong>Inquiry</strong> follows after all cards are seen (full detail in §5).</li>
+<li><strong>Testing the limits</strong> (optional, <em>after</em> the formal Inquiry): the examiner may check whether the person <em>can</em> see a common percept they omitted (e.g., "some people see an animal here — can you?"). It is <strong>not coded</strong> into the structural data; it is purely clinical/qualitative and must never contaminate the formal record.</li>
+<li><strong>Handling questions:</strong> redirect neutrally ("there are no right answers; whatever it looks like to you"). Do not reassure in ways that imply correctness.</li>
+<li><strong>Brief/unclear/unusual responses:</strong> note them verbatim; clarify in Inquiry, never by leading in the Response phase.</li>
+<li><strong>Concluding:</strong> thank the person; record behavioural observations (cooperation, affect, latency, card-handling, comments).</li>
+</ul>
+<div class="remember-box">Testing-the-limits data are <strong>never</strong> entered into coding or the Structural Summary. Keep them separate.</div>
+
+<h3>4.6 Recording behavioural observations</h3>
+<p>Note attitude (guarded, eager), emotional reactions to particular cards, response latency, frequent card turning, critical comments ("this is ugly"), and any impairment that could affect validity. These contextualize the numbers later.</p>
+
+<h3>4.7 Common administration errors</h3>
+<table>
+<tr><th>Error</th><th>Why it's a problem</th><th>Correct practice</th></tr>
+<tr><td>Not recording verbatim</td><td>Determinants/special scores cannot be coded accurately</td><td>Write every word; use standard shorthand</td></tr>
+<tr><td>Leading in the Response phase</td><td>Contaminates the response; invalidates coding</td><td>Stay non-directive; clarify only in Inquiry</td></tr>
+<tr><td>Face-to-face seating</td><td>Examiner cues shape responses</td><td>Sit side-by-side</td></tr>
+<tr><td>Over-encouraging / specifying R</td><td>Artificially inflates/deflates R</td><td>"It's up to you"</td></tr>
+<tr><td>Mixing testing-the-limits into coding</td><td>Corrupts the structural data</td><td>Keep it separate and uncoded</td></tr>
+<tr><td>Failing to mark the location sheet</td><td>Location (and FQ) cannot be determined</td><td>Mark the exact area for each response</td></tr>
+</table>
+<a class="backtop" href="#top">↑ Back to contents</a>
+
+<!-- ============ SECTION 5: INQUIRY ============ -->
+<h2 id="s5"><span class="section-icon">5</span>The Inquiry Phase</h2>
+<p>The Inquiry is where the examiner finds out <strong>what the person must be able to code</strong>: exactly <em>where</em> the percept was (location) and exactly <em>what blot features</em> produced it (determinants). It is <strong>not</strong> a second chance to give new responses and <strong>not</strong> an interrogation of meaning.</p>
+
+<h3>5.1 Purpose and timing</h3>
+<ul>
+<li><strong>Timing:</strong> after all 10 cards have been seen in the Response phase. The examiner returns to each response in order.</li>
+<li><strong>Purpose:</strong> clarify (1) location, (2) determinants, and (3) exactly what was seen (for content and form quality) — <em>without adding or changing</em> the original percept.</li>
+</ul>
+<div class="caution-box">Inquiry is <strong>not</strong> a re-administration. Its job is to <em>clarify responses already given</em>, not to elicit new ones. (This is a classic File 3 viva question.)</div>
+
+<h3>5.2 The standard non-directive technique</h3>
+<p>The examiner re-reads the person's exact words and asks open prompts:</p>
+<ul>
+<li>"I'm going to read back what you said, and I'd like you to show me where you saw it and what made it look like that."</li>
+<li>"Help me see it the way you did."</li>
+<li>"What about the blot made it look like [the object]?"</li>
+</ul>
+
+<h3>5.3 What to clarify, and the cardinal rule</h3>
+<ul>
+<li><strong>Location:</strong> have the person outline the area; mark the location sheet; compare to the D/Dd tables.</li>
+<li><strong>Determinants:</strong> establish whether form, movement, colour, achromatic colour, texture, vista, diffuse shading, dimensionality, pair, or reflection contributed — but <strong>only if the person's own words show it</strong>.</li>
+<li><strong>Form/movement/colour/shading/depth:</strong> listen for the person's spontaneous language ("fuzzy," "bright red," "floating," "far away").</li>
+</ul>
+<div class="caution-box"><strong>No leading questions.</strong> Never ask "Was it the colour?" or "Did the shape remind you?" A leading question manufactures a determinant the person did not actually use, which corrupts the coding and everything downstream. Determinants must be <strong>articulated by the person</strong>, not supplied by the examiner.</div>
+<div class="tip-box">Golden rule of coding: a determinant is coded <em>only</em> if the Response or Inquiry gives evidence that the blot feature contributed. When "dark"/"light" is ambiguous between achromatic colour (C') and diffuse shading (Y), the CS <strong>steps down to Y</strong>.</div>
+
+<h3>5.4 Recording inquiry material</h3>
+<p>Record the Inquiry <strong>verbatim too</strong>, keyed to each response, with the location marked. Note card rotations. Do not summarize ("said it was the shape") — write the person's words ("the pointy bits on top are the ears").</p>
+
+<h3>5.5 Ten fictional inquiry examples</h3>
+<p>Each example shows: the original response, what is unclear, a neutral inquiry, a plausible clarification, the coding-relevant information obtained, and what must <em>not</em> be inferred from the response alone. <em>(All fictional, for teaching.)</em></p>
+
+<details open><summary>Example 1 — Card V "A bat"</summary>
+<p><strong>Unclear:</strong> which feature drove it; is movement present?<br>
+<strong>Neutral inquiry:</strong> "What made it look like a bat?"<br>
+<strong>Clarification:</strong> "Just the shape — the wings out to the sides and the little feet."<br>
+<strong>Coding-relevant:</strong> whole blot (W); only shape used → determinant <code>F</code>; content Animal (A); likely Popular.<br>
+<strong>Must NOT infer:</strong> do not assume movement ("flying") — it was not stated, so no FM.</p></details>
+
+<details><summary>Example 2 — Card II "Two bears"</summary>
+<p><strong>Unclear:</strong> are the bears doing something (movement)? pair?<br>
+<strong>Neutral inquiry:</strong> "Help me see the two bears."<br>
+<strong>Clarification:</strong> "They're touching their paws together, like nose to nose."<br>
+<strong>Coding-relevant:</strong> animal doing an animal-natural action → <code>FM</code>; two identical symmetrical objects → Pair <code>(2)</code>.<br>
+<strong>Must NOT infer:</strong> do not call it cooperative (COP) unless the interaction is clearly positive/cooperative — "touching paws" is borderline and needs the person's framing.</p></details>
+
+<details><summary>Example 3 — Card VI "An animal skin"</summary>
+<p><strong>Unclear:</strong> texture vs plain form.<br>
+<strong>Neutral inquiry:</strong> "What about it looks like a skin?"<br>
+<strong>Clarification:</strong> "It looks furry and soft, the way the shading goes light and dark."<br>
+<strong>Coding-relevant:</strong> tactile quality from shading → Texture; form primary → <code>FT</code>; content animal skin (Ad); Popular for Card VI.<br>
+<strong>Must NOT infer:</strong> do not code texture if the person only named "a skin" without any tactile/shading language — "skin" alone is not enough for T.</p></details>
+
+<details><summary>Example 4 — Card II "Blood"</summary>
+<p><strong>Unclear:</strong> any form? pure colour?<br>
+<strong>Neutral inquiry:</strong> "What made it look like blood?"<br>
+<strong>Clarification:</strong> "It's just red, like a splash — no particular shape."<br>
+<strong>Coding-relevant:</strong> colour only, no form → <code>C</code> (pure colour); content Blood (Bl); no form quality (formless).<br>
+<strong>Must NOT infer:</strong> do not code CF unless some vague form is present; "no particular shape" = pure C.</p></details>
+
+<details><summary>Example 5 — Card III "Two people"</summary>
+<p><strong>Unclear:</strong> movement? active/passive? integrated (DQ+)?<br>
+<strong>Neutral inquiry:</strong> "Show me the two people and what they're doing."<br>
+<strong>Clarification:</strong> "They're bending over, lifting a pot between them."<br>
+<strong>Coding-relevant:</strong> human kinesthetic action → <code>M</code> (active, Ma); two areas meaningfully related → <code>DQ+</code>; Pair; Popular (two human figures).<br>
+<strong>Must NOT infer:</strong> do not assume cooperation = COP automatically; "lifting a pot between them" is a reasonable COP candidate but should rest on the person's clearly cooperative framing.</p></details>
+
+<details><summary>Example 6 — Card IV "Something dark and scary"</summary>
+<p><strong>Unclear:</strong> is "dark" colour (C') or shading (Y)? form?<br>
+<strong>Neutral inquiry:</strong> "What makes it look dark and scary?"<br>
+<strong>Clarification:</strong> "It's black, like it's made of shadow, kind of shapeless."<br>
+<strong>Coding-relevant:</strong> "dark" intent ambiguous → CS steps down to diffuse shading; little form → <code>YF</code> (or Y if truly formless).<br>
+<strong>Must NOT infer:</strong> do not code C' ("black as a colour") unless the person clearly uses blackness <em>as a colour property</em>; when ambiguous, code Y.</p></details>
+
+<details><summary>Example 7 — Card VII "A woman's face in the mirror"</summary>
+<p><strong>Unclear:</strong> reflection vs pair?<br>
+<strong>Neutral inquiry:</strong> "Tell me about the mirror part."<br>
+<strong>Clarification:</strong> "One side is her, the other side is her reflection in a mirror."<br>
+<strong>Coding-relevant:</strong> explicit mirror/reflection language → Reflection <code>Fr</code>; Pair is <em>not</em> coded when Reflection is coded.<br>
+<strong>Must NOT infer:</strong> do not code both reflection and pair; they are mutually exclusive.</p></details>
+
+<details><summary>Example 8 — Card VIII "A colourful animal climbing"</summary>
+<p><strong>Unclear:</strong> colour role (FC vs CF)? movement?<br>
+<strong>Neutral inquiry:</strong> "What made it look like that?"<br>
+<strong>Clarification:</strong> "It's shaped exactly like a little animal, and it happens to be pink; it's climbing up the side."<br>
+<strong>Coding-relevant:</strong> definite shape first, colour secondary → <code>FC</code>; animal-natural action → <code>FM</code> (blend <code>FMa.FC</code>); Popular (Card VIII lateral animal).<br>
+<strong>Must NOT infer:</strong> do not code CF — form clearly dominates ("shaped exactly like"), so colour is secondary.</p></details>
+
+<details><summary>Example 9 — Card IX "Just a mess of colours"</summary>
+<p><strong>Unclear:</strong> is there any form? is it an abstraction (AB)?<br>
+<strong>Neutral inquiry:</strong> "Help me see it."<br>
+<strong>Clarification:</strong> "There's no shape, the colours just feel chaotic, like confusion itself."<br>
+<strong>Coding-relevant:</strong> colour only, no form → <code>C</code>; abstract concept represented by colour → special score <code>AB</code>; content Human Experience/idiographic as appropriate.<br>
+<strong>Must NOT infer:</strong> do not read "chaotic/confusion" as evidence of clinical confusion in the person — it is a coding datum (AB), not a diagnosis.</p></details>
+
+<details><summary>Example 10 — Card X "A pelvis, X-ray"</summary>
+<p><strong>Unclear:</strong> what created the X-ray look — shading or just labeling?<br>
+<strong>Neutral inquiry:</strong> "What makes it look like an X-ray?"<br>
+<strong>Clarification:</strong> "The lighter and darker bits make it look see-through, like film."<br>
+<strong>Coding-relevant:</strong> see-through quality from shading, form present → <code>FY</code>; content Anatomy/X-ray (An, Xy).<br>
+<strong>Must NOT infer:</strong> do not read "pelvis/X-ray" as a bodily-preoccupation diagnosis; An+Xy is tallied and interpreted only in context (File 2).</p></details>
+
+<div class="caution-box">Never coach a person toward a particular answer or toward a "better" determinant. The Inquiry extracts what is <em>already</em> there; it does not improve the response. Ethical and valid coding depends on this.</div>
+<a class="backtop" href="#top">↑ Back to contents</a>
+
+<!-- ============ SECTION 6: CODING GUIDE ============ -->
+<h2 id="s6"><span class="section-icon">6</span>Complete Coding Guide</h2>
+<p>This follows the CS coding sequence used in the workbook. Every response is coded across seven categories, always in this order, plus the Z (organizational) score:</p>
+<div class="formula-box">Location → Developmental Quality → Determinant(s) → Form Quality → (Pair) → Content → Popular → [Z score] → Special Scores</div>
+<div class="remember-box">Every response must receive a Location, a DQ, at least one Determinant, a Form Quality (unless formless), and at least one Content. Pair, Popular, Z, and Special Scores are added only when they apply. A single <em>omission</em> (e.g., a missed texture) can cascade into wrong indices — review all coding before interpreting.</div>
+
+<!-- 6A LOCATION -->
+<h3>6A. Location &amp; Developmental Quality</h3>
+<h4>Location — where on the blot</h4>
+<table>
+<tr><th>Code</th><th>Name</th><th>Definition (plain)</th><th>Example</th></tr>
+<tr><td><code>W</code></td><td>Whole</td><td>The <strong>entire</strong> blot is used; nothing meaningful left out</td><td>Card V whole = "a bat"</td></tr>
+<tr><td><code>D</code></td><td>Common detail</td><td>A <strong>frequently used</strong> area (listed in the card's D table; ~≥5% of people use it)</td><td>Card III lateral dark figures = "two people"</td></tr>
+<tr><td><code>Dd</code></td><td>Unusual detail</td><td>An <strong>infrequently used</strong> area (anything not W or D)</td><td>A tiny edge detail on Card I = "a small face"</td></tr>
+<tr><td><code>S</code></td><td>Space</td><td><strong>White space</strong> used meaningfully; always a <em>modifier</em> on W/D/Dd (<code>WS, DS, DdS</code>)</td><td>White centre of Card II = "a rocket"</td></tr>
+</table>
+<ul>
+<li><strong>How to identify:</strong> from the location sheet + Inquiry. Compare to the card's D/Dd tables.</li>
+<li><strong>Decision rules:</strong> code what was <em>actually</em> used, not what the person claims ("the whole thing" but describes a part → D/Dd). S is never coded alone.</li>
+<li><strong>Clinical relevance (coding only; interpret in File 2):</strong> balance of W:D:Dd reflects how the person allocates attention (global vs detail vs idiosyncratic).</li>
+</ul>
+<div class="coding-example"><h5>Three examples</h5>
+<p>1. Card V "a whole butterfly" → <code>W</code>.<br>
+2. Card VIII "the pink animals on the sides" → <code>D</code>.<br>
+3. Card II "a tiny bug in this little nick on the edge" → <code>Dd</code>.<br>
+<em>Borderline:</em> "a jet using the white middle and the dark around it" → <code>DS</code> (space integrated with detail).</p></div>
+<p><strong>Common errors:</strong> coding W when a small-but-meaningful area is omitted; mis-sorting D vs Dd without the tables; forgetting the S modifier.<br>
+<strong>Distinguish from DQ:</strong> Location = <em>where</em>; DQ = <em>how well organized</em>. They are different questions about the same response.</p>
+<div class="viva-card"><p class="q">Does using the whole blot (W) automatically mean sophisticated organization?</p><p class="a">No. W is a <em>location</em>. Organization/integration is captured by <strong>DQ</strong> and the <strong>Z score</strong>. A whole-blot "bat" (W) with no integration is <code>DQo</code>; it is not more "organized" than a well-integrated two-area D+ response.</p></div>
+
+<h4>Developmental Quality (DQ) — how well organized</h4>
+<table>
+<tr><th>Code</th><th>Name</th><th>Criterion</th><th>Example</th></tr>
+<tr><td><code>+</code></td><td>Synthesized</td><td>Two+ areas/parts, each with form demand, meaningfully related</td><td>"Two people lifting a pot"</td></tr>
+<tr><td><code>o</code></td><td>Ordinary</td><td>A single object with a specific form, no synthesis</td><td>"A bat"</td></tr>
+<tr><td><code>v/+</code></td><td>Vague-synthesized</td><td>Two+ areas related, but at least one has no form demand</td><td>"Clouds around a mountain"</td></tr>
+<tr><td><code>v</code></td><td>Vague</td><td>An object with no form demand, no synthesis</td><td>"Smoke," "blood splattered"</td></tr>
+</table>
+<ul>
+<li><strong>Form demand</strong> = the object naturally has a specific shape (a bat does; smoke/fog/blood-splatter do not).</li>
+<li><strong>Decision tree:</strong> integrated? → yes: all parts have form? +/v/+; no: single object has specific form? o/v.</li>
+</ul>
+<p><strong>Common errors:</strong> calling two separately-named objects "+" without a <em>meaningful relationship</em> (that is "o"); treating "two people" as "+" when no interaction is described.<br>
+<strong>Clinical relevance:</strong> more DQ+ suggests effortful integration; many DQv suggests vague, under-elaborated processing — interpret cautiously and in context (File 2).</p>
+<div class="viva-card"><p class="q">How is location distinguished from developmental quality?</p><p class="a">Location answers <em>where</em> (W/D/Dd/S). DQ answers <em>how well the percept is organized/integrated</em> (+, o, v/+, v). The same W response can be DQ+ (integrated scene) or DQo (single object).</p></div>
+
+<!-- 6B DETERMINANTS -->
+<h3>6B. Determinants — the heart of coding</h3>
+<p>A <span class="def">determinant</span> is the blot feature that made the response look the way it did (form, movement, colour, achromatic colour, shading, dimensionality, pair, reflection). A response can have one determinant or several (a <strong>blend</strong>, written with dots, e.g., <code>FMa.FC</code>).</p>
+<div class="notice-box"><strong>Golden rule:</strong> code a determinant <em>only</em> when the Response or Inquiry gives evidence the feature contributed. Never assume.</div>
+
+<h4>Form (F)</h4>
+<p>Response based <strong>only on shape/contour</strong>. The moment any other feature contributes, it is no longer pure F (it becomes FC, FT, M, etc.). <strong>Pure F is never part of a blend.</strong></p>
+<ul><li>"A map — it's shaped like a country" = <code>F</code></li><li>"A red butterfly" = <code>FC</code> (not F — colour contributed)</li></ul>
+<p>Related concept — <strong>Lambda (L)</strong>: the proportion of pure-F responses, reflecting an economical/simplifying tactic (formula in §7).</p>
+
+<h4>Movement — M, FM, m (never physically in the blot; always projected)</h4>
+<table>
+<tr><th>Code</th><th>What moves</th><th>Rule</th><th>Example</th></tr>
+<tr><td><code>M</code></td><td>Human / human-like, OR an animal doing a <em>human-only</em> act</td><td>Kinesthetic human activity</td><td>"A woman dancing"; "two bears playing chess" (human-only act → M)</td></tr>
+<tr><td><code>FM</code></td><td>Animal doing a <em>species-natural</em> act</td><td>Natural animal motion</td><td>"A bird flying"; "two bears wrestling"</td></tr>
+<tr><td><code>m</code></td><td>Inanimate object / natural force, or motion without volition</td><td>Inanimate movement/tension</td><td>"Smoke rising"; "an explosion"; "a leaf falling"</td></tr>
+</table>
+<p>Each is also marked <strong>active (a)</strong> or <strong>passive (p)</strong>: Ma = "fighting"; Mp = "sleeping". Written <code>Ma, FMp, ma</code>, etc.</p>
+<div class="tip-box">The decision: human (or human-only act) → M; animal natural act → FM; inanimate/force/no volition → m.</div>
+<p><strong>Common errors:</strong> coding FM for an animal doing a human-only act (should be M); missing the a/p marker; coding M for a static figure with no postural tension.</p>
+
+<h4>Chromatic colour — FC, CF, C (the form–colour hierarchy)</h4>
+<table>
+<tr><th>Code</th><th>Dominance</th><th>Example</th></tr>
+<tr><td><code>FC</code></td><td>Form &gt; colour (definite shape, colour adds)</td><td>"A red butterfly" (shape defines it)</td></tr>
+<tr><td><code>CF</code></td><td>Colour &gt; form (colour drives it, vague shape)</td><td>"A colourful paint splatter"</td></tr>
+<tr><td><code>C</code></td><td>Colour only, no form</td><td>"Blood" (just the redness)</td></tr>
+</table>
+<div class="caution-box"><strong>Step-down principle:</strong> when in doubt between FC and CF, code the <em>less</em> form-dominated one (CF). Clear evidence of form dominance is required for FC.</div>
+
+<h4>Achromatic colour — FC', C'F, C'</h4>
+<p>Black/grey/white used <strong>as a colour</strong> (not as shading). "A black cat" = <code>FC'</code>; "darkness/night, shapeless" = <code>C'</code>.</p>
+<div class="caution-box"><strong>C' vs Y (the most common determinant error):</strong> if the intent of "light"/"dark" is unclear, code diffuse shading <code>Y</code>, not <code>C'</code>. Code C' only when blackness/whiteness is clearly used <em>as a colour property</em> ("black like coal").</div>
+
+<h4>Shading — Texture (T), Vista (V), Diffuse (Y)</h4>
+<table>
+<tr><th>Family</th><th>Impression created</th><th>Codes</th><th>Signal words</th></tr>
+<tr><td>Texture</td><td>How it would <strong>feel</strong> to touch</td><td><code>FT, TF, T</code></td><td>furry, soft, rough, fuzzy, silky, wet</td></tr>
+<tr><td>Vista</td><td><strong>Depth</strong> from shading (near/far)</td><td><code>FV, VF, V</code></td><td>"looks far away because it's darker/lighter," "a valley behind"</td></tr>
+<tr><td>Diffuse</td><td><strong>General light/dark</strong>, no touch/depth</td><td><code>FY, YF, Y</code></td><td>shadowy, smoky, foggy, X-ray, transparent</td></tr>
+</table>
+<div class="caution-box"><strong>Vista (V) vs Form Dimension (FD):</strong> both create depth, but V uses <em>shading</em> and FD uses <em>size/shape</em>. "Farther because it's darker" = V; "farther because it's smaller" = FD.</div>
+
+<h4>Form Dimension (FD)</h4>
+<p>Depth/3-D created by <strong>size or shape differences</strong>, no shading. Always written <code>FD</code> (no hierarchy). "A road narrowing into the distance" = <code>FD</code>.</p>
+
+<h4>Pair (2) and Reflection (Fr, rF)</h4>
+<ul>
+<li><strong>Pair (2):</strong> two <em>identical</em> objects based on the blot's symmetry. "Two butterflies" → <code>(2)</code>.</li>
+<li><strong>Reflection (Fr/rF):</strong> one object <em>and its mirror image</em> ("a swan and its reflection in water"). Written <code>Fr</code> (form primary) or <code>rF</code> (reflection dominant, vague form).</li>
+</ul>
+<div class="remember-box">If the words "reflection/mirror/reflected" are used → Reflection. Two identical objects with no reflection language → Pair. <strong>When Reflection is coded, Pair is NOT coded for that response</strong> (mutually exclusive).</div>
+
+<h4>Blends and blend-sequencing</h4>
+<p>When two+ determinants contribute, write them with dots in CS order: <strong>movement → chromatic colour → achromatic colour → shading (T,V,Y) → FD → reflection</strong>. Example: "a red bird flying" = <code>FMa.FC</code>; "a furry black bear" = <code>FT.FC'</code>.</p>
+<table>
+<tr><th>Special blend</th><th>Contains</th><th>Why it matters</th></tr>
+<tr><td>Colour-Shading blend</td><td>chromatic colour + a shading/C'</td><td>Ambivalent/confusing affect (e.g., <code>CF.FC'</code>)</td></tr>
+<tr><td>Shading blend</td><td>two+ different shadings</td><td>Painful, complex emotional experience</td></tr>
+<tr><td>m + Y blend</td><td>inanimate movement + diffuse shading</td><td>Situational stress marker</td></tr>
+</table>
+<p><strong>Three determinant examples:</strong></p>
+<div class="coding-example"><h5>Determinant practice</h5>
+<p>1. "A grey wolf, you can tell it's furry" → <code>FT</code> (form + texture).<br>
+2. "Bright red blood dripping down" → <code>C.m</code>? — <em>careful:</em> if "dripping" implies motion and it's pure red with no shape, code <code>ma.C</code>; if a shape is described, <code>CF</code> or <code>Cma</code> as the words support. Borderline — code from the exact words.<br>
+3. "A person seeing themselves in a mirror" → <code>Fr</code> (reflection; no pair).</p></div>
+<a class="backtop" href="#top">↑ Back to contents</a>
+
+<!-- 6C FORM QUALITY -->
+<h3>6C. Form Quality (FQ)</h3>
+<p>FQ rates <strong>how well the percept fits the contours</strong> of the area used — i.e., perceptual accuracy. It is <strong>not</strong> about the content's meaning.</p>
+<table>
+<tr><th>Code</th><th>Label</th><th>Meaning</th></tr>
+<tr><td><code>+</code></td><td>Superior-overelaborated</td><td>Accurate <em>and</em> unusually enriched form detail (rare)</td></tr>
+<tr><td><code>o</code></td><td>Ordinary</td><td>Common, good fit; listed as ordinary in the FQ tables</td></tr>
+<tr><td><code>u</code></td><td>Unusual</td><td>Uncommon but the contours <em>do</em> support it (you can see it)</td></tr>
+<tr><td><code>-</code></td><td>Minus/distorted</td><td>Poor fit; contours do <em>not</em> support it (you cannot see it)</td></tr>
+<tr><td>(none)</td><td>No form</td><td>Formless determinants (pure C, T, V, Y, C') — FQ cannot be assigned</td></tr>
+</table>
+<div class="notice-box">FQ is <strong>location-specific</strong> and determined by the CS <strong>Form Quality tables</strong> (built on large samples). You cannot judge FQ by "eyeballing" — you must consult the table for that exact area. The same content can be FQo in one area and FQ- in another.</div>
+<ul>
+<li><strong>Procedure:</strong> identify exact location → look it up in the FQ table → if listed as o/u/- use that; if not listed, judge whether contours support it (yes → u; no → −). FQ+ requires it to be listed <em>and</em> enriched.</li>
+<li><strong>Common error:</strong> over-using "−". Many unusual percepts are <strong>u</strong> (legitimate fit), not <strong>−</strong>. Always check the table.</li>
+<li><strong>Distinguish FQ from content:</strong> "a monster" can be FQo if its <em>shape</em> fits well; the bizarre content does not make the form "minus."</li>
+</ul>
+<div class="coding-example"><h5>FQ examples</h5>
+<p>1. Card V whole "a bat" → <code>FQo</code> (ordinary in the table).<br>
+2. Card I centre "a jack-o-lantern" → <code>FQu</code> (uncommon but the shape supports it).<br>
+3. Card V whole "a giraffe" → <code>FQ-</code> (the whole-V contour does not support a giraffe).<br>
+<em>Table-dependent:</em> any FQ judgment that hinges on a specific area must be checked against the actual FQ table/location — do not memorize a response as universally o or −.</p></div>
+<div class="viva-card"><p class="q">Can a Popular response have poor form quality?</p><p class="a">Usually P responses are FQo, but P is assigned on <em>location + content</em> criteria, not on FQ. A response can, in principle, be a Popular and still not be FQo — P and FQ are coded independently.</p></div>
+
+<!-- 6D CONTENT -->
+<h3>6D. Content</h3>
+<p>Content = <strong>what</strong> was seen. A response may carry multiple content codes (primary first, then others separated by commas, e.g., "a woman in a red dress by a fire" = <code>H, Cg, Fi</code>).</p>
+<table>
+<tr><th>Code</th><th>Category</th><th>Examples</th></tr>
+<tr><td><code>H / (H)</code></td><td>Whole human (real / fictional)</td><td>a man; a witch, an angel</td></tr>
+<tr><td><code>Hd / (Hd)</code></td><td>Human detail (real / fictional)</td><td>a hand, a face; a devil's horns</td></tr>
+<tr><td><code>Hx</code></td><td>Human experience (abstract emotion)</td><td>love, anger, sadness</td></tr>
+<tr><td><code>A / (A)</code></td><td>Whole animal (real / fictional)</td><td>a bat; a dragon, a unicorn</td></tr>
+<tr><td><code>Ad / (Ad)</code></td><td>Animal detail (real / fictional)</td><td>a wing, a claw; a dragon's head</td></tr>
+<tr><td><code>An</code></td><td>Anatomy</td><td>bones, lungs, brain, pelvis</td></tr>
+<tr><td><code>Art</code></td><td>Art</td><td>painting, sculpture, crest</td></tr>
+<tr><td><code>Ay</code></td><td>Anthropology</td><td>totem, Roman helmet, mask</td></tr>
+<tr><td><code>Bl</code></td><td>Blood</td><td>blood, blood drops</td></tr>
+<tr><td><code>Bt</code></td><td>Botany</td><td>flower, tree, leaves</td></tr>
+<tr><td><code>Cg</code></td><td>Clothing</td><td>hat, dress, boots</td></tr>
+<tr><td><code>Cl</code></td><td>Cloud</td><td>clouds, storm clouds</td></tr>
+<tr><td><code>Ex</code></td><td>Explosion</td><td>explosion, fireworks</td></tr>
+<tr><td><code>Fd</code></td><td>Food</td><td>ice cream, chicken leg</td></tr>
+<tr><td><code>Fi</code></td><td>Fire</td><td>fire, flames</td></tr>
+<tr><td><code>Ge</code></td><td>Geography</td><td>a map, an island shape</td></tr>
+<tr><td><code>Hh</code></td><td>Household</td><td>chair, lamp, vase</td></tr>
+<tr><td><code>Ls</code></td><td>Landscape</td><td>mountain, valley, cave</td></tr>
+<tr><td><code>Na</code></td><td>Nature</td><td>rainbow, sunset, lightning</td></tr>
+<tr><td><code>Sc</code></td><td>Science</td><td>rocket, robot, X-ray machine</td></tr>
+<tr><td><code>Sx</code></td><td>Sex</td><td>sexual organs/activity</td></tr>
+<tr><td><code>Xy</code></td><td>X-ray</td><td>"X-ray of the chest"</td></tr>
+<tr><td><code>Id</code></td><td>Idiographic</td><td>anything fitting no other category</td></tr>
+</table>
+<div class="remember-box">Real+complete = <strong>H/A</strong>; fictional+complete = <strong>(H)/(A)</strong>; real+partial = <strong>Hd/Ad</strong>; fictional+partial = <strong>(Hd)/(Ad)</strong>.</div>
+<p><strong>Common errors:</strong> forgetting <em>secondary</em> contents (e.g., coding only H for "two people holding a pot over a fire" instead of H, Hh, Fi); confusing An vs Xy (Xy is specifically an X-ray image).<br>
+<strong>Clinical relevance:</strong> human-content balance, An/Xy, Bl/Fi/Sx etc. feed later variables (Pure H, H:(H)+Hd+(Hd), isolation index) — but no single content "is" a diagnosis.</p>
+<div class="viva-card"><p class="q">What is the difference between a determinant and a content code?</p><p class="a">A determinant is <em>why</em> the blot looked like the object (the feature used: form, colour, movement, shading). Content is <em>what category</em> the object belongs to. "A red butterfly flying" → determinant <code>FMa.FC</code>, content <code>A</code>.</p></div>
+
+<!-- 6E POPULAR & ORGANIZATION -->
+<h3>6E. Popular Responses (P) &amp; Organizational Activity (Z)</h3>
+<h4>Popular (P)</h4>
+<p>Popular responses are the <strong>13 high-frequency percepts</strong> (given by roughly a third of people) tied to specific card locations. They index the ability to see the obvious, conventional thing.</p>
+<table>
+<tr><th>Card</th><th>Location</th><th>Popular percept</th></tr>
+<tr><td>I</td><td>W</td><td>Bat or butterfly</td></tr>
+<tr><td>II</td><td>D1</td><td>Animal (bear/dog, etc.)</td></tr>
+<tr><td>III</td><td>D (lateral figures)</td><td>Two human figures</td></tr>
+<tr><td>IV</td><td>W / D7</td><td>Human/humanlike figure</td></tr>
+<tr><td>V</td><td>W</td><td>Bat or butterfly</td></tr>
+<tr><td>VI</td><td>W / D1</td><td>Animal skin / hide / rug</td></tr>
+<tr><td>VII</td><td>D (upper)</td><td>Human head/face</td></tr>
+<tr><td>VIII</td><td>D1</td><td>Whole animal</td></tr>
+<tr><td>IX</td><td>D3</td><td>Human/humanlike figure</td></tr>
+<tr><td>X</td><td>D1</td><td>Spider / crab (multi-legged creature)</td></tr>
+</table>
+<p><strong>Rules:</strong> correct location + matching content; minor elaboration is fine; P is checked <em>last</em> (a common omission). <strong>Tip:</strong> the Card VI skin Popular often carries Texture — forgetting FT/TF there can zero-out T and distort the whole interpretation.</p>
+
+<h4>Organizational Activity (Z)</h4>
+<p>A <strong>Z score</strong> is assigned when the person <strong>organizes</strong> blot elements into a meaningful relationship. It captures <em>cognitive organizing effort</em> — which is distinct from merely using an area.</p>
+<table>
+<tr><th>Type</th><th>When assigned</th></tr>
+<tr><td><strong>ZW</strong></td><td>A W response with form (the whole was organized)</td></tr>
+<tr><td><strong>ZA</strong></td><td>Two+ <em>adjacent</em> D areas meaningfully integrated</td></tr>
+<tr><td><strong>ZD</strong></td><td>Two+ <em>distant</em> D areas meaningfully integrated</td></tr>
+<tr><td><strong>ZS</strong></td><td>White space integrated with adjacent areas</td></tr>
+</table>
+<p>Each card has specific Z values (from the Z table). <strong>Zf</strong> = count of Z responses; <strong>Zsum</strong> = sum of their Z values; <strong>Zest</strong> = expected Zsum for that Zf; <strong>Zd = Zsum − Zest</strong> (over- vs under-incorporation).</p>
+<div class="remember-box">Prerequisites for Z: there must be <strong>organization</strong> — either a form-based W, or a meaningful relating of separate areas, or meaningful use of space. <strong>Simply using the whole blot as a single vague thing (Wv) does not earn ZW.</strong> Organization ≠ location.</div>
+<div class="viva-card"><p class="q">What is organizational activity, what are its prerequisites, and does whole-blot use automatically establish it?</p><p class="a">It is the cognitive work of <em>relating</em> blot elements into a meaningful whole, scored as Z. Prerequisites: a form-bearing W, or integration of two+ areas, or meaningful space integration. Whole-blot use does <strong>not</strong> automatically establish it — a vague Wv (e.g., "just clouds over the whole thing") has no organizational Z. Organization is distinct from location and from DQ, though it relates to both.</p></div>
+<div class="caution-box">Common Z mistakes: giving ZW to a formless Wv; crediting Z for two areas that are merely named together without a meaningful relationship; selecting the wrong card-specific Z value. Always consult the Z table.</div>
+<a class="backtop" href="#top">↑ Back to contents</a>
+
+<!-- 6F SPECIAL SCORES -->
+<h3>6F. Special Scores</h3>
+<p>Special scores flag <strong>unusual verbal, cognitive, or thematic features</strong>. They are among the most frequently <em>omitted</em> codes, so review every response's exact words.</p>
+
+<h4>Cognitive special scores (the "6" — thinking disturbance), with Level 1 / Level 2</h4>
+<table>
+<tr><th>Score</th><th>Definition (plain)</th><th>Example</th><th>Weight Lv1 / Lv2</th></tr>
+<tr><td><code>DV</code> Deviant Verbalization</td><td>Wrong word use: neologism or needless redundancy</td><td>"a humanoid-ish thing" (neologism); "a tiny little small bug" (redundancy)</td><td>1 / 2</td></tr>
+<tr><td><code>DR</code> Deviant Response</td><td>Inappropriate/tangential/rambling remark beyond the task</td><td>"a bat — my mother used to scream at those"</td><td>3 / 6</td></tr>
+<tr><td><code>INC</code> Incongruous Combination</td><td><strong>One</strong> object with impossible features</td><td>"a person with wings"; (severe) "a headless man talking"</td><td>2 / 4</td></tr>
+<tr><td><code>FAB</code> Fabulized Combination</td><td><strong>Two</strong> objects in an impossible relationship</td><td>"two ants holding up a bridge"; (severe) "elephants growing out of a man's head"</td><td>4 / 7</td></tr>
+<tr><td><code>ALOG</code> Inappropriate Logic</td><td>Spontaneous strained reasoning</td><td>"it's the king because it's in the middle"</td><td>5 (no levels)</td></tr>
+<tr><td><code>CONTAM</code> Contamination</td><td>Two percepts <strong>fused</strong> into one impossible entity</td><td>"a butterfly-face" (one fused thing)</td><td>7 (always severe)</td></tr>
+</table>
+<div class="caution-box"><strong>INC vs FAB vs CONTAM:</strong> INC = one object, wrong <em>features</em>; FAB = two objects, wrong <em>relationship</em>; CONTAM = two percepts <em>fused</em> into a single impossible object. ALOG = faulty reasoning offered <em>spontaneously</em> (not prompted by the examiner).</div>
+<div class="formula-box"><strong>WSum6</strong> = DV1×1 + DV2×2 + DR1×3 + DR2×6 + INC1×2 + INC2×4 + FAB1×4 + FAB2×7 + ALOG×5 + CONTAM×7</div>
+
+<h4>Thematic / other special scores</h4>
+<table>
+<tr><th>Score</th><th>Definition</th><th>Example / note</th></tr>
+<tr><td><code>MOR</code> Morbid</td><td>Death, damage, decay, dysphoria</td><td>"a dead butterfly," "a broken vase," "a sad face"</td></tr>
+<tr><td><code>AG</code> Aggressive Movement</td><td><strong>Ongoing</strong> aggression</td><td>"two people fighting" (AG). Past-tense damage = MOR, not AG</td></tr>
+<tr><td><code>COP</code> Cooperative Movement</td><td>Clearly positive/cooperative interaction</td><td>"two people dancing together"</td></tr>
+<tr><td><code>PSV</code> Perseveration</td><td>Same response repeated (within-card / content / mechanical)</td><td>identical percept card after card</td></tr>
+<tr><td><code>PER</code> Personal</td><td>Justifying via personal knowledge/experience</td><td>"a pelvis — I'm a nurse, I know"</td></tr>
+<tr><td><code>AB</code> Abstract</td><td>Clear abstraction via form/colour</td><td>"the colours represent rage"</td></tr>
+<tr><td><code>CP</code> Colour Projection</td><td>Chromatic colour seen on an achromatic area</td><td>"a pretty blue bird" on a black area (rare)</td></tr>
+<tr><td><code>GHR / PHR</code></td><td>Good / Poor Human Representation (algorithm applied to every human-content or M response)</td><td>GHR = adaptive (good FQ, no cognitive specials/AG/MOR); PHR otherwise</td></tr>
+</table>
+<ul>
+<li><strong>MOR vs AG:</strong> MOR is a <em>state of damage</em> (often past/result); AG is <em>active aggression now</em>. "A person who was stabbed" = MOR; "a person stabbing another" = AG.</li>
+<li><strong>Common errors:</strong> missing MOR on subtle dysphoria ("a wilted flower"); coding AG for a merely "mean-looking" figure (no action); mis-leveling cognitive scores (Lv2 = grossly bizarre).</li>
+</ul>
+<div class="caution-box">A special score is a <strong>coding flag, not a diagnosis</strong>. One FAB does not mean psychosis; one MOR does not mean depression. Interpretation (File 2) weighs patterns, not single scores.</div>
+<div class="viva-card"><p class="q">What makes a response qualify for a special score, and can a special score alone establish a diagnosis?</p><p class="a">It qualifies when the person's <em>exact verbalization</em> meets the criterion (e.g., an impossible two-object relationship → FAB). No — a single special score never establishes a diagnosis; it contributes to a weighted pattern (e.g., WSum6, PTI) interpreted with all other data.</p></div>
+
+<h4>Coding format &amp; a complete worked code</h4>
+<div class="formula-box">Card · Response# · Location+DQ · Determinant(s)+FQ · (2) · Content(s) · P · Z · Special Scores</div>
+<div class="coding-example"><h5>Fully coded response (fictional, teaching)</h5>
+<p><strong>Card I, R1 — Response:</strong> "A woman standing with her arms up, with dark smoke rising all around her, like she's tied to a stake."<br>
+<strong>Inquiry:</strong> "She's in the centre, arms raised; the dark parts around are smoke going up; she looks helpless."<br>
+<strong>Code:</strong> <code>W+ Mp.ma.YFu H,Fi 4.0 MOR</code><br>
+<strong>Breakdown:</strong> W (whole) + DQ+ (integrated scene); human movement (passive, helpless) blended with inanimate movement (smoke rising) and diffuse-shading-form; FQu; contents Human + Fire; Z=4.0 (W organization on Card I, from the Z table); MOR (helpless/tied — dysphoric/damaged theme).</p></div>
+<a class="backtop" href="#top">↑ Back to contents</a>
+
+<!-- 6G CODING PRACTICE -->
+<h3>6G. Coding Practice — 20 Responses (simple → difficult)</h3>
+<p>All responses, inquiries, and codes below are <strong>fictional educational illustrations</strong>, not official exemplars. FQ values that depend on the actual tables are labelled "table-dependent." Expand each for the full reasoning.</p>
+
+<details open><summary>1. Card V (W) — "A bat."</summary>
+<p><strong>Inquiry:</strong> "The whole thing; wings out, little feet — just the shape."<br>
+<strong>Reasoning:</strong> whole blot; single object, specific form; only shape → F; animal; matches Card V Popular.<br>
+<strong>Code:</strong> <code>Wo Fo A P 1.0</code> (ZW).<br>
+<strong>Alternatives:</strong> none substantial. <strong>Can't determine:</strong> no movement stated → no FM.</p></details>
+
+<details><summary>2. Card I (W) — "A butterfly."</summary>
+<p><strong>Inquiry:</strong> "Whole thing, wings and body, by the shape."<br>
+<strong>Reasoning:</strong> W; DQo; F; A; Popular (Card I).<br>
+<strong>Code:</strong> <code>Wo Fo A P 1.0</code>. <strong>Can't determine:</strong> colour irrelevant (achromatic card).</p></details>
+
+<details><summary>3. Card VI (W) — "An animal skin rug."</summary>
+<p><strong>Inquiry:</strong> "Looks furry and soft from the light-and-dark shading; spread out like a rug."<br>
+<strong>Reasoning:</strong> tactile quality from shading, form primary → FT; animal detail content; Popular.<br>
+<strong>Code:</strong> <code>Wo FTo Ad P 2.5</code> (table-dependent FQ/Z). <strong>Error to avoid:</strong> omitting T → T=0 distortion. <strong>Alternative:</strong> if no tactile words, would be plain <code>F</code>.</p></details>
+
+<details><summary>4. Card II (D, red) — "Blood."</summary>
+<p><strong>Inquiry:</strong> "Just red, a splash, no shape."<br>
+<strong>Reasoning:</strong> colour only, no form → C (pure); formless → no FQ; Blood.<br>
+<strong>Code:</strong> <code>D C Bl</code>. <strong>Alternative:</strong> if any shape ("a splatter shaped like..."), step up to <code>CF</code>. <strong>Can't determine:</strong> DQ is v (formless).</p></details>
+
+<details><summary>5. Card III (D) — "Two people lifting a pot."</summary>
+<p><strong>Inquiry:</strong> "The side figures, bending, lifting a pot between them."<br>
+<strong>Reasoning:</strong> human kinesthetic action → Ma; two related areas → DQ+; Pair; Popular; cooperative? plausibly COP.<br>
+<strong>Code:</strong> <code>D+ Mao (2) H,Hh P 3.0 COP</code> (table-dependent). <strong>Alternative:</strong> without clear cooperation, drop COP. <strong>Can't determine:</strong> COP hinges on the person's framing.</p></details>
+
+<details><summary>6. Card VIII (D) — "A pink animal climbing up the side."</summary>
+<p><strong>Inquiry:</strong> "Shaped just like a little animal; it's pink; climbing up."<br>
+<strong>Reasoning:</strong> form dominates, colour secondary → FC; animal natural motion → FMa; blend; Popular.<br>
+<strong>Code:</strong> <code>D+ FMa.FCo A P 3.0</code> (table-dependent). <strong>Alternative:</strong> if colour drove it ("mostly the pink"), step down to CF.</p></details>
+
+<details><summary>7. Card IV (W) — "A big dark giant."</summary>
+<p><strong>Inquiry:</strong> "Huge figure; feet at the bottom, small head on top — it's farther because the head's smaller."<br>
+<strong>Reasoning:</strong> humanlike whole; depth from size → FD; Popular (humanlike figure).<br>
+<strong>Code:</strong> <code>Wo FDo (H) P 2.0</code> (table-dependent). <strong>Alternative:</strong> if depth came from shading ("darker so farther") → <code>FV</code> not FD. <strong>Can't determine:</strong> which created depth — resolved only by exact words.</p></details>
+
+<details><summary>8. Card II (DS, white centre) — "A rocket blasting off."</summary>
+<p><strong>Inquiry:</strong> "The white middle is the rocket; flames and smoke shooting down; it's launching."<br>
+<strong>Reasoning:</strong> white space used → S; inanimate movement → ma; organized space → ZS.<br>
+<strong>Code:</strong> <code>DS+ mao Sc,Fi 4.5 </code> (table-dependent Z). <strong>Error:</strong> forgetting the S modifier.</p></details>
+
+<details><summary>9. Card IX — "Just a mess of colours, like confusion."</summary>
+<p><strong>Inquiry:</strong> "No shape; the colours feel chaotic, confusion itself."<br>
+<strong>Reasoning:</strong> colour only, no form → C; abstraction via colour → AB; Human Experience content.<br>
+<strong>Code:</strong> <code>D C Hx AB</code> (DQv). <strong>Can't determine:</strong> AB requires a <em>clear</em> abstraction — present here.</p></details>
+
+<details><summary>10. Card VII (D) — "A woman and her reflection in a mirror."</summary>
+<p><strong>Inquiry:</strong> "One side's her face; the other's the reflection."<br>
+<strong>Reasoning:</strong> explicit mirror → Fr; Pair NOT coded; Hd content.<br>
+<strong>Code:</strong> <code>D+ Fro Hd</code> (table-dependent). <strong>Error:</strong> adding (2) — mutually exclusive with reflection.</p></details>
+
+<details><summary>11. Card VI — "A guitar, and the shading makes it look shiny/wooden."</summary>
+<p><strong>Inquiry:</strong> "Shaped like a guitar; the light and dark make it look like polished wood."<br>
+<strong>Reasoning:</strong> is the shading tactile (T) or just a surface look? "polished wood" + "shiny" is surface texture → likely FT; form primary.<br>
+<strong>Code:</strong> <code>Do FTo Obj/Art</code> (borderline). <strong>Alternative:</strong> if it's a general light/dark look, not touch → <code>FY</code>. <strong>Can't determine:</strong> T vs Y turns on whether a <em>tactile</em> impression is conveyed.</p></details>
+
+<details><summary>12. Card X (D) — "A spider."</summary>
+<p><strong>Inquiry:</strong> "Blue, many legs, the shape; just sitting."<br>
+<strong>Reasoning:</strong> form drives it; colour mentioned but secondary/descriptive; multi-legged creature = Popular (Card X).<br>
+<strong>Code:</strong> <code>Do Fo A P</code> or <code>FCo</code> if colour genuinely contributed. <strong>Can't determine:</strong> whether "blue" is a determinant or mere labeling — resolve by Inquiry ("did the colour help it look like a spider?" — but asked non-leadingly).</p></details>
+
+<details><summary>13. Card IV — "A monster with one leg way bigger than the other, like it's deformed."</summary>
+<p><strong>Inquiry:</strong> "Big scary figure, but one leg's huge and misshapen."<br>
+<strong>Reasoning:</strong> humanlike; "deformed/misshapen" → MOR (damage); FQ likely u/− (table-dependent).<br>
+<strong>Code:</strong> <code>Wo Fu (H) MOR</code>. <strong>Alternative:</strong> if an impossible single-object feature is emphasized → consider INC. <strong>Distinction:</strong> damage theme = MOR; impossible feature = INC — can co-occur.</p></details>
+
+<details><summary>14. Card III — "Two birds with human hands."</summary>
+<p><strong>Inquiry:</strong> "Each has a bird head but human hands."<br>
+<strong>Reasoning:</strong> one object with impossible features → INC (human hands on a bird); Pair.<br>
+<strong>Code:</strong> <code>Do Fu (2) A INC</code> (table-dependent FQ). <strong>Distinction:</strong> this is INC (one creature, wrong feature), not FAB (which needs two objects in a wrong relationship).</p></details>
+
+<details><summary>15. Card II — "Two bears high-fiving on top of a floating castle."</summary>
+<p><strong>Inquiry:</strong> "Bears on their hind legs, paws together, standing on a castle in the air."<br>
+<strong>Reasoning:</strong> two objects in an impossible relationship (bears on a floating castle) → FAB; human-like act (high-five) on animals → M; Pair.<br>
+<strong>Code:</strong> <code>D+ Mau (2) A,Art FAB</code> (table-dependent). <strong>Distinction:</strong> FAB (two-object relationship), not INC.</p></details>
+
+<details><summary>16. Card I — "A bat... you know bats carry diseases, my cousin got bitten once..."</summary>
+<p><strong>Inquiry:</strong> "Just the whole shape, a bat."<br>
+<strong>Reasoning:</strong> the percept is a plain bat (F, A, P), but the rambling aside beyond the task → DR.<br>
+<strong>Code:</strong> <code>Wo Fo A P 1.0 DR1</code>. <strong>Distinction:</strong> DR (tangential talk) vs DV (wrong word). Here it's tangential → DR.</p></details>
+
+<details><summary>17. Card VI — "A flimmering grool." (invented word)</summary>
+<p><strong>Inquiry:</strong> "It's a grool — you know, a flimmering kind."<br>
+<strong>Reasoning:</strong> genuine neologism → DV; if the word is bizarre/severe → DV2.<br>
+<strong>Code:</strong> <code>Dd F- Id DV2</code> (table-dependent; formless-ish content Id). <strong>Can't determine:</strong> FQ hard to assign to a meaningless percept — often − or no-form.</p></details>
+
+<details><summary>18. Card VIII — "A furry animal in bright colours, and the colours feel sad."</summary>
+<p><strong>Inquiry:</strong> "Shaped like an animal, furry from the shading, colourful; the colours give a sad feeling."<br>
+<strong>Reasoning:</strong> form + texture + colour; a <strong>colour-shading blend</strong> (chromatic colour + shading); "sad feeling" via colour could support AB.<br>
+<strong>Code:</strong> <code>Do FC.FTo A (AB if abstraction clear)</code>. <strong>Significance:</strong> colour-shading blend is interpretively important (ambivalent affect — File 2).</p></details>
+
+<details><summary>19. Card IX — "An explosion, smoke everywhere, shapeless."</summary>
+<p><strong>Inquiry:</strong> "No real shape; smoky, hazy; it's blowing up."<br>
+<strong>Reasoning:</strong> inanimate movement → ma; diffuse haze → Y; formless → DQv; <strong>m+Y blend</strong> (situational-stress marker).<br>
+<strong>Code:</strong> <code>Dv ma.Y Ex,Fi</code>. <strong>Significance:</strong> m.Y blend flagged for situational stress (File 2).</p></details>
+
+<details><summary>20. Card X — "The whole thing is a beautiful underwater reef with many creatures living together."</summary>
+<p><strong>Inquiry:</strong> "All the coloured bits are different sea creatures around coral, a whole living scene."<br>
+<strong>Reasoning:</strong> many areas integrated into one scene → DQ+ and organizational Z (distant D integration, ZD); colours used; animals + botany/landscape.<br>
+<strong>Code:</strong> <code>W+ FMa.FCo A,Bt,Ls 5.5</code> (table-dependent Z). <strong>Note:</strong> high organizational effort (Z) — but organization quality still depends on FQ. <strong>Can't determine:</strong> COP only if creatures clearly cooperate.</p></details>
+
+<div class="tip-box">Across these 20, notice the recurring decisions a viva loves: F vs blend, FC vs CF (step-down), C' vs Y, T vs Y, V vs FD, Pair vs Reflection, M vs FM vs m, INC vs FAB vs CONTAM, MOR vs AG, and "what the Inquiry does NOT let me conclude."</div>
+<a class="backtop" href="#top">↑ Back to contents</a>
+
+<!-- ============ SECTION 7: STRUCTURAL SUMMARY & FORMULAS ============ -->
+<h2 id="s7"><span class="section-icon">7</span>Structural Summary, Calculations &amp; Formulas</h2>
+<p>Once every response is coded, the counts are tallied and combined into the <strong>Structural Summary</strong>: a set of ratios, percentages, and indices. File 1 shows you <strong>how to calculate</strong> them; <strong>File 2 interprets</strong> them. Worked numbers below use the two fictional structural summaries carried through these files (a higher-R case, "A", R=28; and a low-R case, "B", R=14).</p>
+<div class="caution-box">All cutoffs/thresholds quoted are <strong>CS</strong> values. Do not apply them to R-PAS. Never invent a cutoff; where a value depends on normative tables (FQ, Z, form-quality-based XA%), say so.</div>
+
+<h3>7.1 Core counts</h3>
+<div class="formula-box"><strong>R</strong> = total number of responses.  <strong>Lambda (L)</strong> = Pure F ÷ (R − Pure F)</div>
+<p><strong>Lambda — meaning of symbols:</strong> Pure F = number of pure-form responses; R = total responses. <strong>Where values come from:</strong> the determinant tallies. <strong>Worked (A):</strong> if Pure F = 8 and R = 28, L = 8 ÷ (28−8) = 8÷20 = <strong>0.40</strong>. <strong>Interpretation (plain):</strong> higher L = more economical/avoidant engagement; L &gt; 0.99 flags an avoidant simplifying style. <strong>Common errors:</strong> dividing by R instead of (R − PureF). <strong>Viva:</strong> "What does a high Lambda mean and how is it computed?"</p>
+
+<h3>7.2 The Four Square — EB, EA, eb, es, D, Adj D</h3>
+<table>
+<tr><th>Variable</th><th>Formula</th><th>What it is</th></tr>
+<tr><td><strong>EB</strong> (Erlebnistypus / Experience Balance)</td><td><code>Sum M : WSumC</code></td><td>Ratio of human-movement to weighted colour — the preferred coping style</td></tr>
+<tr><td><strong>EA</strong> (Experience Actual)</td><td><code>Sum M + WSumC</code></td><td>Available/organized psychological resources</td></tr>
+<tr><td><strong>WSumC</strong></td><td><code>(0.5×FC)+(1.0×CF)+(1.5×C)</code></td><td>Weighted chromatic colour (right side of EB)</td></tr>
+<tr><td><strong>eb</strong></td><td><code>(FM+m) : (SumC'+SumT+SumV+SumY)</code></td><td>Experienced stimulus demand (needs vs painful affect)</td></tr>
+<tr><td><strong>es</strong> (Experienced Stimulation)</td><td><code>FM + m + SumC' + SumT + SumV + SumY</code></td><td>Total current internal demand</td></tr>
+<tr><td><strong>Adj es</strong></td><td><code>es − (excess m beyond 1) − (excess SumY beyond 1)</code></td><td>es with transient stress stripped out</td></tr>
+<tr><td><strong>D score</strong></td><td>from the (EA − es) difference converted via the D table</td><td>Current capacity for control</td></tr>
+<tr><td><strong>Adj D</strong></td><td>from (EA − Adj es) via the D table</td><td>Baseline/trait capacity for control</td></tr>
+<tr><td><strong>EBPer</strong></td><td>larger EB side ÷ smaller EB side (only if EB is a valid style)</td><td>How <em>pervasive/rigid</em> the EB style is</td></tr>
+</table>
+<div class="src-box">The CS interpretation routine reviews these "Capacity for control / Situation-related stress" variables early, and treats EB as a stylistic indicator <em>only</em> when EA is sufficiently large and one side exceeds the other by the required margin. (Manual, Ch. 13 cluster table &amp; Ch. 14–15.)</div>
+<h4>Worked example (Case A)</h4>
+<p>Sum M = 2, WSumC = 10 → <strong>EB = 2:10</strong>; <strong>EA = 12.0</strong>. FM=4, m=4, C'=1, T=0, V=0, Y=1 → eb = 8:2, <strong>es = 10</strong>. Remove excess m (4→1 leaves 3 excess) and excess Y (1→1 leaves 0): <strong>Adj es = 7</strong>. With EA 12 vs es 10, <strong>D = 0</strong>; EA 12 vs Adj es 7, <strong>Adj D = +1</strong>. EBPer = 10÷2 = <strong>5.0</strong> (markedly pervasive extratensive).</p>
+<p><strong>Interpretation (plain, see File 2):</strong> strong resources (EA=12); baseline control above average (Adj D +1); currently trimmed to average by mild situational load (D 0 &lt; Adj D); rigidly emotion-driven coping (EB right-side dominant, EBPer 5.0).</p>
+<div class="caution-box"><strong>Validity gate:</strong> if EA ≤ ~3.5, EB is <em>not</em> a valid style indicator (too few data points). In Case B, EB = 2:0 with EA = 2.0 → the apparent "introversive" reading is invalid; with L=1.0 the style is better described as <strong>avoidant</strong>. Always check EA before interpreting EB.</p></div>
+<p><strong>Common calculation errors:</strong> forgetting the colour weights in WSumC; not subtracting <em>excess</em> m/Y (only the amount above 1) for Adj es; reading D/Adj D without the conversion table.</p>
+
+<h3>7.3 Form-quality &amp; mediation percentages</h3>
+<table>
+<tr><th>Variable</th><th>Formula</th><th>Plain meaning</th></tr>
+<tr><td><strong>XA%</strong></td><td>(FQ+ , o , u responses) ÷ R</td><td>% of responses with <em>adequate</em> form use</td></tr>
+<tr><td><strong>WDA%</strong></td><td>(adequate-FQ responses in W+D areas) ÷ (W+D responses)</td><td>form adequacy in the <em>common</em> areas</td></tr>
+<tr><td><strong>X+%</strong></td><td>(FQ+ , o) ÷ R</td><td>% conventional good form</td></tr>
+<tr><td><strong>Xu%</strong></td><td>FQu ÷ R</td><td>% unusual-but-fitting (individualistic) form</td></tr>
+<tr><td><strong>X−%</strong></td><td>FQ− ÷ R</td><td>% distorted form (perceptual inaccuracy)</td></tr>
+</table>
+<p><strong>Worked (A):</strong> R=28; X−% = 0.28 means ~8 FQ− responses; XA% 0.71, X+% 0.36, Xu% 0.36, WDA% 0.80. <strong>Interpretation:</strong> reality testing moderately but not psychotically compromised; strongly individualistic perception. <strong>Where values come from:</strong> the FQ tally (which itself depends on the FQ tables). <strong>Errors:</strong> mixing u into X+% (it belongs to Xu%); computing WDA% over all R instead of over W+D only.</p>
+
+<h3>7.4 Affect-cluster ratios</h3>
+<table>
+<tr><th>Variable</th><th>Formula</th><th>Plain meaning</th></tr>
+<tr><td><strong>Afr</strong> (Affective Ratio)</td><td><code>(responses to VIII+IX+X) ÷ (responses to I–VII)</code></td><td>Willingness to engage with emotionally loaded (coloured) cards</td></tr>
+<tr><td><strong>FC:CF+C</strong></td><td>FC : (CF + C)</td><td>Emotional modulation (restrained vs unrestrained)</td></tr>
+<tr><td><strong>Constriction</strong></td><td>SumC' : WSumC</td><td>Held-in vs expressed affect</td></tr>
+<tr><td><strong>Blends:R</strong></td><td>number of blends ÷ R</td><td>Psychological complexity</td></tr>
+</table>
+<div class="src-box">The Affective Ratio is computed as the ratio of responses to the last three (fully/mostly chromatic) cards to those on the first seven; the CS interpretive step for Afr appears in the affect cluster. (Manual, affect cluster, Ch. 16; "Affective Ratio" step.)</div>
+<p><strong>Worked (A):</strong> Afr = 0.47; FC:CF+C = 3:7 (poorly modulated); Pure C = 3 (raw discharge); constriction 1:10 (externalizing). <strong>Viva trap:</strong> Afr is a <em>ratio expressed as a decimal</em> comparing card groups — not "the amount of colour." Do not confuse it with WSumC.</p>
+
+<h3>7.5 Ideation, processing &amp; interpersonal variables</h3>
+<table>
+<tr><th>Variable</th><th>Formula / source</th><th>Plain meaning</th></tr>
+<tr><td><strong>a:p</strong></td><td>active : passive movement (all M/FM/m)</td><td>flexibility of attitudes/ideation</td></tr>
+<tr><td><strong>Ma:Mp</strong></td><td>active : passive human movement</td><td>reality-based vs fantasy ideation</td></tr>
+<tr><td><strong>Sum6 / WSum6</strong></td><td>count / weighted count of the 6 cognitive specials</td><td>degree of thinking disturbance</td></tr>
+<tr><td><strong>2AB+Art+Ay</strong></td><td>(2×AB)+Art+Ay</td><td>intellectualization</td></tr>
+<tr><td><strong>Zf, Zsum, Zest, Zd</strong></td><td>count / sum / expected / (Zsum−Zest)</td><td>organizational effort &amp; efficiency</td></tr>
+<tr><td><strong>W:D:Dd</strong>, <strong>W:M</strong></td><td>location tallies; W : Sum M</td><td>attentional allocation; aspiration vs delivery</td></tr>
+<tr><td><strong>3r+(2)/R</strong> (Egocentricity)</td><td><code>(3×(Fr+rF) + Sum(2)) ÷ R</code></td><td>self-focus / self-regard</td></tr>
+<tr><td><strong>H:(H)+Hd+(Hd)</strong></td><td>real whole humans : other human contents</td><td>realistic vs imaginary self/other representation</td></tr>
+<tr><td><strong>Isolation Index</strong></td><td><code>(Bt+2Cl+Ge+Ls+2Na) ÷ R</code></td><td>social isolation / detachment</td></tr>
+<tr><td><strong>GHR:PHR</strong></td><td>good : poor human representations</td><td>adaptive vs maladaptive interpersonal representation</td></tr>
+</table>
+<p><strong>Worked (A):</strong> Zf=15, Zsum=35.0, Zest=49.0 → <strong>Zd = 35−49 = −14.0</strong> (extreme under-incorporation — hasty scanning). Egocentricity = (3×0 + 8)/28 = 0.29. <strong>Errors:</strong> forgetting the ×3 weight on reflections in the egocentricity index; computing Zest without the table.</p>
+
+<h3>7.6 Special indices (constellations) — formulas recapped (interpreted in File 2)</h3>
+<table>
+<tr><th>Index</th><th>What it screens</th><th>Positive cutoff (CS)</th></tr>
+<tr><td><strong>PTI</strong> (Perceptual-Thinking Index)</td><td>perceptual-thinking disturbance</td><td>continuous 0–5 (higher = more concern; replaced the older SCZI)</td></tr>
+<tr><td><strong>DEPI</strong> (Depression Index)</td><td>depressive organization</td><td>≥ 5 (of 7)</td></tr>
+<tr><td><strong>CDI</strong> (Coping Deficit Index)</td><td>coping/social inadequacy</td><td>≥ 4 (of 5)</td></tr>
+<tr><td><strong>S-CON</strong> (Suicide Constellation)</td><td>suicide risk</td><td>≥ 8 (of 12)</td></tr>
+<tr><td><strong>HVI</strong> (Hypervigilance Index)</td><td>hypervigilant/guarded style</td><td>T=0 prerequisite + ≥4 of the listed conditions</td></tr>
+<tr><td><strong>OBS</strong> (Obsessive Style Index)</td><td>obsessive/perfectionistic style</td><td>specific positive combinations</td></tr>
+</table>
+<div class="caution-box">These indices are <strong>screens</strong>, not diagnoses. A positive DEPI is not "the person has major depression"; a given S-CON value is a risk flag demanding clinical follow-up, not proof. Full interpretive rules and the exact component lists are in <a href="Rorschach_Viva_02_Interpretation_Indices_Clinical_Meaning.html#s8">File 2 §8</a>.</div>
+
+<!-- FORMULA SHEET -->
+<h3 id="formulasheet">7.7 Final Formula Sheet (verified CS formulas)</h3>
+<table>
+<tr><th>Name</th><th>Formula</th></tr>
+<tr><td>Lambda (L)</td><td>Pure F ÷ (R − Pure F)</td></tr>
+<tr><td>EB</td><td>Sum M : WSumC</td></tr>
+<tr><td>EA</td><td>Sum M + WSumC</td></tr>
+<tr><td>WSumC</td><td>0.5(FC) + 1.0(CF) + 1.5(C)</td></tr>
+<tr><td>eb</td><td>(FM + m) : (SumC' + SumT + SumV + SumY)</td></tr>
+<tr><td>es</td><td>FM + m + SumC' + SumT + SumV + SumY</td></tr>
+<tr><td>Adj es</td><td>es − (m above 1) − (SumY above 1)</td></tr>
+<tr><td>D / Adj D</td><td>(EA − es) and (EA − Adj es), converted via the D table</td></tr>
+<tr><td>EBPer</td><td>larger EB side ÷ smaller EB side (valid EB only)</td></tr>
+<tr><td>XA%</td><td>(FQ +,o,u) ÷ R</td></tr>
+<tr><td>WDA%</td><td>(adequate FQ in W+D) ÷ (W+D)</td></tr>
+<tr><td>X+%</td><td>(FQ +,o) ÷ R</td></tr>
+<tr><td>Xu%</td><td>FQu ÷ R</td></tr>
+<tr><td>X−%</td><td>FQ− ÷ R</td></tr>
+<tr><td>Afr</td><td>R(cards VIII+IX+X) ÷ R(cards I–VII)</td></tr>
+<tr><td>FC:CF+C</td><td>FC : (CF + C)</td></tr>
+<tr><td>Constriction</td><td>SumC' : WSumC</td></tr>
+<tr><td>Egocentricity 3r+(2)/R</td><td>[3(Fr+rF) + Sum(2)] ÷ R</td></tr>
+<tr><td>Isolation Index</td><td>(Bt + 2Cl + Ge + Ls + 2Na) ÷ R</td></tr>
+<tr><td>Zd</td><td>Zsum − Zest</td></tr>
+<tr><td>WSum6</td><td>DV1·1+DV2·2+DR1·3+DR2·6+INC1·2+INC2·4+FAB1·4+FAB2·7+ALOG·5+CONTAM·7</td></tr>
+<tr><td>a:p / Ma:Mp</td><td>active:passive movement / active:passive human movement</td></tr>
+<tr><td>H:(H)+Hd+(Hd)</td><td>whole real humans : all other human contents</td></tr>
+</table>
+<div class="tip-box">Carry this sheet into File 2 — every variable here is <em>interpreted</em> there, cluster by cluster, exactly as the Manual orders it.</div>
+<a class="backtop" href="#top">↑ Back to contents</a>
+
+<div class="footer">
+  <p style="font-size:1.1em;">End of File 1 — continue to interpretation ⟶</p>
+  <nav class="filenav" style="margin:18px 0;">
+    <a href="Rorschach_Viva_02_Interpretation_Indices_Clinical_Meaning.html">File 2 · Interpretation, Indices &amp; Clinical Meaning</a>
+    <a href="Rorschach_Viva_03_Advanced_Viva_Questions_Cases_Revision.html">File 3 · Advanced Viva, Cases &amp; Revision</a>
+    <a href="Rorschach_Viva_04_What_Each_Aspect_Means_About_Patient.html">File 4 · What Each Aspect Means About the Patient</a>
+  </nav>
+  <div class="author-badge">Made by Tejas Dangodra | M.Phil. Clinical Psychology</div>
+  <p style="margin-top:14px;font-size:.82em;opacity:.85;">Educational viva-preparation resource. All responses/cases are fictional illustrations, not official exemplars or norms. The Rorschach is one component of a comprehensive assessment and must not be used alone to diagnose.</p>
+</div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rorschach Viva — File 2: Interpretation, Indices &amp; Clinical Meaning</title>
+<style>
+:root{
+  --bg1:#fce4ec; --bg2:#e8eaf6; --bg3:#e0f7fa; --bg4:#f3e5f5; --bg5:#fff8e1;
+  --ink:#2d3436; --primary:#6c5ce7; --primary2:#a29bfe; --accent:#e17055;
+  --green:#00b894; --blue:#2980b9; --red:#c0392b; --panel:rgba(255,255,255,0.94);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
+  background:linear-gradient(135deg,var(--bg1) 0%,var(--bg2) 25%,var(--bg3) 50%,var(--bg4) 75%,var(--bg5) 100%);
+  background-attachment:fixed;color:var(--ink);line-height:1.7;padding:20px;}
+.container{max-width:1150px;margin:0 auto;background:var(--panel);border-radius:20px;padding:45px 55px;
+  box-shadow:0 20px 60px rgba(0,0,0,0.08),0 0 0 1px rgba(255,255,255,0.5);}
+.header{text-align:center;padding:45px 20px;background:linear-gradient(135deg,#11998e 0%,#38ef7d 120%);
+  border-radius:16px;margin-bottom:30px;position:relative;overflow:hidden;}
+.header::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;
+  background:radial-gradient(circle,rgba(255,255,255,0.12) 0%,transparent 60%);animation:pulse 5s ease-in-out infinite;}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:.5;}50%{transform:scale(1.1);opacity:1;}}
+.header h1{color:#fff;font-size:2.3em;text-shadow:0 2px 10px rgba(0,0,0,0.2);position:relative;z-index:1;}
+.header .sub{color:rgba(255,255,255,.95);font-size:1.15em;font-weight:400;margin-top:10px;position:relative;z-index:1;}
+.file-pill{display:inline-block;background:rgba(255,255,255,.2);color:#fff;border:1px solid rgba(255,255,255,.5);
+  padding:5px 16px;border-radius:30px;font-size:.85em;margin-top:14px;position:relative;z-index:1;letter-spacing:1px;}
+.author-badge{display:inline-block;background:linear-gradient(135deg,#ff6b6b,#ee5a24);color:#fff;padding:8px 24px;
+  border-radius:30px;font-weight:700;margin-top:18px;position:relative;z-index:1;box-shadow:0 4px 15px rgba(238,90,36,.3);letter-spacing:1px;}
+.filenav{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin:0 0 30px;}
+.filenav a{flex:1 1 280px;text-align:center;text-decoration:none;padding:14px 18px;border-radius:12px;font-weight:600;
+  background:linear-gradient(135deg,#f5f7fa,#e8ecf1);color:var(--ink);border:2px solid transparent;transition:.25s;}
+.filenav a:hover{border-color:var(--green);color:var(--green);transform:translateY(-2px);}
+.filenav a.active{background:linear-gradient(135deg,#11998e,#38ef7d);color:#fff;}
+h2{color:var(--primary);font-size:1.75em;margin-top:48px;margin-bottom:18px;padding-bottom:10px;border-bottom:3px solid #dfe6e9;position:relative;}
+h2::after{content:'';position:absolute;bottom:-3px;left:0;width:80px;height:3px;background:linear-gradient(to right,#11998e,#38ef7d);}
+h3{color:var(--accent);font-size:1.35em;margin-top:32px;margin-bottom:12px;}
+h4{color:var(--green);font-size:1.12em;margin-top:22px;margin-bottom:9px;}
+h5{color:#636e72;font-size:1.03em;margin-top:16px;margin-bottom:7px;}
+p{margin-bottom:12px;}
+ul,ol{margin:10px 0 15px 26px;}
+li{margin-bottom:7px;}
+.section-icon{display:inline-block;width:38px;height:38px;background:linear-gradient(135deg,#11998e,#38ef7d);
+  border-radius:50%;text-align:center;line-height:38px;color:#fff;font-weight:700;margin-right:12px;font-size:1em;vertical-align:middle;}
+table{width:100%;border-collapse:collapse;margin:20px 0;border-radius:10px;overflow:hidden;box-shadow:0 2px 15px rgba(0,0,0,0.05);font-size:.95em;}
+th{background:linear-gradient(135deg,#11998e,#38ef7d);color:#fff;padding:12px 15px;text-align:left;font-weight:600;}
+td{padding:11px 15px;border-bottom:1px solid #eee;vertical-align:top;}
+tr:nth-child(even){background:#f2fbf7;}
+tr:hover{background:#e6f9f0;}
+code{background:#f1f2f6;padding:2px 7px;border-radius:4px;font-family:'Courier New',monospace;font-size:.9em;color:#d63031;}
+.notice-box{background:linear-gradient(135deg,#fff3cd,#ffeaa7);border-left:5px solid #fdcb6e;border-radius:10px;padding:18px 22px;margin:22px 0;}
+.notice-box strong{color:#e17055;}
+.caution-box{background:linear-gradient(135deg,#ffcccc,#ffe0e0);border-left:5px solid #e74c3c;border-radius:10px;padding:18px 22px;margin:18px 0;}
+.caution-box::before{content:"⚠ CAUTION: ";font-weight:700;color:var(--red);}
+.tip-box{background:linear-gradient(135deg,#d4efdf,#abebc6);border-left:5px solid #27ae60;border-radius:10px;padding:18px 22px;margin:18px 0;}
+.tip-box::before{content:"💡 TIP: ";font-weight:700;color:#1e8449;}
+.remember-box{background:linear-gradient(135deg,#d6eaf8,#aed6f1);border-left:5px solid #2980b9;border-radius:10px;padding:18px 22px;margin:18px 0;}
+.remember-box::before{content:"★ REMEMBER: ";font-weight:700;color:#1a5276;}
+.src-box{background:linear-gradient(135deg,#ede7f6,#d1c4e9);border-left:5px solid #7e57c2;border-radius:10px;padding:16px 22px;margin:18px 0;font-size:.92em;}
+.src-box::before{content:"📖 SOURCE: ";font-weight:700;color:#5e35b1;}
+.patient-box{background:linear-gradient(135deg,#e0f7fa,#e1f5fe);border-left:5px solid #00acc1;border-radius:10px;padding:16px 22px;margin:16px 0;}
+.patient-box::before{content:"🧑‍⚕️ FICTIONAL PATIENT EXAMPLE: ";font-weight:700;color:#00838f;display:block;margin-bottom:6px;}
+.whatit{background:#f9f6ff;border:1px dashed #b39ddb;border-radius:10px;padding:14px 20px;margin:14px 0;}
+.whatit b{color:#5e35b1;}
+.def{background:#f3e5f5;border-radius:6px;padding:2px 6px;font-style:italic;}
+.toc{background:linear-gradient(135deg,#f5f7fa,#e8ecf1);border-radius:14px;padding:26px 36px;margin:28px 0;}
+.toc h3{color:var(--primary);margin-top:0;}
+.toc ol{list-style:none;padding-left:0;counter-reset:toc;}
+.toc ol li{counter-increment:toc;padding:7px 0;border-bottom:1px dashed #ddd;}
+.toc ol li::before{content:counter(toc) ". ";font-weight:700;color:var(--primary);}
+.toc a{color:var(--ink);text-decoration:none;}
+.toc a:hover{color:var(--green);}
+.viva-card{background:linear-gradient(135deg,#e3f2fd,#f3e5f5);border:1px solid #b39ddb;border-radius:12px;padding:18px 22px;margin:16px 0;}
+.viva-card .q{font-weight:700;color:#5e35b1;}
+.viva-card .q::before{content:"Q: ";}
+.viva-card .a{margin-top:8px;}
+.viva-card .a::before{content:"A: ";font-weight:700;color:var(--green);}
+.formula-box{background:#f8f9fa;border:2px dashed var(--green);border-radius:10px;padding:15px 22px;margin:15px 0;font-family:'Courier New',monospace;text-align:center;font-size:1.05em;}
+details{background:#f2fbf7;border:1px solid #bdeedd;border-radius:10px;padding:10px 18px;margin:14px 0;}
+summary{cursor:pointer;font-weight:600;color:var(--green);padding:6px 0;}
+.inkblot{text-align:center;margin:26px 0;font-size:2.4em;opacity:.3;}
+.footer{text-align:center;padding:36px 20px;background:linear-gradient(135deg,#11998e 0%,#38ef7d 120%);border-radius:16px;margin-top:48px;color:#fff;}
+.footer .author-badge{font-size:1.1em;padding:11px 28px;}
+.backtop{display:inline-block;margin-top:8px;font-size:.85em;color:var(--green);text-decoration:none;}
+@media(max-width:768px){.container{padding:22px;}.header h1{font-size:1.6em;}}
+@media print{
+  body{background:#fff;padding:0;} .container{box-shadow:none;border-radius:0;padding:0;}
+  .filenav,.backtop{display:none;}
+  .header,.footer{background:#0f8a80 !important;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  details{break-inside:avoid;} details[open] summary{display:none;} details > *:not(summary){display:block !important;}
+  h2,h3{break-after:avoid;} table,.viva-card,.patient-box,.caution-box,.tip-box{break-inside:avoid;}
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="header">
+  <h1>The Rorschach Inkblot Test<br>Complete Viva Preparation</h1>
+  <div class="sub">File 2 — Interpretation, Ratios, Indices &amp; Clinical Meaning</div>
+  <div class="file-pill">EXNER COMPREHENSIVE SYSTEM · CLUSTER-BASED INTERPRETATION</div>
+  <div class="author-badge">Made by Tejas Dangodra | M.Phil. Clinical Psychology</div>
+</div>
+
+<nav class="filenav">
+  <a href="Rorschach_Viva_01_History_Administration_Coding.html">File 1 · History · Administration · Coding</a>
+  <a class="active" href="Rorschach_Viva_02_Interpretation_Indices_Clinical_Meaning.html">File 2 · Interpretation · Indices · Clinical Meaning</a>
+  <a href="Rorschach_Viva_03_Advanced_Viva_Questions_Cases_Revision.html">File 3 · Advanced Viva · Cases · Revision</a>
+  <a href="Rorschach_Viva_04_What_Each_Aspect_Means_About_Patient.html">File 4 · What Each Aspect Means</a>
+</nav>
+
+<div class="src-box">
+File 2 follows the <strong>Manual's own interpretation sequence</strong>: the CS interprets by <strong>clusters</strong> (Manual, Ch. 13, Table 13.1), reviewing seven core clusters plus situation-related stress, then assembling "The Complete Description" (Ch. 22). The order used here mirrors the Manual's cluster order: <strong>Controls &amp; Stress Tolerance (Ch. 14) → Situationally-Related Stress (Ch. 15) → Affect (Ch. 16) → Information Processing (Ch. 17) → Cognitive Mediation (Ch. 18) → Ideation (Ch. 19) → Self-Perception (Ch. 20) → Interpersonal Perception (Ch. 21) → Integration (Ch. 22)</strong>. Coding and all formulas are in <a href="Rorschach_Viva_01_History_Administration_Coding.html#s7">File 1 §6–7</a>.
+</div>
+<div class="caution-box">All cases are <strong>fictional illustrations</strong>. The Rorschach is one component of assessment; no variable, ratio, or index alone establishes a diagnosis. Every interpretive statement below is a <strong>hypothesis</strong> to be confirmed against history, interview, and other tests. CS cutoffs are CS-specific and must not be applied to R-PAS.</div>
+
+<div class="toc" id="top">
+<h3>Contents of File 2</h3>
+<ol>
+<li><a href="#s1">Principles of Rorschach Interpretation</a></li>
+<li><a href="#s2">Interpreting Every Major Coding Domain</a></li>
+<li><a href="#s3">Determinants: Clinical Meaning</a></li>
+<li><a href="#s4">Form Quality &amp; Perceptual Accuracy</a></li>
+<li><a href="#s5">Organizational Activity (Z)</a></li>
+<li><a href="#s6">Ratios &amp; Percentages (incl. the Affective Ratio)</a></li>
+<li><a href="#s7">Special Scores &amp; Their Clinical Interpretation</a></li>
+<li><a href="#s8">Indices &amp; Complex Constellations (PTI, DEPI, CDI, S-CON, HVI, OBS)</a></li>
+<li><a href="#s9">Integrating Variables into a Clinical Formulation (3 cases)</a></li>
+<li><a href="#s10">Comprehensive System vs R-PAS: Interpretation</a></li>
+</ol>
+</div>
+<div class="inkblot">❖ ❖ ❖</div>
+
+<!-- S1 PRINCIPLES -->
+<h2 id="s1"><span class="section-icon">1</span>Principles of Rorschach Interpretation</h2>
+<p>Interpretation converts coded data into cautious statements about a person. It can only be as good as the administration and coding beneath it (File 1). The CS interprets <strong>by clusters</strong>, moving from raw protocol to Sequence of Scores to Structural Summary and back, challenging each emerging idea against the rest of the data.</p>
+<ul>
+<li><strong>Coding comes first.</strong> A single mis-coded texture or wrong FQ can flip an index. Always re-check coding before interpreting.</li>
+<li><strong>Raw score ≠ interpretation.</strong> "Sum T = 0" is a datum; "tends to avoid emotional closeness" is a hypothesis you reach only after considering the whole picture.</li>
+<li><strong>Normative comparison matters.</strong> A value means "high" or "low" only against the <em>appropriate</em> reference group (age, culture, language). Wrong norms = wrong conclusions.</li>
+<li><strong>Patterns beat single variables.</strong> The CS reads <em>clusters</em> and looks for <strong>converging evidence</strong>; isolated values are weak.</li>
+<li><strong>Handle contradictions, don't hide them.</strong> When variables point in different directions, that tension is itself informative and must be reported.</li>
+<li><strong>Context rules.</strong> Developmental stage, culture, clinical presentation, and the testing situation all shape meaning.</li>
+<li><strong>Hypotheses, not certainties.</strong> Phrase findings as "suggests/may indicate," never "proves."</li>
+<li><strong>Never diagnose from the Rorschach alone.</strong></li>
+</ul>
+<div class="src-box">The Manual frames interpretation as neither simple nor mechanistic: the interpreter maintains a framework of logical conceptualization, repeatedly <em>challenges the integrity of the data</em>, and avoids propositions that are "overly narrow or concrete." (Manual, Ch. 13.)</div>
+
+<h3>1.1 The interpretive chain</h3>
+<div class="formula-box">Response → Coding → Summary variable → Pattern of findings → Clinical hypothesis → Integration with other data</div>
+<div class="patient-box">
+<b>Worked chain (fictional).</b> A person gives, on Card VI, "a soft furry animal skin, kind of worn and ragged."<br>
+<strong>Response → Coding:</strong> <code>Wo FT.mp o Ad P MOR</code> (texture; worn/ragged → MOR).<br>
+<strong>→ Summary variable:</strong> contributes to Sum T (=1 here) and MOR count.<br>
+<strong>→ Pattern:</strong> combined with other texture and MOR responses, Sum T within range but MOR elevated.<br>
+<strong>→ Hypothesis:</strong> "may experience the self/attachments as somewhat damaged or worn," offered tentatively.<br>
+<strong>→ Integration:</strong> checked against history of loss, interview affect, and other tests before any formulation.</div>
+<a class="backtop" href="#top">↑ Back to contents</a>
+
+<!-- S2 DOMAINS -->
+<h2 id="s2"><span class="section-icon">2</span>Interpreting Every Major Coding Domain</h2>
+<p>For each domain: what it represents, what high/low/absent values may suggest, alternative explanations, what cannot be concluded, interactions, a fictional example, plain-language phrasing, and a likely viva question. "High/low" always means <em>relative to appropriate norms</em>.</p>
+
+<h3>2.1 Response productivity (R)</h3>
+<div class="whatit"><b>Represents:</b> overall output/engagement and the base for many ratios. <b>High:</b> may reflect productivity, obsessiveness, or defensiveness through over-elaboration. <b>Low:</b> guardedness, limited resources, depression, or resistance (CS re-administers if R&lt;14). <b>Cannot conclude:</b> that high R = healthier, or low R = pathology, by itself. <b>Interaction:</b> R contextualizes Afr, X%, Zf, etc.</div>
+<div class="viva-card"><p class="q">Does a high response count automatically indicate better psychological functioning?</p><p class="a">No. R is a context variable. High R can reflect anything from genuine richness to defensive over-production; it must be read with FQ, DQ, special scores, and the clusters.</p></div>
+
+<h3>2.2 Location (W:D:Dd, S)</h3>
+<div class="whatit"><b>Represents:</b> how attention is allocated — global (W), practical/common (D), or idiosyncratic/detail (Dd); S = oppositionality/autonomy when elevated. <b>High W:</b> drive to organize the whole (adaptive only if matched by M/resources — see W:M). <b>High Dd:</b> over-attention to minor/peripheral detail. <b>High S:</b> negativism/anger. <b>Cannot conclude:</b> a diagnosis from a location ratio alone.</div>
+<div class="patient-box">Case A: W:D:Dd = 10:11:7 with elevated Dd (7) → tendency to fasten on minute/peripheral features; paired with W:M = 10:2, aspiration to organize outstrips ideational delivery.</div>
+
+<h3>2.3 Developmental Quality (DQ)</h3>
+<div class="whatit"><b>Represents:</b> sophistication of perceptual organization. <b>More DQ+:</b> capacity for integrated, complex processing. <b>Many DQv:</b> vague, under-elaborated, immature processing. <b>Alternative:</b> low DQ+ may reflect avoidance/economy (high Lambda) rather than incapacity. <b>Cannot conclude:</b> intelligence directly.</div>
+
+<h3>2.4 Determinants (overview — detail in §3)</h3>
+<div class="whatit"><b>Represent:</b> the psychological operations engaged — movement (ideation/fantasy), colour (affect), shading (painful affect/anxiety/need for closeness), form (control/economy). Each is interpreted in §3.</div>
+
+<h3>2.5 Form Quality (overview — detail in §4)</h3>
+<div class="whatit"><b>Represents:</b> perceptual accuracy / reality testing. Interpreted via XA%, WDA%, X+%, Xu%, X−%, S− in §4.</div>
+
+<h3>2.6 Content</h3>
+<div class="whatit"><b>Represents:</b> preoccupations and representational tendencies. <b>Human contents &amp; Pure H:</b> interest in and realistic grasp of people. <b>An+Xy, Bl, Sx:</b> possible bodily/anxiety preoccupation (context-bound). <b>Isolation-index contents (Bt, Cl, Ge, Ls, Na):</b> detachment when elevated. <b>Cannot conclude:</b> that any single content category "is" a symptom.</div>
+
+<h3>2.7 Popular (P)</h3>
+<div class="whatit"><b>Represents:</b> ability to see the conventional/obvious. <b>Low P:</b> unconventional perception or impaired reality contact (context-dependent). <b>High P:</b> conventionality, possibly over-conformity. <b>Alternative:</b> low P with intact FQu can be creative individualism, not pathology.</div>
+
+<h3>2.8 Organizational activity (Z) — detail in §5.</h3>
+<h3>2.9 Special scores — detail in §7.</h3>
+
+<div class="viva-card"><p class="q">Is a high score always pathological and a low score always healthy?</p><p class="a">No. Direction of "healthy" differs by variable and depends on norms and context. Elevated DQ+ is generally adaptive; elevated X−% is not; many variables (R, W, P) have no simple "good/bad" direction. Always interpret against norms and within the cluster.</p></div>
+<a class="backtop" href="#top">↑ Back to contents</a>
+
+<!-- S3 DETERMINANTS CLINICAL -->
+<h2 id="s3"><span class="section-icon">3</span>Determinants: Clinical Meaning</h2>
+<p>Each determinant family carries hypotheses — but <strong>only</strong> those the CS supports, and always as tendencies, not facts.</p>
+
+<h3>3.1 Form (F) and Lambda</h3>
+<div class="whatit"><b>Meaning:</b> reliance on pure form = dealing with the world economically, by its most obvious features. <b>High Lambda (&gt;0.99):</b> an <strong>avoidant</strong> style — simplifying complexity, screening out nuance (including emotional nuance). <b>Very low Lambda:</b> over-involvement, difficulty filtering. <b>Alternative:</b> high L can be defensive/guarded rather than trait-avoidant. <b>Cannot conclude:</b> low intelligence.</div>
+<div class="patient-box">Case B: L = 1.0 → avoidant, simplifying orientation; functions in structured low-demand settings but forfeits growth experiences.</div>
+
+<h3>3.2 Human movement (M)</h3>
+<div class="whatit"><b>Meaning:</b> internal ideation, reasoning, fantasy, capacity to delay via thought; quality of M and Ma:Mp matter. <b>Ma:Mp with Mp dominant:</b> retreat into passive fantasy ("Snow White" tendency). <b>M−:</b> distorted thinking about people/situations. <b>Good M:</b> reflective capacity. <b>Interaction:</b> left side of EB.</div>
+
+<h3>3.3 Animal (FM) and inanimate (m) movement</h3>
+<div class="whatit"><b>FM:</b> ungratified need states / more "primitive," demand-driven ideation operating at the periphery of awareness. <b>m:</b> ideation tied to a sense of <strong>external pressure or lack of control</strong>, typically situational; elevated m contributes to situational stress. <b>Alternative:</b> a single m can be trivial; interpret elevations.</div>
+<div class="patient-box">Case A: m = 4 → peripheral ideation of externally imposed pressure, a key source of the current (D=0 &lt; Adj D=+1) situational strain.</div>
+
+<h3>3.4 Chromatic colour (FC, CF, C) and FC:CF+C</h3>
+<div class="whatit"><b>Meaning:</b> emotional responsiveness and its <strong>modulation</strong>. <b>FC dominant:</b> well-modulated, socially appropriate affect. <b>CF/C dominant:</b> less restrained, more intense/impulsive affective discharge; Pure C = raw, form-free emotion. <b>Cannot conclude:</b> "has an anger disorder" from one C.</div>
+<div class="patient-box">Case A: FC:CF+C = 3:7, Pure C = 3 → affect frequently expressed with little cognitive restraint; raw discharge; consistent with an externalizing, impulsive style (integrate with EB).</div>
+
+<h3>3.5 Form–colour blends &amp; colour-shading blends</h3>
+<div class="whatit"><b>FC blends:</b> integration of feeling with control. <b>Colour-shading blend (chromatic colour + shading/C'):</b> <strong>ambivalent/confusing emotional experience</strong> — pleasure and pain mixed. <b>Interaction:</b> colour-shading blends feed DEPI and S-CON.</div>
+
+<h3>3.6 Achromatic colour (C')</h3>
+<div class="whatit"><b>Meaning:</b> affect that is <strong>held in / constrained / internalized</strong> (swallowed feeling), often dysphoric. <b>High SumC' / high Constriction (SumC':WSumC):</b> excessive suppression → tension, dysphoria. <b>Cannot conclude:</b> depression from C' alone.</div>
+<div class="patient-box">Case B: SumC':WSumC = 4:0 → marked accumulation of internalized, suppressed affect with no outlet — a pattern that breeds dysphoria (contributes to a strongly positive DEPI).</div>
+
+<h3>3.7 Shading — Texture (T), Vista (V), Diffuse (Y)</h3>
+<table>
+<tr><th>Determinant</th><th>Hypothesis (CS-supported)</th><th>Cautions</th></tr>
+<tr><td><strong>Texture (T)</strong></td><td>Needs for closeness/attachment. <strong>T=0:</strong> guardedness, avoidance of emotional closeness. <strong>T&gt;1:</strong> strong unmet needs for contact (e.g., recent loss/loneliness)</td><td>T=0 is also part of the HVI prerequisite; a recent loss can transiently raise T</td></tr>
+<tr><td><strong>Vista (V)</strong></td><td>Painful <strong>self-examining</strong> rumination (looking critically at oneself); often negative self-evaluation</td><td>One V may be situational; feeds DEPI, S-CON, self-perception</td></tr>
+<tr><td><strong>Diffuse shading (Y)</strong></td><td>Anxiety/helplessness, often <strong>situational</strong>; a sense of being affected by forces one cannot control</td><td>Elevated Y with m signals situational stress</td></tr>
+</table>
+<div class="patient-box">Case A: Sum T = 0 → does not acknowledge the ordinary need for closeness; relationships kept at a guarded, affectively distant register (integrate with interpersonal cluster).<br>
+Case B: Sum V = 1 → genuinely painful self-critical rumination, adding a corrosive self-directed dimension to a depressive picture.</div>
+
+<h3>3.8 Form Dimension (FD)</h3>
+<div class="whatit"><b>Meaning:</b> capacity for <strong>self-inspection / perspective-taking</strong> (seeing oneself/others in context). <b>Moderate FD:</b> introspective capacity, often favorable for therapy. <b>Absent:</b> limited introspection. <b>Distinction:</b> FD (size/shape depth) carries a <em>less painful</em> introspective tone than V (shading depth = painful self-scrutiny).</div>
+
+<h3>3.9 Reflection (Fr/rF) and Pairs (2)</h3>
+<div class="whatit"><b>Reflection:</b> elevated self-focus/self-centeredness (narcissistic quality) when present. <b>Pairs:</b> feed the Egocentricity Index (self-attention). <b>Cannot conclude:</b> "narcissistic personality disorder" from one reflection. <b>Interaction:</b> Fr+rF with a low Egocentricity Index → self-regard is actually <em>deflated</em>, not inflated.</div>
+<div class="viva-card"><p class="q">Does an unusual determinant (e.g., a reflection) necessarily indicate psychopathology?</p><p class="a">No. A single determinant is a datum. Reflections raise a hypothesis about self-focus, confirmed only if converging variables (Egocentricity Index, interpersonal data, history) agree. Unusual ≠ pathological.</p></div>
+<a class="backtop" href="#top">↑ Back to contents</a>
+
+<!-- S4 FORM QUALITY -->
+<h2 id="s4"><span class="section-icon">4</span>Form Quality &amp; Perceptual Accuracy</h2>
+<p>Form quality is the CS's main window on <strong>reality testing</strong> — how accurately the person perceives, in the <em>mediation</em> cluster (Manual, Ch. 18).</p>
+<ul>
+<li><strong>FQ vs content:</strong> FQ judges whether the <em>form fits the contours</em>, independent of how bizarre the content sounds. "A monster" can be FQo if its shape fits.</li>
+<li><strong>Key variables:</strong> <code>XA%</code> and <code>WDA%</code> (overall and common-area form adequacy), <code>X+%</code> (conventional good form), <code>Xu%</code> (individualistic but fitting), <code>X−%</code> (distortion), and <code>S−</code> (minus answers tied to space/anger).</li>
+</ul>
+<table>
+<tr><th>Pattern</th><th>Hypothesis</th></tr>
+<tr><td>High XA%/WDA%, low X−%</td><td>Reality testing largely intact; accurate mediation</td></tr>
+<tr><td>Low XA%, elevated X−%</td><td>Meaningful perceptual distortion — but see cautions below</td></tr>
+<tr><td>Low X+% with high Xu%</td><td>Unconventional, individualistic perception (not necessarily distorted)</td></tr>
+<tr><td>WDA% preserved but XA% reduced</td><td>Accuracy holds on obvious/common features; slips on less-structured areas</td></tr>
+<tr><td>Several S−</td><td>Anger/oppositionality disrupting accurate perception</td></tr>
+</table>
+<div class="caution-box">A <strong>single</strong> FQ− response does not establish impaired reality testing. Distortion is read from <em>distributions</em> (X−%, XA%) and must consider card difficulty, response complexity, and location. Reserve "psychotic-level" language for convergent evidence (see PTI, §8).</div>
+<div class="patient-box">Case A: XA% 0.71, WDA% 0.80, X−% 0.28, X+% 0.36, Xu% 0.36, P=3 → reality testing <strong>moderately but not psychotically</strong> compromised; perception is strongly individualistic (X+% = Xu%) and unconventional (low P), most likely to distort under emotional loading.</div>
+<div class="patient-box">Case B: XA% 0.57, WDA% 0.60, X−% 0.43, S−=2 → substantial perceptual inaccuracy; because formal thinking is intact (WSum6=0), this points to severe <strong>affectively-driven misperception</strong> rather than a thought disorder.</div>
+<div class="viva-card"><p class="q">How do you distinguish "unconventional perception" from "impaired reality testing"?</p><p class="a">Unconventional perception shows up as elevated <strong>Xu%</strong> (the form still fits the contours — merely uncommon). Impaired reality testing shows up as elevated <strong>X−%</strong> / low XA% (the form does <em>not</em> fit). A creative individualist has high Xu% with acceptable XA%; a person with reality-testing problems has high X−%.</p></div>
+<a class="backtop" href="#top">↑ Back to contents</a>
+
+<!-- S5 ORGANIZATIONAL -->
+<h2 id="s5"><span class="section-icon">5</span>Organizational Activity (Z)</h2>
+<p>Organizational activity (Z) belongs to the <strong>information-processing</strong> cluster (Manual, Ch. 17). It indexes <em>how much and how efficiently</em> the person works to organize the stimulus field.</p>
+<ul>
+<li><strong>Zf (frequency):</strong> how often the person organizes — effort/motivation to synthesize.</li>
+<li><strong>W:M:</strong> aspiration (W) relative to ideational resource (M) — a large gap suggests reaching beyond capacity.</li>
+<li><strong>Zd = Zsum − Zest (efficiency):</strong>
+  <ul>
+    <li><strong>Zd &gt; +3.0 (overincorporation):</strong> thorough, cautious, effortful scanning — careful but slow.</li>
+    <li><strong>Zd &lt; −3.0 (underincorporation):</strong> hasty, haphazard scanning — neglects available cues; prone to misjudgment.</li>
+  </ul></li>
+</ul>
+<div class="remember-box">Organization (Z) is distinct from location: a formless whole (Wv) earns <em>no</em> organizational Z. Z requires genuine relating of elements. High Zf with low FQ means lots of effort producing inaccurate products — effort and accuracy are separate questions.</div>
+<div class="patient-box">Case A: Zf 15 and DQ+ = 12 (strong effort and capacity for synthesis) but <strong>Zd = −14.0</strong> (extreme underincorporation) and Dd=7 → invests real effort yet scans hastily and fastens on minute details, setting up faulty translations of the environment; W:M = 10:2 shows aspiration exceeding delivery.</div>
+<div class="patient-box">Case B: Zf = 3, Zd = +4.5 → little organizing is attempted (consistent with the avoidant, low-resource picture); what little occurs is done over-carefully.</div>
+<div class="viva-card"><p class="q">What does an extreme negative Zd mean, and what does it <em>not</em> mean?</p><p class="a">A markedly negative Zd (e.g., −14) indicates <strong>underincorporation</strong>: hasty, incomplete scanning that misses available cues, predisposing to misjudgment. It does <strong>not</strong> by itself mean low intelligence or psychosis — it is a processing-efficiency datum interpreted with FQ, Zf, and the clusters.</p></div>
+<a class="backtop" href="#top">↑ Back to contents</a>
+
+<!-- S6 RATIOS -->
+<h2 id="s6"><span class="section-icon">6</span>Ratios &amp; Percentages (including the Affective Ratio)</h2>
+<p>For each: full name, formula, numerator/denominator, worked calculation, high/low meaning, whether system-specific, interactions, a fictional example, and a viva trap. (Formulas also on the <a href="Rorschach_Viva_01_History_Administration_Coding.html#formulasheet">File 1 formula sheet</a>.)</p>
+<div class="caution-box">A <strong>ratio</strong> (a:b) is two counts side by side; a <strong>percentage</strong> (decimal) is one quantity as a proportion of a base. Do not report a ratio as a percentage or vice versa — a classic viva trap.</div>
+
+<h3>6.1 EB — Experience Balance (Sum M : WSumC)</h3>
+<p><strong>Numerator/denominator:</strong> human movement vs weighted chromatic colour. <strong>Meaning:</strong> preferred coping style — <em>introversive</em> (M dominant: thinks problems through), <em>extratensive</em> (WSumC dominant: uses emotion), or <em>ambitent</em> (roughly even: inconsistent). <strong>Valid only if EA is adequate.</strong> <strong>Case A:</strong> 2:10 → pervasively extratensive; EBPer=5.0 means little capacity to set feeling aside. <strong>Trap:</strong> never interpret EB when EA ≤ ~3.5 (Case B's 2:0 is invalid).</p>
+
+<h3>6.2 EA, es, eb, D, Adj D — controls (Manual Ch. 14–15)</h3>
+<p><strong>EA = Sum M + WSumC</strong> (available resources); <strong>es</strong> = current internal demand; <strong>D</strong> = current control; <strong>Adj D</strong> = baseline control. <strong>High EA, positive Adj D:</strong> good resources, stable control. <strong>Negative Adj D:</strong> chronic overload → vulnerability to disorganization/impulsivity. <strong>D &lt; Adj D:</strong> current situational stress trimming control. <strong>Case A:</strong> EA 12, Adj D +1, D 0 → strong resources, baseline control above average, mild <em>current</em> stress. <strong>Case B:</strong> EA 2.0, D = Adj D = −2 → chronic, trait-like overload, minimal reserve.</p>
+
+<h3>6.3 Afr — Affective Ratio</h3>
+<div class="formula-box">Afr = (responses to Cards VIII + IX + X) ÷ (responses to Cards I–VII)</div>
+<p><strong>Numerator:</strong> responses to the three most chromatic cards. <strong>Denominator:</strong> responses to the first seven. <strong>Meaning:</strong> willingness to <strong>engage with emotionally stimulating material</strong>. <strong>Worked:</strong> if 8 responses on VIII–X and 17 on I–VII (R=25), Afr = 8/17 = 0.47. <strong>High Afr:</strong> drawn to / responsive to emotional stimulation (can be over-responsive). <strong>Low Afr:</strong> avoids/withdraws from emotional stimulation. <strong>System-specific:</strong> yes — a CS variable with CS norms. <strong>Interaction:</strong> read with EB and FC:CF+C.</p>
+<div class="src-box">The Affective Ratio is the ratio of responses on the last three cards to those on the first seven, evaluated in the affect cluster. (Manual, Ch. 16, affect-cluster steps; cf. Table 13.1.)</div>
+<div class="patient-box">Case A: Afr = 0.47 — a mild backing-away from emotion despite an emotion-driven (extratensive) style; one plausible reading is that his own aroused affect feels intense and hard to govern, so he limits exposure. (A within-record contradiction worth stating, not hiding.)<br>
+Case B: Afr = 0.27 — pronounced avoidance of emotionally evocative stimuli, consistent with severe constriction.</div>
+<div class="viva-card"><p class="q">What is the difference between the Affective Ratio and WSumC?</p><p class="a">Afr is a <strong>ratio of card-groups</strong> (engagement with emotional cards); WSumC is a <strong>weighted count of colour determinants</strong> (how much, and how modulated, the colour response is). Different numbers, different meaning. Afr ≈ "do you approach emotion?"; WSumC ≈ "how much emotion, how controlled?"</p></div>
+
+<h3>6.4 FC:CF+C — modulation; Constriction (SumC':WSumC)</h3>
+<p><strong>FC:CF+C high on FC:</strong> restrained, modulated affect; <strong>high on CF+C:</strong> under-modulated, intense discharge. <strong>Constriction high on SumC':</strong> feeling held in (over-control). <strong>Case A:</strong> 3:7 + constriction 1:10 → poorly modulated, externalized affect. <strong>Case B:</strong> FC:CF+C = 0:0, constriction 4:0 → affect shut down at the surface, painfully accumulating inside.</p>
+
+<h3>6.5 a:p and Ma:Mp — ideational flexibility (Manual Ch. 19)</h3>
+<p><strong>a:p balanced:</strong> flexible attitudes. <strong>Strongly one-sided:</strong> rigid attitude set. <strong>Mp &gt; Ma:</strong> reliance on passive fantasy as escape. <strong>Case A:</strong> a:p = 6:4, Ma:Mp = 1:1 → reasonable flexibility; does not over-retreat into fantasy.</p>
+
+<h3>6.6 Egocentricity Index 3r+(2)/R; W:M; 2AB+Art+Ay</h3>
+<p><strong>Egocentricity high:</strong> excessive self-focus; <strong>low:</strong> poor self-esteem / unfavorable self-comparison. <strong>With Fr+rF present and high index:</strong> inflated self-regard; <strong>with no reflections and low index:</strong> deflated self-regard. <strong>2AB+Art+Ay high:</strong> intellectualization (distancing from affect). <strong>Case A:</strong> Egocentricity 0.29 with Fr+rF=0 → deflated, unfavorable self-view; 2AB+Art+Ay=4 → some intellectualized distancing.</p>
+<div class="viva-card"><p class="q">How can two variables point in different interpretive directions, and what do you do?</p><p class="a">E.g., Case A is emotion-driven (extratensive EB) yet has a <em>low</em> Afr (backing away from emotion). You do not pick one and ignore the other — you report the tension and offer an integrative hypothesis (aroused affect feels overwhelming, so exposure is limited), flagged for confirmation. Converging evidence strengthens claims; contradictions are themselves data.</p></div>
+<a class="backtop" href="#top">↑ Back to contents</a>
+
+<!-- S7 SPECIAL SCORES CLINICAL -->
+<h2 id="s7"><span class="section-icon">7</span>Special Scores &amp; Their Clinical Interpretation</h2>
+<table>
+<tr><th>Score</th><th>Represents</th><th>May indicate (hypothesis)</th><th>Avoid concluding</th></tr>
+<tr><td>DV/DR/INC/FAB/ALOG/CONTAM (via Sum6/WSum6)</td><td>Cognitive slippage / thinking disturbance</td><td>Higher WSum6 &amp; Level-2 scores → more disordered thinking; feeds PTI</td><td>"Psychosis" from a single Level-1 score</td></tr>
+<tr><td>MOR</td><td>Damage/dysphoria set</td><td>Elevated (≥3) → pessimistic, damage-oriented self-view and thinking bias</td><td>"Depression" from MOR alone</td></tr>
+<tr><td>AG</td><td>Aggressive ideation</td><td>Elevated → aggressive attitudes in interpersonal perception</td><td>That the person is physically violent</td></tr>
+<tr><td>COP</td><td>Expectation of cooperation</td><td>Present → anticipates positive interaction; absent → less expectation of cooperation</td><td>Social competence from COP alone</td></tr>
+<tr><td>PER</td><td>Defensive self-justification</td><td>Elevated → authoritarian/defensive interpersonal stance</td><td>Narcissism as a diagnosis</td></tr>
+<tr><td>AB</td><td>Intellectualization</td><td>Distancing from direct affect</td><td>"High intelligence"</td></tr>
+<tr><td>GHR:PHR</td><td>Quality of human representation</td><td>PHR&gt;GHR → maladaptive interpersonal representations</td><td>A specific personality disorder</td></tr>
+</table>
+<div class="caution-box">The <strong>level</strong> and <strong>weighted sum</strong> matter more than raw counts. WSum6 weights severe (Level-2) scores much more heavily (e.g., FAB2=7). One DV1 is common and benign; a CONTAM or several Level-2 scores is serious. Never read a single special score as a diagnosis.</div>
+<div class="patient-box">Case A: WSum6 = 6 with <strong>no Level-2</strong> scores → thinking disturbance is <em>functional</em>, not structural; no serious thought disorder. But MOR = 5 → a pervasively pessimistic, damage-oriented set that biases thinking toward negative conclusions (MOR is used <em>twice</em> — in self-perception and in ideation).</div>
+<div class="viva-card"><p class="q">Can a special score independently establish a diagnosis?</p><p class="a">No. Special scores contribute to weighted composites (WSum6) and indices (PTI) and must converge with FQ, the clusters, history, and interview. A single score is never diagnostic.</p></div>
+<a class="backtop" href="#top">↑ Back to contents</a>
+
+<!-- S8 INDICES -->
+<h2 id="s8"><span class="section-icon">8</span>Indices &amp; Complex Constellations</h2>
+<p>Indices are <strong>composites</strong> of several variables checked against cutoffs. They are <strong>screens</strong>, never standalone diagnoses. Each is CS-specific — do not import into R-PAS.</p>
+
+<h3>8.1 PTI — Perceptual-Thinking Index</h3>
+<div class="whatit"><b>Purpose:</b> flags perceptual-thinking disturbance (the CS successor to the older SCZI, deliberately <em>not</em> labelled "schizophrenia index"). <b>Components:</b> combinations of XA%/WDA%, X−%, M−, WSum6/Level-2, drawn from mediation and ideation. <b>Metric:</b> continuous 0–5; higher = more concern. <b>Does NOT establish:</b> schizophrenia or any psychosis diagnosis — it is a <em>risk screen</em>.</div>
+<div class="patient-box">Case A: PTI = 1 → no support for a psychotic-level perceptual-thinking disturbance; difficulties are mediational/affective, not psychotic.<br>Case B: PTI = 3 → raised concern for perceptual-thinking disturbance, but with WSum6=0 the picture is affectively-driven misperception, not clearly psychotic — confirmation required.</div>
+
+<h3>8.2 DEPI — Depression Index</h3>
+<div class="whatit"><b>Purpose:</b> screens a depressive (affective/cognitive) organization. <b>Components:</b> vista/colour-shading blends, SumC'/shading, Egocentricity, MOR, affective ratios, etc. (7-item constellation). <b>Cutoff:</b> ≥5 positive. <b>Does NOT establish:</b> a DSM depressive episode.</div>
+<div class="patient-box">Case B: DEPI = 6 → strongly positive; corroborates a significant, potentially disabling affective vulnerability (low mood, internalized distress, withdrawal). Case A: DEPI = 3 → negative; negative self-image exists <em>without</em> the affective machinery of clinical depression (externalizing, not internalizing).</div>
+
+<h3>8.3 CDI — Coping Deficit Index</h3>
+<div class="whatit"><b>Purpose:</b> flags limited coping/social resources (often more relevant than DEPI in chronic "life isn't working" presentations). <b>Cutoff:</b> ≥4 (of 5). <b>Interaction:</b> a positive CDI reframes an apparent depression as a coping/competence deficit.</div>
+<div class="patient-box">Case B: CDI = 5 → positive; global coping deficit — consistent with chronically depleted resources (EA 2.0, Adj D −2). Case A: CDI = 2 → negative; resources adequate (EA 12).</div>
+
+<h3>8.4 S-CON — Suicide Constellation</h3>
+<div class="whatit"><b>Purpose:</b> suicide-risk screen (12 variables). <b>Cutoff:</b> ≥8 positive → serious concern. <b>Does NOT:</b> predict suicide in an individual with certainty; a below-cutoff value does not clear risk. <b>Clinical rule:</b> always combine with direct clinical risk assessment.</div>
+<div class="patient-box">Case A: S-CON = 7 (below the formal cutoff of 8) — <strong>not "positive," but a focus of concern</strong>; converging with elevated MOR, raw affect (Pure C=3), a damaged self-image and substance use, <strong>active, direct suicide-risk assessment is warranted</strong>. This illustrates that a below-threshold screen still demands clinical judgment.</div>
+
+<h3>8.5 HVI — Hypervigilance Index</h3>
+<div class="whatit"><b>Purpose:</b> flags a guarded, hypervigilant characterological style. <b>Rule:</b> requires the <strong>T=0 prerequisite</strong> PLUS ≥4 of the listed conditions. <b>Does NOT establish:</b> paranoid disorder. <b>Trap:</b> T=0 alone is <em>not</em> HVI-positive.</div>
+<div class="patient-box">Case A: HVI = No (T=0 prerequisite met, but remaining criteria insufficient) → no hypervigilant/paranoid characterological organization. Illustrates that meeting the prerequisite is necessary but not sufficient.</div>
+
+<h3>8.6 OBS — Obsessive Style Index</h3>
+<div class="whatit"><b>Purpose:</b> flags a perfectionistic, detail-preoccupied, indecisive style. <b>Rule:</b> specific positive combinations (involving Dd, FQ+, Populars, high conventionality). <b>Case A:</b> OBS = No (FQ+=0, X+% low) → no obsessive style; the hasty Zd and low conventionality run opposite to the obsessive profile.</div>
+<div class="caution-box">For every index: a positive result is a <strong>hypothesis requiring clinical corroboration</strong>; a negative result does <strong>not</strong> rule out the condition (especially for S-CON and suicide risk). Report the <em>exact value and what it does and does not establish</em>.</div>
+<div class="viva-card"><p class="q">Why can the same raw score mean different things across systems, and why must indices stay within their system?</p><p class="a">Because each index was validated against its own system's coding and norms. A CS index built from CS-coded variables has no validated meaning if fed R-PAS-coded data (and R-PAS largely replaces these constellations with standardized dimensional scores). Mixing them produces numbers with no evidential basis.</p></div>
+<a class="backtop" href="#top">↑ Back to contents</a>
+
+<!-- S9 INTEGRATION -->
+<h2 id="s9"><span class="section-icon">9</span>Integrating Variables into a Clinical Formulation</h2>
+<p>The Manual's final step (Ch. 22, "The Complete Description") assembles the clusters into a coherent person. For each domain: identify the variables, integrate them, weigh convergent/contradictory findings, and write a cautious statement — then specify what else is needed.</p>
+<table>
+<tr><th>Domain</th><th>Core variables</th></tr>
+<tr><td>Controls &amp; stress tolerance</td><td>EA, es, Adj es, D, Adj D, CDI</td></tr>
+<tr><td>Situational stress</td><td>D vs Adj D, m, SumY, colour-shading/shading blends</td></tr>
+<tr><td>Affect</td><td>EB, EBPer, Afr, FC:CF+C, Pure C, SumC':WSumC, DEPI, blends</td></tr>
+<tr><td>Processing</td><td>Zf, Zd, W:D:Dd, W:M, DQ, PSV</td></tr>
+<tr><td>Mediation (reality testing)</td><td>XA%, WDA%, X+%, Xu%, X−%, S−, P, PTI</td></tr>
+<tr><td>Ideation</td><td>EB, a:p, Ma:Mp, Sum6/WSum6, MOR, 2AB+Art+Ay, M quality</td></tr>
+<tr><td>Self-perception</td><td>Egocentricity, Fr+rF, V, MOR, An+Xy, H:(H)+Hd+(Hd), OBS, HVI</td></tr>
+<tr><td>Interpersonal</td><td>CDI, HVI, a:p, SumT, Fd, Isolation Index, GHR:PHR, COP, AG, Human contents, Pure H</td></tr>
+</table>
+
+<h3>Case 1 (fictional) — possible difficulties in perceptual thinking</h3>
+<div class="patient-box">
+<b>Context:</b> 30-year-old, admitted with odd speech and suspiciousness.<br>
+<b>Selected findings:</b> X−% = .35, WDA% = .55, PTI = 4, WSum6 = 28 with two FAB2 and one ALOG, M− = 2, P = 2.<br>
+<b>Integration:</b> low form adequacy (mediation) <em>and</em> heavily weighted, Level-2 cognitive specials (ideation) converge; M− signals distorted thinking about people. PTI = 4 flags serious concern.<br>
+<b>Cautious statement:</b> "The protocol shows convergent evidence of perceptual inaccuracy and disordered thinking consistent with a perceptual-thinking disturbance; this raises the hypothesis of a psychotic-spectrum process, to be confirmed by mental status exam, history, and collateral data."<br>
+<b>Alternatives / limits:</b> severe affective disorganization, substance effects, or medical causes must be excluded; the Rorschach cannot specify the diagnosis.</div>
+
+<h3>Case 2 (fictional) — a complex stress-and-coping pattern (based on Case A)</h3>
+<div class="patient-box">
+<b>Context:</b> 25-year-old, multiple substance use, divorced.<br>
+<b>Selected findings:</b> EA 12.0, Adj D +1, D 0, EB 2:10 (EBPer 5.0), m 4, FC:CF+C 3:7, Pure C 3, Afr 0.47, Zd −14.0, MOR 5, Egocentricity 0.29, SumT 0, PTI 1, DEPI 3, CDI 2, S-CON 7.<br>
+<b>Integration:</b> strong resources and above-average baseline control (<em>not</em> a deficit), currently trimmed by mild situational stress (m, D&lt;AdjD); rigidly emotion-driven coping (extratensive, EBPer 5) with poor modulation and raw discharge; hasty underincorporative processing (Zd −14); reality testing moderately but not psychotically off; damaged self-view (low Egocentricity, MOR 5) without painful self-scrutiny (V=0); guarded interpersonally (T=0).<br>
+<b>Cautious statement:</b> "An impulsive, affect-driven, externalizing organization built on adequate resources; difficulties stem from <em>how</em> resources are deployed, not from a capacity deficit. Given S-CON 7 with elevated MOR and raw affect, suicide risk should be actively assessed."<br>
+<b>What else is needed:</b> history, substance timeline, risk interview, collateral.</div>
+
+<h3>Case 3 (fictional) — notable emotional-processing / depressive findings (based on Case B)</h3>
+<div class="patient-box">
+<b>Context:</b> 43-year-old, chronic low mood, social withdrawal; R = 14.<br>
+<b>Selected findings:</b> L 1.0, EA 2.0, Adj D −2 (=D), eb 4:5, SumC':WSumC 4:0, Sum V 1, Afr 0.27, FC:CF+C 0:0, X−% .43, PTI 3, DEPI 6, CDI 5, Isolation Index .286.<br>
+<b>Integration:</b> chronically depleted resources and overload (EA 2.0, Adj D −2 = trait-like, not situational); avoidant/simplifying style (L 1.0); severe affective constriction with painfully accumulating internalized affect (constriction 4:0, V present); strongly positive DEPI and CDI; perceptual inaccuracy that — with WSum6 = 0 — reads as affectively-driven misperception rather than thought disorder; interpersonal withdrawal (Isolation .286).<br>
+<b>Cautious statement:</b> "A chronically under-resourced, depressively organized, interpersonally withdrawn picture with painful internalized affect; CDI and DEPI both positive argue for a coping-and-affect focus. No formal thought disorder."<br>
+<b>Limits:</b> low R (=14) caps confidence; integrate with history and a structured mood assessment; re-administration/validity considered.</div>
+<div class="viva-card"><p class="q">Why must contradictory findings not simply be ignored?</p><p class="a">Because the contradiction often <em>is</em> the clinical reality (e.g., emotion-driven yet emotion-avoidant). Suppressing it produces a falsely tidy, less valid formulation. The CS explicitly challenges each hypothesis against the rest of the data.</p></div>
+<a class="backtop" href="#top">↑ Back to contents</a>
+
+<!-- S10 CS vs RPAS -->
+<h2 id="s10"><span class="section-icon">10</span>Comprehensive System vs R-PAS: Interpretation</h2>
+<p>A current viva will probe how the two systems differ. Below, each statement is labelled <strong>[CS]</strong>, <strong>[R-PAS]</strong>, or <strong>[General]</strong> (a principle of psychological assessment that holds regardless of system).</p>
+
+<h3>10.1 Why R-PAS was developed</h3>
+<p><strong>[R-PAS]</strong> R-PAS (Meyer, Viglione, Mihura, Erard &amp; Erdberg, 2011) was built by members of Exner's own Rorschach Research Council as a <strong>successor that aims to correct problems with validity and norms</strong> in the CS, keeping only variables with the strongest empirical/meta-analytic support. <span class="def">(r-pas.org; Mihura et al.'s meta-analytic reviews informed variable selection.)</span></p>
+
+<h3>10.2 Assessment philosophy</h3>
+<table>
+<tr><th>Dimension</th><th>Comprehensive System</th><th>R-PAS</th></tr>
+<tr><td>Core framing</td><td>[CS] Empirical/atheoretical; perception + "projection"</td><td>[R-PAS] Explicitly a <strong>behavioural performance task</strong> — "the personality in action"</td></tr>
+<tr><td>Interpretive unit</td><td>[CS] Clusters + indices, read against raw cutoffs</td><td>[R-PAS] Standardized dimensional scores (M=100, SD=15) with percentiles</td></tr>
+</table>
+
+<h3>10.3 Administration &amp; response productivity</h3>
+<ul>
+<li><strong>[CS]</strong> Free response count; if <strong>R &lt; 14</strong> the record is <strong>re-administered</strong> (potential unreliability).</li>
+<li><strong>[R-PAS]</strong> <strong>R-Optimized</strong> administration prompts/pulls-back to steer R into an <strong>optimal range (~18–27)</strong>, largely eliminating re-administration. <em>Verified:</em> R-PAS produces far more protocols in the optimal range and removes re-administration needs; meta-analyses find R-Optimized does <strong>not</strong> distort projective material. <span class="def">(PubMed: Reese/Pignolo &amp; colleagues; the CS-vs-R-Optimized meta-analyses, 2014–2019.)</span></li>
+<li><strong>[General]</strong> Very low R threatens reliability in <em>any</em> system; very high R must be interpreted in context.</li>
+</ul>
+
+<h3>10.4 Coding, variables &amp; norms</h3>
+<ul>
+<li><strong>[R-PAS]</strong> Some CS codes are <strong>removed, replaced, or reworked</strong> (the R-PAS manual lists these); <strong>Lambda is replaced by Complexity-based metrics</strong>, and interpretation uses both raw and <strong>Complexity-adjusted</strong> scores. International, contemporary norms.</li>
+<li><strong>[CS]</strong> Full CS variable set (including some weakly supported variables); Exner's norms (adult norms debated in the 2000s "over-pathologizing" controversy).</li>
+<li><strong>[General]</strong> Norms must match the examinee's population; a score is meaningful only against an appropriate reference group.</li>
+</ul>
+
+<h3>10.5 Indices &amp; summary scores</h3>
+<ul>
+<li><strong>[CS]</strong> Constellations PTI, DEPI, CDI, S-CON, HVI, OBS with discrete cutoffs (this File's §8).</li>
+<li><strong>[R-PAS]</strong> Largely <strong>does not carry those constellations forward</strong>; instead uses composite dimensional scores (e.g., <em>EII-3</em> for thinking/perception, <em>TP-Comp</em> for a thought-and-perception composite, <em>Complexity</em>) organized into <strong>Page 1</strong> (well-validated) and <strong>Page 2</strong> (more tentative) variables.</li>
+</ul>
+<div class="caution-box">Do <strong>not</strong> import a CS index (e.g., DEPI ≥5) into R-PAS, or an R-PAS standard score into CS cutoffs. They are separate measurement frameworks.</div>
+
+<h3>10.6 Handling low/high productivity — side by side</h3>
+<table>
+<tr><th>Situation</th><th>[CS]</th><th>[R-PAS]</th></tr>
+<tr><td>Very low R</td><td>Re-administer if R&lt;14; interpret cautiously</td><td>Prevented via R-Optimized prompting during testing</td></tr>
+<tr><td>Very high R</td><td>Interpret ratios relative to R</td><td>R-Optimized gently limits over-production; Complexity adjustment helps</td></tr>
+</table>
+
+<h3>10.7 Strengths, limitations, current debates</h3>
+<ul>
+<li><strong>[CS]</strong> Strengths: huge literature, familiar, clinically embedded. Limitations: norm/validity criticisms; unrevised since 2006.</li>
+<li><strong>[R-PAS]</strong> Strengths: tighter evidence base, modern international norms, controlled R, courtroom-defensible structure, strong inter-rater reliability. Limitations: newer, less universally taught; the R-Optimized change itself was debated (though meta-analytically supported).</li>
+<li><strong>[General]</strong> Both are <em>one component</em> of assessment; neither diagnoses alone; examiner training and standardized administration are prerequisites for valid data.</li>
+</ul>
+<div class="viva-card"><p class="q">How do the CS and R-PAS differ in their treatment of response productivity?</p><p class="a"><strong>[CS]</strong> accepts whatever R the person gives and re-administers if R&lt;14. <strong>[R-PAS]</strong> actively manages R during administration (R-Optimized) toward ~18–27, so unusable short records are largely prevented and re-administration is rarely needed. Same problem (R is highly variable and affects many scores), two different engineering solutions.</p></div>
+<a class="backtop" href="#top">↑ Back to contents</a>
+
+<div class="footer">
+  <p style="font-size:1.1em;">End of File 2 — continue to advanced viva, cases &amp; revision ⟶</p>
+  <nav class="filenav" style="margin:18px 0;">
+    <a href="Rorschach_Viva_01_History_Administration_Coding.html">File 1 · History · Administration · Coding</a>
+    <a href="Rorschach_Viva_03_Advanced_Viva_Questions_Cases_Revision.html">File 3 · Advanced Viva, Cases &amp; Revision</a>
+    <a href="Rorschach_Viva_04_What_Each_Aspect_Means_About_Patient.html">File 4 · What Each Aspect Means About the Patient</a>
+  </nav>
+  <div class="author-badge">Made by Tejas Dangodra | M.Phil. Clinical Psychology</div>
+  <p style="margin-top:14px;font-size:.82em;opacity:.85;">Educational viva-preparation resource. All cases are fictional illustrations, not official exemplars or norms. The Rorschach is one component of a comprehensive assessment and must not be used alone to diagnose. CS cutoffs are CS-specific and are not valid in R-PAS.</p>
+</div>
+
+</div>
+</body>
+</html>
