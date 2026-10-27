@@ -1,0 +1,1329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dango_Psych by Tejas Dangodra — Complete CBT Clinical Guide</title>
+<style>
+:root{
+  --bg1:#eef2ff; --bg2:#f3e9ff; --bg3:#e8f7f4; --bg4:#fff5ea;
+  --ink:#232336; --muted:#5b5b70; --primary:#5b6cf0; --primary2:#8a7bf0;
+  --teal:#13a89e; --rose:#e4668a; --amber:#e0893a; --green:#2e9e6b; --red:#c0392b;
+  --panel:#ffffff; --line:#e6e6f2;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:linear-gradient(135deg,var(--bg1),var(--bg2) 35%,var(--bg3) 70%,var(--bg4));
+  background-attachment:fixed;color:var(--ink);line-height:1.72;}
+.wrap{max-width:1180px;margin:0 auto;padding:18px;}
+header.hero{text-align:center;padding:42px 20px;background:linear-gradient(135deg,#5b6cf0,#8a7bf0 60%,#13a89e);border-radius:18px;color:#fff;margin:14px 0 8px;box-shadow:0 14px 40px rgba(91,108,240,.25);}
+header.hero h1{font-size:2.15em;text-shadow:0 2px 10px rgba(0,0,0,.2);}
+header.hero .brand{display:inline-block;margin-top:14px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.45);padding:8px 22px;border-radius:30px;font-weight:700;letter-spacing:.5px;}
+header.hero .sub{opacity:.95;margin-top:10px;font-size:1.05em;}
+.toolbar{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);backdrop-filter:blur(6px);border:1px solid var(--line);border-radius:14px;padding:12px 16px;margin:12px 0 18px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;box-shadow:0 4px 18px rgba(0,0,0,.05);}
+.toolbar input[type=search]{flex:1 1 240px;min-width:180px;padding:9px 14px;border:1px solid var(--line);border-radius:10px;font-size:.95em;}
+.toolbar button{padding:9px 14px;border:none;border-radius:10px;background:linear-gradient(135deg,var(--primary),var(--primary2));color:#fff;font-weight:600;cursor:pointer;font-size:.9em;}
+.toolbar button.alt{background:linear-gradient(135deg,var(--teal),#3ac9bd);}
+.toolbar button:hover{filter:brightness(1.06);}
+.layout{display:grid;grid-template-columns:270px 1fr;gap:22px;align-items:start;}
+nav.toc{position:sticky;top:76px;max-height:calc(100vh - 92px);overflow:auto;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px 14px;font-size:.9em;box-shadow:0 4px 18px rgba(0,0,0,.04);}
+nav.toc h3{color:var(--primary);font-size:1em;margin-bottom:8px;}
+nav.toc a{display:block;color:var(--muted);text-decoration:none;padding:4px 8px;border-radius:7px;border-left:3px solid transparent;}
+nav.toc a:hover{background:#f3f2ff;color:var(--primary);border-left-color:var(--primary);}
+main{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:26px 30px;box-shadow:0 8px 30px rgba(0,0,0,.05);}
+section.part{scroll-margin-top:84px;}
+h2.part-h{color:var(--primary);font-size:1.6em;margin:40px 0 14px;padding:12px 16px;background:linear-gradient(135deg,#eef0ff,#f6f1ff);border-radius:12px;border-left:6px solid var(--primary);}
+h3{color:var(--rose);font-size:1.25em;margin:26px 0 10px;}
+h4{color:var(--teal);font-size:1.08em;margin:18px 0 8px;}
+h5{color:var(--muted);font-size:1em;margin:14px 0 6px;}
+p{margin:0 0 11px;} ul,ol{margin:8px 0 14px 24px;} li{margin-bottom:6px;}
+a{color:var(--primary);}
+details{border:1px solid var(--line);border-radius:12px;margin:12px 0;background:#fcfcff;}
+details>summary{cursor:pointer;padding:12px 16px;font-weight:600;color:var(--primary);list-style:none;}
+details>summary::-webkit-details-marker{display:none;}
+details>summary::before{content:"▸ ";color:var(--primary2);}
+details[open]>summary::before{content:"▾ ";}
+details .inner{padding:4px 18px 16px;}
+table{width:100%;border-collapse:collapse;margin:16px 0;font-size:.93em;border-radius:10px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.05);}
+th{background:linear-gradient(135deg,var(--primary),var(--primary2));color:#fff;text-align:left;padding:10px 13px;}
+td{padding:9px 13px;border-bottom:1px solid var(--line);vertical-align:top;}
+tr:nth-child(even){background:#f7f7ff;}
+code{background:#eef0ff;color:#4a3fd0;padding:1px 6px;border-radius:5px;font-family:'Courier New',monospace;font-size:.9em;}
+.box{border-radius:12px;padding:14px 18px;margin:14px 0;border-left:5px solid;}
+.def{background:#eef0ff;border-color:var(--primary);}
+.def::before{content:"DEFINITION";display:block;font-weight:700;color:var(--primary);font-size:.78em;letter-spacing:1px;margin-bottom:4px;}
+.tip{background:#e7f8f1;border-color:var(--green);} .tip::before{content:"CLINICAL TIP";display:block;font-weight:700;color:var(--green);font-size:.78em;letter-spacing:1px;margin-bottom:4px;}
+.warn{background:#fdeaea;border-color:var(--red);} .warn::before{content:"CAUTION";display:block;font-weight:700;color:var(--red);font-size:.78em;letter-spacing:1px;margin-bottom:4px;}
+.src{background:#f3eefe;border-color:var(--primary2);font-size:.92em;} .src::before{content:"SOURCE";display:block;font-weight:700;color:#6a4fd0;font-size:.78em;letter-spacing:1px;margin-bottom:4px;}
+.eg{background:#fff5ea;border-color:var(--amber);} .eg::before{content:"FICTIONAL EXAMPLE";display:block;font-weight:700;color:var(--amber);font-size:.78em;letter-spacing:1px;margin-bottom:4px;}
+.dialogue{background:#f7f7ff;border:1px solid var(--line);border-radius:12px;padding:14px 18px;margin:12px 0;}
+.dialogue p{margin:5px 0;} .dialogue .t{color:var(--primary);font-weight:600;} .dialogue .pt{color:var(--teal);font-weight:600;}
+.viva{background:linear-gradient(135deg,#eef0ff,#f6eeff);border:1px solid #d9d4ff;border-radius:12px;padding:14px 18px;margin:12px 0;}
+.viva .q{font-weight:700;color:#5a3fd0;} .viva .q::before{content:"Q. ";}
+.viva .a{margin-top:6px;} .viva .a::before{content:"A. ";font-weight:700;color:var(--green);}
+/* diagrams */
+.svgwrap{text-align:center;margin:16px 0;overflow-x:auto;}
+.svgwrap svg{max-width:100%;height:auto;}
+/* worksheets */
+.worksheet{border:2px solid var(--primary);border-radius:14px;padding:20px 22px;margin:22px 0;background:#fff;page-break-inside:avoid;}
+.worksheet .wh{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;border-bottom:2px solid var(--primary);padding-bottom:8px;margin-bottom:12px;}
+.worksheet .wh h4{color:var(--primary);margin:0;font-size:1.12em;}
+.worksheet .purpose{font-size:.9em;color:var(--muted);font-style:italic;margin-bottom:10px;}
+.worksheet label{display:block;font-weight:600;font-size:.9em;margin:10px 0 3px;color:var(--ink);}
+.worksheet input[type=text],.worksheet textarea{width:100%;border:1px solid #b9b9d6;border-radius:8px;padding:8px 10px;font:inherit;font-size:.92em;}
+.worksheet textarea{min-height:60px;resize:vertical;}
+.worksheet .row{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.ws-actions{display:flex;gap:8px;flex-wrap:wrap;}
+.ws-actions button{padding:7px 12px;border:none;border-radius:9px;font-weight:600;cursor:pointer;font-size:.82em;color:#fff;}
+.ws-actions .print{background:var(--primary);} .ws-actions .clear{background:var(--rose);}
+.ws-actions button:hover{filter:brightness(1.07);}
+.backtop{position:fixed;right:18px;bottom:18px;z-index:60;background:var(--primary);color:#fff;border:none;border-radius:50%;width:48px;height:48px;font-size:1.3em;cursor:pointer;box-shadow:0 6px 18px rgba(91,108,240,.4);display:none;}
+footer.foot{text-align:center;padding:34px 20px;margin:22px 0 10px;background:linear-gradient(135deg,#5b6cf0,#8a7bf0 60%,#13a89e);border-radius:18px;color:#fff;}
+footer.foot .brand{display:inline-block;margin-top:12px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.45);padding:9px 24px;border-radius:30px;font-weight:700;}
+.hl{background:#fff3b0;border-radius:3px;}
+@media(max-width:900px){.layout{grid-template-columns:1fr;}nav.toc{position:static;max-height:none;}.worksheet .row{grid-template-columns:1fr;}}
+@media print{
+  body{background:#fff;} .wrap{max-width:none;padding:0;}
+  .toolbar,nav.toc,.backtop,header.hero .sub{display:none !important;}
+  .layout{display:block;} main{border:none;box-shadow:none;padding:0;}
+  details{border:none;} details>summary{display:none;} details .inner{padding:0;}
+  details:not([open]) .inner{display:block !important;}
+  h2.part-h{background:none;border-left:4px solid #000;color:#000;}
+  /* print mode: only worksheets */
+  body.printws main > *:not(#worksheet-library){display:none !important;}
+  body.printws #worksheet-library > *:not(.worksheet):not(h2):not(.print-note){display:none;}
+  body.printws .ws-actions{display:none;}
+  .worksheet{break-inside:avoid;border-color:#333;}
+  .worksheet.printing{break-after:page;}
+  table,.svgwrap,.worksheet,.viva,.box{break-inside:avoid;}
+  a[href^="http"]::after{content:" (" attr(href) ")";font-size:.75em;color:#555;}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <h1>Complete Cognitive Behaviour Therapy (CBT) Clinical Guide</h1>
+  <div class="sub">A practical, evidence-based guide for M.Phil. Clinical Psychology — theory, formulation, sessions, techniques, disorders &amp; printable worksheets</div>
+  <div class="brand">Dango_Psych by Tejas Dangodra</div>
+</header>
+
+<div class="toolbar">
+  <input type="search" id="searchBox" placeholder="🔍 Search the whole guide (type a word, Enter = next match)…" aria-label="Search guide">
+  <button onclick="clearSearch()">Clear</button>
+  <button onclick="expandAll(true)">Expand all</button>
+  <button onclick="expandAll(false)">Collapse all</button>
+  <button class="alt" onclick="printWorksheets()">🖨 Print / Save ALL worksheets (PDF)</button>
+</div>
+
+<div class="layout">
+<nav class="toc" aria-label="Contents">
+  <h3>Contents</h3>
+  <a href="#p2">2 · What exactly is CBT?</a>
+  <a href="#p3">3 · History &amp; major approaches</a>
+  <a href="#p4">4 · Core principles</a>
+  <a href="#p5">5 · Assessment &amp; formulation</a>
+  <a href="#p6">6 · The therapeutic relationship</a>
+  <a href="#p7">7 · The CBT session structure</a>
+  <a href="#p8">8 · All major CBT techniques</a>
+  <a href="#p9">9 · Technique selection</a>
+  <a href="#p10">10 · CBT for disorders</a>
+  <a href="#p11">11 · CBT for psychosis</a>
+  <a href="#p12">12 · Session-by-session plans</a>
+  <a href="#p13">13 · Short- &amp; long-term goals</a>
+  <a href="#worksheet-library">14 · Printable worksheet library</a>
+  <a href="#p15">15 · PDF / printing help</a>
+  <a href="#p16">16 · Special clinical skills</a>
+  <a href="#p17">17 · Homework</a>
+  <a href="#p18">18 · Measurement-based care</a>
+  <a href="#p19">19 · Ending CBT &amp; relapse prevention</a>
+  <a href="#p20">20 · Limitations, ethics, adaptations</a>
+  <a href="#p21">21 · Clinical case vignettes</a>
+  <a href="#p22">22 · Viva &amp; exam preparation</a>
+  <a href="#p24">24 · References &amp; sources</a>
+</nav>
+
+<main id="guide">
+<div class="box src" style="margin-top:0;">
+This guide is built on the CBT resources in the repository, prioritised as requested, with reliable external sources filling gaps. Verified repository sources: <strong>J. S. Beck, <em>Cognitive Behavior Therapy: Basics and Beyond</em>, 2nd ed. (Guilford, 2011)</strong> [text-readable]; <strong>K. Hawton et al., <em>Cognitive Behaviour Therapy for Psychiatric Problems: A Practical Guide</em> (Oxford)</strong> [present as a scanned image PDF with no digital text layer — used at the structural/known-content level and flagged below]; <strong>Hagen, Turkington, Berge &amp; Gråwe, <em>CBT for Psychosis: A Symptom-based Approach</em></strong>; <strong>L. R. Wolberg, <em>The Technique of Psychotherapy</em>, 4th ed. (2013)</strong>; <strong>David A. Clark, <em>CBT for OCD</em></strong> [note: the repository contains <em>David A.</em> Clark on OCD, not David M. Clark — stated honestly rather than invented]; plus the repository's CBT-for-anxiety manual, GAD workbook, and Cognitive/Mindfulness workbook. Full details and the source-integrity note are in <a href="#p24">Part 24</a>.
+</div>
+<div class="box warn">All cases, patients, dialogues and worksheet entries here are <strong>fictional teaching illustrations</strong>. CBT is one part of comprehensive care; nothing here replaces supervised clinical training, assessment, or professional judgement. This is a single self-contained HTML file — worksheets are printed/saved as PDF through your browser's own print dialog (no separate files, no internet needed).</div>
+
+<!-- ===================== PART 2 ===================== -->
+<section class="part" id="p2">
+<h2 class="part-h">Part 2 · What Exactly Is CBT?</h2>
+
+<h3>2.1 An authoritative definition</h3>
+<div class="box def">
+Cognitive Behaviour Therapy is a <strong>structured, time-limited, present-oriented psychotherapy</strong> that helps people solve current problems and change unhelpful (inaccurate and/or unhelpful) patterns of <strong>thinking and behaviour</strong>. Treatment is based on an individualised <strong>cognitive formulation</strong> of the person and of their disorder.
+</div>
+<div class="box src">
+Paraphrased from Judith S. Beck, <em>Cognitive Behavior Therapy: Basics and Beyond</em> (2nd ed., Guilford Press, 2011), Ch. 1, which traces the approach to A. T. Beck's early 1960s "cognitive therapy" (Beck, 1964) and the first treatment manual (Beck, Rush, Shaw &amp; Emery, 1979). <em>Wording is original/paraphrased, not a verbatim quotation.</em> A complementary definition is offered by clinical guidelines (e.g., NICE) and professional bodies (e.g., BABCP), which describe CBT as a family of evidence-based talking therapies addressing the links between thoughts, feelings and behaviour. Where sources differ in emphasis, the <strong>common core</strong> is: a formulation-driven, collaborative therapy targeting the thinking–behaviour links that maintain distress.</div>
+<div class="box warn">A simplified <em>teaching</em> explanation ("CBT helps you notice and change unhelpful thoughts and behaviours") is useful for patients but is <strong>not</strong> the formal definition and should not be cited as one.</div>
+
+<h3>2.2 CBT in simple language</h3>
+<ul>
+<li><strong>What CBT is:</strong> a practical, collaborative therapy that works out <em>what keeps a problem going now</em> and helps the person change those maintaining patterns through new thinking and new action.</li>
+<li><strong>What CBT is not:</strong> it is <em>not</em> "positive thinking," not simply giving advice or reassurance, not telling people their thoughts are "wrong," and not a claim that every problem is caused by irrational thinking.</li>
+<li><strong>Why "cognitive-behavioural":</strong> it deliberately works on <em>both</em> the <strong>cognitive</strong> side (thoughts, beliefs, images, interpretations) and the <strong>behavioural</strong> side (what the person does, avoids, or repeats) — because in real life these feed each other.</li>
+</ul>
+<table>
+<tr><th>Term</th><th>Plain meaning</th></tr>
+<tr><td><strong>Cognitive</strong></td><td>To do with thinking — the thoughts, images, interpretations, predictions and beliefs a person holds.</td></tr>
+<tr><td><strong>Behavioural</strong></td><td>To do with doing — actions, habits, avoidance, and the way consequences shape future behaviour.</td></tr>
+<tr><td><strong>Therapy</strong></td><td>A structured, professional, collaborative process aimed at reducing distress and improving functioning.</td></tr>
+<tr><td><strong>Intervention</strong></td><td>A specific planned technique (e.g., a thought record, a behavioural experiment) used to change a maintaining process.</td></tr>
+</table>
+<p><strong>How the pieces interact:</strong> a <em>situation</em> is <em>interpreted</em> by the person; that interpretation shapes <em>emotion</em> and <em>bodily sensation</em>, which shape <em>behaviour</em>, which produces <em>consequences</em> that feed back and strengthen (or weaken) the original interpretation. Crucially, CBT does <strong>not</strong> assume thoughts are the only cause: the therapist must weigh the person's <strong>environment, learning history, relationships, culture, medical factors and real-life adversity</strong>. Sometimes the thought is accurate and the problem is a genuine life difficulty requiring practical problem-solving, not "restructuring."</p>
+
+<h3>2.3 The cognitive model</h3>
+<p>The teaching diagram below shows a <em>typical</em> chain. It is a learning aid, <strong>not</strong> a strict one-way sequence: arrows are reciprocal — behaviour can change thoughts and emotions, body states influence thinking, and context surrounds the whole cycle.</p>
+<div class="svgwrap" role="img" aria-label="Cognitive model: situation leads to automatic thought, then emotion, physical response, behaviour and consequences, with reciprocal arrows">
+<svg viewBox="0 0 920 230" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI,sans-serif">
+<defs><marker id="ar" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#5b6cf0"/></marker>
+<marker id="ar2" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#13a89e"/></marker></defs>
+<g>
+<rect x="8"  y="70" width="130" height="56" rx="10" fill="#eef0ff" stroke="#5b6cf0"/>
+<rect x="166" y="70" width="140" height="56" rx="10" fill="#f6eeff" stroke="#8a7bf0"/>
+<rect x="334" y="70" width="120" height="56" rx="10" fill="#fdeaea" stroke="#e4668a"/>
+<rect x="482" y="70" width="130" height="56" rx="10" fill="#fff5ea" stroke="#e0893a"/>
+<rect x="640" y="70" width="120" height="56" rx="10" fill="#e7f8f1" stroke="#2e9e6b"/>
+<rect x="788" y="70" width="124" height="56" rx="10" fill="#eef0ff" stroke="#5b6cf0"/>
+</g>
+<g font-size="12" text-anchor="middle" fill="#232336">
+<text x="73"  y="94">Situation /</text><text x="73"  y="110">Trigger</text>
+<text x="236" y="94">Automatic</text><text x="236" y="110">thought / image</text>
+<text x="394" y="102">Emotion</text>
+<text x="547" y="94">Physical</text><text x="547" y="110">response</text>
+<text x="700" y="102">Behaviour</text>
+<text x="850" y="102">Consequences</text>
+</g>
+<g stroke="#5b6cf0" stroke-width="2" fill="none" marker-end="url(#ar)">
+<line x1="138" y1="98" x2="164" y2="98"/><line x1="306" y1="98" x2="332" y2="98"/>
+<line x1="454" y1="98" x2="480" y2="98"/><line x1="612" y1="98" x2="638" y2="98"/><line x1="760" y1="98" x2="786" y2="98"/>
+</g>
+<path d="M850,70 C850,20 236,20 236,68" stroke="#13a89e" stroke-width="2" fill="none" marker-end="url(#ar2)" stroke-dasharray="5 4"/>
+<text x="540" y="18" font-size="11" fill="#13a89e" text-anchor="middle">consequences feed back &amp; reshape the interpretation (reciprocal)</text>
+<path d="M700,126 C700,170 394,170 394,128" stroke="#13a89e" stroke-width="2" fill="none" marker-end="url(#ar2)" stroke-dasharray="5 4"/>
+<text x="547" y="188" font-size="11" fill="#13a89e" text-anchor="middle">behaviour also changes emotion (reciprocal)</text>
+</svg>
+</div>
+<div class="box eg">
+<strong>Same situation, three interpretations</strong> (fictional). <em>Situation:</em> a friend walks past without saying hello.
+<ul>
+<li><strong>"She's ignoring me — nobody likes me"</strong> → sadness, heavy chest → withdraw, cancel plans → more isolation (depressive cycle).</li>
+<li><strong>"She's angry at me — I must have done something"</strong> → anxiety, racing heart → over-apologise / seek reassurance → temporary relief, belief untested (anxiety cycle).</li>
+<li><strong>"She probably didn't see me — she's always distracted"</strong> → mild/neutral → text her later → connection maintained (adaptive).</li>
+</ul>
+The event was identical; the <em>interpretation</em> drove the different emotional and behavioural outcomes.</div>
+
+<h3>2.4 The behavioural model</h3>
+<p>CBT's behavioural roots explain how problems persist even when a person "knows better." Key mechanisms:</p>
+<table>
+<tr><th>Mechanism</th><th>What it means</th><th>Clinical relevance</th></tr>
+<tr><td>Classical conditioning</td><td>A neutral cue becomes paired with a response (e.g., a place paired with panic)</td><td>Explains how cues trigger fear/craving</td></tr>
+<tr><td>Operant conditioning</td><td>Behaviour is shaped by its consequences</td><td>Reinforcement/punishment maintain habits</td></tr>
+<tr><td>Positive reinforcement</td><td>A behaviour increases because something rewarding follows</td><td>e.g., checking relieves doubt → checking increases</td></tr>
+<tr><td>Negative reinforcement</td><td>A behaviour increases because it <em>removes</em> something aversive</td><td>The engine of avoidance: escaping fear feels good → avoidance grows</td></tr>
+<tr><td>Punishment</td><td>A consequence that reduces a behaviour</td><td>Often unreliable clinically; can increase avoidance/shame</td></tr>
+<tr><td>Avoidance &amp; escape</td><td>Staying away from, or leaving, a feared situation</td><td>Prevents disconfirmation → fear persists</td></tr>
+<tr><td>Safety behaviours</td><td>Subtle actions to "prevent disaster" (gripping, rehearsing, carrying water)</td><td>Person credits the safety behaviour, not reality → belief never updates</td></tr>
+<tr><td>Behavioural activation</td><td>Scheduling rewarding/meaningful activity</td><td>Breaks the withdrawal–low mood loop in depression</td></tr>
+<tr><td>Exposure &amp; inhibitory learning</td><td>Approaching the feared cue so new, safer learning competes with the old fear</td><td>Core change mechanism in anxiety; modern view = new learning, not just "wearing out"</td></tr>
+<tr><td>Habituation</td><td>Fear response naturally declines with sustained contact</td><td>One mechanism within exposure (not the whole story)</td></tr>
+<tr><td>Generalisation / discrimination</td><td>Learning spreads to similar cues / is narrowed to specific cues</td><td>Explains spread of fear and its targeted reduction</td></tr>
+<tr><td>Maintenance cycle</td><td>Short-term relief sustains the long-term problem</td><td>The central "vicious cycle" CBT interrupts</td></tr>
+</table>
+<div class="box tip">The behavioural engine of most anxiety is <strong>negative reinforcement</strong>: avoidance and safety behaviours bring immediate relief (reward), so they strengthen — while blocking the corrective experience that would update the fear. This is why insight alone rarely cures avoidance.</div>
+
+<h3>2.5 How cognition and behaviour work together</h3>
+<ul>
+<li><strong>Why changing a thought can be insufficient:</strong> if avoidance continues, the person never <em>experiences</em> disconfirmation, so the fear belief survives despite verbal "understanding."</li>
+<li><strong>Why behavioural experiments beat reassurance:</strong> a planned experiment lets the person <em>discover</em> the outcome first-hand; reassurance is second-hand and fades, often becoming a safety behaviour itself.</li>
+<li><strong>Why action changes belief:</strong> doing the feared thing and surviving provides vivid, emotionally credible evidence that talk cannot.</li>
+<li><strong>Why some approaches change the <em>relationship</em> to thoughts:</strong> third-wave methods (e.g., mindfulness/ACT-influenced) focus less on disputing thought <em>content</em> and more on changing how the person <em>relates</em> to thoughts (noticing, defusing, accepting) — useful when content-disputation stalls.</li>
+</ul>
+<div class="box eg"><strong>Fictional:</strong> A man with panic believes "my racing heart means I'll have a heart attack." Verbal reassurance helps for minutes. A <em>behavioural experiment</em> — deliberately running up stairs to raise his heart rate and observing that no catastrophe occurs — provides durable, felt evidence that recalibrates the belief.</div>
+</section>
+
+<!-- ===================== PART 3 ===================== -->
+<section class="part" id="p3">
+<h2 class="part-h">Part 3 · History, Development &amp; Major CBT Approaches</h2>
+<p>CBT is best understood in <strong>three "waves,"</strong> each addressing a limitation of the one before. Do not treat them as interchangeable or claim every modern therapy is "just CBT."</p>
+<div class="svgwrap" role="img" aria-label="Timeline of CBT from behaviour therapy through cognitive therapy to third-wave approaches">
+<svg viewBox="0 0 900 180" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI,sans-serif">
+<line x1="40" y1="90" x2="860" y2="90" stroke="#8a7bf0" stroke-width="3"/>
+<g font-size="11" text-anchor="middle">
+<circle cx="120" cy="90" r="8" fill="#5b6cf0"/><text x="120" y="60">1950s–60s</text><text x="120" y="120">1st wave:</text><text x="120" y="135">Behaviour therapy</text><text x="120" y="150">(Wolpe, Skinner, Eysenck)</text>
+<circle cx="360" cy="90" r="8" fill="#13a89e"/><text x="360" y="60">1960s–70s</text><text x="360" y="120">2nd wave:</text><text x="360" y="135">Cognitive therapy (A. Beck)</text><text x="360" y="150">REBT (Ellis)</text>
+<circle cx="600" cy="90" r="8" fill="#e0893a"/><text x="600" y="60">1970s–90s</text><text x="600" y="120">Integration:</text><text x="600" y="135">Traditional CBT;</text><text x="600" y="150">Meichenbaum (SIT)</text>
+<circle cx="820" cy="90" r="8" fill="#e4668a"/><text x="820" y="60">1990s–now</text><text x="820" y="120">3rd wave:</text><text x="820" y="135">MBCT, ACT, DBT,</text><text x="820" y="150">metacognitive</text>
+</g>
+</svg>
+</div>
+<h3>3.1 Key contributors</h3>
+<table>
+<tr><th>Figure</th><th>Contribution</th><th>Approach</th></tr>
+<tr><td><strong>Aaron T. Beck</strong></td><td>Developed cognitive therapy for depression (early 1960s); the cognitive model, automatic thoughts, cognitive distortions, schemas; first CT manual (Beck, Rush, Shaw &amp; Emery, 1979)</td><td>Cognitive therapy → modern CBT</td></tr>
+<tr><td><strong>Albert Ellis</strong></td><td>Rational Emotive Behaviour Therapy (REBT, from 1955); the ABC model; disputing irrational beliefs</td><td>REBT</td></tr>
+<tr><td><strong>Behaviour-therapy pioneers</strong> (Wolpe, Skinner, Eysenck, Pavlov's legacy)</td><td>Conditioning, systematic desensitisation, reinforcement principles, exposure</td><td>1st-wave behaviour therapy</td></tr>
+<tr><td><strong>Donald Meichenbaum</strong></td><td>Self-instructional training; Stress Inoculation Training (SIT); cognitive-behaviour modification</td><td>Cognitive-behavioural integration</td></tr>
+<tr><td><strong>Later developers</strong> (Hayes – ACT; Segal/Williams/Teasdale – MBCT; Linehan – DBT; Wells – metacognitive)</td><td>Shifted focus to the <em>relationship</em> with inner experience: acceptance, mindfulness, defusion, emotion regulation</td><td>3rd-wave / contextual</td></tr>
+</table>
+<h3>3.2 Distinguishing the approaches</h3>
+<table>
+<tr><th>Approach</th><th>Primary target</th><th>Signature method</th></tr>
+<tr><td>Behaviour therapy</td><td>Observable behaviour &amp; conditioning</td><td>Exposure, reinforcement, skills</td></tr>
+<tr><td>Cognitive therapy (Beck)</td><td>Content of thoughts/beliefs &amp; their accuracy</td><td>Thought evaluation, guided discovery</td></tr>
+<tr><td>REBT (Ellis)</td><td>Irrational beliefs ("musts/shoulds")</td><td>Vigorous disputation (ABCDE)</td></tr>
+<tr><td>Traditional CBT</td><td>Thinking <em>and</em> behaviour that maintain disorder</td><td>Formulation + combined cognitive &amp; behavioural methods</td></tr>
+<tr><td>Third-wave (MBCT/ACT/DBT/MCT)</td><td>One's <em>relationship</em> to thoughts/feelings; context, values, attention</td><td>Mindfulness, acceptance, defusion, metacognition</td></tr>
+</table>
+<div class="box warn">REBT disputes beliefs more forcefully; Beckian CT favours collaborative <em>guided discovery</em>. Third-wave therapies often do <strong>not</strong> dispute thought content at all. Blurring these distinctions is a common viva error.</div>
+</section>
+
+<!-- ===================== PART 4 ===================== -->
+<section class="part" id="p4">
+<h2 class="part-h">Part 4 · Core Principles of CBT</h2>
+<p>Each principle below is given with its meaning, rationale, a brief application, and a common mistake. (Grounded in Beck, 2011, Ch. 1 "basic principles," and general CBT practice.)</p>
+
+<details open><summary>1. Cognitive conceptualisation</summary><div class="inner">
+<p><strong>Meaning:</strong> an evolving map of the person's thoughts, beliefs, behaviours and their origins. <strong>Rationale:</strong> technique choice flows from the map, not from the diagnosis alone. <strong>Application:</strong> the therapist updates the formulation every session. <strong>Mistake:</strong> applying a protocol without an individual conceptualisation.</p></div></details>
+<details><summary>2. Collaborative empiricism</summary><div class="inner">
+<p><strong>Meaning:</strong> therapist and patient work as a <em>team of investigators</em> testing beliefs against evidence. <strong>Rationale:</strong> shared ownership increases engagement and durability. <strong>Application:</strong> "Let's look at this together — what does the evidence say?" <strong>Mistake:</strong> the therapist becoming the expert who "corrects" the patient.</p></div></details>
+<details><summary>3. Guided discovery</summary><div class="inner">
+<p><strong>Meaning:</strong> helping the patient reach new perspectives through questions rather than lecturing. <strong>Rationale:</strong> self-generated insight is more convincing. <strong>Mistake:</strong> leading questions that merely extract the therapist's opinion.</p></div></details>
+<details><summary>4. Socratic questioning</summary><div class="inner">
+<p><strong>Meaning:</strong> a series of open questions that expand the patient's view (evidence, alternatives, implications, usefulness). <strong>Mistake:</strong> "Socratic" questioning used to trap or argue the patient into agreement.</p></div></details>
+<details><summary>5. Structured &amp; goal-oriented treatment</summary><div class="inner">
+<p><strong>Meaning:</strong> sessions follow a structure (check-in, agenda, work, summary, homework, feedback) toward agreed goals. <strong>Rationale:</strong> efficiency and focus. <strong>Mistake:</strong> rigidly forcing structure when a patient is in crisis.</p></div></details>
+<details><summary>6. Present-focused work</summary><div class="inner">
+<p><strong>Meaning:</strong> primary focus on current maintaining factors; history is used to <em>understand</em>, not to dwell. <strong>Mistake:</strong> endless history-taking with no change work.</p></div></details>
+<details><summary>7. Individualised case formulation</summary><div class="inner">
+<p><strong>Meaning:</strong> the plan fits <em>this</em> person. <strong>Mistake:</strong> one-size-fits-all worksheets.</p></div></details>
+<details><summary>8. Skills acquisition</summary><div class="inner">
+<p><strong>Meaning:</strong> therapy teaches transferable skills (thought evaluation, problem-solving, exposure) so the patient becomes their own therapist. <strong>Mistake:</strong> fostering dependence on the therapist.</p></div></details>
+<details><summary>9. Between-session practice (homework)</summary><div class="inner">
+<p><strong>Meaning:</strong> most change happens between sessions. <strong>Rationale:</strong> generalisation to real life. <strong>Mistake:</strong> assigning homework without a collaborative rationale → non-completion.</p></div></details>
+<details><summary>10. Behavioural testing of beliefs</summary><div class="inner">
+<p><strong>Meaning:</strong> beliefs are tested through action/experiments, not just discussion. <strong>Mistake:</strong> relying on verbal disputation alone.</p></div></details>
+<details><summary>11. Monitoring &amp; measuring progress</summary><div class="inner">
+<p><strong>Meaning:</strong> routine outcome measures track change. <strong>Mistake:</strong> treating scores as the whole picture (see Part 18).</p></div></details>
+<details><summary>12. Treatment adaptation based on response</summary><div class="inner">
+<p><strong>Meaning:</strong> if the patient isn't improving, revisit the formulation. <strong>Mistake:</strong> repeating an ineffective technique.</p></div></details>
+<details><summary>13. Relapse prevention</summary><div class="inner">
+<p><strong>Meaning:</strong> building skills and plans to maintain gains. <strong>Mistake:</strong> ending abruptly with no maintenance plan.</p></div></details>
+<details><summary>14. Patient autonomy &amp; self-therapy</summary><div class="inner">
+<p><strong>Meaning:</strong> the patient learns to run the methods independently. <strong>Mistake:</strong> therapist does all the "work."</p></div></details>
+<details><summary>15. Therapeutic alliance</summary><div class="inner">
+<p><strong>Meaning:</strong> warmth, empathy and trust are necessary (if not sufficient) conditions. <strong>Mistake:</strong> prioritising technique over relationship.</p></div></details>
+<details><summary>16. Cultural &amp; contextual sensitivity</summary><div class="inner">
+<p><strong>Meaning:</strong> beliefs and behaviours are read within the person's culture, language, and circumstances. <strong>Mistake:</strong> labelling culturally normative beliefs as "distortions."</p></div></details>
+<details><summary>17. Evidence-informed practice</summary><div class="inner">
+<p><strong>Meaning:</strong> integrating best research, clinical expertise, and patient values/preferences. <strong>Mistake:</strong> following a manual against clear evidence it isn't working.</p></div></details>
+</section>
+
+<!-- ===================== PART 5 ===================== -->
+<section class="part" id="p5">
+<h2 class="part-h">Part 5 · CBT Assessment &amp; Case Formulation</h2>
+
+<h3>5.1 Initial assessment — what to assess &amp; how</h3>
+<table>
+<tr><th>Domain</th><th>Example question</th><th>What it yields</th></tr>
+<tr><td>Presenting complaint</td><td>"What brings you here now, in your own words?"</td><td>The problem as the patient sees it</td></tr>
+<tr><td>Onset / course</td><td>"When did it start, and how has it changed since?"</td><td>Timeline, precipitants, trajectory</td></tr>
+<tr><td>Triggers</td><td>"In what situations is it worst?"</td><td>Antecedents to target</td></tr>
+<tr><td>Automatic thoughts / images</td><td>"What went through your mind in that moment?"</td><td>Cognitions driving distress</td></tr>
+<tr><td>Emotions / body</td><td>"What did you feel emotionally and physically?"</td><td>Affective &amp; physiological components</td></tr>
+<tr><td>Behaviour</td><td>"What did you do next?"</td><td>Coping, avoidance, safety behaviours</td></tr>
+<tr><td>Avoidance / safety behaviours</td><td>"What do you avoid? What do you do to feel safer?"</td><td>Maintaining behaviours</td></tr>
+<tr><td>Function / impairment</td><td>"How does this affect work, relationships, daily life?"</td><td>Severity &amp; functional targets</td></tr>
+<tr><td>Developmental history</td><td>"What was growing up like for you?"</td><td>Origins of beliefs (used sparingly)</td></tr>
+<tr><td>Core beliefs / learning</td><td>"What did experiences like that teach you about yourself/others/the world?"</td><td>Deeper beliefs</td></tr>
+<tr><td>Interpersonal / environment</td><td>"Who and what around you helps or worsens things?"</td><td>Context &amp; maintaining relationships</td></tr>
+<tr><td>Strengths / protective</td><td>"What's gone well? What keeps you going?"</td><td>Resources to build on</td></tr>
+<tr><td>Previous treatment</td><td>"What's been tried, and what helped?"</td><td>Guides plan, avoids repetition</td></tr>
+<tr><td>Goals / expectations</td><td>"If therapy worked, what would be different?"</td><td>Collaborative goals</td></tr>
+<tr><td>Medical / psychiatric / substances</td><td>"Any health conditions, medication, alcohol/drug use?"</td><td>Differential &amp; safety</td></tr>
+<tr><td>Risk / safeguarding</td><td>"Have you had thoughts of harming yourself or others?"</td><td>Risk formulation &amp; management</td></tr>
+</table>
+<div class="box warn">Always screen risk directly and early when indicated. A thorough assessment prevents the commonest cause of "treatment failure": an incorrect or incomplete formulation.</div>
+
+<h3>5.2 Cognitive conceptualisation diagram</h3>
+<p>The diagram links early experiences → core beliefs → rules/assumptions → to the "here-and-now" maintaining cycle of situation–thought–emotion–behaviour. Every box and arrow is explained beneath it. (Structure follows Beck, 2011, Ch. 3 &amp; 13–14.)</p>
+<div class="svgwrap" role="img" aria-label="Cognitive conceptualisation diagram from early experience to maintaining cycle">
+<svg viewBox="0 0 760 430" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI,sans-serif" font-size="12">
+<defs><marker id="a3" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#5b6cf0"/></marker></defs>
+<rect x="250" y="10" width="260" height="42" rx="9" fill="#eef0ff" stroke="#5b6cf0"/><text x="380" y="36" text-anchor="middle">Early / developmental experiences</text>
+<rect x="250" y="78" width="260" height="42" rx="9" fill="#f6eeff" stroke="#8a7bf0"/><text x="380" y="104" text-anchor="middle">Core beliefs (self / others / world)</text>
+<rect x="230" y="146" width="300" height="42" rx="9" fill="#f6eeff" stroke="#8a7bf0"/><text x="380" y="172" text-anchor="middle">Rules, attitudes &amp; assumptions ("If…then…")</text>
+<rect x="250" y="214" width="260" height="38" rx="9" fill="#fff5ea" stroke="#e0893a"/><text x="380" y="238" text-anchor="middle">Compensatory / coping strategies</text>
+<rect x="20"  y="300" width="150" height="40" rx="9" fill="#eef0ff" stroke="#5b6cf0"/><text x="95"  y="325" text-anchor="middle">Situation</text>
+<rect x="200" y="300" width="160" height="40" rx="9" fill="#f6eeff" stroke="#8a7bf0"/><text x="280" y="325" text-anchor="middle">Automatic thought</text>
+<rect x="390" y="300" width="140" height="40" rx="9" fill="#fdeaea" stroke="#e4668a"/><text x="460" y="325" text-anchor="middle">Emotion + body</text>
+<rect x="560" y="300" width="180" height="40" rx="9" fill="#e7f8f1" stroke="#2e9e6b"/><text x="650" y="325" text-anchor="middle">Behaviour (e.g. avoidance)</text>
+<g stroke="#5b6cf0" stroke-width="2" fill="none" marker-end="url(#a3)">
+<line x1="380" y1="52" x2="380" y2="76"/><line x1="380" y1="120" x2="380" y2="144"/><line x1="380" y1="188" x2="380" y2="212"/>
+<line x1="380" y1="252" x2="380" y2="298" stroke-dasharray="4 3"/>
+<line x1="170" y1="320" x2="198" y2="320"/><line x1="360" y1="320" x2="388" y2="320"/><line x1="530" y1="320" x2="558" y2="320"/>
+</g>
+<path d="M650,340 C650,400 95,400 95,342" stroke="#2e9e6b" stroke-width="2" fill="none" marker-end="url(#a3)" stroke-dasharray="5 4"/>
+<text x="380" y="418" text-anchor="middle" fill="#2e9e6b" font-size="11">maintaining cycle: behaviour feeds back &amp; strengthens beliefs</text>
+</svg>
+</div>
+<ul>
+<li><strong>Early experiences:</strong> formative events that seeded beliefs (not a cause to be "treated," but context).</li>
+<li><strong>Core beliefs:</strong> global, absolute ideas ("I'm unlovable," "the world is dangerous").</li>
+<li><strong>Rules/assumptions:</strong> conditional strategies protecting the core belief ("If I'm perfect, I won't be rejected").</li>
+<li><strong>Compensatory strategies:</strong> habitual coping (perfectionism, avoidance, over-pleasing).</li>
+<li><strong>Maintaining cycle:</strong> the here-and-now situation→thought→emotion→behaviour loop where change work concentrates.</li>
+</ul>
+<div class="box warn">Not every box applies to every case. Early CBT often works only at the maintaining-cycle level; deeper belief work is added when needed. Do not force developmental content where it isn't clinically useful.</div>
+
+<h3>5.3 Formulation vs diagnosis</h3>
+<table>
+<tr><th>Term</th><th>Answers the question…</th></tr>
+<tr><td>Diagnosis</td><td>"Which clinical syndrome is this?" (a category)</td></tr>
+<tr><td>Case formulation</td><td>"Why is <em>this</em> person having <em>these</em> difficulties, and what keeps them going?" (an individual explanation)</td></tr>
+<tr><td>Cognitive conceptualisation</td><td>"How do their beliefs/behaviours fit the cognitive model?"</td></tr>
+<tr><td>Treatment plan</td><td>"Given the formulation, what will we do, in what order?"</td></tr>
+<tr><td>Risk formulation</td><td>"What raises/lowers risk, and how will we manage it?"</td></tr>
+</table>
+<div class="box eg"><strong>Worked (fictional):</strong> Two people both meet criteria for <em>panic disorder</em> (same diagnosis). Person A catastrophically misreads heart palpitations as "a heart attack"; Person B misreads derealisation as "going mad." Same diagnosis, <strong>different formulations</strong> → different foci (interoceptive exposure to cardiac sensations vs. testing the "losing my mind" belief).</div>
+
+<h3>5.4 The 5 Ps and CBT</h3>
+<table>
+<tr><th>P</th><th>Meaning</th><th>Fictional example (low mood)</th></tr>
+<tr><td>Presenting</td><td>Current problems</td><td>Low mood, withdrawal, poor sleep</td></tr>
+<tr><td>Predisposing</td><td>Vulnerabilities</td><td>Critical upbringing → "I'm not good enough"</td></tr>
+<tr><td>Precipitating</td><td>Triggers</td><td>Redundancy 2 months ago</td></tr>
+<tr><td>Perpetuating</td><td>Maintaining factors</td><td>Inactivity, rumination, avoiding friends</td></tr>
+<tr><td>Protective</td><td>Strengths/supports</td><td>Supportive partner, prior good functioning, motivation</td></tr>
+</table>
+<p>The 5 Ps give the <em>broad</em> map; the cognitive conceptualisation gives the <em>mechanistic</em> detail (which specific thoughts/behaviours maintain the problem). They complement, not replace, each other.</p>
+</section>
+
+<!-- ===================== PART 6 ===================== -->
+<section class="part" id="p6">
+<h2 class="part-h">Part 6 · The CBT Therapeutic Relationship</h2>
+<p>CBT depends on a <strong>collaborative</strong> alliance: empathy, transparency, shared goals/agenda, validation, and genuine teamwork ("collaborative empiricism"). Below, dialogues show skilled vs. less-helpful responses.</p>
+<div class="dialogue">
+<p class="pt">Patient: "I did the thought record but it felt pointless — nothing changed."</p>
+<p class="t">Therapist (skilled): "Thanks for being honest — that's really useful feedback. Let's look at one together and see where it got stuck; sometimes a thought record points us to a belief that needs a different approach."</p>
+<p><em>Why appropriate:</em> validates, stays collaborative, treats "failure" as data. <em>Less helpful:</em> "You need to keep doing them properly" (blaming, non-collaborative).</p>
+</div>
+<div class="dialogue">
+<p class="pt">Patient: "I don't think talking about my thoughts will help someone like me."</p>
+<p class="t">Therapist: "That makes sense given what you've been through. Would you be willing to treat the first couple of sessions as an experiment — we test whether this helps <em>you</em> specifically, and you decide?"</p>
+<p><em>Why appropriate:</em> validates doubt, offers autonomy, models empiricism. <em>Less helpful:</em> "CBT is evidence-based, it will work" (dismissive of the person's experience).</p>
+</div>
+<table>
+<tr><th>Relationship skill</th><th>In practice</th></tr>
+<tr><td>Empathy &amp; validation</td><td>Reflect feeling before problem-solving</td></tr>
+<tr><td>Collaboration &amp; agenda-setting</td><td>"What should we put on today's agenda?"</td></tr>
+<tr><td>Shared goal setting</td><td>Goals are the patient's, operationalised together</td></tr>
+<tr><td>Transparency</td><td>Explain the rationale for every technique</td></tr>
+<tr><td>Guided discovery &amp; feedback</td><td>Ask, don't tell; invite feedback each session</td></tr>
+<tr><td>Cultural humility</td><td>Ask about the meaning of beliefs in the person's culture</td></tr>
+<tr><td>Managing ruptures / disagreement / low motivation / missed homework</td><td>Name it non-defensively, explore collaboratively, adjust — never blame</td></tr>
+<tr><td>Balancing structure &amp; flexibility</td><td>Keep structure, but follow clinical need in crisis</td></tr>
+</table>
+</section>
+
+<!-- ===================== PART 7 ===================== -->
+<section class="part" id="p7">
+<h2 class="part-h">Part 7 · The Complete CBT Session Structure</h2>
+<p>A typical CBT session follows a predictable structure (Beck, 2011, Ch. 4–8). Structure aids efficiency but is <strong>flexible</strong> — it bends to the patient's needs and the protocol.</p>
+<ol>
+<li><strong>Preparation</strong> — review notes, last session, homework set.</li>
+<li><strong>Mood/symptom check</strong> — brief measure or rating.</li>
+<li><strong>Risk / major changes</strong> — screened when indicated.</li>
+<li><strong>Bridge from last session</strong> — "What stood out from last time?"</li>
+<li><strong>Homework review</strong> — always review what was set (non-review teaches patients it doesn't matter).</li>
+<li><strong>Agenda setting</strong> — collaboratively pick 1–2 targets.</li>
+<li><strong>Target problem</strong> — select the focus.</li>
+<li><strong>Intervention</strong> — apply the chosen technique.</li>
+<li><strong>Summarise learning</strong> — patient states the take-away.</li>
+<li><strong>New homework</strong> — collaboratively agreed, started in-session where possible.</li>
+<li><strong>Feedback</strong> — "Anything I got wrong or that bothered you today?"</li>
+<li><strong>Record &amp; plan next</strong>.</li>
+</ol>
+<div class="box tip">Commonly used every session: check-in, homework review, agenda, intervention, summary, new homework, feedback. Flexible/conditional: risk review, formal measures, and which intervention — these depend on the patient and the protocol.</div>
+<h3>Five sample scenarios (fictional)</h3>
+<details open><summary>A. Standard 50-minute session</summary><div class="inner"><p>Check-in (mood 4/10) → bridge → homework review (thought record completed) → agenda: "work stress" + "sleep" → intervention: evaluate the hot thought "I'll be fired," generate balanced response → summary → homework: behavioural experiment at work; sleep-window plan → feedback.</p></div></details>
+<details><summary>B. Shorter (25-minute) session</summary><div class="inner"><p>Tighter agenda: one target only. Check-in → quick homework review → single technique (e.g., set up one behavioural experiment) → summary + homework + feedback. Therapist language: "We've limited time, so let's pick the one thing most useful today."</p></div></details>
+<details><summary>C. Patient arrives distressed</summary><div class="inner"><p>Structure <em>bends</em>: validate and contain first ("Let's slow down — you're safe here"), assess risk, use a grounding/affect-regulation skill, and <em>collaboratively</em> decide whether to address the crisis as the agenda. Do not force the planned technique.</p></div></details>
+<details><summary>D. Homework not completed</summary><div class="inner"><p>Explore non-judgementally: was it lack of opportunity, unclear rationale, too hard, or avoidance? "No-lose" framing — understanding the barrier <em>is</em> useful. Re-grade the task, start it in-session, problem-solve reminders.</p></div></details>
+<details><summary>E. Planned intervention not appropriate today</summary><div class="inner"><p>If new information changes the picture (e.g., a fresh stressor, safety concern, or the formulation was off), the therapist transparently re-prioritises: "Given what you've told me, I think today it's more useful to…", and revisits the formulation.</p></div></details>
+</section>
+
+<!-- ===================== PART 8 ===================== -->
+<section class="part" id="p8">
+<h2 class="part-h">Part 8 · All Major CBT Techniques</h2>
+<p>Organised by clinical purpose. Each technique: definition, rationale, indications, cautions, steps, example language, a fictional example, common errors, and the matching worksheet (see <a href="#worksheet-library">Part 14</a>).</p>
+
+<h3>8.1 Assessment &amp; monitoring techniques</h3>
+<details open><summary>Functional analysis / ABC analysis (Antecedent–Behaviour–Consequence)</summary><div class="inner">
+<p><strong>Definition:</strong> mapping what comes before a behaviour (A), the behaviour (B), and what follows (C). <strong>Rationale:</strong> reveals the reinforcement maintaining the behaviour. <strong>Indications:</strong> almost any behavioural problem. <strong>Steps:</strong> record several real episodes → identify the pattern → target the maintaining consequence. <strong>Example language:</strong> "Walk me through one specific time — what set it off, what you did, and what happened right after." <strong>Error:</strong> analysing in the abstract instead of specific episodes. <strong>Worksheet:</strong> Functional analysis / ABC.</p></div></details>
+<details><summary>Self-monitoring (mood, thoughts, activity, symptoms)</summary><div class="inner">
+<p><strong>Definition:</strong> the patient records target experiences in real time. <strong>Rationale:</strong> accurate data, raises awareness, builds the formulation, gives a baseline. <strong>Caution:</strong> monitoring can increase focus on symptoms (e.g., in health anxiety) — use judiciously. <strong>Error:</strong> retrospective guessing instead of in-the-moment logging. Rating scales <em>screen/monitor</em> — they are not diagnoses.</p></div></details>
+
+<h3>8.2 Cognitive techniques</h3>
+<details open><summary>Identifying &amp; evaluating automatic thoughts (thought records)</summary><div class="inner">
+<p><strong>Definition:</strong> catching the quick, situation-specific thoughts that drive emotion, then examining them. <strong>Steps:</strong> situation → emotion (rate %) → automatic thought (rate belief %) → evidence for/against → balanced alternative → re-rate. <strong>Example language:</strong> "What went through your mind just then? If that thought is true, what would it mean?" <strong>Error:</strong> jumping to "balanced thoughts" before genuinely eliciting the hot thought. (Beck, 2011, Ch. 9–12.)</p></div></details>
+<details><summary>Socratic questioning &amp; guided discovery</summary><div class="inner"><p>Open questions that broaden perspective: evidence? alternative explanations? what would you tell a friend? how useful is this thought? <strong>Error:</strong> using questions to argue the patient into the "right" answer.</p></div></details>
+<details><summary>Decatastrophising &amp; probability re-estimation</summary><div class="inner"><p>"What's the worst / best / most likely? If the worst happened, how would you cope?" Re-estimating both the <em>probability</em> and one's <em>coping ability</em>. <strong>Error:</strong> dismissing the feared outcome rather than realistically appraising it and coping.</p></div></details>
+<details><summary>Examining the evidence, alternatives, continuum, double-standard, responsibility pie, cost–benefit, reattribution</summary><div class="inner"><p>A toolkit for testing distorted conclusions: list evidence for/against; generate alternatives; place an "all-or-nothing" judgement on a continuum; apply the standard you'd apply to a friend (double-standard); divide responsibility in a pie chart; weigh the costs/benefits of a belief or behaviour; reattribute causes more accurately.</p></div></details>
+<details><summary>Downward arrow → intermediate &amp; core beliefs; positive data log; coping cards</summary><div class="inner"><p>The downward-arrow ("If that were true, what would it mean about you?") reaches assumptions and core beliefs. New, healthier beliefs are strengthened with a <em>positive data log</em> (daily evidence for the new belief) and portable <em>coping cards</em>. (Beck, 2011, Ch. 13–14.)</p></div></details>
+<details><summary>Imagery techniques</summary><div class="inner"><p>Working with distressing images/memories (e.g., transforming or rescripting a recurrent image) when the evidence and model support it. <strong>Caution:</strong> trauma imagery work requires appropriate training and a suitable protocol.</p></div></details>
+<div class="box warn">Cognitive restructuring is <strong>not</strong> forced positive thinking, arguing, or invalidating real problems. When a thought is <em>true</em> (a genuine difficulty), switch to problem-solving, not disputation.</div>
+
+<h3>8.3 Behavioural techniques</h3>
+<details open><summary>Behavioural activation &amp; activity scheduling</summary><div class="inner"><p><strong>For:</strong> depression. <strong>Rationale:</strong> withdrawal removes reinforcement → lower mood → more withdrawal; scheduling valued/mastery/pleasure activity reverses the loop. <strong>Steps:</strong> monitor activity–mood → schedule graded activities → review. <strong>Error:</strong> overloading an exhausted patient; start small and graded. (Beck, 2011, Ch. 6.)</p></div></details>
+<details><summary>Graded exposure (in-vivo, imaginal, interoceptive) &amp; ERP</summary><div class="inner"><p><strong>For:</strong> anxiety, phobias, OCD (as ERP), PTSD (specialised). <strong>Rationale:</strong> approaching the feared cue while dropping avoidance/safety behaviours enables new, safer learning. <strong>Steps:</strong> build a fear hierarchy → agree predictions → expose, stay until learning occurs, drop safety behaviours → review what was learned. <strong>Caution:</strong> select and adapt per disorder, formulation, safety, and protocol; never coerce.</p></div></details>
+<details><summary>Behavioural experiments</summary><div class="inner"><p><strong>Definition:</strong> a planned real-world test of a specific belief ("If I blush, people will laugh"). <strong>Steps:</strong> state belief + prediction (rate %) → design the test → run it → record the actual outcome → update the belief. <strong>Distinct from exposure:</strong> an experiment's aim is to <em>test a belief</em> (any emotion); exposure's aim is new <em>fear</em> learning; activation's aim is restoring <em>reinforcement</em>.</p></div></details>
+<details><summary>Problem-solving, assertiveness, social skills, relaxation/breathing, stimulus control, response prevention, reducing safety behaviours, activity pacing, sleep interventions</summary><div class="inner"><p>Skill-building and behaviour-change methods matched to the maintaining mechanism. <strong>Caution:</strong> relaxation/breathing can become a <em>safety behaviour</em> in panic if used to "prevent" catastrophe — use for general arousal, not as a crutch that blocks disconfirmation.</p></div></details>
+
+<h3>8.4 Advanced interventions</h3>
+<p>Core-belief modification, schema-level work within CBT, imagery rescripting (where evidence/model support it), experiments targeting deep beliefs, relapse-signature work, and testing predictions in real life. <span class="box warn" style="display:block">Clearly separate standard CBT methods from techniques originating in related therapies (schema therapy, ACT, DBT); name the source and use within your competence.</span></p>
+
+<h3>8.5 Engagement &amp; adherence techniques</h3>
+<p>Motivational enhancement within CBT, collaborative goal-setting, graded commitment, strengths-based reinforcement, exploring ambivalence, reviewing homework barriers, and using feedback/progress data to adjust the plan.</p>
+</section>
+
+<!-- ===================== PART 9 ===================== -->
+<section class="part" id="p9">
+<h2 class="part-h">Part 9 · CBT Technique Selection</h2>
+<p>Select interventions by the <strong>maintaining mechanism</strong> in the formulation — never from a symptom label alone. Combine with evidence, patient preference, safety, and progress data.</p>
+<table>
+<tr><th>Maintaining mechanism</th><th>First-line intervention</th></tr>
+<tr><td>Repeated catastrophic predictions</td><td>Thought evaluation + behavioural experiments</td></tr>
+<tr><td>Avoidance maintaining fear</td><td>Graded exposure (formulation-guided)</td></tr>
+<tr><td>Reduced activity / lost reinforcement</td><td>Behavioural activation</td></tr>
+<tr><td>Compulsions maintaining obsessional doubt</td><td>Exposure &amp; response prevention (ERP)</td></tr>
+<tr><td>Unhelpful conditional assumptions</td><td>Guided discovery + belief-testing experiments</td></tr>
+<tr><td>Practical, real-life difficulties</td><td>Structured problem-solving</td></tr>
+<tr><td>Maladaptive sleep habits</td><td>CBT-I procedures (stimulus control, sleep restriction)</td></tr>
+<tr><td>Safety behaviours blocking disconfirmation</td><td>Drop safety behaviours within experiments/exposure</td></tr>
+<tr><td>Self-focused attention (social anxiety)</td><td>Attention-refocusing + video/experiment feedback</td></tr>
+<tr><td>Worry about hypothetical events (GAD)</td><td>Worry-type sorting + problem-solving + uncertainty tolerance</td></tr>
+<tr><td>Rumination (depression)</td><td>Rumination-focused BA, attention training</td></tr>
+<tr><td>Negative self-beliefs driving the disorder</td><td>Core-belief work, positive data log, continuum</td></tr>
+</table>
+<div class="box warn">If two patients share a diagnosis but differ in mechanism, they need different techniques. Re-select whenever the formulation or progress data change.</div>
+</section>
+
+<!-- ===================== PART 10 ===================== -->
+<section class="part" id="p10">
+<h2 class="part-h">Part 10 · CBT for Different Disorders</h2>
+<p>Each disorder has its <strong>own maintaining model</strong> — the same protocol does <em>not</em> fit all. For the major disorders the full template is given; related presentations are summarised with their distinctive model and foci. Models are attributed to their originators where identifiable.</p>
+
+<details open><summary>1. Major Depressive Disorder</summary><div class="inner">
+<p><strong>Presentation:</strong> persistent low mood/anhedonia, negative view of self–world–future (Beck's cognitive triad), withdrawal, rumination, sleep/appetite change, hopelessness; screen suicide risk.</p>
+<p><strong>CBT model (Beck):</strong> negative automatic thoughts + inactivity → loss of reinforcement → worse mood → more withdrawal/rumination (maintaining loop).</p>
+<p><strong>Assessment:</strong> activity–mood monitoring, cognitive triad, rumination, hopelessness, risk; measures such as PHQ-9/BDI (monitoring, not diagnosis).</p>
+<div class="box eg"><strong>Formulation:</strong> "Raj," 34, post-redundancy; core belief "I'm a failure"; withdrawn, rumination; protective: supportive partner, motivation. Maintaining cycle: inactivity + self-critical thoughts → low mood → more inactivity.</div>
+<p><strong>Goals:</strong> short — resume 1 valued activity/day, start activity log; intermediate — evaluate self-critical thoughts, re-engage socially; long — mood within normal range, return to work; relapse-prevention — early-warning plan.</p>
+<p><strong>Techniques:</strong> behavioural activation first (often before cognitive work), activity scheduling, thought records on self-critical cognitions, problem-solving, core-belief work later, relapse prevention.</p>
+<p><strong>Brief plan:</strong> S1–2 assessment/formulation/psychoeducation + BA rationale; S3–5 activity scheduling + graded mastery/pleasure; S6–10 cognitive restructuring of triad thoughts; S11–14 core beliefs + relapse prevention. <strong>Limitations:</strong> severe depression may need activation-led/lower-intensity start, medication, or crisis care first.</p></div></details>
+
+<details><summary>2. Generalised Anxiety Disorder (GAD)</summary><div class="inner">
+<p><strong>Model:</strong> chronic worry maintained by beliefs about worry (positive: "worry keeps me prepared"; negative: "worry is uncontrollable/harmful"), intolerance of uncertainty, and avoidance/reassurance. (Metacognitive &amp; intolerance-of-uncertainty models.)</p>
+<p><strong>Techniques:</strong> sort worries into <em>practical</em> (→ problem-solving) vs <em>hypothetical</em> (→ let-go / uncertainty tolerance); worry postponement; evaluate meta-beliefs; drop reassurance-seeking/checking. <strong>Worksheet:</strong> worry monitoring; worry problem-solving vs hypothetical. <strong>Caution:</strong> relaxation alone is weak for GAD; target the worry process.</p></div></details>
+
+<details><summary>3. Panic Disorder</summary><div class="inner">
+<p><strong>Model (Clark, 1986):</strong> catastrophic misinterpretation of benign bodily sensations ("palpitations = heart attack") → escalating fear → more sensations (vicious cycle); safety behaviours prevent disconfirmation.</p>
+<p><strong>Techniques:</strong> psychoeducation on the panic cycle; interoceptive exposure (induce feared sensations); behavioural experiments to test the catastrophe; drop safety behaviours; reduce avoidance. <strong>Worksheet:</strong> panic cycle.</p></div></details>
+
+<details><summary>4. Agoraphobia</summary><div class="inner"><p><strong>Model:</strong> avoidance of situations where escape/help feels hard, maintained by anticipatory anxiety + safety behaviours. <strong>Techniques:</strong> graded in-vivo exposure hierarchy, dropping safety behaviours, behavioural experiments; often combined with panic treatment.</p></div></details>
+
+<details><summary>5. Social Anxiety Disorder</summary><div class="inner">
+<p><strong>Model (Clark &amp; Wells, 1995):</strong> in feared social situations, attention shifts <em>inward</em> (self-focused attention), the person constructs a distorted negative self-image, uses safety behaviours, and engages in anticipatory/post-event processing. <strong>Techniques:</strong> shift attention externally; drop safety behaviours; video/observer feedback experiments; address pre/post-event rumination. <strong>Worksheet:</strong> self-focused attention &amp; safety-behaviour record.</p></div></details>
+
+<details><summary>6. Specific Phobias</summary><div class="inner"><p><strong>Model:</strong> conditioned fear + avoidance preventing new learning. <strong>Techniques:</strong> graded in-vivo exposure (often rapid/one-session for circumscribed phobias), behavioural experiments, dropping avoidance.</p></div></details>
+
+<details><summary>7. Obsessive–Compulsive Disorder (OCD)</summary><div class="inner">
+<p><strong>Model (Salkovskis):</strong> normal intrusive thoughts are appraised as signalling responsibility/threat → distress → compulsions/neutralising → short-term relief (negative reinforcement) → intrusions persist. <strong>Repository source:</strong> David A. Clark, <em>CBT for OCD</em> (scanned; see note in Part 24). <strong>Techniques:</strong> ERP (exposure to triggers + prevention of compulsions), appraising responsibility, behavioural experiments. <strong>Worksheets:</strong> obsession–compulsion cycle; ERP planning. <strong>Caution:</strong> reassurance is a compulsion — don't provide it.</p></div></details>
+
+<details><summary>8. Post-Traumatic Stress Disorder (PTSD)</summary><div class="inner">
+<p><strong>Model (Ehlers &amp; Clark, 2000):</strong> a sense of <em>current</em> threat from poorly elaborated trauma memory + negative appraisals + maintaining strategies (avoidance, rumination, safety behaviours). <strong>Techniques (trauma-focused CBT):</strong> reclaiming-your-life activities, imaginal reliving/updating the memory, stimulus discrimination, site visits, cognitive restructuring of appraisals. <strong>Caution:</strong> requires specific training and a suitable protocol; stabilise and assess risk first.</p></div></details>
+
+<details><summary>9–10. Health Anxiety / Illness Anxiety</summary><div class="inner"><p><strong>Model:</strong> catastrophic misinterpretation of bodily signs as serious illness, maintained by body-checking, reassurance-seeking, symptom-monitoring, and avoidance. <strong>Techniques:</strong> reduce checking/reassurance; behavioural experiments; re-attribute sensations; limit online symptom-searching. <strong>Worksheet:</strong> health anxiety monitoring &amp; experiment.</p></div></details>
+
+<details><summary>11. Insomnia (CBT-I)</summary><div class="inner"><p><strong>Model:</strong> conditioned arousal + maladaptive habits (irregular schedule, time-in-bed awake) + unhelpful beliefs about sleep. <strong>Techniques:</strong> stimulus control, sleep restriction/compression, sleep hygiene, cognitive work on sleep beliefs. <strong>Worksheet:</strong> sleep diary.</p></div></details>
+
+<details><summary>12. Eating Disorders</summary><div class="inner"><p><strong>Model (CBT-E, Fairburn):</strong> over-evaluation of shape/weight/control drives dietary restraint, binge–purge cycles, checking/avoidance. <strong>Techniques:</strong> regular eating, self-monitoring, addressing over-evaluation, behavioural experiments. <strong>Caution:</strong> medical monitoring essential; some presentations need specialist/inpatient care.</p></div></details>
+
+<details><summary>13. Substance Use &amp; Relapse Prevention</summary><div class="inner"><p><strong>Model:</strong> cues → cravings/permissive beliefs → use → reinforcement. <strong>Techniques:</strong> functional analysis of use, identifying high-risk situations, coping with cravings, refusal skills, relapse-prevention plan; motivational work on ambivalence. <strong>Worksheet:</strong> substance trigger &amp; craving record.</p></div></details>
+
+<details><summary>14. Psychosis &amp; schizophrenia-spectrum</summary><div class="inner"><p>Covered in depth in <a href="#p11">Part 11</a> (repository priority source: Hagen, Turkington, Berge &amp; Gråwe).</p></div></details>
+
+<details><summary>15. Bipolar Disorder</summary><div class="inner"><p><strong>CBT as adjunct</strong> to medication: psychoeducation, mood monitoring, identifying prodromes/early-warning signs, regulating routines/sleep, relapse-prevention action plans. <strong>Caution:</strong> CBT does not replace pharmacological management; evidence is strongest for relapse prevention and adjunctive use.</p></div></details>
+
+<details><summary>16–22. Chronic pain · Anger · Body Dysmorphic Disorder · Hoarding · Somatic symptom presentations · Personality-related difficulties</summary><div class="inner">
+<ul>
+<li><strong>Chronic pain:</strong> pain–activity–mood cycle; pacing, graded activity, cognitive work on pain beliefs, acceptance where helpful.</li>
+<li><strong>Anger:</strong> trigger → appraisal ("disrespect") → arousal → aggression; techniques: trigger analysis, cognitive reappraisal, arousal reduction, assertiveness, time-out.</li>
+<li><strong>BDD:</strong> appraisal of perceived defect + mirror-checking/avoidance/comparing; ERP-style experiments, attention retraining; caution re: reassurance and cosmetic procedures.</li>
+<li><strong>Hoarding:</strong> beliefs about possessions + distress on discarding + avoidance; graded sorting/discarding experiments, decision-making skills.</li>
+<li><strong>Somatic symptom presentations:</strong> symptom focus + checking + illness beliefs; re-attribution, reduce checking, activity. Rule out medical causes.</li>
+<li><strong>Personality-related difficulties:</strong> schema-level and longer-term CBT approaches; often needs DBT/schema-therapy elements — name the source and work within competence.</li>
+</ul></div></details>
+</section>
+
+<!-- ===================== PART 11 ===================== -->
+<section class="part" id="p11">
+<h2 class="part-h">Part 11 · CBT for Psychosis (CBTp)</h2>
+<div class="box src">Priority repository source: Hagen, Turkington, Berge &amp; Gråwe, <em>CBT for Psychosis: A Symptom-based Approach</em>. Supplemented by current clinical guidance (e.g., NICE recommends CBTp for people with psychosis/schizophrenia) and the normalising tradition associated with Turkington and colleagues. Statements below distinguish established recommendations from areas requiring clinical judgement.</div>
+<p><strong>Rationale:</strong> CBTp does not aim to "argue someone out of" beliefs or experiences. It targets the <strong>distress and disruption</strong> linked to unusual experiences by building a collaborative, normalising understanding and testing threat-related appraisals gently.</p>
+<h3>Core stance &amp; methods</h3>
+<ul>
+<li><strong>Engagement first</strong> — warmth, time, the person's own goals; go at their pace.</li>
+<li><strong>Collaborative formulation</strong> of how experiences, appraisals, emotions and coping interact.</li>
+<li><strong>Normalising</strong> — placing unusual experiences on a continuum with ordinary experience (e.g., under stress/sleep loss) to reduce fear and shame, where appropriate.</li>
+<li><strong>Assess the appraisal, not just the experience</strong> — distress depends on meaning, conviction, preoccupation, and perceived power/threat of voices or beliefs.</li>
+<li><strong>Work with threat beliefs &amp; safety behaviours</strong>; explore <em>alternative explanations</em> collaboratively.</li>
+<li><strong>Coping strategies for voices</strong> (e.g., focusing/refocusing, scheduling, reducing isolation).</li>
+<li><strong>Carefully-formulated behavioural experiments</strong>, adapted to safety and engagement.</li>
+<li><strong>Negative symptoms/activity</strong> — graded activity, addressing defeatist beliefs, when indicated.</li>
+<li><strong>Relapse prevention</strong> and integration with psychiatric/multidisciplinary care and medication.</li>
+</ul>
+<div class="svgwrap" role="img" aria-label="CBTp maintenance formulation: trigger, unusual experience, appraisal, emotion, safety behaviour">
+<svg viewBox="0 0 760 210" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI,sans-serif" font-size="12">
+<defs><marker id="a4" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#5b6cf0"/></marker></defs>
+<rect x="20" y="80" width="130" height="46" rx="9" fill="#eef0ff" stroke="#5b6cf0"/><text x="85" y="100" text-anchor="middle">Trigger / stress</text><text x="85" y="116" text-anchor="middle">(e.g. poor sleep)</text>
+<rect x="180" y="80" width="140" height="46" rx="9" fill="#f6eeff" stroke="#8a7bf0"/><text x="250" y="100" text-anchor="middle">Unusual experience</text><text x="250" y="116" text-anchor="middle">(voice / anomaly)</text>
+<rect x="350" y="80" width="150" height="46" rx="9" fill="#fff5ea" stroke="#e0893a"/><text x="425" y="100" text-anchor="middle">Appraisal</text><text x="425" y="116" text-anchor="middle">("it's dangerous/powerful")</text>
+<rect x="530" y="80" width="110" height="46" rx="9" fill="#fdeaea" stroke="#e4668a"/><text x="585" y="106" text-anchor="middle">Distress</text>
+<rect x="500" y="150" width="200" height="40" rx="9" fill="#e7f8f1" stroke="#2e9e6b"/><text x="600" y="174" text-anchor="middle">Safety behaviour / avoidance</text>
+<g stroke="#5b6cf0" stroke-width="2" fill="none" marker-end="url(#a4)">
+<line x1="150" y1="103" x2="178" y2="103"/><line x1="320" y1="103" x2="348" y2="103"/><line x1="500" y1="103" x2="528" y2="103"/>
+<line x1="585" y1="126" x2="600" y2="148"/></g>
+<path d="M500,170 C300,200 250,170 250,128" stroke="#2e9e6b" stroke-width="2" fill="none" marker-end="url(#a4)" stroke-dasharray="5 4"/>
+<text x="360" y="205" text-anchor="middle" fill="#2e9e6b" font-size="11">safety behaviours prevent disconfirmation → appraisal persists</text>
+</svg>
+</div>
+<div class="box eg"><strong>Fictional case:</strong> "Sam," 24, hears a critical voice he believes is an all-powerful entity that will harm him if disobeyed; he stays home and avoids eye contact (safety behaviours). Collaborative formulation links sleep loss + isolation → more voice activity → threat appraisal → avoidance → isolation. Work: normalising, sleep/activity, gently testing the voice's "power" through small, safe behavioural experiments, alternative explanations — alongside his psychiatric care.</div>
+<h3>Asking respectfully — sample dialogue</h3>
+<div class="dialogue">
+<p class="t">Therapist: "You mentioned hearing a voice. I'd really like to understand your experience — would it be okay to ask a bit about it? There are no wrong answers."</p>
+<p class="pt">Patient: "You'll think I'm mad."</p>
+<p class="t">Therapist: "Not at all — lots of people have experiences like this, especially under stress. I'm interested in <em>what it's like for you</em> and what the voice seems to mean. When is it strongest?"</p>
+<p><em>Why appropriate:</em> collaborative, normalising, explores meaning/context — it does <strong>not</strong> argue about whether the voice is "real."</p>
+</div>
+<p><strong>Phase plan:</strong> Phase 1 engagement &amp; assessment → Phase 2 collaborative formulation &amp; normalising → Phase 3 working with appraisals, coping, safety behaviours, experiments → Phase 4 negative symptoms/activity &amp; relapse prevention. Adapt for cognitive difficulties, fluctuating symptoms, and limited engagement (shorter sessions, concrete language, flexible pacing).</p>
+<div class="box warn">CBTp complements — never replaces — psychiatric care. Evidence supports reducing distress and some symptom-related outcomes; magnitude of effect and targets require clinical judgement and should not be over-stated.</div>
+</section>
+
+<!-- ===================== PART 12 ===================== -->
+<section class="part" id="p12">
+<h2 class="part-h">Part 12 · Detailed Session-by-Session Treatment Plans</h2>
+<div class="box warn">Session counts are <strong>illustrative, not fixed</strong>. Duration varies with severity, complexity, comorbidity, service protocol, and response. For complex presentations a rigid protocol is unsuitable.</div>
+<h3>Example: Panic Disorder (~10–14 sessions)</h3>
+<table>
+<tr><th>Phase/Session</th><th>Objective</th><th>Intervention</th><th>Therapist prompt</th><th>Homework</th><th>Progress criterion</th></tr>
+<tr><td>S1–2</td><td>Assess &amp; formulate</td><td>History, panic cycle, measures, goals</td><td>"Walk me through your last panic attack."</td><td>Panic diary</td><td>Shared formulation agreed</td></tr>
+<tr><td>S3–4</td><td>Psychoeducation</td><td>Explain the vicious cycle; myth-busting</td><td>"What do you fear these sensations mean?"</td><td>Read &amp; rate belief</td><td>Understands cycle</td></tr>
+<tr><td>S5–7</td><td>Test catastrophe</td><td>Interoceptive exposure + experiments</td><td>"Let's bring on the sensation safely and see what happens."</td><td>Daily interoceptive practice</td><td>Catastrophe belief ↓</td></tr>
+<tr><td>S8–10</td><td>Reduce avoidance/safety behaviours</td><td>In-vivo exposure, drop crutches</td><td>"What would you do if you weren't carrying water?"</td><td>Situational exposure</td><td>Avoidance ↓, function ↑</td></tr>
+<tr><td>S11–14</td><td>Consolidate &amp; prevent relapse</td><td>Review, maintenance plan</td><td>"What will you do if a panic returns?"</td><td>Relapse plan</td><td>Maintains gains</td></tr>
+</table>
+<p><strong>Roadmaps for other disorders</strong> follow the same logic: assess → formulate → psychoeducate → set goals → mechanism-matched technique → between-session practice → monitor → review → consolidate → relapse prevention → discharge. Detailed per-disorder foci are in Part 10; worksheets to support each are in Part 14.</p>
+</section>
+
+<!-- ===================== PART 13 ===================== -->
+<section class="part" id="p13">
+<h2 class="part-h">Part 13 · Short-Term &amp; Long-Term Goals</h2>
+<ul>
+<li><strong>Broad vs operationalised:</strong> "feel better" → "walk 20 min, 4×/week, and rate mood daily."</li>
+<li><strong>Symptom vs functional:</strong> reduce panic frequency <em>and</em> return to commuting.</li>
+<li><strong>SMART &amp; its limits:</strong> specific/measurable/achievable/relevant/time-bound — but avoid rigid targets that ignore clinical nuance.</li>
+<li><strong>Collaborative, prioritised, baselined, revisable</strong> as the formulation changes.</li>
+</ul>
+<table>
+<tr><th>Vague goal</th><th>Rewritten (specific, measurable)</th></tr>
+<tr><td>"Be less anxious"</td><td>"Attend the weekly team meeting without leaving early, 3 weeks running"</td></tr>
+<tr><td>"Be happier"</td><td>"Do 1 valued activity daily; raise mean weekly mood from 3 to 6/10"</td></tr>
+<tr><td>"Stop obsessing"</td><td>"Reduce checking the door from 15× to ≤2× per night"</td></tr>
+</table>
+<p>A reusable <strong>goal-setting worksheet</strong> is provided in <a href="#worksheet-library">Part 14</a>.</p>
+</section>
+<!-- ===================== PART 14 ===================== -->
+<section class="part" id="worksheet-library">
+<h2 class="part-h">Part 14 · Printable CBT Worksheet Library</h2>
+<p class="print-note">Every worksheet is a live form. Type directly into it, then use <strong>Print / Save as PDF</strong> (on each worksheet) or the toolbar's <strong>Print ALL worksheets</strong> button. Everything stays on your device — nothing is sent anywhere. Use <strong>Clear</strong> to reset a worksheet (it asks for confirmation first).</p>
+<div class="box warn">Do not enter real patient-identifying information. These are templates for supervised clinical use and teaching.</div>
+<div class="worksheet" id="ws-assessment">
+<div class="wh">
+<h4>1. Initial CBT Assessment</h4>
+<div class="ws-actions"><button class="print" onclick="printWS('ws-assessment')">🖨 Print / Save PDF</button><button class="clear" onclick="clearWS('ws-assessment')">Clear</button></div>
+</div>
+<div class="purpose"><strong>Purpose:</strong> Capture the core information needed to begin a CBT formulation. &nbsp;|&nbsp; <em>Use at intake; revisit as understanding grows.</em></div>
+<label>Presenting problem (patient&#x27;s words)</label><textarea></textarea>
+<label>Onset, course &amp; triggers</label><textarea></textarea>
+<label>Typical automatic thoughts / images</label><textarea></textarea>
+<label>Emotions &amp; physical sensations</label><textarea></textarea>
+<label>Behaviours / avoidance / safety behaviours</label><textarea></textarea>
+<label>Impact on functioning</label><textarea></textarea>
+<label>Strengths &amp; supports</label><textarea></textarea>
+<label>Risk notes</label><textarea></textarea>
+<label>Patient goals</label><textarea></textarea>
+</div>
+<div class="worksheet" id="ws-functional">
+<div class="wh">
+<h4>2. Functional Analysis / ABC</h4>
+<div class="ws-actions"><button class="print" onclick="printWS('ws-functional')">🖨 Print / Save PDF</button><button class="clear" onclick="clearWS('ws-functional')">Clear</button></div>
+</div>
+<div class="purpose"><strong>Purpose:</strong> Reveal what maintains a behaviour by mapping antecedents and consequences. &nbsp;|&nbsp; <em>Record several SPECIFIC episodes, not generalities.</em></div>
+<label>Antecedent (A) – situation/trigger</label><textarea></textarea>
+<label>Behaviour (B) – what you did</label><textarea></textarea>
+<label>Consequence (C) – what happened right after (short &amp; long term)</label><textarea></textarea>
+<label>Pattern noticed</label><textarea></textarea>
+</div>
+<div class="worksheet" id="ws-fivearea">
+<div class="wh">
+<h4>3. Five-Area CBT Model</h4>
+<div class="ws-actions"><button class="print" onclick="printWS('ws-fivearea')">🖨 Print / Save PDF</button><button class="clear" onclick="clearWS('ws-fivearea')">Clear</button></div>
+</div>
+<div class="purpose"><strong>Purpose:</strong> Map how situation, thoughts, emotions, body and behaviour interact in one episode. &nbsp;|&nbsp; <em>Great for psychoeducation.</em></div>
+<label>Situation</label><textarea></textarea>
+<label>Thoughts</label><textarea></textarea>
+<label>Emotions</label><textarea></textarea>
+<label>Physical sensations</label><textarea></textarea>
+<label>Behaviour</label><textarea></textarea>
+</div>
+<div class="worksheet" id="ws-fivep">
+<div class="wh">
+<h4>4. Five Ps Formulation</h4>
+<div class="ws-actions"><button class="print" onclick="printWS('ws-fivep')">🖨 Print / Save PDF</button><button class="clear" onclick="clearWS('ws-fivep')">Clear</button></div>
+</div>
+<div class="purpose"><strong>Purpose:</strong> Organise the case into Presenting, Predisposing, Precipitating, Perpetuating, Protective factors. &nbsp;|&nbsp; <em>Complements the cognitive conceptualisation.</em></div>
+<label>Presenting</label><textarea></textarea>
+<label>Predisposing</label><textarea></textarea>
+<label>Precipitating</label><textarea></textarea>
+<label>Perpetuating</label><textarea></textarea>
+<label>Protective</label><textarea></textarea>
+</div>
+<div class="worksheet" id="ws-conceptualisation">
+<div class="wh">
+<h4>5. Cognitive Conceptualisation</h4>
+<div class="ws-actions"><button class="print" onclick="printWS('ws-conceptualisation')">🖨 Print / Save PDF</button><button class="clear" onclick="clearWS('ws-conceptualisation')">Clear</button></div>
+</div>
+<div class="purpose"><strong>Purpose:</strong> Link early experience, core beliefs, assumptions and the maintaining cycle. &nbsp;|&nbsp; <em>Build collaboratively over several sessions.</em></div>
+<label>Relevant early experiences</label><textarea></textarea>
+<label>Core belief(s)</label><textarea></textarea>
+<label>Rules / assumptions</label><textarea></textarea>
+<label>Compensatory strategies</label><textarea></textarea>
+<label>Current situation → automatic thought → emotion → behaviour</label><textarea></textarea>
+</div>
+<div class="worksheet" id="ws-problemlist">
+<div class="wh">
+<h4>6. Problem List &amp; Prioritisation</h4>
+<div class="ws-actions"><button class="print" onclick="printWS('ws-problemlist')">🖨 Print / Save PDF</button><button class="clear" onclick="clearWS('ws-problemlist')">Clear</button></div>
+</div>
+<div class="purpose"><strong>Purpose:</strong> List problems and agree what to work on first. &nbsp;|&nbsp; <em>Prioritise by distress, impact and feasibility.</em></div>
+<label>Problems (list)</label><textarea></textarea>
+<label>Priority order &amp; why</label><textarea></textarea>
+<label>First target</label><input type="text">
+</div>
+<div class="worksheet" id="ws-goals">
+<div class="wh">
+<h4>7. Collaborative Treatment Goals</h4>
+<div class="ws-actions"><button class="print" onclick="printWS('ws-goals')">🖨 Print / Save PDF</button><button class="clear" onclick="clearWS('ws-goals')">Clear</button></div>
+</div>
+<div class="purpose"><strong>Purpose:</strong> Turn vague wishes into measurable, time-bound goals. &nbsp;|&nbsp; <em>Review and revise as therapy progresses.</em></div>
+<label>Main difficulty</label><textarea></textarea>
+<label>Desired change</label><textarea></textarea>
+<label>Current baseline</label><input type="text">
+<label>Short-term goal</label><textarea></textarea>
+<label>Long-term goal</label><textarea></textarea>
+<label>Observable indicators</label><textarea></textarea>
+<label>Barriers</label><textarea></textarea>
+<label>Skills needed</label><textarea></textarea>
+<label>Review date</label><input type="text">
+<label>Progress rating (0-10)</label><input type="text">
+</div>
+<div class="worksheet" id="ws-thoughtrecord">
+<div class="wh">
+<h4>8. 7-Column Thought Record</h4>
+<div class="ws-actions"><button class="print" onclick="printWS('ws-thoughtrecord')">🖨 Print / Save PDF</button><button class="clear" onclick="clearWS('ws-thoughtrecord')">Clear</button></div>
+</div>
+<div class="purpose"><strong>Purpose:</strong> Identify and evaluate a hot automatic thought. &nbsp;|&nbsp; <em>The core cognitive worksheet.</em></div>
+<label>Situation</label><textarea></textarea>
+<label>Emotion(s) &amp; rating %</label><input type="text">
+<label>Automatic thought (rate belief %)</label><textarea></textarea>
+<label>Evidence FOR the thought</label><textarea></textarea>
+<label>Evidence AGAINST the thought</label><textarea></textarea>
+<label>Balanced / alternative response</label><textarea></textarea>
+<label>Re-rate emotion &amp; belief %</label><input type="text">
+</div>
+<div class="worksheet" id="ws-evidence">
+<div class="wh">
+<h4>9. Evidence For &amp; Against</h4>
+<div class="ws-actions"><button class="print" onclick="printWS('ws-evidence')">🖨 Print / Save PDF</button><button class="clear" onclick="clearWS('ws-evidence')">Clear</button></div>
+</div>
+<div class="purpose"><strong>Purpose:</strong> Weigh the objective evidence for a specific belief. &nbsp;|&nbsp; <em>Avoid &#x27;arguing&#x27;; collect real evidence.</em></div>
+<label>Belief (rate % )</label><textarea></textarea>
+<label>Evidence for</label><textarea></textarea>
+<label>Evidence against</label><textarea></textarea>
+<label>More balanced conclusion</label><textarea></textarea>
+</div>
+<div class="worksheet" id="ws-decatas">
+<div class="wh">
+<h4>10. Decatastrophising</h4>
+<div class="ws-actions"><button class="print" onclick="printWS('ws-decatas')">🖨 Print / Save PDF</button><button class="clear" onclick="clearWS('ws-decatas')">Clear</button></div>
+</div>
+<div class="purpose"><strong>Purpose:</strong> Reduce catastrophic prediction by examining worst/best/most likely and coping. &nbsp;|&nbsp; <em>Include a coping plan, not just reassurance.</em></div>
+<label>Feared prediction</label><textarea></textarea>
+<label>Worst case</label><textarea></textarea>
+<label>Best case</label><textarea></textarea>
+<label>Most likely</label><textarea></textarea>
+<label>If worst happened, how would I cope?</label><textarea></textarea>
+</div>
+<div class="worksheet" id="ws-continuum">
+<div class="wh">
+<h4>11. Continuum Technique</h4>
+<div class="ws-actions"><button class="print" onclick="printWS('ws-continuum')">🖨 Print / Save PDF</button><button class="clear" onclick="clearWS('ws-continuum')">Clear</button></div>
+</div>
+<div class="purpose"><strong>Purpose:</strong> Soften all-or-nothing judgements by placing them on a scale. &nbsp;|&nbsp; <em>Good for perfectionism/self-criticism.</em></div>
+<label>All-or-nothing label (e.g. &#x27;a total failure&#x27;)</label><input type="text">
+<label>0% ---------- 100% scale: where do others sit?</label><textarea></textarea>
+<label>Where do I realistically sit, and why?</label><textarea></textarea>
+</div>
+<div class="worksheet" id="ws-pie">
+<div class="wh">
+<h4>12. Responsibility Pie Chart</h4>
+<div class="ws-actions"><button class="print" onclick="printWS('ws-pie')">🖨 Print / Save PDF</button><button class="clear" onclick="clearWS('ws-pie')">Clear</button></div>
+</div>
+<div class="purpose"><strong>Purpose:</strong> Distribute responsibility across all contributing factors. &nbsp;|&nbsp; <em>Reduces excessive self-blame.</em></div>
+<label>Event I blame myself for</label><textarea></textarea>
+<label>All contributing factors &amp; rough %</label><textarea></textarea>
+<label>My realistic share</label><input type="text">
+</div>
+<div class="worksheet" id="ws-downarrow">
+<div class="wh">
+<h4>13. Downward Arrow</h4>
+<div class="ws-actions"><button class="print" onclick="printWS('ws-downarrow')">🖨 Print / Save PDF</button><button class="clear" onclick="clearWS('ws-downarrow')">Clear</button></div>
+</div>
+<div class="purpose"><strong>Purpose:</strong> Uncover the underlying assumption/core belief behind a thought. &nbsp;|&nbsp; <em>Ask &#x27;If that were true, what would it mean?&#x27; repeatedly.</em></div>
+<label>Starting thought</label><textarea></textarea>
+<label>…which would mean…</label><textarea></textarea>
+<label>…which would mean…</label><textarea></textarea>
+<label>Underlying belief uncovered</label><textarea></textarea>
+</div>
+<div class="worksheet" id="ws-corebelief">
+<div class="wh">
+<h4>14. Core Belief Worksheet</h4>
+<div class="ws-actions"><button class="print" onclick="printWS('ws-corebelief')">🖨 Print / Save PDF</button><button class="clear" onclick="clearWS('ws-corebelief')">Clear</button></div>
+</div>
+<div class="purpose"><strong>Purpose:</strong> Weaken an old negative core belief and build a new one. &nbsp;|&nbsp; <em>Use with a positive data log.</em></div>
+<label>Old core belief (rate %)</label><input type="text">
+<label>New, more adaptive belief (rate %)</label><input type="text">
+<label>Evidence that supports the new belief</label><textarea></textarea>
+<label>Reframing evidence that seemed to support the old belief</label><textarea></textarea>
+</div>
+<div class="worksheet" id="ws-datalog">
+<div class="wh">
+<h4>15. Positive Data Log</h4>
+<div class="ws-actions"><button class="print" onclick="printWS('ws-datalog')">🖨 Print / Save PDF</button><button class="clear" onclick="clearWS('ws-datalog')">Clear</button></div>
+</div>
+<div class="purpose"><strong>Purpose:</strong> Collect daily evidence supporting a new, healthier belief. &nbsp;|&nbsp; <em>Counteracts the mind&#x27;s negative filter.</em></div>
+<label>New belief I&#x27;m strengthening</label><input type="text">
+<label>Today&#x27;s evidence for it</label><textarea></textarea>
+</div>
+<div class="worksheet" id="ws-copingcard">
+<div class="wh">
+<h4>16. Coping Card</h4>
+<div class="ws-actions"><button class="print" onclick="printWS('ws-copingcard')">🖨 Print / Save PDF</button><button class="clear" onclick="clearWS('ws-copingcard')">Clear</button></div>
+</div>
+<div class="purpose"><strong>Purpose:</strong> A portable reminder of a balanced response or coping plan. &nbsp;|&nbsp; <em>Keep it on your phone/wallet.</em></div>
+<label>Trigger / unhelpful thought</label><textarea></textarea>
+<label>Balanced response / coping statement</label><textarea></textarea>
+</div>
+<div class="worksheet" id="ws-behexp">
+<div class="wh">
+<h4>17. Behavioural Experiment Record</h4>
+<div class="ws-actions"><button class="print" onclick="printWS('ws-behexp')">🖨 Print / Save PDF</button><button class="clear" onclick="clearWS('ws-behexp')">Clear</button></div>
+</div>
+<div class="purpose"><strong>Purpose:</strong> Design and run a real-world test of a belief. &nbsp;|&nbsp; <em>State the prediction BEFORE the test.</em></div>
+<label>Belief to test (rate %)</label><textarea></textarea>
+<label>Prediction</label><textarea></textarea>
+<label>The experiment (what, when, where)</label><textarea></textarea>
+<label>Safety behaviours to drop</label><textarea></textarea>
+<label>Actual outcome</label><textarea></textarea>
+<label>What I learned (re-rate belief %)</label><textarea></textarea>
+</div>
+<div class="worksheet" id="ws-activitymon">
+<div class="wh">
+<h4>18. Activity &amp; Mood Monitoring</h4>
+<div class="ws-actions"><button class="print" onclick="printWS('ws-activitymon')">🖨 Print / Save PDF</button><button class="clear" onclick="clearWS('ws-activitymon')">Clear</button></div>
+</div>
+<div class="purpose"><strong>Purpose:</strong> Record activities and mood to find patterns. &nbsp;|&nbsp; <em>Baseline for behavioural activation.</em></div>
+<label>Day / time</label><input type="text">
+<label>Activity</label><textarea></textarea>
+<label>Mood (0-10)</label><input type="text">
+<label>Mastery / Pleasure (0-10)</label><input type="text">
+</div>
+<div class="worksheet" id="ws-activation">
+<div class="wh">
+<h4>19. Behavioural Activation Plan</h4>
+<div class="ws-actions"><button class="print" onclick="printWS('ws-activation')">🖨 Print / Save PDF</button><button class="clear" onclick="clearWS('ws-activation')">Clear</button></div>
+</div>
+<div class="purpose"><strong>Purpose:</strong> Schedule valued, mastery and pleasure activities. &nbsp;|&nbsp; <em>Start small and graded.</em></div>
+<label>Valued activity</label><textarea></textarea>
+<label>When / where</label><input type="text">
+<label>Predicted vs actual mood (0-10)</label><input type="text">
+<label>Barriers &amp; plan</label><textarea></textarea>
+</div>
+<div class="worksheet" id="ws-gradedtask">
+<div class="wh">
+<h4>20. Graded Task Assignment</h4>
+<div class="ws-actions"><button class="print" onclick="printWS('ws-gradedtask')">🖨 Print / Save PDF</button><button class="clear" onclick="clearWS('ws-gradedtask')">Clear</button></div>
+</div>
+<div class="purpose"><strong>Purpose:</strong> Break an avoided task into achievable steps. &nbsp;|&nbsp; <em>Success breeds momentum.</em></div>
+<label>Overall task</label><textarea></textarea>
+<label>Step 1 (easiest)</label><input type="text">
+<label>Step 2</label><input type="text">
+<label>Step 3</label><input type="text">
+<label>Step 4 (goal)</label><input type="text">
+</div>
+<div class="worksheet" id="ws-hierarchy">
+<div class="wh">
+<h4>21. Fear Hierarchy</h4>
+<div class="ws-actions"><button class="print" onclick="printWS('ws-hierarchy')">🖨 Print / Save PDF</button><button class="clear" onclick="clearWS('ws-hierarchy')">Clear</button></div>
+</div>
+<div class="purpose"><strong>Purpose:</strong> Rank feared situations to guide graded exposure. &nbsp;|&nbsp; <em>Rate each 0-100 (SUDs).</em></div>
+<label>Situation &amp; anticipated distress (0-100)</label><textarea></textarea>
+<label>Order to approach</label><textarea></textarea>
+</div>
+<div class="worksheet" id="ws-exposure">
+<div class="wh">
+<h4>22. Exposure Planning &amp; Outcome</h4>
+<div class="ws-actions"><button class="print" onclick="printWS('ws-exposure')">🖨 Print / Save PDF</button><button class="clear" onclick="clearWS('ws-exposure')">Clear</button></div>
+</div>
+<div class="purpose"><strong>Purpose:</strong> Plan an exposure and record learning. &nbsp;|&nbsp; <em>Stay until new learning occurs; drop safety behaviours.</em></div>
+<label>Target situation</label><textarea></textarea>
+<label>Prediction &amp; distress (0-100)</label><textarea></textarea>
+<label>Safety behaviours to drop</label><textarea></textarea>
+<label>Actual peak &amp; end distress</label><input type="text">
+<label>What I learned</label><textarea></textarea>
+</div>
+<div class="worksheet" id="ws-safety">
+<div class="wh">
+<h4>23. Safety Behaviour &amp; Avoidance Map</h4>
+<div class="ws-actions"><button class="print" onclick="printWS('ws-safety')">🖨 Print / Save PDF</button><button class="clear" onclick="clearWS('ws-safety')">Clear</button></div>
+</div>
+<div class="purpose"><strong>Purpose:</strong> Identify safety behaviours and avoidance that keep fear going. &nbsp;|&nbsp; <em>These block disconfirmation.</em></div>
+<label>Feared situation</label><textarea></textarea>
+<label>What I avoid</label><textarea></textarea>
+<label>Safety behaviours I use</label><textarea></textarea>
+<label>What I&#x27;ll test dropping</label><textarea></textarea>
+</div>
+<div class="worksheet" id="ws-problemsolve">
+<div class="wh">
+<h4>24. Structured Problem-Solving</h4>
+<div class="ws-actions"><button class="print" onclick="printWS('ws-problemsolve')">🖨 Print / Save PDF</button><button class="clear" onclick="clearWS('ws-problemsolve')">Clear</button></div>
+</div>
+<div class="purpose"><strong>Purpose:</strong> Work through a practical problem systematically. &nbsp;|&nbsp; <em>For real-life (solvable) difficulties.</em></div>
+<label>Define the problem</label><textarea></textarea>
+<label>Possible solutions (brainstorm)</label><textarea></textarea>
+<label>Pros/cons &amp; chosen solution</label><textarea></textarea>
+<label>Action plan &amp; date</label><textarea></textarea>
+<label>Review of outcome</label><textarea></textarea>
+</div>
+<div class="worksheet" id="ws-worry">
+<div class="wh">
+<h4>25. Worry Monitoring &amp; Sorting</h4>
+<div class="ws-actions"><button class="print" onclick="printWS('ws-worry')">🖨 Print / Save PDF</button><button class="clear" onclick="clearWS('ws-worry')">Clear</button></div>
+</div>
+<div class="purpose"><strong>Purpose:</strong> Separate solvable worries from hypothetical ones. &nbsp;|&nbsp; <em>Problem-solve the solvable; let go of the hypothetical.</em></div>
+<label>Worry</label><textarea></textarea>
+<label>Practical (now) or Hypothetical (what-if)?</label><input type="text">
+<label>If practical: next action</label><textarea></textarea>
+<label>If hypothetical: let-go / postpone plan</label><textarea></textarea>
+</div>
+<div class="worksheet" id="ws-panic">
+<div class="wh">
+<h4>26. Panic Cycle Worksheet</h4>
+<div class="ws-actions"><button class="print" onclick="printWS('ws-panic')">🖨 Print / Save PDF</button><button class="clear" onclick="clearWS('ws-panic')">Clear</button></div>
+</div>
+<div class="purpose"><strong>Purpose:</strong> Map the panic vicious cycle for one attack. &nbsp;|&nbsp; <em>Use to build the catastrophe-testing plan.</em></div>
+<label>Trigger sensation</label><textarea></textarea>
+<label>Catastrophic interpretation</label><textarea></textarea>
+<label>Anxiety &amp; further sensations</label><textarea></textarea>
+<label>Safety behaviours</label><textarea></textarea>
+<label>Alternative, non-catastrophic explanation</label><textarea></textarea>
+</div>
+<div class="worksheet" id="ws-socialanx">
+<div class="wh">
+<h4>27. Social Anxiety: Self-Focus &amp; Safety Behaviours</h4>
+<div class="ws-actions"><button class="print" onclick="printWS('ws-socialanx')">🖨 Print / Save PDF</button><button class="clear" onclick="clearWS('ws-socialanx')">Clear</button></div>
+</div>
+<div class="purpose"><strong>Purpose:</strong> Record attention focus and safety behaviours in a social situation. &nbsp;|&nbsp; <em>Target self-focused attention.</em></div>
+<label>Social situation</label><textarea></textarea>
+<label>Where was my attention (self vs outside)?</label><textarea></textarea>
+<label>Safety behaviours used</label><textarea></textarea>
+<label>Feared image of self vs likely reality</label><textarea></textarea>
+<label>Experiment to try</label><textarea></textarea>
+</div>
+<div class="worksheet" id="ws-ocd">
+<div class="wh">
+<h4>28. OCD: Obsession–Compulsion Cycle</h4>
+<div class="ws-actions"><button class="print" onclick="printWS('ws-ocd')">🖨 Print / Save PDF</button><button class="clear" onclick="clearWS('ws-ocd')">Clear</button></div>
+</div>
+<div class="purpose"><strong>Purpose:</strong> Map the obsession, appraisal and compulsion loop. &nbsp;|&nbsp; <em>Reassurance counts as a compulsion.</em></div>
+<label>Intrusive thought/image</label><textarea></textarea>
+<label>Appraisal (what I fear it means)</label><textarea></textarea>
+<label>Compulsion / neutralising</label><textarea></textarea>
+<label>ERP step to try (exposure + no compulsion)</label><textarea></textarea>
+</div>
+<div class="worksheet" id="ws-sleep">
+<div class="wh">
+<h4>29. Sleep Diary</h4>
+<div class="ws-actions"><button class="print" onclick="printWS('ws-sleep')">🖨 Print / Save PDF</button><button class="clear" onclick="clearWS('ws-sleep')">Clear</button></div>
+</div>
+<div class="purpose"><strong>Purpose:</strong> Track sleep to guide CBT-I. &nbsp;|&nbsp; <em>Complete each morning.</em></div>
+<label>Bedtime / lights out</label><input type="text">
+<label>Time to fall asleep</label><input type="text">
+<label>Night awakenings</label><input type="text">
+<label>Wake &amp; rise time</label><input type="text">
+<label>Sleep quality (0-10) &amp; notes</label><textarea></textarea>
+</div>
+<div class="worksheet" id="ws-substance">
+<div class="wh">
+<h4>30. Substance Trigger &amp; Craving Record</h4>
+<div class="ws-actions"><button class="print" onclick="printWS('ws-substance')">🖨 Print / Save PDF</button><button class="clear" onclick="clearWS('ws-substance')">Clear</button></div>
+</div>
+<div class="purpose"><strong>Purpose:</strong> Identify triggers, cravings and coping for use. &nbsp;|&nbsp; <em>Supports relapse prevention.</em></div>
+<label>Trigger / high-risk situation</label><textarea></textarea>
+<label>Craving intensity (0-10)</label><input type="text">
+<label>Thoughts/permissive beliefs</label><textarea></textarea>
+<label>Coping used &amp; outcome</label><textarea></textarea>
+</div>
+<div class="worksheet" id="ws-voices">
+<div class="wh">
+<h4>31. Voice-Related Coping Plan</h4>
+<div class="ws-actions"><button class="print" onclick="printWS('ws-voices')">🖨 Print / Save PDF</button><button class="clear" onclick="clearWS('ws-voices')">Clear</button></div>
+</div>
+<div class="purpose"><strong>Purpose:</strong> Record coping strategies for distressing voices. &nbsp;|&nbsp; <em>Use within CBTp, alongside psychiatric care.</em></div>
+<label>When voices are strongest</label><textarea></textarea>
+<label>Current appraisal of the voice</label><textarea></textarea>
+<label>Coping strategies that help</label><textarea></textarea>
+<label>Small experiment to test the voice&#x27;s &#x27;power&#x27;</label><textarea></textarea>
+</div>
+<div class="worksheet" id="ws-psychosisdistress">
+<div class="wh">
+<h4>32. Psychosis Distress &amp; Coping Record</h4>
+<div class="ws-actions"><button class="print" onclick="printWS('ws-psychosisdistress')">🖨 Print / Save PDF</button><button class="clear" onclick="clearWS('ws-psychosisdistress')">Clear</button></div>
+</div>
+<div class="purpose"><strong>Purpose:</strong> Track distress linked to unusual experiences and what helps. &nbsp;|&nbsp; <em>Focus on distress, not &#x27;proving&#x27; reality.</em></div>
+<label>Experience &amp; trigger</label><textarea></textarea>
+<label>Distress (0-10) &amp; appraisal</label><textarea></textarea>
+<label>What helped / didn&#x27;t</label><textarea></textarea>
+</div>
+<div class="worksheet" id="ws-healthanx">
+<div class="wh">
+<h4>33. Health Anxiety Monitoring &amp; Experiment</h4>
+<div class="ws-actions"><button class="print" onclick="printWS('ws-healthanx')">🖨 Print / Save PDF</button><button class="clear" onclick="clearWS('ws-healthanx')">Clear</button></div>
+</div>
+<div class="purpose"><strong>Purpose:</strong> Track checking/reassurance and test illness beliefs. &nbsp;|&nbsp; <em>Reducing checking is part of treatment.</em></div>
+<label>Bodily sensation &amp; interpretation</label><textarea></textarea>
+<label>Checking / reassurance / searching done</label><textarea></textarea>
+<label>Alternative explanation</label><textarea></textarea>
+<label>Experiment (e.g. delay/stop checking) &amp; result</label><textarea></textarea>
+</div>
+<div class="worksheet" id="ws-trauma">
+<div class="wh">
+<h4>34. Trauma-Focused Formulation</h4>
+<div class="ws-actions"><button class="print" onclick="printWS('ws-trauma')">🖨 Print / Save PDF</button><button class="clear" onclick="clearWS('ws-trauma')">Clear</button></div>
+</div>
+<div class="purpose"><strong>Purpose:</strong> Organise a trauma presentation (within an evidence-based protocol). &nbsp;|&nbsp; <em>Use with appropriate training/supervision.</em></div>
+<label>Trauma memory &#x27;hotspots&#x27;</label><textarea></textarea>
+<label>Negative appraisals (&#x27;nowhere is safe&#x27;)</label><textarea></textarea>
+<label>Maintaining strategies (avoidance/rumination)</label><textarea></textarea>
+<label>Reclaiming-life &amp; updating plan</label><textarea></textarea>
+</div>
+<div class="worksheet" id="ws-relapse">
+<div class="wh">
+<h4>35. Relapse Prevention &amp; Maintenance Plan</h4>
+<div class="ws-actions"><button class="print" onclick="printWS('ws-relapse')">🖨 Print / Save PDF</button><button class="clear" onclick="clearWS('ws-relapse')">Clear</button></div>
+</div>
+<div class="purpose"><strong>Purpose:</strong> Consolidate gains and plan for setbacks. &nbsp;|&nbsp; <em>Distinguish a lapse from a relapse.</em></div>
+<label>Skills that helped most</label><textarea></textarea>
+<label>My early-warning signs</label><textarea></textarea>
+<label>Likely future stressors</label><textarea></textarea>
+<label>My action plan if signs appear</label><textarea></textarea>
+<label>Who I&#x27;ll contact</label><input type="text">
+</div>
+<div class="worksheet" id="ws-agenda">
+<div class="wh">
+<h4>36. Session Agenda</h4>
+<div class="ws-actions"><button class="print" onclick="printWS('ws-agenda')">🖨 Print / Save PDF</button><button class="clear" onclick="clearWS('ws-agenda')">Clear</button></div>
+</div>
+<div class="purpose"><strong>Purpose:</strong> Plan the focus of a session collaboratively. &nbsp;|&nbsp; <em>Patient and therapist both contribute.</em></div>
+<label>Mood/check-in</label><input type="text">
+<label>Homework to review</label><textarea></textarea>
+<label>Agenda items (prioritised)</label><textarea></textarea>
+<label>Take-away &amp; new homework</label><textarea></textarea>
+</div>
+<div class="worksheet" id="ws-feedback">
+<div class="wh">
+<h4>37. Session Feedback</h4>
+<div class="ws-actions"><button class="print" onclick="printWS('ws-feedback')">🖨 Print / Save PDF</button><button class="clear" onclick="clearWS('ws-feedback')">Clear</button></div>
+</div>
+<div class="purpose"><strong>Purpose:</strong> Capture the patient&#x27;s feedback on the session. &nbsp;|&nbsp; <em>Protects the alliance.</em></div>
+<label>What was helpful today?</label><textarea></textarea>
+<label>Anything unhelpful or that I got wrong?</label><textarea></textarea>
+<label>Anything to change next time?</label><textarea></textarea>
+</div>
+<div class="worksheet" id="ws-progress">
+<div class="wh">
+<h4>38. Weekly Progress Review</h4>
+<div class="ws-actions"><button class="print" onclick="printWS('ws-progress')">🖨 Print / Save PDF</button><button class="clear" onclick="clearWS('ws-progress')">Clear</button></div>
+</div>
+<div class="purpose"><strong>Purpose:</strong> Track symptom and goal progress over time. &nbsp;|&nbsp; <em>Supports measurement-based care.</em></div>
+<label>Week / date</label><input type="text">
+<label>Symptom measure score</label><input type="text">
+<label>Goal progress (0-10)</label><input type="text">
+<label>Notes / plan</label><textarea></textarea>
+</div>
+<div class="worksheet" id="ws-selftherapy">
+<div class="wh">
+<h4>39. Self-Therapy Plan (after treatment)</h4>
+<div class="ws-actions"><button class="print" onclick="printWS('ws-selftherapy')">🖨 Print / Save PDF</button><button class="clear" onclick="clearWS('ws-selftherapy')">Clear</button></div>
+</div>
+<div class="purpose"><strong>Purpose:</strong> Help the patient become their own therapist. &nbsp;|&nbsp; <em>Completed near discharge.</em></div>
+<label>My main triggers</label><textarea></textarea>
+<label>Techniques I&#x27;ll keep using</label><textarea></textarea>
+<label>My weekly self-review plan</label><textarea></textarea>
+<label>When to seek help again</label><textarea></textarea>
+</div>
+</section>
+
+<!-- ===================== PART 15 ===================== -->
+<section class="part" id="p15">
+<h2 class="part-h">Part 15 · PDF Download &amp; Printing</h2>
+<p>All worksheets live inside this single HTML file. There are no separate files to download and <strong>no internet is needed</strong>.</p>
+<ul>
+<li><strong>One worksheet:</strong> click <em>🖨 Print / Save PDF</em> on that worksheet. Your browser's print dialog opens — choose <em>"Save as PDF"</em> as the destination, set paper to <strong>A4</strong>, and save.</li>
+<li><strong>All worksheets:</strong> click <em>🖨 Print / Save ALL worksheets (PDF)</em> in the top toolbar. Only the worksheet library prints (the guide text and menus are hidden), with a page break between worksheets.</li>
+<li><strong>Your typed entries print too</strong> — the form text you enter is rendered on the printout.</li>
+</ul>
+<div class="box tip">Tested logic for Chromium browsers (Chrome/Edge): the print view hides navigation, keeps A4 layout, avoids cutting tables/diagrams across pages, and prints each worksheet on its own page. This uses the browser's native print-to-PDF — honestly, no embedded PDF-generation library is bundled (that keeps the file lightweight and fully offline).</div>
+<div class="box warn">Because this is a plain offline HTML file, typed entries are not auto-saved after you close the page. To keep a completed worksheet, Save-as-PDF before closing.</div>
+</section>
+
+<!-- ===================== PART 16 ===================== -->
+<section class="part" id="p16">
+<h2 class="part-h">Part 16 · Special Clinical Skills</h2>
+<details open><summary>"I know it's irrational, but I still feel afraid."</summary><div class="inner">
+<div class="dialogue"><p class="t">Therapist: "That makes complete sense — knowing something logically and <em>feeling</em> it are different. Feelings change through experience, not just logic. Shall we design a small experiment so your <em>body</em> can learn what your head already suspects?"</p></div>
+<p>Why: validates the gap between intellectual and emotional belief; points to behavioural (experiential) change rather than more disputation.</p></div></details>
+<details><summary>Patient asks for reassurance</summary><div class="inner">
+<div class="dialogue"><p class="t">Therapist: "I notice the urge for me to reassure you. Reassurance tends to help for a few minutes then wears off, and it can keep the worry going. Could we instead look at how <em>you</em> could answer that doubt?"</p></div>
+<p>Why: names the process, avoids feeding the reassurance cycle (crucial in OCD/health anxiety), builds autonomy.</p></div></details>
+<details><summary>Homework not completed · low motivation · silence · tangents · disagreement</summary><div class="inner">
+<ul>
+<li><strong>Missed homework:</strong> explore the barrier non-judgementally ("no-lose"); re-grade; start in session.</li>
+<li><strong>Low motivation:</strong> explore ambivalence, link tasks to the patient's own values/goals.</li>
+<li><strong>Silence:</strong> allow it, then gently check ("I notice it went quiet — what's happening for you?").</li>
+<li><strong>Tangents:</strong> validate, then collaboratively return to the agenda.</li>
+<li><strong>Disagreement/rupture:</strong> name it openly, take responsibility, adjust — ruptures repaired well can strengthen the alliance.</li>
+</ul></div></details>
+<details><summary>Therapist pitfalls to avoid</summary><div class="inner"><p>Premature cognitive restructuring (before the hot thought is elicited); confrontation instead of collaboration; unexamined therapist assumptions; using worksheets mechanically; prioritising technique over the relationship.</p></div></details>
+</section>
+
+<!-- ===================== PART 17 ===================== -->
+<section class="part" id="p17">
+<h2 class="part-h">Part 17 · Homework &amp; Between-Session Practice</h2>
+<p>Most CBT change happens between sessions (Beck, 2011, Ch. 17). Good homework is <strong>collaboratively chosen, tied to the formulation and goals, appropriately graded, and reviewed every session</strong>.</p>
+<ul>
+<li>Agree a clear rationale ("how will this help <em>your</em> goal?").</li>
+<li>Predict barriers; problem-solve them in advance; start the task in-session.</li>
+<li>Review without blame; distinguish <em>lack of opportunity</em> from <em>avoidance</em>.</li>
+<li>Measure <em>learning</em>, not perfect performance ("no-lose" framing).</li>
+</ul>
+<table>
+<tr><th>Appropriate homework</th><th>Inappropriate homework</th></tr>
+<tr><td>Graded, specific, agreed, linked to goal</td><td>Vague ("think more positively")</td></tr>
+<tr><td>One behavioural experiment with a clear prediction</td><td>Overwhelming (full hierarchy at once)</td></tr>
+<tr><td>Activity schedule for 2 valued activities</td><td>Set without rationale or review plan</td></tr>
+</table>
+<p>Use the <em>Homework planning / Session agenda</em> and <em>Behavioural Experiment Record</em> worksheets (Part 14).</p>
+</section>
+
+<!-- ===================== PART 18 ===================== -->
+<section class="part" id="p18">
+<h2 class="part-h">Part 18 · Measurement-Based Care &amp; Treatment Evaluation</h2>
+<ul>
+<li><strong>Baseline → repeated measurement</strong> of symptoms, function, and patient-defined goals; routine session feedback.</li>
+<li><strong>Reliable change</strong> and <strong>clinically significant change</strong> help interpret scores — but have limits and don't capture the whole person.</li>
+<li><strong>Monitor deterioration</strong> and engagement; recognise <strong>non-response</strong> early.</li>
+<li>When stuck: <strong>revise the formulation</strong>; consider alternative diagnoses, comorbidity, environmental barriers, or unsuitability of the approach.</li>
+</ul>
+<div class="box eg"><strong>Illustrative progress chart (fictional data):</strong> PHQ-9 across sessions 1→8: 21, 20, 18, 17, 14, 12, 10, 8 — a steady, clinically meaningful decline supporting continuation of the current plan.</div>
+<div class="box warn">Rating scales <em>support</em> clinical judgement; they never replace a comprehensive assessment.</div>
+</section>
+
+<!-- ===================== PART 19 ===================== -->
+<section class="part" id="p19">
+<h2 class="part-h">Part 19 · Ending CBT &amp; Relapse Prevention</h2>
+<p>Prepare for ending from early on (Beck, 2011, Ch. 18): review goals, compare baseline vs current functioning, consolidate skills, and build a maintenance plan.</p>
+<ul>
+<li>Identify <strong>early-warning signs</strong> and anticipate future stressors.</li>
+<li>Plan responses to setbacks; distinguish a <strong>lapse</strong> (temporary slip) from a <strong>relapse</strong> (full return).</li>
+<li>Create a <strong>self-therapy plan</strong> and agree follow-up; discuss remaining difficulties honestly.</li>
+</ul>
+<div class="box eg"><strong>Fictional:</strong> "Raj" ends therapy with a one-page plan: warning signs (withdrawing, waking at 4am, "what's the point" thoughts); action (resume activity schedule, use thought records, phone a friend, book a review if signs persist &gt;2 weeks).</div>
+<p>Use the <em>Relapse Prevention &amp; Maintenance Plan</em> and <em>Self-Therapy Plan</em> worksheets (Part 14).</p>
+</section>
+
+<!-- ===================== PART 20 ===================== -->
+<section class="part" id="p20">
+<h2 class="part-h">Part 20 · Limitations, Ethics &amp; Adaptations</h2>
+<ul>
+<li><strong>Limitations:</strong> CBT is effective for many but <em>not all</em> patients/disorders; response varies; the alliance matters as much as technique; manualised protocols can fit poorly for complex/comorbid presentations.</li>
+<li><strong>Adaptations:</strong> culture, language/literacy, neurodevelopmental and cognitive needs; severe symptoms may require stabilisation, medication, or multidisciplinary care first.</li>
+<li><strong>Ethics:</strong> informed consent, confidentiality and its limits, accurate documentation, risk management, working within competence, and regular supervision.</li>
+<li><strong>Pitfalls:</strong> rigid protocol adherence, mechanical worksheet use, over-claiming efficacy, ignoring the formulation.</li>
+</ul>
+<div class="box warn">CBT is not a universal solution. Present it honestly as an evidence-based approach with boundaries, embedded in comprehensive, multidisciplinary care.</div>
+</section>
+
+<!-- ===================== PART 21 ===================== -->
+<section class="part" id="p21">
+<h2 class="part-h">Part 21 · Clinical Case Vignettes (fictional)</h2>
+<p>Eight brief vignettes showing how formulation drives technique selection. All fictional and for teaching.</p>
+<details open><summary>Case 1 — Depression (behavioural activation lead)</summary><div class="inner"><p>"Raj," 34, redundancy, withdrawn. Formulation: inactivity + self-criticism loop. Goals: 1 activity/day → return to work. Interventions: BA first, then thought records, core-belief work. Homework: activity schedule. Barriers: fatigue → start tiny. Relapse plan: warning-sign card.</p></div></details>
+<details><summary>Case 2 — Panic (interoceptive exposure)</summary><div class="inner"><p>"Mira," 28. Catastrophic misread of palpitations. Interventions: panic-cycle psychoeducation, interoceptive exposure, drop safety behaviours. Progress: catastrophe belief 90%→20%.</p></div></details>
+<details><summary>Case 3 — Social anxiety (self-focus + experiments)</summary><div class="inner"><p>"Tom," 22. Self-focused attention, safety behaviours. Interventions: external attention, video feedback experiment. Barrier: anticipatory dread → graded tasks.</p></div></details>
+<details><summary>Case 4 — OCD (ERP)</summary><div class="inner"><p>"Sara," 31, contamination. Interventions: ERP, responsibility appraisal, no reassurance. Adaptation: start low on hierarchy.</p></div></details>
+<details><summary>Case 5 — GAD (worry sorting)</summary><div class="inner"><p>"Anil," 45. Interventions: practical vs hypothetical worry sorting, problem-solving, uncertainty tolerance, drop reassurance-seeking.</p></div></details>
+<details><summary>Case 6 — PTSD (trauma-focused, specialist)</summary><div class="inner"><p>"Lena," 38. Interventions: reclaiming-life activities, imaginal reliving/updating, stimulus discrimination. Caution: training/supervision, stabilise first.</p></div></details>
+<details><summary>Case 7 — Health anxiety (reduce checking)</summary><div class="inner"><p>"Dev," 40. Interventions: reduce body-checking/reassurance/online-searching, re-attribution, experiment delaying checking.</p></div></details>
+<details><summary>Case 8 — Insomnia (CBT-I)</summary><div class="inner"><p>"Priya," 50. Interventions: stimulus control, sleep restriction, cognitive work on sleep beliefs, sleep diary. Same technique (e.g., scheduling) adapted differently than in depression — here to <em>consolidate</em> sleep, not boost reinforcement.</p></div></details>
+</section>
+
+<!-- ===================== PART 22 ===================== -->
+<section class="part" id="p22">
+<h2 class="part-h">Part 22 · CBT Viva &amp; Exam Preparation</h2>
+<div class="viva"><p class="q">Why is CBT not simply positive thinking?</p><p class="a">CBT tests thoughts against <em>evidence</em> to reach <em>balanced</em> (not merely positive) conclusions, and crucially changes <em>behaviour</em> that maintains problems. It validates real difficulties and uses problem-solving when a thought is true.</p></div>
+<div class="viva"><p class="q">Difference between cognitive restructuring and reassurance?</p><p class="a">Restructuring helps the patient <em>evaluate</em> evidence themselves, building a durable skill; reassurance supplies an external answer that relieves anxiety briefly, fades, and can become a maintaining safety behaviour.</p></div>
+<div class="viva"><p class="q">How does a behavioural experiment differ from exposure?</p><p class="a">An experiment is designed to <em>test a specific belief</em> (any emotion, any prediction); exposure is designed to create new <em>fear</em> learning by approaching feared cues and dropping avoidance. They overlap but have different primary aims.</p></div>
+<div class="viva"><p class="q">Why may insight fail to change avoidance?</p><p class="a">Avoidance is maintained by <em>negative reinforcement</em> (immediate relief). Intellectual insight doesn't deliver the corrective <em>experience</em>; only approaching the situation updates the emotional learning.</p></div>
+<div class="viva"><p class="q">How is formulation different from diagnosis?</p><p class="a">Diagnosis names a syndrome (a category); formulation is an individualised explanation of why <em>this</em> person has <em>these</em> difficulties and what maintains them — it drives treatment.</p></div>
+<div class="viva"><p class="q">How should a therapist respond when homework isn't completed?</p><p class="a">Explore the barrier non-judgementally (opportunity vs avoidance vs unclear rationale vs too hard), treat it as useful data ("no-lose"), re-grade, and start the task in session.</p></div>
+<div class="viva"><p class="q">How should a therapist approach unusual beliefs in CBT for psychosis?</p><p class="a">Collaboratively and respectfully — normalising, exploring meaning/appraisal/distress and coping, and testing threat beliefs gently; never arguing about whether the experience is "real."</p></div>
+<div class="viva"><p class="q">How do you know an intervention targets a maintaining mechanism?</p><p class="a">It maps directly onto a factor in the formulation that keeps the problem going (e.g., exposure for avoidance; ERP for compulsions; BA for lost reinforcement) — not just onto the symptom label.</p></div>
+<div class="viva"><p class="q">Name the key theorists and their models.</p><p class="a">A. Beck (cognitive therapy, cognitive triad); Ellis (REBT/ABC); Clark (panic); Clark &amp; Wells (social anxiety); Salkovskis / D. A. Clark (OCD); Ehlers &amp; Clark (PTSD); Fairburn (CBT-E); Meichenbaum (SIT); third-wave: Hayes (ACT), Segal/Williams/Teasdale (MBCT), Linehan (DBT), Wells (MCT).</p></div>
+<div class="viva"><p class="q">Common misconception to correct?</p><p class="a">That CBT ignores emotions, the past, or the relationship. It uses the past to understand, targets emotion via thought <em>and</em> behaviour change, and depends on a strong collaborative alliance.</p></div>
+</section>
+
+<!-- ===================== PART 24 ===================== -->
+<section class="part" id="p24">
+<h2 class="part-h">Part 24 · References, Sources &amp; Source-Integrity Note</h2>
+<h3>Repository sources (prioritised as requested)</h3>
+<ul>
+<li>Beck, J. S. (2011). <em>Cognitive Behavior Therapy: Basics and Beyond</em> (2nd ed.). Guilford Press. <em>[Repository PDF, text-readable; primary source for the cognitive model, session structure, belief work, homework and relapse prevention — Chs. 1–18.]</em></li>
+<li>Hawton, K., Salkovskis, P. M., Kirk, J., &amp; Clark, D. M. (Eds.). <em>Cognitive Behaviour Therapy for Psychiatric Problems: A Practical Guide</em>. Oxford University Press. <em>[Repository PDF present as a scanned image with no digital text layer — see integrity note below.]</em></li>
+<li>Hagen, R., Turkington, D., Berge, T., &amp; Gråwe, R. W. (Eds.). <em>CBT for Psychosis: A Symptom-based Approach</em>. Routledge. <em>[Repository PDF, text-readable; primary source for Part 11.]</em></li>
+<li>Wolberg, L. R. (2013). <em>The Technique of Psychotherapy</em> (4th ed.). <em>[Repository PDF, text-readable; general interviewing, supportive/re-educative/reconstructive techniques, treatment planning.]</em></li>
+<li>Clark, D. A. <em>Cognitive-Behavioral Therapy for OCD</em>. Guilford Press. <em>[Repository PDF, scanned; note: this is <strong>David A.</strong> Clark on OCD — the repository does not contain a separate "David M. Clark" text, so OCD content is attributed to David A. Clark / Salkovskis, stated honestly.]</em></li>
+<li>Repository CBT-for-anxiety manual; <em>The GAD Workbook</em>; <em>Cognitive + Mindfulness Workbook</em>. <em>[Supporting worksheet/technique material.]</em></li>
+</ul>
+<h3>External authoritative sources (gap-filling)</h3>
+<ul>
+<li>Beck, A. T. (1964). Thinking and depression: II. <em>Archives of General Psychiatry</em>.</li>
+<li>Beck, A. T., Rush, A. J., Shaw, B. F., &amp; Emery, G. (1979). <em>Cognitive Therapy of Depression</em>. Guilford Press.</li>
+<li>Clark, D. M. (1986). A cognitive approach to panic. <em>Behaviour Research and Therapy</em>.</li>
+<li>Clark, D. M., &amp; Wells, A. (1995). A cognitive model of social phobia. In <em>Social Phobia</em> (Guilford).</li>
+<li>Ehlers, A., &amp; Clark, D. M. (2000). A cognitive model of PTSD. <em>Behaviour Research and Therapy</em>.</li>
+<li>Salkovskis, P. M. (1985). Obsessional–compulsive problems: a cognitive-behavioural analysis. <em>Behaviour Research and Therapy</em>.</li>
+<li>Fairburn, C. G. (2008). <em>Cognitive Behavior Therapy and Eating Disorders</em>. Guilford Press.</li>
+<li>Harvey, A. G. et al.; Morin, C. — CBT for insomnia (CBT-I) literature.</li>
+<li>Ellis, A. (1962). <em>Reason and Emotion in Psychotherapy</em>.</li>
+<li>Meichenbaum, D. (1977). <em>Cognitive-Behavior Modification</em>.</li>
+<li>NICE clinical guidelines (depression, anxiety disorders, OCD, PTSD, psychosis &amp; schizophrenia) — <a href="https://www.nice.org.uk/guidance" target="_blank" rel="noopener">nice.org.uk/guidance</a>.</li>
+<li>BABCP — British Association for Behavioural &amp; Cognitive Psychotherapies — <a href="https://babcp.com" target="_blank" rel="noopener">babcp.com</a>.</li>
+</ul>
+<div class="box src">
+<strong>Source-integrity note.</strong> Repository files were inspected directly. Text-readable PDFs (Beck 2011; CBT for Psychosis; Wolberg 2013; the anxiety/GAD/mindfulness manuals) were used as primary grounding. The <strong>Hawton</strong> PDF is a <em>scanned image with no extractable text layer</em>, and no OCR engine could be installed in the working environment; its well-established content and role as a foundational practical CBT guide are represented at a structural level, and it is <strong>not</strong> quoted or page-cited to avoid fabrication. The repository contains <strong>David A. Clark (OCD)</strong>, not "David M. Clark"; this is reported honestly rather than inventing a source. No quotations, page numbers, DOIs, or references have been fabricated; copyrighted texts are explained in original wording, not reproduced. Established findings are distinguished from models and areas of clinical judgement throughout.</div>
+</section>
+
+</main>
+</div><!-- /layout -->
+
+<footer class="foot">
+  <p style="font-size:1.1em;">Complete CBT Clinical Guide — theory · formulation · sessions · techniques · disorders · worksheets</p>
+  <div class="brand">Dango_Psych by Tejas Dangodra</div>
+  <p style="margin-top:12px;font-size:.82em;opacity:.9;">Educational resource for M.Phil. Clinical Psychology. All cases/worksheet entries are fictional illustrations. CBT is one component of comprehensive, supervised care and does not replace clinical judgement, assessment, or multidisciplinary input.</p>
+</footer>
+</div><!-- /wrap -->
+
+<button class="backtop" id="backtop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">↑</button>
+
+<script>
+/* ---- expand / collapse all ---- */
+function expandAll(open){document.querySelectorAll('details').forEach(d=>d.open=open);}
+/* ---- back to top visibility ---- */
+window.addEventListener('scroll',function(){document.getElementById('backtop').style.display=window.scrollY>400?'block':'none';});
+/* ---- search with highlight + jump ---- */
+var _matches=[],_idx=-1;
+function clearHighlights(){document.querySelectorAll('span.hl').forEach(function(s){var p=s.parentNode;p.replaceChild(document.createTextNode(s.textContent),s);p.normalize();});_matches=[];_idx=-1;}
+function clearSearch(){document.getElementById('searchBox').value='';clearHighlights();}
+function doSearch(term){
+  clearHighlights();
+  if(!term||term.length<2)return;
+  var rx=new RegExp(term.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'gi');
+  var root=document.getElementById('guide');
+  var walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,{acceptNode:function(n){
+     if(!n.nodeValue.trim())return NodeFilter.FILTER_REJECT;
+     var p=n.parentNode;if(p&&(p.tagName==='SCRIPT'||p.tagName==='STYLE'||p.tagName==='TEXTAREA'||p.tagName==='INPUT'))return NodeFilter.FILTER_REJECT;
+     return rx.test(n.nodeValue)?NodeFilter.FILTER_ACCEPT:NodeFilter.FILTER_REJECT;}});
+  var nodes=[],n;while(n=walker.nextNode())nodes.push(n);
+  nodes.forEach(function(node){
+    rx.lastIndex=0;var frag=document.createDocumentFragment();var last=0,s=node.nodeValue,m;
+    while((m=rx.exec(s))){
+      if(m.index>last)frag.appendChild(document.createTextNode(s.slice(last,m.index)));
+      var sp=document.createElement('span');sp.className='hl';sp.textContent=m[0];frag.appendChild(sp);_matches.push(sp);
+      last=m.index+m[0].length;if(m.index===rx.lastIndex)rx.lastIndex++;
+    }
+    if(last<s.length)frag.appendChild(document.createTextNode(s.slice(last)));
+    node.parentNode.replaceChild(frag,node);
+  });
+  if(_matches.length){_idx=0;jumpTo(0);}
+}
+function jumpTo(i){ if(!_matches.length)return;
+  var openDet=_matches[i].closest('details'); if(openDet)openDet.open=true;
+  _matches[i].scrollIntoView({behavior:'smooth',block:'center'});
+}
+var sb=document.getElementById('searchBox');
+var _t;sb.addEventListener('input',function(){clearTimeout(_t);_t=setTimeout(function(){doSearch(sb.value.trim());},300);});
+sb.addEventListener('keydown',function(e){if(e.key==='Enter'&&_matches.length){_idx=(_idx+1)%_matches.length;jumpTo(_idx);e.preventDefault();}});
+/* ---- worksheets: print one / all ---- */
+function printWS(id){
+  var el=document.getElementById(id);if(!el)return;
+  document.querySelectorAll('.worksheet').forEach(function(w){w.dataset._disp=w.style.display;w.style.display=(w===el)?'':'none';});
+  document.body.classList.add('printws');el.classList.add('printing');
+  window.onafterprint=function(){document.body.classList.remove('printws');el.classList.remove('printing');
+    document.querySelectorAll('.worksheet').forEach(function(w){w.style.display=w.dataset._disp||'';});window.onafterprint=null;};
+  window.print();
+}
+function printWorksheets(){
+  document.querySelectorAll('.worksheet').forEach(function(w){w.style.display='';w.classList.add('printing');});
+  document.body.classList.add('printws');
+  window.onafterprint=function(){document.body.classList.remove('printws');
+    document.querySelectorAll('.worksheet').forEach(function(w){w.classList.remove('printing');});window.onafterprint=null;};
+  /* ensure library is reachable then print */
+  window.print();
+}
+/* ---- clear a worksheet with confirmation ---- */
+function clearWS(id){
+  if(!confirm('Clear all entries in this worksheet? This cannot be undone.'))return;
+  var el=document.getElementById(id);if(!el)return;
+  el.querySelectorAll('input,textarea').forEach(function(f){f.value='';});
+}
+</script>
+</body>
+</html>
