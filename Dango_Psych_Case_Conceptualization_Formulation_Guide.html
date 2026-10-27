@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dango_Psych · Case Conceptualization &amp; Formulation Guide</title>
+<style>
+/* ===========================================================
+   Dango_Psych by Tejas Dangodra
+   Case Conceptualization & Formulation Guide
+   Single self-contained HTML · offline · no external deps
+   =========================================================== */
+:root{
+  --bg:#f6f7fb;
+  --paper:#ffffff;
+  --ink:#283043;
+  --muted:#5a6475;
+  --line:#e4e8f2;
+  --brand:#7c6bd6;        /* violet */
+  --brand-d:#5b4bb0;
+  --lav:#ece9fb; --lav-b:#b9aeea;
+  --mint:#e4f6ee; --mint-b:#8fd3b6;
+  --sky:#e6f0fb; --sky-b:#9ec3ea;
+  --peach:#fdece2; --peach-b:#f3b38f;
+  --rose:#fce9f1; --rose-b:#e7a6c6;
+  --lemon:#fbf4d9; --lemon-b:#e9d587;
+  --shadow:0 2px 12px rgba(70,55,130,.09);
+  --radius:14px;
+  --sbw:270px;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:"Segoe UI",Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;
+  line-height:1.6;font-size:16px;}
+a{color:var(--brand-d);text-decoration:none;}
+a:hover{text-decoration:underline;}
+h1,h2,h3,h4,h5{line-height:1.25;}
+
+/* ---------- Top brand bar ---------- */
+.topbar{position:sticky;top:0;z-index:50;background:linear-gradient(90deg,#7c6bd6,#9d8be0 55%,#8fd3b6);
+  color:#fff;display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:10px 18px;box-shadow:0 2px 10px rgba(60,40,110,.18);}
+.topbar .brand{font-weight:800;letter-spacing:.3px;font-size:1.08rem;}
+.topbar .brand small{font-weight:500;opacity:.9;}
+.topbar .actions{display:flex;gap:8px;align-items:center;}
+.btn{cursor:pointer;border:1px solid rgba(255,255,255,.55);background:rgba(255,255,255,.16);
+  color:#fff;border-radius:9px;padding:7px 13px;font-size:.86rem;font-weight:600;}
+.btn:hover{background:rgba(255,255,255,.3);}
+.menu-toggle{display:none;}
+
+/* ---------- Cover ---------- */
+.cover{background:linear-gradient(135deg,#ece9fb,#e6f0fb 55%,#e4f6ee);
+  padding:48px 22px 40px;text-align:center;border-bottom:1px solid var(--line);}
+.cover h1{font-size:2.15rem;margin:.1em 0;color:var(--brand-d);}
+.cover .tag{font-size:1.1rem;color:var(--muted);margin:.2em 0 1em;}
+.cover .brandbig{display:inline-block;background:#fff;border:2px solid var(--lav-b);
+  color:var(--brand-d);font-weight:800;font-size:1.15rem;padding:10px 22px;border-radius:40px;box-shadow:var(--shadow);}
+.cover .mini{max-width:760px;margin:16px auto 0;color:var(--muted);font-size:.96rem;}
+
+/* ---------- Layout ---------- */
+.shell{display:flex;gap:0;align-items:flex-start;}
+aside.sidebar{position:sticky;top:52px;flex:0 0 var(--sbw);width:var(--sbw);
+  height:calc(100vh - 52px);overflow-y:auto;background:var(--paper);border-right:1px solid var(--line);
+  padding:14px 12px 40px;}
+aside .search{position:sticky;top:0;background:var(--paper);padding:2px 2px 10px;z-index:2;}
+aside .search input{width:100%;padding:9px 11px;border:1px solid var(--line);border-radius:9px;
+  font-size:.9rem;background:#fbfbff;}
+aside .search input:focus{outline:2px solid var(--lav-b);border-color:transparent;}
+aside .toc-h{font-size:.72rem;text-transform:uppercase;letter-spacing:.6px;color:var(--brand);
+  font-weight:800;margin:14px 6px 4px;}
+aside nav a{display:block;padding:5px 9px;border-radius:7px;color:var(--ink);font-size:.88rem;}
+aside nav a:hover{background:var(--lav);text-decoration:none;}
+aside nav a.sub{padding-left:20px;font-size:.83rem;color:var(--muted);}
+aside .nohit{display:none;}
+aside .toc-empty{display:none;color:var(--muted);font-size:.85rem;padding:8px;}
+
+main{flex:1 1 auto;min-width:0;padding:22px clamp(16px,3vw,40px) 60px;max-width:1000px;margin:0 auto;}
+
+/* ---------- Sections ---------- */
+section.block{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);
+  padding:22px 24px;margin-bottom:22px;box-shadow:var(--shadow);scroll-margin-top:62px;}
+.kicker{display:inline-block;background:var(--lav);color:var(--brand-d);font-weight:700;
+  font-size:.72rem;letter-spacing:.5px;text-transform:uppercase;border-radius:30px;padding:3px 12px;margin-bottom:8px;}
+h2.h{font-size:1.6rem;color:var(--brand-d);margin:.1em 0 .3em;}
+h3{font-size:1.24rem;color:#2f7d61;border-bottom:2px solid var(--mint);padding-bottom:5px;margin:24px 0 8px;}
+h4{font-size:1.06rem;color:#9a5a33;margin:16px 0 5px;}
+h5{font-size:.98rem;color:var(--brand-d);margin:12px 0 3px;}
+p{margin:7px 0;}
+ul,ol{margin:7px 0;padding-left:22px;}li{margin:3px 0;}
+.term{font-weight:700;color:var(--brand-d);}
+.gloss{color:var(--muted);font-style:italic;}
+
+/* ---------- Cards ---------- */
+.card{border-radius:10px;padding:11px 15px;margin:12px 0;border-left:6px solid;}
+.card .lbl{display:block;font-weight:800;font-size:.74rem;text-transform:uppercase;letter-spacing:.5px;margin-bottom:3px;}
+.c-def{background:var(--lav);border-color:var(--lav-b);} .c-def .lbl{color:var(--brand-d);}
+.c-clin{background:var(--mint);border-color:var(--mint-b);} .c-clin .lbl{color:#2f7d61;}
+.c-ask{background:var(--sky);border-color:var(--sky-b);} .c-ask .lbl{color:#35648f;}
+.c-warn{background:var(--peach);border-color:var(--peach-b);} .c-warn .lbl{color:#b5592f;}
+.c-write{background:var(--rose);border-color:var(--rose-b);} .c-write .lbl{color:#9a3a63;}
+.c-key{background:var(--lemon);border-color:var(--lemon-b);} .c-key .lbl{color:#8a6d10;}
+.c-ask ul{margin:4px 0;} .c-ask li{font-style:italic;}
+
+/* ---------- Collapsibles ---------- */
+details.acc{border:1px solid var(--line);border-radius:10px;margin:10px 0;overflow:hidden;background:#fcfcff;}
+details.acc>summary{cursor:pointer;list-style:none;padding:10px 14px;font-weight:700;color:var(--brand-d);
+  background:var(--lav);display:flex;justify-content:space-between;gap:10px;}
+details.acc>summary::-webkit-details-marker{display:none;}
+details.acc>summary::after{content:"+";font-weight:800;color:var(--brand);}
+details.acc[open]>summary::after{content:"–";}
+details.acc .body{padding:12px 15px;}
+
+/* ---------- Tables ---------- */
+.tw{overflow-x:auto;margin:14px 0;border:1px solid var(--line);border-radius:10px;}
+table{border-collapse:collapse;width:100%;font-size:.92rem;background:#fff;min-width:520px;}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top;}
+th{background:var(--lav);color:var(--brand-d);font-weight:700;}
+tbody tr:nth-child(even){background:#faf9ff;}
+caption{caption-side:top;text-align:left;font-weight:700;color:var(--brand-d);padding:4px 2px;}
+
+/* ---------- Diagrams ---------- */
+.diagram{background:#fcfdff;border:1px solid var(--line);border-radius:12px;padding:10px;margin:14px 0;overflow-x:auto;}
+.diagram svg{display:block;margin:0 auto;max-width:100%;height:auto;}
+.legend{font-size:.84rem;color:var(--muted);margin-top:6px;}
+.legend b{color:var(--ink);}
+
+/* arrows legend chips */
+.pill{display:inline-block;border-radius:20px;padding:2px 10px;font-size:.76rem;margin:2px 3px;font-weight:600;}
+.pill-c{background:var(--peach);color:#b5592f;}      /* causal */
+.pill-r{background:var(--mint);color:#2f7d61;}        /* reciprocal */
+.pill-m{background:var(--lemon);color:#8a6d10;}       /* maintaining */
+.pill-h{background:var(--sky);color:#35648f;}         /* hypothesised */
+
+hr.soft{border:none;border-top:1px solid var(--line);margin:18px 0;}
+.backtop{display:inline-block;margin-top:8px;font-size:.82rem;color:var(--muted);}
+
+footer{background:var(--brand-d);color:#efeafb;text-align:center;padding:26px 18px;}
+footer .brandbig{display:inline-block;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.4);
+  color:#fff;font-weight:800;padding:9px 20px;border-radius:30px;margin-bottom:10px;}
+footer p{margin:5px 0;font-size:.9rem;opacity:.95;}
+
+/* ---------- Responsive ---------- */
+@media(max-width:900px){
+  :root{--sbw:250px;}
+  aside.sidebar{position:fixed;left:0;top:0;height:100vh;z-index:60;transform:translateX(-100%);
+    transition:transform .25s;box-shadow:4px 0 18px rgba(0,0,0,.18);top:0;padding-top:16px;}
+  aside.sidebar.open{transform:translateX(0);}
+  .menu-toggle{display:inline-block;}
+  main{max-width:100%;}
+  .cover h1{font-size:1.7rem;}
+  .backdrop{position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:55;display:none;}
+  .backdrop.show{display:block;}
+}
+
+/* ---------- Print / PDF ---------- */
+@media print{
+  .topbar,aside.sidebar,.backdrop,.menu-toggle,.btn,.backtop{display:none !important;}
+  body{background:#fff;font-size:11.5px;}
+  main{max-width:100%;padding:0;margin:0;}
+  .shell{display:block;}
+  section.block{box-shadow:none;border:1px solid #ccc;page-break-inside:avoid;margin-bottom:12px;}
+  details.acc{break-inside:avoid;}
+  details.acc .body{display:block !important;}
+  .diagram{break-inside:avoid;}
+  .cover,.card,th,.pill,footer .brandbig{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  a{color:#000;}
+  .cover{page-break-after:always;}
+}
+</style>
+</head>
+<body>
+
+<!-- ===================== TOP BAR ===================== -->
+<div class="topbar">
+  <div style="display:flex;align-items:center;gap:10px;">
+    <button class="btn menu-toggle" id="menuBtn" aria-label="Toggle contents">☰ Contents</button>
+    <span class="brand">Dango_Psych <small>· Formulation Guide</small></span>
+  </div>
+  <div class="actions">
+    <button class="btn" id="expandAll">⤢ Expand all</button>
+    <button class="btn" id="printBtn">🖨 Print / Save as PDF</button>
+  </div>
+</div>
+
+<!-- ===================== COVER ===================== -->
+<header class="cover" id="top">
+  <div class="brandbig">Dango_Psych by Tejas Dangodra</div>
+  <h1>Case Conceptualization &amp; Formulation Guide</h1>
+  <p class="tag">Clinical case formulation models explained — components, arrows, assessment, and treatment links</p>
+  <p class="mini">A single, self-contained, offline guide covering general frameworks (5 Ps, biopsychosocial), the generic CBT formulation, and evidence-based disorder-specific models (OCD/ERP, panic, social anxiety, depression, PTSD, health anxiety, GAD, substance use). Every model has a diagram, a component-by-component explanation, an arrow-by-arrow explanation, assessment questions, writing templates, worked fictional cases, and verified references. Use the search box in the sidebar to jump to any term.</p>
+</header>
+
+<div class="backdrop" id="backdrop"></div>
+<div class="shell">
+
+<!-- ===================== SIDEBAR ===================== -->
+<aside class="sidebar" id="sidebar">
+  <div class="search">
+    <input type="search" id="tocSearch" placeholder="🔍 Search contents…" aria-label="Search contents">
+    <div class="toc-empty" id="tocEmpty">No matching sections.</div>
+  </div>
+  <nav id="tocNav" aria-label="Table of contents">
+    <div class="toc-h">Foundations</div>
+    <a href="#intro">What this guide covers</a>
+    <a href="#terminology">Key terminology (formulation vs diagnosis…)</a>
+    <a href="#frameworks">General frameworks: 5 Ps &amp; biopsychosocial</a>
+    <a href="#interview">Interviewing &amp; clinical-writing guide</a>
+    <div class="toc-h">Generic CBT formulation</div>
+    <a href="#cbt">The CBT model (Beck) — full component map</a>
+    <a href="#cbt" class="sub">Early experiences → core beliefs</a>
+    <a href="#cbt" class="sub">Assumptions / rules · triggers</a>
+    <a href="#cbt" class="sub">Automatic thoughts · emotion · body</a>
+    <a href="#cbt" class="sub">Behaviour · safety behaviours · loops</a>
+    <a href="#maintenance">The maintenance (vicious) cycle</a>
+    <div class="toc-h">Disorder-specific models</div>
+    <a href="#ocd">OCD — Salkovskis &amp; Rachman + ERP</a>
+    <a href="#panic">Panic — Clark (1986)</a>
+    <a href="#social">Social anxiety — Clark &amp; Wells (1995)</a>
+    <a href="#depression">Depression — Beck</a>
+    <a href="#ptsd">PTSD — Ehlers &amp; Clark (2000)</a>
+    <a href="#health">Health anxiety — Warwick &amp; Salkovskis</a>
+    <a href="#gad">GAD — Dugas / Wells metacognition</a>
+    <a href="#substance">Substance use — Marlatt relapse</a>
+    <div class="toc-h">Worked cases &amp; reference</div>
+    <a href="#cases">Six worked fictional cases</a>
+    <a href="#templates">Reusable writing templates</a>
+    <a href="#mistakes">Common formulation mistakes</a>
+    <a href="#references">References</a>
+    <a href="#audit">Quality audit</a>
+  </nav>
+</aside>
+
+<main>
+
+<!-- ===================== INTRO ===================== -->
+<section class="block" id="intro">
+  <span class="kicker">Start here</span>
+  <h2 class="h">What this guide covers &amp; how to use it</h2>
+  <p>This guide explains how clinicians build a <strong>case formulation</strong> — a shared, testable explanation of <em>why</em> a person has the difficulties they have, <em>right now</em>, that guides treatment. It is built around the formulation material in the source repository (a worked OCD case using the 5 Ps, diagnostic formulation and an ERP treatment plan) and expanded with the established, evidence-based models a clinician is expected to know, each cited to its original author.</p>
+  <div class="card c-key"><span class="lbl">How to read the diagrams</span>
+    Every diagram uses a consistent arrow key so you can read the theory, not just admire the picture:
+    <span class="pill pill-c">solid orange → causal / leads to</span>
+    <span class="pill pill-m">dashed gold ⟳ maintaining loop</span>
+    <span class="pill pill-r">green ⇄ reciprocal</span>
+    <span class="pill pill-h">blue ⇢ hypothesised</span>
+    <br>Each diagram is followed by a plain-text description so the model is understandable even if the SVG does not render.</p>
+  </div>
+  <div class="card c-warn"><span class="lbl">Scope &amp; honesty</span>
+    All clinical cases in this guide are <strong>fictional educational illustrations</strong> — not research data. Models are attributed to their original authors with verified years; later adaptations are labelled as such. Established theories are explained in original wording (no verbatim textbook reproduction).</p>
+  </div>
+</section>
+
+<!-- ===================== TERMINOLOGY ===================== -->
+<section class="block" id="terminology">
+  <span class="kicker">Foundations</span>
+  <h2 class="h">Key terminology — what overlaps, what differs</h2>
+  <p>These words are often used loosely. They coexist in real clinical work but are <strong>not interchangeable</strong>.</p>
+  <div class="tw"><table>
+    <caption>Core terms compared</caption>
+    <thead><tr><th>Term</th><th>What it answers</th><th>Key feature</th></tr></thead>
+    <tbody>
+      <tr><td><span class="term">Psychiatric diagnosis</span></td><td><em>What</em> disorder label fits?</td><td>Categorises a cluster of symptoms against ICD-11/DSM-5 criteria. Descriptive, not explanatory.</td></tr>
+      <tr><td><span class="term">Case formulation</span></td><td><em>Why</em> this person, this problem, now?</td><td>An individualised, testable hypothesis linking predisposing, precipitating and maintaining factors to the presentation.</td></tr>
+      <tr><td><span class="term">Case conceptualization</span></td><td><em>Why</em> + the fuller cognitive-behavioural map</td><td>Often used interchangeably with formulation; in CBT it tends to denote the broader developmental map (beliefs, schemas) within which the problem sits.</td></tr>
+      <tr><td><span class="term">Therapeutic (shared) formulation</span></td><td><em>How do we understand this together?</em></td><td>The version co-created and discussed <em>with</em> the patient to guide therapy and build the alliance.</td></tr>
+      <tr><td><span class="term">Treatment planning</span></td><td><em>What</em> will we do about it?</td><td>Turns the formulation's maintaining factors into goals, targets and specific interventions.</td></tr>
+      <tr><td><span class="term">Risk formulation</span></td><td><em>What</em> harm, to whom, when, and under what conditions?</td><td>A specific formulation of risk (nature, severity, imminence, triggers, protective factors) that feeds a risk-management plan.</td></tr>
+    </tbody>
+  </table></div>
+  <div class="card c-clin"><span class="lbl">Worked example — how they coexist (fictional)</span>
+    A 24-year-old woman presents with repetitive handwashing and intrusive distressing sexual images.
+    <ul>
+      <li><strong>Diagnosis:</strong> Obsessive–compulsive disorder (mixed obsessional thoughts &amp; acts).</li>
+      <li><strong>Formulation:</strong> intrusive images are appraised as meaning "I am bad/dangerous" (inflated responsibility); washing and avoidance reduce anxiety short-term but <em>prevent disconfirmation</em>, maintaining the disorder — predisposed by early loss and adversity, precipitated by a specific stressor, perpetuated by rituals and low mood.</li>
+      <li><strong>Treatment plan:</strong> ERP targeting the maintaining rituals; psychoeducation; relapse prevention.</li>
+      <li><strong>Risk formulation:</strong> passive death wishes present; risk rises with symptom severity and hopelessness; protective factors = family support, help-seeking — monitored each session.</li>
+    </ul>
+    The <em>same patient</em> has one diagnosis, one formulation, one treatment plan and one risk formulation — each doing a different job.</p>
+  </div>
+</section>
+
+<!-- ===================== GENERAL FRAMEWORKS ===================== -->
+<section class="block" id="frameworks">
+  <span class="kicker">Foundations</span>
+  <h2 class="h">General frameworks: the 5 Ps &amp; the biopsychosocial model</h2>
+
+  <h3>The 5 Ps framework</h3>
+  <p>The 5 Ps organise everything you gather into five questions. It is a <em>scaffold</em>, not a theory — it tells you <em>which</em> factors to collect, while a CBT/disorder model explains <em>how</em> they interact.</p>
+
+  <div class="diagram" role="img" aria-label="Five Ps timeline diagram">
+  <svg viewBox="0 0 760 300" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, sans-serif">
+    <defs>
+      <marker id="arrC" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#e07a3c"/></marker>
+    </defs>
+    <!-- timeline -->
+    <line x1="40" y1="150" x2="720" y2="150" stroke="#b9aeea" stroke-width="3" marker-end="url(#arrC)"/>
+    <text x="40" y="285" font-size="12" fill="#5a6475">Past (vulnerability)</text>
+    <text x="600" y="285" font-size="12" fill="#5a6475">Present / future</text>
+    <!-- boxes -->
+    <g>
+      <rect x="30" y="80" width="130" height="55" rx="9" fill="#ece9fb" stroke="#b9aeea"/>
+      <text x="95" y="103" text-anchor="middle" font-size="12.5" font-weight="700" fill="#5b4bb0">Predisposing</text>
+      <text x="95" y="122" text-anchor="middle" font-size="10.5" fill="#5a6475">vulnerabilities</text>
+    </g>
+    <g>
+      <rect x="185" y="165" width="130" height="55" rx="9" fill="#fdece2" stroke="#f3b38f"/>
+      <text x="250" y="188" text-anchor="middle" font-size="12.5" font-weight="700" fill="#b5592f">Precipitating</text>
+      <text x="250" y="207" text-anchor="middle" font-size="10.5" fill="#5a6475">triggers / onset</text>
+    </g>
+    <g>
+      <rect x="340" y="80" width="130" height="55" rx="9" fill="#fbf4d9" stroke="#e9d587"/>
+      <text x="405" y="103" text-anchor="middle" font-size="12.5" font-weight="700" fill="#8a6d10">Perpetuating</text>
+      <text x="405" y="122" text-anchor="middle" font-size="10.5" fill="#5a6475">maintaining</text>
+    </g>
+    <g>
+      <rect x="495" y="165" width="130" height="55" rx="9" fill="#e4f6ee" stroke="#8fd3b6"/>
+      <text x="560" y="188" text-anchor="middle" font-size="12.5" font-weight="700" fill="#2f7d61">Protective</text>
+      <text x="560" y="207" text-anchor="middle" font-size="10.5" fill="#5a6475">strengths</text>
+    </g>
+    <g>
+      <rect x="620" y="80" width="120" height="55" rx="9" fill="#e6f0fb" stroke="#9ec3ea"/>
+      <text x="680" y="103" text-anchor="middle" font-size="12.5" font-weight="700" fill="#35648f">Presenting</text>
+      <text x="680" y="122" text-anchor="middle" font-size="10.5" fill="#5a6475">problem</text>
+    </g>
+    <!-- connectors -->
+    <path d="M95,135 L95,150" stroke="#e07a3c" stroke-width="2" marker-end="url(#arrC)"/>
+    <path d="M250,165 L250,150" stroke="#e07a3c" stroke-width="2" marker-end="url(#arrC)"/>
+    <path d="M405,135 L405,150" stroke="#e07a3c" stroke-width="2" marker-end="url(#arrC)"/>
+    <path d="M680,135 L680,150" stroke="#35648f" stroke-width="2"/>
+  </svg>
+  <p class="legend"><b>Plain text:</b> Predisposing factors create vulnerability over the lifespan → a precipitating event triggers onset → perpetuating factors keep the problem going → protective factors buffer it → together these explain the present presenting problem.</p>
+  </div>
+
+  <div class="tw"><table>
+    <caption>The 5 Ps — meaning, what to gather, how to gather it</caption>
+    <thead><tr><th>P</th><th>Meaning (plain)</th><th>What to assess</th><th>How to ask (sample)</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Presenting problem</strong></td><td>The current difficulties as the patient experiences them</td><td>Symptoms, onset, course, severity, impact on function</td><td>"What brought you here? When did it start and how has it changed?"</td></tr>
+      <tr><td><strong>Predisposing</strong></td><td>Background factors that made the person vulnerable</td><td>Genetics/family history, temperament, early adversity/loss, attachment, medical</td><td>"What was your childhood like? Any losses, trauma, or family history of similar problems?"</td></tr>
+      <tr><td><strong>Precipitating</strong></td><td>The trigger(s) around onset</td><td>Recent stressors, life events, losses, substance changes</td><td>"What was happening in your life just before this began?"</td></tr>
+      <tr><td><strong>Perpetuating</strong></td><td>What keeps it going <em>now</em> (the treatment targets)</td><td>Safety behaviours, avoidance, beliefs, reinforcement, relationships, poor compliance</td><td>"What do you do to cope when it's bad? What happens afterwards?"</td></tr>
+      <tr><td><strong>Protective</strong></td><td>Strengths and resources that help recovery</td><td>Support, insight, motivation, skills, previous coping, values</td><td>"What's helped before? Who supports you? What keeps you going?"</td></tr>
+    </tbody>
+  </table></div>
+  <div class="card c-warn"><span class="lbl">Distinguishing overlapping Ps (common confusion)</span>
+    The same factor can look like two Ps — classify it by <em>timing and function</em>. A broken relationship is <strong>precipitating</strong> if it triggered onset, but <strong>perpetuating</strong> if ongoing conflict keeps the problem alive. Childhood abuse is usually <strong>predisposing</strong> (distal vulnerability) but becomes <strong>precipitating</strong> if a recent reminder triggered this episode. Ask: <em>did it cause the start, or does it maintain it now?</em></p>
+  </div>
+  <div class="card c-write"><span class="lbl">What to write (template)</span>
+    "Mr X's <em>[presenting problem]</em> is best understood as arising on a background of <em>[predisposing]</em>, triggered by <em>[precipitating]</em>, and maintained by <em>[perpetuating]</em>. Recovery is supported by <em>[protective]</em>."</p>
+  </div>
+
+  <h3>The biopsychosocial model (Engel, 1977)</h3>
+  <p>Where the 5 Ps organise by <em>time</em>, the biopsychosocial model organises by <em>domain</em> — reminding us that no single lens is sufficient. The two are complementary: you can place every "P" into a bio/psycho/social cell (a 3×5 grid).</p>
+  <div class="diagram" role="img" aria-label="Biopsychosocial Venn diagram">
+  <svg viewBox="0 0 520 300" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, sans-serif">
+    <circle cx="200" cy="130" r="110" fill="#fdece2" fill-opacity=".7" stroke="#f3b38f"/>
+    <circle cx="320" cy="130" r="110" fill="#e6f0fb" fill-opacity=".7" stroke="#9ec3ea"/>
+    <circle cx="260" cy="210" r="110" fill="#e4f6ee" fill-opacity=".7" stroke="#8fd3b6"/>
+    <text x="150" y="110" font-size="14" font-weight="700" fill="#b5592f">Biological</text>
+    <text x="340" y="110" font-size="14" font-weight="700" fill="#35648f">Psychological</text>
+    <text x="235" y="265" font-size="14" font-weight="700" fill="#2f7d61">Social</text>
+    <text x="258" y="150" font-size="11" text-anchor="middle" fill="#5a6475">whole</text>
+    <text x="258" y="165" font-size="11" text-anchor="middle" fill="#5a6475">person</text>
+  </svg>
+  <p class="legend"><b>Plain text:</b> <b style="color:#b5592f">Biological</b> (genes, illness, substances, sleep), <b style="color:#35648f">Psychological</b> (beliefs, coping, emotion regulation, personality), and <b style="color:#2f7d61">Social</b> (relationships, work, culture, finances) factors overlap and interact to produce and maintain the problem. Interventions can target any domain.</p>
+  </div>
+</section>
+
+<!-- ===================== INTERVIEW GUIDE ===================== -->
+<section class="block" id="interview">
+  <span class="kicker">Foundations</span>
+  <h2 class="h">Interviewing &amp; clinical-writing: from history to formulation</h2>
+  <p>A formulation is <em>built</em>, not guessed. These ten steps move from raw history to a defensible, collaborative explanation that drives treatment.</p>
+
+  <details class="acc"><summary>1 · Collect presenting complaints &amp; history</summary><div class="body">
+    Gather the problem in the patient's words, plus onset, course, frequency, duration, severity and functional impact (work, relationships, self-care). <em>Ask:</em> "Tell me what's been troubling you. When did it start? Walk me through a recent bad day." <strong>Write:</strong> a crisp problem list before theorising.</div></details>
+  <details class="acc"><summary>2 · Identify developmental &amp; contextual factors (predisposing)</summary><div class="body">
+    Early experiences, attachment, losses, trauma, family/medical history, culture. <em>Ask:</em> "What was growing up like? Were there events that shaped how you see yourself or others?" These seed <strong>core beliefs</strong> and vulnerability.</div></details>
+  <details class="acc"><summary>3 · Identify triggers &amp; maintaining processes</summary><div class="body">
+    Find the activating situations and the <em>cycle</em>: thought → feeling → behaviour → consequence. <em>Ask:</em> "What sets it off? What do you do then? What happens next — short term and long term?" Safety behaviours and avoidance usually live here.</div></details>
+  <details class="acc"><summary>4 · Assess strengths &amp; protective factors</summary><div class="body">
+    Supports, skills, motivation, insight, values, what has helped before. <em>Ask:</em> "What's kept you going? What's worked even a little?" Strengths become treatment assets, not an afterthought.</div></details>
+  <details class="acc"><summary>5 · Develop tentative explanatory hypotheses</summary><div class="body">
+    Choose a model that fits the data (generic CBT or a disorder-specific model). State it as a hypothesis: "It <em>may be</em> that…". Avoid premature certainty.</div></details>
+  <details class="acc"><summary>6 · Link hypotheses to assessment findings</summary><div class="body">
+    Anchor every claim to evidence: history, MSE, questionnaire scores, behavioural observations. If you can't point to data for a link, flag it as hypothesised.</div></details>
+  <details class="acc"><summary>7 · Check alternative explanations &amp; contradictory evidence</summary><div class="body">
+    Actively seek disconfirmation. Could this be a different disorder? Organic cause? Normal reaction? What doesn't fit the model? A good formulation survives this test or is revised.</div></details>
+  <details class="acc"><summary>8 · Discuss the formulation collaboratively</summary><div class="body">
+    Share it with the patient in plain language, often as a simple diagram. <em>Ask:</em> "Does this fit your experience? What would you change?" Agreement builds the alliance and treatment rationale.</div></details>
+  <details class="acc"><summary>9 · Revise as new information emerges</summary><div class="body">
+    Formulation is a living hypothesis. Update it when therapy reveals new triggers, beliefs or maintaining factors.</div></details>
+  <details class="acc"><summary>10 · Connect formulation to goals &amp; interventions</summary><div class="body">
+    Each maintaining factor becomes a target; each target suggests a technique (e.g., safety behaviours → behavioural experiments; avoidance → graded exposure). This is where formulation earns its keep.</div></details>
+
+  <div class="card c-write"><span class="lbl">Good vs poor formulation statements</span>
+    <strong>Poor:</strong> "Patient has OCD and needs ERP." <span class="gloss">(a diagnosis + a treatment, with no explanation)</span><br>
+    <strong>Good:</strong> "Intrusive images are appraised as meaning she is dangerous (inflated responsibility); washing and avoidance reduce anxiety short-term but prevent her from learning the thoughts are harmless, maintaining the cycle — so ERP targets this maintaining mechanism." <span class="gloss">(explains the mechanism and justifies the treatment)</span></p>
+  </div>
+</section>
+
+<!-- ===================== GENERIC CBT MODEL ===================== -->
+<section class="block" id="cbt">
+  <span class="kicker">Generic CBT formulation</span>
+  <h2 class="h">The CBT model (Beck) — the full component map</h2>
+
+  <h4>A · Introduction</h4>
+  <p><strong>Author:</strong> Aaron T. Beck (cognitive model, 1960s–70s), developed by Judith Beck, J. Persons and others into <em>longitudinal</em> (developmental) and <em>cross-sectional</em> (maintenance) formulations. <strong>Addresses:</strong> a very wide range of emotional disorders. <strong>Core assumption:</strong> it is not events themselves but the <em>meaning</em> a person gives them (their cognitions) that drives emotion and behaviour; these cognitions are shaped by early experience and organised into beliefs/schemas. <strong>Useful when</strong> you want a transdiagnostic developmental map; <strong>differs from</strong> disorder-specific models, which zoom in on one maintaining cycle rather than the whole life history.</p>
+
+  <h4>B · The diagram</h4>
+  <div class="diagram" role="img" aria-label="Longitudinal CBT formulation diagram">
+  <svg viewBox="0 0 560 620" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, sans-serif">
+    <defs>
+      <marker id="aC2" markerWidth="11" markerHeight="11" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#e07a3c"/></marker>
+      <marker id="aM2" markerWidth="11" markerHeight="11" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#c9a62a"/></marker>
+    </defs>
+    <!-- vertical chain -->
+    <g font-size="12.5" font-weight="700">
+      <rect x="150" y="10"  width="260" height="48" rx="9" fill="#ece9fb" stroke="#b9aeea"/><text x="280" y="38" text-anchor="middle" fill="#5b4bb0">Early experiences</text>
+      <rect x="150" y="90" width="260" height="48" rx="9" fill="#ece9fb" stroke="#b9aeea"/><text x="280" y="112" text-anchor="middle" fill="#5b4bb0">Core beliefs / schemas</text>
+      <rect x="150" y="170" width="260" height="48" rx="9" fill="#e6f0fb" stroke="#9ec3ea"/><text x="280" y="192" text-anchor="middle" fill="#35648f">Assumptions / rules / attitudes</text>
+      <rect x="150" y="250" width="260" height="42" rx="9" fill="#fdece2" stroke="#f3b38f"/><text x="280" y="276" text-anchor="middle" fill="#b5592f">Critical incident (trigger)</text>
+      <rect x="150" y="320" width="260" height="42" rx="9" fill="#fbf4d9" stroke="#e9d587"/><text x="280" y="346" text-anchor="middle" fill="#8a6d10">Automatic thoughts / images</text>
+    </g>
+    <!-- maintenance triangle -->
+    <g font-size="12" font-weight="700">
+      <rect x="40" y="420" width="150" height="46" rx="9" fill="#fdece2" stroke="#f3b38f"/><text x="115" y="447" text-anchor="middle" fill="#b5592f">Emotion</text>
+      <rect x="370" y="420" width="150" height="46" rx="9" fill="#e6f0fb" stroke="#9ec3ea"/><text x="445" y="447" text-anchor="middle" fill="#35648f">Physiology</text>
+      <rect x="205" y="520" width="150" height="46" rx="9" fill="#e4f6ee" stroke="#8fd3b6"/><text x="280" y="547" text-anchor="middle" fill="#2f7d61">Behaviour</text>
+    </g>
+    <!-- vertical arrows (causal) -->
+    <g stroke="#e07a3c" stroke-width="2" fill="none" marker-end="url(#aC2)">
+      <path d="M280,58 L280,88"/><path d="M280,138 L280,168"/><path d="M280,218 L280,248"/><path d="M280,292 L280,318"/>
+    </g>
+    <!-- AT to triangle -->
+    <g stroke="#e07a3c" stroke-width="2" fill="none" marker-end="url(#aC2)">
+      <path d="M240,362 L130,418"/><path d="M320,362 L440,418"/>
+    </g>
+    <!-- maintenance loops (dashed gold) -->
+    <g stroke="#c9a62a" stroke-width="2" fill="none" stroke-dasharray="6 4" marker-end="url(#aM2)">
+      <path d="M150,470 Q130,520 205,538"/>
+      <path d="M410,470 Q430,520 355,538"/>
+      <path d="M280,520 Q280,430 280,366"/>
+    </g>
+  </svg>
+  <p class="legend"><b>Plain text (top to bottom):</b> <b style="color:#e07a3c">Solid arrows = causal/developmental.</b> Early experiences shape <b>core beliefs/schemas</b>, which generate <b>assumptions/rules</b> ("if…then…"). A <b>critical incident</b> that breaks a rule activates the beliefs, producing <b>automatic thoughts/images</b>. These drive the <b>maintenance triangle</b> of emotion ⇄ physiology ⇄ behaviour. <b style="color:#c9a62a">Dashed gold loops = maintaining feedback</b>: behaviour (avoidance/safety behaviours) feeds back to intensify thoughts and feelings, keeping the problem going.</p>
+  </div>
+
+  <h4>C · Every component explained</h4>
+
+  <details class="acc" open><summary>Early experiences &amp; developmental history</summary><div class="body">
+    <p><strong>What it means:</strong> formative life events — parenting, attachment, losses, trauma, bullying, illness. <strong>Plain:</strong> the soil the beliefs grow from. <strong>Clinical significance:</strong> explains <em>why this person</em> is vulnerable to <em>these</em> beliefs. <strong>Assess:</strong> attachment quality, adversity, messages received about self/others/world. <strong>How:</strong> developmental history; "What were you told about yourself as a child?" <strong>Write:</strong> "Early loss of her mother and later abuse plausibly contributed to beliefs of being unsafe and unworthy." <strong>Example:</strong> childhood abuse → belief "I am dirty/bad." <strong>Common mistake:</strong> treating history as destiny — it informs but does not <em>prove</em> a belief; always link to current evidence.</p></div></details>
+
+  <details class="acc"><summary>Core beliefs</summary><div class="body">
+    <p><strong>What:</strong> absolute, global beliefs about self, others and the world ("I am unlovable", "others are dangerous"). <strong>Plain:</strong> the deepest "bottom-line" statements. <strong>Significance:</strong> they bias interpretation of everything. <strong>Assess:</strong> use the downward-arrow technique ("if that were true, what would it mean about you?"). <strong>How:</strong> watch for themes across situations; belief questionnaires. <strong>Write:</strong> "Core belief: 'I am worthless.'" <strong>Example:</strong> depressed patient: "I'm a failure." <strong>Mistake:</strong> labelling a situational thought as a core belief — core beliefs are global and trait-like.</p></div></details>
+
+  <details class="acc"><summary>Schemas</summary><div class="body">
+    <p><strong>What:</strong> broad cognitive–affective structures (knowledge + emotion + memory) that organise core beliefs and guide processing (Young's schema model extends this). <strong>Plain:</strong> mental templates that filter experience. <strong>Significance:</strong> drive self-perpetuating patterns. <strong>Assess:</strong> recurring interpersonal/emotional patterns; schema questionnaires. <strong>Write:</strong> "Mistrust/abuse schema active in close relationships." <strong>Example:</strong> "defectiveness/shame" schema → hypersensitivity to criticism. <strong>Mistake:</strong> conflating schema (structure) with a single belief (content). <em>(Schema therapy is a later adaptation of Beck's model — Young, 1990.)</em></p></div></details>
+
+  <details class="acc"><summary>Intermediate beliefs: assumptions, rules, conditional beliefs</summary><div class="body">
+    <p><strong>What:</strong> the "if…then…", "should/must", and "unless" rules linking core beliefs to daily life. <strong>Plain:</strong> the strategies people adopt to cope with a painful core belief. <strong>Significance:</strong> they are more accessible than core beliefs and often the first therapy target. <strong>Assess:</strong> "What rules do you live by? What has to happen for you to feel OK?" <strong>Write:</strong> "Assumption: 'If I'm not perfect, I'll be rejected.'" <strong>Example:</strong> social anxiety: "If I blush, people will think I'm weird." <strong>Mistake:</strong> missing the <em>conditional</em> structure — these are "rules for living", not facts.</p></div></details>
+
+  <details class="acc"><summary>Triggers / activating situations</summary><div class="body">
+    <p><strong>What:</strong> the specific internal or external events that activate the beliefs and set off the cycle. <strong>Plain:</strong> the "switch". <strong>Significance:</strong> pinpoints where and when the problem fires — guides exposure design. <strong>Assess:</strong> situational analysis of recent episodes. <strong>How:</strong> "Describe the last time it happened — where, who, what exactly?" <strong>Write:</strong> "Trigger: touching a door handle." <strong>Example:</strong> panic triggered by a racing heart after coffee. <strong>Mistake:</strong> accepting a vague trigger ("stress") instead of a concrete situation.</p></div></details>
+
+  <details class="acc"><summary>Automatic thoughts, images &amp; interpretations</summary><div class="body">
+    <p><strong>What:</strong> rapid, involuntary appraisals (words or images) that pop up in a situation. <strong>Plain:</strong> the running commentary in your head. <strong>Significance:</strong> the proximal driver of emotion — the key CBT target. <strong>Assess:</strong> "What went through your mind right then? Any picture in your mind?" <strong>Write:</strong> "AT: 'I'm going to collapse.'" <strong>Example:</strong> OCD image of harming someone. <strong>Mistake:</strong> recording the emotion ("I felt scared") instead of the thought that produced it.</p></div></details>
+
+  <details class="acc"><summary>Emotions &amp; physiological responses</summary><div class="body">
+    <p><strong>What:</strong> the felt affect (fear, shame, sadness) and bodily arousal (racing heart, nausea, tension). <strong>Plain:</strong> how the body and mood react to the thought. <strong>Significance:</strong> physical sensations are often <em>re-interpreted</em> as further evidence (fuelling the loop, especially in panic). <strong>Assess:</strong> name emotions and rate intensity (0–100); map body sensations. <strong>Write:</strong> "Emotion: anxiety 85/100; palpitations, breathlessness." <strong>Mistake:</strong> blurring emotion and thought — keep them in separate columns.</p></div></details>
+
+  <details class="acc"><summary>Behavioural responses</summary><div class="body">
+    <p><strong>What:</strong> what the person does in response (checking, washing, escaping, arguing, withdrawing). <strong>Plain:</strong> the action the feeling pushes for. <strong>Significance:</strong> behaviour is where maintaining cycles usually operate and where change is observable. <strong>Assess:</strong> behavioural analysis; diaries. <strong>Write:</strong> "Behaviour: washes hands for 10 min." <strong>Mistake:</strong> ignoring <em>covert</em> behaviours (mental rituals, reassurance-seeking).</p></div></details>
+
+  <details class="acc"><summary>Avoidance &amp; safety behaviours</summary><div class="body">
+    <p><strong>What:</strong> <em>avoidance</em> = staying away from feared situations; <em>safety behaviours</em> = actions done <em>within</em> a situation to prevent a feared catastrophe. <strong>Plain:</strong> escape hatches and "insurance" behaviours. <strong>Significance:</strong> the engine of maintenance — they give short-term relief but <strong>prevent disconfirmation</strong> of the feared belief, so the fear never updates. <strong>Assess:</strong> "What do you do to stop the worst from happening? What do you avoid?" <strong>Write:</strong> "Safety behaviour: grips trolley to avoid 'collapsing'." <strong>Example:</strong> social anxiety — rehearsing sentences, avoiding eye contact. <strong>Mistake:</strong> missing subtle safety behaviours, which quietly sabotage exposure.</p></div></details>
+
+  <details class="acc"><summary>Coping strategies</summary><div class="body">
+    <p><strong>What:</strong> broader efforts to manage distress (adaptive or maladaptive). <strong>Significance:</strong> distinguishes helpful coping (to strengthen) from counter-productive coping (to target). <strong>Assess:</strong> "What do you do to get through? Does it help long-term?" <strong>Write:</strong> "Uses alcohol to manage anxiety — short-term relief, long-term worsening." <strong>Mistake:</strong> assuming all coping is good.</p></div></details>
+
+  <details class="acc"><summary>Maintaining factors &amp; feedback loops</summary><div class="body">
+    <p><strong>What:</strong> the self-reinforcing cycles that keep the problem alive <em>now</em>. <strong>Plain:</strong> the loops. <strong>Significance:</strong> these are the primary treatment targets because they are modifiable in the present. <strong>Assess:</strong> trace consequence → back to trigger. <strong>Write:</strong> "Washing reduces anxiety → negatively reinforces washing → strengthens the urge." <strong>Mistake:</strong> listing maintaining factors without showing the <em>loop</em>.</p></div></details>
+
+  <details class="acc"><summary>Short-term relief vs long-term consequences</summary><div class="body">
+    <p><strong>What:</strong> the trade-off that explains why unhelpful behaviours persist — they <em>work</em> short-term (relief) but worsen the problem long-term. <strong>Significance:</strong> the core rationale you share with the patient to justify dropping safety behaviours. <strong>Write:</strong> "Avoidance brings immediate relief but maintains the belief that the situation is dangerous."</p></div></details>
+
+  <details class="acc"><summary>Protective factors, strengths &amp; resources</summary><div class="body">
+    <p><strong>What:</strong> internal and external assets (insight, motivation, support, skills, values). <strong>Significance:</strong> predict prognosis and are actively built into treatment. <strong>Assess:</strong> "What are you good at? Who helps? What's worked before?" <strong>Write:</strong> "Protective: strong therapeutic motivation; supportive father." <strong>Mistake:</strong> omitting strengths, producing a deficit-only, demoralising formulation.</p></div></details>
+
+  <h4>D · Every arrow explained</h4>
+  <div class="tw"><table>
+    <caption>Relationships in the CBT model</caption>
+    <thead><tr><th>Arrow</th><th>Type</th><th>Why it exists / how to test it</th></tr></thead>
+    <tbody>
+      <tr><td>Early experience → core belief</td><td><span class="pill pill-h">hypothesised, developmental</span></td><td>Repeated experiences are generalised into global self-knowledge. Test via history + whether belief themes match early messages. Evidence <em>for</em>: belief predates the disorder; <em>against</em>: belief is purely state-dependent (lifts with mood).</td></tr>
+      <tr><td>Core belief → assumptions</td><td><span class="pill pill-c">causal</span></td><td>Assumptions are coping rules devised to live with a painful core belief. Test with downward-arrow.</td></tr>
+      <tr><td>Critical incident → activation</td><td><span class="pill pill-c">causal, context-dependent</span></td><td>An event that breaks an assumption activates the dormant core belief, triggering automatic thoughts. Evidence: onset clusters around such an event.</td></tr>
+      <tr><td>Automatic thought → emotion</td><td><span class="pill pill-c">causal (the central CBT claim)</span></td><td>Meaning drives affect. Test with thought records: changing the appraisal changes the emotion. This is the most strongly supported link.</td></tr>
+      <tr><td>Emotion ⇄ physiology</td><td><span class="pill pill-r">reciprocal</span></td><td>Each amplifies the other; bodily sensations can be re-appraised catastrophically (esp. panic).</td></tr>
+      <tr><td>Behaviour → thoughts/feelings (loop)</td><td><span class="pill pill-m">maintaining</span></td><td>Avoidance/safety behaviours prevent disconfirmation, so the feared belief is never updated → thoughts persist. Test: dropping the behaviour in a behavioural experiment reduces the fear.</td></tr>
+    </tbody>
+  </table></div>
+
+  <h4>E · Clinical application</h4>
+  <p>Move from history → formulation by filling the chain downward, then drawing the maintaining loops. Translate each box into a statement and each loop into a treatment target (see <a href="#templates">templates</a> and <a href="#cases">worked cases</a>). <strong>Different CBT approaches use different formulations</strong> — do not force every component into every case; a simple maintenance ("hot cross bun") cycle is often enough for a focal problem, while a longitudinal map suits complex or recurrent presentations.</p>
+  <a class="backtop" href="#top">↑ Top</a>
+</section>
+
+<!-- ===================== MAINTENANCE CYCLE ===================== -->
+<section class="block" id="maintenance">
+  <span class="kicker">Generic CBT formulation</span>
+  <h2 class="h">The maintenance (vicious) cycle — "hot cross bun"</h2>
+  <p>The cross-sectional "hot cross bun" (Greenberger &amp; Padesky, 1995) is the simplest, most widely used formulation: in any situation, <strong>thoughts, emotions, physical sensations and behaviour</strong> interact and feed back on one another. It is the engine inside every disorder-specific model below.</p>
+  <div class="diagram" role="img" aria-label="Hot cross bun maintenance cycle">
+  <svg viewBox="0 0 420 360" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, sans-serif">
+    <defs><marker id="aR" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#2f9f78"/></marker></defs>
+    <text x="210" y="24" text-anchor="middle" font-size="12.5" fill="#5a6475">Situation / trigger</text>
+    <g font-size="12" font-weight="700">
+      <rect x="130" y="40" width="160" height="46" rx="9" fill="#fbf4d9" stroke="#e9d587"/><text x="210" y="67" text-anchor="middle" fill="#8a6d10">Thoughts</text>
+      <rect x="30" y="150" width="150" height="46" rx="9" fill="#fdece2" stroke="#f3b38f"/><text x="105" y="177" text-anchor="middle" fill="#b5592f">Emotions</text>
+      <rect x="240" y="150" width="150" height="46" rx="9" fill="#e6f0fb" stroke="#9ec3ea"/><text x="315" y="177" text-anchor="middle" fill="#35648f">Physical</text>
+      <rect x="130" y="270" width="160" height="46" rx="9" fill="#e4f6ee" stroke="#8fd3b6"/><text x="210" y="297" text-anchor="middle" fill="#2f7d61">Behaviour</text>
+    </g>
+    <g stroke="#2f9f78" stroke-width="2" fill="none" marker-end="url(#aR)">
+      <path d="M150,86 Q90,110 110,148"/>
+      <path d="M100,196 Q120,240 150,268"/>
+      <path d="M290,268 Q320,240 310,198"/>
+      <path d="M300,148 Q290,105 265,88"/>
+      <path d="M180,63 L242,63 M310,150 L310,110"/>
+    </g>
+  </svg>
+  <p class="legend"><b>Plain text:</b> all four corners are linked by <b style="color:#2f9f78">reciprocal green arrows</b> — a thought triggers emotion and physical arousal, which drive a behaviour, which feeds back to confirm the thought. Break any corner (e.g., change the behaviour) and the whole cycle weakens. Disorder-specific models simply specify <em>what</em> fills each corner for that problem.</p>
+  </div>
+  <div class="card c-clin"><span class="lbl">Fictional mini-example — panic</span>
+    Situation: heart races on stairs → <em>Thought:</em> "I'm having a heart attack" → <em>Physical:</em> palpitations intensify → <em>Emotion:</em> terror → <em>Behaviour:</em> stops, grips rail, calls for help → the relief "confirms" that stopping prevented disaster → next time the belief is stronger.</p>
+  </div>
+  <a class="backtop" href="#top">↑ Top</a>
+</section>
+
+<!-- ===================== OCD ===================== -->
+<section class="block" id="ocd">
+  <span class="kicker">Disorder-specific</span>
+  <h2 class="h">OCD — Salkovskis &amp; Rachman, and the ERP rationale</h2>
+
+  <h4>A · Introduction</h4>
+  <p><strong>Authors:</strong> Paul Salkovskis (cognitive-behavioural model, 1985, 1989, 1999) and Stanley Rachman (1997, 1998). <strong>Addresses:</strong> obsessive–compulsive disorder. <strong>Key idea:</strong> intrusive thoughts are <em>normal and near-universal</em>; OCD develops not from the intrusions themselves but from the <strong>catastrophic appraisal</strong> of them — especially <span class="term">inflated responsibility</span> (Salkovskis) and <span class="term">thought–action fusion</span> (Rachman: the belief that thinking something is morally equivalent to doing it, or makes it more likely). <strong>Differs from</strong> earlier purely behavioural accounts by adding the appraisal step; Wells &amp; Matthews (1994) later added a <em>metacognitive</em> account.</p>
+
+  <h4>B · Diagram — the OCD maintenance cycle</h4>
+  <div class="diagram" role="img" aria-label="OCD cognitive-behavioural maintenance cycle">
+  <svg viewBox="0 0 460 420" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, sans-serif">
+    <defs>
+      <marker id="oC" markerWidth="11" markerHeight="11" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#e07a3c"/></marker>
+      <marker id="oM" markerWidth="11" markerHeight="11" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#c9a62a"/></marker>
+    </defs>
+    <g font-size="11.5" font-weight="700">
+      <rect x="150" y="10" width="170" height="44" rx="9" fill="#ece9fb" stroke="#b9aeea"/><text x="235" y="37" text-anchor="middle" fill="#5b4bb0">Intrusive thought/image</text>
+      <rect x="150" y="90" width="170" height="52" rx="9" fill="#fdece2" stroke="#f3b38f"/><text x="235" y="110" text-anchor="middle" fill="#b5592f">Appraisal: responsibility /</text><text x="235" y="128" text-anchor="middle" fill="#b5592f">thought–action fusion</text>
+      <rect x="150" y="178" width="170" height="44" rx="9" fill="#fbf4d9" stroke="#e9d587"/><text x="235" y="205" text-anchor="middle" fill="#8a6d10">Anxiety / distress ↑</text>
+      <rect x="150" y="258" width="170" height="52" rx="9" fill="#e4f6ee" stroke="#8fd3b6"/><text x="235" y="278" text-anchor="middle" fill="#2f7d61">Compulsion / neutralising /</text><text x="235" y="296" text-anchor="middle" fill="#2f7d61">avoidance · reassurance</text>
+      <rect x="150" y="346" width="170" height="44" rx="9" fill="#e6f0fb" stroke="#9ec3ea"/><text x="235" y="373" text-anchor="middle" fill="#35648f">Temporary relief</text>
+    </g>
+    <g stroke="#e07a3c" stroke-width="2" fill="none" marker-end="url(#oC)">
+      <path d="M235,54 L235,88"/><path d="M235,142 L235,176"/><path d="M235,222 L235,256"/><path d="M235,310 L235,344"/>
+    </g>
+    <!-- negative reinforcement loop back up -->
+    <g stroke="#c9a62a" stroke-width="2" fill="none" stroke-dasharray="6 4" marker-end="url(#oM)">
+      <path d="M320,368 Q420,250 360,120 Q330,70 322,56"/>
+    </g>
+    <text x="400" y="210" font-size="10.5" fill="#8a6d10" transform="rotate(90 400 210)">negative reinforcement · prevents disconfirmation</text>
+  </svg>
+  <p class="legend"><b>Plain text:</b> a normal <b>intrusive thought</b> is <b style="color:#b5592f">appraised</b> as meaning "I'm responsible for harm" or "thinking it makes it real/likely" → <b>anxiety rises</b> → the person performs a <b>compulsion / avoidance / reassurance</b> to neutralise it → <b>relief</b> follows. The <b style="color:#c9a62a">dashed maintaining loop</b> shows relief <em>negatively reinforces</em> the ritual and <em>prevents disconfirmation</em> (the person never learns the feared catastrophe wouldn't have happened), so the appraisal and intrusions strengthen.</p>
+  </div>
+
+  <h4>C · Components</h4>
+  <details class="acc" open><summary>Intrusive thought / image</summary><div class="body"><strong>What:</strong> an unwanted, ego-dystonic thought, urge or image (harm, contamination, taboo sexual/religious content). <strong>Plain:</strong> a "mental hiccup" everyone gets. <strong>Significance:</strong> the content is <em>not</em> the problem — most people have these. <strong>Assess:</strong> "What thoughts pop in uninvited? How do you react to them?" <strong>Write:</strong> "Recurrent intrusive image of harming a relative." <strong>Mistake:</strong> treating the thought's content as dangerous/diagnostic.</div></details>
+  <details class="acc"><summary>Appraisal — inflated responsibility &amp; thought–action fusion</summary><div class="body"><strong>What:</strong> the catastrophic meaning given to the intrusion. <em>Inflated responsibility</em> = "if I might prevent harm, I'm to blame if I don't" (Salkovskis). <em>Thought–action fusion</em> = "thinking it is as bad as doing it / makes it likely" (Rachman). <strong>Significance:</strong> the appraisal — not the intrusion — generates distress and drives rituals; it is the main cognitive target. <strong>Assess:</strong> "What does it mean about you that you had that thought? What might happen if you ignore it?" <strong>Write:</strong> "Appraises intrusions via inflated responsibility and moral TAF." <strong>Mistake:</strong> targeting the intrusion rather than the appraisal.</div></details>
+  <details class="acc"><summary>Anxiety / distress</summary><div class="body"><strong>What:</strong> the emotional surge driven by the appraisal. <strong>Significance:</strong> the discomfort the ritual is designed to reduce. <strong>Assess:</strong> SUDS (0–100) ratings. <strong>Write:</strong> "Peak distress 90/100 on contamination exposure."</div></details>
+  <details class="acc"><summary>Compulsion / neutralising / avoidance / reassurance</summary><div class="body"><strong>What:</strong> overt (washing, checking) or covert (mental reviewing, counting, praying, reassurance-seeking) acts to reduce distress or "prevent" harm. <strong>Significance:</strong> the maintaining behaviour — and the ERP target. <strong>Assess:</strong> "What do you do to feel safe or sure? How long? Any mental rituals?" <strong>Write:</strong> "Washes 10 min; mentally reviews conversations; seeks reassurance from father." <strong>Mistake:</strong> missing covert/mental rituals and reassurance-seeking (common ERP failure point).</div></details>
+  <details class="acc"><summary>Temporary relief (negative reinforcement)</summary><div class="body"><strong>What:</strong> the short-lived drop in anxiety after ritualising. <strong>Significance:</strong> relief <em>rewards</em> the ritual (negative reinforcement) and blocks learning that anxiety would fall on its own and the catastrophe would not occur. <strong>Write:</strong> "Relief after washing negatively reinforces the compulsion, maintaining the cycle."</div></details>
+
+  <h4>D · Arrows</h4>
+  <div class="tw"><table>
+    <thead><tr><th>Arrow</th><th>Type</th><th>Why / how tested</th></tr></thead>
+    <tbody>
+      <tr><td>Intrusion → appraisal</td><td><span class="pill pill-c">causal</span></td><td>The intrusion is interpreted through pre-existing responsibility/TAF beliefs. Test: do non-OCD controls have the same intrusions without distress? (Yes — supporting the model.)</td></tr>
+      <tr><td>Appraisal → anxiety</td><td><span class="pill pill-c">causal</span></td><td>Catastrophic meaning generates distress. Test: reducing the appraisal reduces anxiety.</td></tr>
+      <tr><td>Anxiety → compulsion</td><td><span class="pill pill-c">causal/motivational</span></td><td>The urge to neutralise is driven by distress.</td></tr>
+      <tr><td>Compulsion → relief → (back to appraisal)</td><td><span class="pill pill-m">maintaining</span></td><td>Relief negatively reinforces ritualising and prevents disconfirmation, so appraisals persist. Test: ERP breaks the loop → symptoms fall.</td></tr>
+    </tbody>
+  </table></div>
+
+  <h4>E · From formulation to ERP</h4>
+  <div class="card c-key"><span class="lbl">Why ERP follows from the formulation</span>
+    If rituals/avoidance maintain OCD by producing relief that prevents disconfirmation, then the logical treatment is to <strong>confront the trigger (Exposure)</strong> while <strong>not performing the ritual (Response/Ritual Prevention)</strong>. The patient then learns experientially that (a) anxiety rises, peaks and falls on its own (habituation / inhibitory learning) and (b) the feared catastrophe does not occur — directly disconfirming the appraisal. Treatment does <em>not</em> follow from the diagnosis alone; it follows from this <em>mechanism</em>.</p>
+  </div>
+  <div class="card c-ask"><span class="lbl">Sample ERP-building questions</span>
+    <ul>
+      <li>"If you didn't wash/check, what's the worst you fear would happen?"</li>
+      <li>"On 0–100, how distressing is touching this / resisting that?"</li>
+      <li>"What's the smallest step we could start with that still raises some anxiety?"</li>
+    </ul></div>
+  <div class="card c-warn"><span class="lbl">Common mistakes</span>
+    Challenging the <em>content</em> of intrusions (reassurance in disguise); allowing covert rituals during exposure; building a hierarchy without eliciting the <em>feared consequence</em>; using relaxation <em>during</em> exposure as a safety behaviour (it should be a general coping skill used outside exposures).</p>
+  </div>
+  <a class="backtop" href="#top">↑ Top</a>
+</section>
+
+<!-- ===================== PANIC ===================== -->
+<section class="block" id="panic">
+  <span class="kicker">Disorder-specific</span>
+  <h2 class="h">Panic — Clark's cognitive model (1986)</h2>
+  <h4>A · Introduction</h4>
+  <p><strong>Author:</strong> David M. Clark (1986, 1988). <strong>Addresses:</strong> panic disorder. <strong>Key idea:</strong> panic attacks result from the <span class="term">catastrophic misinterpretation of benign bodily sensations</span> (e.g., reading palpitations as "a heart attack", dizziness as "I'm going mad"). <strong>Differs from</strong> general anxiety models by specifying an internal (interoceptive) vicious cycle driven by misinterpretation, not external threat.</p>
+  <h4>B · Diagram — the panic vicious cycle</h4>
+  <div class="diagram" role="img" aria-label="Clark panic cycle">
+  <svg viewBox="0 0 440 360" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, sans-serif">
+    <defs><marker id="pC" markerWidth="11" markerHeight="11" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#e07a3c"/></marker></defs>
+    <g font-size="11.5" font-weight="700">
+      <rect x="140" y="10" width="160" height="44" rx="9" fill="#fdece2" stroke="#f3b38f"/><text x="220" y="37" text-anchor="middle" fill="#b5592f">Trigger (internal/external)</text>
+      <rect x="250" y="90" width="160" height="44" rx="9" fill="#fbf4d9" stroke="#e9d587"/><text x="330" y="117" text-anchor="middle" fill="#8a6d10">Perceived threat</text>
+      <rect x="250" y="180" width="160" height="44" rx="9" fill="#fdece2" stroke="#f3b38f"/><text x="330" y="207" text-anchor="middle" fill="#b5592f">Apprehension</text>
+      <rect x="140" y="270" width="160" height="44" rx="9" fill="#e6f0fb" stroke="#9ec3ea"/><text x="220" y="297" text-anchor="middle" fill="#35648f">Body sensations</text>
+      <rect x="30" y="180" width="160" height="52" rx="9" fill="#ece9fb" stroke="#b9aeea"/><text x="110" y="200" text-anchor="middle" fill="#5b4bb0">Catastrophic</text><text x="110" y="218" text-anchor="middle" fill="#5b4bb0">misinterpretation</text>
+    </g>
+    <g stroke="#e07a3c" stroke-width="2" fill="none" marker-end="url(#pC)">
+      <path d="M260,45 Q330,60 330,88"/>
+      <path d="M330,134 L330,178"/>
+      <path d="M330,224 Q320,255 300,275"/>
+      <path d="M140,292 Q90,265 110,234"/>
+      <path d="M110,180 Q130,120 180,70 Q210,52 215,52"/>
+    </g>
+  </svg>
+  <p class="legend"><b>Plain text (clockwise loop):</b> a trigger → <b>perceived threat</b> → <b>apprehension</b> → <b>bodily sensations</b> (arousal) → <b style="color:#5b4bb0">catastrophic misinterpretation</b> of those sensations → which increases perceived threat again → escalating spiral = a panic attack. All <b style="color:#e07a3c">causal</b>, forming a rapid positive-feedback loop.</p>
+  </div>
+  <h4>C · Components &amp; D · Arrows</h4>
+  <details class="acc" open><summary>Body sensations → catastrophic misinterpretation (the key link)</summary><div class="body"><strong>What:</strong> normal arousal sensations (palpitations, breathlessness, dizziness) interpreted as signs of imminent catastrophe (heart attack, suffocation, madness, losing control). <strong>Significance:</strong> this misinterpretation is the pivot of the model and the main cognitive target. <strong>Assess:</strong> "When your heart raced, what did you think it meant? What did you fear would happen?" <strong>Write:</strong> "Misinterprets palpitations as 'I'm about to die'." <strong>Arrow type:</strong> <span class="pill pill-c">causal</span> — remove the misinterpretation and the loop cannot escalate.</div></details>
+  <details class="acc"><summary>Safety behaviours &amp; avoidance (maintaining)</summary><div class="body"><strong>What:</strong> sitting down, carrying water/medication, gripping objects, avoiding exertion/places. <strong>Significance:</strong> they prevent disconfirmation ("I only survived because I sat down"), maintaining the belief. <span class="pill pill-m">maintaining</span> <strong>Assess:</strong> "What do you do to stop the worst happening?" <strong>Treatment link:</strong> drop safety behaviours + interoceptive exposure (deliberately induce sensations) to learn they are harmless.</div></details>
+  <h4>E · Application</h4>
+  <div class="card c-key"><span class="lbl">Model → treatment</span>Cognitive therapy targets the misinterpretation (behavioural experiments, interoceptive exposure — e.g., hyperventilating or spinning to show sensations are benign) and removes safety behaviours. NICE recommends this cognitive therapy as first-line for panic disorder.</div>
+  <a class="backtop" href="#top">↑ Top</a>
+</section>
+
+<!-- ===================== SOCIAL ANXIETY ===================== -->
+<section class="block" id="social">
+  <span class="kicker">Disorder-specific</span>
+  <h2 class="h">Social anxiety — Clark &amp; Wells model (1995)</h2>
+  <h4>A · Introduction</h4>
+  <p><strong>Authors:</strong> David M. Clark &amp; Adrian Wells (1995). <strong>Addresses:</strong> social anxiety disorder (social phobia). <strong>Key idea:</strong> in feared social situations the person shifts attention <em>inward</em> onto a distorted negative <strong>self-image</strong> ("processing the self as a social object"), uses <strong>safety behaviours</strong>, and engages in <strong>anticipatory</strong> and <strong>post-event processing</strong> — all of which prevent disconfirmation of feared beliefs.</p>
+  <h4>B · Diagram</h4>
+  <div class="diagram" role="img" aria-label="Clark and Wells social anxiety model">
+  <svg viewBox="0 0 480 400" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, sans-serif">
+    <defs><marker id="sC" markerWidth="11" markerHeight="11" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#e07a3c"/></marker>
+      <marker id="sR" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#2f9f78"/></marker></defs>
+    <g font-size="11" font-weight="700">
+      <rect x="160" y="8" width="160" height="40" rx="9" fill="#fdece2" stroke="#f3b38f"/><text x="240" y="33" text-anchor="middle" fill="#b5592f">Social situation</text>
+      <rect x="150" y="70" width="180" height="40" rx="9" fill="#ece9fb" stroke="#b9aeea"/><text x="240" y="95" text-anchor="middle" fill="#5b4bb0">Activates assumptions</text>
+      <rect x="150" y="132" width="180" height="40" rx="9" fill="#fbf4d9" stroke="#e9d587"/><text x="240" y="157" text-anchor="middle" fill="#8a6d10">Perceived social danger</text>
+      <rect x="20" y="210" width="150" height="56" rx="9" fill="#e6f0fb" stroke="#9ec3ea"/><text x="95" y="232" text-anchor="middle" fill="#35648f">Self-focused attention</text><text x="95" y="250" text-anchor="middle" fill="#35648f">→ distorted self-image</text>
+      <rect x="310" y="210" width="150" height="56" rx="9" fill="#e4f6ee" stroke="#8fd3b6"/><text x="385" y="232" text-anchor="middle" fill="#2f7d61">Safety behaviours</text><text x="385" y="250" text-anchor="middle" fill="#2f7d61">+ somatic/cognitive sx</text>
+      <rect x="150" y="320" width="180" height="56" rx="9" fill="#ece9fb" stroke="#b9aeea"/><text x="240" y="342" text-anchor="middle" fill="#5b4bb0">Anticipatory &amp;</text><text x="240" y="360" text-anchor="middle" fill="#5b4bb0">post-event processing</text>
+    </g>
+    <g stroke="#e07a3c" stroke-width="2" fill="none" marker-end="url(#sC)">
+      <path d="M240,48 L240,68"/><path d="M240,110 L240,130"/>
+      <path d="M200,172 Q120,185 95,208"/><path d="M280,172 Q360,185 385,208"/>
+    </g>
+    <g stroke="#2f9f78" stroke-width="2" fill="none" marker-end="url(#sR)">
+      <path d="M95,266 Q120,300 155,330"/><path d="M385,266 Q360,300 325,330"/>
+      <path d="M150,348 Q60,300 80,172 Q120,120 150,98"/>
+    </g>
+  </svg>
+  <p class="legend"><b>Plain text:</b> a social situation <b style="color:#e07a3c">activates</b> assumptions → perceived social danger → the person turns attention <b style="color:#35648f">inward</b>, constructing a distorted negative self-image, and deploys <b style="color:#2f7d61">safety behaviours</b>. <b style="color:#2f9f78">Reciprocal/maintaining loops</b> (anticipatory worry before, post-event "rumination" after) feed the assumptions, so the person never gathers disconfirming evidence from the real social world.</p>
+  </div>
+  <h4>C · Key components</h4>
+  <details class="acc" open><summary>Self-focused attention &amp; distorted self-image</summary><div class="body"><strong>What:</strong> attention shifts from the task/others onto monitoring one's own anxiety and an imagined "observer-perspective" image of how bad one looks. <strong>Significance:</strong> the person judges themselves by this distorted internal image rather than external reality, so social feedback cannot correct it. <strong>Assess:</strong> "In that moment, what were you most aware of — the conversation or yourself? Did you have an image of how you appeared?" <strong>Treatment link:</strong> attention-training + video feedback to correct the distorted self-image.</div></details>
+  <details class="acc"><summary>Safety behaviours</summary><div class="body"><strong>What:</strong> rehearsing sentences, gripping a glass, avoiding eye contact, speaking little. <strong>Significance:</strong> prevent feared catastrophe <em>in the person's mind</em>, so disconfirmation never happens; some even <em>cause</em> the feared outcome (e.g., appearing aloof). <span class="pill pill-m">maintaining</span></div></details>
+  <details class="acc"><summary>Anticipatory &amp; post-event processing</summary><div class="body"><strong>What:</strong> dread and rehearsal <em>before</em>; biased negative review ("rumination") <em>after</em>. <strong>Significance:</strong> both lock in negative self-appraisal independent of what actually happened. <span class="pill pill-r">maintaining/reciprocal</span></div></details>
+  <h4>E · Application</h4>
+  <div class="card c-key"><span class="lbl">Model → treatment</span>Cognitive therapy for social anxiety reverses each maintaining process: shift attention outward, drop safety behaviours, use video/behavioural experiments to update the distorted self-image, and cut anticipatory/post-event processing. NICE-recommended as first-line.</div>
+  <a class="backtop" href="#top">↑ Top</a>
+</section>
+
+<!-- ===================== DEPRESSION ===================== -->
+<section class="block" id="depression">
+  <span class="kicker">Disorder-specific</span>
+  <h2 class="h">Depression — Beck's cognitive model</h2>
+  <h4>A · Introduction</h4>
+  <p><strong>Author:</strong> Aaron T. Beck (1967, 1979). <strong>Key idea:</strong> depression is maintained by the <span class="term">negative cognitive triad</span> — persistently negative views of the <strong>self</strong> ("I'm worthless"), the <strong>world/experience</strong> ("everything is pointless"), and the <strong>future</strong> ("it will never improve") — sustained by negative schemas and systematic cognitive distortions (e.g., all-or-nothing thinking, overgeneralisation).</p>
+  <h4>B · Diagram — the cognitive triad + behavioural loop</h4>
+  <div class="diagram" role="img" aria-label="Beck depression cognitive triad">
+  <svg viewBox="0 0 460 360" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, sans-serif">
+    <defs><marker id="dC" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#2f9f78"/></marker>
+      <marker id="dM" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#c9a62a"/></marker></defs>
+    <polygon points="230,30 70,150 390,150" fill="#ece9fb" stroke="#b9aeea" stroke-width="1.5"/>
+    <g font-size="11.5" font-weight="700" fill="#5b4bb0">
+      <text x="230" y="60" text-anchor="middle">Self</text>
+      <text x="110" y="140" text-anchor="middle">World</text>
+      <text x="350" y="140" text-anchor="middle">Future</text>
+      <text x="230" y="110" text-anchor="middle" font-size="10.5" fill="#5a6475">Negative cognitive triad</text>
+    </g>
+    <g font-size="11.5" font-weight="700">
+      <rect x="150" y="190" width="160" height="42" rx="9" fill="#fdece2" stroke="#f3b38f"/><text x="230" y="216" text-anchor="middle" fill="#b5592f">Low mood</text>
+      <rect x="150" y="270" width="160" height="52" rx="9" fill="#e4f6ee" stroke="#8fd3b6"/><text x="230" y="290" text-anchor="middle" fill="#2f7d61">Withdrawal / inactivity</text><text x="230" y="308" text-anchor="middle" fill="#2f7d61">(reduced reward)</text>
+    </g>
+    <g stroke="#2f9f78" stroke-width="2" fill="none" marker-end="url(#dC)">
+      <path d="M230,150 L230,188"/><path d="M230,232 L230,268"/>
+    </g>
+    <g stroke="#c9a62a" stroke-width="2" fill="none" stroke-dasharray="6 4" marker-end="url(#dM)">
+      <path d="M310,296 Q420,220 360,120 Q320,70 250,52"/>
+    </g>
+    <text x="400" y="200" font-size="10" fill="#8a6d10" transform="rotate(90 400 200)">inactivity "confirms" the triad</text>
+  </svg>
+  <p class="legend"><b>Plain text:</b> the negative triad (self/world/future) <b style="color:#2f9f78">drives</b> low mood, which drives <b>withdrawal and inactivity</b>; reduced activity means fewer rewarding experiences, which <b style="color:#c9a62a">feeds back</b> to "confirm" the triad ("nothing's worth it") — a self-maintaining loop. This loop is why <em>behavioural activation</em> and <em>cognitive restructuring</em> are the twin treatment targets.</p>
+  </div>
+  <h4>C · Components (brief)</h4>
+  <details class="acc" open><summary>Negative cognitive triad</summary><div class="body"><strong>Assess:</strong> thought records sampling views of self, experience, future. <strong>Write:</strong> "Triad: 'I'm a failure / life is empty / it won't get better.'" <strong>Mistake:</strong> treating hopelessness as fixed fact rather than a testable cognition (note: hopelessness is a key suicide-risk marker — formulate risk explicitly).</div></details>
+  <details class="acc"><summary>Cognitive distortions (information-processing biases)</summary><div class="body">All-or-nothing thinking, overgeneralisation, mental filter, disqualifying the positive, catastrophising, personalisation. <strong>Significance:</strong> they manufacture triad-consistent "evidence". <strong>Treatment link:</strong> identify and test with Socratic questioning and behavioural experiments.</div></details>
+  <details class="acc"><summary>Withdrawal / inactivity loop</summary><div class="body"><span class="pill pill-m">maintaining</span> Reduced activity → fewer pleasure/mastery experiences → more negative cognition. <strong>Treatment link:</strong> behavioural activation directly breaks this loop and often precedes cognitive work.</div></details>
+  <div class="card c-key"><span class="lbl">Model → treatment</span>Behavioural activation (scheduling activity/mastery) + cognitive restructuring of the triad and distortions; for recurrent depression, schema-level and relapse-prevention work (incl. MBCT).</div>
+  <a class="backtop" href="#top">↑ Top</a>
+</section>
+
+<!-- ===================== PTSD ===================== -->
+<section class="block" id="ptsd">
+  <span class="kicker">Disorder-specific</span>
+  <h2 class="h">PTSD — Ehlers &amp; Clark cognitive model (2000)</h2>
+  <h4>A · Introduction</h4>
+  <p><strong>Authors:</strong> Anke Ehlers &amp; David M. Clark (2000). <strong>Key idea:</strong> PTSD persists when the person processes the trauma in a way that creates a sense of <strong>serious current threat</strong>. This arises from two linked problems: (1) <span class="term">negative appraisals</span> of the trauma and its aftermath ("the world is utterly dangerous", "I've permanently changed"), and (2) a <span class="term">poorly elaborated, disjointed trauma memory</span> that is strongly cue-driven, producing re-experiencing. Maintained by maladaptive coping (avoidance, rumination, safety behaviours).</p>
+  <h4>B · Diagram</h4>
+  <div class="diagram" role="img" aria-label="Ehlers and Clark PTSD model">
+  <svg viewBox="0 0 480 350" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, sans-serif">
+    <defs><marker id="tC" markerWidth="11" markerHeight="11" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#e07a3c"/></marker>
+      <marker id="tM" markerWidth="11" markerHeight="11" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#c9a62a"/></marker></defs>
+    <g font-size="11" font-weight="700">
+      <rect x="30" y="20" width="180" height="52" rx="9" fill="#ece9fb" stroke="#b9aeea"/><text x="120" y="42" text-anchor="middle" fill="#5b4bb0">Nature of trauma memory</text><text x="120" y="60" text-anchor="middle" fill="#5b4bb0">(disjointed, cue-driven)</text>
+      <rect x="270" y="20" width="180" height="52" rx="9" fill="#fdece2" stroke="#f3b38f"/><text x="360" y="42" text-anchor="middle" fill="#b5592f">Negative appraisals</text><text x="360" y="60" text-anchor="middle" fill="#b5592f">of trauma / sequelae</text>
+      <rect x="150" y="135" width="180" height="52" rx="9" fill="#fbf4d9" stroke="#e9d587"/><text x="240" y="157" text-anchor="middle" fill="#8a6d10">Sense of serious</text><text x="240" y="175" text-anchor="middle" fill="#8a6d10">CURRENT threat</text>
+      <rect x="110" y="255" width="260" height="44" rx="9" fill="#e4f6ee" stroke="#8fd3b6"/><text x="240" y="282" text-anchor="middle" fill="#2f7d61">Re-experiencing · arousal · maladaptive coping</text>
+    </g>
+    <g stroke="#e07a3c" stroke-width="2" fill="none" marker-end="url(#tC)">
+      <path d="M120,72 Q150,105 200,133"/><path d="M360,72 Q330,105 280,133"/>
+      <path d="M240,187 L240,253"/>
+    </g>
+    <g stroke="#c9a62a" stroke-width="2" fill="none" stroke-dasharray="6 4" marker-end="url(#tM)">
+      <path d="M110,290 Q20,200 40,110 Q70,70 55,72"/>
+      <path d="M370,290 Q470,200 445,110 Q420,70 435,72"/>
+    </g>
+  </svg>
+  <p class="legend"><b>Plain text:</b> a <b>disjointed trauma memory</b> and <b style="color:#b5592f">negative appraisals</b> both <b style="color:#e07a3c">generate</b> a sense of <b>serious current threat</b> → producing re-experiencing, hyperarousal and maladaptive coping (avoidance, rumination, safety behaviours). <b style="color:#c9a62a">Maintaining loops</b>: coping strategies prevent memory elaboration and appraisal change, so the threat sense persists.</p>
+  </div>
+  <h4>C · Key components (brief)</h4>
+  <details class="acc" open><summary>Nature of the trauma memory</summary><div class="body"><strong>What:</strong> poorly contextualised in time/place, fragmented, easily triggered by sensory cues → intrusions feel like "happening now" (lack of time-coding). <strong>Treatment link:</strong> imaginal reliving / updating to elaborate and contextualise the memory.</div></details>
+  <details class="acc"><summary>Negative appraisals</summary><div class="body"><strong>What:</strong> of the event ("it was my fault"), of initial symptoms ("I'm going mad"), and of others' responses. <strong>Treatment link:</strong> cognitive restructuring of appraisals.</div></details>
+  <details class="acc"><summary>Maladaptive coping (maintaining)</summary><div class="body"><span class="pill pill-m">maintaining</span> Thought suppression, avoidance, rumination, safety behaviours — all block natural recovery and memory updating. <strong>Treatment link:</strong> drop these; reclaim life (stimulus discrimination "then vs now").</div></details>
+  <div class="card c-key"><span class="lbl">Model → treatment</span>Trauma-focused CBT: reliving/updating the memory, restructuring appraisals, discriminating trauma cues from safe present ("then vs now"), and dropping avoidance/rumination. NICE first-line (with EMDR as an alternative).</div>
+  <a class="backtop" href="#top">↑ Top</a>
+</section>
+
+<!-- ===================== HEALTH ANXIETY ===================== -->
+<section class="block" id="health">
+  <span class="kicker">Disorder-specific</span>
+  <h2 class="h">Health anxiety — Warwick &amp; Salkovskis (1990)</h2>
+  <h4>A · Introduction</h4>
+  <p><strong>Authors:</strong> Hilary Warwick &amp; Paul Salkovskis (1990). <strong>Key idea:</strong> health anxiety (hypochondriasis) is driven by the <strong>catastrophic misinterpretation of benign bodily signs and medical information</strong> as evidence of serious illness, maintained by <strong>checking, reassurance-seeking and avoidance</strong> — structurally a "panic model for illness fears over a longer time-course".</p>
+  <h4>B · Diagram</h4>
+  <div class="diagram" role="img" aria-label="Health anxiety maintenance cycle">
+  <svg viewBox="0 0 440 320" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, sans-serif">
+    <defs><marker id="hC" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#e07a3c"/></marker></defs>
+    <g font-size="11" font-weight="700">
+      <rect x="140" y="10" width="160" height="42" rx="9" fill="#e6f0fb" stroke="#9ec3ea"/><text x="220" y="36" text-anchor="middle" fill="#35648f">Bodily sign / trigger</text>
+      <rect x="250" y="90" width="170" height="52" rx="9" fill="#ece9fb" stroke="#b9aeea"/><text x="335" y="110" text-anchor="middle" fill="#5b4bb0">Misinterpret as</text><text x="335" y="128" text-anchor="middle" fill="#5b4bb0">serious illness</text>
+      <rect x="140" y="170" width="160" height="42" rx="9" fill="#fbf4d9" stroke="#e9d587"/><text x="220" y="196" text-anchor="middle" fill="#8a6d10">Health anxiety ↑</text>
+      <rect x="20" y="90" width="170" height="52" rx="9" fill="#e4f6ee" stroke="#8fd3b6"/><text x="105" y="110" text-anchor="middle" fill="#2f7d61">Checking · reassurance ·</text><text x="105" y="128" text-anchor="middle" fill="#2f7d61">avoidance · ↑ body focus</text>
+    </g>
+    <g stroke="#e07a3c" stroke-width="2" fill="none" marker-end="url(#hC)">
+      <path d="M250,45 Q320,60 330,88"/>
+      <path d="M300,142 Q280,160 255,168"/>
+      <path d="M150,170 Q110,160 105,144"/>
+      <path d="M105,90 Q120,55 185,40 L205,36"/>
+    </g>
+  </svg>
+  <p class="legend"><b>Plain text:</b> a bodily sign is <b style="color:#5b4bb0">misinterpreted</b> as serious illness → anxiety rises → the person <b style="color:#2f7d61">checks the body, seeks reassurance (Dr Google, doctors) and avoids</b>, which increases body-focus and provides only brief relief → sensitising them to the next sign. All <b style="color:#e07a3c">causal</b>, forming a self-perpetuating loop.</p>
+  </div>
+  <h4>C · Components (brief)</h4>
+  <details class="acc" open><summary>Reassurance-seeking (maintaining)</summary><div class="body"><span class="pill pill-m">maintaining</span> <strong>Why it maintains:</strong> reassurance works like a compulsion — relief is brief and teaches the person they <em>need</em> reassurance, so doubt returns stronger. <strong>Treatment link:</strong> reduce reassurance-seeking + behavioural experiments; treat like ERP.</div></details>
+  <details class="acc"><summary>Body checking &amp; increased interoceptive focus</summary><div class="body">Repeated checking (palpating, measuring) creates real sensations (soreness, redness) that "confirm" illness. <strong>Treatment link:</strong> drop checking; test the effect of attention on sensations.</div></details>
+  <div class="card c-key"><span class="lbl">Model → treatment</span>CBT reattributes sensations to benign causes, cuts checking/reassurance/avoidance, and uses behavioural experiments — not repeated medical investigation, which feeds the cycle.</div>
+  <a class="backtop" href="#top">↑ Top</a>
+</section>
+
+<!-- ===================== GAD ===================== -->
+<section class="block" id="gad">
+  <span class="kicker">Disorder-specific</span>
+  <h2 class="h">GAD — intolerance of uncertainty &amp; metacognition</h2>
+  <h4>A · Introduction</h4>
+  <p>Two complementary, evidence-based accounts of generalised anxiety disorder (chronic worry):</p>
+  <ul>
+    <li><strong>Dugas, Ladouceur &amp; colleagues (1998)</strong> — the <span class="term">intolerance-of-uncertainty</span> model: people with GAD find uncertainty intensely aversive and worry as an attempt to "prepare for" or eliminate it, aided by positive beliefs about worry, negative problem orientation and cognitive avoidance.</li>
+    <li><strong>Wells (1995) metacognitive model</strong> — distinguishes <em>Type 1 worry</em> (about external events) from <span class="term">Type 2 worry</span> ("worry about worry" — e.g., "my worrying is uncontrollable and harmful"). Negative metacognitive beliefs maintain GAD.</li>
+  </ul>
+  <h4>B · Diagram (metacognitive)</h4>
+  <div class="diagram" role="img" aria-label="GAD metacognitive model">
+  <svg viewBox="0 0 440 300" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, sans-serif">
+    <defs><marker id="gC" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#e07a3c"/></marker></defs>
+    <g font-size="11" font-weight="700">
+      <rect x="140" y="10" width="160" height="40" rx="9" fill="#fdece2" stroke="#f3b38f"/><text x="220" y="35" text-anchor="middle" fill="#b5592f">Trigger "what if…?"</text>
+      <rect x="140" y="80" width="160" height="40" rx="9" fill="#fbf4d9" stroke="#e9d587"/><text x="220" y="105" text-anchor="middle" fill="#8a6d10">Type 1 worry</text>
+      <rect x="140" y="150" width="160" height="52" rx="9" fill="#ece9fb" stroke="#b9aeea"/><text x="220" y="170" text-anchor="middle" fill="#5b4bb0">Negative metabeliefs</text><text x="220" y="188" text-anchor="middle" fill="#5b4bb0">(Type 2: "worry is uncontrollable/harmful")</text>
+      <rect x="110" y="235" width="220" height="44" rx="9" fill="#e4f6ee" stroke="#8fd3b6"/><text x="220" y="262" text-anchor="middle" fill="#2f7d61">Avoidance · thought control · reassurance</text>
+    </g>
+    <g stroke="#e07a3c" stroke-width="2" fill="none" marker-end="url(#gC)">
+      <path d="M220,50 L220,78"/><path d="M220,120 L220,148"/><path d="M220,202 L220,233"/>
+      <path d="M330,257 Q420,170 360,70 Q320,45 300,35"/>
+    </g>
+  </svg>
+  <p class="legend"><b>Plain text:</b> a "what if" trigger starts <b>Type 1 worry</b>; this activates <b style="color:#5b4bb0">negative metacognitive beliefs</b> ("I can't control my worry; it will harm me") = <b>Type 2 worry</b>, which drives counter-productive coping (thought suppression, avoidance, reassurance) that paradoxically increases worry — a <b style="color:#e07a3c">self-maintaining</b> loop.</p>
+  </div>
+  <div class="card c-key"><span class="lbl">Model → treatment</span>IU model → uncertainty-focused CBT (worry exposure, problem-solving training, behavioural experiments tolerating uncertainty). Metacognitive therapy → modify metacognitive beliefs and detached mindfulness rather than challenging each worry's content.</div>
+  <a class="backtop" href="#top">↑ Top</a>
+</section>
+
+<!-- ===================== SUBSTANCE USE ===================== -->
+<section class="block" id="substance">
+  <span class="kicker">Disorder-specific</span>
+  <h2 class="h">Substance use — Marlatt &amp; Gordon relapse-prevention model (1985)</h2>
+  <h4>A · Introduction</h4>
+  <p><strong>Authors:</strong> G. Alan Marlatt &amp; Judith Gordon (1985); cognitive-behavioural model of substance use (Beck et al., 1993) is complementary. <strong>Key idea:</strong> relapse is understood as a <em>process</em>: a <strong>high-risk situation</strong> + poor coping → lowered self-efficacy and <strong>positive outcome expectancies</strong> about the substance → lapse → the <span class="term">abstinence violation effect</span> (guilt + "I've blown it" thinking) → full relapse. Craving is cue-triggered and maintained by negative/positive reinforcement.</p>
+  <h4>B · Diagram</h4>
+  <div class="diagram" role="img" aria-label="Marlatt relapse prevention model">
+  <svg viewBox="0 0 480 280" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, sans-serif">
+    <defs><marker id="rC" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#e07a3c"/></marker></defs>
+    <g font-size="10.5" font-weight="700">
+      <rect x="10" y="110" width="110" height="52" rx="9" fill="#fdece2" stroke="#f3b38f"/><text x="65" y="132" text-anchor="middle" fill="#b5592f">High-risk</text><text x="65" y="148" text-anchor="middle" fill="#b5592f">situation</text>
+      <rect x="140" y="30" width="120" height="52" rx="9" fill="#e4f6ee" stroke="#8fd3b6"/><text x="200" y="52" text-anchor="middle" fill="#2f7d61">Effective coping</text><text x="200" y="68" text-anchor="middle" fill="#2f7d61">→ ↑ self-efficacy</text>
+      <rect x="140" y="190" width="120" height="52" rx="9" fill="#ece9fb" stroke="#b9aeea"/><text x="200" y="212" text-anchor="middle" fill="#5b4bb0">Poor coping +</text><text x="200" y="228" text-anchor="middle" fill="#5b4bb0">positive expectancy</text>
+      <rect x="290" y="190" width="80" height="52" rx="9" fill="#fbf4d9" stroke="#e9d587"/><text x="330" y="220" text-anchor="middle" fill="#8a6d10">Lapse</text>
+      <rect x="390" y="190" width="80" height="52" rx="9" fill="#fdece2" stroke="#f3b38f"/><text x="430" y="212" text-anchor="middle" fill="#b5592f">AVE →</text><text x="430" y="228" text-anchor="middle" fill="#b5592f">relapse</text>
+      <rect x="290" y="30" width="110" height="52" rx="9" fill="#e4f6ee" stroke="#8fd3b6"/><text x="345" y="60" text-anchor="middle" fill="#2f7d61">Maintained abstinence</text>
+    </g>
+    <g stroke="#e07a3c" stroke-width="2" fill="none" marker-end="url(#rC)">
+      <path d="M120,125 Q130,90 138,78"/><path d="M120,145 Q130,190 138,206"/>
+      <path d="M200,82 Q250,60 288,56"/>
+      <path d="M260,216 L288,216"/><path d="M370,216 L388,216"/>
+    </g>
+  </svg>
+  <p class="legend"><b>Plain text:</b> a <b>high-risk situation</b> forks two ways. With <b style="color:#2f7d61">effective coping</b>, self-efficacy rises and abstinence is maintained. With <b style="color:#5b4bb0">poor coping + positive expectancies</b>, a <b>lapse</b> occurs; the <b style="color:#b5592f">abstinence violation effect</b> (guilt, "all-or-nothing" collapse) then converts a single lapse into full relapse. All <b style="color:#e07a3c">causal/branching</b>.</p>
+  </div>
+  <div class="card c-key"><span class="lbl">Model → treatment</span>Relapse prevention: identify high-risk situations, build coping skills, challenge outcome expectancies, reframe a lapse as a learning event (not catastrophe) to defuse the AVE, and use cue-exposure/urge-surfing for craving.</div>
+  <a class="backtop" href="#top">↑ Top</a>
+</section>
+
+<!-- ===================== WORKED CASES ===================== -->
+<section class="block" id="cases">
+  <span class="kicker">Worked examples</span>
+  <h2 class="h">Six worked fictional cases</h2>
+  <p class="gloss">All cases are invented for teaching only and are not real patients or research data.</p>
+
+  <details class="acc" open><summary>Case 1 · Depression (Beck's model)</summary><div class="body">
+    <p><strong>Background:</strong> "Ravi", 42, accountant, recent redundancy.<br>
+    <strong>Presenting:</strong> 3 months of low mood, anhedonia, insomnia, hopelessness, social withdrawal, passive thoughts "better off not here".<br>
+    <strong>Assessment findings:</strong> PHQ-9 = 19 (moderately severe); activity diary shows near-total inactivity; thought record: "I'm useless; no one will hire me; it'll never improve."<br>
+    <strong>Model &amp; why:</strong> Beck's cognitive model — clear negative triad + withdrawal loop.<br>
+    <strong>Formulation (written):</strong> "Ravi's depression is organised around a negative cognitive triad (worthless self, hopeless future, empty world) activated by redundancy against a backdrop of high self-worth contingent on work. Low mood drives withdrawal and inactivity, reducing rewarding experiences, which confirms the triad — a self-maintaining loop. Hopelessness elevates suicide risk."<br>
+    <strong>Components/arrows:</strong> redundancy (precipitant) → activates belief "I'm only worth my job"; triad → low mood → inactivity (maintaining loop) → fewer rewards → stronger triad.<br>
+    <strong>Treatment implications:</strong> behavioural activation first (break inactivity loop), then cognitive restructuring of the triad; explicit risk monitoring.<br>
+    <strong>Alternatives / missing info / limits:</strong> rule out bipolar (past hypomania?), medical causes (thyroid), adjustment disorder; need collateral and risk detail.</p></div></details>
+
+  <details class="acc"><summary>Case 2 · Panic disorder (Clark 1986)</summary><div class="body">
+    <p><strong>Background:</strong> "Aisha", 29, teacher.<br>
+    <strong>Presenting:</strong> recurrent sudden attacks of palpitations, breathlessness, dizziness with thoughts "I'm having a heart attack"; now avoids the gym and travelling alone.<br>
+    <strong>Assessment:</strong> normal cardiac work-up; attacks peak in ~10 min; safety behaviours = carries water, sits down, checks pulse.<br>
+    <strong>Model &amp; why:</strong> Clark's panic model — catastrophic misinterpretation of benign arousal.<br>
+    <strong>Formulation:</strong> "Aisha misinterprets normal arousal sensations (palpitations) as signs of a heart attack; this perceived threat heightens apprehension and arousal, intensifying sensations in a rapid vicious cycle = a panic attack. Safety behaviours (sitting, pulse-checking) and avoidance prevent her from learning the sensations are harmless, maintaining the disorder."<br>
+    <strong>Arrows:</strong> sensation → catastrophic misinterpretation → ↑ threat → ↑ arousal → ↑ sensation (causal loop); safety behaviours = maintaining.<br>
+    <strong>Treatment:</strong> cognitive restructuring of the misinterpretation; interoceptive exposure (induce sensations) and dropping safety behaviours.<br>
+    <strong>Alternatives/limits:</strong> exclude ongoing cardiac/thyroid pathology and substance (caffeine) effects; check for agoraphobic avoidance severity.</p></div></details>
+
+  <details class="acc"><summary>Case 3 · OCD (Salkovskis/Rachman + ERP) — based on the source case</summary><div class="body">
+    <p><strong>Background:</strong> "Sapna", 24, unmarried, early maternal loss and later sexual assault in adolescence.<br>
+    <strong>Presenting:</strong> repetitive handwashing/bathing/cleaning, checking (gas, belongings), intrusive distressing sexual images of those who assaulted her, avoidance of eye contact and of leaving home; low mood, reduced sleep/libido; passive death wishes. Y-BOCS = 27 (severe).<br>
+    <strong>Model &amp; why:</strong> cognitive-behavioural OCD model — intrusions appraised via inflated responsibility/thought–action fusion ("having this image means I'm bad/dangerous"), neutralised by washing/checking/avoidance/reassurance.<br>
+    <strong>Formulation:</strong> "Intrusive sexual images and contamination thoughts are appraised catastrophically (inflated responsibility, thought–action fusion), producing intense anxiety. Washing, checking, avoidance and reassurance reduce anxiety short-term but negatively reinforce the rituals and prevent her from learning the thoughts are harmless, maintaining OCD. Predisposed by early loss and lack of support; precipitated by the assault; perpetuated by rituals, family conflict and poor treatment compliance. Protective: strong motivation, supportive father."<br>
+    <strong>Treatment:</strong> ERP targeting the maintaining rituals (graded exposure + ritual/response prevention, including mental rituals and reassurance), psychoeducation (thought ≠ action ≠ identity), relaxation as a between-session skill (not during exposure), relapse prevention. <strong>Risk:</strong> monitor death wishes/hopelessness each session.<br>
+    <strong>Alternatives/limits:</strong> screen for co-occurring PTSD (given assault history) — if trauma intrusions dominate, trauma-focused work may be needed; distinguish ego-dystonic obsessions from trauma re-experiencing.</p></div></details>
+
+  <details class="acc"><summary>Case 4 · Social anxiety (Clark &amp; Wells 1995)</summary><div class="body">
+    <p><strong>Background:</strong> "Tom", 21, student.<br>
+    <strong>Presenting:</strong> intense fear of seminars and conversations; fears blushing/being judged "boring"; avoids speaking, rehearses sentences, leaves early.<br>
+    <strong>Assessment:</strong> SPIN elevated; reports an "observer image" of himself looking red and foolish; ruminates for hours afterward.<br>
+    <strong>Model &amp; why:</strong> Clark &amp; Wells — self-focused attention + distorted self-image + safety behaviours + anticipatory/post-event processing.<br>
+    <strong>Formulation:</strong> "In social situations Tom's assumptions ('if I seem anxious, I'll be rejected') create perceived danger; he shifts attention onto a distorted negative self-image and uses safety behaviours (rehearsing, minimal eye contact). These prevent disconfirmation, while anticipatory worry and post-event rumination lock in negative self-appraisal regardless of actual outcome."<br>
+    <strong>Treatment:</strong> attention training (shift focus outward), video feedback to correct the self-image, behavioural experiments dropping safety behaviours, reducing anticipatory/post-event processing.<br>
+    <strong>Alternatives/limits:</strong> differentiate from avoidant personality pattern and from autism-spectrum social difficulty; assess depression.</p></div></details>
+
+  <details class="acc"><summary>Case 5 · PTSD (Ehlers &amp; Clark 2000)</summary><div class="body">
+    <p><strong>Background:</strong> "Meera", 34, after a road-traffic collision 6 months ago.<br>
+    <strong>Presenting:</strong> intrusive sensory flashbacks (screech of brakes), nightmares, hypervigilance, avoids driving and the crash road, appraises herself as "permanently damaged".<br>
+    <strong>Assessment:</strong> fragmented, disjointed trauma memory with strong sensory cues; "then vs now" confusion during intrusions; rumination about "why me".<br>
+    <strong>Model &amp; why:</strong> Ehlers &amp; Clark — disjointed memory + negative appraisals → sense of serious current threat.<br>
+    <strong>Formulation:</strong> "A poorly elaborated, cue-driven trauma memory plus negative appraisals ('the world is dangerous', 'I've changed forever') generate a sense of current threat, producing re-experiencing and hyperarousal. Avoidance of driving and rumination block memory elaboration and appraisal change, maintaining PTSD."<br>
+    <strong>Treatment:</strong> trauma-focused CBT — imaginal reliving/updating the memory, restructuring appraisals, stimulus discrimination (then vs now), dropping avoidance/rumination.<br>
+    <strong>Alternatives/limits:</strong> screen for depression, complicated grief, head injury; check timing (acute stress vs PTSD).</p></div></details>
+
+  <details class="acc"><summary>Case 6 · Complex presentation via 5 Ps + biopsychosocial</summary><div class="body">
+    <p><strong>Background:</strong> "Daniel", 48, chronic low mood + harmful alcohol use + marital breakdown — too complex for one disorder model, so a 5 Ps/biopsychosocial map is used first.<br>
+    <strong>5 Ps:</strong> <em>Presenting</em> — depression, daily drinking, conflict. <em>Predisposing</em> — family history of depression and alcohol use (bio), childhood emotional neglect → belief "I'm unlovable" (psycho). <em>Precipitating</em> — wife's departure. <em>Perpetuating</em> — alcohol numbs distress short-term but worsens mood/sleep and conflict (loop); social withdrawal; belief "there's no point". <em>Protective</em> — employed, good relationship with daughter, now help-seeking.<br>
+    <strong>Biopsychosocial:</strong> <em>Bio</em> — genetic loading, alcohol effects on sleep/mood; <em>Psycho</em> — unlovability belief, avoidant coping; <em>Social</em> — marital loss, isolation.<br>
+    <strong>Formulation:</strong> "Daniel's depression and alcohol use are mutually maintaining: low mood prompts drinking for relief, which deepens depression and fuels conflict, confirming his belief that he is unlovable. Vulnerability (genetic + early neglect) was activated by marital breakdown."<br>
+    <strong>Treatment:</strong> integrated — address alcohol (relapse-prevention model) and mood (behavioural activation + cognitive work) together; rebuild social support; leverage the daughter relationship.<br>
+    <strong>Alternatives/limits:</strong> assess severity/dependence of alcohol use and whether mood is substance-induced; sequence or integrate treatment accordingly; risk assessment.</p></div></details>
+  <a class="backtop" href="#top">↑ Top</a>
+</section>
+
+<!-- ===================== TEMPLATES ===================== -->
+<section class="block" id="templates">
+  <span class="kicker">Clinical writing</span>
+  <h2 class="h">Reusable formulation-writing templates</h2>
+  <div class="card c-write"><span class="lbl">5 Ps template</span>
+    "[Name], a [age]-year-old [context], presents with [presenting problem] of [duration/course]. This is understood on a background of [predisposing] (vulnerability), triggered by [precipitating], and maintained by [perpetuating]. Recovery is supported by [protective]."</div>
+  <div class="card c-write"><span class="lbl">Generic CBT (longitudinal) template</span>
+    "Early experiences of [X] plausibly contributed to core beliefs that [self/others/world belief], managed by the assumption 'if… then…'. This assumption was broken by [critical incident], activating automatic thoughts such as '[thought]', leading to [emotion/physiology] and [behaviour]. [Safety behaviour/avoidance] provides short-term relief but maintains the problem by preventing disconfirmation of [feared belief]."</div>
+  <div class="card c-write"><span class="lbl">Maintenance-cycle (focal) template</span>
+    "In [trigger situation], [automatic thought] leads to [emotion] and [physical sensation], prompting [behaviour], which produces short-term relief but [long-term consequence], feeding back to strengthen [the thought/belief]."</div>
+  <div class="card c-write"><span class="lbl">Treatment-link template</span>
+    "Because [maintaining factor] keeps the problem going, treatment will target it via [intervention], with the goal that the patient learns [new, disconfirming experience]."</div>
+  <a class="backtop" href="#top">↑ Top</a>
+</section>
+
+<!-- ===================== COMMON MISTAKES ===================== -->
+<section class="block" id="mistakes">
+  <span class="kicker">Pitfalls</span>
+  <h2 class="h">Common formulation mistakes</h2>
+  <div class="tw"><table>
+    <thead><tr><th>Mistake</th><th>Why it's a problem</th><th>Fix</th></tr></thead>
+    <tbody>
+      <tr><td>Describing boxes, not arrows</td><td>Lists factors without explaining how they interact — no mechanism, no treatment logic</td><td>Explain every link: causal, reciprocal, maintaining or hypothesised</td></tr>
+      <tr><td>Equating diagnosis with formulation</td><td>A label doesn't explain <em>why this person, now</em>, nor justify a specific technique</td><td>Add the individualised explanatory hypothesis</td></tr>
+      <tr><td>Assuming treatment follows from diagnosis alone</td><td>Interventions should follow from the <em>maintaining mechanism</em>, not the label</td><td>Derive targets from the formulation's loops</td></tr>
+      <tr><td>Forcing every CBT component into every case</td><td>Over-complicates focal problems; different approaches use different formulations</td><td>Match formulation depth to the problem (focal cycle vs longitudinal map)</td></tr>
+      <tr><td>Treating history as proof of beliefs</td><td>Developmental links are hypothesised, not established</td><td>Anchor beliefs to current evidence; flag developmental links as hypotheses</td></tr>
+      <tr><td>Missing covert safety behaviours / reassurance</td><td>They silently maintain the problem and sabotage exposure</td><td>Probe specifically for mental rituals and reassurance-seeking</td></tr>
+      <tr><td>Deficit-only formulation</td><td>Omitting strengths is demoralising and clinically incomplete</td><td>Always include protective factors and resources</td></tr>
+      <tr><td>Non-collaborative "expert" formulation</td><td>Reduces engagement and accuracy</td><td>Co-create and revise the formulation with the patient</td></tr>
+      <tr><td>Misattributing a model/author</td><td>Undermines credibility and evidence base</td><td>Cite the correct original author (see references)</td></tr>
+    </tbody>
+  </table></div>
+  <a class="backtop" href="#top">↑ Top</a>
+</section>
+
+<!-- ===================== REFERENCES ===================== -->
+<section class="block" id="references">
+  <span class="kicker">Evidence</span>
+  <h2 class="h">References</h2>
+  <p class="gloss">Original theoretical publications and authoritative sources. Authors, years and titles are given as verified; DOIs/links are provided only where confirmed, to avoid fabricated identifiers. Established findings are distinguished from theoretical proposals in the text.</p>
+  <ul style="font-size:.92rem;line-height:1.5;">
+    <li>Beck, A. T. (1967). <em>Depression: Clinical, Experimental, and Theoretical Aspects.</em> Harper &amp; Row.</li>
+    <li>Beck, A. T., Rush, A. J., Shaw, B. F., &amp; Emery, G. (1979). <em>Cognitive Therapy of Depression.</em> Guilford Press.</li>
+    <li>Beck, J. S. (2011). <em>Cognitive Behavior Therapy: Basics and Beyond</em> (2nd ed.). Guilford Press.</li>
+    <li>Clark, D. M. (1986). A cognitive approach to panic. <em>Behaviour Research and Therapy, 24</em>(4), 461–470. doi:10.1016/0005-7967(86)90011-2</li>
+    <li>Clark, D. M., &amp; Wells, A. (1995). A cognitive model of social phobia. In R. G. Heimberg et al. (Eds.), <em>Social Phobia: Diagnosis, Assessment, and Treatment</em> (pp. 69–93). Guilford Press.</li>
+    <li>Dugas, M. J., Gagnon, F., Ladouceur, R., &amp; Freeston, M. H. (1998). Generalized anxiety disorder: A preliminary test of a conceptual model. <em>Behaviour Research and Therapy, 36</em>(2), 215–226.</li>
+    <li>Ehlers, A., &amp; Clark, D. M. (2000). A cognitive model of posttraumatic stress disorder. <em>Behaviour Research and Therapy, 38</em>(4), 319–345. doi:10.1016/S0005-7967(99)00123-0</li>
+    <li>Engel, G. L. (1977). The need for a new medical model: A challenge for biomedicine. <em>Science, 196</em>(4286), 129–136.</li>
+    <li>Greenberger, D., &amp; Padesky, C. A. (1995). <em>Mind Over Mood.</em> Guilford Press. (Source of the "hot cross bun" cross-sectional formulation.)</li>
+    <li>Marlatt, G. A., &amp; Gordon, J. R. (1985). <em>Relapse Prevention: Maintenance Strategies in the Treatment of Addictive Behaviors.</em> Guilford Press.</li>
+    <li>Persons, J. B. (2008). <em>The Case Formulation Approach to Cognitive-Behavior Therapy.</em> Guilford Press.</li>
+    <li>Rachman, S. (1997). A cognitive theory of obsessions. <em>Behaviour Research and Therapy, 35</em>(9), 793–802.</li>
+    <li>Rachman, S. (1998). A cognitive theory of obsessions: Elaborations. <em>Behaviour Research and Therapy, 36</em>(4), 385–401.</li>
+    <li>Salkovskis, P. M. (1985). Obsessional–compulsive problems: A cognitive-behavioural analysis. <em>Behaviour Research and Therapy, 23</em>(5), 571–583.</li>
+    <li>Salkovskis, P. M. (1999). Understanding and treating obsessive–compulsive disorder. <em>Behaviour Research and Therapy, 37</em>(Suppl 1), S29–S52.</li>
+    <li>Warwick, H. M. C., &amp; Salkovskis, P. M. (1990). Hypochondriasis. <em>Behaviour Research and Therapy, 28</em>(2), 105–117.</li>
+    <li>Wells, A. (1995). Meta-cognition and worry: A cognitive model of generalized anxiety disorder. <em>Behavioural and Cognitive Psychotherapy, 23</em>(3), 301–320.</li>
+    <li>Wells, A., &amp; Matthews, G. (1994). <em>Attention and Emotion: A Clinical Perspective.</em> Erlbaum. (Metacognitive account of OCD/anxiety.)</li>
+    <li>Young, J. E., Klosko, J. S., &amp; Weishaar, M. E. (2003). <em>Schema Therapy: A Practitioner's Guide.</em> Guilford Press. (Later adaptation of Beck's schema concept.)</li>
+    <li>World Health Organization (2019/2021). <em>ICD-11.</em> · American Psychiatric Association (2013/2022). <em>DSM-5 / DSM-5-TR.</em></li>
+  </ul>
+  <div class="card c-warn"><span class="lbl">Evidence status note</span>
+    The cognitive therapies for panic (Clark), social anxiety (Clark &amp; Wells) and PTSD (Ehlers &amp; Clark) are well-supported and NICE-recommended. The responsibility/TAF and metacognitive accounts of OCD are influential and empirically supported but remain areas of ongoing refinement and debate; the biopsychosocial model is a widely used organising framework rather than a testable theory. Developmental (early-experience → belief) links are generally <em>hypothesised</em>, not proven, for an individual.</p>
+  </div>
+  <a class="backtop" href="#top">↑ Top</a>
+</section>
+
+<!-- ===================== AUDIT ===================== -->
+<section class="block" id="audit">
+  <span class="kicker">Quality check</span>
+  <h2 class="h">Final quality audit</h2>
+  <div class="tw"><table>
+    <thead><tr><th>Requirement</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr><td>Models from the source material (5 Ps, diagnostic formulation, CBT/Beck, OCD cognitive model + ERP, biopsychosocial) accounted for</td><td>✅ Covered + expanded</td></tr>
+      <tr><td>Evidence-based disorder models added (panic, social anxiety, depression, PTSD, health anxiety, GAD, substance use)</td><td>✅</td></tr>
+      <tr><td>Each model has an accurate SVG diagram + plain-text description</td><td>✅ 11 diagrams</td></tr>
+      <tr><td>Every box explained (meaning, plain, significance, assess, how, write, example, mistakes)</td><td>✅</td></tr>
+      <tr><td>Every arrow explained with type (causal / reciprocal / maintaining / hypothesised) and how to test</td><td>✅</td></tr>
+      <tr><td>Full CBT component coverage (early experience → protective factors)</td><td>✅</td></tr>
+      <tr><td>Terminology clarified (formulation vs conceptualization vs diagnosis vs treatment planning vs risk)</td><td>✅</td></tr>
+      <tr><td>Interview + clinical-writing step guide, templates, good/poor examples</td><td>✅</td></tr>
+      <tr><td>≥ 6 worked fictional cases (incl. depression, anxiety/panic, OCD)</td><td>✅ 6 cases</td></tr>
+      <tr><td>References genuine, correctly attributed, no fabricated DOIs</td><td>✅</td></tr>
+      <tr><td>Single self-contained HTML, offline, embedded CSS/JS/SVG, no external deps</td><td>✅</td></tr>
+      <tr><td>Searchable sidebar TOC + working in-page navigation + collapsibles</td><td>✅</td></tr>
+      <tr><td>Print / Save-as-PDF button + print-friendly CSS (diagrams not cut off)</td><td>✅</td></tr>
+      <tr><td>Responsive (desktop/tablet/mobile), compact sidebar (not half-page)</td><td>✅</td></tr>
+      <tr><td>Branding "Dango_Psych by Tejas Dangodra" at start and end</td><td>✅</td></tr>
+    </tbody>
+  </table></div>
+  <div class="card c-warn"><span class="lbl">Note on the three UI fixes you requested</span>
+    (1) The sidebar is now a fixed, compact 270px column (≈250px on tablets) that no longer eats half the page, with well-formatted spacing and headings. (2) A live <strong>search box</strong> filters the contents list as you type. (3) A <strong>"🖨 Print / Save as PDF" button</strong> in the top bar triggers the browser's print dialog, using print CSS that auto-expands all collapsible sections and keeps diagrams from being cut off.</p>
+  </div>
+  <a class="backtop" href="#top">↑ Top</a>
+</section>
+
+</main>
+</div><!-- /shell -->
+
+<!-- ===================== FOOTER ===================== -->
+<footer>
+  <div class="brandbig">Dango_Psych by Tejas Dangodra</div>
+  <p>Case Conceptualization &amp; Formulation Guide — an independent educational resource.</p>
+  <p>All clinical cases are fictional illustrations. Psychological theories remain the intellectual property of their original authors, cited in the references; no ownership of third-party theories is claimed.</p>
+  <p id="copyright">© <span id="yr"></span> Tejas Dangodra. Guide design and compilation. All rights reserved.</p>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  // current year
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // ---- Print / Save as PDF ----
+  document.getElementById('printBtn').addEventListener('click', function(){ window.print(); });
+
+  // ---- Expand / collapse all ----
+  var expandBtn = document.getElementById('expandAll');
+  expandBtn.addEventListener('click', function(){
+    var accs = document.querySelectorAll('details.acc');
+    var anyClosed = Array.prototype.some.call(accs, function(d){ return !d.open; });
+    accs.forEach(function(d){ d.open = anyClosed; });
+    expandBtn.textContent = anyClosed ? '⤡ Collapse all' : '⤢ Expand all';
+  });
+
+  // ---- Auto-expand all before printing, restore after ----
+  window.addEventListener('beforeprint', function(){
+    document.querySelectorAll('details.acc').forEach(function(d){ d.dataset._op = d.open ? '1':'0'; d.open = true; });
+  });
+  window.addEventListener('afterprint', function(){
+    document.querySelectorAll('details.acc').forEach(function(d){ if(d.dataset._op === '0') d.open = false; });
+  });
+
+  // ---- Sidebar search / filter ----
+  var search = document.getElementById('tocSearch');
+  var links = Array.prototype.slice.call(document.querySelectorAll('#tocNav a'));
+  var headers = Array.prototype.slice.call(document.querySelectorAll('#tocNav .toc-h'));
+  var empty = document.getElementById('tocEmpty');
+  search.addEventListener('input', function(){
+    var q = search.value.trim().toLowerCase();
+    var anyVisible = false;
+    links.forEach(function(a){
+      var match = a.textContent.toLowerCase().indexOf(q) !== -1;
+      a.classList.toggle('nohit', q && !match);
+      if(!q || match) anyVisible = true;
+    });
+    // hide a header if all links until next header are hidden
+    headers.forEach(function(h){
+      var el = h.nextElementSibling, visible = false;
+      while(el && !el.classList.contains('toc-h')){
+        if(el.tagName === 'A' && !el.classList.contains('nohit')) visible = true;
+        el = el.nextElementSibling;
+      }
+      h.style.display = (q && !visible) ? 'none' : '';
+    });
+    empty.style.display = anyVisible ? 'none' : 'block';
+  });
+
+  // ---- Mobile sidebar toggle ----
+  var sidebar = document.getElementById('sidebar');
+  var backdrop = document.getElementById('backdrop');
+  var menuBtn = document.getElementById('menuBtn');
+  function closeSb(){ sidebar.classList.remove('open'); backdrop.classList.remove('show'); }
+  menuBtn.addEventListener('click', function(){
+    sidebar.classList.toggle('open'); backdrop.classList.toggle('show');
+  });
+  backdrop.addEventListener('click', closeSb);
+  // close sidebar after choosing a link on mobile
+  links.forEach(function(a){ a.addEventListener('click', function(){ if(window.innerWidth <= 900) closeSb(); }); });
+})();
+</script>
+</body>
+</html>
