@@ -1,0 +1,1445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DBT vs Schema Therapy for BPD: The Paper Explained Simply</title>
+<style>
+:root{--navy:#1B2A41;--teal:#0E7C86;--teal-l:#E3F2F3;--dbt:#2F6FB0;--dbt-l:#E4EEF8;--st:#E07A32;--st-l:#FCEBDD;
+--ink:#263040;--grey:#6B7686;--line:#D5DBE3;--bg:#F6F8FA;--green:#2E8B57;--green-l:#E2F3EA;--red:#C0392B;--red-l:#FBE6E3;--gold:#A87A12;--gold-l:#FAF1DA}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:"Segoe UI",Calibri,Arial,sans-serif;font-size:18px;line-height:1.65;color:var(--ink);background:var(--bg)}
+header.hero{background:var(--navy);color:#fff;padding:48px 24px 40px}
+header.hero .wrap{max-width:1000px;margin:0 auto}
+header.hero .kicker{color:#7FD1D8;font-weight:700;letter-spacing:.06em;font-size:14px}
+header.hero h1{font-family:Georgia,serif;font-size:36px;line-height:1.25;margin:10px 0 14px}
+header.hero p{color:#C9D3E0;margin:4px 0}
+.layout{display:flex;max-width:1280px;margin:0 auto}
+nav.toc{position:sticky;top:0;align-self:flex-start;width:270px;height:100vh;overflow-y:auto;padding:24px 16px;border-right:1px solid var(--line);background:#fff;font-size:15px}
+nav.toc b{display:block;color:var(--teal);margin:14px 0 6px;font-size:13px;letter-spacing:.05em}
+nav.toc a{display:block;color:var(--ink);text-decoration:none;padding:3px 6px;border-radius:6px}
+nav.toc a:hover{background:var(--teal-l)}
+main{flex:1;min-width:0;padding:24px 36px 80px;max-width:1010px}
+section{background:#fff;border:1px solid var(--line);border-radius:14px;padding:26px 30px;margin:26px 0}
+h2{font-family:Georgia,serif;color:var(--navy);font-size:28px;margin:0 0 6px}
+h2 .num{display:inline-block;background:var(--teal);color:#fff;border-radius:8px;padding:0 10px;margin-right:10px;font-size:22px}
+h3{color:var(--teal);font-size:21px;margin:28px 0 8px}
+h4{color:var(--navy);font-size:18px;margin:20px 0 6px}
+.lead{color:var(--grey);margin-top:0}
+.box{border-radius:10px;padding:14px 18px;margin:14px 0;border-left:6px solid}
+.box .t{font-weight:700;display:block;margin-bottom:4px;font-size:15px;letter-spacing:.03em}
+.paper{background:#F1F3F6;border-color:#9AA5B4}.paper .t{color:#56606E}
+.simple{background:var(--green-l);border-color:var(--green)}.simple .t{color:var(--green)}
+.why{background:var(--dbt-l);border-color:var(--dbt)}.why .t{color:var(--dbt)}
+.warn{background:var(--gold-l);border-color:var(--gold)}.warn .t{color:var(--gold)}
+.example{background:var(--st-l);border-color:var(--st)}.example .t{color:var(--st)}
+.mine{background:#EEF0FB;border-color:#6A5ACD}.mine .t{color:#5546B8}
+table{border-collapse:collapse;width:100%;margin:12px 0;font-size:16px}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:var(--teal-l);color:var(--navy)}
+td.n,th.n{text-align:center;white-space:nowrap}
+tr.hl td{background:#FFF8E5}
+.badge{display:inline-block;padding:2px 10px;border-radius:999px;font-size:14px;font-weight:700;white-space:nowrap}
+.yes{background:var(--green);color:#fff}.no{background:#D9DEE5;color:var(--ink)}.dbt{background:var(--dbt);color:#fff}.st{background:var(--st);color:#fff}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin:14px 0}
+.card{border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:#fff}
+.card .big{font-family:Georgia,serif;font-size:30px;font-weight:700;color:var(--teal);line-height:1.2}
+.card .small{color:var(--grey);font-size:15px}
+.chart{width:100%;height:auto;background:#fff;border:1px solid var(--line);border-radius:10px;margin:10px 0}
+.chart.small{max-width:720px}
+.chart-note{font-size:14px;color:var(--grey);margin-top:-4px}
+.outcome{border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin:20px 0}
+.outcome h4{margin-top:0}
+.verdict{font-weight:700;font-size:17px}
+dl.gloss dt{font-weight:700;color:var(--navy);margin-top:12px}
+dl.gloss dd{margin:2px 0 0 0}
+.flow{display:flex;flex-direction:column;align-items:center;gap:6px;margin:16px 0}
+.flow .st1{background:var(--navy);color:#fff;border-radius:10px;padding:10px 18px;text-align:center;min-width:300px}
+.flow .arrow{color:var(--grey);font-size:22px;line-height:1}
+.flow .split{display:flex;gap:18px;flex-wrap:wrap;justify-content:center}
+.flow .split div{border-radius:10px;padding:12px 16px;min-width:260px}
+.flow .d{background:var(--dbt-l);border:2px solid var(--dbt)}.flow .s{background:var(--st-l);border:2px solid var(--st)}
+.qa details{border:1px solid var(--line);border-radius:10px;padding:10px 16px;margin:10px 0;background:#fff}
+.qa summary{font-weight:700;cursor:pointer;color:var(--navy)}
+.small-print{font-size:15px;color:var(--grey)}
+ol.refs li{margin-bottom:10px;padding-left:4px}
+.ref-list p{padding-left:2em;text-indent:-2em;margin:0 0 10px}
+footer{text-align:center;color:var(--grey);font-size:14px;padding:30px}
+@media (max-width:900px){nav.toc{display:none}main{padding:12px}section{padding:18px}}
+@media print{nav.toc{display:none}section{break-inside:avoid-page}body{background:#fff}}
+</style>
+</head>
+<body>
+<header class="hero"><div class="wrap">
+<div class="kicker">JOURNAL CLUB STUDY GUIDE  |  EXPLAINED FOR BEGINNERS</div>
+<h1>DBT versus Schema Therapy for Borderline Personality Disorder: the whole paper explained simply</h1>
+<p>Assmann, N., Schaich, A., Arntz, A., Wagner, T., Herzog, P., Alvarez-Fischer, D., Sipos, V., Jauch-Chara, K., Klein, J. P., Hüppe, M., Schweiger, U., &amp; Fassbinder, E. (2024).</p>
+<p><i>Psychotherapy and Psychosomatics, 93</i>(4), 249–263. <a style="color:#7FD1D8" href="https://doi.org/10.1159/000538404">https://doi.org/10.1159/000538404</a></p>
+</div></header>
+<div class="layout">
+<nav class="toc"><b>START</b><a href="#howto">How to use this guide</a><a href="#basics">1. Research basics</a><a href="#glance">2. The paper at a glance</a><a href="#abstract">3. Abstract, line by line</a><b>BACKGROUND</b><a href="#bpd">4. BPD, DBT and ST</a><a href="#intro">5. Why the study was done</a><a href="#aims">6. Aims and hypotheses</a><b>METHODS</b><a href="#design">7.1 Design</a><a href="#power">7.2 Sample size</a><a href="#who">7.3 Who could join</a><a href="#random">7.4 Randomization</a><a href="#timeline">7.5 When measured</a><a href="#measures">7.6 What was measured</a><a href="#treatment">7.7 The treatment</a><a href="#exits">7.8 Leaving early</a><a href="#therapists">7.9 Therapists</a><a href="#integrity">7.10 Treatment integrity</a><a href="#stats">7.12 Statistics explained</a><b>RESULTS</b><a href="#flow">8.1 Patient flow</a><a href="#sample">8.2 Who the patients were</a><a href="#dose">8.3 Sessions received</a><a href="#integrity-res">8.4 Integrity results</a><a href="#main">9. Main outcome</a><a href="#secondary">10. Other outcomes</a><a href="#retention">11. Dropout and safety</a><a href="#scoreboard">12. Full scoreboard</a><b>AFTER RESULTS</b><a href="#discussion">13. Discussion</a><a href="#appraisal">14. My appraisal</a><a href="#conclusion">15. Conclusion</a><a href="#practice">16. Practice and India</a><a href="#backmatter">17. Ethics and funding</a><b>EXTRAS</b><a href="#glossary">18. Glossary</a><a href="#faq">19. Viva questions</a><a href="#summary">20. One-minute summary</a><a href="#refs">21. References</a></nav>
+<main>
+
+<section id="howto">
+<h2>How to use this guide</h2>
+<p>This page explains the paper from start to finish, as if you have never read a research paper before. It follows the same order as the paper. For each part you will usually see these coloured boxes:</p>
+<div class="box paper"><span class="t">WHAT THE PAPER SAYS</span>A short, rewritten version of what the authors wrote.</div>
+<div class="box simple"><span class="t">IN SIMPLE WORDS</span>What it actually means, explained plainly.</div>
+<div class="box why"><span class="t">WHY DID THEY DO THIS?</span>The reason behind a choice the authors made.</div>
+<div class="box example"><span class="t">EXAMPLE</span>An everyday example to make an idea clear.</div>
+<div class="box warn"><span class="t">BE CAREFUL</span>A common mistake, or a weak point in the paper.</div>
+<div class="box mine"><span class="t">MY NOTE</span>My own comment or calculation. The authors did not write this.</div>
+<p>If you are completely new to research, read <a href="#basics">Part 1: Research basics</a> first. It explains every word you will meet later, such as <i>p-value</i>, <i>confidence interval</i> and <i>effect size</i>.</p>
+</section>
+
+<section id="basics">
+<h2><span class="num">1</span>Research basics you need first</h2>
+<p class="lead">Read this once. After this, the rest of the paper will make sense.</p>
+
+<h3>1.1 What is a research paper?</h3>
+<p>A research paper is a report written by scientists after they have done a study. It tells other people what question they asked, how they tried to answer it, what they found, and what they think it means. Almost every paper in psychology has the same parts:</p>
+<table>
+<tr><th>Part</th><th>What it answers</th></tr>
+<tr><td><b>Abstract</b></td><td>The whole paper in one paragraph.</td></tr>
+<tr><td><b>Introduction</b></td><td>Why does this question matter? What do we already know? What is missing?</td></tr>
+<tr><td><b>Methods</b></td><td>Exactly how was the study done? Who took part? What was measured? How was the data analysed?</td></tr>
+<tr><td><b>Results</b></td><td>What were the numbers? Only facts, no opinions.</td></tr>
+<tr><td><b>Discussion</b></td><td>What do the results mean? How do they fit with earlier studies? What are the weak points?</td></tr>
+<tr><td><b>Conclusion</b></td><td>The final take-home message.</td></tr>
+</table>
+
+<h3>1.2 What is a "trial"? What is an RCT?</h3>
+<p>A <b>clinical trial</b> is a study where researchers give people a treatment and then check whether they got better.</p>
+<p>An <b>RCT (randomized controlled trial)</b> is the strongest kind of trial. "Randomized" means a computer decides, by chance, which treatment each person gets. It is like tossing a coin for each patient.</p>
+<div class="box why"><span class="t">WHY TOSS A COIN?</span>
+If the doctor chose who gets which therapy, they might give one therapy to the less sick patients without even noticing. Then that therapy would look better only because its patients were healthier to begin with. When chance decides, both groups end up similar in age, illness, background and everything else, on average. So if one group improves more at the end, we can believe it is because of the therapy.</div>
+<div class="box example"><span class="t">EXAMPLE</span>
+Imagine you want to know which of two coaching centres is better. If the bright students all choose Centre A, Centre A will get better marks even if its teaching is no better. If a lottery decided which centre each student joins, the two centres would get similar students, and the marks would tell you something real about the teaching.</div>
+
+<h3>1.3 Groups, arms and comparison</h3>
+<p>Each treatment in a trial is called an <b>arm</b> or a <b>group</b>. In this paper there are two arms: the <b>DBT</b> arm and the <b>Schema Therapy (ST)</b> arm. Many trials also have a group that gets no treatment or "usual care". This trial did not have one. It compared two real treatments against each other. This is called a <b>head-to-head</b> or <b>comparative</b> trial.</p>
+
+<h3>1.4 Sample and population</h3>
+<p>The <b>population</b> is everyone the result is meant to apply to (for example, all adults with BPD). The <b>sample</b> is the smaller group who actually took part (here, 164 patients in Lübeck, Germany). We study the sample and hope it tells us about the population.</p>
+
+<h3>1.5 Variables and outcomes</h3>
+<p>An <b>outcome</b> is the thing you measure to see if treatment worked, such as BPD symptoms or depression.</p>
+<ul>
+<li>The <b>primary outcome</b> is the single most important outcome, chosen before the study starts. The main conclusion of the trial depends on it.</li>
+<li><b>Secondary outcomes</b> are extra outcomes. They are useful, but less trustworthy, because when you test many things, some will look "significant" just by luck.</li>
+</ul>
+
+<h3>1.6 Hypothesis and the "null hypothesis"</h3>
+<p>A <b>hypothesis</b> is the researcher's prediction. Here: "DBT and ST will give different results."</p>
+<p>The <b>null hypothesis</b> is the boring opposite: "There is no difference." Statistics tests try to see whether the data are strong enough to reject the boring explanation.</p>
+<p>A <b>two-sided</b> hypothesis means "there is a difference, but we do not say which way". A <b>one-sided</b> hypothesis would be "DBT will be better". Two-sided is stricter and more honest when you do not know which way it will go.</p>
+
+<h3>1.7 Mean and SD</h3>
+<p>The <b>mean (M)</b> is the average. The <b>SD (standard deviation)</b> tells you how spread out the scores are. Age 33.7 (SD 10.6) means the average age was about 34, and most people were roughly between 23 and 44.</p>
+
+<h3>1.8 The p-value</h3>
+<p>The <b>p-value</b> answers one question: <i>"If there were truly no difference, how often would we see a difference this big just by chance?"</i></p>
+<ul>
+<li>p = 0.01 means about 1 time in 100. That is rare, so we think the difference is probably real.</li>
+<li>p = 0.094 means about 9 times in 100. That is not rare enough.</li>
+</ul>
+<p>Scientists usually use a cut-off of <b>0.05</b> (5 in 100). Below 0.05 is called <b>statistically significant</b>. Above 0.05 is <b>not significant</b>.</p>
+<div class="box warn"><span class="t">BE CAREFUL</span>
+"Not significant" does <b>not</b> mean "the same" or "no difference". It only means "we cannot be sure the difference is real". A small study can easily miss a real difference.</div>
+
+<h3>1.9 The confidence interval (CI)</h3>
+<p>A study gives a "best guess" number, for example "DBT was 3.32 points better". But we know this guess is not exact. The <b>95% confidence interval</b> is the range where the true value probably lies.</p>
+<div class="box example"><span class="t">EXAMPLE</span>
+A weather forecast says "tomorrow will be 30°C, give or take 3 degrees". The best guess is 30, and the range is 27 to 33. A confidence interval works the same way.</div>
+<p><b>How to read it:</b> if the range includes zero (no difference), the result is not significant. If the whole range is on one side of zero, it is significant. A <b>wide</b> range means we are unsure. A <b>narrow</b> range means we are fairly sure.</p>
+
+<h3>1.10 Effect size (Cohen's d and r)</h3>
+<p>A p-value tells you whether a difference is likely to be real. It does <b>not</b> tell you how big it is. The <b>effect size</b> tells you the size.</p>
+<p><b>Cohen's d</b> measures a difference in "standard deviation units". Rough guide:</p>
+<table>
+<tr><th>d</th><th>Meaning</th></tr>
+<tr><td class="n">around 0.2</td><td>small</td></tr>
+<tr><td class="n">around 0.5</td><td>medium</td></tr>
+<tr><td class="n">0.8 or more</td><td>large</td></tr>
+<tr><td class="n">above 1.5</td><td>very large (this is unusual in psychotherapy)</td></tr>
+</table>
+<p>This paper uses d in two very different ways. Please do not mix them up:</p>
+<ul>
+<li><b>Within-group d</b> = how much <i>one</i> group changed from start to end. "Did DBT patients get better?"</li>
+<li><b>Between-group d</b> = how different the <i>two</i> groups are from each other. "Was DBT better than ST?"</li>
+</ul>
+<p><b>r</b> is another effect size, used in the statistics tables. Rough guide: 0.1 small, 0.3 medium, 0.5 large.</p>
+
+<h3>1.11 t and df</h3>
+<p>You will see things like <b>t(131) = 1.69</b>. The <b>t</b> is a test number: the bigger it is (ignoring the minus sign), the stronger the evidence for a difference. The <b>df</b> ("degrees of freedom", here 131) is related to how much data went into the test. You do not need to calculate these. Just know that the p-value comes from them.</p>
+
+<h3>1.12 Intention-to-treat (ITT)</h3>
+<p><b>Intention-to-treat</b> means: analyse every patient in the group they were put in, even if they stopped coming. The opposite is a <b>completer analysis</b>, which only looks at people who finished.</p>
+<div class="box why"><span class="t">WHY ITT?</span>
+People who finish therapy are usually the ones it suited. If you only count them, a therapy can look better than it is. ITT gives a more honest, real-life picture.</div>
+
+<h3>1.13 Dropout, missing data and follow-up</h3>
+<p><b>Dropout</b> (or attrition) is when a patient stops treatment early. <b>Missing data</b> is when a planned measurement was not collected, for example because the patient did not come to the interview. <b>Follow-up</b> is checking on patients some time after treatment has ended, to see if the improvement lasts.</p>
+
+<h3>1.14 Blinding</h3>
+<p><b>Blinding</b> means someone does not know which treatment a patient got. In psychotherapy, patients and therapists always know. But the people who score the interviews (the <b>raters</b>) can be kept blind. That stops them, even without meaning to, from scoring one group more kindly.</p>
+
+<h3>1.15 Reliability and validity</h3>
+<ul>
+<li><b>Reliability</b> = consistency. If two raters score the same patient, do they get the same score? It is often measured with the <b>ICC</b> (intraclass correlation). ICC goes from 0 to 1. Above 0.9 is excellent.</li>
+<li><b>Internal validity</b> = can we trust the result <i>inside</i> this study? (Was it done fairly?)</li>
+<li><b>External validity</b> or <b>generalizability</b> = does the result apply to <i>other</i> people and places, for example patients in India?</li>
+</ul>
+
+<h3>1.16 Statistical significance vs clinical significance</h3>
+<p><b>Statistical significance</b> asks: "Is this difference likely to be real, or just chance?"<br>
+<b>Clinical significance</b> asks: "Is this difference big enough to matter in a patient's life?"<br>
+A tiny difference can be statistically significant in a huge study but useless for patients. And a meaningful difference can be "not significant" in a small study.</p>
+</section>
+
+
+<section id="glance">
+<h2><span class="num">2</span>The paper at a glance</h2>
+<div class="grid">
+<div class="card"><div class="big">2024</div><div class="small">Published online 10 July 2024 in <i>Psychotherapy and Psychosomatics</i>, volume 93, pages 249 to 263</div></div>
+<div class="card"><div class="big">RCT</div><div class="small">Randomized clinical trial, one centre, raters blind</div></div>
+<div class="card"><div class="big">164</div><div class="small">adult outpatients with BPD started treatment</div></div>
+<div class="card"><div class="big">83 / 81</div><div class="small">patients in DBT / in Schema Therapy</div></div>
+<div class="card"><div class="big">18 months</div><div class="small">of therapy, then 12 months of follow-up</div></div>
+<div class="card"><div class="big">Lübeck</div><div class="small">University clinic in Germany, for very unwell patients</div></div>
+</div>
+<table>
+<tr><th>Item</th><th>Detail</th></tr>
+<tr><td>Full title</td><td>The Effectiveness of Dialectical Behavior Therapy Compared to Schema Therapy for Borderline Personality Disorder: A Randomized Clinical Trial</td></tr>
+<tr><td>Authors</td><td>Nele Assmann and Anja Schaich (joint first authors), Arnoud Arntz, Till Wagner, Philipp Herzog, Daniel Alvarez-Fischer, Valerija Sipos, Kamila Jauch-Chara, Jan Philipp Klein, Michael Hüppe, Ulrich Schweiger, Eva Fassbinder (senior author)</td></tr>
+<tr><td>DOI</td><td><a href="https://doi.org/10.1159/000538404">10.1159/000538404</a></td></tr>
+<tr><td>Name of the study</td><td>PRO*BPD ("Programs for BPD")</td></tr>
+<tr><td>Recruitment</td><td>26 November 2014 to 14 December 2018. Last follow-up: 20 January 2022</td></tr>
+<tr><td>Trial register</td><td>German Clinical Trials Register, DRKS00011534 (registered <i>after</i> the trial had started)</td></tr>
+<tr><td>Ethics approval</td><td>Ethics Committee of Lübeck University, number 13-005. All patients gave written consent.</td></tr>
+<tr><td>Funding</td><td>Else Kröner-Fresenius-Stiftung (a German foundation), plus internal University of Lübeck funds</td></tr>
+<tr><td>Correction</td><td>An erratum (correction notice) was published on 30 August 2024</td></tr>
+</table>
+<div class="box simple"><span class="t">THE WHOLE PAPER IN ONE SENTENCE</span>
+Both DBT and Schema Therapy helped seriously ill BPD patients a lot, DBT ended slightly ahead, but the difference was small and could be due to chance, so we still do not know if one is better.</div>
+</section>
+
+<section id="abstract">
+<h2><span class="num">3</span>The abstract, line by line</h2>
+<p class="lead">The abstract is the summary at the top of the paper. Here it is broken into small pieces, each followed by a plain explanation.</p>
+
+<div class="box paper"><span class="t">WHAT THE PAPER SAYS (Introduction)</span>Both DBT and ST have research support for BPD, but they have never been compared directly. The study asks whether one works better than the other.</div>
+<div class="box simple"><span class="t">IN SIMPLE WORDS</span>We know each therapy works on its own. Nobody has tested them side by side in the same study, so we do not know which one to pick.</div>
+
+<div class="box paper"><span class="t">WHAT THE PAPER SAYS (Methods)</span>A randomized, parallel-group, rater-blind trial. Outpatients aged 18 to 65 with BPD as their main diagnosis were recruited at a tertiary outpatient centre in Lübeck. They were randomized to DBT or ST, each with one individual and one group session a week for 1.5 years. The main outcome was BPD severity on the BPDSI at the 1-year follow-up.</div>
+<div class="box simple"><span class="t">IN SIMPLE WORDS</span>
+<ul>
+<li><b>Randomized:</b> chance decided which therapy each patient got.</li>
+<li><b>Parallel-group:</b> each patient got only one therapy, and both groups ran at the same time.</li>
+<li><b>Rater-blind:</b> the people scoring the interviews did not know which therapy the patient had.</li>
+<li><b>Tertiary outpatient centre:</b> a specialist hospital clinic for difficult cases that ordinary clinics cannot manage. Patients come to sessions and go home (they are not admitted).</li>
+<li><b>BPDSI:</b> an interview that gives a score for how severe someone's BPD is. Higher = worse.</li>
+<li><b>1-year follow-up:</b> one year after therapy ended, so 2.5 years after therapy started.</li>
+</ul></div>
+
+<div class="box paper"><span class="t">WHAT THE PAPER SAYS (Results, part 1)</span>164 patients were enrolled between 2014 and 2018, average age 33.7 years. 81 got ST and 83 got DBT. 130 (79.3%) were women.</div>
+<div class="box simple"><span class="t">IN SIMPLE WORDS</span>The groups were almost equal in size. Most patients were women in their early thirties. This is typical of BPD treatment services.</div>
+
+<div class="box paper"><span class="t">WHAT THE PAPER SAYS (Results, part 2)</span>Using intention-to-treat analysis with generalized linear mixed models, there was no significant difference between DBT and ST at the 1-year follow-up on BPDSI (mean difference 3.32, 95% CI −0.58 to 7.22, p = 0.094, d = −0.24), with lower scores for DBT.</div>
+<div class="box simple"><span class="t">IN SIMPLE WORDS</span>
+<ul>
+<li><b>Intention-to-treat:</b> they counted everyone who started, not only those who finished.</li>
+<li><b>Generalized linear mixed models (GLMM):</b> the statistical method. It is explained in <a href="#stats">Part 7</a>.</li>
+<li><b>Mean difference 3.32:</b> on average, DBT patients scored 3.32 points lower (better) on the BPDSI.</li>
+<li><b>95% CI −0.58 to 7.22:</b> the true difference could be anywhere from ST being 0.58 points better to DBT being 7.22 points better. Because this range includes zero, we cannot be sure there is any difference.</li>
+<li><b>p = 0.094:</b> above 0.05, so not significant.</li>
+<li><b>d = −0.24:</b> the difference is small. (The abstract prints "−24", which is a typing error. The table says −0.24.)</li>
+</ul></div>
+
+<div class="box paper"><span class="t">WHAT THE PAPER SAYS (Results, part 3)</span>From before treatment to follow-up, effect sizes were large in both groups: DBT d = 2.45, ST d = 1.78.</div>
+<div class="box simple"><span class="t">IN SIMPLE WORDS</span>These are <b>within-group</b> effect sizes. They show how much each group improved compared with where it started. Anything above 0.8 is large, so 2.45 and 1.78 are very big improvements. Both therapies were followed by major improvement.</div>
+
+<div class="box paper"><span class="t">WHAT THE PAPER SAYS (Conclusion)</span>Both groups improved a lot, which shows that even severely ill BPD patients with many other disorders can be treated successfully with DBT or ST. A non-inferiority trial is needed to show whether the two are equally effective.</div>
+<div class="box simple"><span class="t">IN SIMPLE WORDS</span>Both therapies are good options. But this study cannot prove that they are <i>equal</i>. To prove "equal", you need a different kind of study, called a non-inferiority or equivalence trial, which is designed for that purpose.</div>
+</section>
+
+<section id="bpd">
+<h2><span class="num">4</span>Background: BPD and the two therapies</h2>
+<p class="lead">The paper assumes you already know this. These details come from standard textbooks, not from the paper itself.</p>
+
+<h3>4.1 What is Borderline Personality Disorder (BPD)?</h3>
+<p>BPD is a long-lasting pattern where a person's emotions, relationships and sense of self are very unstable. The main problem is <b>emotion dysregulation</b>: feelings come very fast, become very strong, and take a long time to calm down.</p>
+<p>The DSM lists 9 features. A person needs at least 5 for a diagnosis:</p>
+<ol>
+<li>Desperate efforts to avoid being abandoned</li>
+<li>Intense, unstable relationships (swinging between "you are perfect" and "I hate you")</li>
+<li>Unstable sense of who they are</li>
+<li>Impulsive, risky behaviour (spending, substances, binge eating, unsafe sex)</li>
+<li>Repeated self-harm or suicidal behaviour</li>
+<li>Quick, intense mood changes</li>
+<li>Long-lasting feeling of emptiness</li>
+<li>Intense, hard-to-control anger</li>
+<li>Under stress, brief paranoid thoughts or feeling unreal (dissociation)</li>
+</ol>
+<div class="box example"><span class="t">EXAMPLE</span>A friend does not reply to a message for a few hours. A person with BPD may feel sure they are being abandoned, feel huge panic and anger, send many angry messages or self-harm to calm down, feel relief for a short while, and then feel deep shame. Then the cycle repeats.</div>
+<p>BPD is also very costly for society, mainly because patients are often admitted to hospital. The authors cite several cost studies on this.</p>
+
+<h3>4.2 What is DBT?</h3>
+<p><b>Dialectical Behavior Therapy</b> was developed by Marsha Linehan. It says that BPD comes from a mix of a person who is emotionally very sensitive and an environment that ignores or punishes their feelings (the "biosocial theory").</p>
+<p>DBT teaches practical <b>skills</b> in four areas:</p>
+<ul>
+<li><b>Mindfulness:</b> noticing what is happening right now, without judging it</li>
+<li><b>Distress tolerance:</b> getting through a crisis without making it worse</li>
+<li><b>Emotion regulation:</b> understanding and calming strong feelings</li>
+<li><b>Interpersonal effectiveness:</b> asking for what you need and saying no, while keeping relationships</li>
+</ul>
+<p>"Dialectical" means holding two opposite things together: the therapist fully <b>accepts</b> the patient as they are, and at the same time pushes for <b>change</b>.</p>
+
+<h3>4.3 What is Schema Therapy (ST)?</h3>
+<p><b>Schema Therapy</b> was developed by Jeffrey Young. It says that when a child's basic emotional needs (safety, love, freedom to express feelings) are not met, the child develops <b>schemas</b>: deep, painful beliefs such as "people always leave me" or "I am bad".</p>
+<p>In BPD, the person switches quickly between <b>modes</b>, which are emotional states. Examples: the abandoned child (scared and alone), the angry child, the punishing parent (harsh self-criticism), the detached protector (shutting off feelings), and the healthy adult (the part therapy tries to build).</p>
+<p>ST uses:</p>
+<ul>
+<li><b>Limited reparenting:</b> the therapist offers some of the warmth and care the patient missed, within professional limits</li>
+<li><b>Imagery rescripting:</b> the patient imagines a painful childhood memory, and the therapist helps them change what happens in it</li>
+<li><b>Chair work:</b> the patient speaks to different modes placed on different chairs</li>
+</ul>
+
+<h3>4.4 How are they different?</h3>
+<table>
+<tr><th></th><th style="color:var(--dbt)">DBT</th><th style="color:var(--st)">Schema Therapy</th></tr>
+<tr><td>Main focus</td><td>Skills for today's problems and crises</td><td>Deep patterns from childhood</td></tr>
+<tr><td>Main method</td><td>Teaching and practising skills</td><td>Emotional experiences in session (imagery, chairs)</td></tr>
+<tr><td>Therapist style</td><td>Accepting, and pushing for change</td><td>Warm and caring, like a good parent</td></tr>
+<tr><td>What they share</td><td colspan="2">A clear model, a structured plan, an active and caring therapist, a focus on emotions, and a balance of acceptance and change</td></tr>
+</table>
+</section>
+
+<section id="intro">
+<h2><span class="num">5</span>Introduction: why did they do this study?</h2>
+
+<h4>Paragraph 1: what we already know</h4>
+<div class="box paper"><span class="t">WHAT THE PAPER SAYS</span>Several psychotherapies for BPD have good evidence, and international guidelines recommend therapy made specifically for BPD. DBT and ST are two of the most established. DBT is the most studied and has been shown to work in several RCTs. ST has been studied less, but two large trials, one small trial and some real-clinic studies are promising.</div>
+<div class="box simple"><span class="t">IN SIMPLE WORDS</span>Experts agree that people with BPD should get a therapy designed for BPD, not just general counselling. DBT has the most proof. ST has less proof, but what exists looks good.</div>
+
+<h4>Paragraph 2: what is missing (the research gap)</h4>
+<div class="box paper"><span class="t">WHAT THE PAPER SAYS</span>DBT and ST have never been compared in a randomized trial. Comparing treatments helps patients make informed choices and helps health systems decide which treatments to offer.</div>
+<div class="box simple"><span class="t">IN SIMPLE WORDS</span>This is the <b>research gap</b>, the missing piece of knowledge. If a hospital can only train its staff in one therapy, which one should it choose? Nobody could answer that before this study.</div>
+
+<h4>Paragraph 3: this study and its setting</h4>
+<div class="box paper"><span class="t">WHAT THE PAPER SAYS</span>PRO*BPD is the first randomized trial comparing ST and DBT for BPD. It was run in a routine outpatient clinic linked to inpatient wards, set up for severely affected patients who often end up in emergency rooms or would otherwise be admitted. Research in this group matters because BPD is costly, mainly because of inpatient treatment.</div>
+<div class="box simple"><span class="t">IN SIMPLE WORDS</span>They studied the sickest patients, the ones who keep coming to emergency and get admitted. These patients cost the most money and suffer the most, so finding the best treatment for them matters a lot.</div>
+
+<h4>Paragraph 4: the hypotheses</h4>
+<p>This is explained in the next section.</p>
+</section>
+
+<section id="aims">
+<h2><span class="num">6</span>Aims and hypotheses</h2>
+<h3>Main hypothesis</h3>
+<div class="box paper"><span class="t">WHAT THE PAPER SAYS</span>BPD symptoms will differ between DBT and ST at the 1-year follow-up. Because earlier research does not show which direction, a two-sided hypothesis was chosen.</div>
+<div class="box simple"><span class="t">IN SIMPLE WORDS</span>They predicted "the two therapies will give different results", without guessing which one would win.</div>
+<div class="box why"><span class="t">WHY TWO-SIDED?</span>If you predict "DBT will win" and then only test that direction, it is easier to get a significant result. Testing both directions is stricter. It is the honest choice when you really do not know.</div>
+
+<h3>Secondary outcomes</h3>
+<p>They also measured: staying in treatment (retention), overall symptoms, depression, dissociation, quality of life, daily functioning and participation in life.</p>
+
+<h3>Secondary hypotheses (based on theory)</h3>
+<table>
+<tr><th>They predicted</th><th>Better with</th><th>Why they expected it</th><th>Did it happen?</th></tr>
+<tr><td>Less suicidality, faster</td><td><span class="badge dbt">DBT</span></td><td>DBT has direct crisis and safety skills</td><td><span class="badge no">No</span></td></tr>
+<tr><td>Less self-harm, faster</td><td><span class="badge dbt">DBT</span></td><td>Same reason</td><td><span class="badge no">No</span></td></tr>
+<tr><td>Less dissociation, faster</td><td><span class="badge dbt">DBT</span></td><td>DBT teaches skills to stay grounded</td><td><span class="badge no">No</span></td></tr>
+<tr><td>Better quality of life</td><td><span class="badge st">ST</span></td><td>ST works on deep needs and life patterns</td><td><span class="badge no">No</span></td></tr>
+<tr><td>Lower overall symptoms</td><td><span class="badge st">ST</span></td><td>Same reason</td><td><span class="badge no">No</span></td></tr>
+<tr><td>Less depression</td><td><span class="badge st">ST</span></td><td>Same reason</td><td><span class="badge no">No</span></td></tr>
+</table>
+<p>None of the six predictions came true. The details are in the <a href="#results">Results</a>.</p>
+</section>
+
+
+<section id="methods">
+<h2><span class="num">7</span>Methods: how the study was done</h2>
+<p class="lead">This is the most important part for judging whether we can trust the results. Each step is explained, along with <i>why</i> it was done.</p>
+
+<h3 id="design">7.1 Study design</h3>
+<div class="box paper"><span class="t">WHAT THE PAPER SAYS</span>A single-centre randomized clinical trial at a tertiary outpatient centre of a university clinic in Lübeck, Germany, which mainly treats severely affected patients who cannot be treated elsewhere. It followed CONSORT guidelines and recommendations for trials of psychological treatments. The full plan was published earlier as a study protocol.</div>
+<div class="box simple"><span class="t">IN SIMPLE WORDS</span>
+<ul>
+<li><b>Single-centre:</b> everything happened in one clinic. This is easier to control, but the results may not apply everywhere.</li>
+<li><b>CONSORT:</b> an international checklist that tells researchers exactly what to report in a trial, so readers can check its quality. It includes the patient flow diagram.</li>
+<li><b>Study protocol:</b> the detailed plan, published in 2018 before the results. This lets readers check whether the researchers stuck to their plan.</li>
+</ul></div>
+
+<h3 id="power">7.2 How many patients? (Sample size and power)</h3>
+<div class="box paper"><span class="t">WHAT THE PAPER SAYS</span>They planned 160 patients. A power analysis (80% power, medium effect size, α = 0.05) showed 128 were needed. They added 32 more (20%) to allow for dropouts.</div>
+<div class="box simple"><span class="t">IN SIMPLE WORDS</span>
+<p>Before starting, researchers work out how many patients they need. This is called a <b>power analysis</b>.</p>
+<ul>
+<li><b>Power 80%:</b> if a real difference of the expected size exists, the study has an 80% chance of finding it (and a 20% chance of missing it).</li>
+<li><b>Medium effect size:</b> they planned to detect a medium-sized difference (d around 0.5).</li>
+<li><b>α (alpha) = 0.05:</b> the cut-off for "significant" (the 5-in-100 rule from Part 1).</li>
+<li><b>128 + 32 = 160:</b> 128 for the maths, plus 20% extra because some people always drop out.</li>
+</ul></div>
+<div class="box warn"><span class="t">BE CAREFUL</span>The study was built to find a <b>medium</b> difference. The difference they actually found was <b>small</b> (d = 0.24). To detect a small difference reliably, you need many more patients (several hundred). So the study may simply have been too small to see it. This is one of the most important points about this paper.</div>
+
+<h3 id="who">7.3 Who could take part?</h3>
+<h4>Inclusion criteria (who was allowed in)</h4>
+<table>
+<tr><th>Rule</th><th>What it means</th><th>Why</th></tr>
+<tr><td>Age 18 to 65</td><td>Adults only</td><td>BPD treatment for teenagers and older adults is different</td></tr>
+<tr><td>Main diagnosis is BPD, using the SCID-II interview</td><td>BPD must be the main problem, confirmed by a standard structured interview</td><td>So that everyone really has BPD, diagnosed the same way</td></tr>
+<tr><td>BPDSI score above 20</td><td>Symptoms must be clearly severe</td><td>This is a clinic for serious cases. Mild cases have less room to improve.</td></tr>
+<tr><td>Informed consent</td><td>They agreed in writing after being told everything</td><td>Required by research ethics</td></tr>
+<tr><td>Able and willing to come reliably</td><td>Can commit to 18 months of weekly sessions and assessments</td><td>Otherwise the therapy cannot be tested fairly</td></tr>
+</table>
+<h4>Exclusion criteria (who was not allowed in)</h4>
+<table>
+<tr><th>Rule</th><th>Why</th></tr>
+<tr><td>Ever had a psychotic disorder (such as schizophrenia)</td><td>Psychosis needs different treatment, and it would confuse the results</td></tr>
+<tr><td>IQ below 85</td><td>Both therapies need a fair amount of verbal and thinking work</td></tr>
+<tr><td>Poor German</td><td>All therapy and questionnaires were in German</td></tr>
+<tr><td>Acute substance problem needing detox</td><td>Detox must come first. Patients could join after detox plus 4 weeks without using. People dependent on cannabis could join if they agreed to work on stopping.</td></tr>
+</table>
+<div class="box simple"><span class="t">IN SIMPLE WORDS</span>There were very few exclusions. Almost any adult with serious BPD could join, even with many other problems. This makes the sample look like real clinic patients, which is a strength.</div>
+
+<h3 id="random">7.4 How were patients divided into the two groups? (Randomization)</h3>
+<div class="box paper"><span class="t">WHAT THE PAPER SAYS</span>Randomization was done by Prof. Michael Hüppe, who was not involved in data collection or therapy, using the program BiAS (version 11.02). It took place after the baseline assessment. It was stratified by sex. The allocation sequence was hidden from patients and researchers. Raters were blind. Patients learned their group in the first therapy session.</div>
+<div class="box simple"><span class="t">IN SIMPLE WORDS</span>Each part of this sentence has a purpose:</div>
+<table>
+<tr><th>What they did</th><th>What it means</th><th>Why it matters</th></tr>
+<tr><td><b>Randomization</b> by computer (BiAS program)</td><td>Chance decided the group, like a coin toss</td><td>Makes the two groups similar in everything, so a difference at the end is likely caused by the therapy</td></tr>
+<tr><td>Done by an <b>outside person</b> (Prof. Hüppe, from the Anaesthesiology department)</td><td>The person making the list had no contact with the patients</td><td>Nobody could cheat, for example by putting a sicker patient into a certain group</td></tr>
+<tr><td>Done <b>after</b> the baseline assessment</td><td>Patients were measured first, then assigned</td><td>Their starting scores could not be affected by knowing their group</td></tr>
+<tr><td><b>Stratified by sex</b></td><td>Men and women were randomized separately, each in their own list</td><td>Only about 1 in 5 patients was a man. With pure chance, one group could end up with many more men than the other. Doing it separately keeps the share of men and women about the same in both groups.</td></tr>
+<tr><td><b>Allocation concealed</b></td><td>Nobody could see who would be next on the list</td><td>If staff knew the next patient would get DBT, they might delay or hurry certain patients. Hiding the list prevents this.</td></tr>
+<tr><td><b>Raters blind</b></td><td>The interviewers did not know the patient's group</td><td>They could not score one group more kindly, even without meaning to</td></tr>
+<tr><td>Patients told in the <b>first session</b></td><td>Patients could not be blind</td><td>In therapy this is impossible to avoid. You know if you are in a skills group or doing imagery work.</td></tr>
+</table>
+<div class="box example"><span class="t">EXAMPLE: STRATIFICATION</span>You have 130 women and 33 men, and want two fair teams. If you just toss a coin for everyone, one team might get 22 men and the other 11. If you toss coins for the women separately and the men separately, each team gets roughly half the women and half the men.</div>
+<div class="box warn"><span class="t">BE CAREFUL</span>Even with randomization, the DBT group started a little more unwell on many measures (especially self-rated BPD symptoms and depression). This is pure bad luck, and it can happen. The authors had to adjust for it in the analysis (see <a href="#stats">7.12</a>).</div>
+
+<h3 id="timeline">7.5 When were patients measured?</h3>
+<table>
+<tr><th>Time point</th><th>Months from start</th><th>Phase</th></tr>
+<tr><td>Baseline (start)</td><td class="n">0</td><td>Before therapy. 3 to 4 appointments, within 3 months before therapy began</td></tr>
+<tr><td>Mid-treatment</td><td class="n">6</td><td>During therapy</td></tr>
+<tr><td>Mid-treatment</td><td class="n">12</td><td>During therapy</td></tr>
+<tr><td>Post-treatment</td><td class="n">18</td><td>Therapy ends</td></tr>
+<tr><td>Follow-up 1</td><td class="n">24</td><td>6 months after therapy</td></tr>
+<tr class="hl"><td><b>Follow-up 2 (MAIN OUTCOME)</b></td><td class="n"><b>30</b></td><td><b>12 months after therapy</b></td></tr>
+</table>
+<div class="box simple"><span class="t">IN SIMPLE WORDS</span>The main result is measured 2.5 years after therapy started. If more than 3 months passed between the baseline interview and the start of therapy (for example because there was no free slot), they repeated the main interview so the starting score would be up to date.</div>
+<div class="box why"><span class="t">WHY MEASURE A YEAR AFTER THERAPY?</span>It is easy to feel better while you are seeing a therapist every week. The real test is whether the improvement lasts after therapy stops. That is why the main outcome is one year after therapy ended.</div>
+<p><b>"Naturalistic" follow-up</b> means that during the follow-up year, the study did not give or forbid any treatment. Patients could get other help if they needed it, and the researchers just recorded it. If needed, patients could see their old therapist about once a month or less.</p>
+
+<h3 id="measures">7.6 What did they measure? (The questionnaires and interviews)</h3>
+<h4>The main outcome: BPDSI-IV</h4>
+<div class="box paper"><span class="t">WHAT THE PAPER SAYS</span>The Borderline Personality Disorder Severity Index (version IV) is a semi-structured interview with 70 items. It rates how often and how severely the 9 DSM-IV BPD features happened in the last 3 months. It is reliable and well tested. In this study, agreement between raters was excellent (all ICCs above 0.997). A rise of 11.70 points or more from baseline counted as getting worse (deterioration).</div>
+<div class="box simple"><span class="t">IN SIMPLE WORDS</span>
+<ul>
+<li><b>Semi-structured interview:</b> the rater has a fixed list of questions but can ask follow-up questions to understand properly.</li>
+<li>It covers all 9 BPD features, so it gives one total score for "how much BPD this person has right now". Scores can range from 0 to 90. Higher = worse.</li>
+<li><b>ICC above 0.997:</b> when two raters scored the same patient, they gave almost exactly the same score. That is near perfect.</li>
+<li><b>Deterioration = rise of 11.7 points:</b> a clear rule for deciding when a patient has got meaningfully worse.</li>
+</ul></div>
+<div class="box why"><span class="t">WHY AN INTERVIEW AND NOT A QUESTIONNAIRE?</span>A trained, blind interviewer is more objective. Patients filling in their own questionnaire may be influenced by how much they like their therapist or how they feel that day.</div>
+
+<h4>Secondary outcomes</h4>
+<table>
+<tr><th>Short name</th><th>Full name</th><th>What it measures</th><th>Who fills it</th><th>Higher means</th></tr>
+<tr><td>BPDSI subscales</td><td>Parts of the BPDSI</td><td>Each of the 9 BPD features separately (such as anger and suicidal behaviour)</td><td>Interviewer</td><td>Worse</td></tr>
+<tr><td>BPD Checklist</td><td>Borderline Personality Disorder Checklist</td><td>How much the patient suffers from BPD symptoms</td><td>Patient</td><td>Worse</td></tr>
+<tr><td>QIDS-SR</td><td>Quick Inventory of Depressive Symptoms, Self-Report</td><td>Depression (0 to 27)</td><td>Patient</td><td>Worse</td></tr>
+<tr><td>BSI</td><td>Brief Symptom Inventory</td><td>General psychological distress across many areas (anxiety, depression, hostility, and so on)</td><td>Patient</td><td>Worse</td></tr>
+<tr><td>DSS</td><td>Dissociation Tension Scale</td><td>Dissociation: feeling unreal, detached, "spaced out"</td><td>Patient</td><td>Worse</td></tr>
+<tr><td>WHODAS 2.0</td><td>WHO Disability Assessment Schedule</td><td>Difficulty with daily life: self-care, getting around, relationships, work</td><td>Patient</td><td>Worse</td></tr>
+<tr><td>WSAS</td><td>Work and Social Adjustment Scale</td><td>How much problems affect work, home and social life (0 to 40)</td><td>Patient</td><td>Worse</td></tr>
+<tr><td>WHOQOL</td><td>WHO Quality of Life</td><td>Quality of life in physical, psychological, social and environmental areas</td><td>Patient</td><td><b>Better</b></td></tr>
+<tr><td>SCID-I and SCID-II</td><td>Structured Clinical Interviews for DSM-IV</td><td>Other mental disorders and personality disorders (used to describe patients)</td><td>Interviewer</td><td>-</td></tr>
+<tr><td>Retention</td><td>-</td><td>Whether patients stayed in therapy</td><td>Records</td><td>-</td></tr>
+<tr><td>Adverse events</td><td>-</td><td>Hospital admission, suicide attempts, deaths</td><td>Records</td><td>-</td></tr>
+</table>
+<p>They also recorded medicines and background details such as age, education and work.</p>
+<div class="box why"><span class="t">WHY SO MANY MEASURES?</span>BPD affects every part of life. Measuring only symptoms would miss whether people could work, have relationships, or enjoy life. Recording harms checks that therapy is not making anyone worse.</div>
+
+<h3 id="treatment">7.7 What treatment did they get?</h3>
+<div class="grid">
+<div class="card"><div class="big">60 min</div><div class="small">one individual session every week</div></div>
+<div class="card"><div class="big">120 min</div><div class="small">one group session every week</div></div>
+<div class="card"><div class="big">18 months</div><div class="small">of therapy</div></div>
+<div class="card"><div class="big">≤ 10</div><div class="small">patients per group, with 2 therapists</div></div>
+</div>
+<ul>
+<li>Both therapies followed <b>written manuals</b>, so every therapist did the same things.</li>
+<li>Both got <b>exactly the same amount</b> of therapy. This matters: if one group got more hours, any difference could be due to the extra time, not the type of therapy.</li>
+<li>Individual therapy started <b>4 to 10 weeks</b> before the group, to build trust first.</li>
+<li>Groups were <b>semi-open</b>: new patients could join an ongoing group.</li>
+<li>Patients who could not come to groups because of family, work or study got <b>individual therapy only</b>. (This happened to 21 patients.)</li>
+</ul>
+
+<h3 id="exits">7.8 Ways of leaving therapy early</h3>
+<table>
+<tr><th>Type</th><th>What it means</th></tr>
+<tr><td><b>Completed</b></td><td>Stayed for the full 18 months</td></tr>
+<tr><td><b>Early success</b></td><td>BPDSI score fell below 15 and the team agreed the patient had recovered, so they could stop early</td></tr>
+<tr><td><b>Dropped out</b></td><td>The patient chose to stop</td></tr>
+<tr><td><b>Pushed out</b></td><td>The therapist team and supervisor decided to end treatment</td></tr>
+</table>
+<div class="box warn"><span class="t">BE CAREFUL</span>There were no fixed rules for push-outs. The team decided case by case. The authors admit this is different from the standard DBT manual, which has a clear rule. After the 18 months, no further therapy was recommended, but patients were free to get it.</div>
+<p><b>COVID-19:</b> the pandemic changed some parts of the plan for some patients. The authors re-ran the analysis without those patients (a sensitivity analysis), and report it in the supplement.</p>
+
+<h3 id="therapists">7.9 Who were the therapists?</h3>
+<p>Some were experienced DBT or ST therapists. Others were new to DBT or ST but already trained in CBT. All got training workshops from local and outside certified experts, weekly supervision, and team meetings. DBT supervisors were Valerija Sipos and Ulrich Schweiger. The ST supervisor was Eva Fassbinder.</p>
+
+<h3 id="integrity">7.10 Did the therapists really do the therapy properly? (Treatment integrity)</h3>
+<div class="box simple"><span class="t">IN SIMPLE WORDS</span>
+<p>It is not enough to call something "DBT". You must check that therapists actually did DBT. This is called <b>treatment integrity</b>, and it has two parts:</p>
+<ul>
+<li><b>Adherence:</b> did they follow the manual? (yes or no for each item)</li>
+<li><b>Competence:</b> did they do it well? (scored 1 to 6)</li>
+</ul>
+<p>All sessions were videotaped. Trained raters watched a random sample from different stages of therapy, after the study ended.</p></div>
+<table>
+<tr><th>Session type</th><th>Rating tool used</th></tr>
+<tr><td>ST individual</td><td>Therapy Adherence and Competence Scale for BPD (Young et al.)</td></tr>
+<tr><td>DBT individual</td><td>DBT Adherence Checklist for Individual Therapy (DBT AC-I)</td></tr>
+<tr><td>ST group</td><td>A combination of the Schema Therapist Competency Scale and the Group Schema Therapy Rating Scale</td></tr>
+<tr><td>DBT group</td><td><b>No proper tool.</b> Only 10 DBT group videos were rated, using the ST scale, just to show the two therapies looked different.</td></tr>
+</table>
+<div class="box warn"><span class="t">BE CAREFUL</span>The official "gold-standard" DBT adherence rating needs certified DBT experts, and the funding did not cover it. So the DBT individual sessions used a different checklist, and DBT group sessions were not properly checked at all. We know less about how well the DBT skills groups were run.</div>
+</section>
+
+
+<section id="stats">
+<h2><span class="num">7.12</span>The statistics, explained step by step</h2>
+<p class="lead">This is the hardest part of the paper. Each sentence is turned into plain language. You do not need to do the maths. You just need to understand what each step is for.</p>
+
+<h4>Step 1: they had to change their plan</h4>
+<div class="box paper"><span class="t">WHAT THE PAPER SAYS</span>The original plan was to compare the slopes (the speed of improvement) from baseline to the 1-year follow-up. Because of unexpected differences between the groups at baseline, especially in self-rated BPD symptoms and depression, they changed the plan and controlled for baseline scores. Controlling for baseline is also recommended in general. So the main test became the difference between groups at the 1-year follow-up.</div>
+<div class="box simple"><span class="t">IN SIMPLE WORDS</span>
+<p><b>Original plan:</b> "Which group's line goes down faster?"</p>
+<p><b>New plan:</b> "At the final check, after making allowance for where each patient started, which group is lower?"</p>
+<p>They changed because the DBT group started sicker. If you just compare final scores, a group that started sicker is at an unfair disadvantage. Adjusting for the starting score levels the field.</p></div>
+<div class="box example"><span class="t">EXAMPLE</span>Two runners finish a race at the same time, but one started 20 metres behind. Who is faster? You must allow for the starting position. Adjusting for baseline does the same for patients.</div>
+<div class="box warn"><span class="t">BE CAREFUL</span>Changing the analysis plan after seeing data is something readers should always notice. Here the authors explained it openly, gave a good reason, and also ran the original plan as a check (it gave the same answer). That is the right way to handle it.</div>
+
+<h4>Step 2: who was included in the analysis (ITT)</h4>
+<div class="box paper"><span class="t">WHAT THE PAPER SAYS</span>The analysis followed intention-to-treat and used all available data. A patient was included if they were randomized and attended at least one individual session (where they learned their group). Missing values were not filled in, because GLMMs give valid estimates under the same assumptions as multiple imputation. They used SPSS version 28.</div>
+<div class="box simple"><span class="t">IN SIMPLE WORDS</span>
+<ul>
+<li>Everyone who came to at least one session was counted, whether they finished or not. That is 164 people. (The 3 who never came at all were left out. Strictly, this is called a "modified" ITT.)</li>
+<li><b>Missing values not imputed:</b> some researchers "fill in" missing scores with estimates (called imputation). These authors did not. They used a method (GLMM) that can work with incomplete data directly.</li>
+<li><b>SPSS:</b> the statistics software they used.</li>
+</ul></div>
+<div class="box warn"><span class="t">BE CAREFUL</span>This only works if the missing data are "missing at random", meaning the people who did not come to interviews are similar to those who did, once you know their earlier scores. If the people who stayed away were those doing badly (or doing very well), the results could be biased. Nobody can fully check this.</div>
+
+<h4>Step 3: the main method, GLMM with gamma regression</h4>
+<div class="box paper"><span class="t">WHAT THE PAPER SAYS</span>Because the scores had skewed distributions, continuous outcomes were analysed with GLMM gamma regression. As gamma regression cannot handle zeros, 0.01 was added to all scores where zeros existed.</div>
+<div class="box simple"><span class="t">IN SIMPLE WORDS</span>
+<p><b>What is a "distribution"?</b> If you list everyone's score and draw a graph of how many people got each score, that shape is the distribution.</p>
+<p><b>Normal distribution:</b> a symmetrical bell shape, with most people in the middle. Many basic statistics tests assume this shape.</p>
+<p><b>Skewed distribution:</b> lopsided. For example, many people have low scores and a few have very high scores, so the graph has a long tail on one side. Symptom scores are often like this, especially after treatment, when many people are near zero.</p>
+<p><b>GLMM (Generalized Linear Mixed Model):</b></p>
+<ul>
+<li><b>Model:</b> a mathematical description of how scores change.</li>
+<li><b>Linear:</b> built from simple additions of effects (time, treatment and so on).</li>
+<li><b>Generalized:</b> it can handle data that is not bell-shaped, such as skewed scores.</li>
+<li><b>Mixed:</b> it handles repeated measurements from the same person, and patients who missed some time points.</li>
+</ul>
+<p><b>Gamma regression</b> is the version of GLMM made for skewed scores that are always above zero. Because it cannot accept a score of exactly 0, they added a tiny 0.01 to every score. This does not change the results in any meaningful way.</p></div>
+<div class="box why"><span class="t">WHY NOT A SIMPLE t-TEST?</span>A simple test would need complete data, a bell-shaped distribution, and only one measurement per person. This study had six measurements per person, lots of missing data, and skewed scores. GLMM can handle all three.</div>
+
+<h4>Step 4: allowing for groups of patients who did therapy together</h4>
+<div class="box paper"><span class="t">WHAT THE PAPER SAYS</span>Where possible, they included a random effect of the treatment cohort, because patients took part in group therapy together.</div>
+<div class="box simple"><span class="t">IN SIMPLE WORDS</span>Patients in the same therapy group influence each other. A very supportive group might help all its members, and a difficult group might hold them back. So the patients are not completely independent. The "random effect of cohort" tells the model which patients were in the same group, so it does not treat them as fully separate people.</div>
+
+<h4>Step 5: how they modelled time (piece-wise)</h4>
+<div class="box paper"><span class="t">WHAT THE PAPER SAYS</span>Time was modelled to fit the data best (linear, logarithmic or segmented). If change during treatment looked different from change during follow-up, they used piece-wise regression, with the treatment phase as one section and the follow-up as another.</div>
+<div class="box simple"><span class="t">IN SIMPLE WORDS</span>Scores do not always go down in a straight line. During therapy, BPDSI scores dropped quickly. After therapy, they stayed flat. A <b>piece-wise</b> model draws two separate line pieces, one for the therapy period and one for the follow-up period, instead of forcing one straight line through everything.</div>
+<div class="box example"><span class="t">EXAMPLE</span>A person loses weight quickly during a 6-month diet programme, then stays the same weight afterwards. One straight line would describe this badly. Two pieces, "going down" then "flat", describe it well.</div>
+
+<h4>Step 6: allowing for medicines</h4>
+<div class="box paper"><span class="t">WHAT THE PAPER SAYS</span>As planned in the protocol, psychotropic medication use was included as a running covariate, coded at each assessment point. Because this can be debated, they also ran the analysis without it.</div>
+<div class="box simple"><span class="t">IN SIMPLE WORDS</span>About 3 in 4 patients were on psychiatric medicines, and this could change over time. A <b>covariate</b> is an extra factor the model takes into account. "Running" means it was recorded freshly at every time point. So the model can separate the effect of the therapy from the effect of medicines. They checked that removing this step did not change the answer.</div>
+
+<h4>Step 7: allowing for the baseline differences</h4>
+<div class="box paper"><span class="t">WHAT THE PAPER SAYS</span>Because the DBT group had higher scores on almost all measures at baseline, they added more covariates: a centred overall severity score based on principal component analysis of all baseline outcomes, the number of comorbid disorders, and the patient's own baseline score on that outcome. The baseline time point was then removed from the time variable. So the main test of treatment was the difference after the 1-year follow-up.</div>
+<div class="box simple"><span class="t">IN SIMPLE WORDS</span>
+<ul>
+<li><b>Principal component analysis (PCA):</b> a method that combines many scores into one summary score. Here it made one "how ill was this person at the start, overall" score from all the starting questionnaires.</li>
+<li><b>Centred:</b> the score was shifted so the average person is at zero. This just makes the numbers easier to read.</li>
+<li><b>Number of comorbidities:</b> how many other diagnoses the person had.</li>
+<li><b>Baseline score as covariate:</b> the model knows each patient's starting score on that particular measure.</li>
+</ul>
+<p>Because the starting score is now a covariate, it is no longer one of the time points. That is why the paper says improvement over time was tested "from 0.5 years to the 1-year follow-up".</p></div>
+
+<h4>Step 8: special methods for suicide attempts and dropout</h4>
+<table>
+<tr><th>Outcome</th><th>Method</th><th>Plain explanation</th></tr>
+<tr><td>Number of suicide attempts in the last 3 months</td><td>Generalized estimating equations (GEE) with a Tweedie distribution, log link and first-order autoregression</td><td>Most patients had zero attempts and a few had several. That makes a very lopsided count with many zeros. The Tweedie method is designed for exactly this. "Autoregression" means it expects each person's count to be related to their count at the previous time point.</td></tr>
+<tr><td>Staying in treatment (retention)</td><td>GLMM survival analysis</td><td>"Survival" here just means "still in treatment". The method checks, block by block, how many people leave and when.</td></tr>
+</table>
+
+<h4>Step 9: effect sizes</h4>
+<p>They reported <b>r</b> for each statistical test, and <b>Cohen's d</b> for within-group change and between-group differences. See <a href="#basics">Part 1.10</a>.</p>
+
+<h4>Step 10: checks to make sure the result is solid (sensitivity analyses)</h4>
+<div class="box simple"><span class="t">IN SIMPLE WORDS</span>A <b>sensitivity analysis</b> repeats the analysis in a different way to see whether the answer changes. If it stays the same, we can trust it more. They ran five:</div>
+<table>
+<tr><th>Check</th><th>What it tests</th><th>Result</th></tr>
+<tr><td>Completers only</td><td>Only people who finished 18 months or left early because they had recovered</td><td>Same conclusion</td></tr>
+<tr><td>Group + individual only</td><td>Removes the 21 patients who had no group therapy</td><td>Same conclusion</td></tr>
+<tr><td>Original plan</td><td>All time points, no adjustment for baseline</td><td>Same conclusion</td></tr>
+<tr><td>Without medication covariate</td><td>Removes the medicine adjustment</td><td>Same conclusion</td></tr>
+<tr><td>Without COVID-affected patients</td><td>Removes patients whose therapy was disturbed by the pandemic</td><td>In the supplement</td></tr>
+</table>
+<div class="box simple"><span class="t">WHAT THIS TELLS US</span>However you look at the data, the answer is the same: no clear difference between DBT and ST.</div>
+</section>
+
+
+<section id="results">
+<h2><span class="num">8</span>Results, part 1: who took part</h2>
+
+<h3 id="flow">8.1 The flow of patients (CONSORT diagram, Figure 1)</h3>
+<div class="flow">
+<div class="st1"><b>255</b> people checked for eligibility</div>
+<div class="arrow">▼</div>
+<div class="st1" style="background:#C0392B">About <b>85</b> did not go further</div>
+<div class="arrow">▼</div>
+<div class="st1" style="background:#0E7C86"><b>167</b> randomized</div>
+<div class="arrow">▼ 3 never started</div>
+<div class="st1"><b>164</b> started therapy (all included in the analysis)</div>
+<div class="arrow">▼</div>
+<div class="split">
+<div class="d"><b>DBT: 83</b><br>Group + individual: 73<br>Individual only: 10<br>Dropout (including push-outs): 22.9%</div>
+<div class="s"><b>Schema Therapy: 81</b><br>Group + individual: 70<br>Individual only: 11<br>Dropout (including push-outs): 23.5%</div>
+</div></div>
+
+<h4>Why people did not go further (out of 255)</h4>
+<table>
+<tr><th>Reason</th><th class="n">Number</th></tr>
+<tr><td>BPDSI score 20 or below (not severe enough)</td><td class="n">32</td></tr>
+<tr><td>No response</td><td class="n">27</td></tr>
+<tr><td>Declined to take part</td><td class="n">16</td></tr>
+<tr><td>Delay in screening</td><td class="n">4</td></tr>
+<tr><td>Moved away</td><td class="n">3</td></tr>
+<tr><td>IQ too low</td><td class="n">2</td></tr>
+<tr><td>BPDSI too low after a waiting period</td><td class="n">1</td></tr>
+<tr><td>No cost coverage (insurance)</td><td class="n">1</td></tr>
+</table>
+<div class="box mine"><span class="t">MY NOTE</span>The figure labels this box "n = 81", but the reasons listed add up to 82, plus 4 for screening delay. And 255 minus these does not exactly equal 167. Also, in the DBT group-and-individual branch, the parts (55 completed + 3 early success + 14 dropped out + 3 pushed out) add up to 75, not 73. These are small reporting slips in the figure. They do not change the conclusions, but an examiner may like that you noticed.</div>
+
+<h4>What happened to each patient during therapy</h4>
+<table>
+<tr><th></th><th class="n" style="color:var(--dbt)">DBT (83)</th><th class="n" style="color:var(--st)">ST (81)</th></tr>
+<tr><td colspan="3"><b>Group + individual therapy</b></td></tr>
+<tr><td>Completed 18 months</td><td class="n">55</td><td class="n">53</td></tr>
+<tr><td>Early success (recovered and stopped early)</td><td class="n">3</td><td class="n">2</td></tr>
+<tr><td>Dropped out</td><td class="n">14</td><td class="n">14</td></tr>
+<tr><td>Pushed out</td><td class="n">3</td><td class="n">1</td></tr>
+<tr><td colspan="3"><b>Individual therapy only</b></td></tr>
+<tr><td>Completed 18 months</td><td class="n">8</td><td class="n">6</td></tr>
+<tr><td>Early success</td><td class="n">0</td><td class="n">1</td></tr>
+<tr><td>Dropped out</td><td class="n">2</td><td class="n">4</td></tr>
+<tr class="hl"><td><b>Total who left early (dropout + push-out)</b></td><td class="n"><b>19 (22.9%)</b></td><td class="n"><b>19 (23.5%)</b></td></tr>
+</table>
+
+<h4>How many gave the main interview at each time point</h4>
+<table>
+<tr><th>Time point</th><th class="n" style="color:var(--dbt)">DBT (of 83)</th><th class="n" style="color:var(--st)">ST (of 81)</th></tr>
+<tr><td>6 months</td><td class="n">66 (80%)</td><td class="n">69 (85%)</td></tr>
+<tr><td>12 months</td><td class="n">59 (71%)</td><td class="n">66 (81%)</td></tr>
+<tr><td>18 months (end of therapy)</td><td class="n">51 (61%)</td><td class="n">51 (63%)</td></tr>
+<tr><td>24 months (follow-up 1)</td><td class="n">45 (54%)</td><td class="n">41 (51%)</td></tr>
+<tr class="hl"><td><b>30 months (follow-up 2, MAIN OUTCOME)</b></td><td class="n"><b>43 (52%)</b></td><td class="n"><b>35 (43%)</b></td></tr>
+</table>
+<div class="box warn"><span class="t">BE CAREFUL: THIS IS THE BIGGEST WEAKNESS</span>At the main time point, only about half the patients gave the main interview (43 of 83 in DBT and 35 of 81 in ST). The other half is missing. The statistical model works around this, but it has to assume the missing people are similar to the ones who came. (The percentages are my own calculation from Figure 1.)</div>
+
+<h3 id="sample">8.2 Who were the patients? (Table 1)</h3>
+<table>
+<tr><th>Feature</th><th class="n">All (164)</th><th class="n" style="color:var(--dbt)">DBT (83)</th><th class="n" style="color:var(--st)">ST (81)</th></tr>
+<tr><td>Average age (SD)</td><td class="n">33.7 (10.6)</td><td class="n">34.5</td><td class="n">32.9</td></tr>
+<tr><td>Women</td><td class="n">79.3%</td><td class="n">79.5%</td><td class="n">79.0%</td></tr>
+<tr><td>Men</td><td class="n">20.1%</td><td class="n">20.5%</td><td class="n">19.8%</td></tr>
+<tr><td>Has a partner</td><td class="n">50%</td><td class="n">49.4%</td><td class="n">50.6%</td></tr>
+<tr><td>German background</td><td class="n">92.1%</td><td class="n">94.0%</td><td class="n">91.4%</td></tr>
+<tr><td>Working</td><td class="n">12.2%</td><td class="n">8.4%</td><td class="n">16.0%</td></tr>
+<tr><td>On sick leave</td><td class="n">26.8%</td><td class="n">30.1%</td><td class="n">23.5%</td></tr>
+<tr><td>On disability pension</td><td class="n">25.0%</td><td class="n">26.5%</td><td class="n">23.5%</td></tr>
+<tr><td>BPDSI at start, mean (SD)</td><td class="n">32.8 (8.7)</td><td class="n">33.2</td><td class="n">32.4</td></tr>
+<tr><td>Number of BPD criteria (out of 9)</td><td class="n">7.3</td><td class="n">7.2</td><td class="n">7.3</td></tr>
+<tr><td>Other mental disorders (average number)</td><td class="n">4.0</td><td class="n">4.1</td><td class="n">3.9</td></tr>
+<tr><td>Other personality disorders (average number)</td><td class="n">1.4</td><td class="n">1.4</td><td class="n">1.3</td></tr>
+<tr><td>Any other mental disorder</td><td class="n">98.2%</td><td class="n">98.8%</td><td class="n">97.5%</td></tr>
+<tr><td>Anxiety disorders</td><td class="n">87.8%</td><td class="n">89.2%</td><td class="n">86.4%</td></tr>
+<tr><td>Mood (affective) disorders</td><td class="n">65.9%</td><td class="n">71.1%</td><td class="n">60.5%</td></tr>
+<tr><td>Eating disorders</td><td class="n">46.3%</td><td class="n">49.4%</td><td class="n">43.2%</td></tr>
+<tr><td>Avoidant personality disorder</td><td class="n">42.1%</td><td class="n">47.0%</td><td class="n">37.0%</td></tr>
+<tr><td>Obsessive-compulsive personality disorder</td><td class="n">36.0%</td><td class="n">32.5%</td><td class="n">39.5%</td></tr>
+<tr><td>Substance use disorder</td><td class="n">31.1%</td><td class="n">28.9%</td><td class="n">33.3%</td></tr>
+<tr><td>On psychiatric medicines</td><td class="n">76.8%</td><td class="n">77.1%</td><td class="n">76.5%</td></tr>
+<tr><td>Had psychotherapy before</td><td class="n">92.1%</td><td class="n">96.4%</td><td class="n">87.7%</td></tr>
+</table>
+<div class="box simple"><span class="t">IN SIMPLE WORDS</span>
+<ul>
+<li>A typical patient: a woman of about 34, German, not working, with severe BPD (7 of 9 criteria) and about 4 other diagnoses, on medicines, who has already tried therapy before.</li>
+<li>These were <b>very ill</b> patients. Only about 1 in 8 was working.</li>
+<li>The two groups look similar in this table, but the DBT group had slightly more mood disorders and avoidant personality, more previous therapy, and fewer people working. In the questionnaires (supplement Table S2) the DBT group scored higher (worse) on almost everything at the start. That is why the authors adjusted for baseline.</li>
+</ul></div>
+
+<h3 id="dose">8.3 How much therapy did they actually get?</h3>
+<table>
+<tr><th></th><th class="n" style="color:var(--dbt)">DBT</th><th class="n" style="color:var(--st)">ST</th></tr>
+<tr><td>Individual sessions before group started (average)</td><td class="n">4.3</td><td class="n">4.3</td></tr>
+<tr><td>Individual sessions, everyone (ITT)</td><td class="n">44.5</td><td class="n">46.7</td></tr>
+<tr><td>Individual sessions, those who completed</td><td class="n">52.4</td><td class="n">52.1</td></tr>
+</table>
+<div class="box simple"><span class="t">IN SIMPLE WORDS</span>Both groups got almost the same number of sessions. So the comparison is fair: neither group simply got "more therapy".</div>
+
+<h3 id="integrity-res">8.4 Was the therapy done properly? (Treatment integrity results)</h3>
+<table>
+<tr><th></th><th class="n" style="color:var(--dbt)">DBT</th><th class="n" style="color:var(--st)">ST</th></tr>
+<tr><td>Individual sessions: followed the manual (adherence)</td><td class="n">99.2%</td><td class="n">93.3%</td></tr>
+<tr><td>Individual sessions: skill (competence, 1 to 6)</td><td class="n">4.99</td><td class="n">5.27</td></tr>
+<tr><td>Group sessions: followed the manual</td><td class="n">not properly rated</td><td class="n">98.1%</td></tr>
+<tr><td>Group sessions: competence</td><td class="n">not properly rated</td><td class="n">5.41</td></tr>
+</table>
+<ul>
+<li>They rated 500 of 7,475 individual session videos and 43 of 436 group videos.</li>
+<li>Agreement between the video raters was very good: ICC 0.88 to 0.96 for individual sessions, and 0.99 for ST groups.</li>
+<li>The ratings showed the two therapies really were different from each other (all p below 0.009). So DBT therapists were doing DBT, and ST therapists were doing ST.</li>
+</ul>
+<div class="box simple"><span class="t">IN SIMPLE WORDS</span>Therapists followed their manuals very closely and did them well. The two therapies were clearly different. So if the results are similar, it is not because both groups secretly got the same therapy.</div>
+</section>
+
+
+<section id="main">
+<h2><span class="num">9</span>Results, part 2: the main outcome (BPD severity)</h2>
+<svg viewBox="0 0 760 360" class="chart" role="img" aria-label="BPDSI score (lower is better) over time">
+<line x1="70" y1="290.0" x2="730" y2="290.0" stroke="#E3E7ED"/>
+<text x="60" y="294.0" text-anchor="end" font-size="13" fill="#8A94A3">0</text>
+<line x1="70" y1="225.0" x2="730" y2="225.0" stroke="#E3E7ED"/>
+<text x="60" y="229.0" text-anchor="end" font-size="13" fill="#8A94A3">10</text>
+<line x1="70" y1="160.0" x2="730" y2="160.0" stroke="#E3E7ED"/>
+<text x="60" y="164.0" text-anchor="end" font-size="13" fill="#8A94A3">20</text>
+<line x1="70" y1="95.0" x2="730" y2="95.0" stroke="#E3E7ED"/>
+<text x="60" y="99.0" text-anchor="end" font-size="13" fill="#8A94A3">30</text>
+<line x1="70" y1="30.0" x2="730" y2="30.0" stroke="#E3E7ED"/>
+<text x="60" y="34.0" text-anchor="end" font-size="13" fill="#8A94A3">40</text>
+<rect x="70.0" y="30" width="396.0" height="260" fill="#0E7C86" opacity="0.06"/>
+<text x="268.0" y="46" text-anchor="middle" font-size="13" fill="#0E7C86" font-weight="bold">THERAPY (18 months)</text>
+<text x="598.0" y="46" text-anchor="middle" font-size="13" fill="#8A94A3" font-weight="bold">FOLLOW-UP (no study therapy)</text>
+<text x="70.0" y="312" text-anchor="middle" font-size="13" fill="#263040">Start</text>
+<text x="202.0" y="312" text-anchor="middle" font-size="13" fill="#263040">6 months</text>
+<text x="334.0" y="312" text-anchor="middle" font-size="13" fill="#263040">12 months</text>
+<text x="466.0" y="312" text-anchor="middle" font-size="13" fill="#263040">18 months</text>
+<text x="466.0" y="328" text-anchor="middle" font-size="13" fill="#263040">(end of therapy)</text>
+<text x="598.0" y="312" text-anchor="middle" font-size="13" fill="#263040">24 months</text>
+<text x="730.0" y="312" text-anchor="middle" font-size="13" fill="#263040">30 months</text>
+<text x="730.0" y="328" text-anchor="middle" font-size="13" fill="#263040">(MAIN)</text>
+<polyline points="70.0,76.8 202.0,126.2 334.0,152.1 466.0,174.0 598.0,175.7 730.0,177.5" fill="none" stroke="#2F6FB0" stroke-width="4" stroke-linejoin="round"/>
+<circle cx="70.0" cy="76.8" r="6" fill="#2F6FB0"/>
+<circle cx="202.0" cy="126.2" r="6" fill="#2F6FB0"/>
+<circle cx="334.0" cy="152.1" r="6" fill="#2F6FB0"/>
+<circle cx="466.0" cy="174.0" r="6" fill="#2F6FB0"/>
+<circle cx="598.0" cy="175.7" r="6" fill="#2F6FB0"/>
+<circle cx="730.0" cy="177.5" r="6" fill="#2F6FB0"/>
+<text x="722.0" y="199.5" text-anchor="end" font-size="15" font-weight="bold" fill="#2F6FB0">DBT: 17.31</text>
+<polyline points="70.0,76.8 202.0,109.6 334.0,137.7 466.0,161.5 598.0,158.7 730.0,155.9" fill="none" stroke="#E07A32" stroke-width="4" stroke-linejoin="round"/>
+<circle cx="70.0" cy="76.8" r="6" fill="#E07A32"/>
+<circle cx="202.0" cy="109.6" r="6" fill="#E07A32"/>
+<circle cx="334.0" cy="137.7" r="6" fill="#E07A32"/>
+<circle cx="466.0" cy="161.5" r="6" fill="#E07A32"/>
+<circle cx="598.0" cy="158.7" r="6" fill="#E07A32"/>
+<circle cx="730.0" cy="155.9" r="6" fill="#E07A32"/>
+<text x="722.0" y="143.9" text-anchor="end" font-size="15" font-weight="bold" fill="#E07A32">Schema Therapy: 20.63</text>
+<text x="18" y="160.0" transform="rotate(-90 18 160.0)" text-anchor="middle" font-size="13" fill="#8A94A3">BPDSI score (lower is better)</text>
+</svg>
+<p class="chart-note">Estimated means from Table 2 of the paper. The starting point (32.8) is the average of all patients together.</p>
+
+<h3>9.1 The numbers at every time point (from Table 2)</h3>
+<table>
+<tr><th>Time</th><th class="n" style="color:var(--dbt)">DBT score</th><th class="n" style="color:var(--dbt)">DBT change (d)</th><th class="n" style="color:var(--st)">ST score</th><th class="n" style="color:var(--st)">ST change (d)</th><th class="n">Gap between groups (d)</th></tr>
+<tr><td>Start</td><td class="n" colspan="4">32.80 (both groups together)</td><td class="n">-</td></tr>
+<tr><td>6 months</td><td class="n">25.20</td><td class="n">1.00</td><td class="n">27.76</td><td class="n">0.64</td><td class="n">−0.27</td></tr>
+<tr><td>12 months</td><td class="n">21.21</td><td class="n">1.70</td><td class="n">23.43</td><td class="n">1.29</td><td class="n">−0.21</td></tr>
+<tr><td>18 months (end)</td><td class="n">17.85</td><td class="n">2.33</td><td class="n">19.77</td><td class="n">1.94</td><td class="n">−0.17</td></tr>
+<tr><td>24 months</td><td class="n">17.58</td><td class="n">2.39</td><td class="n">20.20</td><td class="n">1.86</td><td class="n">−0.19</td></tr>
+<tr class="hl"><td><b>30 months (MAIN)</b></td><td class="n"><b>17.31</b></td><td class="n"><b>2.45</b></td><td class="n"><b>20.63</b></td><td class="n"><b>1.78</b></td><td class="n"><b>−0.24</b></td></tr>
+</table>
+
+<h3>9.2 How to read each column</h3>
+<ul>
+<li><b>Score:</b> the "estimated mean". This is the average BPDSI score the statistical model calculates for each group after adjusting for baseline, medicines and the other covariates. It is not just a raw average of whoever turned up.</li>
+<li><b>Change (d):</b> the <b>within-group</b> effect size. How much the group improved compared with the start. 0.8 is already large, so 2.45 for DBT and 1.78 for ST are very large.</li>
+<li><b>Gap (d):</b> the <b>between-group</b> effect size, calculated from the estimated means. A negative number means ST had higher (worse) scores, so DBT was ahead. All the gaps are between −0.17 and −0.27, which is small.</li>
+</ul>
+
+<h3>9.3 How much did each therapy improve?</h3>
+<table>
+<tr><th></th><th class="n" style="color:var(--dbt)">DBT</th><th class="n" style="color:var(--st)">ST</th></tr>
+<tr><td>Score at start</td><td class="n">32.8</td><td class="n">32.8</td></tr>
+<tr><td>Score at 30 months</td><td class="n">17.3</td><td class="n">20.6</td></tr>
+<tr><td>Points dropped</td><td class="n">15.5</td><td class="n">12.2</td></tr>
+<tr><td>Percentage drop (approximate)</td><td class="n">about 47%</td><td class="n">about 37%</td></tr>
+<tr><td>Within-group effect size</td><td class="n">d = 2.45 (very large)</td><td class="n">d = 1.78 (very large)</td></tr>
+</table>
+<div class="box mine"><span class="t">MY NOTE</span>The points dropped and percentages are my own rough calculation. The start value is the average of both groups together, and the end values are adjusted model estimates, so treat these as approximate. For reference, the study counted a score below 15 as "recovered enough to stop early". Both groups ended close to that line on average.</div>
+
+<h3>9.4 The test results from the model (right side of Table 2)</h3>
+<table>
+<tr><th>Effect</th><th>What it asks</th><th class="n">t</th><th class="n">df</th><th class="n">p</th><th class="n">r</th><th>Answer</th></tr>
+<tr><td><b>Time</b></td><td>Did scores go down over time?</td><td class="n">−10.12</td><td class="n">244</td><td class="n">&lt; 0.001</td><td class="n">0.54</td><td><span class="badge yes">Yes, strongly</span></td></tr>
+<tr><td><b>Time piece-wise</b></td><td>Was the change after therapy different from the change during therapy?</td><td class="n">4.98</td><td class="n">260</td><td class="n">&lt; 0.001</td><td class="n">0.29</td><td><span class="badge yes">Yes</span> Scores stopped falling once therapy ended</td></tr>
+<tr class="hl"><td><b>Treatment at 1-year follow-up</b></td><td><b>At the final check, was one therapy better? (THE MAIN QUESTION)</b></td><td class="n"><b>1.69</b></td><td class="n"><b>131</b></td><td class="n"><b>0.094</b></td><td class="n"><b>0.15</b></td><td><span class="badge no">Not significant</span></td></tr>
+<tr><td><b>Time × Treatment</b></td><td>Did the two groups improve at different speeds during therapy?</td><td class="n">0.08</td><td class="n">245</td><td class="n">0.936</td><td class="n">&lt; 0.01</td><td><span class="badge no">No</span> Same speed</td></tr>
+<tr><td><b>Time piece-wise × Treatment</b></td><td>Did the groups behave differently after therapy ended?</td><td class="n">0.49</td><td class="n">260</td><td class="n">0.628</td><td class="n">0.03</td><td><span class="badge no">No</span></td></tr>
+</table>
+<div class="box simple"><span class="t">IN SIMPLE WORDS</span>
+<ul>
+<li>Patients improved a lot over time (strong, significant).</li>
+<li>Improvement happened during therapy and then levelled off afterwards (significant).</li>
+<li>At the final check, DBT was a bit lower, but not significantly (p = 0.094).</li>
+<li>The two groups improved at the same speed (p = 0.936) and behaved the same after therapy (p = 0.628).</li>
+</ul></div>
+<div class="box warn"><span class="t">BE CAREFUL: A TYPING ERROR</span>In the Results text, the paper writes "p = 0.94" for the main test. This is a typing error. The table and the abstract both say 0.094.</div>
+
+<h3>9.5 The main p-value on a scale</h3>
+<svg viewBox="0 0 640 110" class="chart small" role="img" aria-label="p value scale">
+<rect x="30" y="45" width="129.7" height="18" fill="#2E8B57" opacity="0.85" rx="4"/>
+<rect x="159.7" y="45" width="450.3" height="18" fill="#D9DEE5" rx="4"/>
+<text x="94.8" y="35" text-anchor="middle" font-size="12" fill="#2E8B57" font-weight="bold">significant</text>
+<text x="384.8" y="35" text-anchor="middle" font-size="12" fill="#8A94A3" font-weight="bold">not significant (could be chance)</text>
+<text x="30.0" y="82" text-anchor="middle" font-size="12" fill="#8A94A3">0</text>
+<text x="159.7" y="82" text-anchor="middle" font-size="12" fill="#8A94A3">0.05</text>
+<text x="320.0" y="82" text-anchor="middle" font-size="12" fill="#8A94A3">0.25</text>
+<text x="440.1" y="82" text-anchor="middle" font-size="12" fill="#8A94A3">0.5</text>
+<text x="610.0" y="82" text-anchor="middle" font-size="12" fill="#8A94A3">1</text>
+<polygon points="198.8,98 216.8,98 207.8,66" fill="#C0392B"/>
+<text x="207.8" y="20" text-anchor="middle" font-size="14" font-weight="bold" fill="#C0392B">p = 0.094</text>
+</svg>
+<p>0.094 is in the grey "not significant" area, but not far from 0.05. It is often called a "trend". Many examiners will ask what this means. The honest answer: there is a hint that DBT might be slightly better, but the evidence is not strong enough to claim it.</p>
+
+<h3>9.6 The confidence interval on a line</h3>
+<svg viewBox="0 0 700 130" class="chart small" role="img" aria-label="confidence interval">
+<line x1="30" y1="80" x2="670" y2="80" stroke="#8A94A3" stroke-width="2"/>
+<line x1="30.0" y1="75" x2="30.0" y2="85" stroke="#8A94A3"/>
+<text x="30.0" y="104" text-anchor="middle" font-size="12" fill="#8A94A3">-4</text>
+<line x1="110.0" y1="75" x2="110.0" y2="85" stroke="#8A94A3"/>
+<text x="110.0" y="104" text-anchor="middle" font-size="12" fill="#8A94A3">-2</text>
+<line x1="190.0" y1="75" x2="190.0" y2="85" stroke="#8A94A3"/>
+<text x="190.0" y="104" text-anchor="middle" font-size="12" fill="#8A94A3">0</text>
+<line x1="270.0" y1="75" x2="270.0" y2="85" stroke="#8A94A3"/>
+<text x="270.0" y="104" text-anchor="middle" font-size="12" fill="#8A94A3">2</text>
+<line x1="350.0" y1="75" x2="350.0" y2="85" stroke="#8A94A3"/>
+<text x="350.0" y="104" text-anchor="middle" font-size="12" fill="#8A94A3">4</text>
+<line x1="430.0" y1="75" x2="430.0" y2="85" stroke="#8A94A3"/>
+<text x="430.0" y="104" text-anchor="middle" font-size="12" fill="#8A94A3">6</text>
+<line x1="510.0" y1="75" x2="510.0" y2="85" stroke="#8A94A3"/>
+<text x="510.0" y="104" text-anchor="middle" font-size="12" fill="#8A94A3">8</text>
+<line x1="590.0" y1="75" x2="590.0" y2="85" stroke="#8A94A3"/>
+<text x="590.0" y="104" text-anchor="middle" font-size="12" fill="#8A94A3">10</text>
+<line x1="670.0" y1="75" x2="670.0" y2="85" stroke="#8A94A3"/>
+<text x="670.0" y="104" text-anchor="middle" font-size="12" fill="#8A94A3">12</text>
+<line x1="190.0" y1="30" x2="190.0" y2="90" stroke="#C0392B" stroke-width="2" stroke-dasharray="5,4"/>
+<text x="190.0" y="22" text-anchor="middle" font-size="12" fill="#C0392B" font-weight="bold">0 = no difference</text>
+<rect x="166.8" y="52" width="312.0" height="16" rx="8" fill="#2F6FB0" opacity="0.8"/>
+<circle cx="322.8" cy="60" r="9" fill="#C99A2E"/>
+<text x="322.8" y="44" text-anchor="middle" font-size="13" font-weight="bold" fill="#263040">best guess 3.32</text>
+<text x="166.8" y="44" text-anchor="middle" font-size="12" fill="#2F6FB0">-0.58</text>
+<text x="478.8" y="44" text-anchor="middle" font-size="12" fill="#2F6FB0">7.22</text>
+<text x="670" y="124" text-anchor="end" font-size="12" fill="#8A94A3">BPDSI points (positive = DBT lower, which is better)</text>
+</svg>
+<ul>
+<li><b>Best guess:</b> DBT is 3.32 points better.</li>
+<li><b>Range:</b> from ST being 0.58 points better, to DBT being 7.22 points better.</li>
+<li>The range <b>crosses zero</b>, so it is not significant.</li>
+<li>The range is <b>wide</b>, so we are quite unsure. The data fit "no difference" just as well as "a fairly big DBT advantage".</li>
+</ul>
+
+<h3>9.7 Was the 3.3-point gap clinically important?</h3>
+<p>Each group dropped by roughly 12 to 15 points. Next to that, a 3-point gap is small. The between-group effect size (0.24) is also small. On the other hand, the upper end of the range (7.2 points) would matter to patients. So we cannot rule out a meaningful difference either.</p>
+<div class="box simple"><span class="t">THE MAIN RESULT IN ONE LINE</span>Both therapies were followed by big improvement. DBT ended a little lower, but the gap was small and could be chance (p = 0.094).</div>
+</section>
+
+
+<section id="secondary">
+<h2><span class="num">10</span>Results, part 3: the other outcomes, one by one</h2>
+
+<h3 id="subscales">10.1 The parts (subscales) of the BPDSI</h3>
+<p>The BPDSI total score is made of 9 parts, one for each BPD feature. The detailed numbers for each part are in the online supplement (Table S6). The main paper reports:</p>
+<table>
+<tr><th>Subscale</th><th>Did it improve over time (6 months to end)?</th><th>Within-group change (start to end)</th><th>DBT vs ST at final check</th></tr>
+<tr><td>Abandonment, relationships, identity, impulsivity, mood, emptiness, paranoia/dissociation</td><td><span class="badge yes">Yes</span></td><td>Large in both groups</td><td><span class="badge no">No difference</span></td></tr>
+<tr class="hl"><td><b>Anger</b></td><td><span class="badge yes">Yes</span></td><td>Large in DBT, <b>medium</b> in ST</td><td><span class="badge dbt">DBT better (significant)</span></td></tr>
+<tr><td>(Para)suicidal behaviour</td><td><span class="badge no">Not in the model</span></td><td>Large in both. Most of the improvement happened in the first 6 months, which the model did not include.</td><td><span class="badge no">No difference</span></td></tr>
+</table>
+<div class="box simple"><span class="t">IN SIMPLE WORDS: THE ANGER RESULT</span>Anger was the <b>only</b> outcome in the whole study where one therapy was significantly better. DBT patients had less anger at the final check. This makes sense, because DBT directly teaches emotion regulation skills.</div>
+<div class="box warn"><span class="t">BE CAREFUL</span>The anger result should be treated as a hint, not a firm finding. It is one subscale out of nine, nobody predicted it, and the paper does not report correcting for testing many things at once. When you run many tests, about 1 in 20 can come out "significant" by luck alone.</div>
+<div class="box simple"><span class="t">WHY "(PARA)SUICIDE" DID NOT SHOW CHANGE IN THE MODEL</span>Remember that the model started at 6 months, not at the start (see Step 7 of the statistics). Suicidal and self-harm behaviour dropped quickly in the first 6 months and then stayed low. So the model, which only looks from 6 months onwards, saw no further drop. The within-group effect sizes (start to end) were large in both groups.</div>
+
+<h3>10.2 Suicidality and suicide attempts</h3>
+<table>
+<tr><th>Measure</th><th>Change over time</th><th>Within-group change</th><th>DBT vs ST</th></tr>
+<tr><td>Suicidality score (from BPDSI)</td><td>No significant effect</td><td>Medium in both groups (start to end of therapy)</td><td><span class="badge no">No difference</span></td></tr>
+<tr><td>Number of suicide attempts in last 3 months</td><td>No significant effect</td><td>Small to medium</td><td><span class="badge no">No difference</span></td></tr>
+</table>
+<div class="box simple"><span class="t">IN SIMPLE WORDS</span>The authors expected DBT to be clearly better for suicidal behaviour, because that is what DBT was first designed for. This did not happen. Both groups improved by similar amounts.</div>
+
+<h3>10.3 Each self-report outcome in detail</h3>
+<p>For each outcome: the bar chart shows the starting score and each group's score at the final check. The tables give the exact numbers from Table 2 of the paper.</p>
+<div class="box mine"><span class="t">MY NOTE</span>"How much it dropped" is my own subtraction. The start value is the average of both groups together and the end values are adjusted model estimates, so treat these as approximate. Positive between-group d means DBT had higher (worse) scores; negative means ST had higher scores.</div>
+
+<div class="outcome" id="bpdc">
+<h4>BPD Checklist (self-rated BPD burden)</h4>
+<p><b>What it measures:</b> How much the patient suffers from their BPD symptoms, in their own words. Higher score = worse.</p>
+<svg viewBox="0 0 560 230" class="chart small" role="img" aria-label="BPD Checklist (self-rated BPD burden)">
+<text x="198" y="44.0" text-anchor="end" font-size="14" fill="#263040">At the start (both)</text>
+<rect x="210" y="20" width="243.5" height="38" rx="6" fill="#8A94A3"/>
+<text x="461.5" y="44.0" font-size="15" font-weight="bold" fill="#8A94A3">84.67</text>
+<text x="198" y="104.0" text-anchor="end" font-size="14" fill="#263040">DBT, final check</text>
+<rect x="210" y="80" width="107.7" height="38" rx="6" fill="#2F6FB0"/>
+<text x="325.7" y="104.0" font-size="15" font-weight="bold" fill="#2F6FB0">37.47</text>
+<text x="198" y="164.0" text-anchor="end" font-size="14" fill="#263040">Schema Therapy, final check</text>
+<rect x="210" y="140" width="133.0" height="38" rx="6" fill="#E07A32"/>
+<text x="351.0" y="164.0" font-size="15" font-weight="bold" fill="#E07A32">46.24</text>
+<text x="210" y="224" font-size="12" fill="#8A94A3">BPD Checklist (self-rated BPD burden). Shorter bar = better.</text>
+</svg>
+<table>
+<tr><th></th><th class="n" style="color:var(--dbt)">DBT</th><th class="n" style="color:var(--st)">ST</th></tr>
+<tr><td>Score at start (both groups together)</td><td class="n" colspan="2">84.67</td></tr>
+<tr><td>Score at final check (30 months)</td><td class="n">37.47</td><td class="n">46.24</td></tr>
+<tr><td>How much it dropped (approximate)</td><td class="n">47.20</td><td class="n">38.43</td></tr>
+<tr><td>Improvement inside the group (within-group d)</td><td class="n">2.45 (very large)</td><td class="n">1.82 (very large)</td></tr>
+<tr><td>Gap between the groups (between-group d, 95% CI)</td><td class="n" colspan="2">−0.25 (−0.76 to 0.25)</td></tr>
+</table>
+<table>
+<tr><th>Test</th><th class="n">t (df)</th><th class="n">p</th><th>Meaning</th></tr>
+<tr><td>Did scores improve over time?</td><td class="n">−7.06 (291)</td><td class="n">&lt; 0.001</td><td><span class="badge yes">Yes, significant</span></td></tr>
+<tr class="hl"><td><b>Was one therapy better at the final check?</b></td><td class="n">1.65 (86)</td><td class="n">0.102</td><td><span class="badge no">No, not significant</span></td></tr>
+<tr><td>Did they improve at different speeds?</td><td class="n">-</td><td class="n">0.663</td><td><span class="badge no">No</span></td></tr>
+</table>
+<p class="verdict">Verdict: both groups improved; DBT ended slightly lower, but the difference between the therapies is not significant.</p>
+<p class="small-print">The paper shifted this scale down by 46.99 points so that the maths would work. That is why the numbers look unusual. Compare them with each other, not with the questionnaire's normal range.</p>
+</div>
+
+<div class="outcome" id="dss">
+<h4>Dissociation (DSS)</h4>
+<p><b>What it measures:</b> Feeling unreal, detached or 'spaced out', and inner tension. Higher score = worse.</p>
+<svg viewBox="0 0 560 230" class="chart small" role="img" aria-label="Dissociation (DSS)">
+<text x="198" y="44.0" text-anchor="end" font-size="14" fill="#263040">At the start (both)</text>
+<rect x="210" y="20" width="243.5" height="38" rx="6" fill="#8A94A3"/>
+<text x="461.5" y="44.0" font-size="15" font-weight="bold" fill="#8A94A3">2.9</text>
+<text x="198" y="104.0" text-anchor="end" font-size="14" fill="#263040">DBT, final check</text>
+<rect x="210" y="80" width="131.8" height="38" rx="6" fill="#2F6FB0"/>
+<text x="349.8" y="104.0" font-size="15" font-weight="bold" fill="#2F6FB0">1.57</text>
+<text x="198" y="164.0" text-anchor="end" font-size="14" fill="#263040">Schema Therapy, final check</text>
+<rect x="210" y="140" width="172.1" height="38" rx="6" fill="#E07A32"/>
+<text x="390.1" y="164.0" font-size="15" font-weight="bold" fill="#E07A32">2.05</text>
+<text x="210" y="224" font-size="12" fill="#8A94A3">Dissociation (DSS). Shorter bar = better.</text>
+</svg>
+<table>
+<tr><th></th><th class="n" style="color:var(--dbt)">DBT</th><th class="n" style="color:var(--st)">ST</th></tr>
+<tr><td>Score at start (both groups together)</td><td class="n" colspan="2">2.9</td></tr>
+<tr><td>Score at final check (30 months)</td><td class="n">1.57</td><td class="n">2.05</td></tr>
+<tr><td>How much it dropped (approximate)</td><td class="n">1.33</td><td class="n">0.85</td></tr>
+<tr><td>Improvement inside the group (within-group d)</td><td class="n">0.88 (large)</td><td class="n">0.49 (small)</td></tr>
+<tr><td>Gap between the groups (between-group d, 95% CI)</td><td class="n" colspan="2">−0.26 (−0.78 to 0.26)</td></tr>
+</table>
+<table>
+<tr><th>Test</th><th class="n">t (df)</th><th class="n">p</th><th>Meaning</th></tr>
+<tr><td>Did scores improve over time?</td><td class="n">−2.76 (179)</td><td class="n">0.006</td><td><span class="badge yes">Yes, significant</span></td></tr>
+<tr class="hl"><td><b>Was one therapy better at the final check?</b></td><td class="n">1.31 (246)</td><td class="n">0.193</td><td><span class="badge no">No, not significant</span></td></tr>
+<tr><td>Did they improve at different speeds?</td><td class="n">-</td><td class="n">0.633</td><td><span class="badge no">No</span></td></tr>
+</table>
+<p class="verdict">Verdict: both groups improved; DBT ended slightly lower, but the difference between the therapies is not significant.</p>
+<p class="small-print">DBT's change was large (0.88) and ST's was small-to-medium (0.49). This looks like a DBT advantage, but the direct comparison was not significant. The authors had predicted DBT would do better here, and it did not reach significance.</p>
+</div>
+
+<div class="outcome" id="bsi">
+<h4>General symptoms (BSI)</h4>
+<p><b>What it measures:</b> Overall psychological distress: anxiety, depression, hostility, sensitivity and more. Higher score = worse.</p>
+<svg viewBox="0 0 560 230" class="chart small" role="img" aria-label="General symptoms (BSI)">
+<text x="198" y="44.0" text-anchor="end" font-size="14" fill="#263040">At the start (both)</text>
+<rect x="210" y="20" width="243.5" height="38" rx="6" fill="#8A94A3"/>
+<text x="461.5" y="44.0" font-size="15" font-weight="bold" fill="#8A94A3">1.94</text>
+<text x="198" y="104.0" text-anchor="end" font-size="14" fill="#263040">DBT, final check</text>
+<rect x="210" y="80" width="139.3" height="38" rx="6" fill="#2F6FB0"/>
+<text x="357.3" y="104.0" font-size="15" font-weight="bold" fill="#2F6FB0">1.11</text>
+<text x="198" y="164.0" text-anchor="end" font-size="14" fill="#263040">Schema Therapy, final check</text>
+<rect x="210" y="140" width="165.7" height="38" rx="6" fill="#E07A32"/>
+<text x="383.7" y="164.0" font-size="15" font-weight="bold" fill="#E07A32">1.32</text>
+<text x="210" y="224" font-size="12" fill="#8A94A3">General symptoms (BSI). Shorter bar = better.</text>
+</svg>
+<table>
+<tr><th></th><th class="n" style="color:var(--dbt)">DBT</th><th class="n" style="color:var(--st)">ST</th></tr>
+<tr><td>Score at start (both groups together)</td><td class="n" colspan="2">1.94</td></tr>
+<tr><td>Score at final check (30 months)</td><td class="n">1.11</td><td class="n">1.32</td></tr>
+<tr><td>How much it dropped (approximate)</td><td class="n">0.83</td><td class="n">0.62</td></tr>
+<tr><td>Improvement inside the group (within-group d)</td><td class="n">1.45 (large)</td><td class="n">1.01 (large)</td></tr>
+<tr><td>Gap between the groups (between-group d, 95% CI)</td><td class="n" colspan="2">−0.21 (−0.73 to 0.31)</td></tr>
+</table>
+<table>
+<tr><th>Test</th><th class="n">t (df)</th><th class="n">p</th><th>Meaning</th></tr>
+<tr><td>Did scores improve over time?</td><td class="n">−5.20 (246)</td><td class="n">&lt; 0.001</td><td><span class="badge yes">Yes, significant</span></td></tr>
+<tr class="hl"><td><b>Was one therapy better at the final check?</b></td><td class="n">1.45 (147)</td><td class="n">0.150</td><td><span class="badge no">No, not significant</span></td></tr>
+<tr><td>Did they improve at different speeds?</td><td class="n">-</td><td class="n">0.481</td><td><span class="badge no">No</span></td></tr>
+</table>
+<p class="verdict">Verdict: both groups improved; DBT ended slightly lower, but the difference between the therapies is not significant.</p>
+<p class="small-print">Both changes were large. The authors had predicted ST would do better here. It did not.</p>
+</div>
+
+<div class="outcome" id="qids">
+<h4>Depression (QIDS-SR)</h4>
+<p><b>What it measures:</b> Depressive symptoms, scored 0 to 27. Higher score = worse.</p>
+<svg viewBox="0 0 560 230" class="chart small" role="img" aria-label="Depression (QIDS-SR)">
+<text x="198" y="44.0" text-anchor="end" font-size="14" fill="#263040">At the start (both)</text>
+<rect x="210" y="20" width="243.5" height="38" rx="6" fill="#8A94A3"/>
+<text x="461.5" y="44.0" font-size="15" font-weight="bold" fill="#8A94A3">16.26</text>
+<text x="198" y="104.0" text-anchor="end" font-size="14" fill="#263040">DBT, final check</text>
+<rect x="210" y="80" width="157.7" height="38" rx="6" fill="#2F6FB0"/>
+<text x="375.7" y="104.0" font-size="15" font-weight="bold" fill="#2F6FB0">10.53</text>
+<text x="198" y="164.0" text-anchor="end" font-size="14" fill="#263040">Schema Therapy, final check</text>
+<rect x="210" y="140" width="179.1" height="38" rx="6" fill="#E07A32"/>
+<text x="397.1" y="164.0" font-size="15" font-weight="bold" fill="#E07A32">11.96</text>
+<text x="210" y="224" font-size="12" fill="#8A94A3">Depression (QIDS-SR). Shorter bar = better.</text>
+</svg>
+<table>
+<tr><th></th><th class="n" style="color:var(--dbt)">DBT</th><th class="n" style="color:var(--st)">ST</th></tr>
+<tr><td>Score at start (both groups together)</td><td class="n" colspan="2">16.26</td></tr>
+<tr><td>Score at final check (30 months)</td><td class="n">10.53</td><td class="n">11.96</td></tr>
+<tr><td>How much it dropped (approximate)</td><td class="n">5.73</td><td class="n">4.30</td></tr>
+<tr><td>Improvement inside the group (within-group d)</td><td class="n">1.4 (large)</td><td class="n">0.99 (large)</td></tr>
+<tr><td>Gap between the groups (between-group d, 95% CI)</td><td class="n" colspan="2">−0.18 (−0.70 to 0.34)</td></tr>
+</table>
+<table>
+<tr><th>Test</th><th class="n">t (df)</th><th class="n">p</th><th>Meaning</th></tr>
+<tr><td>Did scores improve over time?</td><td class="n">−5.03 (202)</td><td class="n">&lt; 0.001</td><td><span class="badge yes">Yes, significant</span></td></tr>
+<tr class="hl"><td><b>Was one therapy better at the final check?</b></td><td class="n">1.35 (147)</td><td class="n">0.179</td><td><span class="badge no">No, not significant</span></td></tr>
+<tr><td>Did they improve at different speeds?</td><td class="n">-</td><td class="n">0.193</td><td><span class="badge no">No</span></td></tr>
+</table>
+<p class="verdict">Verdict: both groups improved; DBT ended slightly lower, but the difference between the therapies is not significant.</p>
+<p class="small-print">As a rough guide on this scale, 16 is around the severe range, about 11 to 12 is moderate, and about 10 is mild. So both groups moved from severe depression to around moderate or mild. The authors had predicted ST would do better. It did not.</p>
+</div>
+
+<div class="outcome" id="wsas">
+<h4>Work and social life (WSAS)</h4>
+<p><b>What it measures:</b> How much problems interfere with work, home life, social life and hobbies (0 to 40). Higher score = worse.</p>
+<svg viewBox="0 0 560 230" class="chart small" role="img" aria-label="Work and social life (WSAS)">
+<text x="198" y="44.0" text-anchor="end" font-size="14" fill="#263040">At the start (both)</text>
+<rect x="210" y="20" width="243.5" height="38" rx="6" fill="#8A94A3"/>
+<text x="461.5" y="44.0" font-size="15" font-weight="bold" fill="#8A94A3">23.59</text>
+<text x="198" y="104.0" text-anchor="end" font-size="14" fill="#263040">DBT, final check</text>
+<rect x="210" y="80" width="176.1" height="38" rx="6" fill="#2F6FB0"/>
+<text x="394.1" y="104.0" font-size="15" font-weight="bold" fill="#2F6FB0">17.06</text>
+<text x="198" y="164.0" text-anchor="end" font-size="14" fill="#263040">Schema Therapy, final check</text>
+<rect x="210" y="140" width="174.2" height="38" rx="6" fill="#E07A32"/>
+<text x="392.2" y="164.0" font-size="15" font-weight="bold" fill="#E07A32">16.88</text>
+<text x="210" y="224" font-size="12" fill="#8A94A3">Work and social life (WSAS). Shorter bar = better.</text>
+</svg>
+<table>
+<tr><th></th><th class="n" style="color:var(--dbt)">DBT</th><th class="n" style="color:var(--st)">ST</th></tr>
+<tr><td>Score at start (both groups together)</td><td class="n" colspan="2">23.59</td></tr>
+<tr><td>Score at final check (30 months)</td><td class="n">17.06</td><td class="n">16.88</td></tr>
+<tr><td>How much it dropped (approximate)</td><td class="n">6.53</td><td class="n">6.71</td></tr>
+<tr><td>Improvement inside the group (within-group d)</td><td class="n">0.99 (large)</td><td class="n">1.02 (large)</td></tr>
+<tr><td>Gap between the groups (between-group d, 95% CI)</td><td class="n" colspan="2">0.01 (−0.50 to 0.53)</td></tr>
+</table>
+<table>
+<tr><th>Test</th><th class="n">t (df)</th><th class="n">p</th><th>Meaning</th></tr>
+<tr><td>Did scores improve over time?</td><td class="n">−2.39 (411)</td><td class="n">0.018</td><td><span class="badge yes">Yes, significant</span></td></tr>
+<tr class="hl"><td><b>Was one therapy better at the final check?</b></td><td class="n">−0.10 (273)</td><td class="n">0.924</td><td><span class="badge no">No, not significant</span></td></tr>
+<tr><td>Did they improve at different speeds?</td><td class="n">-</td><td class="n">0.374</td><td><span class="badge no">No</span></td></tr>
+</table>
+<p class="verdict">Verdict: both groups improved; ST ended slightly lower, but the difference between the therapies is not significant.</p>
+<p class="small-print">Here the two groups ended almost exactly the same (ST very slightly lower). As a rough guide, above 20 on this scale means fairly severe impairment, so patients moved below that line but were still impaired.</p>
+</div>
+
+<div class="outcome" id="whodas">
+<h4>Disability (WHODAS 2.0)</h4>
+<p><b>What it measures:</b> Difficulty with daily life: understanding, getting around, self-care, getting along, life activities, participation. Higher score = worse.</p>
+<svg viewBox="0 0 560 230" class="chart small" role="img" aria-label="Disability (WHODAS 2.0)">
+<text x="198" y="44.0" text-anchor="end" font-size="14" fill="#263040">At the start (both)</text>
+<rect x="210" y="20" width="243.5" height="38" rx="6" fill="#8A94A3"/>
+<text x="461.5" y="44.0" font-size="15" font-weight="bold" fill="#8A94A3">41.89</text>
+<text x="198" y="104.0" text-anchor="end" font-size="14" fill="#263040">DBT, final check</text>
+<rect x="210" y="80" width="154.8" height="38" rx="6" fill="#2F6FB0"/>
+<text x="372.8" y="104.0" font-size="15" font-weight="bold" fill="#2F6FB0">26.63</text>
+<text x="198" y="164.0" text-anchor="end" font-size="14" fill="#263040">Schema Therapy, final check</text>
+<rect x="210" y="140" width="146.5" height="38" rx="6" fill="#E07A32"/>
+<text x="364.5" y="164.0" font-size="15" font-weight="bold" fill="#E07A32">25.2</text>
+<text x="210" y="224" font-size="12" fill="#8A94A3">Disability (WHODAS 2.0). Shorter bar = better.</text>
+</svg>
+<table>
+<tr><th></th><th class="n" style="color:var(--dbt)">DBT</th><th class="n" style="color:var(--st)">ST</th></tr>
+<tr><td>Score at start (both groups together)</td><td class="n" colspan="2">41.89</td></tr>
+<tr><td>Score at final check (30 months)</td><td class="n">26.63</td><td class="n">25.2</td></tr>
+<tr><td>How much it dropped (approximate)</td><td class="n">15.26</td><td class="n">16.69</td></tr>
+<tr><td>Improvement inside the group (within-group d)</td><td class="n">1.17 (large)</td><td class="n">1.31 (large)</td></tr>
+<tr><td>Gap between the groups (between-group d, 95% CI)</td><td class="n" colspan="2">0.05 (−0.42 to 0.52)</td></tr>
+</table>
+<table>
+<tr><th>Test</th><th class="n">t (df)</th><th class="n">p</th><th>Meaning</th></tr>
+<tr><td>Did scores improve over time?</td><td class="n">−3.39 (314)</td><td class="n">&lt; 0.001</td><td><span class="badge yes">Yes, significant</span></td></tr>
+<tr class="hl"><td><b>Was one therapy better at the final check?</b></td><td class="n">−0.41 (182)</td><td class="n">0.682</td><td><span class="badge no">No, not significant</span></td></tr>
+<tr><td>Did they improve at different speeds?</td><td class="n">-</td><td class="n">0.405</td><td><span class="badge no">No</span></td></tr>
+</table>
+<p class="verdict">Verdict: both groups improved; ST ended slightly lower, but the difference between the therapies is not significant.</p>
+<p class="small-print">ST ended very slightly lower here, but the difference is essentially zero.</p>
+</div>
+
+<div class="outcome" id="whoqol">
+<h4>Quality of life (WHOQOL)</h4>
+<p><b>What it measures:</b> quality of life in four areas: physical, psychological, social relationships and environment. Here, <b>higher = better</b>.</p>
+<p>The detailed numbers are only in the online supplement (Table S7). The main paper reports that the improvement inside each group ranged from small to large depending on the area, and that there was <b>no significant difference</b> between DBT and ST.</p>
+<p class="verdict">Verdict: both groups improved. No difference between therapies. The authors had predicted ST would be better. It was not.</p>
+</div>
+</section>
+
+<section id="retention">
+<h2><span class="num">11</span>Results, part 4: staying in treatment, safety and other treatment</h2>
+
+<h3>11.1 Dropout (Figure 2b)</h3>
+<div class="grid">
+<div class="card"><div class="big" style="color:var(--dbt)">22.9%</div><div class="small">of DBT patients left early (19 of 83), including 3.6% push-outs</div></div>
+<div class="card"><div class="big" style="color:var(--st)">23.5%</div><div class="small">of ST patients left early (19 of 81), including 1.2% push-outs</div></div>
+</div>
+<p>Over the full 18 months, the dropout rate was almost the same. The authors say this is low compared with a recent meta-analysis of dropout in BPD therapy (Arntz et al., 2023), which is impressive for such a long and demanding programme.</p>
+<h4>But the timing was different</h4>
+<svg viewBox="0 0 760 210" class="chart small" role="img" aria-label="dropout by quarter">
+<rect x="44.0" y="30" width="108.7" height="34" rx="6" fill="#E6EAF0"/>
+<text x="98.3" y="52" text-anchor="middle" font-size="13" font-weight="bold" fill="#263040">Months 0-3</text>
+<rect x="160.7" y="30" width="108.7" height="34" rx="6" fill="#E6EAF0"/>
+<text x="215.0" y="52" text-anchor="middle" font-size="13" font-weight="bold" fill="#263040">Months 3-6</text>
+<rect x="160.7" y="76" width="108.7" height="70" rx="8" fill="#2F6FB0"/>
+<text x="215.0" y="106" text-anchor="middle" font-size="14" font-weight="bold" fill="white">DBT 7.2% left</text>
+<text x="215.0" y="128" text-anchor="middle" font-size="12" fill="white">ST 0%</text>
+<rect x="277.3" y="30" width="108.7" height="34" rx="6" fill="#E6EAF0"/>
+<text x="331.7" y="52" text-anchor="middle" font-size="13" font-weight="bold" fill="#263040">Months 6-9</text>
+<rect x="394.0" y="30" width="108.7" height="34" rx="6" fill="#E6EAF0"/>
+<text x="448.3" y="52" text-anchor="middle" font-size="13" font-weight="bold" fill="#263040">Months 9-12</text>
+<rect x="510.7" y="30" width="108.7" height="34" rx="6" fill="#E6EAF0"/>
+<text x="565.0" y="52" text-anchor="middle" font-size="13" font-weight="bold" fill="#263040">Months 12-15</text>
+<rect x="510.7" y="76" width="108.7" height="70" rx="8" fill="#E07A32"/>
+<text x="565.0" y="106" text-anchor="middle" font-size="14" font-weight="bold" fill="white">ST 4.9% left</text>
+<text x="565.0" y="128" text-anchor="middle" font-size="12" fill="white">DBT 0%</text>
+<rect x="627.3" y="30" width="108.7" height="34" rx="6" fill="#E6EAF0"/>
+<text x="681.7" y="52" text-anchor="middle" font-size="13" font-weight="bold" fill="#263040">Months 15-18</text>
+<text x="40" y="190" font-size="12" fill="#8A94A3">Only these two 3-month blocks showed a significant difference between the therapies. Overall dropout by the end was almost the same.</text>
+</svg>
+<table>
+<tr><th>3-month block</th><th class="n">DBT left</th><th class="n">ST left</th><th class="n">Test</th><th class="n">p</th><th>Meaning</th></tr>
+<tr><td>2nd (months 3 to 6)</td><td class="n">7.2%</td><td class="n">0%</td><td class="n">t(870) = −2.79</td><td class="n">0.005</td><td><span class="badge yes">Significant</span> More DBT patients left early</td></tr>
+<tr><td>5th (months 12 to 15)</td><td class="n">0%</td><td class="n">4.9%</td><td class="n">t(870) = −2.21</td><td class="n">0.028</td><td><span class="badge yes">Significant</span> More ST patients left later</td></tr>
+</table>
+<div class="box mine"><span class="t">MY NOTE: WHY MIGHT THIS HAPPEN?</span>The paper does not explain the timing. One possible reason: the DBT skills group asks a lot of the patient early on (homework, diary cards, practising skills), and some people may find this hard at the start. In ST, the emotionally intense work (imagery about childhood, facing painful modes) often happens later, which could be harder to bear in the second year. This is only my guess.</div>
+
+<h3>11.2 Getting worse and harmful events</h3>
+<div class="grid">
+<div class="card"><div class="big" style="color:var(--green)">&lt; 1%</div><div class="small">of all assessments showed deterioration (BPDSI up by 11.7 points or more)</div></div>
+<div class="card"><div class="big" style="color:var(--dbt)">0.74%</div><div class="small">DBT</div></div>
+<div class="card"><div class="big" style="color:var(--st)">0.76%</div><div class="small">ST</div></div>
+</div>
+<p>Getting worse was rare and equal in both groups. Details of adverse events (hospital admissions, suicide attempts, deaths) are in the online supplement.</p>
+<div class="box simple"><span class="t">IN SIMPLE WORDS</span>Neither therapy seemed to harm patients. This matters, because therapies that dig into painful memories (like ST) are sometimes feared to make things worse.</div>
+
+<h3>11.3 Medicines</h3>
+<p>About 3 in 4 patients took psychiatric medicines. The paper gives details only in the supplement (Tables S5 and S9). Removing medicines from the model did not change the main result.</p>
+
+<h3>11.4 Other treatment during the follow-up year</h3>
+<ul>
+<li>3.0% of patients had inpatient (hospital) treatment in the first 6 months of follow-up, and 0.6% in the second 6 months.</li>
+<li>About one third had some outpatient treatment, mostly 1 to 8 sessions in 6 months.</li>
+</ul>
+<div class="box warn"><span class="t">BE CAREFUL</span>This information was missing for about half the patients (49.4% and 54.9%). So we do not really know how much other treatment patients got after the study. Extra treatment could have helped some patients and blurred the comparison.</div>
+</section>
+
+<section id="scoreboard">
+<h2><span class="num">12</span>The full scoreboard: every outcome in one table</h2>
+<table>
+<tr><th>Outcome</th><th class="n">Improved over time?</th><th class="n">DBT change (d)</th><th class="n">ST change (d)</th><th class="n">Gap (d)</th><th class="n">p for DBT vs ST</th><th>Winner</th></tr>
+<tr class="hl"><td><b>BPDSI total (MAIN)</b></td><td class="n"><span class="badge yes">Yes</span></td><td class="n">2.45</td><td class="n">1.78</td><td class="n">−0.24</td><td class="n">0.094</td><td><span class="badge no">None</span></td></tr>
+<tr><td>BPDSI anger</td><td class="n"><span class="badge yes">Yes</span></td><td class="n">large</td><td class="n">medium</td><td class="n">-</td><td class="n">&lt; 0.05</td><td><span class="badge dbt">DBT</span></td></tr>
+<tr><td>Other BPDSI subscales</td><td class="n"><span class="badge yes">Yes</span></td><td class="n">large</td><td class="n">large</td><td class="n">-</td><td class="n">n.s.</td><td><span class="badge no">None</span></td></tr>
+<tr><td>Suicidality</td><td class="n"><span class="badge no">No</span></td><td class="n">medium</td><td class="n">medium</td><td class="n">-</td><td class="n">n.s.</td><td><span class="badge no">None</span></td></tr>
+<tr><td>Suicide attempts</td><td class="n"><span class="badge no">No</span></td><td class="n">small-medium</td><td class="n">small-medium</td><td class="n">-</td><td class="n">n.s.</td><td><span class="badge no">None</span></td></tr>
+<tr><td>BPD Checklist</td><td class="n"><span class="badge yes">Yes</span></td><td class="n">2.45</td><td class="n">1.82</td><td class="n">−0.25</td><td class="n">0.102</td><td><span class="badge no">None</span></td></tr>
+<tr><td>Dissociation (DSS)</td><td class="n"><span class="badge yes">Yes</span></td><td class="n">0.88</td><td class="n">0.49</td><td class="n">−0.26</td><td class="n">0.193</td><td><span class="badge no">None</span></td></tr>
+<tr><td>General symptoms (BSI)</td><td class="n"><span class="badge yes">Yes</span></td><td class="n">1.45</td><td class="n">1.01</td><td class="n">−0.21</td><td class="n">0.150</td><td><span class="badge no">None</span></td></tr>
+<tr><td>Depression (QIDS-SR)</td><td class="n"><span class="badge yes">Yes</span></td><td class="n">1.40</td><td class="n">0.99</td><td class="n">−0.18</td><td class="n">0.179</td><td><span class="badge no">None</span></td></tr>
+<tr><td>Work and social (WSAS)</td><td class="n"><span class="badge yes">Yes</span></td><td class="n">0.99</td><td class="n">1.02</td><td class="n">0.01</td><td class="n">0.924</td><td><span class="badge no">None</span></td></tr>
+<tr><td>Disability (WHODAS)</td><td class="n"><span class="badge yes">Yes</span></td><td class="n">1.17</td><td class="n">1.31</td><td class="n">0.05</td><td class="n">0.682</td><td><span class="badge no">None</span></td></tr>
+<tr><td>Quality of life (WHOQOL)</td><td class="n"><span class="badge yes">Yes</span></td><td class="n">small-large</td><td class="n">small-large</td><td class="n">-</td><td class="n">n.s.</td><td><span class="badge no">None</span></td></tr>
+<tr><td>Dropout overall</td><td class="n">-</td><td class="n" colspan="2">22.9% vs 23.5%</td><td class="n">-</td><td class="n">-</td><td><span class="badge no">None</span></td></tr>
+<tr><td>Dropout months 3 to 6</td><td class="n">-</td><td class="n" colspan="2">7.2% vs 0%</td><td class="n">-</td><td class="n">0.005</td><td><span class="badge st">ST kept more</span></td></tr>
+<tr><td>Dropout months 12 to 15</td><td class="n">-</td><td class="n" colspan="2">0% vs 4.9%</td><td class="n">-</td><td class="n">0.028</td><td><span class="badge dbt">DBT kept more</span></td></tr>
+<tr><td>Deterioration</td><td class="n">-</td><td class="n" colspan="2">0.74% vs 0.76%</td><td class="n">-</td><td class="n">-</td><td><span class="badge no">None</span></td></tr>
+</table>
+<p class="small-print">n.s. = not significant. "Improved over time" refers to the model's time effect from 6 months to the final check. "-" = not reported in the main paper. Exact numbers for subscales and quality of life are only in the online supplement.</p>
+<div class="box simple"><span class="t">WHAT THE SCOREBOARD SHOWS</span>
+<ul>
+<li>Almost every outcome improved in both groups.</li>
+<li>On symptom measures, DBT tends to end a little ahead (all gaps around −0.2), but <b>none</b> of these gaps is significant.</li>
+<li>On daily functioning (work, social life, disability), the groups are basically equal.</li>
+<li>The only significant differences are anger (DBT better) and the <i>timing</i> of dropout.</li>
+</ul></div>
+</section>
+
+
+<section id="discussion">
+<h2><span class="num">13</span>Discussion: what the authors think it means</h2>
+
+<h4>Paragraph 1: both therapies worked</h4>
+<div class="box paper"><span class="t">WHAT THE PAPER SAYS</span>Both groups showed significant drops in BPD and general symptoms, and improvements in functioning and quality of life. Within-group effect sizes were large for most outcomes, supporting the effectiveness of both ST and DBT in this outpatient setting.</div>
+<div class="box simple"><span class="t">IN SIMPLE WORDS</span>Patients in both therapies got much better on almost everything.</div>
+<div class="box warn"><span class="t">BE CAREFUL</span>Strictly, a within-group improvement does not <i>prove</i> the therapy caused it. People can also improve because time passes, or because they joined when they were at their worst and naturally moved back towards average (this is called <b>regression to the mean</b>). Proof would need an untreated comparison group, which this study did not have. But earlier trials have already shown both therapies beat usual care, so it is reasonable to believe much of the improvement came from therapy.</div>
+
+<h4>Paragraph 2: no difference, except anger and dropout timing</h4>
+<div class="box paper"><span class="t">WHAT THE PAPER SAYS</span>Against the hypotheses, there were no significant differences between DBT and ST on the main outcome and nearly all secondary outcomes. The anger subscale favoured DBT, which fits DBT's focus on emotion regulation, but it was just one subscale. Dropout totals did not differ, but DBT patients tended to leave earlier. Overall dropout was low compared with a recent meta-analysis.</div>
+<div class="box simple"><span class="t">IN SIMPLE WORDS</span>The authors are honest: their predictions did not come true. They do not over-sell the anger finding.</div>
+
+<h4>Paragraph 3: why no difference? The authors' explanations</h4>
+<table>
+<tr><th>Explanation</th><th>In simple words</th></tr>
+<tr><td><b>1. Shared ingredients</b></td><td>Both therapies give a clear framework and explanation, an active, supportive and validating therapist, a focus on emotions, and a balance of acceptance and change. For BPD patients, these common elements may be what really helps.</td></tr>
+<tr><td><b>2. Different routes, same destination</b></td><td>The techniques are very different (skills in DBT, experiential work in ST). They may work through different "pathways of change" but end up in the same place.</td></tr>
+<tr><td><b>3. Hidden subgroups</b></td><td>On average there is no difference, but one therapy may suit some kinds of patients better (for example, different types of childhood abuse, or different other diagnoses). A meta-analysis by Kaiser and Herzog (2023) found that treatment effects in BPD vary between patients, which supports choosing therapy for each person.</td></tr>
+<tr><td><b>4. Too small a study</b></td><td>When both therapies are good, the difference between them is likely to be small, and this sample size may be too small to find it. The study was not a non-inferiority trial, so it cannot prove ST is as good as DBT.</td></tr>
+</table>
+<div class="box example"><span class="t">EXAMPLE: "DIFFERENT ROUTES, SAME DESTINATION"</span>Two people want to get fit. One goes to the gym, the other plays football. They do very different things, but both end up fitter. Asking "which is better?" may matter less than "is the person doing something regularly and with good support?"</div>
+
+<h4>Paragraph 4: the authors' list of limitations</h4>
+<ul>
+<li><b>No waitlist control group.</b> The authors felt it would be unethical to make such ill patients wait for 18 months, and that it might put people off joining. Earlier studies already show both therapies beat usual care.</li>
+<li><b>Missing data</b> from dropouts may weaken the results.</li>
+<li><b>Deviations from standard DBT:</b> some patients had no skills group, and push-outs were decided case by case. A component study by Linehan and colleagues (2015) shows the skills group is an important part of DBT, so DBT without the group may be weaker. The check without these patients gave the same result, though.</li>
+<li><b>Adherence checks</b> used a substitute for the "gold-standard" DBT rating, because funding did not cover outside experts.</li>
+<li><b>Single site</b> and a focus on very severe patients limits how far the results apply elsewhere (external validity).</li>
+</ul>
+
+<h4>Paragraph 5: the authors' list of strengths</h4>
+<ul>
+<li>Interview-based main outcome with excellent rater agreement</li>
+<li>Many secondary outcomes covering many areas of life</li>
+<li>Harms recorded, therapy quality checked, a full year of follow-up</li>
+<li>Followed CONSORT</li>
+<li>Very few exclusion criteria, so patients with almost any other disorder could join</li>
+</ul>
+</section>
+
+<section id="appraisal">
+<h2><span class="num">14</span>My critical appraisal: how much can we trust it?</h2>
+<div class="box mine"><span class="t">MY NOTE</span>This section is my own judgement, not from the paper.</div>
+<h3>What was done well</h3>
+<ul>
+<li>A genuinely new and useful question</li>
+<li>Proper randomization by an outsider, with concealment and stratification</li>
+<li>Blind raters and an interview as the main measure, with near-perfect rater agreement</li>
+<li>Both groups got the same amount of therapy, from trained and supervised therapists</li>
+<li>Honest reporting: they explain the change of plan, run many checks, and do not over-claim</li>
+<li>Real, very ill patients, not a "clean" research sample</li>
+<li>Ethics approval and written consent from all patients</li>
+</ul>
+<h3>Weak points</h3>
+<ul>
+<li><b>About half the main interviews were missing</b> at the final check. This is the biggest problem.</li>
+<li><b>Too small to find a small difference.</b> It was planned for a medium effect.</li>
+<li><b>Groups were not equal at the start</b>, despite randomization, so the analysis had to be changed.</li>
+<li><b>Registered after the study started.</b> Normally a trial is registered first, so nobody can quietly change the main outcome later. The authors say nothing changed, but readers cannot fully check.</li>
+<li><b>Possible allegiance.</b> Several authors earn money from schema therapy workshops and supervision, and some from DBT. The team includes experts in both, which helps balance, but it is still worth noting.</li>
+<li><b>Only raters were blind.</b> Most secondary outcomes are self-report, and patients knew their therapy.</li>
+<li><b>One German centre</b> with mostly German women. Results may differ elsewhere.</li>
+<li><b>Small reporting errors:</b> p = 0.94 in the text, d = "−24" in the abstract, and some numbers in Figure 1 that do not add up.</li>
+</ul>
+<h3>Overall</h3>
+<div class="box simple"><span class="t">MY VERDICT</span>A carefully run, honestly reported trial. It gives good reassurance that both DBT and ST can help very ill BPD patients. But it cannot tell us which is better, or whether they are equal.</div>
+</section>
+
+<section id="conclusion">
+<h2><span class="num">15</span>The authors' conclusion</h2>
+<div class="box paper"><span class="t">WHAT THE PAPER SAYS</span>PRO*BPD was the first large randomized trial to compare DBT and ST for BPD. Both groups improved a lot, showing that even severely ill patients with many other disorders can be treated successfully with either. There were no significant differences overall, except for anger and the timing of dropout. An equivalence trial is needed to test whether the two are equally effective.</div>
+<div class="box simple"><span class="t">IN SIMPLE WORDS</span>Both work. Neither has been shown to be better. To show they are equal, someone needs to do a different kind of study.</div>
+<h3>What is a non-inferiority or equivalence trial?</h3>
+<p>This study asked: <i>"Is there a difference?"</i> It could not find one. But "could not find a difference" is not the same as "proved they are the same".</p>
+<p>An <b>equivalence trial</b> asks a different question: <i>"Is the difference smaller than an amount we decided does not matter?"</i> Before starting, researchers pick a <b>margin</b>, for example "a difference of less than 3 BPDSI points does not matter to patients". Then they recruit enough patients to show the true difference is inside that margin. A <b>non-inferiority trial</b> is similar, but only checks that one therapy is not worse than the other by more than the margin.</p>
+</section>
+
+<section id="practice">
+<h2><span class="num">16</span>What this means for practice, and for India</h2>
+<h3>For psychologists</h3>
+<ul>
+<li>Offer people with BPD a specialist, structured therapy. DBT and ST both look like reasonable choices.</li>
+<li>Do not tell patients that one is proven better. This study does not support that.</li>
+<li>Choose together with the patient, based on their wishes, what training and supervision you have, and whether a group is available.</li>
+<li>If anger is the main problem, DBT may have a slight edge, but this is tentative.</li>
+<li>Plan for a long programme, and be extra careful about dropout early in DBT and later in ST.</li>
+</ul>
+<h3>For Indian settings</h3>
+<div class="box mine"><span class="t">MY NOTE</span>This part is my own thinking. The paper does not discuss India.</div>
+<ul>
+<li><b>Time and cost:</b> 3 hours a week for 18 months is very hard for most Indian services and patients, given waiting lists, travel and fees. Shorter or stepped formats need testing.</li>
+<li><b>Groups:</b> group sessions let one therapist reach several patients, which suits busy services.</li>
+<li><b>Training:</b> few therapists in India are fully trained and supervised in DBT or ST.</li>
+<li><b>Family and culture:</b> family is very involved in care in India. Involving family and adapting examples and language may help.</li>
+<li><b>Evidence:</b> the sample was 92% German. We need studies in Indian patients before assuming the same results.</li>
+</ul>
+</section>
+
+<section id="backmatter">
+<h2><span class="num">17</span>The end of the paper: ethics, money, data</h2>
+<table>
+<tr><th>Section</th><th>What it says</th><th>Why it matters</th></tr>
+<tr><td>Dedication</td><td>The paper is dedicated to Ulrich Schweiger, who brought DBT and ST to Lübeck, helped plan and run the study, and died in November 2022.</td><td>He could not review the final paper.</td></tr>
+<tr><td>Ethics</td><td>Approved by the Lübeck University ethics committee (13-005). All patients gave written consent.</td><td>Shows patients were protected.</td></tr>
+<tr><td>Conflicts of interest</td><td>Many authors receive money for workshops, supervision, books and lectures on schema therapy, DBT or CBT. Some receive research grants. Four authors declared none.</td><td>People who earn from a therapy might, without meaning to, favour it. Declaring it lets readers judge.</td></tr>
+<tr><td>Funding</td><td>Else Kröner-Fresenius-Stiftung (grant 2018_A152) and University of Lübeck internal funds. The funders had no role in design, analysis or writing.</td><td>Shows the funder did not control the results.</td></tr>
+<tr><td>Author contributions</td><td>Fassbinder, Arntz and Schweiger designed the study. Assmann, Schaich and Arntz did the statistics. Assmann and Schaich had full access to all the data.</td><td>Shows who is responsible for what.</td></tr>
+<tr><td>Data availability</td><td>Data are not public, to protect patient privacy. Researchers can request them with a sound proposal, within 36 months of publication.</td><td>Others can check the results, while privacy is protected.</td></tr>
+</table>
+</section>
+
+
+<section id="glossary">
+<h2><span class="num">18</span>Glossary: every term in one place</h2>
+<dl class="gloss">
+<dt>Adherence</dt><dd>Whether the therapist followed the therapy manual.</dd>
+<dt>Adverse event</dt><dd>Something harmful that happens during a study, such as a hospital admission or suicide attempt.</dd>
+<dt>Allegiance</dt><dd>A researcher's loyalty to a particular therapy, which may affect results without them meaning it.</dd>
+<dt>Allocation concealment</dt><dd>Keeping the randomization list hidden, so nobody knows which group the next patient will go into.</dd>
+<dt>Alpha (α)</dt><dd>The cut-off for calling a result significant. Usually 0.05.</dd>
+<dt>Arm</dt><dd>One of the treatment groups in a trial.</dd>
+<dt>Attrition</dt><dd>Losing participants during a study. Same as dropout.</dd>
+<dt>Baseline</dt><dd>The starting point, before treatment begins.</dd>
+<dt>Between-group effect size</dt><dd>How different two groups are from each other, in standard units.</dd>
+<dt>Blinding (masking)</dt><dd>Keeping someone unaware of which treatment a patient received.</dd>
+<dt>BPDSI</dt><dd>Borderline Personality Disorder Severity Index. An interview that scores how severe BPD is (0 to 90).</dd>
+<dt>Cohen's d</dt><dd>An effect size. About 0.2 is small, 0.5 medium, 0.8 large.</dd>
+<dt>Cohort</dt><dd>A group of patients who went through group therapy together.</dd>
+<dt>Comorbidity</dt><dd>Having more than one disorder at the same time.</dd>
+<dt>Competence</dt><dd>How skilfully a therapist delivered the therapy.</dd>
+<dt>Completer analysis</dt><dd>An analysis that only includes patients who finished treatment.</dd>
+<dt>Confidence interval (CI)</dt><dd>The range in which the true value probably lies. If it includes zero, the difference is not significant.</dd>
+<dt>CONSORT</dt><dd>An international checklist for reporting randomized trials, including the patient flow diagram.</dd>
+<dt>Covariate</dt><dd>An extra factor included in the analysis so its influence can be separated out (for example, medicines or starting score).</dd>
+<dt>Degrees of freedom (df)</dt><dd>A number linked to how much data went into a test. Needed to work out the p-value.</dd>
+<dt>Deterioration</dt><dd>Getting worse. Here: BPDSI rising by 11.7 points or more.</dd>
+<dt>Distribution</dt><dd>The pattern of scores across all people, often drawn as a graph.</dd>
+<dt>Dropout</dt><dd>A patient leaving treatment before the end.</dd>
+<dt>Early success</dt><dd>Leaving therapy early because of recovery (BPDSI below 15 and team agreement).</dd>
+<dt>Effect size</dt><dd>A number showing how big a difference or change is, regardless of sample size.</dd>
+<dt>Equivalence trial</dt><dd>A trial designed to show two treatments differ by less than a pre-set margin.</dd>
+<dt>Exclusion criteria</dt><dd>Rules for who cannot take part.</dd>
+<dt>External validity</dt><dd>Whether results apply to other people and settings. Also called generalizability.</dd>
+<dt>Follow-up</dt><dd>Checking patients some time after treatment ends.</dd>
+<dt>Gamma regression</dt><dd>A type of model for skewed scores that are always above zero.</dd>
+<dt>GEE</dt><dd>Generalized estimating equations. A method for repeated measurements, used here for suicide attempt counts.</dd>
+<dt>GLMM</dt><dd>Generalized linear mixed model. A flexible method for repeated, incomplete and skewed data.</dd>
+<dt>Hypothesis</dt><dd>The researcher's prediction.</dd>
+<dt>ICC</dt><dd>Intraclass correlation. Shows how well raters agree. 1 is perfect; above 0.9 is excellent.</dd>
+<dt>Imputation</dt><dd>Filling in missing data with estimated values. Not used in this study.</dd>
+<dt>Inclusion criteria</dt><dd>Rules for who can take part.</dd>
+<dt>Intention-to-treat (ITT)</dt><dd>Analysing everyone in the group they were randomized to, whether they finished or not.</dd>
+<dt>Interaction (e.g. Time × Treatment)</dt><dd>Tests whether the effect of one factor depends on another. Here: did the groups change at different speeds?</dd>
+<dt>Internal validity</dt><dd>Whether the study's result can be trusted, meaning it was done fairly and without bias.</dd>
+<dt>Meta-analysis</dt><dd>A study that combines the results of many earlier studies.</dd>
+<dt>Missing at random</dt><dd>The assumption that missing data are not related to the missing value itself once we know other information.</dd>
+<dt>Naturalistic follow-up</dt><dd>A follow-up where the study neither gives nor forbids extra treatment.</dd>
+<dt>Non-inferiority trial</dt><dd>A trial designed to show one treatment is not worse than another by more than a set margin.</dd>
+<dt>Null hypothesis</dt><dd>The assumption that there is no difference.</dd>
+<dt>Outcome</dt><dd>What is measured to see whether treatment worked.</dd>
+<dt>p-value</dt><dd>How likely a difference this big would be if there were truly no difference. Below 0.05 is called significant.</dd>
+<dt>Parallel-group</dt><dd>Each patient gets only one treatment, and the groups run at the same time.</dd>
+<dt>Piece-wise regression</dt><dd>A model that fits separate line pieces for different periods (here, during therapy and after).</dd>
+<dt>Population</dt><dd>Everyone the results are meant to apply to.</dd>
+<dt>Power</dt><dd>The chance a study will detect a real difference of a given size. Usually set at 80%.</dd>
+<dt>Primary outcome</dt><dd>The single most important outcome, chosen before the study.</dd>
+<dt>Principal component analysis (PCA)</dt><dd>A method that combines many scores into one summary score.</dd>
+<dt>Push-out</dt><dd>Ending treatment by the therapist team's decision.</dd>
+<dt>r</dt><dd>An effect size for statistical tests. About 0.1 small, 0.3 medium, 0.5 large.</dd>
+<dt>Random effect</dt><dd>A part of a model that allows for clusters, such as patients in the same therapy group.</dd>
+<dt>Randomization</dt><dd>Using chance to decide which treatment each person gets.</dd>
+<dt>Rater</dt><dd>The person who interviews and scores the patient.</dd>
+<dt>RCT</dt><dd>Randomized controlled trial.</dd>
+<dt>Regression to the mean</dt><dd>People who start at an extreme (very ill) tend to move back towards average over time, even without treatment.</dd>
+<dt>Reliability</dt><dd>Consistency of a measure.</dd>
+<dt>Retention</dt><dd>How many patients stay in treatment.</dd>
+<dt>Retrospective registration</dt><dd>Registering a trial after it has already started.</dd>
+<dt>Sample</dt><dd>The people who actually took part.</dd>
+<dt>Secondary outcome</dt><dd>Additional outcomes besides the main one.</dd>
+<dt>Semi-open group</dt><dd>A therapy group that new members can join while it is running.</dd>
+<dt>Sensitivity analysis</dt><dd>Repeating the analysis in a different way to check the answer stays the same.</dd>
+<dt>Skewed</dt><dd>Lopsided distribution, with a long tail on one side.</dd>
+<dt>Standard deviation (SD)</dt><dd>How spread out scores are around the average.</dd>
+<dt>Statistically significant</dt><dd>Unlikely to be due to chance alone (usually p below 0.05).</dd>
+<dt>Stratified randomization</dt><dd>Randomizing separately within subgroups (here, men and women) to keep groups balanced.</dd>
+<dt>t</dt><dd>A test statistic. Larger (ignoring sign) means stronger evidence of a difference.</dd>
+<dt>Tertiary centre</dt><dd>A specialist hospital service for complex cases referred from other services.</dd>
+<dt>Treatment integrity</dt><dd>Checking that a therapy was delivered as intended.</dd>
+<dt>Tweedie distribution</dt><dd>A statistical model suitable for counts with many zeros.</dd>
+<dt>Two-sided test</dt><dd>A test that looks for a difference in either direction.</dd>
+<dt>Within-group effect size</dt><dd>How much one group changed from start to end.</dd>
+</dl>
+</section>
+
+<section id="faq" class="qa">
+<h2><span class="num">19</span>Questions you may be asked (click to open)</h2>
+<details><summary>What was the research question?</summary><p>Is DBT or Schema Therapy more effective for adults with BPD, measured by BPD severity (BPDSI) one year after therapy ends?</p></details>
+<details><summary>Why was this study needed?</summary><p>Both therapies work, but they had never been compared directly. Services and patients need to know which to choose.</p></details>
+<details><summary>Why randomize?</summary><p>So the two groups are similar in everything except the therapy. Then any difference at the end is likely caused by the therapy.</p></details>
+<details><summary>Why stratify by sex?</summary><p>Only about 1 in 5 patients were men. Randomizing men and women separately stops one group ending up with many more men by chance.</p></details>
+<details><summary>Why were raters blinded?</summary><p>So they could not, even without meaning to, score one therapy's patients more kindly.</p></details>
+<details><summary>Why measure one year after therapy?</summary><p>To see whether improvement lasts after weekly therapy stops.</p></details>
+<details><summary>Why use intention-to-treat?</summary><p>Counting only completers makes a therapy look better than it really is. ITT is more honest.</p></details>
+<details><summary>Why did they change the analysis plan?</summary><p>The DBT group started sicker on many measures. Comparing final scores after adjusting for starting scores is fairer. This is also recommended in general.</p></details>
+<details><summary>Why gamma regression?</summary><p>Symptom scores were skewed (lopsided) and always positive. Gamma regression is designed for this kind of data.</p></details>
+<details><summary>What was the main result?</summary><p>DBT was 3.32 BPDSI points lower at the final check (95% CI −0.58 to 7.22, p = 0.094, d = −0.24). Not significant.</p></details>
+<details><summary>Did patients get better?</summary><p>Yes, a lot. Within-group effect sizes were 2.45 for DBT and 1.78 for ST, which are very large.</p></details>
+<details><summary>Was anything significant between the therapies?</summary><p>Only the anger subscale (DBT better) and the timing of dropout (more DBT patients left in months 3 to 6, more ST patients in months 12 to 15).</p></details>
+<details><summary>Does this prove the two therapies are equal?</summary><p>No. 'Not significant' only means 'not sure'. Proving equality needs an equivalence or non-inferiority trial with a pre-set margin.</p></details>
+<details><summary>What is the biggest weakness?</summary><p>About half the main interviews were missing at the final check, and the study was too small to detect a small difference.</p></details>
+<details><summary>Why was there no untreated group?</summary><p>The authors thought it would be unethical to leave such ill patients untreated for so long. The cost is that we cannot fully separate therapy effects from natural improvement.</p></details>
+<details><summary>Can we apply this in India?</summary><p>Only partly. The patients were mostly German women in a specialist clinic, with 3 hours of therapy a week for 18 months. We need Indian studies and adapted formats.</p></details>
+</section>
+
+<section id="summary">
+<h2><span class="num">20</span>One-minute summary</h2>
+<p>DBT and Schema Therapy are both recommended for BPD, but had never been compared directly. In this German trial, 164 severely ill adults with BPD were randomly given one of the two therapies, with 3 hours of therapy a week for 18 months. The main outcome was BPD severity, measured by a blind interviewer, one year after therapy ended.</p>
+<p>Both groups improved a lot. DBT ended about 3 points lower, but this was not significant (p = 0.094) and the effect was small. Nearly every other outcome was the same. Only anger was significantly better with DBT. About 23% dropped out in each group, though DBT patients left earlier and ST patients later. Harm was rare.</p>
+<p>The study was carefully done, but half the final interviews were missing and it was too small to find a small difference. So: both therapies are good options, and we still do not know whether one is better or whether they are truly equal.</p>
+</section>
+
+<section id="refs">
+<h2><span class="num">21</span>References (APA 7th edition)</h2>
+<div class="ref-list">
+<p>Arntz, A., Jacob, G. A., Lee, C. W., Brand-de Wilde, O. M., Fassbinder, E., Harper, R. P., Lavender, A., Lockwood, G., Malogiannis, I. A., Ruths, F. A., Schweiger, U., Shaw, I. A., Zarbock, G., & Farrell, J. M. (2022). Effectiveness of predominantly group schema therapy and combined individual and group schema therapy for borderline personality disorder: A randomized clinical trial. <i>JAMA Psychiatry, 79</i>(4), 287–299. <a href="https://doi.org/10.1001/jamapsychiatry.2022.0010">https://doi.org/10.1001/jamapsychiatry.2022.0010</a></p>
+<p>Arntz, A., Mensink, K., Cox, W. R., Verhoef, R. E. J., van Emmerik, A. A. P., Rameckers, S. A., Badenbach, T., & Grasman, R. P. P. P. (2023). Dropout from psychological treatment for borderline personality disorder: A multilevel survival meta-analysis. <i>Psychological Medicine, 53</i>(3), 668–686. <a href="https://doi.org/10.1017/s0033291722003634">https://doi.org/10.1017/s0033291722003634</a></p>
+<p>Arntz, A., van den Hoorn, M., Cornelis, J., Verheul, R., van den Bosch, W. M. C., & de Bie, A. J. H. T. (2003). Reliability and validity of the Borderline Personality Disorder Severity Index. <i>Journal of Personality Disorders, 17</i>(1), 45–59. <a href="https://doi.org/10.1521/pedi.17.1.45.24053">https://doi.org/10.1521/pedi.17.1.45.24053</a></p>
+<p>Arntz, A., & van Genderen, H. (2009). <i>Schema therapy for borderline personality disorder</i>. Wiley.</p>
+<p>Assmann, N., Schaich, A., Arntz, A., Wagner, T., Herzog, P., Alvarez-Fischer, D., Sipos, V., Jauch-Chara, K., Klein, J. P., Hüppe, M., Schweiger, U., & Fassbinder, E. (2024). The effectiveness of dialectical behavior therapy compared to schema therapy for borderline personality disorder: A randomized clinical trial. <i>Psychotherapy and Psychosomatics, 93</i>(4), 249–263. <a href="https://doi.org/10.1159/000538404">https://doi.org/10.1159/000538404</a></p>
+<p>Cohen, J. (1988). <i>Statistical power analysis for the behavioral sciences</i> (2nd ed.). Lawrence Erlbaum Associates.</p>
+<p>Fassbinder, E., Assmann, N., Schaich, A., Heinecke, K., Wagner, T., Sipos, V., Jauch-Chara, K., Hüppe, M., Arntz, A., & Schweiger, U. (2018). PRO<i>BPD: Effectiveness of outpatient treatment programs for borderline personality disorder: A comparison of schema therapy and dialectical behavior therapy: Study protocol for a randomized trial. </i>BMC Psychiatry, 18*, Article 341. <a href="https://doi.org/10.1186/s12888-018-1905-6">https://doi.org/10.1186/s12888-018-1905-6</a></p>
+<p>Fassbinder, E., Schweiger, U., Martius, D., Brand-de Wilde, O., & Arntz, A. (2016). Emotion regulation in schema therapy and dialectical behavior therapy. <i>Frontiers in Psychology, 7</i>, Article 1373. <a href="https://doi.org/10.3389/fpsyg.2016.01373">https://doi.org/10.3389/fpsyg.2016.01373</a></p>
+<p>Giesen-Bloo, J., van Dyck, R., Spinhoven, P., van Tilburg, W., Dirksen, C., van Asselt, T., Kremers, I., Nadort, M., & Arntz, A. (2006). Outpatient psychotherapy for borderline personality disorder: Randomized trial of schema-focused therapy vs transference-focused psychotherapy. <i>Archives of General Psychiatry, 63</i>(6), 649–658. <a href="https://doi.org/10.1001/archpsyc.63.6.649">https://doi.org/10.1001/archpsyc.63.6.649</a></p>
+<p>Guidi, J., Brakemeier, E.-L., Bockting, C. L. H., Cosci, F., Cuijpers, P., Jarrett, R. B., Linden, M., Marks, I., Peretti, C. S., Rafanelli, C., Rief, W., Schneider, S., Schnyder, U., Sensky, T., Tomba, E., Vazquez, C., Vieta, E., Zipfel, S., Wright, J. H., & Fava, G. A. (2018). Methodological recommendations for trials of psychological interventions. <i>Psychotherapy and Psychosomatics, 87</i>(5), 276–284. <a href="https://doi.org/10.1159/000490574">https://doi.org/10.1159/000490574</a></p>
+<p>Kaiser, T., & Herzog, P. (2023). Is personalized treatment selection a promising avenue in BPD research? A meta-regression estimating treatment effect heterogeneity in RCTs of BPD. <i>Journal of Consulting and Clinical Psychology, 91</i>(3), 165–170. <a href="https://doi.org/10.1037/ccp0000803">https://doi.org/10.1037/ccp0000803</a></p>
+<p>Karger Publishers. (n.d.). <i>Psychotherapy and Psychosomatics</i>. Retrieved November 1, 2026, from <a href="https://karger.com/pps">https://karger.com/pps</a></p>
+<p>Linehan, M. M. (2015). <i>DBT skills training manual</i> (2nd ed.). Guilford Press.</p>
+<p>Linehan, M. M., Korslund, K. E., Harned, M. S., Gallop, R. J., Lungu, A., Neacsiu, A. D., McDavid, J., Comtois, K. A., & Murray-Gregory, A. M. (2015). Dialectical behavior therapy for high suicide risk in individuals with borderline personality disorder: A randomized clinical trial and component analysis. <i>JAMA Psychiatry, 72</i>(5), 475–482. <a href="https://doi.org/10.1001/jamapsychiatry.2014.3039">https://doi.org/10.1001/jamapsychiatry.2014.3039</a></p>
+<p>Moher, D., Hopewell, S., Schulz, K. F., Montori, V., Gøtzsche, P. C., Devereaux, P. J., Elbourne, D., Egger, M., & Altman, D. G. (2012). CONSORT 2010 explanation and elaboration: Updated guidelines for reporting parallel group randomised trials. <i>International Journal of Surgery, 10</i>(1), 28–55. <a href="https://doi.org/10.1016/j.ijsu.2011.10.001">https://doi.org/10.1016/j.ijsu.2011.10.001</a></p>
+<p>Oud, M., Arntz, A., Hermens, M. L. M., Verhoef, R., & Kendall, T. (2018). Specialized psychotherapies for adults with borderline personality disorder: A systematic review and meta-analysis. <i>Australian & New Zealand Journal of Psychiatry, 52</i>(10), 949–961. <a href="https://doi.org/10.1177/0004867418791257">https://doi.org/10.1177/0004867418791257</a></p>
+<p>Stoffers-Winterling, J. M., Storebø, O. J., Kongerslev, M. T., Faltinsen, E., Todorovac, A., Sedoc Jørgensen, M., Sales, C. P., Edemann Callesen, H., Pereira Ribeiro, J., Völlm, B. A., Lieb, K., & Simonsen, E. (2022). Psychotherapies for borderline personality disorder: A focused systematic review and meta-analysis. <i>The British Journal of Psychiatry, 221</i>(3), 538–552. <a href="https://doi.org/10.1192/bjp.2021.204">https://doi.org/10.1192/bjp.2021.204</a></p>
+<p>Storebø, O. J., Stoffers-Winterling, J. M., Völlm, B. A., Kongerslev, M. T., Mattivi, J. T., Jørgensen, M. S., Faltinsen, E., Todorovac, A., Sales, C. P., Callesen, H. E., Lieb, K., & Simonsen, E. (2020). Psychological therapies for people with borderline personality disorder. <i>Cochrane Database of Systematic Reviews, 2020</i>(11), Article CD012955. <a href="https://doi.org/10.1002/14651858.CD012955.pub2">https://doi.org/10.1002/14651858.CD012955.pub2</a></p>
+<p>Twisk, J., Bosman, L., Hoekstra, T., Rijnhart, J., Welten, M., & Heymans, M. (2018). Different ways to estimate treatment effects in randomised controlled trials. <i>Contemporary Clinical Trials Communications, 10</i>, 80–85. <a href="https://doi.org/10.1016/j.conctc.2018.03.008">https://doi.org/10.1016/j.conctc.2018.03.008</a></p>
+<p>van Asselt, A. D. I., Dirksen, C. D., Arntz, A., & Severens, J. L. (2007). The cost of borderline personality disorder: Societal cost of illness in BPD-patients. <i>European Psychiatry, 22</i>(6), 354–361. <a href="https://doi.org/10.1016/j.eurpsy.2007.04.001">https://doi.org/10.1016/j.eurpsy.2007.04.001</a></p>
+<p>Wagner, T., Assmann, N., Köhne, S., Schaich, A., Alvarez-Fischer, D., Borgwardt, S., Arntz, A., Schweiger, U., & Fassbinder, E. (2022). The societal cost of treatment-seeking patients with borderline personality disorder in Germany. <i>European Archives of Psychiatry and Clinical Neuroscience, 272</i>(4), 741–752. <a href="https://doi.org/10.1007/s00406-021-01332-1">https://doi.org/10.1007/s00406-021-01332-1</a></p>
+<p>Young, J. E., Klosko, J. S., & Weishaar, M. E. (2003). <i>Schema therapy: A practitioner's guide</i>. Guilford Press.</p>
+</div>
+</section>
+
+</main>
+</div>
+<footer>Study guide prepared for M.Phil. Clinical Psychology journal club. All numbers come from Assmann et al. (2024) unless marked "My note".</footer>
+</body>
+</html>
